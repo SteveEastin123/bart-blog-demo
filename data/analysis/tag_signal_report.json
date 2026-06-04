@@ -1,0 +1,2744 @@
+{
+  "postCount": 4345,
+  "totalWords": 4586002,
+  "categoryCounts": [
+    [
+      "public-forum",
+      1743
+    ],
+    [
+      "canonical-gospels",
+      689
+    ],
+    [
+      "historical-jesus",
+      668
+    ],
+    [
+      "book-discussions",
+      617
+    ],
+    [
+      "reflections-ruminations",
+      599
+    ],
+    [
+      "readers-questions",
+      577
+    ],
+    [
+      "paul-and-his-letters",
+      387
+    ],
+    [
+      "new-testament-manuscripts",
+      372
+    ],
+    [
+      "history-of-christianity-100-300ce",
+      284
+    ],
+    [
+      "hebrew-bible-old-testament",
+      262
+    ],
+    [
+      "early-christian-apocrypha",
+      229
+    ],
+    [
+      "barts-biography",
+      218
+    ],
+    [
+      "history-of-biblical-scholarship",
+      165
+    ],
+    [
+      "early-christian-doctrine",
+      153
+    ],
+    [
+      "early-christian-writings",
+      148
+    ],
+    [
+      "afterlife",
+      143
+    ],
+    [
+      "teaching-christianity",
+      135
+    ],
+    [
+      "barts-critics",
+      135
+    ],
+    [
+      "heresy-and-orthodoxy",
+      132
+    ],
+    [
+      "early-judaism",
+      129
+    ],
+    [
+      "forgery-in-antiquity",
+      122
+    ],
+    [
+      "barts-debates",
+      108
+    ],
+    [
+      "video-media",
+      108
+    ],
+    [
+      "greco-roman-religions-and-culture",
+      107
+    ],
+    [
+      "revelation-of-john",
+      82
+    ],
+    [
+      "catholic-epistles",
+      80
+    ],
+    [
+      "acts-of-the-apostles",
+      70
+    ],
+    [
+      "spread-christianity",
+      68
+    ],
+    [
+      "memory-studies",
+      68
+    ],
+    [
+      "religion-in-the-news",
+      64
+    ],
+    [
+      "women-in-early-christianity",
+      61
+    ],
+    [
+      "mythicism",
+      59
+    ],
+    [
+      "proto-orthodox-writers",
+      53
+    ],
+    [
+      "fourth-century-christianity",
+      52
+    ],
+    [
+      "sex-and-sexuality-in-bible",
+      30
+    ],
+    [
+      "constantine",
+      28
+    ],
+    [
+      "jews-and-christians-in-antiquity",
+      22
+    ],
+    [
+      "jesus-and-film",
+      18
+    ],
+    [
+      "platinums",
+      10
+    ],
+    [
+      "christianity-in-classroom",
+      5
+    ],
+    [
+      "recent-comments",
+      3
+    ]
+  ],
+  "originalTagCountsTop200": [
+    [
+      "platinum",
+      260
+    ],
+    [
+      "historical-jesus",
+      135
+    ],
+    [
+      "paul",
+      123
+    ],
+    [
+      "gold",
+      102
+    ],
+    [
+      "textual-criticism",
+      94
+    ],
+    [
+      "how-jesus-became-god",
+      60
+    ],
+    [
+      "gospel-of-luke",
+      56
+    ],
+    [
+      "resurrection",
+      52
+    ],
+    [
+      "jesus",
+      51
+    ],
+    [
+      "the-historical-jesus",
+      51
+    ],
+    [
+      "gospel-of-mark",
+      48
+    ],
+    [
+      "mythicism",
+      44
+    ],
+    [
+      "suffering",
+      40
+    ],
+    [
+      "afterlife",
+      39
+    ],
+    [
+      "gospel-of-john",
+      38
+    ],
+    [
+      "theodicy",
+      37
+    ],
+    [
+      "apocalypticism",
+      35
+    ],
+    [
+      "christology",
+      31
+    ],
+    [
+      "forgery",
+      30
+    ],
+    [
+      "matthew",
+      30
+    ],
+    [
+      "original-new-testament",
+      29
+    ],
+    [
+      "mythicists",
+      27
+    ],
+    [
+      "bruce-metzger",
+      27
+    ],
+    [
+      "memory",
+      24
+    ],
+    [
+      "craig-evans",
+      23
+    ],
+    [
+      "fundamentalism",
+      23
+    ],
+    [
+      "crucifixion",
+      21
+    ],
+    [
+      "acts",
+      21
+    ],
+    [
+      "messiah",
+      21
+    ],
+    [
+      "triumph-of-christianity",
+      20
+    ],
+    [
+      "authorship",
+      19
+    ],
+    [
+      "nrsv",
+      19
+    ],
+    [
+      "gospel-of-matthew",
+      18
+    ],
+    [
+      "revelation",
+      18
+    ],
+    [
+      "pedagogy",
+      17
+    ],
+    [
+      "mark",
+      17
+    ],
+    [
+      "canonical-gospels",
+      17
+    ],
+    [
+      "textual-variants",
+      16
+    ],
+    [
+      "apostolic-fathers",
+      16
+    ],
+    [
+      "historical-criticism",
+      16
+    ],
+    [
+      "job",
+      16
+    ],
+    [
+      "luke",
+      16
+    ],
+    [
+      "historicity",
+      16
+    ],
+    [
+      "rise-of-christianity",
+      16
+    ],
+    [
+      "philippians",
+      15
+    ],
+    [
+      "hell",
+      15
+    ],
+    [
+      "jesus-before-the-gospels",
+      15
+    ],
+    [
+      "forgery-and-counterforgery",
+      15
+    ],
+    [
+      "christmas",
+      14
+    ],
+    [
+      "biblical-translation",
+      14
+    ],
+    [
+      "biblical-discrepancies",
+      14
+    ],
+    [
+      "life-of-brian",
+      13
+    ],
+    [
+      "scribal-tendencies",
+      13
+    ],
+    [
+      "roman-empire",
+      13
+    ],
+    [
+      "virgin-birth",
+      13
+    ],
+    [
+      "agnosticism",
+      13
+    ],
+    [
+      "biblical-inerrancy",
+      13
+    ],
+    [
+      "dan-wallace",
+      13
+    ],
+    [
+      "scribal-activity",
+      13
+    ],
+    [
+      "reza-aslan",
+      13
+    ],
+    [
+      "professional-scholarship",
+      12
+    ],
+    [
+      "gnosticism",
+      12
+    ],
+    [
+      "q",
+      12
+    ],
+    [
+      "women-in-the-church",
+      12
+    ],
+    [
+      "oral-traditions",
+      12
+    ],
+    [
+      "hebrew-bible",
+      12
+    ],
+    [
+      "textbook",
+      12
+    ],
+    [
+      "zealot",
+      12
+    ],
+    [
+      "new-testament",
+      11
+    ],
+    [
+      "gospel-of-jesus-wife",
+      11
+    ],
+    [
+      "burial",
+      11
+    ],
+    [
+      "king-james-bible",
+      11
+    ],
+    [
+      "papias",
+      11
+    ],
+    [
+      "adoptionist-christology",
+      11
+    ],
+    [
+      "christian-apocrypha",
+      11
+    ],
+    [
+      "constantine",
+      11
+    ],
+    [
+      "debate",
+      11
+    ],
+    [
+      "original-text",
+      10
+    ],
+    [
+      "manuscripts",
+      10
+    ],
+    [
+      "early-christianity",
+      10
+    ],
+    [
+      "dead-sea-scrolls",
+      10
+    ],
+    [
+      "christianity",
+      10
+    ],
+    [
+      "nazareth",
+      10
+    ],
+    [
+      "heaven",
+      10
+    ],
+    [
+      "jewish-apocalypticism",
+      10
+    ],
+    [
+      "deconversion",
+      10
+    ],
+    [
+      "marcion",
+      10
+    ],
+    [
+      "ben-witherington",
+      10
+    ],
+    [
+      "history",
+      10
+    ],
+    [
+      "misquoting-jesus",
+      10
+    ],
+    [
+      "trade-books",
+      10
+    ],
+    [
+      "bloody-sweat",
+      10
+    ],
+    [
+      "new-testament-canon",
+      9
+    ],
+    [
+      "early-judaism",
+      9
+    ],
+    [
+      "synoptic-problem",
+      9
+    ],
+    [
+      "gospel-of-peter",
+      9
+    ],
+    [
+      "birth-narratives",
+      9
+    ],
+    [
+      "heresy",
+      9
+    ],
+    [
+      "moody-bible-institute",
+      9
+    ],
+    [
+      "karen-king",
+      9
+    ],
+    [
+      "orthodoxy",
+      9
+    ],
+    [
+      "anti-judaism",
+      9
+    ],
+    [
+      "conversion",
+      9
+    ],
+    [
+      "gospel-of-judas",
+      9
+    ],
+    [
+      "textbooks",
+      8
+    ],
+    [
+      "pontius-pilate",
+      8
+    ],
+    [
+      "docetism",
+      8
+    ],
+    [
+      "redaction-criticism",
+      8
+    ],
+    [
+      "loeb-classical-library",
+      8
+    ],
+    [
+      "canonization",
+      8
+    ],
+    [
+      "robert-price",
+      8
+    ],
+    [
+      "genesis",
+      8
+    ],
+    [
+      "richard-carrier",
+      7
+    ],
+    [
+      "judas",
+      7
+    ],
+    [
+      "smithsonian",
+      7
+    ],
+    [
+      "proto-gospel-of-james",
+      7
+    ],
+    [
+      "josephus",
+      7
+    ],
+    [
+      "syllabus",
+      7
+    ],
+    [
+      "marc-goodacre",
+      7
+    ],
+    [
+      "death-of-jesus",
+      7
+    ],
+    [
+      "persecution",
+      7
+    ],
+    [
+      "apocalypse",
+      7
+    ],
+    [
+      "eusebius",
+      7
+    ],
+    [
+      "old-testament",
+      7
+    ],
+    [
+      "new-testament-manuscripts",
+      7
+    ],
+    [
+      "apocrypha",
+      7
+    ],
+    [
+      "peter",
+      7
+    ],
+    [
+      "debates",
+      7
+    ],
+    [
+      "son-of-god",
+      7
+    ],
+    [
+      "pseudepigraphy",
+      7
+    ],
+    [
+      "did-jesus-exist",
+      7
+    ],
+    [
+      "sbl",
+      7
+    ],
+    [
+      "mary",
+      6
+    ],
+    [
+      "teaching",
+      6
+    ],
+    [
+      "pseudepigrapha",
+      6
+    ],
+    [
+      "ancient-literacy",
+      6
+    ],
+    [
+      "dinesh-dsouza",
+      6
+    ],
+    [
+      "source-criticism",
+      6
+    ],
+    [
+      "genealogy",
+      6
+    ],
+    [
+      "apocryphal-gospels",
+      6
+    ],
+    [
+      "son-of-man",
+      6
+    ],
+    [
+      "critical-biblical-scholarship",
+      6
+    ],
+    [
+      "atonement",
+      6
+    ],
+    [
+      "aramaic",
+      6
+    ],
+    [
+      "james",
+      6
+    ],
+    [
+      "documentary-hypothesis",
+      6
+    ],
+    [
+      "birth-of-jesus",
+      6
+    ],
+    [
+      "original-text-of-the-nt",
+      6
+    ],
+    [
+      "barnabas",
+      6
+    ],
+    [
+      "mummy-masks",
+      6
+    ],
+    [
+      "2-thessalonians",
+      6
+    ],
+    [
+      "didymus-the-blind",
+      6
+    ],
+    [
+      "hallucinations",
+      5
+    ],
+    [
+      "ethics",
+      5
+    ],
+    [
+      "introduction-to-the-new-testament",
+      5
+    ],
+    [
+      "bart-ehrman",
+      5
+    ],
+    [
+      "hades",
+      5
+    ],
+    [
+      "da-vinci-code",
+      5
+    ],
+    [
+      "synoptic-gospels",
+      5
+    ],
+    [
+      "essenes",
+      5
+    ],
+    [
+      "sheol",
+      5
+    ],
+    [
+      "daniel",
+      5
+    ],
+    [
+      "maccabees",
+      5
+    ],
+    [
+      "religious-studies",
+      5
+    ],
+    [
+      "prophets",
+      5
+    ],
+    [
+      "infancy-narratives",
+      5
+    ],
+    [
+      "death",
+      5
+    ],
+    [
+      "group-visions",
+      5
+    ],
+    [
+      "textus-receptus",
+      5
+    ],
+    [
+      "jeff-siker",
+      5
+    ],
+    [
+      "infancy-gospel-of-thomas",
+      5
+    ],
+    [
+      "newsweek",
+      5
+    ],
+    [
+      "king-of-the-jews",
+      5
+    ],
+    [
+      "oral-tradition",
+      5
+    ],
+    [
+      "publishing-a-book",
+      5
+    ],
+    [
+      "imperial-cult",
+      5
+    ],
+    [
+      "teaching-christianity",
+      5
+    ],
+    [
+      "judaism",
+      5
+    ],
+    [
+      "galatians",
+      5
+    ],
+    [
+      "rodney-stark",
+      5
+    ],
+    [
+      "memory-studies",
+      5
+    ],
+    [
+      "marriage",
+      5
+    ],
+    [
+      "orthodox-corruption-of-scripture",
+      5
+    ],
+    [
+      "walter-bauer",
+      5
+    ],
+    [
+      "early-christian-diversity",
+      5
+    ],
+    [
+      "nag-hammadi-library",
+      5
+    ],
+    [
+      "gematria",
+      5
+    ],
+    [
+      "larry-hurtado",
+      5
+    ],
+    [
+      "bill-oreilly",
+      5
+    ],
+    [
+      "angels",
+      5
+    ],
+    [
+      "academic-journals",
+      4
+    ],
+    [
+      "editorial-boards",
+      4
+    ],
+    [
+      "biblical-interpretation",
+      4
+    ],
+    [
+      "forgeries",
+      4
+    ],
+    [
+      "secretaries",
+      4
+    ],
+    [
+      "fulfillment-citations",
+      4
+    ],
+    [
+      "agnostic",
+      4
+    ],
+    [
+      "ripley-center",
+      4
+    ],
+    [
+      "smithsonian-associates",
+      4
+    ],
+    [
+      "mary-magdalene",
+      4
+    ]
+  ],
+  "candidateTagCounts": [
+    [
+      "jesus",
+      3199
+    ],
+    [
+      "new-testament",
+      3114
+    ],
+    [
+      "gospels",
+      2537
+    ],
+    [
+      "textual-criticism",
+      1872
+    ],
+    [
+      "paul",
+      1699
+    ],
+    [
+      "early-christianity",
+      1623
+    ],
+    [
+      "canon",
+      1615
+    ],
+    [
+      "reader-questions",
+      1393
+    ],
+    [
+      "forgery-authorship",
+      1350
+    ],
+    [
+      "roman-world",
+      1226
+    ],
+    [
+      "heaven-hell",
+      1197
+    ],
+    [
+      "hebrew-bible",
+      1008
+    ],
+    [
+      "blog-news",
+      1002
+    ],
+    [
+      "public-forum",
+      936
+    ],
+    [
+      "resurrection",
+      912
+    ],
+    [
+      "judaism",
+      853
+    ],
+    [
+      "suffering-evil",
+      829
+    ],
+    [
+      "apocrypha",
+      724
+    ],
+    [
+      "miracles",
+      538
+    ],
+    [
+      "christology",
+      349
+    ],
+    [
+      "martyrdom",
+      316
+    ],
+    [
+      "reflections-ruminations",
+      267
+    ],
+    [
+      "book-discussions",
+      262
+    ],
+    [
+      "church-history",
+      244
+    ],
+    [
+      "historical-jesus",
+      162
+    ],
+    [
+      "canonical-gospels",
+      151
+    ],
+    [
+      "barts-biography",
+      146
+    ],
+    [
+      "hebrew-bible-old-testament",
+      140
+    ],
+    [
+      "new-testament-manuscripts",
+      121
+    ],
+    [
+      "readers-questions",
+      119
+    ],
+    [
+      "video-media",
+      84
+    ],
+    [
+      "barts-critics",
+      73
+    ],
+    [
+      "paul-and-his-letters",
+      71
+    ],
+    [
+      "barts-debates",
+      66
+    ],
+    [
+      "history-of-biblical-scholarship",
+      57
+    ],
+    [
+      "afterlife",
+      52
+    ],
+    [
+      "greco-roman-religions-and-culture",
+      51
+    ],
+    [
+      "history-of-christianity-100-300ce",
+      40
+    ],
+    [
+      "early-christian-apocrypha",
+      36
+    ],
+    [
+      "early-judaism",
+      33
+    ],
+    [
+      "religion-in-the-news",
+      25
+    ],
+    [
+      "early-christian-doctrine",
+      25
+    ],
+    [
+      "teaching-christianity",
+      25
+    ],
+    [
+      "spread-christianity",
+      24
+    ],
+    [
+      "memory-studies",
+      24
+    ],
+    [
+      "fourth-century-christianity",
+      20
+    ],
+    [
+      "revelation-of-john",
+      19
+    ],
+    [
+      "constantine",
+      19
+    ],
+    [
+      "early-christian-writings",
+      17
+    ],
+    [
+      "catholic-epistles",
+      16
+    ],
+    [
+      "mythicism",
+      16
+    ],
+    [
+      "forgery-in-antiquity",
+      14
+    ],
+    [
+      "acts-of-the-apostles",
+      13
+    ],
+    [
+      "sex-and-sexuality-in-bible",
+      12
+    ],
+    [
+      "platinums",
+      8
+    ],
+    [
+      "women-in-early-christianity",
+      8
+    ],
+    [
+      "proto-orthodox-writers",
+      7
+    ],
+    [
+      "heresy-and-orthodoxy",
+      6
+    ],
+    [
+      "jesus-and-film",
+      5
+    ],
+    [
+      "recent-comments",
+      2
+    ]
+  ],
+  "themeCounts": [
+    [
+      "books-publication-media",
+      3492
+    ],
+    [
+      "historical-jesus",
+      3041
+    ],
+    [
+      "gospels",
+      2569
+    ],
+    [
+      "new-testament",
+      2569
+    ],
+    [
+      "hebrew-bible-judaism",
+      1696
+    ],
+    [
+      "resurrection-afterlife",
+      1539
+    ],
+    [
+      "paul",
+      1479
+    ],
+    [
+      "personal-autobiographical",
+      1339
+    ],
+    [
+      "roman-world-paganism",
+      1303
+    ],
+    [
+      "blog-community",
+      1212
+    ],
+    [
+      "textual-criticism-manuscripts",
+      995
+    ],
+    [
+      "early-christianity",
+      950
+    ],
+    [
+      "women-gender-sexuality",
+      754
+    ],
+    [
+      "suffering-evil-theodicy",
+      682
+    ],
+    [
+      "miracles-martyrdom",
+      592
+    ],
+    [
+      "christian-apocrypha",
+      568
+    ],
+    [
+      "christology",
+      568
+    ],
+    [
+      "authorship-forgery",
+      562
+    ],
+    [
+      "reader-questions",
+      332
+    ]
+  ],
+  "themeExamples": {
+    "historical-jesus": [
+      {
+        "title": "Mythicists and the Crucified Messiah",
+        "url": "https://ehrmanblog.org/mythicists-and-the-crucified-messiah/",
+        "date": "November 10, 2016",
+        "categories": [
+          "barts-debates",
+          "early-judaism",
+          "historical-jesus",
+          "mythicism",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Jesus, the Messiah, and the Resurrection",
+        "url": "https://ehrmanblog.org/jesus-the-messiah-and-the-resurrection/",
+        "date": "November 11, 2015",
+        "categories": [
+          "historical-jesus",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Would the Resurrection Make Anyone Believe Jesus Was the Messiah?",
+        "url": "https://ehrmanblog.org/would-the-resurrection-make-anyone-believe-jesus-was-the-messiah/",
+        "date": "November 2, 2024",
+        "categories": [
+          "historical-jesus"
+        ]
+      },
+      {
+        "title": "Jesus as the Messiah in Mark’s Gospel",
+        "url": "https://ehrmanblog.org/jesus-as-the-messiah-in-marks-gospel/",
+        "date": "November 2, 2015",
+        "categories": [
+          "canonical-gospels"
+        ]
+      },
+      {
+        "title": "Jesus the Messiah Before the Resurrection",
+        "url": "https://ehrmanblog.org/jesus-the-messiah-before-the-resurrection/",
+        "date": "November 17, 2016",
+        "categories": [
+          "historical-jesus",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Jesus and the Messianic Prophecies – Did the Old Testament Point to Jesus?",
+        "url": "https://ehrmanblog.org/jesus-and-the-messianic-prophecies-did-the-old-testament-point-to-jesus/",
+        "date": "November 8, 2015",
+        "categories": [
+          "canonical-gospels",
+          "early-judaism",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Was Jesus a Myth or a Historical Figure? Robert Price and I Debate This Very Interesting Question",
+        "url": "https://ehrmanblog.org/bart-ehrman-robert-price-debate-did-jesus-exist/",
+        "date": "",
+        "categories": [
+          "barts-debates",
+          "historical-jesus",
+          "mythicism",
+          "public-forum",
+          "video-media"
+        ]
+      },
+      {
+        "title": "At Last.  Jesus and the Son of Man.",
+        "url": "https://ehrmanblog.org/at-last-jesus-and-the-son-of-man/",
+        "date": "August 23, 2020",
+        "categories": [
+          "canonical-gospels",
+          "historical-jesus",
+          "readers-questions"
+        ]
+      }
+    ],
+    "gospels": [
+      {
+        "title": "Why Are The Gospels Called Matthew, Mark, Luke, and John?",
+        "url": "https://ehrmanblog.org/why-are-the-gospels-called-matthew-mark-luke-and-john/",
+        "date": "April 29, 2022",
+        "categories": [
+          "canonical-gospels",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Did Matthew Copy Luke or Luke Matthew?",
+        "url": "https://ehrmanblog.org/did-matthew-copy-luke-or-luke-matthew/",
+        "date": "March 19, 2015",
+        "categories": [
+          "canonical-gospels",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Arguments for Markan Priority (that Mark was the first Gospel written)",
+        "url": "https://ehrmanblog.org/arguments-for-markan-priority-that-mark-was-the-first-gospel-written/",
+        "date": "November 28, 2017",
+        "categories": [
+          "canonical-gospels",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "An Important Difference in John–a Platinum Post by Ryan Fleming",
+        "url": "https://ehrmanblog.org/an-important-difference-in-john-a-platinum-post-by-ryan-fleming/",
+        "date": "July 17, 2023",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Was Mark the First Gospel?  Evidence for “Markan Priority”",
+        "url": "https://ehrmanblog.org/was-mark-the-first-gospel-evidence-for-markan-priority/",
+        "date": "January 8, 2025",
+        "categories": [
+          "canonical-gospels"
+        ]
+      },
+      {
+        "title": "Proof that Luke Used Matthew?  And Interpolations in Luke about the Virgin Birth.",
+        "url": "https://ehrmanblog.org/proof-that-luke-used-matthew-and-interpolations-in-luke-about-the-virgin-birth/",
+        "date": "April 19, 2025",
+        "categories": [
+          "canonical-gospels"
+        ]
+      },
+      {
+        "title": "Mark: The First Gospel in 19th Century Research",
+        "url": "https://ehrmanblog.org/mark-the-first-gospel-in-19th-century-research/",
+        "date": "February 8, 2019",
+        "categories": [
+          "canonical-gospels",
+          "history-of-biblical-scholarship"
+        ]
+      },
+      {
+        "title": "1 John: Who Wrote It, When, and Why?",
+        "url": "https://ehrmanblog.org/1-john-who-wrote-it-when-and-why/",
+        "date": "September 13, 2025",
+        "categories": [
+          "catholic-epistles"
+        ]
+      }
+    ],
+    "paul": [
+      {
+        "title": "Did Paul Write Colossians? According to Most Scholars No – Paul did Not Write Colossians",
+        "url": "https://ehrmanblog.org/did-paul-write-colossians-according-to-most-scholars-no-paul-did-not-write-colossians/",
+        "date": "January 11, 2020",
+        "categories": [
+          "forgery-in-antiquity",
+          "history-of-biblical-scholarship",
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Did Paul Write That Letter?  Getting Into the Weeds…",
+        "url": "https://ehrmanblog.org/did-paul-write-that-letter-getting-into-the-weeds/",
+        "date": "May 25, 2025",
+        "categories": [
+          "forgery-in-antiquity",
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Do We Have the Original Text of Philippians?",
+        "url": "https://ehrmanblog.org/do-we-have-the-original-text-of-philippians-2/",
+        "date": "June 2, 2024",
+        "categories": [
+          "new-testament-manuscripts",
+          "paul-and-his-letters",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "2 Corinthians: Who Wrote It, When, and Why?",
+        "url": "https://ehrmanblog.org/2-corinthians-who-wrote-it-when-and-why/",
+        "date": "April 13, 2025",
+        "categories": [
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Paul’s Importance in Early Christianity?",
+        "url": "https://ehrmanblog.org/pauls-importance-in-early-christianity/",
+        "date": "April 25, 2014",
+        "categories": [
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "How Important Was Paul, Actually, For Early Christianity?",
+        "url": "https://ehrmanblog.org/how-important-was-paul-actually-for-early-christianity/",
+        "date": "January 30, 2022",
+        "categories": [
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Pauline Forgeries:  2 Thessalonians as a Test Case",
+        "url": "https://ehrmanblog.org/pauline-forgeries-2-thessalonians-as-a-test-case/",
+        "date": "December 16, 2014",
+        "categories": [
+          "forgery-in-antiquity",
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Do We Have the Original Text of Philippians?",
+        "url": "https://ehrmanblog.org/do-we-have-the-original-text-of-philippians/",
+        "date": "June 10, 2014",
+        "categories": [
+          "new-testament-manuscripts",
+          "paul-and-his-letters",
+          "readers-questions"
+        ]
+      }
+    ],
+    "new-testament": [
+      {
+        "title": "The Acts of the Apostles:  For Further Reading",
+        "url": "https://ehrmanblog.org/the-acts-of-the-apostles-additional-reading/",
+        "date": "March 5, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "The Literary Artistry of the Book of Acts",
+        "url": "https://ehrmanblog.org/the-literary-artistry-of-the-book-of-acts/",
+        "date": "March 22, 2016",
+        "categories": [
+          "acts-of-the-apostles",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Is the Book of Revelation a Revised Version of a Non-Christian Apocalypse? Guest Post by James Tabor",
+        "url": "https://ehrmanblog.org/is-the-book-of-revelation-a-revised-version-of-a-non-christian-apocalypse-guest-post-by-james-tabor/",
+        "date": "2017-02-22T07:03:41-05:00",
+        "categories": [
+          "revelation-of-john"
+        ]
+      },
+      {
+        "title": "The Author of Revelation",
+        "url": "https://ehrmanblog.org/the-author-of-revelation/",
+        "date": "August 1, 2016",
+        "categories": [
+          "public-forum",
+          "revelation-of-john"
+        ]
+      },
+      {
+        "title": "Important Literary Features of the Book of Acts",
+        "url": "https://ehrmanblog.org/important-literary-features-of-the-book-of-acts/",
+        "date": "March 13, 2024",
+        "categories": [
+          "acts-of-the-apostles"
+        ]
+      },
+      {
+        "title": "The Book of Acts: An Overview",
+        "url": "https://ehrmanblog.org/the-book-of-acts-an-overview/",
+        "date": "March 22, 2016",
+        "categories": [
+          "acts-of-the-apostles"
+        ]
+      },
+      {
+        "title": "The Historical Accuracy of Acts",
+        "url": "https://ehrmanblog.org/the-historical-accuracy-of-acts/",
+        "date": "September 4, 2013",
+        "categories": [
+          "acts-of-the-apostles",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Did *Any* Companion of Paul Write Luke and Acts?",
+        "url": "https://ehrmanblog.org/did-any-companion-of-paul-write-luke-and-acts/",
+        "date": "January 17, 2020",
+        "categories": [
+          "acts-of-the-apostles",
+          "paul-and-his-letters"
+        ]
+      }
+    ],
+    "hebrew-bible-judaism": [
+      {
+        "title": "Early Christian Views of Judaism, In a Nutshell",
+        "url": "https://ehrmanblog.org/early-christian-views-of-judaism-in-a-nutshell/",
+        "date": "March 26, 2026",
+        "categories": [
+          "jews-and-christians-in-antiquity"
+        ]
+      },
+      {
+        "title": "Are the Hebrew Bible/Old Testament Manuscripts Reliable?  A Blast From the Past",
+        "url": "https://ehrmanblog.org/are-the-hebrew-bible-old-testament-manuscripts-reliable-a-blast-from-the-past/",
+        "date": "July 11, 2016",
+        "categories": [
+          "early-judaism",
+          "hebrew-bible-old-testament",
+          "public-forum",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Sources for the Hebrew Bible: A Blast from the Past",
+        "url": "https://ehrmanblog.org/sources-for-the-hebrew-bible-a-blast-from-the-past/",
+        "date": "June 24, 2018",
+        "categories": [
+          "hebrew-bible-old-testament",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Understanding the Hebrew Bible: The “Old” Testament in Modern Scholarship",
+        "url": "https://ehrmanblog.org/understanding-the-hebrew-bible-the-old-testament-in-modern-scholarship/",
+        "date": "June 24, 2025",
+        "categories": [
+          "hebrew-bible-old-testament"
+        ]
+      },
+      {
+        "title": "The Hebrew Bible and Its Sources",
+        "url": "https://ehrmanblog.org/the-hebrew-bible-and-its-sources/",
+        "date": "June 25, 2012",
+        "categories": [
+          "book-discussions",
+          "hebrew-bible-old-testament",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "What is the Hebrew Bible?",
+        "url": "https://ehrmanblog.org/what-is-the-hebrew-bible/",
+        "date": "January 1, 2017",
+        "categories": [
+          "hebrew-bible-old-testament",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "So … Was Matthew a Jew?",
+        "url": "https://ehrmanblog.org/so-was-matthew-a-jew/",
+        "date": "July 4, 2013",
+        "categories": [
+          "canonical-gospels",
+          "early-judaism",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "What Are the Sources of the Hebrew Bible?",
+        "url": "https://ehrmanblog.org/what-are-the-sources-of-the-hebrew-bible/",
+        "date": "March 11, 2021",
+        "categories": [
+          "hebrew-bible-old-testament"
+        ]
+      }
+    ],
+    "early-christianity": [
+      {
+        "title": "The Collection: Apostolic Fathers",
+        "url": "https://ehrmanblog.org/the-collection-apostolic-fathers/",
+        "date": "November 17, 2012",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity",
+          "history-of-christianity-100-300ce",
+          "proto-orthodox-writers"
+        ]
+      },
+      {
+        "title": "The Apostolic Fathers: Serendipity Strikes",
+        "url": "https://ehrmanblog.org/the-apostolic-fathers-serendipity-strikes/",
+        "date": "October 30, 2017",
+        "categories": [
+          "barts-biography",
+          "book-discussions",
+          "proto-orthodox-writers",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "How Serendipity Changed My Life: The Apostolic Fathers",
+        "url": "https://ehrmanblog.org/how-serendipity-changed-my-life-the-apostolic-fathers/",
+        "date": "October 12, 2022",
+        "categories": [
+          "barts-biography",
+          "book-discussions",
+          "proto-orthodox-writers"
+        ]
+      },
+      {
+        "title": "The Apostolic Fathers: Serendipity Strikes",
+        "url": "https://ehrmanblog.org/the-apostolic-fathers-serendipity-strikes-2/",
+        "date": "October 28, 2012",
+        "categories": [
+          "barts-biography",
+          "book-discussions",
+          "proto-orthodox-writers"
+        ]
+      },
+      {
+        "title": "Translating the Apostolic Fathers",
+        "url": "https://ehrmanblog.org/translating-the-apostolic-fathers/",
+        "date": "October 27, 2012",
+        "categories": [
+          "book-discussions",
+          "heresy-and-orthodoxy",
+          "history-of-biblical-scholarship",
+          "history-of-christianity-100-300ce",
+          "proto-orthodox-writers"
+        ]
+      },
+      {
+        "title": "Translating the Apostolic Fathers: A Blast from the Past",
+        "url": "https://ehrmanblog.org/translating-the-apostolic-fathers-a-blast-from-the-past/",
+        "date": "October 27, 2017",
+        "categories": [
+          "book-discussions",
+          "history-of-biblical-scholarship",
+          "proto-orthodox-writers",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "A New Thread!  The Apostolic Fathers: In a Nutshell",
+        "url": "https://ehrmanblog.org/a-new-thread-the-apostolic-fathers-in-a-nutshell/",
+        "date": "November 2, 2025",
+        "categories": [
+          "early-christian-writings"
+        ]
+      },
+      {
+        "title": "My Apostolic Fathers Seminar/Syllabus",
+        "url": "https://ehrmanblog.org/my-apostolic-fathers-seminar-syllabus/",
+        "date": "August 12, 2014",
+        "categories": [
+          "history-of-christianity-100-300ce",
+          "teaching-christianity"
+        ]
+      }
+    ],
+    "christian-apocrypha": [
+      {
+        "title": "York Symposium on Early Christian Apocrypha",
+        "url": "https://ehrmanblog.org/york-symposium-on-early-christian-apocrypha/",
+        "date": "May 2, 2015",
+        "categories": [
+          "early-christian-apocrypha",
+          "heresy-and-orthodoxy",
+          "history-of-christianity-100-300ce",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "What About the Apocrypha?",
+        "url": "https://ehrmanblog.org/what-about-the-apocrypha/",
+        "date": "January 9, 2017",
+        "categories": [
+          "early-judaism",
+          "hebrew-bible-old-testament",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+        "url": "https://ehrmanblog.org/my-apocrypha-seminar-at-the-national-humanities-center-part-2/",
+        "date": "June 15, 2012",
+        "categories": [
+          "early-christian-apocrypha",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels",
+        "url": "https://ehrmanblog.org/a-readable-edition-of-the-lost-i-e-non-canonical-gospels/",
+        "date": "September 4, 2019",
+        "categories": [
+          "book-discussions",
+          "early-christian-apocrypha"
+        ]
+      },
+      {
+        "title": "How I Decided to Publish the Apocryphal Gospels",
+        "url": "https://ehrmanblog.org/how-i-decided-to-publish-the-apocryphal-gospels/",
+        "date": "August 22, 2014",
+        "categories": [
+          "book-discussions",
+          "early-christian-apocrypha"
+        ]
+      },
+      {
+        "title": "Apocryphal Gospels: The Scholarly Version",
+        "url": "https://ehrmanblog.org/apocryphal-gospels-the-scholarly-version/",
+        "date": "August 25, 2014",
+        "categories": [
+          "book-discussions",
+          "early-christian-apocrypha"
+        ]
+      },
+      {
+        "title": "The Apocryphal Gospels: Texts and Translations",
+        "url": "https://ehrmanblog.org/the-apocryphal-gospels-texts-and-translations/",
+        "date": "November 10, 2012",
+        "categories": [
+          "book-discussions",
+          "early-christian-apocrypha",
+          "heresy-and-orthodoxy"
+        ]
+      },
+      {
+        "title": "What We Knew about the Gospel of Peter Before We Had the Gospel of Peter",
+        "url": "https://ehrmanblog.org/what-we-knew-about-the-gospel-of-peter-before-we-had-the-gospel-of-peter/",
+        "date": "April 6, 2024",
+        "categories": [
+          "early-christian-apocrypha",
+          "history-of-christianity-100-300ce"
+        ]
+      }
+    ],
+    "textual-criticism-manuscripts": [
+      {
+        "title": "For the “Original” Text: What Kinds of Manuscripts Would We Need?",
+        "url": "https://ehrmanblog.org/for-the-original-text-what-kinds-of-manuscripts-would-we-need/",
+        "date": "May 1, 2012",
+        "categories": [
+          "barts-debates",
+          "new-testament-manuscripts"
+        ]
+      },
+      {
+        "title": "New Testament Manuscripts:  Good News and Bad News",
+        "url": "https://ehrmanblog.org/new-testament-manuscripts-good-news-and-bad-news-2/",
+        "date": "November 1, 2022",
+        "categories": [
+          "new-testament-manuscripts"
+        ]
+      },
+      {
+        "title": "The Irony of our Earliest Manuscripts",
+        "url": "https://ehrmanblog.org/the-irony-of-our-earliest-manuscripts/",
+        "date": "May 3, 2012",
+        "categories": [
+          "barts-debates",
+          "new-testament-manuscripts"
+        ]
+      },
+      {
+        "title": "New Testament Manuscripts:  Good News and Bad News",
+        "url": "https://ehrmanblog.org/new-testament-manuscripts-good-news-and-bad-news/",
+        "date": "July 18, 2015",
+        "categories": [
+          "new-testament-manuscripts"
+        ]
+      },
+      {
+        "title": "A Major Argument That We Can Be Sure We Have the Original Text",
+        "url": "https://ehrmanblog.org/a-major-argument-that-we-can-be-sure-we-have-the-original-text/",
+        "date": "May 16, 2024",
+        "categories": [
+          "new-testament-manuscripts",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Irrelevant Arguments and the So-called Tenacity of the Tradition",
+        "url": "https://ehrmanblog.org/irrelevant-arguments-and-the-so-called-tenacity-of-the-tradition/",
+        "date": "September 5, 2015",
+        "categories": [
+          "history-of-christianity-100-300ce",
+          "new-testament-manuscripts"
+        ]
+      },
+      {
+        "title": "Are Their Any Completely Anti-Heretical Manuscripts?",
+        "url": "https://ehrmanblog.org/are-their-any-completely-anti-heretical-manuscripts/",
+        "date": "October 13, 2015",
+        "categories": [
+          "heresy-and-orthodoxy",
+          "history-of-christianity-100-300ce",
+          "new-testament-manuscripts"
+        ]
+      },
+      {
+        "title": "The Best Manuscripts and Social Justice: Readers’ Mailbag October 23, 2016",
+        "url": "https://ehrmanblog.org/the-best-manuscripts-and-social-justice-readers-mailbag-october-23-2016/",
+        "date": "October 23, 2016",
+        "categories": [
+          "historical-jesus",
+          "new-testament-manuscripts",
+          "public-forum",
+          "readers-questions"
+        ]
+      }
+    ],
+    "authorship-forgery": [
+      {
+        "title": "Why Did Ancient Christian Forgers Commit Forgery?",
+        "url": "https://ehrmanblog.org/why-did-ancient-christian-forgers-commit-forgery/",
+        "date": "May 5, 2019",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Forgery for a Scholarly Audience",
+        "url": "https://ehrmanblog.org/forgery-for-a-scholarly-audience/",
+        "date": "March 1, 2022",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity"
+        ]
+      },
+      {
+        "title": "It Has Arrived!  Forgery and Counterforgery in Early Christian Polemics.",
+        "url": "https://ehrmanblog.org/it-has-arrived-forgery-and-counterforgery-in-early-christian-polemics/",
+        "date": "November 13, 2012",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "My Book on Literary Forgery",
+        "url": "https://ehrmanblog.org/my-book-on-literary-forgery/",
+        "date": "April 20, 2018",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity"
+        ]
+      },
+      {
+        "title": "Forgeries in the Name of Paul",
+        "url": "https://ehrmanblog.org/forgeries-in-the-name-of-paul/",
+        "date": "December 15, 2014",
+        "categories": [
+          "forgery-in-antiquity",
+          "paul-and-his-letters",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "My book: Literary Forgery and Counterforgery in Early Christianity!",
+        "url": "https://ehrmanblog.org/my-book-literary-forgery-and-counterforgery-in-early-christianity/",
+        "date": "June 18, 2022",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity"
+        ]
+      },
+      {
+        "title": "Why Would Christian Authors Write Forgeries?",
+        "url": "https://ehrmanblog.org/why-would-christian-authors-write-forgeries/",
+        "date": "November 4, 2014",
+        "categories": [
+          "book-discussions",
+          "forgery-in-antiquity",
+          "history-of-christianity-100-300ce",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Pauline Forgeries:  2 Thessalonians as a Test Case",
+        "url": "https://ehrmanblog.org/pauline-forgeries-2-thessalonians-as-a-test-case/",
+        "date": "December 16, 2014",
+        "categories": [
+          "forgery-in-antiquity",
+          "paul-and-his-letters"
+        ]
+      }
+    ],
+    "resurrection-afterlife": [
+      {
+        "title": "Is There a Time and Place for Heaven and Hell?",
+        "url": "https://ehrmanblog.org/is-there-a-time-and-place-for-heaven-and-hell/",
+        "date": "April 11, 2018",
+        "categories": [
+          "afterlife",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Heaven and Hell: When was Heaven and Hell Invented?",
+        "url": "https://ehrmanblog.org/heaven-and-hell-when-was-heaven-and-hell-invented/",
+        "date": "January 13, 2013",
+        "categories": [
+          "afterlife",
+          "historical-jesus",
+          "paul-and-his-letters",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Heaven and Hell, Part One",
+        "url": "https://ehrmanblog.org/heaven-and-hell-part-one/",
+        "date": "January 5, 2016",
+        "categories": [
+          "afterlife",
+          "history-of-christianity-100-300ce",
+          "public-forum",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Thinking about Hell",
+        "url": "https://ehrmanblog.org/thinking-about-hell/",
+        "date": "March 3, 2017",
+        "categories": [
+          "afterlife",
+          "barts-biography",
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "The Invention of the Afterlife: Request for Ideas!",
+        "url": "https://ehrmanblog.org/the-invention-of-the-afterlife-request-for-ideas/",
+        "date": "October 6, 2016",
+        "categories": [
+          "afterlife",
+          "book-discussions",
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "A Final (for now) Post on the Resurrection",
+        "url": "https://ehrmanblog.org/a-final-for-now-post-on-the-resurrection/",
+        "date": "April 29, 2012",
+        "categories": [
+          "afterlife",
+          "canonical-gospels",
+          "early-judaism",
+          "hebrew-bible-old-testament",
+          "readers-questions"
+        ]
+      },
+      {
+        "title": "Resurrection and Resuscitation",
+        "url": "https://ehrmanblog.org/resurrection-and-resuscitation/",
+        "date": "July 25, 2012",
+        "categories": [
+          "afterlife",
+          "book-discussions",
+          "early-judaism",
+          "hebrew-bible-old-testament"
+        ]
+      },
+      {
+        "title": "Q&A on Heaven and Hell",
+        "url": "https://ehrmanblog.org/qa-on-heaven-and-hell/",
+        "date": "April 14, 2020",
+        "categories": [
+          "afterlife",
+          "book-discussions"
+        ]
+      }
+    ],
+    "miracles-martyrdom": [
+      {
+        "title": "Jesus and His Miracles: Some Interesting Features",
+        "url": "https://ehrmanblog.org/jesus-and-his-miracles-some-interesting-features/",
+        "date": "August 3, 2018",
+        "categories": [
+          "historical-jesus"
+        ]
+      },
+      {
+        "title": "Was Jesus Considered a Miracle Worker During His *Lifetime*?",
+        "url": "https://ehrmanblog.org/was-jesus-considered-a-miracle-worker-during-his-lifetime/",
+        "date": "December 3, 2023",
+        "categories": [
+          "historical-jesus",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "How Could Christian Miracles Convert the Empire if Miracles Don’t Happen?",
+        "url": "https://ehrmanblog.org/how-could-christian-miracles-convert-the-empire-if-miracles-dont-happen/",
+        "date": "May 23, 2026",
+        "categories": [
+          "spread-christianity"
+        ]
+      },
+      {
+        "title": "Once More on the Credibility of Miracles: Guest post by Darren Slade",
+        "url": "https://ehrmanblog.org/once-more-on-the-credibility-of-miracles-guest-post-by-darren-slade/",
+        "date": "January 6, 2020",
+        "categories": [
+          "canonical-gospels"
+        ]
+      },
+      {
+        "title": "Was Augustine Telling the Truth About Miracles He’d Seen?",
+        "url": "https://ehrmanblog.org/was-augustine-telling-the-truth-about-miracles-hed-seen/",
+        "date": "May 27, 2026",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "The Case Against Miracles",
+        "url": "https://ehrmanblog.org/the-case-against-miracles/",
+        "date": "December 22, 2019",
+        "categories": [
+          "book-discussions",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "The Case Against Miracles:  Guest Post by John Loftus",
+        "url": "https://ehrmanblog.org/the-case-against-miracles-guest-post-by-john-loftus/",
+        "date": "December 30, 2019",
+        "categories": [
+          "book-discussions"
+        ]
+      },
+      {
+        "title": "Vespasian Miracles. A Platinum Post by Ryan Fleming",
+        "url": "https://ehrmanblog.org/vespasian-miracles-a-platinum-post-by-ryan-fleming/",
+        "date": "July 10, 2023",
+        "categories": [
+          "public-forum"
+        ]
+      }
+    ],
+    "christology": [
+      {
+        "title": "Early Christology: How I Have Changed My Mind",
+        "url": "https://ehrmanblog.org/early-christology-how-i-have-changed-my-mind/",
+        "date": "March 3, 2013",
+        "categories": [
+          "book-discussions",
+          "canonical-gospels",
+          "early-christian-doctrine"
+        ]
+      },
+      {
+        "title": "Incarnation Christology, Angels, and Paul",
+        "url": "https://ehrmanblog.org/incarnation-christology-angels-and-paul/",
+        "date": "February 14, 2013",
+        "categories": [
+          "book-discussions",
+          "early-christian-doctrine",
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Early Christology: How I Changed My Mind",
+        "url": "https://ehrmanblog.org/early-christology-how-i-changed-my-mind/",
+        "date": "March 2, 2018",
+        "categories": [
+          "book-discussions",
+          "canonical-gospels",
+          "early-christian-doctrine"
+        ]
+      },
+      {
+        "title": "The Earliest Christology",
+        "url": "https://ehrmanblog.org/the-earliest-christology/",
+        "date": "February 6, 2013",
+        "categories": [
+          "book-discussions",
+          "early-christian-doctrine",
+          "historical-jesus"
+        ]
+      },
+      {
+        "title": "Exaltation Christology in an Early Creed",
+        "url": "https://ehrmanblog.org/exaltation-christology-in-an-early-creed/",
+        "date": "February 8, 2013",
+        "categories": [
+          "book-discussions",
+          "early-christian-doctrine",
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "An Alternative Christology:  God Became Human",
+        "url": "https://ehrmanblog.org/an-alternative-christology-god-became-human/",
+        "date": "February 7, 2021",
+        "categories": [
+          "early-christian-doctrine",
+          "paul-and-his-letters"
+        ]
+      },
+      {
+        "title": "Exaltation Christology in the Speeches in Acts",
+        "url": "https://ehrmanblog.org/exaltation-christology-in-the-speeches-in-acts/",
+        "date": "February 11, 2013",
+        "categories": [
+          "acts-of-the-apostles",
+          "early-christian-doctrine"
+        ]
+      },
+      {
+        "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+        "url": "https://ehrmanblog.org/did-jesus-become-the-son-of-god-the-christology-of-acts/",
+        "date": "March 6, 2025",
+        "categories": [
+          "acts-of-the-apostles"
+        ]
+      }
+    ],
+    "roman-world-paganism": [
+      {
+        "title": "The Emperor Constantine: Some Background",
+        "url": "https://ehrmanblog.org/the-emperor-constantine-some-background/",
+        "date": "July 12, 2016",
+        "categories": [
+          "constantine",
+          "fourth-century-christianity",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Did Constantine Outlaw the Pagan Religions?",
+        "url": "https://ehrmanblog.org/did-constantine-outlaw-the-pagan-religions/",
+        "date": "April 29, 2018",
+        "categories": [
+          "constantine",
+          "fourth-century-christianity",
+          "readers-questions",
+          "spread-christianity"
+        ]
+      },
+      {
+        "title": "Constantine Before His Conversion",
+        "url": "https://ehrmanblog.org/constantine-before-his-conversion/",
+        "date": "July 19, 2016",
+        "categories": [
+          "constantine",
+          "fourth-century-christianity",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "How Constantine Became Emperor",
+        "url": "https://ehrmanblog.org/how-constantine-became-emperor/",
+        "date": "July 15, 2016",
+        "categories": [
+          "constantine",
+          "fourth-century-christianity",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "The Conversion of the Emperor Constantine",
+        "url": "https://ehrmanblog.org/the-conversion-of-the-emperor-constantine/",
+        "date": "August 27, 2024",
+        "categories": [
+          "constantine"
+        ]
+      },
+      {
+        "title": "The Conversion of Constantine",
+        "url": "https://ehrmanblog.org/the-conversion-of-constantine/",
+        "date": "February 12, 2018",
+        "categories": [
+          "book-discussions",
+          "constantine",
+          "fourth-century-christianity",
+          "spread-christianity"
+        ]
+      },
+      {
+        "title": "Two Versions of Constantine’s Vision",
+        "url": "https://ehrmanblog.org/two-versions-of-constantines-vision/",
+        "date": "July 20, 2016",
+        "categories": [
+          "constantine",
+          "fourth-century-christianity"
+        ]
+      },
+      {
+        "title": "Constantine’s Vision according to Eusebius",
+        "url": "https://ehrmanblog.org/constantines-vision-according-to-eusebius/",
+        "date": "July 24, 2016",
+        "categories": [
+          "constantine",
+          "fourth-century-christianity",
+          "public-forum"
+        ]
+      }
+    ],
+    "women-gender-sexuality": [
+      {
+        "title": "Paul, the Pastorals, and Women",
+        "url": "https://ehrmanblog.org/paul-the-pastorals-and-women/",
+        "date": "July 30, 2013",
+        "categories": [
+          "early-christian-apocrypha",
+          "history-of-christianity-100-300ce",
+          "paul-and-his-letters",
+          "readers-questions",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "Women and Gender: Early Christianity in a Patriarchal World",
+        "url": "https://ehrmanblog.org/women-and-gender-early-christianity-in-a-patriarchal-world/",
+        "date": "August 6, 2024",
+        "categories": [
+          "history-of-christianity-100-300ce",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "Women at the Tomb",
+        "url": "https://ehrmanblog.org/women-at-the-tomb/",
+        "date": "April 5, 2014",
+        "categories": [
+          "book-discussions",
+          "canonical-gospels",
+          "public-forum",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "How Women Came to Be Silenced",
+        "url": "https://ehrmanblog.org/how-women-came-to-be-silenced/",
+        "date": "August 2, 2013",
+        "categories": [
+          "history-of-christianity-100-300ce",
+          "paul-and-his-letters",
+          "readers-questions",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "How Women Came to Be Silenced in Early Christianity: A Blast From the Past",
+        "url": "https://ehrmanblog.org/how-women-came-to-be-silenced-in-early-christianity-a-blast-from-the-past/",
+        "date": "August 4, 2017",
+        "categories": [
+          "history-of-christianity-100-300ce",
+          "paul-and-his-letters",
+          "readers-questions",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "Mary Magdalene in Various Guises",
+        "url": "https://ehrmanblog.org/mary-magdalene-in-various-guises/",
+        "date": "February 1, 2014",
+        "categories": [
+          "historical-jesus",
+          "readers-questions",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "When Did Mary Magdalene Become a Prostitute?",
+        "url": "https://ehrmanblog.org/when-did-mary-magdalene-become-a-prostitute/",
+        "date": "February 24, 2024",
+        "categories": [
+          "canonical-gospels",
+          "historical-jesus",
+          "women-in-early-christianity"
+        ]
+      },
+      {
+        "title": "Mary Magdalene as a Prostitute?",
+        "url": "https://ehrmanblog.org/mary-magdalene-as-a-prostitute/",
+        "date": "February 3, 2014",
+        "categories": [
+          "historical-jesus",
+          "readers-questions",
+          "women-in-early-christianity"
+        ]
+      }
+    ],
+    "suffering-evil-theodicy": [
+      {
+        "title": "Suffering and My Blog",
+        "url": "https://ehrmanblog.org/suffering-and-my-blog/",
+        "date": "July 25, 2013",
+        "categories": [
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Suffering, Evil, and the Range Effect  Platinum Guest Post by Dennis J. Folds, Ph.D.",
+        "url": "https://ehrmanblog.org/suffering-evil-and-the-range-effect-platinum-guest-post-by-dennis-j-folds-ph-d/",
+        "date": "October 17, 2022",
+        "categories": [
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "The Classic “Problem” of Suffering",
+        "url": "https://ehrmanblog.org/the-classic-problem-of-suffering/",
+        "date": "June 28, 2017",
+        "categories": [
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Personal Response to Suffering?",
+        "url": "https://ehrmanblog.org/personal-response-to-suffering/",
+        "date": "July 15, 2013",
+        "categories": [
+          "book-discussions",
+          "hebrew-bible-old-testament",
+          "public-forum",
+          "readers-questions",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "The Problem of Suffering? So What’s the Problem?",
+        "url": "https://ehrmanblog.org/the-problem-of-suffering-so-whats-the-problem/",
+        "date": "October 17, 2024",
+        "categories": [
+          "book-discussions",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Is Suffering a “Problem” for Believers?",
+        "url": "https://ehrmanblog.org/is-suffering-a-problem-for-believers/",
+        "date": "February 22, 2023",
+        "categories": [
+          "barts-biography",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "The Kind of Suffering that is a Problem",
+        "url": "https://ehrmanblog.org/the-kind-of-suffering-that-is-a-problem/",
+        "date": "June 26, 2017",
+        "categories": [
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "My Views on Suffering Are Not Held by Those Who Suffer",
+        "url": "https://ehrmanblog.org/my-views-on-suffering-are-not-held-by-those-who-suffer/",
+        "date": "June 3, 2012",
+        "categories": [
+          "barts-debates"
+        ]
+      }
+    ],
+    "books-publication-media": [
+      {
+        "title": "How Books Are Sold",
+        "url": "https://ehrmanblog.org/how-books-are-sold/",
+        "date": "March 25, 2014",
+        "categories": [
+          "book-discussions"
+        ]
+      },
+      {
+        "title": "Getting a First Book Published",
+        "url": "https://ehrmanblog.org/getting-a-first-book-published/",
+        "date": "April 14, 2016",
+        "categories": [
+          "book-discussions",
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "My New Book! (In Context of My Others)",
+        "url": "https://ehrmanblog.org/my-new-book-in-context-of-my-others/",
+        "date": "March 1, 2016",
+        "categories": [
+          "book-discussions",
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Authors and the Fiasco of Book Tours",
+        "url": "https://ehrmanblog.org/authors-and-the-fiasco-of-book-tours/",
+        "date": "March 1, 2020",
+        "categories": [
+          "book-discussions",
+          "public-forum",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "More on the Response Book",
+        "url": "https://ehrmanblog.org/more-on-the-response-book/",
+        "date": "March 1, 2014",
+        "categories": [
+          "barts-critics",
+          "book-discussions",
+          "historical-jesus"
+        ]
+      },
+      {
+        "title": "My New View of the Book of Revelation",
+        "url": "https://ehrmanblog.org/my-new-view-of-the-book-of-revelation/",
+        "date": "August 5, 2021",
+        "categories": [
+          "book-discussions",
+          "revelation-of-john"
+        ]
+      },
+      {
+        "title": "How Does an Author Write a Trade Book?  Phase 2.",
+        "url": "https://ehrmanblog.org/how-does-an-author-write-a-trade-book-phase-2/",
+        "date": "June 14, 2018",
+        "categories": [
+          "book-discussions",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Pre-Pub Offer on My Book: ARMAGEDDON!",
+        "url": "https://ehrmanblog.org/pre-pub-offer-on-my-book-armageddon/",
+        "date": "March 14, 2023",
+        "categories": [
+          "public-forum"
+        ]
+      }
+    ],
+    "reader-questions": [
+      {
+        "title": "November Gold Q&A",
+        "url": "https://ehrmanblog.org/november-gold-qa/",
+        "date": "November 28, 2022",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "April 2026 Gold Q&A: Get Your Questions In!",
+        "url": "https://ehrmanblog.org/april-2026-gold-qa-get-your-questions-in/",
+        "date": "March 27, 2026",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "March 2025 Gold Q&A",
+        "url": "https://ehrmanblog.org/march-2025-gold-qa/",
+        "date": "March 7, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "March 2026 Gold Q&A Announcement",
+        "url": "https://ehrmanblog.org/march-2026-gold-qa-announcement/",
+        "date": "February 20, 2026",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Gold Q&A for February!",
+        "url": "https://ehrmanblog.org/gold-qa-for-feb-2025/",
+        "date": "January 30, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "July 2025 Gold Q&A",
+        "url": "https://ehrmanblog.org/july-2025-gold-qa/",
+        "date": "July 11, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "August 2025 Gold Q&A",
+        "url": "https://ehrmanblog.org/august-2025-gold-qa/",
+        "date": "July 25, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "October 2024 Gold Q&A Replay",
+        "url": "https://ehrmanblog.org/october-2024-gold-qa-replay/",
+        "date": "October 21, 2024",
+        "categories": [
+          "public-forum"
+        ]
+      }
+    ],
+    "blog-community": [
+      {
+        "title": "Are You Interested in a Platinum Membership?",
+        "url": "https://ehrmanblog.org/are-you-interested-in-a-platinum-membership/",
+        "date": "December 8, 2020",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Time to Vote: Help Choose the Next Platinum Post!",
+        "url": "https://ehrmanblog.org/platinums-time-to-vote-next-platinum-post/",
+        "date": "June 9, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Submit Your Platinum Post Vote!",
+        "url": "https://ehrmanblog.org/submit-your-platinum-post-vote/",
+        "date": "July 11, 2025",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Platinum Members!   Vote for your Favorite Platinum Post to Go To the Blog!",
+        "url": "https://ehrmanblog.org/platinum-members-vote-for-your-favorite-platinum-post-to-go-to-the-blog/",
+        "date": "August 19, 2021",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Don’t Forget Gold and Platinum Members!  A FREE Webinar this Saturday.",
+        "url": "https://ehrmanblog.org/dont-forget-gold-and-platinum-members-a-free-webinar-this-saturday/",
+        "date": "January 25, 2023",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Platinum Members Only!  Vote for your Favorite Platinum Guest Post",
+        "url": "https://ehrmanblog.org/platinum-members-only-vote-for-your-favorite-platinum-guest-post/",
+        "date": "July 22, 2021",
+        "categories": [
+          "public-forum"
+        ]
+      },
+      {
+        "title": "Platinum Members!  Vote for your Favorite Platinum Post",
+        "url": "https://ehrmanblog.org/platinum-members-vote-for-your-favorite-platinum-post/",
+        "date": "February 4, 2021",
+        "categories": [
+          "recent-comments"
+        ]
+      },
+      {
+        "title": "Platinum Members Webinar!",
+        "url": "https://ehrmanblog.org/platinum-members-webinar/",
+        "date": "January 9, 2021",
+        "categories": [
+          "platinums"
+        ]
+      }
+    ],
+    "personal-autobiographical": [
+      {
+        "title": "My Start in Teaching",
+        "url": "https://ehrmanblog.org/my-start-in-teaching/",
+        "date": "April 21, 2013",
+        "categories": [
+          "barts-biography",
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "Learning to Teach at Moody",
+        "url": "https://ehrmanblog.org/learning-to-teach-at-moody/",
+        "date": "August 30, 2016",
+        "categories": [
+          "barts-biography",
+          "public-forum",
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "Teaching Religion in a Secular Environment",
+        "url": "https://ehrmanblog.org/teaching-religion-in-a-secular-environment/",
+        "date": "April 26, 2017",
+        "categories": [
+          "barts-biography",
+          "public-forum",
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "My New Teaching Company Course",
+        "url": "https://ehrmanblog.org/my-new-teaching-company-course/",
+        "date": "December 12, 2013",
+        "categories": [
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "My Moody Experience",
+        "url": "https://ehrmanblog.org/my-moody-experience/",
+        "date": "May 12, 2015",
+        "categories": [
+          "barts-biography",
+          "reflections-ruminations"
+        ]
+      },
+      {
+        "title": "Teaching Religion in the South",
+        "url": "https://ehrmanblog.org/teaching-religion-in-the-south/",
+        "date": "April 19, 2013",
+        "categories": [
+          "barts-biography",
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "An Agnostic Teaching the Bible",
+        "url": "https://ehrmanblog.org/an-agnostic-teaching-the-bible/",
+        "date": "January 9, 2013",
+        "categories": [
+          "barts-biography",
+          "readers-questions",
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      },
+      {
+        "title": "Can Teaching Be Objective?",
+        "url": "https://ehrmanblog.org/can-teaching-be-objective/",
+        "date": "May 1, 2017",
+        "categories": [
+          "public-forum",
+          "reflections-ruminations",
+          "teaching-christianity"
+        ]
+      }
+    ]
+  }
+}
