@@ -1,8 +1,6 @@
 .ehrman_credentials.env
 data/raw/*.session
 data/raw/clipboard_test.json
-data/raw/post_urls.json
-data/raw/posts.jsonl
 __pycache__/
 *.pyc*
 node_modules/

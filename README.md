@@ -2,8 +2,8 @@
 
 This workspace is for building a local index of Ehrman Blog posts.
 
-The raw full-text export is intentionally kept out of git. Keep repositories
-private unless you are only publishing code and non-sensitive metadata.
+The raw full-text export is committed for private backup/indexing use. Keep
+this repository private unless you remove membership-site content first.
 
 ## Workflow
 
@@ -17,8 +17,8 @@ private unless you are only publishing code and non-sensitive metadata.
 - `scripts/ehrman_http_indexer.py`: scraper/indexer for the logged-in site.
 - `.ehrman_credentials.env.example`: template for the temporary login file.
 - `data/raw/archive_months.json`: discovered monthly archive URLs and visible counts.
-- `data/raw/post_urls.json`: local generated post URLs and archive-source metadata.
-- `data/raw/posts.jsonl`: local full extracted post records, one JSON object per line.
+- `data/raw/post_urls.json`: discovered post URLs and archive-source metadata.
+- `data/raw/posts.jsonl`: full extracted post records, one JSON object per line.
 - `data/index/posts_index.json`: summary/tag index generated from raw posts.
 - `data/index/posts_index.csv`: spreadsheet-friendly version of the same index.
 
