@@ -1,0 +1,348 @@
+{
+  "categories": [
+    {
+      "name": "Textual Criticism",
+      "themes": [
+        "General Textual Criticism",
+        "Original Text",
+        "Patristic Evidence",
+        "Pauline Textual Criticism",
+        "Scribal Changes",
+        "Textual Criticism Methods",
+        "Textual Variants"
+      ]
+    },
+    {
+      "name": "Manuscripts and Translation",
+      "themes": [
+        "Codex Sinaiticus",
+        "Hebrew Bible Manuscripts",
+        "Manuscript Dating",
+        "Manuscript Discoveries",
+        "New Testament Manuscripts",
+        "NRSV",
+        "Papyrus Egerton",
+        "Quran Fragments",
+        "Septuagint",
+        "Translation"
+      ]
+    },
+    {
+      "name": "Canon and Scripture",
+      "themes": [
+        "Biblical Discrepancies",
+        "Biblical Inerrancy",
+        "Canon",
+        "Christian Use of Scripture",
+        "Fulfillment Citations",
+        "General Epistles",
+        "New Covenant",
+        "Old Testament Apocrypha"
+      ]
+    },
+    {
+      "name": "Hebrew Bible and Early Judaism",
+      "themes": [
+        "Amos",
+        "Dead Sea Scrolls",
+        "Documentary Hypothesis",
+        "Early Judaism",
+        "Ecclesiastes",
+        "Essenes",
+        "Genesis",
+        "Isaiah",
+        "Jewish Law",
+        "Job",
+        "Pentateuch",
+        "Prophets"
+      ]
+    },
+    {
+      "name": "Gospels",
+      "themes": [
+        "Genealogy",
+        "Gospel of John",
+        "Gospel of Luke",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Gospel Writers",
+        "Gospels",
+        "Messianic Secret",
+        "Q",
+        "Redaction Criticism",
+        "Source Criticism",
+        "Synoptic Problem"
+      ]
+    },
+    {
+      "name": "Non-Canonical Texts",
+      "themes": [
+        "Apocalypse of Peter",
+        "Apocryphal Acts",
+        "Coptic Apocalypse of Peter",
+        "General Non-Canonical Gospels",
+        "Gospel of Jesus Wife",
+        "Gospel of Judas",
+        "Gospel of Mary",
+        "Gospel of Peter",
+        "Gospel of Pseudo-Matthew",
+        "Gospel of The Ebionites",
+        "Gospel of Thomas",
+        "Gospel of the Egyptians",
+        "Greater Questions of Mary",
+        "History of Joseph the Carpenter",
+        "Infancy Gospel of Thomas",
+        "Jewish Christian Gospels",
+        "Letter of Barnabas",
+        "Proto Gospel of James"
+      ]
+    },
+    {
+      "name": "Jesus",
+      "themes": [
+        "Birth Narrative",
+        "Historical Jesus Overview",
+        "Jesus Family",
+        "Jesus and Women",
+        "Messiah",
+        "Son of Man",
+        "Teachings of Jesus",
+        "Virgin Birth",
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "name": "New Testament Individuals",
+      "themes": [
+        "James the Brother of Jesus",
+        "John the Baptist",
+        "Judas Iscariot",
+        "Mary Magdalene",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "name": "Jesus Death and Resurrection",
+      "themes": [
+        "Burial",
+        "Crucifixion",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "name": "Paul and Pauline Christianity",
+      "themes": [
+        "Paul and Historical Jesus",
+        "Paul and Jewish Law",
+        "Paul and Opponents",
+        "Paul and Resurrection",
+        "Paul and Women",
+        "Paul in Acts",
+        "Pauline Biography",
+        "Pauline Communities",
+        "Pauline Conversion",
+        "Pauline Ethics",
+        "Pauline Letter Composition",
+        "Pauline Letters",
+        "Pauline Salvation Models",
+        "Philippians",
+        "Philippians Christ Poem"
+      ]
+    },
+    {
+      "name": "Acts and Christian Origins",
+      "themes": [
+        "Acts",
+        "Christian Community",
+        "Christian Exclusivity",
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "name": "Christology",
+      "themes": [
+        "Arianism",
+        "Christ as Angel",
+        "Christology",
+        "Incarnation"
+      ]
+    },
+    {
+      "name": "Salvation and Judgment",
+      "themes": [
+        "Atonement",
+        "Divine Judgment",
+        "Eternal Punishment",
+        "Free Will",
+        "Grace",
+        "Pauline Salvation Models",
+        "Predestination",
+        "Problem of Suffering",
+        "Salvation"
+      ]
+    },
+    {
+      "name": "Afterlife",
+      "themes": [
+        "Afterlife",
+        "Heaven",
+        "Hell",
+        "Purgatory",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "name": "Miracles and Supernatural Claims",
+      "themes": [
+        "Divine Beings",
+        "Existence of God",
+        "Miracles"
+      ]
+    },
+    {
+      "name": "Gnosticism and Heresy",
+      "themes": [
+        "Gnosticism",
+        "Heresy",
+        "Marcion",
+        "Nag Hammadi",
+        "Proto-Orthodoxy",
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "name": "Forgery and Authorship",
+      "themes": [
+        "Ancient Literary Forgery",
+        "Ancient Secretaries",
+        "Authorship",
+        "General Epistles Forgeries",
+        "Modern Forgeries",
+        "2 Thessalonians",
+        "Pauline Forgeries",
+        "Petrine Forgeries",
+        "Secret Gospel of Mark"
+      ]
+    },
+    {
+      "name": "Early Church History",
+      "themes": [
+        "Apostolic Fathers",
+        "Athanasius",
+        "Augustine",
+        "Church History",
+        "Constantine",
+        "Didache",
+        "Didymus the Blind",
+        "Early Christian Writings",
+        "Early Christianity",
+        "Edessa",
+        "Eusebius"
+      ]
+    },
+    {
+      "name": "Persecution and Martyrdom",
+      "themes": [
+        "Celsus",
+        "Julian",
+        "Martyrdom",
+        "Persecution"
+      ]
+    },
+    {
+      "name": "Ancient World Context",
+      "themes": [
+        "Ancient Literacy",
+        "Archaeology",
+        "Classical Comparisons",
+        "Greco-Roman Religion",
+        "Roman World",
+        "Social Class"
+      ]
+    },
+    {
+      "name": "Ethics and Social Issues",
+      "themes": [
+        "Anti-Judaism",
+        "Capitalism",
+        "Charity",
+        "Epidemics",
+        "Ethics",
+        "Health Care Thesis",
+        "Homosexuality",
+        "Wealth Teachings",
+        "Women in the Church"
+      ]
+    },
+    {
+      "name": "Memory and Oral Tradition",
+      "themes": [
+        "Eyewitness Reliability",
+        "Gospel Eyewitness Claims",
+        "Memory",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "name": "Historical Method and Scholarship",
+      "themes": [
+        "Debates",
+        "Demythologizing",
+        "Historical Method",
+        "Historicity",
+        "Scholarship"
+      ]
+    },
+    {
+      "name": "Books, Teaching, and Media",
+      "themes": [
+        "Book Publishing",
+        "Lecture",
+        "Media",
+        "Teaching",
+        "Textbooks",
+        "Trade Books",
+        "Writing Process"
+      ]
+    },
+    {
+      "name": "Bart's Books",
+      "themes": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "How Jesus Became God",
+        "Jesus Before the Gospels",
+        "Misquoting Jesus",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "name": "Personal and Blog Features",
+      "themes": [
+        "Blog Charities",
+        "In a Nutshell",
+        "Personal Autobiography",
+        "Personal Reflections"
+      ]
+    },
+    {
+      "name": "Modern Belief and Nonbelief",
+      "themes": [
+        "Agnosticism",
+        "Atheism",
+        "Deconversion",
+        "Fundamentalism"
+      ]
+    },
+    {
+      "name": "Named People and Sources",
+      "themes": [
+        "Alan Garrow",
+        "Bruce Metzger",
+        "Josephus",
+        "Papias"
+      ]
+    }
+  ]
+}
