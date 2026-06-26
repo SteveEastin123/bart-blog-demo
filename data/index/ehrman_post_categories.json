@@ -3,11 +3,15 @@
     {
       "name": "Textual Criticism",
       "themes": [
-        "Textual Criticism (General)",
+        "Bloody Sweat Textual Variant",
+        "Christological Textual Variants",
+        "Gnostic Textual Variants",
         "Original Text",
-        "Patristic Evidence",
+        "Patristic Textual Evidence",
         "Pauline Textual Criticism",
+        "Proto-Orthodox Textual Changes",
         "Scribal Changes",
+        "Textual Criticism (General)",
         "Textual Criticism Methods",
         "Textual Variants"
       ]
@@ -15,36 +19,47 @@
     {
       "name": "Manuscripts and Translations",
       "themes": [
+        "Bible Translations (General)",
         "Codex Sinaiticus",
+        "Dead Sea Scrolls",
+        "First-Century Mark",
         "Hebrew Bible Manuscripts",
+        "King James Version",
         "Manuscript Dating",
         "Manuscript Discoveries",
         "New Testament Manuscripts (General)",
-        "First-Century Mark",
         "NRSV",
         "Papyrus Egerton",
         "Quran Fragments",
         "Septuagint",
-        "Bible Translations",
         "Translation Process"
       ]
     },
     {
       "name": "Canon and Scripture",
       "themes": [
-        "Biblical Discrepancies",
+        "Biblical Contradictions (General)",
         "Biblical Inerrancy",
         "Canon",
         "Christian Use of Scripture",
         "Fulfillment Citations",
-        "New Covenant"
+        "Gospel Contradictions",
+        "Hebrew Bible Contradictions",
+        "Moral Problems in Scripture"
       ]
     },
     {
       "name": "Epistles",
       "themes": [
+        "2 Thessalonians",
         "General Epistles",
+        "General Epistles Authorship",
+        "General Epistles Forgeries",
+        "Pauline Authorship",
+        "Pauline Forgeries",
+        "Pauline Letter Composition",
         "Pauline Letters",
+        "Persecution in the Epistles",
         "Philippians",
         "Philippians Christ Poem"
       ]
@@ -59,6 +74,7 @@
         "Ecclesiastes",
         "Essenes",
         "Genesis",
+        "Hebrew Bible Authorship",
         "Isaiah",
         "Jewish Law",
         "Job",
@@ -71,19 +87,20 @@
       "name": "Canonical Gospels",
       "themes": [
         "Genealogy",
+        "Gospel Analysis Methods",
+        "Gospel Authorship",
+        "Gospel Composition",
+        "Gospel Dating",
+        "Gospel Historicity",
         "Gospel of John",
         "Gospel of Luke",
         "Gospel of Mark",
         "Gospel of Matthew",
         "Gospel Writers",
         "Gospels (General)",
-        "Gospel Dating",
-        "Gospel Composition",
-        "Gospel Historicity",
         "Messianic Secret",
         "Q",
-        "Synoptic Problem",
-        "Gospel Authorship"
+        "Synoptic Problem"
       ]
     },
     {
@@ -91,38 +108,41 @@
       "themes": [
         "Apocalypse of Peter",
         "Apocryphal Acts",
-        "Coptic Apocalypse of Peter",
-        "Non-Canonical Gospels (General)",
+        "Didache",
         "Gospel of Jesus Wife",
         "Gospel of Judas",
         "Gospel of Mary",
         "Gospel of Peter",
         "Gospel of Pseudo-Matthew",
-        "Gospel of The Ebionites",
-        "Gospel of Thomas",
+        "Gospel of the Ebionites",
         "Gospel of the Egyptians",
+        "Gospel of Thomas",
         "Greater Questions of Mary",
         "History of Joseph the Carpenter",
         "Infancy Gospel of Thomas",
         "Jewish Christian Gospels",
         "Letter of Barnabas",
-        "Proto Gospel of James",
-        "Didache"
+        "Non-Canonical Gospels (General)",
+        "Proto-Gospel of James"
       ]
     },
     {
       "name": "Jesus",
       "themes": [
+        "Apocalyptic Jesus",
         "Birth Narrative",
         "Historical Jesus Overview",
-        "Jesus Family",
+        "Historical Jesus Research Methods",
+        "Jesus and Wealth",
         "Jesus and Women",
+        "Jesus' Ethics",
+        "Jesus' Family",
+        "Jesus' Miracles",
+        "Jesus' Teachings",
         "Messiah",
         "Son of Man",
-        "Teachings of Jesus",
         "Virgin Birth",
-        "Zealot Hypothesis",
-        "Apocalyptic Jesus"
+        "Zealot Hypothesis"
       ]
     },
     {
@@ -132,6 +152,7 @@
         "John the Baptist",
         "Judas Iscariot",
         "Mary Magdalene",
+        "Mary Magdalene and Gnosticism",
         "Pontius Pilate"
       ]
     },
@@ -139,49 +160,56 @@
       "name": "Jesus' Death, Burial, and Resurrection",
       "themes": [
         "Burial of Jesus",
-        "Crucifixion of Jesus",
-        "Trial of Jesus",
-        "Roman Crucifixion Practices",
         "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Empty Tomb",
         "Passion Narratives",
-        "Resurrection of Jesus",
         "Resurrection Apologetics",
         "Resurrection Appearances",
-        "Empty Tomb",
-        "Resurrection Theology"
+        "Resurrection of Jesus",
+        "Resurrection Theology",
+        "Roman Crucifixion Practices",
+        "Trial of Jesus"
       ]
     },
     {
       "name": "Paul and Pauline Christianity",
       "themes": [
-        "Paul's Knowledge of Jesus",
+        "Paul and Crucifixion",
         "Paul and Jewish Law",
         "Paul and Opponents",
         "Paul and Resurrection",
         "Paul and Women",
         "Paul in Acts",
+        "Paul's Knowledge of Jesus",
+        "Pauline Apocalypticism",
+        "Pauline Authorship",
         "Pauline Biography",
         "Pauline Communities",
         "Pauline Conversion",
         "Pauline Ethics",
+        "Pauline Forgeries",
         "Pauline Letter Composition",
         "Pauline Letters",
         "Pauline Salvation Models",
+        "Pauline Textual Criticism",
         "Philippians",
-        "Philippians Christ Poem",
-        "Paul and Crucifixion"
+        "Philippians Christ Poem"
       ]
     },
     {
       "name": "Acts and Early Christianity",
       "themes": [
-        "Acts",
+        "Acts (General)",
+        "Acts Historicity",
         "Christian Community",
         "Christian Exclusivity",
         "Conversion",
-        "Rise of Christianity",
+        "Early Christian Diversity",
         "Early Christianity",
-        "Early Christian Diversity"
+        "Miracles in Acts",
+        "Paul in Acts",
+        "Rise of Christianity"
       ]
     },
     {
@@ -189,13 +217,14 @@
       "themes": [
         "Arianism",
         "Christ as Angel",
-        "Incarnation",
-        "Christology (General)",
-        "Jesus' Divine Status",
-        "Exaltation Christology",
-        "Early Christology",
-        "Christology in the Gospels",
         "Christological Textual Variants",
+        "Christology (General)",
+        "Christology in the Gospels",
+        "Early Christology",
+        "Exaltation Christology",
+        "Incarnation",
+        "Jesus' Divine Status",
+        "Luke-Acts Christology",
         "Philippians Christ Poem"
       ]
     },
@@ -207,83 +236,87 @@
         "Eternal Punishment",
         "Free Will",
         "Grace",
+        "Luke-Acts Atonement",
         "Pauline Salvation Models",
         "Predestination",
         "Salvation"
       ]
     },
     {
-      "name": "Suffering and Theodicy",
+      "name": "Suffering and Evil",
       "themes": [
-        "Problem of Suffering (General)",
-        "Job",
-        "Disasters and Suffering",
-        "Arguments About Suffering",
-        "Free Will and Suffering",
-        "Biblical Views of Suffering",
         "Afterlife and Suffering",
-        "Suffering and Deconversion"
+        "Arguments About Suffering",
+        "Biblical Views of Suffering",
+        "Disasters and Suffering",
+        "Free Will and Suffering",
+        "Job",
+        "Problem of Suffering (General)",
+        "Suffering and Loss of Faith"
       ]
     },
     {
       "name": "Afterlife",
       "themes": [
         "Afterlife (General)",
-        "Heaven and Hell",
-        "Heaven",
-        "Hell",
-        "Eternal Punishment",
-        "Purgatory",
-        "Sheol and Hades",
-        "Afterlife Journeys",
-        "Resurrection of the Dead",
-        "Afterlife in the Hebrew Bible",
+        "Afterlife and Suffering",
         "Afterlife Books and Media",
-        "Apocalypse of Peter"
+        "Afterlife in the Hebrew Bible",
+        "Afterlife Journeys",
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "Heaven",
+        "Heaven/Hell",
+        "Hell",
+        "Purgatory",
+        "Resurrection of the Dead",
+        "Rich and Poor in Afterlife",
+        "Sheol and Hades"
       ]
     },
     {
-      "name": "Apocalypticism",
+      "name": "Apocalypticism and Revelation",
       "themes": [
-        "Jewish Apocalypticism",
         "Apocalyptic Jesus",
+        "Jewish Apocalypticism",
         "Modern Apocalypticism",
-        "Pauline Apocalypticism"
+        "Pauline Apocalypticism",
+        "Revelation"
       ]
     },
     {
       "name": "Miracles",
       "themes": [
-        "Miracles (General)",
-        "Jesus' Miracles",
-        "Historical Study of Miracles",
-        "Miracle Claims and Apologetics",
-        "Signs in John",
-        "Miracles in Acts",
-        "Miracles and Conversion",
-        "Non-Canonical Miracle Stories",
-        "Healing and Exorcism Stories",
-        "Biblical Miracle Stories",
         "Ancient Miracle Workers",
+        "Biblical Miracle Stories",
+        "Healing and Exorcism Stories",
+        "Historical Study of Miracles",
+        "Jesus' Miracles",
         "Magic and Amulets",
-        "Miracles and Martyrdom"
+        "Miracle Claims and Apologetics",
+        "Miracles (General)",
+        "Miracles and Conversion",
+        "Miracles and Martyrdom",
+        "Miracles in Acts",
+        "Non-Canonical Miracle Stories",
+        "Signs in John"
       ]
     },
     {
       "name": "Gnosticism and Heresy",
       "themes": [
+        "Gnostic Textual Variants",
         "Gnosticism (General)",
-        "Proto-Orthodoxy (General)",
+        "Gnosticism and Proto-Orthodoxy",
+        "Gospel of Judas",
         "Heresy",
         "Marcion",
+        "Mary Magdalene and Gnosticism",
         "Nag Hammadi",
-        "Gnosticism and Proto-Orthodoxy",
         "Proto-Orthodox Textual Changes",
-        "Gnostic Textual Variants",
-        "Valentinian Gnostics",
+        "Proto-Orthodoxy (General)",
         "Sethian Gnostics",
-        "Gospel of Judas",
-        "Mary Magdalene and Gnosticism"
+        "Valentinian Gnostics"
       ]
     },
     {
@@ -292,7 +325,6 @@
         "Forgery (General)",
         "General Epistles Forgeries",
         "Modern Forgeries",
-        "2 Thessalonians",
         "Pauline Forgeries",
         "Petrine Forgeries",
         "Secret Gospel of Mark"
@@ -307,35 +339,39 @@
         "Church History",
         "Constantine",
         "Didymus the Blind",
+        "Early Christian Diversity",
         "Early Christian Writings",
         "Early Christianity",
         "Edessa",
         "Eusebius",
-        "Early Christian Diversity",
+        "Martyrdom of Polycarp",
         "Papias"
       ]
     },
     {
       "name": "Persecution and Martyrdom",
       "themes": [
-        "Martyrdom",
-        "Martyrdom of Polycarp",
-        "Martyrdom of Perpetua",
         "Apostolic Martyrdom",
-        "Persecution",
-        "Roman Persecution",
+        "Martyrdom (General)",
+        "Martyrdom of Perpetua",
+        "Martyrdom of Polycarp",
+        "Miracles and Martyrdom",
         "Paul and Persecution",
+        "Persecution (General)",
+        "Persecution and Christian Growth",
         "Persecution in the Epistles",
-        "Persecution and Christian Growth"
+        "Roman Persecution"
       ]
     },
     {
       "name": "Ancient World Context",
       "themes": [
         "Ancient Literacy",
+        "Ancient Wealth Ethics",
         "Archaeology",
-        "Classical Comparisons",
         "Greco-Roman Religion",
+        "Magic and Amulets",
+        "Roman Crucifixion Practices",
         "Roman World",
         "Social Class"
       ]
@@ -343,19 +379,22 @@
     {
       "name": "Ethics and Social Issues",
       "themes": [
+        "Ancient Wealth Ethics",
         "Anti-Judaism",
         "Charity",
-        "Ethics of Jesus",
-        "Moral Philosophy",
-        "Moral Problems in Scripture",
-        "Sexual and Reproductive Ethics",
-        "Pauline Ethics",
+        "Early Christian Views on Wealth",
         "Health Care",
         "Homosexuality",
         "Jesus and Wealth",
-        "Ancient Wealth Ethics",
+        "Jesus and Women",
+        "Jesus' Ethics",
+        "Moral Philosophy",
+        "Moral Problems in Scripture",
+        "Paul and Women",
+        "Pauline Ethics",
         "Rich and Poor in Afterlife",
-        "Early Christian Views on Wealth",
+        "Sexual and Reproductive Ethics",
+        "Social Class",
         "Women in Early Christianity"
       ]
     },
@@ -371,12 +410,21 @@
     {
       "name": "Historical Method and Scholarship",
       "themes": [
+        "Academic Life",
+        "Classical Comparisons",
+        "Critical Biblical Scholarship",
+        "Dating Ancient Texts",
         "Debates",
         "Demythologizing",
-        "Historical Method",
-        "Historicity",
+        "Gospel Analysis Methods",
+        "Hebrew Bible Historicity",
+        "Historical Jesus Research Methods",
+        "Historical Method (General)",
+        "History and Theology",
+        "Public Scholarship",
         "Redaction Criticism",
-        "Scholarship",
+        "Research and Publishing",
+        "Scholar Memorials",
         "Source Criticism"
       ]
     },
@@ -384,12 +432,17 @@
       "name": "Books, Teaching, and Media",
       "themes": [
         "Book Publishing",
-        "Lecture",
-        "Media",
-        "Teaching",
+        "Course and Lecture Announcements",
+        "General Audience Books",
+        "Media Attention",
+        "Podcast Interviews",
+        "Podcast Production",
+        "Print and Broadcast Interviews",
+        "Public Scholarship",
+        "Teaching and Courses",
         "Textbooks",
-        "Trade Books",
-        "Writing Process"
+        "Video Media",
+        "Writing and Research Process"
       ]
     },
     {
@@ -397,6 +450,7 @@
       "themes": [
         "Forged",
         "Forgery and Counterforgery",
+        "Heaven and Hell",
         "How Jesus Became God",
         "Jesus Before the Gospels",
         "Misquoting Jesus",
@@ -404,42 +458,51 @@
       ]
     },
     {
-      "name": "Personal and Blog Features",
+      "name": "Blog Features and Personal Posts",
       "themes": [
-        "Blog Charities",
-        "In a Nutshell",
-        "Personal Autobiography",
+        "Autobiographical Posts",
+        "Blog Fundraising and Charities",
+        "In a Nutshell Series",
         "Personal Reflections"
       ]
     },
     {
-      "name": "Modern Belief and Nonbelief",
+      "name": "Modern Faith and Nonbelief",
       "themes": [
         "Agnosticism",
         "Atheism",
         "Deconversion",
-        "Fundamentalism"
+        "Fundamentalism",
+        "Suffering and Loss of Faith"
       ]
     },
     {
-      "name": "Named People and Sources",
+      "name": "Historical Figures and Scholars",
       "themes": [
         "Alan Garrow",
+        "Athanasius",
+        "Augustine",
         "Bruce Metzger",
-        "Josephus"
+        "Celsus",
+        "Constantine",
+        "Didymus the Blind",
+        "Eusebius",
+        "Josephus",
+        "Marcion",
+        "Papias"
       ]
     },
     {
       "name": "Authorship",
       "themes": [
+        "Ancient Secretaries",
+        "Apostolic Fathers Attribution",
+        "General Epistles Authorship",
         "Gospel Authorship",
+        "Hebrew Bible Authorship",
         "Luke-Acts Authorship",
         "Pauline Authorship",
-        "General Epistles Authorship",
-        "Hebrew Bible Authorship",
-        "Revelation Authorship",
-        "Apostolic Fathers Attribution",
-        "Ancient Secretaries"
+        "Revelation Authorship"
       ]
     }
   ]
