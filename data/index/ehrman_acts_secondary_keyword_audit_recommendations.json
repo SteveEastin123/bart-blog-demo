@@ -1,0 +1,4845 @@
+{
+  "summary": {
+    "auditedSecondaryKeyword": "Acts (General)",
+    "totalArticlesAudited": 270,
+    "recommendationCounts": {
+      "remove_secondary_keyword": 212,
+      "replace_with_Acts": 58
+    },
+    "redundantBecausePrimaryActsTheme": 79,
+    "removeAsIncidentalOrTooBroad": 133,
+    "notes": [
+      "Do not keep Acts (General) as a secondary keyword.",
+      "Use plain Acts only where Acts is materially discussed and no primary Acts-related theme already covers the article.",
+      "Articles with primary themes such as Paul in Acts, Acts Historicity, Apocryphal Acts, Luke-Acts Authorship, Luke-Acts Atonement, Luke-Acts Christology, or Miracles in Acts are already searchable by Acts in the demo because keyword matching uses substring inclusion."
+    ]
+  },
+  "articles": [
+    {
+      "wpId": "49865",
+      "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+      "url": "https://ehrmanblog.org/doesnt-goodness-point-to-the-existence-of-god-and-gospel-preplexities-good-readers-questoins/",
+      "dateText": "May 31, 2026",
+      "themes": [
+        "Problem of Suffering (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 4,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 858
+    },
+    {
+      "wpId": "49820",
+      "title": "And the Miracles Just Keep on Comin’",
+      "url": "https://ehrmanblog.org/and-the-miracles-just-keep-on-comin/",
+      "dateText": "May 24, 2026",
+      "themes": [
+        "Conversion",
+        "Apocryphal Acts",
+        "Edessa",
+        "Miracles and Conversion",
+        "Non-Canonical Miracle Stories"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 7,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 6589
+    },
+    {
+      "wpId": "49814",
+      "title": "Why Christian Miracles Converted the Empire",
+      "url": "https://ehrmanblog.org/49814-2/",
+      "dateText": "May 21, 2026",
+      "themes": [
+        "Conversion",
+        "Greco-Roman Religion",
+        "Rise of Christianity",
+        "Miracles in Acts",
+        "Miracles and Conversion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 7,
+      "actsReferenceCount": 5,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3021
+    },
+    {
+      "wpId": "49744",
+      "title": "Some Important Readers’ Questions on Some Gospel Head-Scratchers",
+      "url": "https://ehrmanblog.org/some-important-readers-questions-on-some-gospel-head-scratchers/",
+      "dateText": "May 12, 2026",
+      "themes": [
+        "Gospels (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 593
+    },
+    {
+      "wpId": "49360",
+      "title": "Early Christian Views of Judaism, In a Nutshell",
+      "url": "https://ehrmanblog.org/early-christian-views-of-judaism-in-a-nutshell/",
+      "dateText": "March 26, 2026",
+      "themes": [
+        "In a Nutshell Series",
+        "Marcion",
+        "Jewish Law"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "49317",
+      "title": "The Letter to Diognetus: An Unknown Gem among the Apostolic Fathers (in a Nutshell)",
+      "url": "https://ehrmanblog.org/the-letter-to-diognetus-an-unknown-gem-among-the-apostolic-fathers-in-a-nutshell/",
+      "dateText": "March 19, 2026",
+      "themes": [
+        "Apostolic Fathers",
+        "In a Nutshell Series"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 7122
+    },
+    {
+      "wpId": "49110",
+      "title": "How Important Actually Was Paul (When Alive and After)?",
+      "url": "https://ehrmanblog.org/how-important-actually-was-paul-when-alive-and-after/",
+      "dateText": "March 8, 2026",
+      "themes": [
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5887
+    },
+    {
+      "wpId": "48986",
+      "title": "If It Wasn’t “For Your Sins” Why Did Jesus Die (according to Luke)?",
+      "url": "https://ehrmanblog.org/if-it-wasnt-for-your-sins-why-did-jesus-die-according-to-luke/",
+      "dateText": "February 21, 2026",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 2596
+    },
+    {
+      "wpId": "48614",
+      "title": "Rarely Asked Questions About Why THESE Letters of Paul Are in the Canon",
+      "url": "https://ehrmanblog.org/rarely-asked-questions-about-why-these-letters-of-paul-are-in-the-canon/",
+      "dateText": "January 3, 2026",
+      "themes": [
+        "Canon",
+        "Pauline Forgeries"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 7140
+    },
+    {
+      "wpId": "48120",
+      "title": "The Didache: An Important Early Christian Document in a Nutshell",
+      "url": "https://ehrmanblog.org/the-didache-an-important-early-christian-document-in-a-nutshell/",
+      "dateText": "November 19, 2025",
+      "themes": [
+        "In a Nutshell Series",
+        "Didache",
+        "Early Christian Views on Wealth"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "48081",
+      "title": "Why Would Anyone Claim Barnabas Wrote “The Epistle of Barnabas”?",
+      "url": "https://ehrmanblog.org/why-would-someone-claim-barnabas-wrote-the-epistle-of-barnabas/",
+      "dateText": "November 13, 2025",
+      "themes": [
+        "Marcion",
+        "Apostolic Fathers Attribution"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "48075",
+      "title": "The Epistle of Barnabas in a Nutshell (Part 1)",
+      "url": "https://ehrmanblog.org/the-epistle-of-barnabas-in-a-nutshell/",
+      "dateText": "November 11, 2025",
+      "themes": [
+        "In a Nutshell Series",
+        "Letter of Barnabas"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "48021",
+      "title": "Was 1 Clement Written BEFORE Some of the New Testament?",
+      "url": "https://ehrmanblog.org/was-1-clement-written-before-some-of-the-new-testament/",
+      "dateText": "November 6, 2025",
+      "themes": [
+        "Persecution (General)",
+        "Apostolic Fathers"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "47866",
+      "title": "Hebrews and James:  “At a Glance” and “Questions for Reflection”",
+      "url": "https://ehrmanblog.org/hebrews-and-james-at-a-glance-and-questions-for-reflection/",
+      "dateText": "October 23, 2025",
+      "themes": [
+        "General Epistles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "47590",
+      "title": "Book of Jude:  Who Wrote it?  When? And Why? (part 1)",
+      "url": "https://ehrmanblog.org/is-the-book-of-jude-a-forgery-first-considerations/",
+      "dateText": "September 27, 2025",
+      "themes": [
+        "James the Brother of Jesus",
+        "General Epistles",
+        "General Epistles Forgeries",
+        "General Epistles Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 81
+    },
+    {
+      "wpId": "47012",
+      "title": "1, 2, and 3 John: For Further Reading",
+      "url": "https://ehrmanblog.org/1-2-and-3-john-for-further-reading/",
+      "dateText": "September 18, 2025",
+      "themes": [
+        "General Epistles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "47000",
+      "title": "1 Thessalonians at a Glance, and Questions for Reflection",
+      "url": "https://ehrmanblog.org/1-thessalonians-at-a-glance-and-questions-for-reflection/",
+      "dateText": "September 3, 2025",
+      "themes": [
+        "Pauline Letters"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "46983",
+      "title": "For Further Reading on James, 1 Peter, and 2 Peter",
+      "url": "https://ehrmanblog.org/for-further-reading-on-james-1-peter-and-2-pete/",
+      "dateText": "August 26, 2025",
+      "themes": [
+        "General Epistles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "46975",
+      "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul",
+      "url": "https://ehrmanblog.org/why-an-author-claiming-to-be-peter-wanted-to-sound-like-paul/",
+      "dateText": "August 19, 2025",
+      "themes": [
+        "Petrine Forgeries",
+        "General Epistles Authorship",
+        "Persecution in the Epistles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 12,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4670
+    },
+    {
+      "wpId": "46974",
+      "title": "Is 1 Peter More Like 1 Paul?",
+      "url": "https://ehrmanblog.org/is-1-peter-more-like-1-paul/",
+      "dateText": "August 17, 2025",
+      "themes": [
+        "General Epistles",
+        "Petrine Forgeries"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used as a source/comparison for Paul.",
+      "actsCount": 7,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 3978
+    },
+    {
+      "wpId": "46973",
+      "title": "Why Does the Author of 1 Peter Sound Like Paul Instead of Peter?",
+      "url": "https://ehrmanblog.org/why-does-the-author-of-1-peter-sound-like-paul-instead-of-peter/",
+      "dateText": "August 16, 2025",
+      "themes": [
+        "General Epistles",
+        "Petrine Forgeries",
+        "General Epistles Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 12,
+      "actsReferenceCount": 10,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1562
+    },
+    {
+      "wpId": "46927",
+      "title": "The Letter to the Hebrews: In a Nutshell",
+      "url": "https://ehrmanblog.org/the-letter-to-the-hebrews-in-a-nutshell/",
+      "dateText": "July 22, 2025",
+      "themes": [
+        "In a Nutshell Series",
+        "Persecution in the Epistles",
+        "General Epistles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "46925",
+      "title": "The Death of Peter",
+      "url": "https://ehrmanblog.org/the-death-of-peter/",
+      "dateText": "July 20, 2025",
+      "themes": [
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2851
+    },
+    {
+      "wpId": "47283",
+      "title": "Paul’s Vision of Heaven and Hell",
+      "url": "https://ehrmanblog.org/pauls-vision-of-heaven-and-hell/",
+      "dateText": "July 10, 2025",
+      "themes": [
+        "Heaven",
+        "Heaven/Hell",
+        "Hell"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 3181
+    },
+    {
+      "wpId": "47276",
+      "title": "Paul and His Most Famous Woman Disciple",
+      "url": "https://ehrmanblog.org/paul-and-his-most-famous-woman-disciple/",
+      "dateText": "July 8, 2025",
+      "themes": [
+        "Apocryphal Acts",
+        "Women in Early Christianity",
+        "Paul and Women"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 6638
+    },
+    {
+      "wpId": "47266",
+      "title": "Another Puzzling Figure in the Hebrew Bible: Woman Wisdom?",
+      "url": "https://ehrmanblog.org/another-puzzling-figure-in-the-hebrew-bible-woman-wisdom/",
+      "dateText": "June 29, 2025",
+      "themes": [
+        "Divine Beings"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "url": "https://ehrmanblog.org/acts-of-the-jewish-christians-platinum-post/",
+      "dateText": "June 23, 2025",
+      "themes": [
+        "Christian Community"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1919
+    },
+    {
+      "wpId": "47234",
+      "title": "1 Thessalonians: Who, When, and Why",
+      "url": "https://ehrmanblog.org/1-thessalonians-who-when-and-why/",
+      "dateText": "June 1, 2025",
+      "themes": [
+        "Pauline Letters",
+        "Pauline Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 13,
+      "actsReferenceCount": 6,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2647
+    },
+    {
+      "wpId": "47223",
+      "title": "Interesting Questions from Readers",
+      "url": "https://ehrmanblog.org/interesting-questions-from-readers/",
+      "dateText": "May 29, 2025",
+      "themes": [
+        "Bible Translations (General)",
+        "Translation Process",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1232
+    },
+    {
+      "wpId": "47178",
+      "title": "How Do We Know the Chronology of Paul’s Life and Letters?",
+      "url": "https://ehrmanblog.org/how-do-we-know-the-chronology-of-pauls-life-and-letters/",
+      "dateText": "April 27, 2025",
+      "themes": [
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 12,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2489
+    },
+    {
+      "wpId": "47155",
+      "title": "1 Corinthians:  Who, When, and Why?",
+      "url": "https://ehrmanblog.org/1-corinthians-who-when-and-why/",
+      "dateText": "April 6, 2025",
+      "themes": [
+        "Social Class",
+        "Pauline Letters",
+        "Pauline Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 3,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 4165
+    },
+    {
+      "wpId": "47131",
+      "title": "The Letter to the Romans: Who, When, and Why?",
+      "url": "https://ehrmanblog.org/the-letter-to-the-romans-who-when-and-why/",
+      "dateText": "March 22, 2025",
+      "themes": [
+        "Pauline Letters",
+        "Pauline Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "47136",
+      "title": "New Course Announcement: The Other Doubting Thomases",
+      "url": "https://ehrmanblog.org/new-course-announcement-the-other-doubting-thomases/",
+      "dateText": "March 19, 2025",
+      "themes": [
+        "Resurrection of Jesus"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "47121",
+      "title": "The Life of Paul in a Nutshell",
+      "url": "https://ehrmanblog.org/the-life-of-paul-in-a-nutshell/",
+      "dateText": "March 15, 2025",
+      "themes": [
+        "In a Nutshell Series",
+        "Paul in Acts",
+        "Pauline Biography",
+        "Paul and Persecution"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2411
+    },
+    {
+      "wpId": "47118",
+      "title": "The Significance and Letters of Paul, in a Nutshell",
+      "url": "https://ehrmanblog.org/the-significance-and-letters-of-paul-in-a-nutshell/",
+      "dateText": "March 13, 2025",
+      "themes": [
+        "In a Nutshell Series",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4665
+    },
+    {
+      "wpId": "47113",
+      "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+      "url": "https://ehrmanblog.org/did-jesus-become-the-son-of-god-the-christology-of-acts/",
+      "dateText": "March 6, 2025",
+      "themes": [
+        "Incarnation",
+        "Exaltation Christology",
+        "Jesus' Divine Status",
+        "Luke-Acts Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 7,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5114
+    },
+    {
+      "wpId": "47112",
+      "title": "The Acts of the Apostles:  Who Wrote It, When, and Why?",
+      "url": "https://ehrmanblog.org/the-acts-of-the-apostles-who-wrote-it-when-and-why/",
+      "dateText": "March 4, 2025",
+      "themes": [
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 25,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 7574
+    },
+    {
+      "wpId": "47100",
+      "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+      "url": "https://ehrmanblog.org/the-gospel-of-john-who-wrote-it-when-and-why/",
+      "dateText": "February 20, 2025",
+      "themes": [
+        "Gospel of John",
+        "Ancient Literacy",
+        "Gospel Eyewitness Claims"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts is used only as evidence for another topic, not as a substantial topic.",
+      "actsCount": 2,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1459
+    },
+    {
+      "wpId": "47064",
+      "title": "Is the Gospel of Luke Anti-Jewish?",
+      "url": "https://ehrmanblog.org/is-the-gospel-of-luke-anti-jewish/",
+      "dateText": "February 2, 2025",
+      "themes": [
+        "Gospel of Luke"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4729
+    },
+    {
+      "wpId": "47063",
+      "title": "The Gospel of Luke: For Further Reading",
+      "url": "https://ehrmanblog.org/the-gospel-of-luke-for-further-reading/",
+      "dateText": "February 1, 2025",
+      "themes": [
+        "Gospel of Luke"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 8,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 6,
+      "actsSpanCharacters": 1682
+    },
+    {
+      "wpId": "47065",
+      "title": "The Gospel of Luke: Who Wrote It?  When?  And Why?",
+      "url": "https://ehrmanblog.org/the-gospel-of-luke-who-wrote-it-when-and-why/",
+      "dateText": "January 30, 2025",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 10,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 6076
+    },
+    {
+      "wpId": "47062",
+      "title": "The Gospel of Luke in a Nutshell",
+      "url": "https://ehrmanblog.org/the-gospel-of-luke-in-a-nutshell/",
+      "dateText": "January 29, 2025",
+      "themes": [
+        "Gospel of Luke",
+        "In a Nutshell Series",
+        "Jesus' Miracles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4274
+    },
+    {
+      "wpId": "47059",
+      "title": "The Gospel of Mark: Who, When, and Why",
+      "url": "https://ehrmanblog.org/the-gospel-of-mark-who-when-and-why/",
+      "dateText": "January 25, 2025",
+      "themes": [
+        "Gospel of Mark",
+        "Gospel Eyewitness Claims"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 3338
+    },
+    {
+      "wpId": "47043",
+      "title": "What Is The New Testament?  Can You Actually Say?",
+      "url": "https://ehrmanblog.org/what-is-the-new-testament-can-you-actually-say-some-essential-elements/",
+      "dateText": "January 12, 2025",
+      "themes": [
+        "Canon"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2608
+    },
+    {
+      "wpId": "41519",
+      "title": "Intriguing Questions and Attempted Answers!",
+      "url": "https://ehrmanblog.org/intriguing-questions-and-attempted-answers/",
+      "dateText": "November 21, 2024",
+      "themes": [
+        "Ignore"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Ignore-style article; Acts is not a central/search-worthy topic.",
+      "actsCount": 7,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2267
+    },
+    {
+      "wpId": "41062",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 4 by Angus Nisbet",
+      "url": "https://ehrmanblog.org/an-imagined-dialogue-for-the-dispute-between-paul-barnabas-in-acts-part-4-by-angus-nisbet/",
+      "dateText": "November 8, 2024",
+      "themes": [
+        "Jewish Law",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 12,
+      "actsReferenceCount": 9,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 6032
+    },
+    {
+      "wpId": "41058",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+      "url": "https://ehrmanblog.org/an-imagined-dialogue-for-the-dispute-between-paul-barnabas-in-acts-part-3-by-angus-nisbet/",
+      "dateText": "November 4, 2024",
+      "themes": [
+        "Christian Community",
+        "Jewish Law",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 5,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 11230
+    },
+    {
+      "wpId": "41054",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 2 by Angus Nisbet",
+      "url": "https://ehrmanblog.org/an-imagined-dialogue-for-the-dispute-between-paul-barnabas-in-acts-part-2-by-angus-nisbet/",
+      "dateText": "November 1, 2024",
+      "themes": [
+        "Christian Community",
+        "Jewish Law",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 7,
+      "actsReferenceCount": 6,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 8456
+    },
+    {
+      "wpId": "41050",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+      "url": "https://ehrmanblog.org/an-imagined-dialogue-for-the-dispute-between-paul-barnabas-in-acts-part-i-by-angus-nisbet/",
+      "dateText": "October 28, 2024",
+      "themes": [
+        "Jewish Law",
+        "Paul and Opponents",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 28,
+      "actsReferenceCount": 12,
+      "bookOfActsOrLukeActsCount": 6,
+      "actsSpanCharacters": 12729
+    },
+    {
+      "wpId": "40849",
+      "title": "Introducing the Old Testament Apocrypha",
+      "url": "https://ehrmanblog.org/introducing-the-old-testament-apocrypha/",
+      "dateText": "October 8, 2024",
+      "themes": [
+        "Septuagint",
+        "Old Testament Apocrypha"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "40440",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor",
+      "url": "https://ehrmanblog.org/the-quest-for-the-historical-paul-sorting-through-our-sources-part-2-by-dr-james-tabor/",
+      "dateText": "September 8, 2024",
+      "themes": [
+        "Paul and Persecution"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 25,
+      "actsReferenceCount": 8,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 12091
+    },
+    {
+      "wpId": "40436",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 1). Guest Post by James Tabor",
+      "url": "https://ehrmanblog.org/the-quest-for-the-historical-paul-sorting-through-our-sources-part-1-guest-post-by-james-tabor/",
+      "dateText": "September 7, 2024",
+      "themes": [
+        "Paul in Acts",
+        "Paul and Persecution"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 9,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 9533
+    },
+    {
+      "wpId": "40450",
+      "title": "Exaggerating the Numbers of Early Christians",
+      "url": "https://ehrmanblog.org/exaggerating-the-numbers-of-early-christians/",
+      "dateText": "September 3, 2024",
+      "themes": [
+        "Conversion",
+        "Rise of Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 8,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5055
+    },
+    {
+      "wpId": "40373",
+      "title": "How Fast Did Early Christianity Grow?  Doing the Math",
+      "url": "https://ehrmanblog.org/how-fast-did-early-christianity-grow-doing-the-math/",
+      "dateText": "August 28, 2024",
+      "themes": [
+        "Conversion",
+        "Early Christianity",
+        "Rise of Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "url": "https://ehrmanblog.org/more-lost-christianities/",
+      "dateText": "July 16, 2024",
+      "themes": [
+        "Non-Canonical Gospels (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in a broad/noncanonical-texts context rather than as a focused keyword.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 194
+    },
+    {
+      "wpId": "39850",
+      "title": "Does Altruism Even Exist?  Some Personal Reflections Based on a Crazy Anecdote",
+      "url": "https://ehrmanblog.org/does-altruism-even-exist-some-personal-reflections-based-on-a-crazy-anecdote/",
+      "dateText": "June 23, 2024",
+      "themes": [
+        "Personal Reflections",
+        "Charity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "38930",
+      "title": "Is the Paul of Acts at Odds with the Paul of His Own Letters?",
+      "url": "https://ehrmanblog.org/is-the-paul-of-acts-at-odds-with-the-paul-of-his-own-letters/",
+      "dateText": "April 10, 2024",
+      "themes": [
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 9,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 6444
+    },
+    {
+      "wpId": "38926",
+      "title": "Is the Message of Paul in Acts the Same as the Message of Paul According to Paul?",
+      "url": "https://ehrmanblog.org/is-the-message-of-paul-in-acts-the-same-as-the-message-of-paul-according-to-paul/",
+      "dateText": "April 9, 2024",
+      "themes": [
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 10,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 4418
+    },
+    {
+      "wpId": "38766",
+      "title": "A Self-Evaluation of My Self-Debate:  Is the Book of Acts Historically Reliable?",
+      "url": "https://ehrmanblog.org/a-self-evaluation-of-my-self-debate-is-the-book-of-acts-historically-reliable/",
+      "dateText": "March 24, 2024",
+      "themes": [
+        "Debates",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 10,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 6132
+    },
+    {
+      "wpId": "38758",
+      "title": "Is the Book of Acts Reliable?  The Affirmative REBUTTAL of the Negative Case",
+      "url": "https://ehrmanblog.org/is-the-book-of-acts-reliable-the-affirmative-rebuttal-of-the-negative-case/",
+      "dateText": "March 23, 2024",
+      "themes": [
+        "Debates",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 14,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 5787
+    },
+    {
+      "wpId": "38752",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative REBUTTAL of the Affirmative Case",
+      "url": "https://ehrmanblog.org/is-the-book-of-acts-historically-reliable-the-negative-rebuttal-of-the-affirmative-case/",
+      "dateText": "March 21, 2024",
+      "themes": [
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 11,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 6,
+      "actsSpanCharacters": 6530
+    },
+    {
+      "wpId": "38713",
+      "title": "The Book of Acts is NOT RELIABLE!  The Negative Case",
+      "url": "https://ehrmanblog.org/the-book-of-acts-is-not-reliable-the-negative-case/",
+      "dateText": "March 20, 2024",
+      "themes": [
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 18,
+      "actsReferenceCount": 5,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 7621
+    },
+    {
+      "wpId": "38806",
+      "title": "Announcing a FREE Course!  “Did Peter Hate Paul?”",
+      "url": "https://ehrmanblog.org/announcing-a-free-course-did-peter-hate-paul/",
+      "dateText": "March 19, 2024",
+      "themes": [
+        "Ignore"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Ignore-style article; Acts is not a central/search-worthy topic.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 2369
+    },
+    {
+      "wpId": "38667",
+      "title": "Arguments for “Historical Accuracy” That Are All Smoke and Mirrors.",
+      "url": "https://ehrmanblog.org/arguments-for-historical-accuracy-that-are-all-smoke-and-mirrors/",
+      "dateText": "March 17, 2024",
+      "themes": [
+        "Debates",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 4989
+    },
+    {
+      "wpId": "38718",
+      "title": "The Book of Acts IS HISTORICAL!  The Affirmative Argument",
+      "url": "https://ehrmanblog.org/the-book-of-acts-is-historical-the-affirmative-argument/",
+      "dateText": "March 16, 2024",
+      "themes": [
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 20,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 6,
+      "actsSpanCharacters": 7111
+    },
+    {
+      "wpId": "38658",
+      "title": "Who Cares if the Book of Acts is Historical??",
+      "url": "https://ehrmanblog.org/who-cares-if-the-book-of-acts-is-historical/",
+      "dateText": "March 14, 2024",
+      "themes": [
+        "Conversion",
+        "Miracles in Acts",
+        "Miracles and Conversion",
+        "Historical Study of Miracles",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 7,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 6010
+    },
+    {
+      "wpId": "38583",
+      "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+      "url": "https://ehrmanblog.org/the-heretic-marcion-and-forgeries-of-pauline-letters/",
+      "dateText": "March 3, 2024",
+      "themes": [
+        "Marcion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "38564",
+      "title": "Facts Hidden Among the Legends of the Apostle Paul?",
+      "url": "https://ehrmanblog.org/facts-hidden-among-the-legends-of-the-apostle-paul/",
+      "dateText": "March 2, 2024",
+      "themes": [
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 7,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 3798
+    },
+    {
+      "wpId": "37845",
+      "title": "Why Would an Editor ADD the Virgin Birth to Luke?",
+      "url": "https://ehrmanblog.org/why-would-an-editor-add-the-virgin-birth-to-luke/",
+      "dateText": "December 14, 2023",
+      "themes": [
+        "Virgin Birth",
+        "Christology in the Gospels"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 7,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 5093
+    },
+    {
+      "wpId": "37837",
+      "title": "Did Luke’s Gospel Originally Contain a Virgin Birth?",
+      "url": "https://ehrmanblog.org/did-lukes-gospel-originally-contain-a-virgin-birth/",
+      "dateText": "December 12, 2023",
+      "themes": [
+        "Virgin Birth",
+        "Gospel of Luke"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 5,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5002
+    },
+    {
+      "wpId": "37565",
+      "title": "How the Canon Itself Tames the Diversity of the New Testament",
+      "url": "https://ehrmanblog.org/how-the-canon-itself-tames-the-diversity-of-the-new-testament/",
+      "dateText": "November 22, 2023",
+      "themes": [
+        "Canon",
+        "Early Christian Diversity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "37435",
+      "title": "How Exactly Could the Virgin-Born Jesus Have a Twin Brother?",
+      "url": "https://ehrmanblog.org/how-exactly-could-the-virgin-born-jesus-have-a-twin-brother/",
+      "dateText": "November 12, 2023",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 667
+    },
+    {
+      "wpId": "37411",
+      "title": "Thomasine Gnostic Christians, and Sundry Others",
+      "url": "https://ehrmanblog.org/thomasine-gnostic-christians-and-sundry-others/",
+      "dateText": "November 7, 2023",
+      "themes": [
+        "Nag Hammadi",
+        "Gospel of Thomas"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 854
+    },
+    {
+      "wpId": "37167",
+      "title": "Another Mythicist View of Jesus’ Brothers",
+      "url": "https://ehrmanblog.org/another-mythicist-view-of-jesus-brothers/",
+      "dateText": "October 17, 2023",
+      "themes": [
+        "Apocryphal Acts",
+        "James the Brother of Jesus"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 5174
+    },
+    {
+      "wpId": "37067",
+      "title": "Did Luke Originally Have the Birth Narrative (chapters 1-2)?",
+      "url": "https://ehrmanblog.org/did-luke-originally-have-the-birth-narrative-chapters-1-2/",
+      "dateText": "October 5, 2023",
+      "themes": [
+        "Gospel of Luke",
+        "John the Baptist",
+        "Birth Narrative",
+        "Genealogy"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 4,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 309
+    },
+    {
+      "wpId": "36661",
+      "title": "Did Luke Read Galatians? Platinum Post by Guillermo Mondon",
+      "url": "https://ehrmanblog.org/did-luke-read-galatians-platinum-post-by-guillermo-mondon/",
+      "dateText": "September 22, 2023",
+      "themes": [
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 31,
+      "actsReferenceCount": 9,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 8575
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?",
+      "url": "https://ehrmanblog.org/want-to-study-the-early-christian-apocrypha/",
+      "dateText": "September 9, 2023",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 20,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2220
+    },
+    {
+      "wpId": "36599",
+      "title": "How To Be a Consistently Critical Historian, In the Good Sense",
+      "url": "https://ehrmanblog.org/how-to-be-a-consistently-critical-historian-in-the-good-sense/",
+      "dateText": "August 24, 2023",
+      "themes": [
+        "Historical Method (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "36333",
+      "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+      "url": "https://ehrmanblog.org/jesus-the-half-nabataean-prince-a-platinum-post-by-serene/",
+      "dateText": "July 31, 2023",
+      "themes": [
+        "John the Baptist"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts is used only as evidence for another topic, not as a substantial topic.",
+      "actsCount": 4,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 8227
+    },
+    {
+      "wpId": "36219",
+      "title": "Literary Problems with the Gospel Accounts of Jesus’ Burial",
+      "url": "https://ehrmanblog.org/literary-problems-with-the-gospel-accounts-of-jesus-burial/",
+      "dateText": "July 23, 2023",
+      "themes": [
+        "Gospel of Luke"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 7,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 3918
+    },
+    {
+      "wpId": "36118",
+      "title": "Vespasian Miracles. A Platinum Post by Ryan Fleming",
+      "url": "https://ehrmanblog.org/vespasian-miracles-a-platinum-post-by-ryan-fleming/",
+      "dateText": "July 10, 2023",
+      "themes": [
+        "Ancient Miracle Workers"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "36003",
+      "title": "What Is (Sexually) “Unnatural”?",
+      "url": "https://ehrmanblog.org/what-is-sexually-unnatural/",
+      "dateText": "July 6, 2023",
+      "themes": [
+        "Sexual and Reproductive Ethics"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "35878",
+      "title": "Did Paul Get Along with the Other Apostles?",
+      "url": "https://ehrmanblog.org/did-paul-get-along-with-the-other-apostles/",
+      "dateText": "June 29, 2023",
+      "themes": [
+        "Christian Community",
+        "Paul in Acts",
+        "Paul and Opponents"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 15,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 5534
+    },
+    {
+      "wpId": "35872",
+      "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+      "url": "https://ehrmanblog.org/after-paul-converted-does-the-book-of-acts-contradict-paul-himself/",
+      "dateText": "June 28, 2023",
+      "themes": [
+        "Biblical Contradictions (General)",
+        "Acts Historicity",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 16,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 5037
+    },
+    {
+      "wpId": "35865",
+      "title": "Was Paul Authorized to Persecute Christians?",
+      "url": "https://ehrmanblog.org/was-paul-authorized-to-persecute-christians/",
+      "dateText": "June 27, 2023",
+      "themes": [
+        "Paul and Persecution",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 15,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 3982
+    },
+    {
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "url": "https://ehrmanblog.org/did-the-twelve-become-only-three-platinum-post-by-douglas-wadeson-md-2/",
+      "dateText": "June 22, 2023",
+      "themes": [
+        "Early Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in the conversion/growth discussion.",
+      "actsCount": 6,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5985
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "url": "https://ehrmanblog.org/did-the-twelve-become-only-three-platinum-post-by-douglas-wadeson-md/",
+      "dateText": "May 3, 2023",
+      "themes": [
+        "Early Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in the conversion/growth discussion.",
+      "actsCount": 6,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5985
+    },
+    {
+      "wpId": "34597",
+      "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+      "url": "https://ehrmanblog.org/what-do-the-apostles-deaths-prove-guest-post-by-kyle-smith/",
+      "dateText": "March 12, 2023",
+      "themes": [
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 3,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1421
+    },
+    {
+      "wpId": "34145",
+      "title": "An Intriguing Anti-Jewish Variant:  Did Jesus Pray “Father forgive them”?",
+      "url": "https://ehrmanblog.org/an-intriguing-anti-jewish-variant-did-jesus-pray-father-forgive-them/",
+      "dateText": "February 9, 2023",
+      "themes": [
+        "Gospel of Luke",
+        "Anti-Judaism",
+        "Textual Variants"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 11,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5180
+    },
+    {
+      "wpId": "34121",
+      "title": "New Testament Manuscripts That Reveal Later Theological Controversies",
+      "url": "https://ehrmanblog.org/new-testament-manuscripts-that-reveal-later-theological-controversies/",
+      "dateText": "February 7, 2023",
+      "themes": [
+        "Proto-Orthodox Textual Changes"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 8,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 8259
+    },
+    {
+      "wpId": "33985",
+      "title": "Is the Martyrdom of Polycarp an Authentic Account?",
+      "url": "https://ehrmanblog.org/is-the-martyrdom-of-polycarp-an-authentic-account/",
+      "dateText": "January 28, 2023",
+      "themes": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "33974",
+      "title": "The First Christian Martyr Text?",
+      "url": "https://ehrmanblog.org/the-first-christian-martyr-text/",
+      "dateText": "January 24, 2023",
+      "themes": [
+        "Martyrdom of Polycarp"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 3,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1534
+    },
+    {
+      "wpId": "33402",
+      "title": "Forgeries in the Names of the Apostles: Some of the Most Interesting",
+      "url": "https://ehrmanblog.org/forgeries-in-the-names-of-the-apostles-some-of-the-most-interesting/",
+      "dateText": "December 11, 2022",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in a broad/noncanonical-texts context rather than as a focused keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2221
+    },
+    {
+      "wpId": "33106",
+      "title": "Suffering, Evil, and the Range Effect  Platinum Guest Post by Dennis J. Folds, Ph.D.",
+      "url": "https://ehrmanblog.org/suffering-evil-and-the-range-effect-platinum-guest-post-by-dennis-j-folds-ph-d/",
+      "dateText": "October 17, 2022",
+      "themes": [
+        "Problem of Suffering (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "32964",
+      "title": "What Serious Research Projects Can Undergraduates Do in Early Christianity?",
+      "url": "https://ehrmanblog.org/what-serious-research-projects-can-undergraduates-do-in-early-christianity/",
+      "dateText": "October 5, 2022",
+      "themes": [
+        "Academic Life"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in discussion of academic work rather than as the article topic.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 1265
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "url": "https://ehrmanblog.org/understanding-the-gospels-suggested-readings/",
+      "dateText": "September 27, 2022",
+      "themes": [
+        "Gospels (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1752
+    },
+    {
+      "wpId": "32739",
+      "title": "Is There Anything “Religious” about “Ethics”?",
+      "url": "https://ehrmanblog.org/is-there-anything-religious-about-ethics/",
+      "dateText": "September 11, 2022",
+      "themes": [
+        "Early Judaism",
+        "Greco-Roman Religion",
+        "Moral Philosophy"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "32404",
+      "title": "You Don’t Think Peter Wrote 1 and 2 Peter?",
+      "url": "https://ehrmanblog.org/you-dont-think-peter-wrote-1-and-2-peter/",
+      "dateText": "August 9, 2022",
+      "themes": [
+        "General Epistles",
+        "Petrine Forgeries"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "31774",
+      "title": "Does Luke Have Contradictory Views of the Atonement?",
+      "url": "https://ehrmanblog.org/does-luke-have-contradictory-views-of-the-atonement/",
+      "dateText": "July 7, 2022",
+      "themes": [
+        "Gospel of Luke",
+        "Gospel Contradictions",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 12,
+      "actsReferenceCount": 8,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 6733
+    },
+    {
+      "wpId": "31770",
+      "title": "If Jesus’ Death Was Not an Atonement: Why Did He Die??",
+      "url": "https://ehrmanblog.org/if-jesus-death-was-not-an-atonement-why-did-he-die/",
+      "dateText": "July 6, 2022",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 2593
+    },
+    {
+      "wpId": "31755",
+      "title": "What Did Jesus Say at the Last Supper?",
+      "url": "https://ehrmanblog.org/what-did-jesus-say-at-the-last-supper/",
+      "dateText": "July 2, 2022",
+      "themes": [
+        "Gospel of Luke",
+        "Proto-Orthodox Textual Changes",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1094
+    },
+    {
+      "wpId": "31948",
+      "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+      "url": "https://ehrmanblog.org/which-james-in-galatians-platinum-guest-post-by-gregory-hartzler-miller/",
+      "dateText": "July 2, 2022",
+      "themes": [
+        "James the Brother of Jesus",
+        "Pauline Letters"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 11,
+      "actsReferenceCount": 8,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 4531
+    },
+    {
+      "wpId": "31498",
+      "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+      "url": "https://ehrmanblog.org/gospel-contradictions-my-debate-with-rev-matthew-firth/",
+      "dateText": "June 23, 2022",
+      "themes": [
+        "Debates",
+        "Gospel Contradictions",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 791
+    },
+    {
+      "wpId": "30972",
+      "title": "You Mean Everyone (Except the Truly Destitute) Needs to Give? But How Much?",
+      "url": "https://ehrmanblog.org/you-mean-everyone-except-the-truly-destitute-needs-to-give-but-how-much/",
+      "dateText": "June 2, 2022",
+      "themes": [
+        "Charity",
+        "Early Christian Views on Wealth"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1621
+    },
+    {
+      "wpId": "30969",
+      "title": "A Christian NDE and the Problem with Being Filthy Rich",
+      "url": "https://ehrmanblog.org/a-christian-nde-and-the-problem-with-being-filthy-rich/",
+      "dateText": "June 1, 2022",
+      "themes": [
+        "Rich and Poor in Afterlife",
+        "Afterlife Journeys"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 4580
+    },
+    {
+      "wpId": "30975",
+      "title": "Thomas’s Trip to India and the Problem of Wealth",
+      "url": "https://ehrmanblog.org/thomass-trip-to-india-and-the-problem-of-wealth/",
+      "dateText": "May 31, 2022",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 9,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 3055
+    },
+    {
+      "wpId": "15168",
+      "title": "Why Are The Gospels Called Matthew, Mark, Luke, and John?",
+      "url": "https://ehrmanblog.org/why-are-the-gospels-called-matthew-mark-luke-and-john/",
+      "dateText": "April 29, 2022",
+      "themes": [
+        "Gospel of Mark",
+        "Luke-Acts Authorship",
+        "Gospel Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 1050
+    },
+    {
+      "wpId": "12656",
+      "title": "How Can Paul Say that Jesus Appeared to The Twelve?",
+      "url": "https://ehrmanblog.org/how-can-paul-say-that-jesus-appeared-to-the-twelve/",
+      "dateText": "April 12, 2022",
+      "themes": [
+        "Judas Iscariot",
+        "Resurrection Appearances",
+        "Paul's Knowledge of Jesus",
+        "Paul and Resurrection"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 4,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 5470
+    },
+    {
+      "wpId": "29925",
+      "title": "Fabrication, Forgery, and Accusations of (Heretical) Christian Licentious Rituals!",
+      "url": "https://ehrmanblog.org/fabrication-forgery-and-accusations-of-heretical-christian-licentious-rituals/",
+      "dateText": "April 12, 2022",
+      "themes": [
+        "Mary Magdalene",
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "29117",
+      "title": "What If Damascus Was In Arabia?  Solving a Dilemma in the Life of Paul.  Platinum Guest Post by Gregory Hartzler-Miller",
+      "url": "https://ehrmanblog.org/what-if-damascus-was-in-arabia-solving-a-dilemma-in-the-life-of-paul-platinum-guest-post-by-gregory-hartzler-miller/",
+      "dateText": "February 25, 2022",
+      "themes": [
+        "Pauline Conversion",
+        "Pauline Biography"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 9,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 3396
+    },
+    {
+      "wpId": "28747",
+      "title": "How Important Was Paul, Actually, For Early Christianity?",
+      "url": "https://ehrmanblog.org/how-important-was-paul-actually-for-early-christianity/",
+      "dateText": "January 30, 2022",
+      "themes": [
+        "Early Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used as a source/comparison for Paul.",
+      "actsCount": 6,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2921
+    },
+    {
+      "wpId": "27743",
+      "title": "A Solution to a Major Anomaly in the Study of Paul: Guest Post by Richard Fellows",
+      "url": "https://ehrmanblog.org/a-solution-to-a-major-anomaly-in-the-study-of-paul-guest-post-by-richard-fellows/",
+      "dateText": "October 27, 2021",
+      "themes": [
+        "Jewish Law",
+        "Paul and Jewish Law"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 12,
+      "actsReferenceCount": 6,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 7697
+    },
+    {
+      "wpId": "27447",
+      "title": "Was Peter Crucified Upside Down?",
+      "url": "https://ehrmanblog.org/was-peter-crucified-upside-down/",
+      "dateText": "September 21, 2021",
+      "themes": [
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2977
+    },
+    {
+      "wpId": "27206",
+      "title": "Student Papers for “The Birth of Christianity”",
+      "url": "https://ehrmanblog.org/student-papers-for-the-birth-of-christianity/",
+      "dateText": "September 4, 2021",
+      "themes": [
+        "Teaching and Courses"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 500
+    },
+    {
+      "wpId": "27182",
+      "title": "Was Paul Really at Odds with Peter and James?  Guest Post by Richard Fellows",
+      "url": "https://ehrmanblog.org/was-paul-really-at-odds-with-peter-and-james-guest-post-by-richard-fellows/",
+      "dateText": "September 2, 2021",
+      "themes": [
+        "Conversion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 7,
+      "actsReferenceCount": 6,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1418
+    },
+    {
+      "wpId": "27060",
+      "title": "Destroy More Others!  The Israelites’ Conquest of the City Ai",
+      "url": "https://ehrmanblog.org/destroy-more-others-the-israelites-conquest-of-the-city-ai/",
+      "dateText": "August 24, 2021",
+      "themes": [
+        "Divine Judgment",
+        "Moral Problems in Scripture"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "26922",
+      "title": "God is Holy and You Better Worship Him!",
+      "url": "https://ehrmanblog.org/god-is-holy-and-you-better-worship-him/",
+      "dateText": "August 11, 2021",
+      "themes": [
+        "Divine Judgment",
+        "Jewish Law"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "26081",
+      "title": "Jesus’ Final Speech in John:  A Lead-up to the Coming of the Spirit",
+      "url": "https://ehrmanblog.org/jesus-final-speech-in-john-a-lead-up-to-the-coming-of-the-spirit/",
+      "dateText": "June 6, 2021",
+      "themes": [
+        "Trinity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "26011",
+      "title": "The Spirit in the Life of Jesus",
+      "url": "https://ehrmanblog.org/the-spirit-in-the-life-of-jesus/",
+      "dateText": "June 2, 2021",
+      "themes": [
+        "Miracles in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 2936
+    },
+    {
+      "wpId": "25919",
+      "title": "The Holy Spirit in Charge of the Church (?)",
+      "url": "https://ehrmanblog.org/the-holy-spirit-in-charge-of-the-church/",
+      "dateText": "June 1, 2021",
+      "themes": [
+        "Christian Community"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 47
+    },
+    {
+      "wpId": "25906",
+      "title": "The Coming of the Spirit on the Day of Pentecost",
+      "url": "https://ehrmanblog.org/the-coming-of-the-spirit-on-the-day-of-pentecost/",
+      "dateText": "May 29, 2021",
+      "themes": [
+        "Miracles in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3508
+    },
+    {
+      "wpId": "25879",
+      "title": "Paul’s (Misunderstood) Message to His Corinthian Converts",
+      "url": "https://ehrmanblog.org/pauls-misunderstood-message-to-his-corinthian-converts/",
+      "dateText": "May 22, 2021",
+      "themes": [
+        "Christian Community",
+        "Pauline Communities"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "25875",
+      "title": "How Paul Started the Church in Corinth",
+      "url": "https://ehrmanblog.org/how-paul-started-the-church-in-corinth/",
+      "dateText": "May 20, 2021",
+      "themes": [
+        "Social Class"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 352
+    },
+    {
+      "wpId": "25517",
+      "title": "Was Paul Peter’s Enemy?",
+      "url": "https://ehrmanblog.org/was-paul-peters-enemy/",
+      "dateText": "May 4, 2021",
+      "themes": [
+        "Paul and Opponents"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used as a source/comparison for Paul.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3494
+    },
+    {
+      "wpId": "25709",
+      "title": "Paul’s Community at Corinth",
+      "url": "https://ehrmanblog.org/pauls-community-at-corinth/",
+      "dateText": "April 16, 2021",
+      "themes": [
+        "Christian Community",
+        "Social Class",
+        "Pauline Communities"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used as a source/comparison for Paul.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3988
+    },
+    {
+      "wpId": "25178",
+      "title": "Fifty Ways to Forge a Gospel",
+      "url": "https://ehrmanblog.org/fifty-ways-to-forge-a-gospel-2/",
+      "dateText": "April 14, 2021",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in a broad/noncanonical-texts context rather than as a focused keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1499
+    },
+    {
+      "wpId": "24590",
+      "title": "Did the Disciples See Jesus Raised from the Dead?",
+      "url": "https://ehrmanblog.org/did-the-disciples-see-jesus-raised-from-the-dead/",
+      "dateText": "April 4, 2021",
+      "themes": [
+        "Resurrection Appearances"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 2650
+    },
+    {
+      "wpId": "24557",
+      "title": "Did Marcion Know the Gospels or Not??",
+      "url": "https://ehrmanblog.org/did-marcion-know-the-gospels-or-not/",
+      "dateText": "March 24, 2021",
+      "themes": [
+        "Gospel of Luke",
+        "Marcion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 562
+    },
+    {
+      "wpId": "24563",
+      "title": "Two More Live Lectures on Sunday, one of them very strange….",
+      "url": "https://ehrmanblog.org/two-more-live-lectures-on-sunday-one-of-them-very-strange/",
+      "dateText": "March 12, 2021",
+      "themes": [
+        "Ignore"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Ignore-style article; Acts is not a central/search-worthy topic.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 493
+    },
+    {
+      "wpId": "23935",
+      "title": "Does Luke Present Different (Inconsistent!) Views of Christ?",
+      "url": "https://ehrmanblog.org/does-luke-present-different-inconsistent-views-of-christ/",
+      "dateText": "February 18, 2021",
+      "themes": [
+        "Gospel Contradictions",
+        "Christology in the Gospels",
+        "Luke-Acts Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5337
+    },
+    {
+      "wpId": "23386",
+      "title": "The Oldest View of Christ:  Found in Only One Greek Manuscript of Luke!",
+      "url": "https://ehrmanblog.org/the-oldest-view-of-christ-found-in-only-one-greek-manuscript-of-luke/",
+      "dateText": "February 4, 2021",
+      "themes": [
+        "Gospel of Luke"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in a Luke/Luke-Acts comparison.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5699
+    },
+    {
+      "wpId": "23381",
+      "title": "When Did Jesus Become Divine?",
+      "url": "https://ehrmanblog.org/when-did-jesus-become-divine/",
+      "dateText": "February 3, 2021",
+      "themes": [
+        "Trinity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "23292",
+      "title": "Very Early Understandings of Christ in A Later Book of the NT",
+      "url": "https://ehrmanblog.org/very-early-understandings-of-christ-in-a-later-book-of-the-nt/",
+      "dateText": "February 2, 2021",
+      "themes": [
+        "Early Christology",
+        "Luke-Acts Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 1478
+    },
+    {
+      "wpId": "21421",
+      "title": "Who Would Die for a Lie?",
+      "url": "https://ehrmanblog.org/who-would-die-for-a-lie/",
+      "dateText": "October 12, 2020",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 574
+    },
+    {
+      "wpId": "21403",
+      "title": "John, the Bedbugs, and Miracles that Convert",
+      "url": "https://ehrmanblog.org/john-the-bedbugs-and-miracles-that-convert/",
+      "dateText": "October 8, 2020",
+      "themes": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Miracles and Conversion",
+        "Non-Canonical Miracle Stories"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 11,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5650
+    },
+    {
+      "wpId": "21385",
+      "title": "Hard Evidence that the Book of Acts was Written by an Eyewitness?",
+      "url": "https://ehrmanblog.org/hard-evidence-that-the-book-of-acts-was-written-by-an-eyewitness/",
+      "dateText": "October 4, 2020",
+      "themes": [
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 11,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 9517
+    },
+    {
+      "wpId": "21355",
+      "title": "A Gospel of Nicodemus?",
+      "url": "https://ehrmanblog.org/a-gospel-of-nicodemus/",
+      "dateText": "September 30, 2020",
+      "themes": [
+        "Trial of Jesus",
+        "Pontius Pilate"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 7,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 7366
+    },
+    {
+      "wpId": "21300",
+      "title": "Jesus’ Twin Brother?  Really?  Readers’ Mailbag",
+      "url": "https://ehrmanblog.org/jesus-twin-brother-really-readers-mailbag/",
+      "dateText": "September 21, 2020",
+      "themes": [
+        "Apocryphal Acts",
+        "Gospel of Thomas"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 777
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "url": "https://ehrmanblog.org/my-early-christian-apocrypha-seminar/",
+      "dateText": "August 24, 2020",
+      "themes": [
+        "Non-Canonical Gospels (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 28,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 13257
+    },
+    {
+      "wpId": "21054",
+      "title": "Will “All Israel” Be Saved? Really?  Guest Post by Jason Staples",
+      "url": "https://ehrmanblog.org/will-all-israel-be-saved-really-guest-post-by-jason-staples/",
+      "dateText": "August 3, 2020",
+      "themes": [
+        "Salvation"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 5,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 651
+    },
+    {
+      "wpId": "21016",
+      "title": "A Very Odd Story about the Baby Jesus",
+      "url": "https://ehrmanblog.org/a-very-odd-story-about-the-baby-jesus/",
+      "dateText": "July 29, 2020",
+      "themes": [
+        "Proto-Gospel of James",
+        "Birth Narrative"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "20997",
+      "title": "Why Do Are So Many Textual Critics Evangelicals?   Readers’ Mailbag.",
+      "url": "https://ehrmanblog.org/why-do-are-so-many-textual-critics-evangelicals-readers-mailbag/",
+      "dateText": "July 26, 2020",
+      "themes": [
+        "Textual Criticism Methods"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "20725",
+      "title": "Yet Other Accounts Of the Death of Judas",
+      "url": "https://ehrmanblog.org/yet-other-accounts-of-the-death-of-judas/",
+      "dateText": "June 9, 2020",
+      "themes": [
+        "Judas Iscariot",
+        "Papias"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is one of the main sources for the Judas-death discussion.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1766
+    },
+    {
+      "wpId": "20717",
+      "title": "But How Did Judas Die?",
+      "url": "https://ehrmanblog.org/but-how-did-judas-die/",
+      "dateText": "June 8, 2020",
+      "themes": [
+        "Judas Iscariot",
+        "Gospel of Matthew"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 7,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2974
+    },
+    {
+      "wpId": "17521",
+      "title": "So: Was Luke Luke?",
+      "url": "https://ehrmanblog.org/so-was-luke-luke/",
+      "dateText": "January 19, 2020",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 14,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 5859
+    },
+    {
+      "wpId": "17518",
+      "title": "Does the Book of Acts Accurately Record Paul’s Teachings?",
+      "url": "https://ehrmanblog.org/does-the-book-of-acts-accurately-record-pauls-teachings/",
+      "dateText": "January 17, 2020",
+      "themes": [
+        "Acts Historicity",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 14,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 4860
+    },
+    {
+      "wpId": "17515",
+      "title": "Did *Any* Companion of Paul Write Luke and Acts?",
+      "url": "https://ehrmanblog.org/did-any-companion-of-paul-write-luke-and-acts/",
+      "dateText": "January 17, 2020",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 22,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 8,
+      "actsSpanCharacters": 8462
+    },
+    {
+      "wpId": "17501",
+      "title": "Does the Author of Acts Identify Himself?",
+      "url": "https://ehrmanblog.org/does-the-author-of-acts-identify-himself/",
+      "dateText": "January 13, 2020",
+      "themes": [
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 9,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 6779
+    },
+    {
+      "wpId": "17487",
+      "title": "Problems with Thinking That Luke Wrote Luke (and Acts)",
+      "url": "https://ehrmanblog.org/problems-with-thinking-that-luke-wrote-luke-and-acts/",
+      "dateText": "January 8, 2020",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 6945
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?",
+      "url": "https://ehrmanblog.org/did-luke-really-write-luke-and-the-book-of-acts/",
+      "dateText": "January 5, 2020",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 21,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 8,
+      "actsSpanCharacters": 5989
+    },
+    {
+      "wpId": "17411",
+      "title": "The Life and Message of Paul",
+      "url": "https://ehrmanblog.org/the-life-and-message-of-paul/",
+      "dateText": "December 28, 2019",
+      "themes": [
+        "Pauline Biography"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 3623
+    },
+    {
+      "wpId": "17368",
+      "title": "Guided Tours of Heaven and Hell in a Christian Mode",
+      "url": "https://ehrmanblog.org/guided-tours-of-heaven-and-hell-in-a-christian-mode/",
+      "dateText": "December 21, 2019",
+      "themes": [
+        "Heaven",
+        "Heaven/Hell"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 3273
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "url": "https://ehrmanblog.org/what-is-the-new-testament-a-broad-overview/",
+      "dateText": "November 5, 2019",
+      "themes": [
+        "Early Christian Writings"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 7,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4731
+    },
+    {
+      "wpId": "16873",
+      "title": "Why Would Jesus’ Disciples Doubt the Resurrection?",
+      "url": "https://ehrmanblog.org/why-would-jesus-disciples-doubt-the-resurrection/",
+      "dateText": "October 14, 2019",
+      "themes": [
+        "Resurrection Appearances",
+        "Empty Tomb",
+        "Mary Magdalene"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2460
+    },
+    {
+      "wpId": "16473",
+      "title": "How Views of the Afterlife Changed",
+      "url": "https://ehrmanblog.org/how-views-of-the-afterlife-changed/",
+      "dateText": "August 14, 2019",
+      "themes": [
+        "Eternal Punishment",
+        "Heaven/Hell"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 3194
+    },
+    {
+      "wpId": "16467",
+      "title": "Who Has The Answer For a Happy Afterlife?",
+      "url": "https://ehrmanblog.org/who-has-the-answer-for-a-happy-afterlife/",
+      "dateText": "August 13, 2019",
+      "themes": [
+        "Afterlife (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 4399
+    },
+    {
+      "wpId": "16425",
+      "title": "Some Very Strange Journeys to Heaven and Hell",
+      "url": "https://ehrmanblog.org/some-very-strange-journeys-to-heaven-and-hell/",
+      "dateText": "August 7, 2019",
+      "themes": [
+        "Heaven",
+        "Heaven/Hell"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 574
+    },
+    {
+      "wpId": "16381",
+      "title": "My Current Research Projects, 7/2019",
+      "url": "https://ehrmanblog.org/my-current-research-projects-7-2019/",
+      "dateText": "July 29, 2019",
+      "themes": [
+        "Research and Publishing"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 230
+    },
+    {
+      "wpId": "16375",
+      "title": "Does the Book of James Have the Same Concerns as the Historical James?",
+      "url": "https://ehrmanblog.org/does-the-book-of-james-have-the-same-concerns-as-the-historical-james/",
+      "dateText": "July 26, 2019",
+      "themes": [
+        "James the Brother of Jesus",
+        "General Epistles",
+        "Jewish Law"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 442
+    },
+    {
+      "wpId": "16236",
+      "title": "Did Paul Really Write 2 Thessalonians?",
+      "url": "https://ehrmanblog.org/did-paul-really-write-2-thessalonians/",
+      "dateText": "June 7, 2019",
+      "themes": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 183
+    },
+    {
+      "wpId": "16130",
+      "title": "Contradictions in the Gospels – Rev Matthew Firth’s Final Response",
+      "url": "https://ehrmanblog.org/contradictions-in-the-gospels-rev-matthew-firths-final-response/",
+      "dateText": "May 12, 2019",
+      "themes": [
+        "Gospel Contradictions"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2667
+    },
+    {
+      "wpId": "16109",
+      "title": "Contradictions and Contradictions: Final Response to Matt Firth",
+      "url": "https://ehrmanblog.org/contradictions-and-contradictions-final-response-to-matt-firth/",
+      "dateText": "May 3, 2019",
+      "themes": [
+        "Resurrection of Jesus",
+        "Gospel Contradictions"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 6,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 4438
+    },
+    {
+      "wpId": "16100",
+      "title": "Contradictions in the Gospels – Rev Matthew Firth’s Second Response",
+      "url": "https://ehrmanblog.org/contradictions-in-the-gospels-rev-matthew-firths-second-response/",
+      "dateText": "April 28, 2019",
+      "themes": [
+        "Debates",
+        "Gospel Contradictions"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 128
+    },
+    {
+      "wpId": "16054",
+      "title": "Contradictions in the Gospels",
+      "url": "https://ehrmanblog.org/contradictions-in-the-gospels/",
+      "dateText": "April 16, 2019",
+      "themes": [
+        "Debates",
+        "Gospel Contradictions",
+        "Acts Historicity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 791
+    },
+    {
+      "wpId": "16052",
+      "title": "What Is a Contradiction?",
+      "url": "https://ehrmanblog.org/what-is-a-contradiction/",
+      "dateText": "April 15, 2019",
+      "themes": [
+        "Debates",
+        "Biblical Contradictions (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 58
+    },
+    {
+      "wpId": "15991",
+      "title": "Did Jesus Pray “Father Forgive Them” from the Cross?",
+      "url": "https://ehrmanblog.org/did-jesus-pray-father-forgive-them-from-the-cross/",
+      "dateText": "March 24, 2019",
+      "themes": [
+        "Gospel of Luke",
+        "Anti-Judaism",
+        "Textual Variants"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 11,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5109
+    },
+    {
+      "wpId": "15898",
+      "title": "Homosexuality and the New Testament.  Guest Post by Jeff Siker.",
+      "url": "https://ehrmanblog.org/homosexuality-and-the-new-testament-guest-post-by-jeff-siker/",
+      "dateText": "March 4, 2019",
+      "themes": [
+        "Translation Process",
+        "Homosexuality"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "15666",
+      "title": "Could Peter Have “Written” 1 and 2 Peter Some Other Way?",
+      "url": "https://ehrmanblog.org/could-peter-have-written-1-and-2-peter-some-other-way/",
+      "dateText": "November 30, 2018",
+      "themes": [
+        "General Epistles",
+        "Petrine Forgeries"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "15607",
+      "title": "How Christianity Grew and Grew",
+      "url": "https://ehrmanblog.org/how-christianity-grew-and-grew/",
+      "dateText": "November 5, 2018",
+      "themes": [
+        "Conversion",
+        "Rise of Christianity",
+        "Miracles and Conversion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "15602",
+      "title": "Miraculous Conversions in the Book of Acts",
+      "url": "https://ehrmanblog.org/miraculous-conversions-in-the-book-of-acts/",
+      "dateText": "November 2, 2018",
+      "themes": [
+        "Conversion",
+        "Miracles in Acts",
+        "Miracles and Conversion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 9,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 2835
+    },
+    {
+      "wpId": "15490",
+      "title": "A Peculiar Story of Peter’s Martyrdom",
+      "url": "https://ehrmanblog.org/a-peculiar-story-of-peters-martyrdom/",
+      "dateText": "September 19, 2018",
+      "themes": [
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2820
+    },
+    {
+      "wpId": "15477",
+      "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
+      "url": "https://ehrmanblog.org/would-the-disciples-die-for-a-lie-proofs-for-the-resurrection/",
+      "dateText": "September 13, 2018",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 574
+    },
+    {
+      "wpId": "15459",
+      "title": "Thomas and His Identical Twin Jesus, in the Acts of Thomas",
+      "url": "https://ehrmanblog.org/thomas-and-his-identical-twin-jesus-in-the-acts-of-thomas/",
+      "dateText": "September 4, 2018",
+      "themes": [
+        "Apocryphal Acts",
+        "Non-Canonical Miracle Stories"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 5098
+    },
+    {
+      "wpId": "15457",
+      "title": "Did Jesus Have a Twin Brother?",
+      "url": "https://ehrmanblog.org/did-jesus-have-a-twin-brother/",
+      "dateText": "September 3, 2018",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 751
+    },
+    {
+      "wpId": "15444",
+      "title": "Thomasine Christians and Others, From After the New Testament",
+      "url": "https://ehrmanblog.org/thomasine-christians-and-others-from-after-the-new-testament/",
+      "dateText": "August 27, 2018",
+      "themes": [
+        "Nag Hammadi",
+        "Gospel of Thomas"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in a broad/noncanonical-texts context rather than as a focused keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1084
+    },
+    {
+      "wpId": "15277",
+      "title": "Are Contradictions the Real Point?",
+      "url": "https://ehrmanblog.org/are-contradictions-the-real-point/",
+      "dateText": "June 27, 2018",
+      "themes": [
+        "Biblical Contradictions (General)",
+        "Biblical Inerrancy"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 526
+    },
+    {
+      "wpId": "15272",
+      "title": "Internal Discrepancies in the Gospel of John",
+      "url": "https://ehrmanblog.org/internal-discrepancies-in-the-gospel-of-john/",
+      "dateText": "June 26, 2018",
+      "themes": [
+        "Gospel of John",
+        "Gospel Contradictions"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "15268",
+      "title": "Why Does Luke Appear to Contradict Himself?",
+      "url": "https://ehrmanblog.org/why-does-luke-appear-to-contradict-himself/",
+      "dateText": "June 25, 2018",
+      "themes": [
+        "Gospel of Luke",
+        "Resurrection of Jesus",
+        "Gospel Contradictions"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 14,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 5355
+    },
+    {
+      "wpId": "15261",
+      "title": "Does Luke Flat Out Contradict Himself?",
+      "url": "https://ehrmanblog.org/does-luke-flat-out-contradict-himself/",
+      "dateText": "June 22, 2018",
+      "themes": [
+        "Gospel of Luke",
+        "Gospel Contradictions"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 16,
+      "actsReferenceCount": 9,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 6425
+    },
+    {
+      "wpId": "15254",
+      "title": "Does the Book of Acts Portray the *Teachings* of Paul Accurately?",
+      "url": "https://ehrmanblog.org/does-the-book-of-acts-portray-the-teachings-of-paul-accurately/",
+      "dateText": "June 18, 2018",
+      "themes": [
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 13,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 5279
+    },
+    {
+      "wpId": "15251",
+      "title": "Does the Book of Acts Accurately Portray the Life and Teachings of Paul?",
+      "url": "https://ehrmanblog.org/does-the-book-of-acts-accurately-portray-the-life-and-teachings-of-paul/",
+      "dateText": "June 17, 2018",
+      "themes": [
+        "Acts Historicity",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 19,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 9,
+      "actsSpanCharacters": 6971
+    },
+    {
+      "wpId": "15221",
+      "title": "Two Rather Bizarre Accounts of How Judas Died",
+      "url": "https://ehrmanblog.org/two-rather-bizarre-accounts-of-how-judas-died/",
+      "dateText": "June 8, 2018",
+      "themes": [
+        "Papias"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is one of the main sources for the Judas-death discussion.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1766
+    },
+    {
+      "wpId": "15219",
+      "title": "Can We Know Anything Historically About How Judas Iscariot Died?",
+      "url": "https://ehrmanblog.org/can-we-know-anything-historically-about-how-judas-iscariot-died/",
+      "dateText": "June 7, 2018",
+      "themes": [
+        "Judas Iscariot"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 6,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 4229
+    },
+    {
+      "wpId": "15217",
+      "title": "The Death of Judas in Matthew",
+      "url": "https://ehrmanblog.org/the-death-of-judas-in-matthew/",
+      "dateText": "June 5, 2018",
+      "themes": [
+        "Judas Iscariot",
+        "Gospel of Matthew"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is one of the main sources for the Judas-death discussion.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 201
+    },
+    {
+      "wpId": "15103",
+      "title": "Different Kinds of Literary Deceit",
+      "url": "https://ehrmanblog.org/different-kinds-of-literary-deceit/",
+      "dateText": "April 23, 2018",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 481
+    },
+    {
+      "wpId": "14988",
+      "title": "Scribes Who Injected the Idea of Atonement into Luke’s Gospel",
+      "url": "https://ehrmanblog.org/scribes-who-injected-the-idea-of-atonement-into-lukes-gospel/",
+      "dateText": "March 16, 2018",
+      "themes": [
+        "Gospel of Luke",
+        "Proto-Orthodox Textual Changes",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 3861
+    },
+    {
+      "wpId": "14941",
+      "title": "Do We Know How Paul Died?",
+      "url": "https://ehrmanblog.org/do-we-know-how-paul-died/",
+      "dateText": "February 26, 2018",
+      "themes": [
+        "Apocryphal Acts",
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2038
+    },
+    {
+      "wpId": "14939",
+      "title": "The Legend of Peter’s Martyrdom",
+      "url": "https://ehrmanblog.org/the-legend-of-peters-martyrdom/",
+      "dateText": "February 25, 2018",
+      "themes": [
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2894
+    },
+    {
+      "wpId": "14249",
+      "title": "The Ethical Teachings of the Didache",
+      "url": "https://ehrmanblog.org/the-ethical-teachings-of-the-didache/",
+      "dateText": "December 21, 2017",
+      "themes": [
+        "Didache",
+        "Early Christian Views on Wealth"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "13225",
+      "title": "Were the Disciples Martyred for Believing the Resurrection? A Blast From the Past",
+      "url": "https://ehrmanblog.org/were-the-disciples-martyred-for-believing-the-resurrection-a-blast-from-the-past/",
+      "dateText": "October 13, 2017",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 574
+    },
+    {
+      "wpId": "13183",
+      "title": "Paul on Trial for the Resurrection",
+      "url": "https://ehrmanblog.org/paul-on-trial-for-the-resurrection/",
+      "dateText": "September 26, 2017",
+      "themes": [
+        "Resurrection of the Dead",
+        "Paul and Resurrection"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 765
+    },
+    {
+      "wpId": "13142",
+      "title": "Is Luke’s Christology Consistent?   A Blast from the Past",
+      "url": "https://ehrmanblog.org/is-lukes-christology-consistent-a-blast-from-the-past/",
+      "dateText": "September 25, 2017",
+      "themes": [
+        "Gospel of Luke",
+        "Christology in the Gospels",
+        "Luke-Acts Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 8,
+      "actsReferenceCount": 5,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5268
+    },
+    {
+      "wpId": "13137",
+      "title": "Did Luke Have a Doctrine of the Atonement?  Mailbag September 24, 2017",
+      "url": "https://ehrmanblog.org/did-luke-have-a-doctrine-of-the-atonement-mailbag-september-24-2017/",
+      "dateText": "September 24, 2017",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 7807
+    },
+    {
+      "wpId": "12924",
+      "title": "Too Much Money and the Afterlife",
+      "url": "https://ehrmanblog.org/too-much-money-and-the-afterlife/",
+      "dateText": "September 11, 2017",
+      "themes": [
+        "Rich and Poor in Afterlife"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 4180
+    },
+    {
+      "wpId": "12903",
+      "title": "Speaking in Tongues and Virgin Births: Readers’ Mailbag September 3, 2017",
+      "url": "https://ehrmanblog.org/speaking-in-tongues-and-virgin-births-readers-mailbag-september-3-2017/",
+      "dateText": "September 3, 2017",
+      "themes": [
+        "Virgin Birth",
+        "Miracles (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 807
+    },
+    {
+      "wpId": "12865",
+      "title": "Are There Passages Where *Every* NT Manuscript Gives the “Wrong” Reading?",
+      "url": "https://ehrmanblog.org/are-there-passages-where-every-nt-manuscript-gives-the-wrong-reading/",
+      "dateText": "August 21, 2017",
+      "themes": [
+        "Textual Variants"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 6,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1867
+    },
+    {
+      "wpId": "12675",
+      "title": "How Did Judas Iscariot Die?  Readers’ Mailbag June 18, 2017",
+      "url": "https://ehrmanblog.org/how-did-judas-iscariot-die-readers-mailbag-june-18-2017/",
+      "dateText": "June 18, 2017",
+      "themes": [
+        "Judas Iscariot",
+        "Gospel of Matthew",
+        "Papias"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 2340
+    },
+    {
+      "wpId": "12262",
+      "title": "What About the Apocrypha?",
+      "url": "https://ehrmanblog.org/what-about-the-apocrypha/",
+      "dateText": "January 9, 2017",
+      "themes": [
+        "Old Testament Apocrypha"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "12006",
+      "title": "James the Brother of the Lord",
+      "url": "https://ehrmanblog.org/james-the-brother-of-the-lord/",
+      "dateText": "November 4, 2016",
+      "themes": [
+        "James the Brother of Jesus",
+        "Jesus' Family"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "11964",
+      "title": "The “Arch-Heretic” Marcion, Jesus, and the Jewish Law",
+      "url": "https://ehrmanblog.org/the-arch-heretic-marcion-jesus-and-the-jewish-law/",
+      "dateText": "October 16, 2016",
+      "themes": [
+        "Jewish Law",
+        "Marcion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "11821",
+      "title": "Does James Contradict Paul?",
+      "url": "https://ehrmanblog.org/does-james-contradict-paul/",
+      "dateText": "September 4, 2016",
+      "themes": [
+        "Biblical Contradictions (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "11581",
+      "title": "The Name of Saul/Paul and the Sources of the Pentateuch: Weekly Mailbag June 26, 2016",
+      "url": "https://ehrmanblog.org/the-name-of-saul-paul-and-the-sources-of-the-pentateuch-weekly-mailbag-june-26-2016/",
+      "dateText": "June 26, 2016",
+      "themes": [
+        "Documentary Hypothesis",
+        "Pentateuch"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 579
+    },
+    {
+      "wpId": "11578",
+      "title": "More on Numbers of Converts",
+      "url": "https://ehrmanblog.org/more-on-numbers-of-converts/",
+      "dateText": "June 24, 2016",
+      "themes": [
+        "Conversion",
+        "Early Christianity",
+        "Rise of Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 4,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 554
+    },
+    {
+      "wpId": "11558",
+      "title": "The Conversion of Paul",
+      "url": "https://ehrmanblog.org/the-conversion-of-paul/",
+      "dateText": "June 16, 2016",
+      "themes": [
+        "Conversion",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 3033
+    },
+    {
+      "wpId": "11556",
+      "title": "How Paul Persecuted the Christians",
+      "url": "https://ehrmanblog.org/how-paul-persecuted-the-christians/",
+      "dateText": "June 14, 2016",
+      "themes": [
+        "Paul and Persecution"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "11442",
+      "title": "The Rate of Christian Growth",
+      "url": "https://ehrmanblog.org/the-rate-of-christian-growth/",
+      "dateText": "May 15, 2016",
+      "themes": [
+        "Conversion",
+        "Rise of Christianity",
+        "Miracles and Conversion"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in the conversion/growth discussion.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3170
+    },
+    {
+      "wpId": "11437",
+      "title": "Christians and their Exaggerated Numbers",
+      "url": "https://ehrmanblog.org/christians-and-their-exaggerated-numbers/",
+      "dateText": "May 12, 2016",
+      "themes": [
+        "Conversion",
+        "Rise of Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 8,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 5235
+    },
+    {
+      "wpId": "10331",
+      "title": "Does the New Testament Condemn Modern Practices of Homosexuality?",
+      "url": "https://ehrmanblog.org/does-the-new-testament-condemn-modern-practices-of-homosexuality/",
+      "dateText": "March 16, 2016",
+      "themes": [
+        "Homosexuality"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "10318",
+      "title": "Do Paul and Jesus Represent Fundamentally Different Religions?",
+      "url": "https://ehrmanblog.org/do-paul-and-jesus-represent-fundamentally-different-religions/",
+      "dateText": "March 14, 2016",
+      "themes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "10312",
+      "title": "My Recitation Debates",
+      "url": "https://ehrmanblog.org/my-recitation-debates/",
+      "dateText": "March 11, 2016",
+      "themes": [
+        "Nag Hammadi",
+        "Gospel of Thomas"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "9864",
+      "title": "On the Accuracy of Oral Traditions",
+      "url": "https://ehrmanblog.org/on-the-accuracy-of-oral-traditions/",
+      "dateText": "February 10, 2016",
+      "themes": [
+        "Oral Tradition",
+        "Jesus Before the Gospels"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 3,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 211
+    },
+    {
+      "wpId": "9516",
+      "title": "Weekly Readers’ Mailbag: January 24, 2016",
+      "url": "https://ehrmanblog.org/weekly-readers-mailbag-january-24-2016/",
+      "dateText": "January 24, 2016",
+      "themes": [
+        "Textual Criticism (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 2,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 220
+    },
+    {
+      "wpId": "9395",
+      "title": "Did Some Disciples Not Believe in the Resurrection?",
+      "url": "https://ehrmanblog.org/did-some-disciples-not-believe-in-the-resurrection/",
+      "dateText": "December 16, 2015",
+      "themes": [
+        "Resurrection Appearances",
+        "Mary Magdalene",
+        "How Jesus Became God"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 4932
+    },
+    {
+      "wpId": "9393",
+      "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+      "url": "https://ehrmanblog.org/were-the-disciples-martyred-for-believing-in-the-resurrection/",
+      "dateText": "December 14, 2015",
+      "themes": [
+        "Apostolic Martyrdom"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2387
+    },
+    {
+      "wpId": "9309",
+      "title": "Fifty Ways to Forge a Gospel",
+      "url": "https://ehrmanblog.org/fifty-ways-to-forge-a-gospel/",
+      "dateText": "November 22, 2015",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in a broad/noncanonical-texts context rather than as a focused keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "9220",
+      "title": "Is Luke’s Christology Consistent?",
+      "url": "https://ehrmanblog.org/is-lukes-christology-consistent/",
+      "dateText": "October 23, 2015",
+      "themes": [
+        "Gospel of Luke",
+        "Christology in the Gospels"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 7,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 4528
+    },
+    {
+      "wpId": "9217",
+      "title": "Arguments that Luke Did Not Originally Have the Virgin Birth",
+      "url": "https://ehrmanblog.org/arguments-that-luke-did-not-originally-have-the-virgin-birth/",
+      "dateText": "October 22, 2015",
+      "themes": [
+        "Virgin Birth",
+        "Genealogy"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 172
+    },
+    {
+      "wpId": "9187",
+      "title": "The Striking Conclusion: Jesus’ Last Supper in Luke",
+      "url": "https://ehrmanblog.org/the-striking-conclusion-jesus-last-supper-in-luke/",
+      "dateText": "October 11, 2015",
+      "themes": [
+        "Gospel of Luke",
+        "Atonement",
+        "Textual Variants"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in a Luke/Luke-Acts comparison.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 3987
+    },
+    {
+      "wpId": "9184",
+      "title": "Luke’s Understanding of Jesus’ Death",
+      "url": "https://ehrmanblog.org/lukes-understanding-of-jesus-death/",
+      "dateText": "October 9, 2015",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 2825
+    },
+    {
+      "wpId": "9177",
+      "title": "Anti-Judaism in the Gospel of Luke",
+      "url": "https://ehrmanblog.org/anti-judaism-in-the-gospel-of-luke/",
+      "dateText": "October 8, 2015",
+      "themes": [
+        "Gospel of Luke",
+        "Anti-Judaism"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 5,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4956
+    },
+    {
+      "wpId": "9175",
+      "title": "Jesus’ Death as a Prophet in Luke",
+      "url": "https://ehrmanblog.org/jesus-death-as-a-prophet-in-luke/",
+      "dateText": "October 7, 2015",
+      "themes": [
+        "Gospel of Luke",
+        "Jesus' Miracles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in a Luke/Luke-Acts comparison.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 4392
+    },
+    {
+      "wpId": "8833",
+      "title": "Other Accounts of the Death of Judas",
+      "url": "https://ehrmanblog.org/other-accounts-of-the-death-of-judas/",
+      "dateText": "June 4, 2015",
+      "themes": [
+        "Judas Iscariot",
+        "Gospel of Matthew",
+        "Papias"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is one of the main sources for the Judas-death discussion.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 1774
+    },
+    {
+      "wpId": "8823",
+      "title": "The Death of Judas in the NT",
+      "url": "https://ehrmanblog.org/the-death-of-judas-in-the-nt/",
+      "dateText": "June 2, 2015",
+      "themes": [
+        "Gospel of Matthew",
+        "Judas Iscariot"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 7,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2735
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)",
+      "url": "https://ehrmanblog.org/my-forgery-seminar-syllabus/",
+      "dateText": "January 10, 2015",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 8,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3405
+    },
+    {
+      "wpId": "8294",
+      "title": "Why Was the Gospel of Luke Attributed to Luke?",
+      "url": "https://ehrmanblog.org/why-was-the-gospel-of-luke-attributed-to-luke/",
+      "dateText": "December 4, 2014",
+      "themes": [
+        "Gospel of Luke",
+        "Gospel Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 10,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 4423
+    },
+    {
+      "wpId": "8236",
+      "title": "Our Anonymous Gospels, Starting with Luke",
+      "url": "https://ehrmanblog.org/our-anonymous-gospels-starting-with-luke/",
+      "dateText": "November 14, 2014",
+      "themes": [
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 3255
+    },
+    {
+      "wpId": "7648",
+      "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+      "url": "https://ehrmanblog.org/ant-methods-of-biblical-interpretation-in-the-early-church/",
+      "dateText": "August 8, 2014",
+      "themes": [
+        "Valentinian Gnostics",
+        "Gnosticism and Proto-Orthodoxy"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "7577",
+      "title": "Being Consistently Critical (in the good sense)",
+      "url": "https://ehrmanblog.org/being-consistently-critical-in-the-good-sense/",
+      "dateText": "July 22, 2014",
+      "themes": [
+        "Historical Method (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "7504",
+      "title": "Day Two of Jesus and Brian",
+      "url": "https://ehrmanblog.org/day-two-of-jesus-and-brian/",
+      "dateText": "June 25, 2014",
+      "themes": [
+        "Life of Brian"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "7411",
+      "title": "Thomasine “Gnostics” and Others",
+      "url": "https://ehrmanblog.org/thomasine-gnostics-and-others/",
+      "dateText": "May 31, 2014",
+      "themes": [
+        "Nag Hammadi",
+        "Gospel of Thomas"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 976
+    },
+    {
+      "wpId": "7260",
+      "title": "Paul’s Importance in Early Christianity?",
+      "url": "https://ehrmanblog.org/pauls-importance-in-early-christianity/",
+      "dateText": "April 25, 2014",
+      "themes": [
+        "Rise of Christianity"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used as a source/comparison for Paul.",
+      "actsCount": 6,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2920
+    },
+    {
+      "wpId": "7254",
+      "title": "Did Paul Invent the Resurrection?",
+      "url": "https://ehrmanblog.org/did-paul-invent-the-resurrection/",
+      "dateText": "April 23, 2014",
+      "themes": [
+        "Resurrection of Jesus",
+        "Early Christianity",
+        "Paul and Resurrection"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "7199",
+      "title": "Did Disciples Have Visions of Jesus?",
+      "url": "https://ehrmanblog.org/did-disciples-have-visions-of-jesus/",
+      "dateText": "April 15, 2014",
+      "themes": [
+        "Resurrection Appearances"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 2790
+    },
+    {
+      "wpId": "7185",
+      "title": "The Disciples who Doubted the Resurrection",
+      "url": "https://ehrmanblog.org/the-disciples-who-doubted-the-resurrection/",
+      "dateText": "April 9, 2014",
+      "themes": [
+        "Resurrection Appearances"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5055
+    },
+    {
+      "wpId": "7026",
+      "title": "The Gospel of John from a Literary-Historical Perspective",
+      "url": "https://ehrmanblog.org/the-gospel-of-john-from-a-literary-historical-perspective/",
+      "dateText": "March 8, 2014",
+      "themes": [
+        "Gospel of John",
+        "Gospel Analysis Methods"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "7002",
+      "title": "The Comparative Method and Luke",
+      "url": "https://ehrmanblog.org/the-comparative-method-and-luke/",
+      "dateText": "March 4, 2014",
+      "themes": [
+        "Gospel of Luke"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 7,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 6399
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "url": "https://ehrmanblog.org/the-new-and-improved-after-the-new-testament/",
+      "dateText": "January 15, 2014",
+      "themes": [
+        "Early Christian Writings"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in a broad/noncanonical-texts context rather than as a focused keyword.",
+      "actsCount": 10,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 3852
+    },
+    {
+      "wpId": "6478",
+      "title": "Mistakes about the New Testament in Aslan’s Zealot",
+      "url": "https://ehrmanblog.org/mistakes-about-the-new-testament-in-aslans-zealot/",
+      "dateText": "December 19, 2013",
+      "themes": [
+        "Zealot Hypothesis",
+        "Christology (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 4,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 1087
+    },
+    {
+      "wpId": "5100",
+      "title": "Writers Who Contradict Themselves",
+      "url": "https://ehrmanblog.org/writers-who-contradict-themselves/",
+      "dateText": "November 1, 2013",
+      "themes": [
+        "Biblical Contradictions (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 4374
+    },
+    {
+      "wpId": "5075",
+      "title": "Why Are There Contradictions in the New Testament?",
+      "url": "https://ehrmanblog.org/why-are-there-contradictions-in-the-new-testament/",
+      "dateText": "October 27, 2013",
+      "themes": [
+        "Biblical Contradictions (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 5,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2034
+    },
+    {
+      "wpId": "5067",
+      "title": "Jesus’ Brother and the Mythicists (Part 2)",
+      "url": "https://ehrmanblog.org/jesus-brother-and-the-mythicists-part-2/",
+      "dateText": "October 24, 2013",
+      "themes": [
+        "Apocryphal Acts",
+        "Mythicism",
+        "James the Brother of Jesus"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 5271
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha",
+      "url": "https://ehrmanblog.org/my-phd-seminar-early-christian-apocrypha/",
+      "dateText": "September 8, 2013",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 20,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2220
+    },
+    {
+      "wpId": "4784",
+      "title": "Summing Up: Was Luke Luke?",
+      "url": "https://ehrmanblog.org/summing-up-was-luke-luke/",
+      "dateText": "September 6, 2013",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 13,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 3,
+      "actsSpanCharacters": 4775
+    },
+    {
+      "wpId": "4753",
+      "title": "Problems with Luke as the Author of Luke",
+      "url": "https://ehrmanblog.org/problems-with-luke-as-the-author-of-luke/",
+      "dateText": "September 1, 2013",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 6123
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke",
+      "url": "https://ehrmanblog.org/why-luke-is-thought-to-have-written-luke/",
+      "dateText": "August 31, 2013",
+      "themes": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 14,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 5,
+      "actsSpanCharacters": 3197
+    },
+    {
+      "wpId": "4683",
+      "title": "A Final Post (!) on Luke 3:22",
+      "url": "https://ehrmanblog.org/a-final-post-on-luke-322/",
+      "dateText": "August 14, 2013",
+      "themes": [
+        "Gospel of Luke",
+        "Textual Variants",
+        "Scribal Changes",
+        "Patristic Textual Evidence",
+        "Exaltation Christology",
+        "Christological Textual Variants",
+        "Christology in the Gospels"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 4,
+      "actsReferenceCount": 3,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 2063
+    },
+    {
+      "wpId": "4678",
+      "title": "Luke 3:22 — More on What Luke Would Have Written",
+      "url": "https://ehrmanblog.org/luke-322-more-on-what-luke-would-have-written/",
+      "dateText": "August 13, 2013",
+      "themes": [
+        "Exaltation Christology",
+        "Christological Textual Variants",
+        "Christology in the Gospels"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 4604
+    },
+    {
+      "wpId": "4672",
+      "title": "Luke 3:22 — What Luke Himself Would Have Written",
+      "url": "https://ehrmanblog.org/luke-322-what-luke-himself-would-have-written/",
+      "dateText": "August 12, 2013",
+      "themes": [
+        "Gospel of Luke",
+        "Textual Variants",
+        "Exaltation Christology",
+        "Christological Textual Variants",
+        "Christology in the Gospels",
+        "Proto-Orthodox Textual Changes",
+        "Atonement"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Multiple Acts references are used across the article.",
+      "actsCount": 5,
+      "actsReferenceCount": 4,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1050
+    },
+    {
+      "wpId": "4523",
+      "title": "Jesus and Sacrifices",
+      "url": "https://ehrmanblog.org/jesus-and-sacrifices/",
+      "dateText": "July 11, 2013",
+      "themes": [
+        "Early Judaism",
+        "Jesus' Teachings"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "4519",
+      "title": "Paul’s Chronology",
+      "url": "https://ehrmanblog.org/pauls-chronology/",
+      "dateText": "July 10, 2013",
+      "themes": [
+        "Paul in Acts",
+        "Pauline Biography"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 12,
+      "actsReferenceCount": 2,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2462
+    },
+    {
+      "wpId": "4308",
+      "title": "More on Mark and Peter",
+      "url": "https://ehrmanblog.org/more-on-mark-and-peter/",
+      "dateText": "June 3, 2013",
+      "themes": [
+        "Gospel of Mark"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 97
+    },
+    {
+      "wpId": "4259",
+      "title": "More on Judas",
+      "url": "https://ehrmanblog.org/more-on-judas/",
+      "dateText": "May 24, 2013",
+      "themes": [
+        "Judas Iscariot",
+        "Paul's Knowledge of Jesus"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 2,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 18
+    },
+    {
+      "wpId": "4247",
+      "title": "Jesus’ Rejection in Nazareth",
+      "url": "https://ehrmanblog.org/jesus-rejection-in-nazareth/",
+      "dateText": "May 20, 2013",
+      "themes": [
+        "Jesus' Miracles"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Repeated explicit discussion of Acts or Luke-Acts.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 3501
+    },
+    {
+      "wpId": "3821",
+      "title": "An Important and Relevant Textual Variant in Luke 2",
+      "url": "https://ehrmanblog.org/an-important-and-relevant-textual-variant-in-luke-2/",
+      "dateText": "February 13, 2013",
+      "themes": [
+        "Christological Textual Variants",
+        "Gospel of Luke",
+        "Early Christology",
+        "Exaltation Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "replace_with_Acts",
+      "recommendedSecondaryKeyword": "Acts",
+      "reason": "Acts is materially used in a Luke/Luke-Acts comparison.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 5459
+    },
+    {
+      "wpId": "3816",
+      "title": "Pushing Back the Exaltation",
+      "url": "https://ehrmanblog.org/pushing-back-the-exaltation/",
+      "dateText": "February 13, 2013",
+      "themes": [
+        "Exaltation Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "3809",
+      "title": "Exaltation Christology in the Speeches in Acts",
+      "url": "https://ehrmanblog.org/exaltation-christology-in-the-speeches-in-acts/",
+      "dateText": "February 11, 2013",
+      "themes": [
+        "Exaltation Christology",
+        "Luke-Acts Christology"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 5,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 2859
+    },
+    {
+      "wpId": "3597",
+      "title": "Paul’s “Gospel” and Marcion",
+      "url": "https://ehrmanblog.org/pauls-gospel-and-marcion/",
+      "dateText": "January 6, 2013",
+      "themes": [
+        "Gospel of Luke",
+        "Marcion",
+        "Paul in Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 6,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 4,
+      "actsSpanCharacters": 562
+    },
+    {
+      "wpId": "3488",
+      "title": "Another Instance of Gematria",
+      "url": "https://ehrmanblog.org/another-instance-of-gematria/",
+      "dateText": "December 20, 2012",
+      "themes": [
+        "Letter of Barnabas",
+        "Gematria"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "3408",
+      "title": "Melito and arly Christian Anti-Judaism",
+      "url": "https://ehrmanblog.org/melito-and-arly-christian-anti-judaism/",
+      "dateText": "December 2, 2012",
+      "themes": [
+        "Anti-Judaism"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 0,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "3295",
+      "title": "The Collection: Apostolic Fathers",
+      "url": "https://ehrmanblog.org/the-collection-apostolic-fathers/",
+      "dateText": "November 17, 2012",
+      "themes": [
+        "Apostolic Fathers",
+        "Canon"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "3079",
+      "title": "Disciples Who Doubt the Resurrection",
+      "url": "https://ehrmanblog.org/disciples-who-doubt-the-resurrection/",
+      "dateText": "October 17, 2012",
+      "themes": [
+        "Resurrection Appearances",
+        "Mary Magdalene"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 2183
+    },
+    {
+      "wpId": "3054",
+      "title": "Were the Disciples Martyred for Believing the Resurrection?",
+      "url": "https://ehrmanblog.org/were-the-disciples-martyred-for-believing-the-resurrection/",
+      "dateText": "October 12, 2012",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 574
+    },
+    {
+      "wpId": "2838",
+      "title": "Does Luke Combat a Docetic Christology?",
+      "url": "https://ehrmanblog.org/does-luke-combat-a-docetic-christology/",
+      "dateText": "September 24, 2012",
+      "themes": [
+        "Gospel of Luke",
+        "Christology in the Gospels"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "2831",
+      "title": "Peter, The Smoked Tuna, and the Flying Heretic",
+      "url": "https://ehrmanblog.org/peter-the-smoked-tuna-and-the-flying-heretic/",
+      "dateText": "September 23, 2012",
+      "themes": [
+        "Apocryphal Acts"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Already has a primary Acts-related theme, so the secondary keyword is redundant for search.",
+      "actsCount": 3,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 1447
+    },
+    {
+      "wpId": "2591",
+      "title": "A Christian Forger Caught in the Acts",
+      "url": "https://ehrmanblog.org/a-christian-forger-caught-in-the-acts/",
+      "dateText": "August 9, 2012",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+      "url": "https://ehrmanblog.org/forgery-another-deceived-deceiver-part-2/",
+      "dateText": "August 1, 2012",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 1,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "2528",
+      "title": "Silvanus as Peter’s Secretary?",
+      "url": "https://ehrmanblog.org/silvanus-as-peters-secretary/",
+      "dateText": "July 28, 2012",
+      "themes": [
+        "Ancient Secretaries",
+        "Petrine Forgeries"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 1,
+      "actsReferenceCount": 1,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+      "url": "https://ehrmanblog.org/my-apocrypha-seminar-at-the-national-humanities-center-part-2/",
+      "dateText": "June 15, 2012",
+      "themes": [
+        "Canon"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Bibliography, announcement, mailbag, overview, or broad-reader format; Acts is not central enough.",
+      "actsCount": 1,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 0
+    },
+    {
+      "wpId": "2023",
+      "title": "The Work of a Professional Scholar 3: Undergraduate Theses",
+      "url": "https://ehrmanblog.org/the-work-of-a-professional-scholar-3-undergraduate-theses/",
+      "dateText": "May 4, 2012",
+      "themes": [
+        "Academic Life"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears in discussion of academic work rather than as the article topic.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 2,
+      "actsSpanCharacters": 1265
+    },
+    {
+      "wpId": "1976",
+      "title": "More on the Resurrection",
+      "url": "https://ehrmanblog.org/more-on-the-resurrection/",
+      "dateText": "April 28, 2012",
+      "themes": [
+        "Resurrection Apologetics"
+      ],
+      "currentSecondaryKeyword": "Acts (General)",
+      "recommendedAction": "remove_secondary_keyword",
+      "recommendedSecondaryKeyword": null,
+      "reason": "Acts appears only incidentally or not strongly enough to be useful as a search keyword.",
+      "actsCount": 4,
+      "actsReferenceCount": 0,
+      "bookOfActsOrLukeActsCount": 0,
+      "actsSpanCharacters": 45
+    }
+  ]
+}

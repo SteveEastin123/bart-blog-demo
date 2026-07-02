@@ -1,0 +1,1324 @@
+{
+  "createdAt": "2026-07-02T16:44:35.947212+00:00",
+  "sourceFile": "data/index/ehrman_posts_keywords.json",
+  "rawTextSource": "data/raw/posts.jsonl",
+  "scope": "Articles with themes, no Ignore theme, and empty secondaryKeywords.",
+  "policy": [
+    "Use only article title, summary, raw text, and existing theme context.",
+    "Add secondary keywords only for explicit supporting topics, people, books, passages, venues, or recurring searchable phrases.",
+    "Do not add exact duplicates of primaryKeywords/themes as secondaryKeywords.",
+    "Leave administrative Ignore posts outside the scope."
+  ],
+  "summary": {
+    "targetsAudited": 101,
+    "articlesUpdated": 101,
+    "secondaryKeywordsAdded": 328,
+    "exactThemeDuplicatesSkipped": 1
+  },
+  "recommendationsApplied": [
+    {
+      "wpId": "49516",
+      "title": "Celebrating The Blog’s 14th Anniversary!  Do You Have a Favorite Post?",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Blog Anniversary",
+        "Favorite Posts"
+      ]
+    },
+    {
+      "wpId": "49045",
+      "title": "What Are the Chances?  The Logic of “Intelligent Design”",
+      "themes": [
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Intelligent Design",
+        "Life",
+        "Non-Life",
+        "Chemistry",
+        "Biology",
+        "Statistics"
+      ]
+    },
+    {
+      "wpId": "48523",
+      "title": "Reflecting on the Christmas Tree and Faith",
+      "themes": [
+        "Autobiographical Posts",
+        "Christmas",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Christmas Tree",
+        "Faith"
+      ]
+    },
+    {
+      "wpId": "48341",
+      "title": "My Birdbrain View of Agnosticism",
+      "themes": [
+        "Agnosticism",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Sunrise",
+        "Human Intelligence",
+        "Consciousness"
+      ]
+    },
+    {
+      "wpId": "48160",
+      "title": "Help Feed Families in Need (With a Particularly Enticing Incentive!): Ehrman Blog Annual Appeal",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Food Bank of Central and Eastern North Carolina",
+        "Annual Appeal",
+        "Families in Need"
+      ]
+    },
+    {
+      "wpId": "47573",
+      "title": "Some Reflections on Our (My) Finitude and the Fear of Death",
+      "themes": [
+        "Eternal Punishment"
+      ],
+      "secondaryKeywords": [
+        "Finitude",
+        "Fear of Death",
+        "Death"
+      ]
+    },
+    {
+      "wpId": "46966",
+      "title": "Am I?  AI?  What do you think?",
+      "themes": [
+        "Free Will",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "AI",
+        "Artificial Intelligence",
+        "Consciousness",
+        "Human Consciousness"
+      ]
+    },
+    {
+      "wpId": "47044",
+      "title": "Rambling Meditations on What It Means to Exist….  What Do You Think?",
+      "themes": [
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Existence",
+        "Meditation",
+        "Brain",
+        "Consciousness"
+      ]
+    },
+    {
+      "wpId": "41515",
+      "title": "Isn’t It Good Enough to Help Family, Friends, and Community?",
+      "themes": [
+        "Greco-Roman Religion",
+        "Ancient Wealth Ethics",
+        "Moral Philosophy"
+      ],
+      "secondaryKeywords": [
+        "Aristotle",
+        "Happiness",
+        "Community",
+        "Family",
+        "Friends"
+      ]
+    },
+    {
+      "wpId": "40461",
+      "title": "How Strikingly Few Early Churches Were There?  How Amazingly Many Christian Letters?",
+      "themes": [
+        "Roman World",
+        "Rise of Christianity"
+      ],
+      "secondaryKeywords": [
+        "Early Churches",
+        "Christian Letters",
+        "Christian Numbers"
+      ]
+    },
+    {
+      "wpId": "40393",
+      "title": "If You’re Counting Christians, Who Counts as a Christian?",
+      "themes": [
+        "Early Christianity",
+        "Rise of Christianity"
+      ],
+      "secondaryKeywords": [
+        "Keith Hopkins",
+        "Christian Numbers",
+        "Counting Christians",
+        "Christian Identity"
+      ]
+    },
+    {
+      "wpId": "39894",
+      "title": "Finishing and Publishing My Dissertation",
+      "themes": [
+        "Bruce Metzger",
+        "Didymus the Blind"
+      ],
+      "secondaryKeywords": [
+        "Dissertation",
+        "Gospel Quotations",
+        "Princeton Seminary"
+      ]
+    },
+    {
+      "wpId": "39482",
+      "title": "A Major Argument That We Can Be Sure We Have the Original Text",
+      "themes": [
+        "Original Text",
+        "Textual Variants",
+        "Scribal Changes",
+        "Textual Criticism Methods"
+      ],
+      "secondaryKeywords": [
+        "Tenacity of the Tradition",
+        "New Testament",
+        "Manuscripts"
+      ]
+    },
+    {
+      "wpId": "39098",
+      "title": "Fundamentalist Christians Are Not the Only Ones to Make Dumb Arguments…",
+      "themes": [
+        "Miracle Claims and Apologetics"
+      ],
+      "secondaryKeywords": [
+        "Bad Arguments",
+        "Quran",
+        "Islam",
+        "Christianity",
+        "New Testament"
+      ]
+    },
+    {
+      "wpId": "39090",
+      "title": "Am I Converting to Islam?",
+      "themes": [
+        "Oral Tradition"
+      ],
+      "secondaryKeywords": [
+        "Islam",
+        "Quran",
+        "Conversion to Islam"
+      ]
+    },
+    {
+      "wpId": "39086",
+      "title": "More Hard Issues on the Qur’an Fragments",
+      "themes": [
+        "Manuscript Discoveries",
+        "Quran Fragments"
+      ],
+      "secondaryKeywords": [
+        "Quran",
+        "University of Birmingham",
+        "Muhammad",
+        "Carbon Dating"
+      ]
+    },
+    {
+      "wpId": "39128",
+      "title": "Responses to my Post on the Discovery of an Ancient Manuscript of the Quran",
+      "themes": [
+        "Quran Fragments",
+        "Manuscript Discoveries"
+      ],
+      "secondaryKeywords": [
+        "Quran",
+        "University of Birmingham",
+        "Muhammad",
+        "Carbon Dating"
+      ]
+    },
+    {
+      "wpId": "38696",
+      "title": "Platinum Webinar for March:  Ethics Without God??",
+      "themes": [
+        "Moral Philosophy"
+      ],
+      "secondaryKeywords": [
+        "Ethics Without God",
+        "Platinum Webinar"
+      ]
+    },
+    {
+      "wpId": "36897",
+      "title": "Reading the Bible in a Secular Age: Guest Post by Prof. Julius-Kei Kato",
+      "themes": [
+        "Augustine"
+      ],
+      "secondaryKeywords": [
+        "Julius-Kei Kato",
+        "Secular Age",
+        "Bible",
+        "Reading the Bible"
+      ]
+    },
+    {
+      "wpId": "36173",
+      "title": "My Interview With Glenn Siepert",
+      "themes": [
+        "Revelation"
+      ],
+      "secondaryKeywords": [
+        "Glenn Siepert",
+        "What If Project",
+        "Armageddon",
+        "End Times"
+      ]
+    },
+    {
+      "wpId": "36197",
+      "title": "More on Love:  Why Were Greek Men Especially Attracted to Prepubescent Boys?",
+      "themes": [
+        "Roman World"
+      ],
+      "secondaryKeywords": [
+        "Greek Pederasty",
+        "Classical Athens",
+        "Adolescent Boys",
+        "Ancient Greek Philosophy"
+      ]
+    },
+    {
+      "wpId": "35129",
+      "title": "“Death is nothing to us.”  What Do YOU Think?",
+      "themes": [
+        "Personal Reflections",
+        "Afterlife (General)"
+      ],
+      "secondaryKeywords": [
+        "Epicurus",
+        "Death",
+        "Fear of Death",
+        "Senses"
+      ]
+    },
+    {
+      "wpId": "34957",
+      "title": "Interview with Michael Shermer",
+      "themes": [
+        "Podcast Interviews"
+      ],
+      "secondaryKeywords": [
+        "Michael Shermer",
+        "Skeptic Magazine",
+        "Religious Skepticism"
+      ]
+    },
+    {
+      "wpId": "34541",
+      "title": "Exciting Lecture: Archaeological Finds (Artwork!) in an Ancient Galilean Synagogue",
+      "themes": [
+        "Early Judaism",
+        "Roman World",
+        "Archaeology"
+      ],
+      "secondaryKeywords": [
+        "Jodi Magness",
+        "Galilean Synagogue",
+        "Masada",
+        "Ancient Israel",
+        "Archaeological Finds"
+      ]
+    },
+    {
+      "wpId": "34048",
+      "title": "Am I About To Become Muslim?",
+      "themes": [
+        "Oral Tradition"
+      ],
+      "secondaryKeywords": [
+        "Islam",
+        "Quran",
+        "Conversion to Islam"
+      ]
+    },
+    {
+      "wpId": "33800",
+      "title": "Do Public Debates Do Anyone Any Good?  What Do You Think?",
+      "themes": [
+        "Debates"
+      ],
+      "secondaryKeywords": [
+        "Public Debates",
+        "Debate Winners",
+        "Controversial Topics"
+      ]
+    },
+    {
+      "wpId": "33559",
+      "title": "Are You Interested in an End-of-the-Year Donation Opportunity?  Blog Challenge Grants!!",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Challenge Grants",
+        "End-of-Year Donations",
+        "Blog Donations"
+      ]
+    },
+    {
+      "wpId": "33357",
+      "title": "Can Christianity Be Seen as “Objective” Truth?  Modern and Ancient Views.",
+      "themes": [
+        "Christian Exclusivity"
+      ],
+      "secondaryKeywords": [
+        "Objective Truth",
+        "Christianity",
+        "Modern Views",
+        "Ancient Views"
+      ]
+    },
+    {
+      "wpId": "33388",
+      "title": "How To Leave the Faith and Not Destroy the Family:  Thanksgiving Reflection 2022",
+      "themes": [
+        "Deconversion"
+      ],
+      "secondaryKeywords": [
+        "Leaving Faith",
+        "Family",
+        "Thanksgiving"
+      ]
+    },
+    {
+      "wpId": "33115",
+      "title": "The Birth of the Trinity – Platinum Webinar September 2022",
+      "themes": [
+        "Trinity"
+      ],
+      "secondaryKeywords": [
+        "Birth of the Trinity",
+        "Platinum Webinar"
+      ]
+    },
+    {
+      "wpId": "32948",
+      "title": "Is Christianity Responsible for Gender Equality and Consent?",
+      "themes": [
+        "Debates"
+      ],
+      "secondaryKeywords": [
+        "Gender Equality",
+        "Consent",
+        "Christianity"
+      ]
+    },
+    {
+      "wpId": "32998",
+      "title": "Our Next Platinum Webinar!  Tuesday September 27",
+      "themes": [
+        "Trinity"
+      ],
+      "secondaryKeywords": [
+        "Birth of the Trinity",
+        "Platinum Webinar"
+      ]
+    },
+    {
+      "wpId": "32577",
+      "title": "When Did We Get the Final Canon of the New Testament?",
+      "themes": [
+        "Canon"
+      ],
+      "secondaryKeywords": [
+        "New Testament Canon",
+        "Canon Formation",
+        "New Testament"
+      ]
+    },
+    {
+      "wpId": "30468",
+      "title": "The Problem with “Time Management”",
+      "themes": [
+        "Writing and Research Process"
+      ],
+      "secondaryKeywords": [
+        "Time Management",
+        "Productivity",
+        "Focus"
+      ]
+    },
+    {
+      "wpId": "30248",
+      "title": "I’m Puzzled about Time.  Is there a “Present”?",
+      "themes": [
+        "Augustine",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Time",
+        "Present",
+        "Physics",
+        "Philosophy"
+      ]
+    },
+    {
+      "wpId": "29851",
+      "title": "A Revelatory Moment about God: Most-Commented Blog Post: #3",
+      "themes": [
+        "Agnosticism"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Religious Views",
+        "Most-Commented Posts"
+      ]
+    },
+    {
+      "wpId": "30147",
+      "title": "Reminder!  A Free Webinar on Saturday on “The Bible and Homosexuality”!",
+      "themes": [
+        "Homosexuality"
+      ],
+      "secondaryKeywords": [
+        "Bible and Homosexuality",
+        "Webinar"
+      ]
+    },
+    {
+      "wpId": "30116",
+      "title": "Free Webinar!!!  Does the Bible Condemn Homosexuality?",
+      "themes": [
+        "Homosexuality"
+      ],
+      "secondaryKeywords": [
+        "Bible and Homosexuality",
+        "Webinar"
+      ]
+    },
+    {
+      "wpId": "29137",
+      "title": "An Intense Back and Forth on Key Issues",
+      "themes": [
+        "Podcast Interviews"
+      ],
+      "secondaryKeywords": [
+        "Global Skeptics",
+        "Podcast",
+        "Faith",
+        "Religion"
+      ]
+    },
+    {
+      "wpId": "28333",
+      "title": "Terrific or Terrible?  What’s Your View of Christmas?",
+      "themes": [
+        "Christmas"
+      ],
+      "secondaryKeywords": [
+        "Christmas Holidays",
+        "Holiday Views"
+      ]
+    },
+    {
+      "wpId": "27718",
+      "title": "Bruce Metzger and My Loss of Faith",
+      "themes": [
+        "Bruce Metzger",
+        "Deconversion"
+      ],
+      "secondaryKeywords": [
+        "Loss of Faith",
+        "Presbyterian Minister",
+        "Princeton Seminary",
+        "Mentor"
+      ]
+    },
+    {
+      "wpId": "27547",
+      "title": "More of My Work for the NRSV Bible Translation Committee",
+      "themes": [
+        "Translation Process",
+        "Bruce Metzger",
+        "NRSV"
+      ],
+      "secondaryKeywords": [
+        "NRSV Committee",
+        "Bible Translation Committee",
+        "Translation Secretaries"
+      ]
+    },
+    {
+      "wpId": "27266",
+      "title": "Bruce Metzger and My Strange Dissertation Defense",
+      "themes": [
+        "Bruce Metzger",
+        "Didymus the Blind"
+      ],
+      "secondaryKeywords": [
+        "Dissertation Defense",
+        "Gospel Quotations",
+        "Textual Scholar"
+      ]
+    },
+    {
+      "wpId": "27119",
+      "title": "Bruce Metzger and Me: Reminiscences on my Dissertation",
+      "themes": [
+        "Bruce Metzger",
+        "Didymus the Blind"
+      ],
+      "secondaryKeywords": [
+        "Dissertation",
+        "Gospel Quotations",
+        "Textual Scholar",
+        "Princeton Seminary"
+      ]
+    },
+    {
+      "wpId": "27216",
+      "title": "Fund Raiser for Afghanistan:  This Sunday!",
+      "themes": [
+        "Greco-Roman Religion"
+      ],
+      "secondaryKeywords": [
+        "Afghanistan",
+        "Doctors Without Borders",
+        "Fundraiser",
+        "Roman Polytheism",
+        "Apostles"
+      ]
+    },
+    {
+      "wpId": "26613",
+      "title": "My Mentor Bruce Metzger and the Infamous Squirrel",
+      "themes": [
+        "Bruce Metzger",
+        "Autobiographical Posts"
+      ],
+      "secondaryKeywords": [
+        "Doktor Vater",
+        "Bible Translator",
+        "Textual Scholar",
+        "Princeton Seminary"
+      ]
+    },
+    {
+      "wpId": "26466",
+      "title": "The Issue of “Tenure” for Professors",
+      "themes": [
+        "Academic Life"
+      ],
+      "secondaryKeywords": [
+        "Tenure",
+        "Nikole Hannah-Jones",
+        "UNC-Chapel Hill",
+        "Journalism"
+      ]
+    },
+    {
+      "wpId": "24783",
+      "title": "A Probing Interview on “When Belief Dies Podcast”",
+      "themes": [
+        "Autobiographical Posts",
+        "Podcast Interviews"
+      ],
+      "secondaryKeywords": [
+        "Sam Devis",
+        "When Belief Dies",
+        "Faith",
+        "Religion"
+      ]
+    },
+    {
+      "wpId": "23997",
+      "title": "An Intriguing but Most Peculiar Book!  Guest Post by Kristin Swenson",
+      "themes": [
+        "Critical Biblical Scholarship"
+      ],
+      "secondaryKeywords": [
+        "Kristin Swenson",
+        "A Most Peculiar Book",
+        "Bible Babel",
+        "Oxford University Press"
+      ]
+    },
+    {
+      "wpId": "23495",
+      "title": "One of the Weird Events in My Life that Led Me To Be A Research Scholar",
+      "themes": [
+        "Autobiographical Posts",
+        "Academic Life"
+      ],
+      "secondaryKeywords": [
+        "Research Scholar",
+        "Latin",
+        "Hepatitis",
+        "Bible College"
+      ]
+    },
+    {
+      "wpId": "21957",
+      "title": "666: The Number of the Beast",
+      "themes": [
+        "Gematria",
+        "Revelation"
+      ],
+      "secondaryKeywords": [
+        "Number of the Beast",
+        "666",
+        "Revelation 13:18",
+        "Nero"
+      ]
+    },
+    {
+      "wpId": "21865",
+      "title": "Why Do Some People Make Such Bad Arguments for the Superiority of their Religion?",
+      "themes": [
+        "Miracle Claims and Apologetics"
+      ],
+      "secondaryKeywords": [
+        "Bad Arguments",
+        "Superiority of Religion",
+        "Religious Evidence",
+        "Apologetics"
+      ]
+    },
+    {
+      "wpId": "20966",
+      "title": "Why Would An Atheist Teach the Bible?  Readers’ Mailbag",
+      "themes": [
+        "Atheism",
+        "Teaching and Courses"
+      ],
+      "secondaryKeywords": [
+        "Bible Teaching",
+        "Biblical Studies",
+        "Atheist",
+        "Teaching the Bible"
+      ]
+    },
+    {
+      "wpId": "17763",
+      "title": "You Lost Me On Hello.  A Plea for Expertise",
+      "themes": [
+        "Critical Biblical Scholarship"
+      ],
+      "secondaryKeywords": [
+        "Expertise",
+        "Experts",
+        "Informed Opinions",
+        "Climate"
+      ]
+    },
+    {
+      "wpId": "17642",
+      "title": "How Do I Get To Know What Is In the Bible?",
+      "themes": [
+        "Textbooks"
+      ],
+      "secondaryKeywords": [
+        "Bible",
+        "Introduction to the Bible",
+        "Biblical Literacy"
+      ]
+    },
+    {
+      "wpId": "17595",
+      "title": "Why Do Smart People Make Stupid Arguments?",
+      "themes": [
+        "Miracle Claims and Apologetics"
+      ],
+      "secondaryKeywords": [
+        "Bad Arguments",
+        "Smart People",
+        "Apologetics"
+      ]
+    },
+    {
+      "wpId": "17559",
+      "title": "Rapid Fire Questions and Answers on Biblical Manuscripts",
+      "themes": [
+        "New Testament Manuscripts (General)"
+      ],
+      "secondaryKeywords": [
+        "Biblical Manuscripts",
+        "Manuscript Trade",
+        "Illicit Sale",
+        "European Journalist"
+      ]
+    },
+    {
+      "wpId": "17497",
+      "title": "A Revelatory Moment about “God”",
+      "themes": [
+        "Agnosticism",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Superior Beings",
+        "Revelatory Moment"
+      ]
+    },
+    {
+      "wpId": "17396",
+      "title": "Christmas 2019",
+      "themes": [
+        "Grace",
+        "Christmas"
+      ],
+      "secondaryKeywords": [
+        "Ambivalence",
+        "Christmas Meaning"
+      ]
+    },
+    {
+      "wpId": "17034",
+      "title": "Why I’m To Be Pitied for Being the Wrong *Kind* of Fundamentalist!",
+      "themes": [
+        "Fundamentalism",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Fundamentalist",
+        "Wrong Kind of Fundamentalist"
+      ]
+    },
+    {
+      "wpId": "16571",
+      "title": "Why It Is Hard To Publish a Translation of an Ancient Text",
+      "themes": [
+        "Apostolic Fathers",
+        "Translation Process"
+      ],
+      "secondaryKeywords": [
+        "Loeb Classical Library",
+        "Greek-English Edition",
+        "Ancient Text Translation"
+      ]
+    },
+    {
+      "wpId": "16707",
+      "title": "What Motivated Some Ancient Authors to Lie About Themselves?",
+      "themes": [
+        "Forgery (General)"
+      ],
+      "secondaryKeywords": [
+        "Pseudepigraphy",
+        "Literary Deceit",
+        "Ancient Authors",
+        "Lying"
+      ]
+    },
+    {
+      "wpId": "16592",
+      "title": "Why It’s Hard to Publish a Translation: Blast from the Past",
+      "themes": [
+        "Apostolic Fathers",
+        "Translation Process"
+      ],
+      "secondaryKeywords": [
+        "Loeb Classical Library",
+        "Greek-English Edition",
+        "Ancient Text Translation"
+      ]
+    },
+    {
+      "wpId": "16318",
+      "title": "Christian Manuscripts and Nazi Loot: Guest Post by Jennifer Knust",
+      "themes": [
+        "Research and Publishing"
+      ],
+      "secondaryKeywords": [
+        "Jennifer Knust",
+        "Nazi Loot",
+        "Duke University",
+        "Christian Manuscript",
+        "Aryanization",
+        "Raphael King"
+      ]
+    },
+    {
+      "wpId": "15892",
+      "title": "University Professors and their Research",
+      "themes": [
+        "Academic Life"
+      ],
+      "secondaryKeywords": [
+        "Research",
+        "Writing",
+        "Professors",
+        "Burnout"
+      ]
+    },
+    {
+      "wpId": "15682",
+      "title": "Another Chance: Donating Free Memberships",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Free Memberships",
+        "Blog Memberships",
+        "Donations"
+      ]
+    },
+    {
+      "wpId": "15645",
+      "title": "Thanksgiving Musings 2018",
+      "themes": [
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Thanksgiving",
+        "Gratitude",
+        "Hardship"
+      ]
+    },
+    {
+      "wpId": "15639",
+      "title": "Question: How Do I Read Books?",
+      "themes": [
+        "Writing and Research Process"
+      ],
+      "secondaryKeywords": [
+        "Reading Books",
+        "Book Reading",
+        "Reading Method"
+      ]
+    },
+    {
+      "wpId": "15582",
+      "title": "My Own Translation of the New Testament?",
+      "themes": [
+        "Bible Translations (General)"
+      ],
+      "secondaryKeywords": [
+        "New Testament Translation",
+        "Bible Translation",
+        "Personal Translation"
+      ]
+    },
+    {
+      "wpId": "15411",
+      "title": "Finishing my Dissertation",
+      "themes": [
+        "Bruce Metzger",
+        "Didymus the Blind"
+      ],
+      "secondaryKeywords": [
+        "Dissertation",
+        "Gospel Quotations"
+      ]
+    },
+    {
+      "wpId": "15407",
+      "title": "The Core of My Dissertation on The Gospel Quotations of Didymus the Blind",
+      "themes": [
+        "Bruce Metzger",
+        "Didymus the Blind"
+      ],
+      "secondaryKeywords": [
+        "Dissertation",
+        "Gospel Quotations"
+      ]
+    },
+    {
+      "wpId": "15285",
+      "title": "The Strangest Moment of My Teaching Career",
+      "themes": [
+        "Autobiographical Posts"
+      ],
+      "secondaryKeywords": [
+        "Teaching Career",
+        "University Teaching"
+      ]
+    },
+    {
+      "wpId": "15256",
+      "title": "How I Write: The Crucial Phase",
+      "themes": [
+        "Writing and Research Process"
+      ],
+      "secondaryKeywords": [
+        "Writing Books",
+        "Dissertation Writing",
+        "Writing Method"
+      ]
+    },
+    {
+      "wpId": "15229",
+      "title": "Why Would I Call Myself Both an Agnostic and an Atheist?  A Blast from the Past",
+      "themes": [
+        "Agnosticism",
+        "Atheism",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Agnostic or Atheist"
+      ]
+    },
+    {
+      "wpId": "15215",
+      "title": "Self-Reflection on The Process of Writing a Book",
+      "themes": [
+        "Writing and Research Process"
+      ],
+      "secondaryKeywords": [
+        "Writing a Book",
+        "Research Process"
+      ]
+    },
+    {
+      "wpId": "15162",
+      "title": "The Tricks of Writing for a General Audience",
+      "themes": [
+        "Writing and Research Process",
+        "General Audience Books"
+      ],
+      "secondaryKeywords": [
+        "General Audience",
+        "Academic Writing",
+        "Graduate School",
+        "Jargon"
+      ]
+    },
+    {
+      "wpId": "15016",
+      "title": "Fresh Air – Christianity’s Path From ‘Forbidden’ To A ‘Triumph’",
+      "themes": [
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ],
+      "secondaryKeywords": [
+        "Terry Gross",
+        "Fresh Air",
+        "Book Interview"
+      ]
+    },
+    {
+      "wpId": "14997",
+      "title": "The Thinking Atheist Interview: The Triumph of Christianity",
+      "themes": [
+        "Rise of Christianity",
+        "Triumph of Christianity",
+        "Podcast Interviews"
+      ],
+      "secondaryKeywords": [
+        "Seth Andrews",
+        "Thinking Atheist",
+        "Book Interview"
+      ]
+    },
+    {
+      "wpId": "15053",
+      "title": "The Sixth Anniversary of the Blog!",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Blog Anniversary",
+        "Sixth Anniversary"
+      ]
+    },
+    {
+      "wpId": "15050",
+      "title": "Making the Bestseller List",
+      "themes": [
+        "General Audience Books",
+        "Triumph of Christianity",
+        "Media Attention"
+      ],
+      "secondaryKeywords": [
+        "Fresh Air",
+        "Terry Gross",
+        "Bestseller List"
+      ]
+    },
+    {
+      "wpId": "13242",
+      "title": "The Academic Study of the New Testament",
+      "themes": [
+        "Critical Biblical Scholarship"
+      ],
+      "secondaryKeywords": [
+        "New Testament",
+        "Introduction to the New Testament",
+        "Academic Study"
+      ]
+    },
+    {
+      "wpId": "12733",
+      "title": "Why Would I Call Myself Both an Agnostic or an Atheist?  A Blast From the Past",
+      "themes": [
+        "Atheism",
+        "Agnosticism",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Agnostic or Atheist"
+      ]
+    },
+    {
+      "wpId": "12648",
+      "title": "What I Believed as a Committed but but non-Fundamentalist Christian",
+      "themes": [
+        "Autobiographical Posts",
+        "Fundamentalism"
+      ],
+      "secondaryKeywords": [
+        "Non-Fundamentalist Christianity",
+        "Committed Christian",
+        "Faith"
+      ]
+    },
+    {
+      "wpId": "12506",
+      "title": "Dinner With Me?  A Blog Idea.",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Dinner",
+        "Blog Idea",
+        "Fundraising"
+      ]
+    },
+    {
+      "wpId": "11680",
+      "title": "Two Versions of Constantine’s Vision",
+      "themes": [
+        "Constantine",
+        "Conversion",
+        "Roman Persecution"
+      ],
+      "secondaryKeywords": [
+        "Constantine's Vision",
+        "Roman Empire",
+        "Military Background",
+        "Religious Affiliations"
+      ]
+    },
+    {
+      "wpId": "11462",
+      "title": "How Many Churches?  How Many Letters?",
+      "themes": [
+        "Early Christianity",
+        "Rise of Christianity",
+        "Church History"
+      ],
+      "secondaryKeywords": [
+        "Keith Hopkins",
+        "Christian Numbers",
+        "Early Churches",
+        "Christian Letters"
+      ]
+    },
+    {
+      "wpId": "9448",
+      "title": "Blog Year in Review 2015",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Blog Year in Review",
+        "Blog Fundraising"
+      ]
+    },
+    {
+      "wpId": "9431",
+      "title": "A Christmas Reflection",
+      "themes": [
+        "Christmas"
+      ],
+      "secondaryKeywords": [
+        "Christmas Reflection",
+        "Scholarship",
+        "Faith"
+      ]
+    },
+    {
+      "wpId": "8999",
+      "title": "More Hard Issues on the Qur’an Fragments",
+      "themes": [
+        "Manuscript Discoveries",
+        "Quran Fragments"
+      ],
+      "secondaryKeywords": [
+        "University of Birmingham",
+        "Quran",
+        "Muhammad",
+        "Carbon Dating"
+      ]
+    },
+    {
+      "wpId": "8978",
+      "title": "More on the Discovery of Ancient Qur’an Fragments",
+      "themes": [
+        "Quran Fragments",
+        "Manuscript Discoveries"
+      ],
+      "secondaryKeywords": [
+        "University of Birmingham",
+        "Quran",
+        "Muhammad",
+        "Carbon Dating"
+      ]
+    },
+    {
+      "wpId": "8385",
+      "title": "The Blog Year in Review: 2014",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Blog Year in Review",
+        "Blog Fundraising"
+      ]
+    },
+    {
+      "wpId": "7645",
+      "title": "Ideas for Raising More Money on the Blog",
+      "themes": [
+        "Blog Fundraising and Charities"
+      ],
+      "secondaryKeywords": [
+        "Blog Fundraising",
+        "Blog Improvement"
+      ]
+    },
+    {
+      "wpId": "6385",
+      "title": "The Giving Season",
+      "themes": [
+        "Christmas"
+      ],
+      "secondaryKeywords": [
+        "Giving Season",
+        "Christmas Season",
+        "Charity",
+        "Helping Others"
+      ]
+    },
+    {
+      "wpId": "4837",
+      "title": "Why Would Someone Like Me Study the Bible??",
+      "themes": [
+        "Critical Biblical Scholarship"
+      ],
+      "secondaryKeywords": [
+        "Bible Study",
+        "Critical Scholarship",
+        "Faith"
+      ]
+    },
+    {
+      "wpId": "4567",
+      "title": "Key Passages in Job’s Back and Forth",
+      "themes": [
+        "Job"
+      ],
+      "secondaryKeywords": [
+        "Job 14:11-12",
+        "Job 16:12-14",
+        "Job 27:5-6",
+        "Suffering",
+        "Integrity"
+      ]
+    },
+    {
+      "wpId": "4528",
+      "title": "Personal, Executive Privilege: My Daughter and Homeschooling!",
+      "themes": [
+        "Autobiographical Posts"
+      ],
+      "secondaryKeywords": [
+        "Daughter",
+        "Homeschooling"
+      ]
+    },
+    {
+      "wpId": "4291",
+      "title": "Agnostic or Atheist?",
+      "themes": [
+        "Atheism",
+        "Autobiographical Posts",
+        "Agnosticism"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Agnostic or Atheist"
+      ]
+    },
+    {
+      "wpId": "3754",
+      "title": "During my Leave…",
+      "themes": [
+        "Writing and Research Process"
+      ],
+      "secondaryKeywords": [
+        "Research Leave",
+        "Writing",
+        "Blogging"
+      ]
+    },
+    {
+      "wpId": "3525",
+      "title": "Reflections on the Season",
+      "themes": [
+        "Christmas",
+        "Autobiographical Posts",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "London",
+        "Boxing Day",
+        "Family"
+      ]
+    },
+    {
+      "wpId": "2487",
+      "title": "Autobiographical.  Metzger and Me: The Squirrel Story",
+      "themes": [
+        "Bruce Metzger",
+        "Autobiographical Posts"
+      ],
+      "secondaryKeywords": [
+        "Princeton Seminary",
+        "Metzger Stories"
+      ]
+    },
+    {
+      "wpId": "2180",
+      "title": "Am I an Agnostic or an Atheist?",
+      "themes": [
+        "Atheism",
+        "Autobiographical Posts",
+        "Agnosticism"
+      ],
+      "secondaryKeywords": [
+        "God",
+        "Agnostic or Atheist"
+      ]
+    }
+  ],
+  "skippedExactThemeDuplicates": [
+    {
+      "wpId": "15050",
+      "title": "Making the Bestseller List",
+      "keyword": "Media Attention"
+    }
+  ],
+  "applicationStatus": "applied"
+}

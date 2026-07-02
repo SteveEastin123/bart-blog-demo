@@ -1,0 +1,1040 @@
+{
+  "createdAt": "2026-07-02T12:26:30",
+  "sourceFile": "data/index/ehrman_posts_keywords.json",
+  "scope": "Articles in ehrman_posts_keywords.json with an empty themes list",
+  "policy": "Existing themes only; recommend additions only where title/category/summary/text indicate a main topic rather than incidental mention.",
+  "summary": {
+    "emptyThemeArticlesReviewed": 399,
+    "articlesWithValidatedThemeAdditions": 80,
+    "validatedThemeLinks": 126,
+    "articlesRecommendedToRemainUnthemed": 319,
+    "keywordJsonModified": true,
+    "secondPassAdjustments": 2,
+    "articlesUpdated": 80,
+    "themeLinksAdded": 126,
+    "primaryKeywordsSyncedToThemes": 80
+  },
+  "themeCounts": {
+    "Revelation": 10,
+    "Pauline Letters": 9,
+    "Jesus' Teachings": 8,
+    "Paul's Knowledge of Jesus": 7,
+    "Modern Apocalypticism": 6,
+    "Textual Variants": 6,
+    "Apocalyptic Jesus": 5,
+    "Heresy": 4,
+    "Historical Jesus Overview": 4,
+    "Mythicism": 4,
+    "Early Christology": 3,
+    "Gospel Historicity": 3,
+    "Gospel of Matthew": 3,
+    "New Testament Manuscripts (General)": 3,
+    "Original Text": 3,
+    "Afterlife (General)": 2,
+    "Biblical Contradictions (General)": 2,
+    "Birth Narrative": 2,
+    "Christmas": 2,
+    "Christology (General)": 2,
+    "Debates": 2,
+    "Early Christian Diversity": 2,
+    "Genesis": 2,
+    "Jewish Apocalypticism": 2,
+    "Non-Canonical Gospels (General)": 2,
+    "Pauline Apocalypticism": 2,
+    "Scribal Changes": 2,
+    "Ancient Wealth Ethics": 1,
+    "Burial of Jesus": 1,
+    "Christological Textual Variants": 1,
+    "Exaltation Christology": 1,
+    "Fulfillment Citations": 1,
+    "Gematria": 1,
+    "Genealogy": 1,
+    "Gnosticism (General)": 1,
+    "Gospel Contradictions": 1,
+    "Gospel of Luke": 1,
+    "Gospel of the Ebionites": 1,
+    "Historical Jesus Research Methods": 1,
+    "James the Brother of Jesus": 1,
+    "Jesus' Ethics": 1,
+    "Jewish Christian Gospels": 1,
+    "Jewish Law": 1,
+    "Magic and Amulets": 1,
+    "Manuscript Discoveries": 1,
+    "Misquoting Jesus": 1,
+    "Moral Problems in Scripture": 1,
+    "Patristic Textual Evidence": 1,
+    "Pauline Biography": 1,
+    "Women in Early Christianity": 1,
+    "Zealot Hypothesis": 1
+  },
+  "recommendations": [
+    {
+      "wpId": "12916",
+      "dateText": "September 8, 2017",
+      "title": "Fun with the Jewish Christian Gospels: A Blast from the Past",
+      "url": "https://ehrmanblog.org/fun-with-the-jewish-christian-gospels-a-blast-from-the-past/",
+      "recommendedThemes": [
+        "Jewish Christian Gospels",
+        "Gospel of the Ebionites",
+        "Non-Canonical Gospels (General)",
+        "Heresy"
+      ],
+      "reason": "The post focuses on Jewish-Christian non-canonical Gospels.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "13186",
+      "dateText": "September 27, 2017",
+      "title": "Jesus’ Teaching About the Kingdom of God",
+      "url": "https://ehrmanblog.org/jesus-teaching-about-the-kingdom-of-god/",
+      "recommendedThemes": [
+        "Apocalyptic Jesus",
+        "Jesus' Teachings",
+        "Afterlife (General)"
+      ],
+      "reason": "The post focuses on Jesus' kingdom teaching in relation to afterlife/apocalyptic expectation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "7845",
+      "dateText": "September 12, 2014",
+      "title": "New Discovery of an Ancient Christian Amulet",
+      "url": "https://ehrmanblog.org/new-discovery-of-an-ancient-christian-amulet/",
+      "recommendedThemes": [
+        "Magic and Amulets"
+      ],
+      "reason": "The post focuses on an ancient Christian amulet discovery.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "4919",
+      "dateText": "October 5, 2013",
+      "title": "Follow That Star!!",
+      "url": "https://ehrmanblog.org/follow-that-star/",
+      "recommendedThemes": [
+        "Birth Narrative",
+        "Christmas"
+      ],
+      "reason": "The post focuses on the star in the birth narrative.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47918",
+      "dateText": "October 26, 2025",
+      "title": "Having Some Fun with 666!",
+      "url": "https://ehrmanblog.org/having-some-fun-with-666/",
+      "recommendedThemes": [
+        "Revelation",
+        "Gematria"
+      ],
+      "reason": "The post focuses on Revelation's 666 problem.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47813",
+      "dateText": "October 15, 2025",
+      "title": "Why Most People Who Read Revelation Are Wrong About It",
+      "url": "https://ehrmanblog.org/why-most-people-who-read-revelation-are-wrong-about-it/",
+      "recommendedThemes": [
+        "Revelation",
+        "Modern Apocalypticism"
+      ],
+      "reason": "The post focuses on Revelation and modern/fundamentalist readings of it.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "13213",
+      "dateText": "October 10, 2017",
+      "title": "Explaining Jesus’ Apocalyptic Assumptions",
+      "url": "https://ehrmanblog.org/explaining-jesus-apocalyptic-assumptions/",
+      "recommendedThemes": [
+        "Apocalyptic Jesus",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "The post focuses on Jesus' apocalyptic assumptions.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "8968",
+      "dateText": "November 9, 2022",
+      "title": "How Did Scribes Change Their Manuscripts?",
+      "url": "https://ehrmanblog.org/how-did-scribes-change-their-manuscripts/",
+      "recommendedThemes": [
+        "Scribal Changes",
+        "Textual Variants"
+      ],
+      "reason": "The post explicitly focuses on scribal changes in manuscripts.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "27875",
+      "dateText": "November 6, 2021",
+      "title": "The Massive Diversity of Early Christianity. My Book: Lost Christianities",
+      "url": "https://ehrmanblog.org/the-massive-diversity-of-early-christianity-my-book-lost-christianities/",
+      "recommendedThemes": [
+        "Early Christian Diversity"
+      ],
+      "reason": "The post focuses on diversity in early Christianity.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "48266",
+      "dateText": "November 30, 2025",
+      "title": "Why I Don’t Like Public Debates",
+      "url": "https://ehrmanblog.org/why-i-dont-like-having-public-debates/",
+      "recommendedThemes": [
+        "Debates"
+      ],
+      "reason": "The post is explicitly about public debates.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "8271",
+      "dateText": "November 29, 2014",
+      "title": "Do Textual Variants Really Matter for Anything?",
+      "url": "https://ehrmanblog.org/do-textual-variants-really-matter-for-anything/",
+      "recommendedThemes": [
+        "Textual Variants"
+      ],
+      "reason": "The post explicitly focuses on textual variants.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "48174",
+      "dateText": "November 27, 2025",
+      "title": "Errors That Are Not Mistakes in the Bible",
+      "url": "https://ehrmanblog.org/errors-that-are-not-mistakes-in-the-bible/",
+      "recommendedThemes": [
+        "Biblical Contradictions (General)"
+      ],
+      "reason": "The post focuses on errors, mistakes, and interpretive claims about the Bible.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "48171",
+      "dateText": "November 25, 2025",
+      "title": "Lies, Contradictions, Mistakes, and the Meaning of Words.  What Do You Think?",
+      "url": "https://ehrmanblog.org/lies-contradictions-mistakes-and-the-meaning-of-words-what-do-you-think/",
+      "recommendedThemes": [
+        "Biblical Contradictions (General)",
+        "Gospel Contradictions"
+      ],
+      "reason": "The post focuses on contradictions and a Gospel discrepancy.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "17191",
+      "dateText": "November 21, 2019",
+      "title": "Do Textual Variants Actually *Matter* For Much??",
+      "url": "https://ehrmanblog.org/do-textual-variants-actually-matter-for-much/",
+      "recommendedThemes": [
+        "Textual Variants"
+      ],
+      "reason": "The post explicitly focuses on textual variants.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "3228",
+      "dateText": "November 13, 2012",
+      "title": "Lost Gospels That Are Still Lost 2: The Gospel of Basilides",
+      "url": "https://ehrmanblog.org/lost-gospels-that-are-still-lost-2-the-gospel-of-basilides/",
+      "recommendedThemes": [
+        "Non-Canonical Gospels (General)",
+        "Gnosticism (General)",
+        "Heresy"
+      ],
+      "reason": "The post focuses on a lost non-canonical Gospel associated with Gnostic/heresy discussions.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "6142",
+      "dateText": "November 10, 2013",
+      "title": "Who Can Still Be A Christian?",
+      "url": "https://ehrmanblog.org/who-can-still-be-a-christian/",
+      "recommendedThemes": [
+        "Apocalyptic Jesus",
+        "Historical Jesus Overview"
+      ],
+      "reason": "The post focuses on the historical/apocalyptic Jesus and Christian faith.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "7311",
+      "dateText": "May 7, 2014",
+      "title": "Paul and Jesus",
+      "url": "https://ehrmanblog.org/paul-and-jesus/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "The post compares Jesus' teaching/message with Paul.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "1995",
+      "dateText": "May 3, 2012",
+      "title": "A Recent Interview",
+      "url": "https://ehrmanblog.org/a-recent-interview/",
+      "recommendedThemes": [
+        "Mythicism",
+        "Historical Jesus Overview"
+      ],
+      "reason": "The interview focuses on historical-Jesus/mythicism questions.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "30857",
+      "dateText": "May 28, 2022",
+      "title": "Concerns for the Poor in the Jewish Tradition",
+      "url": "https://ehrmanblog.org/concerns-for-the-poor-in-the-jewish-tradition/",
+      "recommendedThemes": [
+        "Ancient Wealth Ethics"
+      ],
+      "reason": "The post focuses on wealth and poverty in Jewish tradition.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "7348",
+      "dateText": "May 14, 2014",
+      "title": "Why Doesn’t Paul Say More About Jesus?",
+      "url": "https://ehrmanblog.org/why-doesnt-paul-say-more-about-jesus/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "The post focuses on why Paul says little about Jesus.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "24547",
+      "dateText": "March 9, 2021",
+      "title": "Was Matthew Influenced by Buddhist Writings?  Platinum Post by Steve Sutter",
+      "url": "https://ehrmanblog.org/was-matthew-influenced-by-buddhist-writings-platinum-post-by-steve-sutter/",
+      "recommendedThemes": [
+        "Gospel of Matthew"
+      ],
+      "reason": "The post focuses on Matthew.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "34830",
+      "dateText": "March 30, 2023",
+      "title": "Biblical Prophecy and the Coming Destruction of the Dome of the Rock",
+      "url": "https://ehrmanblog.org/biblical-prophecy-and-the-coming-destruction-of-the-dome-of-the-rock/",
+      "recommendedThemes": [
+        "Modern Apocalypticism",
+        "Revelation"
+      ],
+      "reason": "The post focuses on Revelation and modern prophecy interpretation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "29672",
+      "dateText": "March 30, 2022",
+      "title": "The Most Violent Passage in Revelation, in My View:",
+      "url": "https://ehrmanblog.org/the-most-violent-passage-in-revelation-in-my-view/",
+      "recommendedThemes": [
+        "Revelation"
+      ],
+      "reason": "The post focuses on Revelation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "29668",
+      "dateText": "March 29, 2022",
+      "title": "Two of the Most Violent Passages in Revelation",
+      "url": "https://ehrmanblog.org/two-of-the-most-violent-passages-in-revelation/",
+      "recommendedThemes": [
+        "Revelation"
+      ],
+      "reason": "The post focuses on Revelation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47124",
+      "dateText": "March 25, 2025",
+      "title": "Paul’s Letter to the Romans: For Further Reading",
+      "url": "https://ehrmanblog.org/pauls-letter-to-the-romans-for-further-reading/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is a reading-list post centered on a Pauline letter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "34751",
+      "dateText": "March 25, 2023",
+      "title": "Of COURSE the Rapture is in the New Testament — There for all to see!  Right?",
+      "url": "https://ehrmanblog.org/of-course-the-rapture-is-in-the-new-testament-there-for-all-to-see-right/",
+      "recommendedThemes": [
+        "Pauline Apocalypticism"
+      ],
+      "reason": "The post focuses on rapture interpretation from Pauline material.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "29435",
+      "dateText": "March 23, 2022",
+      "title": "Is the Apocalypse of John a Book of Hope?",
+      "url": "https://ehrmanblog.org/is-the-apocalypse-of-john-a-book-of-hope/",
+      "recommendedThemes": [
+        "Revelation"
+      ],
+      "reason": "The post focuses on Revelation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "49337",
+      "dateText": "March 22, 2026",
+      "title": "The Dark Side of Christianity: How I (Partially) End My New Book",
+      "url": "https://ehrmanblog.org/how-i-end-my-new-book-love-the-stranger/",
+      "recommendedThemes": [
+        "Jesus' Ethics"
+      ],
+      "reason": "The post is framed around the ethical legacy of Jesus' teachings.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "10318",
+      "dateText": "March 14, 2016",
+      "title": "Do Paul and Jesus Represent Fundamentally Different Religions?",
+      "url": "https://ehrmanblog.org/do-paul-and-jesus-represent-fundamentally-different-religions/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "The post compares Jesus' teaching/message with Paul.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "24388",
+      "dateText": "March 13, 2021",
+      "title": "Was Christ Human But Not Divine?  Another Early Christian View",
+      "url": "https://ehrmanblog.org/was-christ-human-but-not-divine-another-early-christian-view/",
+      "recommendedThemes": [
+        "Christology (General)",
+        "Early Christology",
+        "Heresy"
+      ],
+      "reason": "The post focuses on an early Christological view judged heretical.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "24312",
+      "dateText": "March 10, 2021",
+      "title": "Christ as “Not God” in the Second Century: Early Jewish Adoptionists",
+      "url": "https://ehrmanblog.org/christ-as-not-god-in-the-second-century-early-jewish-adoptionists/",
+      "recommendedThemes": [
+        "Christology (General)",
+        "Early Christology",
+        "Heresy"
+      ],
+      "reason": "The post focuses on an early Christological view judged heretical.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47225",
+      "dateText": "June 4, 2025",
+      "title": "1 Thessalonians and the Coming Rapture",
+      "url": "https://ehrmanblog.org/1-thessalonians-and-the-coming-rapture/",
+      "recommendedThemes": [
+        "Pauline Apocalypticism",
+        "Pauline Letters"
+      ],
+      "reason": "The post focuses on 1 Thessalonians and end-time expectation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47230",
+      "dateText": "June 3, 2025",
+      "title": "1 Thessalonians.  For Further Reading",
+      "url": "https://ehrmanblog.org/1-thessalonians-for-further-reading/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is a reading-list post centered on a Pauline letter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "4424",
+      "dateText": "June 26, 2013",
+      "title": "The Jewish Emphases of Matthew",
+      "url": "https://ehrmanblog.org/the-jewish-emphases-of-matthew/",
+      "recommendedThemes": [
+        "Gospel of Matthew",
+        "Genealogy"
+      ],
+      "reason": "The post focuses on Matthew's Jewish emphases.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47257",
+      "dateText": "June 25, 2025",
+      "title": "How We Know the World Was Created in 4004 BCE…",
+      "url": "https://ehrmanblog.org/how-we-know-the-world-was-created-in-4004-bce/",
+      "recommendedThemes": [
+        "Genesis"
+      ],
+      "reason": "The post focuses on Genesis chronology.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "20822",
+      "dateText": "June 24, 2020",
+      "title": "How Do We Interpret the Beatitudes?  Guest Post by Julius-Kei Kato",
+      "url": "https://ehrmanblog.org/how-do-we-interpret-the-beatitudes-guest-post-by-julius-kei-kato/",
+      "recommendedThemes": [
+        "Jesus' Teachings"
+      ],
+      "reason": "The post focuses on interpreting Jesus' Beatitudes.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "7471",
+      "dateText": "June 21, 2014",
+      "title": "Why Textual Variants Matter for the Rest of Us",
+      "url": "https://ehrmanblog.org/why-textual-variants-matter-for-the-rest-of-us/",
+      "recommendedThemes": [
+        "Textual Variants"
+      ],
+      "reason": "The post explicitly focuses on textual variants.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "2304",
+      "dateText": "June 21, 2012",
+      "title": "Q & A with Ben Witherington: Part 7",
+      "url": "https://ehrmanblog.org/q-a-with-ben-witherington-part-7/",
+      "recommendedThemes": [
+        "Mythicism"
+      ],
+      "reason": "The post responds to questions about Did Jesus Exist and mythicism criticism.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "12690",
+      "dateText": "June 20, 2017",
+      "title": "Was Jesus Made Up?  A Blast from the Past.",
+      "url": "https://ehrmanblog.org/was-jesus-made-up-a-blast-from-the-past/",
+      "recommendedThemes": [
+        "Mythicism",
+        "Historical Jesus Overview"
+      ],
+      "reason": "The post focuses on whether Jesus was made up.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "7466",
+      "dateText": "June 19, 2014",
+      "title": "Who Cares???  Do the Variants in the Manuscripts Matter for Anything?",
+      "url": "https://ehrmanblog.org/who-cares-do-the-variants-in-the-manuscripts-matter-for-anything/",
+      "recommendedThemes": [
+        "Textual Variants",
+        "Misquoting Jesus"
+      ],
+      "reason": "The post focuses on whether textual variants matter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "39827",
+      "dateText": "June 15, 2024",
+      "title": "Why Textual Variants Matter Even for Those Who Do NOT Think the Bible is Infallible",
+      "url": "https://ehrmanblog.org/why-textual-variants-matter-even-for-those-who-do-not-think-the-bible-is-infallible/",
+      "recommendedThemes": [
+        "Textual Variants"
+      ],
+      "reason": "The post explicitly focuses on textual variants.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47272",
+      "dateText": "July 5, 2025",
+      "title": "Paul’s Letter to Philemon: For Further Reading",
+      "url": "https://ehrmanblog.org/pauls-letter-to-philemon-for-further-reading/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is a reading-list post centered on a Pauline letter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "46942",
+      "dateText": "July 31, 2025",
+      "title": "1 and 2 Corinthians “At a Glance,” and Questions for Reflection",
+      "url": "https://ehrmanblog.org/1-and-2-corinthians-at-a-glance-and-questions-for-reflection/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is an overview/reflection item on Pauline letters.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "32298",
+      "dateText": "July 24, 2022",
+      "title": "Specious Arguments for the Truth of the Bible",
+      "url": "https://ehrmanblog.org/specious-arguments-for-the-truth-of-the-bible/",
+      "recommendedThemes": [
+        "New Testament Manuscripts (General)",
+        "Original Text"
+      ],
+      "reason": "Validated: the post focuses on manuscript-copy arguments and whether they establish the original New Testament text; inerrancy is not the main topic.",
+      "auditDecision": "validated_with_adjustment"
+    },
+    {
+      "wpId": "36215",
+      "dateText": "July 22, 2023",
+      "title": "Back to Whether Jesus Was Really Given a Decent Burial",
+      "url": "https://ehrmanblog.org/back-to-whether-jesus-was-really-given-a-decent-burial/",
+      "recommendedThemes": [
+        "Burial of Jesus",
+        "Gospel Historicity"
+      ],
+      "reason": "The post focuses on the historicity of Jesus' burial.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "26709",
+      "dateText": "July 22, 2021",
+      "title": "Is Revelation Describing Warfare in the Twenty-first Century??",
+      "url": "https://ehrmanblog.org/is-revelation-describing-warfare-in-the-twenty-first-century/",
+      "recommendedThemes": [
+        "Revelation",
+        "Modern Apocalypticism"
+      ],
+      "reason": "The post focuses on modern readings of Revelation's imagery.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "31948",
+      "dateText": "July 2, 2022",
+      "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+      "url": "https://ehrmanblog.org/which-james-in-galatians-platinum-guest-post-by-gregory-hartzler-miller/",
+      "recommendedThemes": [
+        "James the Brother of Jesus",
+        "Pauline Letters"
+      ],
+      "reason": "The post focuses on identifying James in Galatians.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "40011",
+      "dateText": "July 14, 2024",
+      "title": "Lost Christianities",
+      "url": "https://ehrmanblog.org/lost-christianities/",
+      "recommendedThemes": [
+        "Early Christian Diversity"
+      ],
+      "reason": "The post focuses on diversity in early Christianity.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "7553",
+      "dateText": "July 13, 2014",
+      "title": "Why Are You Trashing the Gospels?",
+      "url": "https://ehrmanblog.org/why-are-you-trashing-the-gospels/",
+      "recommendedThemes": [
+        "Gospel Historicity"
+      ],
+      "reason": "The post focuses on criticism of Gospel historical reliability.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "16304",
+      "dateText": "July 1, 2019",
+      "title": "Why Was the World Created in 4004 BC?",
+      "url": "https://ehrmanblog.org/why-was-the-world-created-in-4004-bc/",
+      "recommendedThemes": [
+        "Genesis"
+      ],
+      "reason": "The post focuses on Genesis chronology.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "38306",
+      "dateText": "January 30, 2024",
+      "title": "How to Sugarcoat Scripture but Seem Sophisticated.  Final Guest Post by Jill Hicks-Keeton",
+      "url": "https://ehrmanblog.org/how-to-sugarcoat-scripture-but-seem-sophisticated-final-guest-post-by-jill-hicks-keeton/",
+      "recommendedThemes": [
+        "Moral Problems in Scripture",
+        "Women in Early Christianity"
+      ],
+      "reason": "The post focuses on difficult biblical texts, including patriarchal texts.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "14876",
+      "dateText": "January 26, 2018",
+      "title": "Are Paul and Jesus on the Same Page?",
+      "url": "https://ehrmanblog.org/are-paul-and-jesus-on-the-same-page/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "The post compares Jesus' teaching/message with Paul.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "28726",
+      "dateText": "January 25, 2022",
+      "title": "Where Did the Apocalyptic Views of Jesus (and others) Come From?",
+      "url": "https://ehrmanblog.org/where-did-the-apocalyptic-views-of-jesus-and-others-come-from/",
+      "recommendedThemes": [
+        "Apocalyptic Jesus",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "The post focuses on the origins of Jesus' apocalyptic views.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "28577",
+      "dateText": "January 13, 2022",
+      "title": "Did My Shift in Thinking Destroy my Own Views?  Guest Video Post #4 by Kurt Jaros",
+      "url": "https://ehrmanblog.org/did-my-shift-in-thinking-destroy-my-own-views-guest-video-post-4-by-kurt-jaros/",
+      "recommendedThemes": [
+        "Original Text"
+      ],
+      "reason": "The post focuses on the original/earliest text issue.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "38100",
+      "dateText": "January 11, 2024",
+      "title": "How Jesus “Fills” Scripture “Full” in Matthew",
+      "url": "https://ehrmanblog.org/how-jesus-fills-scripture-full-in-matthew/",
+      "recommendedThemes": [
+        "Gospel of Matthew",
+        "Fulfillment Citations"
+      ],
+      "reason": "The post focuses on Matthew's fulfillment-citation approach.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "38340",
+      "dateText": "February 6, 2024",
+      "title": "How Do Scholars Make the Apocalyptic Jesus Non-Apocalyptic?",
+      "url": "https://ehrmanblog.org/how-do-scholars-make-the-apocalyptic-jesus-non-apocalyptic/",
+      "recommendedThemes": [
+        "Apocalyptic Jesus",
+        "Historical Jesus Research Methods"
+      ],
+      "reason": "The post explicitly focuses on scholarly handling of the apocalyptic Jesus.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "48866",
+      "dateText": "February 3, 2026",
+      "title": "Just How Careless Could an Ancient Christian Scribe Be?",
+      "url": "https://ehrmanblog.org/just-how-careless-could-an-ancient-christian-scribe-be/",
+      "recommendedThemes": [
+        "Scribal Changes"
+      ],
+      "reason": "The post explicitly focuses on scribal copying mistakes.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "38568",
+      "dateText": "February 29, 2024",
+      "title": "Our Controversial Sources About the Controversial Paul",
+      "url": "https://ehrmanblog.org/our-controversial-sources-about-the-controversial-paul/",
+      "recommendedThemes": [
+        "Pauline Biography"
+      ],
+      "reason": "The post focuses on sources for Paul's life.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "28977",
+      "dateText": "February 17, 2022",
+      "title": "Jesus and Paul:  Are They on the Same Page?",
+      "url": "https://ehrmanblog.org/jesus-and-paul-are-they-on-the-same-page/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "The post compares Jesus' teaching/message with Paul.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "12345",
+      "dateText": "February 14, 2017",
+      "title": "What We Now Know about the Manuscripts of the New Testament",
+      "url": "https://ehrmanblog.org/what-we-now-know-about-the-manuscripts-of-the-new-testament/",
+      "recommendedThemes": [
+        "New Testament Manuscripts (General)"
+      ],
+      "reason": "The post focuses on New Testament manuscripts.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "3821",
+      "dateText": "February 13, 2013",
+      "title": "An Important and Relevant Textual Variant in Luke 2",
+      "url": "https://ehrmanblog.org/an-important-and-relevant-textual-variant-in-luke-2/",
+      "recommendedThemes": [
+        "Christological Textual Variants",
+        "Gospel of Luke",
+        "Early Christology",
+        "Exaltation Christology"
+      ],
+      "reason": "The post focuses on a Christological textual variant in Luke.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "28208",
+      "dateText": "December 9, 2021",
+      "title": "But Why Doesn’t Paul Say More About the Historical Jesus?",
+      "url": "https://ehrmanblog.org/but-why-doesnt-paul-say-more-about-the-historical-jesus/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "The post focuses on why Paul says little about the historical Jesus.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "41656",
+      "dateText": "December 5, 2024",
+      "title": "Can We Defend Destroying Mummy Masks?",
+      "url": "https://ehrmanblog.org/can-we-defend-destroying-mummy-masks/",
+      "recommendedThemes": [
+        "Manuscript Discoveries",
+        "New Testament Manuscripts (General)"
+      ],
+      "reason": "The post focuses on manuscript recovery from mummy masks.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "28163",
+      "dateText": "December 5, 2021",
+      "title": "Did Paul Know What Jesus Taught?  More Reflections",
+      "url": "https://ehrmanblog.org/did-paul-know-what-jesus-taught-more-reflections/",
+      "recommendedThemes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "The post focuses on Paul's knowledge of Jesus' teachings.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "33586",
+      "dateText": "December 27, 2022",
+      "title": "Just Follow That Star!",
+      "url": "https://ehrmanblog.org/just-follow-that-star/",
+      "recommendedThemes": [
+        "Birth Narrative",
+        "Christmas"
+      ],
+      "reason": "The post focuses on the star in the birth narrative.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "36403",
+      "dateText": "August 9, 2023",
+      "title": "Hey, Stop Trashing the Gospels!",
+      "url": "https://ehrmanblog.org/hey-stop-trashing-the-gospels/",
+      "recommendedThemes": [
+        "Gospel Historicity"
+      ],
+      "reason": "The post focuses on criticism of Gospel historical reliability.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "32589",
+      "dateText": "August 28, 2022",
+      "title": "Did Jesus Believe in Armed Resistance to the Romans?",
+      "url": "https://ehrmanblog.org/did-jesus-believe-in-armed-resistance-to-the-romans/",
+      "recommendedThemes": [
+        "Zealot Hypothesis"
+      ],
+      "reason": "The post focuses on whether Jesus supported armed resistance.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "4709",
+      "dateText": "August 23, 2013",
+      "title": "Who Cares?",
+      "url": "https://ehrmanblog.org/who-cares/",
+      "recommendedThemes": [
+        "Patristic Textual Evidence",
+        "Original Text"
+      ],
+      "reason": "The post focuses on patristic Gospel citations and the original text.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "29782",
+      "dateText": "April 9, 2022",
+      "title": "The Apocalypse of John and the Gospel of Jesus: My Final Thoughts",
+      "url": "https://ehrmanblog.org/the-apocalypse-of-john-and-the-gospel-of-jesus-my-final-thoughts/",
+      "recommendedThemes": [
+        "Revelation"
+      ],
+      "reason": "The post focuses on Revelation.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47153",
+      "dateText": "April 8, 2025",
+      "title": "1 Corinthians: For Further Reading",
+      "url": "https://ehrmanblog.org/1-corinthians-for-further-reading/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is a reading-list post centered on a Pauline letter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "15755",
+      "dateText": "April 8, 2022",
+      "title": "Did Early Christians Believe in Reincarnation?",
+      "url": "https://ehrmanblog.org/did-early-christians-believe-in-reincarnation/",
+      "recommendedThemes": [
+        "Afterlife (General)"
+      ],
+      "reason": "The post focuses on early Christian afterlife/rebirth ideas.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "29779",
+      "dateText": "April 6, 2022",
+      "title": "John of Patmos and the Passion for World Domination",
+      "url": "https://ehrmanblog.org/john-of-patmos-and-the-passion-for-world-domination/",
+      "recommendedThemes": [
+        "Revelation"
+      ],
+      "reason": "The post focuses on Revelation's vision of rule/domination.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47175",
+      "dateText": "April 23, 2025",
+      "title": "Galatians: For Further Reading",
+      "url": "https://ehrmanblog.org/galatians-for-further-reading/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is a reading-list post centered on a Pauline letter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "49580",
+      "dateText": "April 20, 2026",
+      "title": "Does God Care What We Wear? A Platinum Post by Douglas Wadeson, MD",
+      "url": "https://ehrmanblog.org/does-god-care-what-we-wear-a-platinum-post-by-douglas-wadeson-md/",
+      "recommendedThemes": [
+        "Jewish Law"
+      ],
+      "reason": "The post focuses on biblical/religious clothing regulations and law-like practices.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "35065",
+      "dateText": "April 18, 2023",
+      "title": "James Tabor on the 1993 Waco Disaster, Part III",
+      "url": "https://ehrmanblog.org/james-tabor-on-the-1993-waco-disaster-part-iii/",
+      "recommendedThemes": [
+        "Modern Apocalypticism"
+      ],
+      "reason": "Validated: the post focuses on modern apocalyptic believers at Waco; Revelation is contextual here rather than the main topic.",
+      "auditDecision": "validated_with_adjustment"
+    },
+    {
+      "wpId": "35060",
+      "dateText": "April 16, 2023",
+      "title": "James Tabor on the 1993 Waco Disaster, Part II",
+      "url": "https://ehrmanblog.org/james-tabor-on-the-1993-waco-disaster-part-ii/",
+      "recommendedThemes": [
+        "Modern Apocalypticism",
+        "Revelation"
+      ],
+      "reason": "The post focuses on modern apocalyptic interpretation around Waco.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "47165",
+      "dateText": "April 15, 2025",
+      "title": "2 Corinthians: For Further Reading",
+      "url": "https://ehrmanblog.org/2-corinthians-for-further-reading/",
+      "recommendedThemes": [
+        "Pauline Letters"
+      ],
+      "reason": "The post is a reading-list post centered on a Pauline letter.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "35029",
+      "dateText": "April 15, 2023",
+      "title": "James Tabor on the 1993 Waco Disaster, Part I",
+      "url": "https://ehrmanblog.org/james-tabor-on-the-1993-waco-disaster-part-i/",
+      "recommendedThemes": [
+        "Modern Apocalypticism"
+      ],
+      "reason": "The post focuses on modern apocalyptic interpretation around Waco.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "38934",
+      "dateText": "April 11, 2024",
+      "title": "Ever Hear of an Agraphon?  An “Unwritten” Saying of Jesus?",
+      "url": "https://ehrmanblog.org/ever-hear-of-an-agraphon-an-unwritten-saying-of-jesus/",
+      "recommendedThemes": [
+        "Jesus' Teachings"
+      ],
+      "reason": "The post focuses on unwritten sayings attributed to Jesus.",
+      "auditDecision": "validated"
+    },
+    {
+      "wpId": "12432",
+      "dateText": "",
+      "title": "Was Jesus a Myth or a Historical Figure? Robert Price and I Debate This Very Interesting Question",
+      "url": "https://ehrmanblog.org/bart-ehrman-robert-price-debate-did-jesus-exist/",
+      "recommendedThemes": [
+        "Mythicism",
+        "Historical Jesus Overview",
+        "Debates"
+      ],
+      "reason": "The post is a debate on mythicism/historicity.",
+      "auditDecision": "validated"
+    }
+  ],
+  "notes": [
+    "No new themes are proposed in this report.",
+    "The keyword JSON has not been modified.",
+    "Recommendations were retained only where the theme is a main topic of the post, not an incidental mention.",
+    "Promotional, announcement, personal, and broad reader-response posts remain unthemed unless a clear existing topical theme is central."
+  ],
+  "missingTitlePatterns": [],
+  "duplicateTitleHits": {},
+  "auditStatus": "second-pass validated",
+  "auditMethod": "Each recommended article/theme link was checked against title, WordPress category, summary, and article text; broad or incidental tags were removed or replaced.",
+  "auditAdjustments": [
+    {
+      "title": "Specious Arguments for the Truth of the Bible",
+      "oldRecommendedThemes": [
+        "Biblical Inerrancy",
+        "New Testament Manuscripts (General)"
+      ],
+      "validatedRecommendedThemes": [
+        "New Testament Manuscripts (General)",
+        "Original Text"
+      ],
+      "change": "Replaced Biblical Inerrancy with Original Text.",
+      "reason": "Validated: the post focuses on manuscript-copy arguments and whether they establish the original New Testament text; inerrancy is not the main topic."
+    },
+    {
+      "title": "James Tabor on the 1993 Waco Disaster, Part III",
+      "oldRecommendedThemes": [
+        "Modern Apocalypticism",
+        "Revelation"
+      ],
+      "validatedRecommendedThemes": [
+        "Modern Apocalypticism"
+      ],
+      "change": "Removed Revelation.",
+      "reason": "Validated: the post focuses on modern apocalyptic believers at Waco; Revelation is contextual here rather than the main topic."
+    }
+  ],
+  "applicationStatus": "applied",
+  "appliedAt": "2026-07-02T12:28:14",
+  "appliedTo": "data/index/ehrman_posts_keywords.json",
+  "primaryKeywordSyncStatus": "applied",
+  "primaryKeywordSyncedAt": "2026-07-02T16:34:16.828530+00:00"
+}

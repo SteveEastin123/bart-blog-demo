@@ -1,0 +1,469 @@
+{
+  "createdAt": "2026-07-02T17:04:43.427796+00:00",
+  "sourceFile": "data/index/ehrman_posts_keywords.json",
+  "scope": "Audit of articles tagged Ignore to identify substantive posts where a non-Ignore theme is central.",
+  "policy": [
+    "Replace Ignore only when the article itself has a clear central topic suitable for an existing theme.",
+    "Do not retheme announcements, logistics, webinars, travel notes, broad Q&A notices, or other wrapper posts merely because they mention topical material.",
+    "When Ignore is replaced, set primaryKeywords to match themes exactly.",
+    "Preserve existing secondaryKeywords unless they become exact primary/theme duplicates; no secondary cleanup was applied in this pass."
+  ],
+  "summary": {
+    "articlesUpdated": 17,
+    "ignoreThemesRemoved": 17,
+    "primaryKeywordsSyncedToThemes": 17
+  },
+  "recommendationsApplied": [
+    {
+      "wpId": "49744",
+      "title": "Some Important Readers’ Questions on Some Gospel Head-Scratchers",
+      "dateText": "May 12, 2026",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Gospels (General)"
+      ],
+      "newPrimaryKeywords": [
+        "Gospels (General)"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Jesus",
+        "Acts (General)",
+        "Christology (General)",
+        "Original Text",
+        "Luke",
+        "Son of God",
+        "Gospels (General)",
+        "Resurrection",
+        "Crucifixion",
+        "Messianic Secret",
+        "Mark"
+      ]
+    },
+    {
+      "wpId": "47208",
+      "title": "Some Intriguing Questions about Paul’s Letters",
+      "dateText": "May 18, 2025",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Pauline Letters"
+      ],
+      "newPrimaryKeywords": [
+        "Pauline Letters"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Paul",
+        "James",
+        "Galatians",
+        "Judaism",
+        "Peter",
+        "Jesus",
+        "Empty Tomb",
+        "Resurrection",
+        "Galatians 2:6-10",
+        "1 Corinthians 15:4",
+        "2 Peter 3:16",
+        "1 Corinthians 5:9"
+      ]
+    },
+    {
+      "wpId": "46993",
+      "title": "The Birth of Christianity (My Other Class): Check Out the Writing Assignments!",
+      "dateText": "August 31, 2025",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses",
+        "Early Christianity"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses",
+        "Early Christianity"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Mark",
+        "Miracles (General)",
+        "Gospel of Thomas",
+        "Infancy Gospel of Thomas",
+        "Martyrdom of Polycarp",
+        "Apocalypse of Peter",
+        "Early Christianity",
+        "Apocryphal Acts",
+        "Gospel of Mary",
+        "Jesus",
+        "Polycarp",
+        "Mary",
+        "Thomas",
+        "Thecla",
+        "Martyrdom",
+        "Judaism",
+        "Acts",
+        "Luke"
+      ]
+    },
+    {
+      "wpId": "41332",
+      "title": "Take My New Testament Pop Quiz!",
+      "dateText": "November 5, 2024",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Paul"
+      ]
+    },
+    {
+      "wpId": "35182",
+      "title": "Wanna Take My Final Exam In New Testament?",
+      "dateText": "April 30, 2023",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Infancy Gospel of Thomas",
+        "Gospel of Thomas",
+        "Nag Hammadi",
+        "Paul"
+      ]
+    },
+    {
+      "wpId": "33081",
+      "title": "Interesting Topics in New Testament.  My Weekly Writing Assignments for Undergrads",
+      "dateText": "October 16, 2022",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Early Christian Writings",
+        "Early Christianity",
+        "Jesus",
+        "Gospel of Peter",
+        "Gospels (General)",
+        "Matthew",
+        "Luke",
+        "Redaction Criticism",
+        "Mark",
+        "Resurrection",
+        "John",
+        "Matthew 2:7",
+        "Mark 16:1-8",
+        "Matthew 28:1-20",
+        "Luke 24:1-56",
+        "Mark 15:1-15"
+      ]
+    },
+    {
+      "wpId": "20261",
+      "title": "Take A Final Exam on the New Testament!",
+      "dateText": "May 4, 2020",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Introduction to the New Testament",
+        "Final Exam",
+        "Pedagogy",
+        "Paul"
+      ]
+    },
+    {
+      "wpId": "17428",
+      "title": "End of the Year Final Exam!",
+      "dateText": "December 29, 2019",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Gospels (General)",
+        "Jesus",
+        "Historical Jesus",
+        "Crucifixion"
+      ]
+    },
+    {
+      "wpId": "8746",
+      "title": "My Final Exam for NT",
+      "dateText": "May 1, 2015",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Introduction to the New Testament",
+        "Final Exam",
+        "Pedagogy",
+        "Paul"
+      ]
+    },
+    {
+      "wpId": "6585",
+      "title": "My New Testament Pop Quiz",
+      "dateText": "January 10, 2014",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Memory",
+        "Jesus",
+        "Gospels (General)",
+        "New Testament",
+        "Paul"
+      ]
+    },
+    {
+      "wpId": "6422",
+      "title": "Jesus Final Exam",
+      "dateText": "December 10, 2013",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Jesus",
+        "Gospels (General)",
+        "Syllabus"
+      ]
+    },
+    {
+      "wpId": "12535",
+      "title": "Spilling the Beans on my Beliefs on the Last Day of Class",
+      "dateText": "May 2, 2017",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Teaching and Courses",
+        "Personal Reflections"
+      ],
+      "newPrimaryKeywords": [
+        "Teaching and Courses",
+        "Personal Reflections"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Subjectivity",
+        "Objectivity",
+        "Pedagogy"
+      ]
+    },
+    {
+      "wpId": "29838",
+      "title": "Are Paul and Jesus on the Same Page?  Most-Commented Blog Post: #6",
+      "dateText": "April 24, 2022",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "newPrimaryKeywords": [
+        "Paul's Knowledge of Jesus",
+        "Jesus' Teachings"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Jesus",
+        "Paul",
+        "Early Christianity",
+        "Resurrection",
+        "Jesus' Miracles",
+        "Son of Man",
+        "Jewish Law",
+        "Resurrection of Jesus",
+        "Heaven",
+        "Matthew",
+        "Matthew 19:16-22",
+        "Galatians 2:21"
+      ]
+    },
+    {
+      "wpId": "29842",
+      "title": "The Religion of a Sixteen-Year Old.  Most-Commented Blog Post: #5",
+      "dateText": "April 26, 2022",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Autobiographical Posts",
+        "Fundamentalism"
+      ],
+      "newPrimaryKeywords": [
+        "Autobiographical Posts",
+        "Fundamentalism"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Memory"
+      ]
+    },
+    {
+      "wpId": "11713",
+      "title": "Celibacy and Polygamy in the Bible: Weekly Readers’ Mailbag July 30, 2016",
+      "dateText": "July 30, 2016",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Sexual and Reproductive Ethics"
+      ],
+      "newPrimaryKeywords": [
+        "Sexual and Reproductive Ethics"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Jesus",
+        "Gospel of Jesus Wife",
+        "Forgery (General)",
+        "John",
+        "Mary Magdalene",
+        "Jesus' Family",
+        "Celibacy",
+        "Polygamy",
+        "Essenes",
+        "Paul",
+        "Mark 12:18-27"
+      ]
+    },
+    {
+      "wpId": "21340",
+      "title": "Another Important Evangelical Charity: Guest Post by Robin Jones",
+      "dateText": "September 28, 2020",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Charity"
+      ],
+      "newPrimaryKeywords": [
+        "Charity"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Charity",
+        "Suffering",
+        "Job"
+      ]
+    },
+    {
+      "wpId": "11939",
+      "title": "Why Don’t I Call Myself a Christian?  Mailbag: October 8, 2016",
+      "dateText": "October 8, 2016",
+      "oldThemes": [
+        "Ignore"
+      ],
+      "oldPrimaryKeywords": [
+        "Ignore"
+      ],
+      "newThemes": [
+        "Deconversion",
+        "Personal Reflections"
+      ],
+      "newPrimaryKeywords": [
+        "Deconversion",
+        "Personal Reflections"
+      ],
+      "secondaryKeywordsPreserved": [
+        "Early Christianity",
+        "Resurrection",
+        "Ehrman Blog",
+        "Belief",
+        "Jesus"
+      ]
+    }
+  ],
+  "applicationStatus": "applied"
+}
