@@ -306,6 +306,11 @@
       margin-bottom: 0;
     }
 
+    .site-demo-version {
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
     .content-page {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -31493,7 +31498,9 @@ const DATA = {
     }
 
     const keywordArticleIndexes = new Map();
+    const keywordArticleIndexByUrl = new Map();
     KEYWORD_INDEX.forEach(([, , , , primaryKeywords, secondaryKeywords], articleIndex) => {
+      keywordArticleIndexByUrl.set(KEYWORD_INDEX[articleIndex][1], articleIndex);
       const seenKeywords = new Set();
       [...primaryKeywords, ...secondaryKeywords].forEach(([, normalized]) => {
         if (!normalized || seenKeywords.has(normalized)) {
@@ -31630,6 +31637,32 @@ const DATA = {
       return sortedIndexes;
     }
 
+    function articleIndexesMatchingTerms(terms) {
+      const uniqueTerms = uniqueKeywordTerms(terms);
+      if (!uniqueTerms.length) {
+        return [];
+      }
+      const cacheKey = uniqueTerms.join('\u0001');
+      if (keywordMatchCountCache.has(cacheKey)) {
+        return keywordMatchCountCache.get(cacheKey);
+      }
+      const articleLists = uniqueTerms
+        .map(term => articleIndexesForKeywordTerm(term))
+        .sort((left, right) => left.length - right.length);
+      let articleIndexes = [];
+      if (articleLists.every(list => list.length > 0)) {
+        articleIndexes = articleLists[0];
+        for (let index = 1; index < articleLists.length; index += 1) {
+          articleIndexes = intersectSortedArticleIndexes(articleIndexes, articleLists[index]);
+          if (!articleIndexes.length) {
+            break;
+          }
+        }
+      }
+      keywordMatchCountCache.set(cacheKey, articleIndexes);
+      return articleIndexes;
+    }
+
     function intersectSortedArticleIndexes(left, right) {
       const intersection = [];
       let leftIndex = 0;
@@ -31655,26 +31688,18 @@ const DATA = {
       if (!uniqueTerms.length) {
         return 0;
       }
-      const cacheKey = uniqueTerms.join('\u0001');
-      if (keywordMatchCountCache.has(cacheKey)) {
-        return keywordMatchCountCache.get(cacheKey);
+      return articleIndexesMatchingTerms(uniqueTerms).length;
+    }
+
+    function keywordMatchCountForTermsInScope(terms, scopeArticleIndexes = null) {
+      const uniqueTerms = uniqueKeywordTerms(terms);
+      if (!uniqueTerms.length) {
+        return scopeArticleIndexes ? scopeArticleIndexes.length : 0;
       }
-      const articleLists = uniqueTerms
-        .map(term => articleIndexesForKeywordTerm(term))
-        .sort((left, right) => left.length - right.length);
-      let count = 0;
-      if (articleLists.every(list => list.length > 0)) {
-        let intersection = articleLists[0];
-        for (let index = 1; index < articleLists.length; index += 1) {
-          intersection = intersectSortedArticleIndexes(intersection, articleLists[index]);
-          if (!intersection.length) {
-            break;
-          }
-        }
-        count = intersection.length;
-      }
-      keywordMatchCountCache.set(cacheKey, count);
-      return count;
+      const matchingIndexes = articleIndexesMatchingTerms(uniqueTerms);
+      return scopeArticleIndexes
+        ? intersectSortedArticleIndexes(matchingIndexes, scopeArticleIndexes).length
+        : matchingIndexes.length;
     }
 
     function keywordContextTerms(input, inputs) {
@@ -31688,13 +31713,14 @@ const DATA = {
       return matches.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
     }
 
-    function keywordSuggestionMatches(value, input = null, inputs = []) {
+    function keywordSuggestionMatches(value, input = null, inputs = [], options = {}) {
       const query = normalizeKeywordSearchValue(value);
       if (!query) {
         return [];
       }
       const contextTerms = input ? keywordContextTerms(input, inputs) : [];
       const hasContext = contextTerms.length > 0;
+      const scopeArticleIndexes = options.scopeArticleIndexes || null;
       const prefixMatches = [];
       const wordMatches = [];
       KEYWORD_SUGGESTIONS.forEach(([label, count, normalized]) => {
@@ -31704,9 +31730,9 @@ const DATA = {
           return;
         }
         const contextualCount = hasContext
-          ? keywordMatchCountForTerms([...contextTerms, normalized])
-          : count;
-        if (hasContext && contextualCount === 0) {
+          ? keywordMatchCountForTermsInScope([...contextTerms, normalized], scopeArticleIndexes)
+          : (scopeArticleIndexes ? keywordMatchCountForTermsInScope([normalized], scopeArticleIndexes) : count);
+        if ((hasContext || scopeArticleIndexes) && contextualCount === 0) {
           return;
         }
         if (isPrefixMatch) {
@@ -31794,20 +31820,20 @@ const DATA = {
       });
     }
 
-    function updateKeywordSuggestions(input, activeIndex = -1, inputs = []) {
+    function updateKeywordSuggestions(input, activeIndex = -1, inputs = [], options = {}) {
       closeAllKeywordSuggestions(input);
-      const matches = keywordSuggestionMatches(input.value, input, inputs);
+      const matches = keywordSuggestionMatches(input.value, input, inputs, options);
       renderKeywordSuggestions(input, matches, activeIndex);
     }
 
-    function setupKeywordAutocomplete(inputs) {
+    function setupKeywordAutocomplete(inputs, options = {}) {
       inputs.forEach(input => {
         input.keywordSuggestionMatches = [];
         input.keywordSuggestionIndex = -1;
-        input.addEventListener('input', () => updateKeywordSuggestions(input, -1, inputs));
+        input.addEventListener('input', () => updateKeywordSuggestions(input, -1, inputs, options));
         input.addEventListener('focus', () => {
           if (input.value.trim()) {
-            updateKeywordSuggestions(input, -1, inputs);
+            updateKeywordSuggestions(input, -1, inputs, options);
           }
         });
         input.addEventListener('keydown', event => {
@@ -31817,13 +31843,13 @@ const DATA = {
             const nextIndex = matches.length
               ? (input.keywordSuggestionIndex + 1 + matches.length) % matches.length
               : 0;
-            updateKeywordSuggestions(input, nextIndex, inputs);
+            updateKeywordSuggestions(input, nextIndex, inputs, options);
             return;
           }
           if (event.key === 'ArrowUp') {
             event.preventDefault();
             if (!matches.length) {
-              updateKeywordSuggestions(input, 0, inputs);
+              updateKeywordSuggestions(input, 0, inputs, options);
               return;
             }
             const nextIndex = (input.keywordSuggestionIndex - 1 + matches.length) % matches.length;
@@ -31886,7 +31912,7 @@ const DATA = {
       `;
     }
 
-    function setupKeywordSearchForm(defaultSort = 'best') {
+    function setupKeywordSearchForm(defaultSort = 'best', options = {}) {
       const form = document.getElementById('keyword-search-form');
       if (!form) {
         return;
@@ -31904,6 +31930,10 @@ const DATA = {
       form.addEventListener('submit', event => {
         event.preventDefault();
         const query = currentQuery();
+        if (typeof options.onSubmit === 'function') {
+          options.onSubmit({ query, sort: currentSort(), inputs });
+          return;
+        }
         if (query) {
           window.location.hash = keywordResultsUrl(query, currentSort());
         }
@@ -31925,11 +31955,62 @@ const DATA = {
           }
         });
       }
-      setupKeywordAutocomplete(inputs);
+      setupKeywordAutocomplete(inputs, options);
     }
 
     function articleLink(article) {
       return `<a class="article-link" href="${escapeHtml(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(article.title)}</a>`;
+    }
+
+    function articleIndexesForArticleList(articles) {
+      return articles
+        .map(article => keywordArticleIndexByUrl.get(article.url))
+        .filter(index => Number.isInteger(index))
+        .sort((a, b) => a - b);
+    }
+
+    function articleMatchesKeywordTerms(article, terms) {
+      const articleIndex = keywordArticleIndexByUrl.get(article.url);
+      if (!Number.isInteger(articleIndex)) {
+        return false;
+      }
+      const [, , , , primaryKeywords, secondaryKeywords] = KEYWORD_INDEX[articleIndex];
+      return keywordRowMatchesTerms(primaryKeywords, secondaryKeywords, terms);
+    }
+
+    function filterArticlesByKeywordQuery(articles, query) {
+      const terms = parseKeywordQuery(query);
+      if (!terms.length) {
+        return articles;
+      }
+      return articles.filter(article => articleMatchesKeywordTerms(article, terms));
+    }
+
+    function themeArticleResultsMarkup(articles, emptyMessage) {
+      if (!articles.length) {
+        return `<p class="empty">${escapeHtml(emptyMessage)}</p>`;
+      }
+      const articleItems = articles.map(article => `
+        <li class="post-entry">
+          <h2>${articleLink(article)}</h2>
+        </li>
+      `).join('');
+      return `<ul class="post-list">${articleItems}</ul>`;
+    }
+
+    function updateThemeArticleResults(allArticles, query) {
+      const filteredArticles = filterArticlesByKeywordQuery(allArticles, query);
+      const countNode = document.getElementById('theme-article-count');
+      const resultsNode = document.getElementById('theme-article-results');
+      if (countNode) {
+        countNode.textContent = pluralize(filteredArticles.length, 'article', 'articles');
+      }
+      if (resultsNode) {
+        resultsNode.innerHTML = themeArticleResultsMarkup(
+          filteredArticles,
+          'No articles match those keywords within this theme. Try fewer keywords or one of the autocomplete suggestions.'
+        );
+      }
     }
 
     function siteHeader() {
@@ -31973,6 +32054,7 @@ const DATA = {
             <p>Two hyperlinks have been added to the navigation bar: Categories and Keyword Search.</p>
             <p>Categories provide a structured way to walk through Bart’s posts. There are 32 predefined categories. Clicking on a specific category will display predefined themes of that category, and clicking on a specific theme will display posts related to that theme.</p>
             <p>Keyword Search provides a way to find posts using up to four keywords.</p>
+            <p class="site-demo-version">Version 3.0</p>
           </section>
         </div>
       `;
@@ -32098,14 +32180,7 @@ const DATA = {
       }
 
       const articles = DATA.articlesByTheme[theme] || [];
-      const articleItems = articles.map(article => `
-        <li class="post-entry">
-          <h2>${articleLink(article)}</h2>
-        </li>
-      `).join('');
-      const articlesMarkup = articles.length
-        ? `<ul class="post-list">${articleItems}</ul>`
-        : '<p class="empty">No articles are currently linked to this theme.</p>';
+      const scopeArticleIndexes = articleIndexesForArticleList(articles);
 
       app.innerHTML = `
         <div class="site-home">
@@ -32113,12 +32188,19 @@ const DATA = {
           <section class="content-page">
             <header class="content-header">
               <h1>${escapeHtml(theme)}</h1>
-              <p class="meta">${pluralize(articles.length, 'article', 'articles')}</p>
+              <p id="theme-article-count" class="meta">${pluralize(articles.length, 'article', 'articles')}</p>
             </header>
-            ${articlesMarkup}
+            ${keywordSearchFormMarkup([theme])}
+            <div id="theme-article-results">
+              ${themeArticleResultsMarkup(articles, 'No articles are currently linked to this theme.')}
+            </div>
           </section>
         </div>
       `;
+      setupKeywordSearchForm('best', {
+        scopeArticleIndexes,
+        onSubmit: ({ query }) => updateThemeArticleResults(articles, query)
+      });
     }
 
     function renderNotFound() {
