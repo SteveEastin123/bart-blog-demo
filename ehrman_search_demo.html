@@ -306,9 +306,14 @@
       margin-bottom: 0;
     }
 
-    .site-demo-version {
+    .site-demo-note .site-demo-date-range {
       font-size: 13px;
-      margin-top: 18px;
+      margin: 56px 0 14px;
+    }
+
+    .site-demo-note .site-demo-version {
+      font-size: 13px;
+      margin: 0;
     }
 
     .content-page {
@@ -31437,12 +31442,29 @@ const DATA = {
       return `#category/${index}`;
     }
 
-    function themeUrl(categoryIndex, theme) {
-      return `#theme/${categoryIndex}/${encodeURIComponent(theme)}`;
+    const VALID_SORTS = ['best', 'newest', 'oldest', 'title'];
+
+    function validSort(sort) {
+      return VALID_SORTS.includes(sort) ? sort : 'best';
+    }
+
+    function themeUrl(categoryIndex, theme, query = '', sort = 'best') {
+      const params = new URLSearchParams();
+      const normalizedQuery = String(query || '').trim();
+      const normalizedSort = validSort(sort);
+      if (normalizedQuery && normalizedQuery !== theme) {
+        params.set('keywords', normalizedQuery);
+      }
+      if (normalizedSort !== 'best') {
+        params.set('sort', normalizedSort);
+      }
+      const queryString = params.toString();
+      return `#theme/${categoryIndex}/${encodeURIComponent(theme)}${queryString ? `?${queryString}` : ''}`;
     }
 
     function keywordResultsUrl(query, sort = 'best') {
-      const sortParam = sort && sort !== 'best' ? `?sort=${encodeURIComponent(sort)}` : '';
+      const normalizedSort = validSort(sort);
+      const sortParam = normalizedSort !== 'best' ? `?sort=${encodeURIComponent(normalizedSort)}` : '';
       return `#keyword-results/${encodeURIComponent(query)}${sortParam}`;
     }
 
@@ -31475,10 +31497,19 @@ const DATA = {
     function parseKeywordResultsPayload(payload) {
       const [encodedQuery, queryString = ''] = String(payload || '').split('?');
       const params = new URLSearchParams(queryString);
-      const sort = params.get('sort') || 'best';
       return {
         query: decodeURIComponent(encodedQuery || ''),
-        sort: ['best', 'newest', 'oldest', 'title'].includes(sort) ? sort : 'best'
+        sort: validSort(params.get('sort') || 'best')
+      };
+    }
+
+    function parseThemePayload(payload) {
+      const [encodedTheme, queryString = ''] = String(payload || '').split('?');
+      const params = new URLSearchParams(queryString);
+      return {
+        encodedTheme,
+        query: params.get('keywords') || '',
+        sort: validSort(params.get('sort') || 'best')
       };
     }
 
@@ -31941,6 +31972,10 @@ const DATA = {
       if (sortSelect) {
         sortSelect.addEventListener('change', () => {
           const query = currentQuery();
+          if (typeof options.onSubmit === 'function') {
+            options.onSubmit({ query, sort: currentSort(), inputs });
+            return;
+          }
           if (query) {
             window.location.hash = keywordResultsUrl(query, currentSort());
           }
@@ -31960,6 +31995,26 @@ const DATA = {
 
     function articleLink(article) {
       return `<a class="article-link" href="${escapeHtml(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(article.title)}</a>`;
+    }
+
+    function keywordArticleForUrl(url) {
+      const articleIndex = keywordArticleIndexByUrl.get(url);
+      return Number.isInteger(articleIndex) ? KEYWORD_INDEX[articleIndex] : null;
+    }
+
+    function articleDateText(article) {
+      const keywordArticle = keywordArticleForUrl(article.url);
+      return keywordArticle ? keywordArticle[2] : (article.dateText || '');
+    }
+
+    function articleDateSort(article) {
+      const keywordArticle = keywordArticleForUrl(article.url);
+      return keywordArticle ? keywordArticle[3] : (article.dateSort || '');
+    }
+
+    function articleOriginalIndex(article) {
+      const articleIndex = keywordArticleIndexByUrl.get(article.url);
+      return Number.isInteger(articleIndex) ? articleIndex : Number.MAX_SAFE_INTEGER;
     }
 
     function articleIndexesForArticleList(articles) {
@@ -31986,6 +32041,59 @@ const DATA = {
       return articles.filter(article => articleMatchesKeywordTerms(article, terms));
     }
 
+    function compareThemeArticleDates(left, right, direction) {
+      const leftDate = articleDateSort(left.article);
+      const rightDate = articleDateSort(right.article);
+      if (leftDate && rightDate && leftDate !== rightDate) {
+        return direction === 'asc'
+          ? leftDate.localeCompare(rightDate)
+          : rightDate.localeCompare(leftDate);
+      }
+      if (leftDate !== rightDate) {
+        return leftDate ? -1 : 1;
+      }
+      return left.originalIndex - right.originalIndex;
+    }
+
+    function sortThemeArticles(articles, sort, query = '') {
+      const normalizedSort = validSort(sort);
+      const indexedArticles = articles.map((article, listIndex) => ({
+        article,
+        listIndex,
+        originalIndex: articleOriginalIndex(article)
+      }));
+      if (normalizedSort === 'newest') {
+        return indexedArticles
+          .sort((left, right) => compareThemeArticleDates(left, right, 'desc'))
+          .map(({ article }) => article);
+      }
+      if (normalizedSort === 'oldest') {
+        return indexedArticles
+          .sort((left, right) => compareThemeArticleDates(left, right, 'asc'))
+          .map(({ article }) => article);
+      }
+      if (normalizedSort === 'title') {
+        return indexedArticles
+          .sort((left, right) => left.article.title.localeCompare(right.article.title) || left.originalIndex - right.originalIndex)
+          .map(({ article }) => article);
+      }
+      const terms = parseKeywordQuery(query);
+      if (!terms.length) {
+        return articles;
+      }
+      const rankByUrl = new Map(keywordMatches(query).map((article, index) => [
+        article.url,
+        { score: article.score, index }
+      ]));
+      return indexedArticles
+        .sort((left, right) => {
+          const leftRank = rankByUrl.get(left.article.url) || { score: 0, index: left.listIndex };
+          const rightRank = rankByUrl.get(right.article.url) || { score: 0, index: right.listIndex };
+          return rightRank.score - leftRank.score || leftRank.index - rightRank.index || left.listIndex - right.listIndex;
+        })
+        .map(({ article }) => article);
+    }
+
     function themeArticleResultsMarkup(articles, emptyMessage) {
       if (!articles.length) {
         return `<p class="empty">${escapeHtml(emptyMessage)}</p>`;
@@ -31993,22 +32101,23 @@ const DATA = {
       const articleItems = articles.map(article => `
         <li class="post-entry">
           <h2>${articleLink(article)}</h2>
+          ${articleDateText(article) ? `<p class="post-meta">${escapeHtml(articleDateText(article))}</p>` : ''}
         </li>
       `).join('');
       return `<ul class="post-list">${articleItems}</ul>`;
     }
 
-    function updateThemeArticleResults(allArticles, query) {
-      const filteredArticles = filterArticlesByKeywordQuery(allArticles, query);
+    function updateThemeArticleResults(allArticles, query, sort = 'best') {
+      const filteredArticles = sortThemeArticles(filterArticlesByKeywordQuery(allArticles, query), sort, query);
       const countNode = document.getElementById('theme-article-count');
       const resultsNode = document.getElementById('theme-article-results');
       if (countNode) {
-        countNode.textContent = pluralize(filteredArticles.length, 'article', 'articles');
+        countNode.textContent = pluralize(filteredArticles.length, 'post', 'posts');
       }
       if (resultsNode) {
         resultsNode.innerHTML = themeArticleResultsMarkup(
           filteredArticles,
-          'No articles match those keywords within this theme. Try fewer keywords or one of the autocomplete suggestions.'
+          'No posts match those keywords within this theme. Try fewer keywords or one of the autocomplete suggestions.'
         );
       }
     }
@@ -32044,17 +32153,25 @@ const DATA = {
       return `${count} ${count === 1 ? singular : plural}`;
     }
 
+    function formattedPluralize(count, singular, plural) {
+      return `${Number(count).toLocaleString()} ${count === 1 ? singular : plural}`;
+    }
+
     function renderHome() {
+      const articleCount = KEYWORD_INDEX.length;
+      const themeCountValue = Object.keys(DATA.articlesByTheme).length;
+      const categoryCount = DATA.categories.length;
       app.innerHTML = `
         <div class="site-home">
           ${siteHeader()}
           <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
           <section class="site-demo-note" aria-label="Demo description">
-            <p>This is a demo of proposed functionality designed to make it easier for users to search topics of interest.</p>
-            <p>Two hyperlinks have been added to the navigation bar: Categories and Keyword Search.</p>
-            <p>Categories provide a structured way to walk through Bart’s posts. There are 32 predefined categories. Clicking on a specific category will display predefined themes of that category, and clicking on a specific theme will display posts related to that theme.</p>
-            <p>Keyword Search provides a way to find posts using up to four keywords.</p>
-            <p class="site-demo-version">Version 3.0</p>
+            <p>This demo introduces new features to find topics of interest on Bart's blog.</p>
+            <p>Two hyperlinks have been added to the navigation bar: <strong>Categories</strong> and <strong>Keyword Search</strong>.</p>
+            <p><strong>Categories</strong> let readers browse the blog in a structured way. The posts have been organized into ${categoryCount} broad categories. Selecting a category shows the themes within it, and selecting a theme shows the posts connected to that theme.</p>
+            <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
+            <p class="site-demo-date-range">Posts from April 3, 2012 - June 3, 2026</p>
+            <p class="site-demo-version">Version 3.0 | ${formattedPluralize(articleCount, 'post', 'posts')} | ${formattedPluralize(themeCountValue, 'theme', 'themes')} | ${formattedPluralize(categoryCount, 'category', 'categories')}</p>
           </section>
         </div>
       `;
@@ -32103,7 +32220,7 @@ const DATA = {
       `).join('');
       const articlesMarkup = articles.length
         ? `<ul class="post-list">${articleItems}</ul>`
-        : '<p class="empty">No articles match those keywords. Try fewer keywords, broader terms, or one of the autocomplete suggestions.</p>';
+        : '<p class="empty">No posts match those keywords. Try fewer keywords, broader terms, or one of the autocomplete suggestions.</p>';
 
       app.innerHTML = `
         <div class="site-home">
@@ -32111,7 +32228,7 @@ const DATA = {
           <section class="content-page">
             <header class="content-header">
               <h1>Keywords: ${escapeHtml(query)}</h1>
-              <p class="meta">${pluralize(articles.length, 'article', 'articles')}</p>
+              <p class="meta">${pluralize(articles.length, 'post', 'posts')}</p>
             </header>
             ${keywordSearchFormMarkup(keywordInputValuesFromQuery(query), { includeSort: true, sort })}
             ${articlesMarkup}
@@ -32153,7 +32270,7 @@ const DATA = {
       const items = category.themes.map(theme => `
         <li class="post-entry">
           <h2><a href="${themeUrl(index, theme)}">${escapeHtml(theme)}</a></h2>
-          <p class="post-meta">${pluralize(themeCount(theme), 'article', 'articles')}</p>
+          <p class="post-meta">${pluralize(themeCount(theme), 'post', 'posts')}</p>
         </li>
       `).join('');
 
@@ -32171,8 +32288,9 @@ const DATA = {
       `;
     }
 
-    function renderTheme(categoryIndex, encodedTheme) {
+    function renderTheme(categoryIndex, themePayload) {
       const category = DATA.categories[categoryIndex];
+      const { encodedTheme, query: urlQuery, sort } = parseThemePayload(themePayload);
       const theme = decodeURIComponent(encodedTheme || '');
       if (!category || !category.themes.includes(theme)) {
         renderNotFound();
@@ -32181,6 +32299,8 @@ const DATA = {
 
       const articles = DATA.articlesByTheme[theme] || [];
       const scopeArticleIndexes = articleIndexesForArticleList(articles);
+      const activeQuery = urlQuery || theme;
+      const displayedArticles = sortThemeArticles(filterArticlesByKeywordQuery(articles, activeQuery), sort, activeQuery);
 
       app.innerHTML = `
         <div class="site-home">
@@ -32188,18 +32308,25 @@ const DATA = {
           <section class="content-page">
             <header class="content-header">
               <h1>${escapeHtml(theme)}</h1>
-              <p id="theme-article-count" class="meta">${pluralize(articles.length, 'article', 'articles')}</p>
+              <p id="theme-article-count" class="meta">${pluralize(displayedArticles.length, 'post', 'posts')}</p>
             </header>
-            ${keywordSearchFormMarkup([theme])}
+            ${keywordSearchFormMarkup(keywordInputValuesFromQuery(activeQuery), { includeSort: true, sort })}
             <div id="theme-article-results">
-              ${themeArticleResultsMarkup(articles, 'No articles are currently linked to this theme.')}
+              ${themeArticleResultsMarkup(displayedArticles, 'No posts are currently linked to this theme.')}
             </div>
           </section>
         </div>
       `;
       setupKeywordSearchForm('best', {
         scopeArticleIndexes,
-        onSubmit: ({ query }) => updateThemeArticleResults(articles, query)
+        onSubmit: ({ query, sort }) => {
+          const nextHash = themeUrl(categoryIndex, theme, query, sort);
+          if (window.location.hash === nextHash) {
+            updateThemeArticleResults(articles, query || theme, sort);
+            return;
+          }
+          window.location.hash = nextHash;
+        }
       });
     }
 
