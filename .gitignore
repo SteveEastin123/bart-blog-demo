@@ -4,5 +4,6 @@ data/raw/clipboard_test.json
 __pycache__/
 *.pyc*
 node_modules/
+.codex_deps/
 data/raw/playwright-profile/
 .tools/

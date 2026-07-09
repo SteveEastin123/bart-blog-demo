@@ -51,6 +51,8 @@ function parseArgs(argv) {
     else if (arg === "--limit-months") options.limitMonths = Number(argv[++index]);
     else if (arg === "--start-month") options.startMonth = Number(argv[++index]);
     else if (arg === "--limit-posts") options.limitPosts = Number(argv[++index]);
+    else if (arg === "--from-date") options.fromDate = argv[++index];
+    else if (arg === "--to-date") options.toDate = argv[++index];
     else if (arg === "--delay-ms") options.delayMs = Number(argv[++index]);
     else if (arg === "--headless") options.headless = true;
     else if (arg === "--fresh-profile") options.profileDir = path.join(os.tmpdir(), `ehrman_blog_profile_${Date.now()}`);
@@ -186,10 +188,11 @@ async function main() {
   try {
     await loginIfNeeded(page);
     const tab = adaptPage(page);
-    const months = (!options.forceDiscover && fs.existsSync(OUTPUT.months))
+    const refreshDiscovery = Boolean(options.forceDiscover || options.fromDate || options.toDate);
+    const months = (!refreshDiscovery && fs.existsSync(OUTPUT.months))
       ? readJson(OUTPUT.months, [])
       : await discoverMonths(tab, OUTPUT);
-    const urls = (!options.forceDiscover && !options.discoverOnly && fs.existsSync(OUTPUT.postUrls))
+    const urls = (!refreshDiscovery && !options.discoverOnly && fs.existsSync(OUTPUT.postUrls))
       ? readJson(OUTPUT.postUrls, [])
       : await discoverPostUrls(tab, OUTPUT, options);
     let posts = [];
@@ -204,6 +207,8 @@ async function main() {
       discoveredPostUrls: urls.length,
       scrapedPosts: posts.length,
       indexRows: index.length,
+      fromDate: options.fromDate || null,
+      toDate: options.toDate || null,
       files: OUTPUT,
     }, null, 2));
   } finally {

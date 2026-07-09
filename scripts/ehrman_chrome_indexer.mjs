@@ -132,6 +132,88 @@ function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function parseDateValue(value) {
+  if (!value) return null;
+  let text = cleanText(String(value));
+  if (!text) return null;
+
+  let match = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (match) {
+    return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  }
+
+  match = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (match) {
+    return Date.UTC(Number(match[3]), Number(match[1]) - 1, Number(match[2]));
+  }
+
+  text = text.replace(/\b(\d{1,2})(?:st|nd|rd|th)\b/i, "$1");
+  match = text.match(/^([A-Za-z]+)\s+(\d{1,2}),\s+(\d{4})$/);
+  if (!match) return null;
+  const months = new Map([
+    ["january", 0], ["jan", 0],
+    ["february", 1], ["feb", 1],
+    ["march", 2], ["mar", 2],
+    ["april", 3], ["apr", 3],
+    ["may", 4],
+    ["june", 5], ["jun", 5],
+    ["july", 6], ["jul", 6],
+    ["august", 7], ["aug", 7],
+    ["september", 8], ["sep", 8], ["sept", 8],
+    ["october", 9], ["oct", 9],
+    ["november", 10], ["nov", 10],
+    ["december", 11], ["dec", 11],
+  ]);
+  const month = months.get(match[1].toLowerCase());
+  if (month === undefined) return null;
+  return Date.UTC(Number(match[3]), month, Number(match[2]));
+}
+
+function parseRequiredDate(value, label) {
+  if (!value) return null;
+  const parsed = parseDateValue(value);
+  if (parsed === null) {
+    throw new Error(`Could not parse ${label}: ${JSON.stringify(value)}. Use YYYY-MM-DD, M/D/YYYY, or 'Month D, YYYY'.`);
+  }
+  return parsed;
+}
+
+function dateRange(options = {}) {
+  const from = parseRequiredDate(options.fromDate, "--from-date");
+  const to = parseRequiredDate(options.toDate, "--to-date");
+  if (from !== null && to !== null && from > to) {
+    throw new Error("--from-date cannot be later than --to-date.");
+  }
+  return { from, to };
+}
+
+function archiveExcerptDate(post) {
+  const match = String(post.archiveExcerpt || "").match(/\b([A-Z][a-z]+\s+\d{1,2}(?:st|nd|rd|th)?),\s+(\d{4})\|/);
+  if (!match) return null;
+  return parseDateValue(`${match[1]}, ${match[2]}`);
+}
+
+function postDate(post) {
+  return parseDateValue(post.dateText) ?? archiveExcerptDate(post);
+}
+
+function dateInRange(value, range) {
+  if (range.from === null && range.to === null) return true;
+  if (value === null) return true;
+  if (range.from !== null && value < range.from) return false;
+  if (range.to !== null && value > range.to) return false;
+  return true;
+}
+
+function monthOverlapsRange(month, range) {
+  if (range.from === null && range.to === null) return true;
+  const start = Date.UTC(Number(month.year), Number(month.month) - 1, 1);
+  const end = Date.UTC(Number(month.year), Number(month.month), 0);
+  if (range.from !== null && end < range.from) return false;
+  if (range.to !== null && start > range.to) return false;
+  return true;
+}
+
 function excerptSummary(record) {
   let body = record.text.replace(record.title, "").trim();
   body = body.replace(/^(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\s*/, "");
@@ -184,7 +266,9 @@ export async function discoverMonths(tab, out) {
 }
 
 export async function discoverPostUrls(tab, out, options = {}) {
-  const months = readJson(out.months, null) || await discoverMonths(tab, out);
+  const range = dateRange(options);
+  const months = (readJson(out.months, null) || await discoverMonths(tab, out))
+    .filter((month) => monthOverlapsRange(month, range));
   const startMonth = options.startMonth || 0;
   const selectedMonths = options.limitMonths
     ? months.slice(startMonth, startMonth + options.limitMonths)
@@ -218,6 +302,7 @@ export async function discoverPostUrls(tab, out, options = {}) {
       const validPosts = posts.filter((post) => post.url && isLikelyPostUrl(post.url));
       if (validPosts.length === 0) break;
       for (const post of validPosts) {
+        if (!dateInRange(postDate(post), range)) continue;
         const url = canonicalUrl(post.url);
         seen.set(url, { ...seen.get(url), ...post, url });
       }
@@ -230,9 +315,10 @@ export async function discoverPostUrls(tab, out, options = {}) {
 }
 
 export async function scrapePosts(tab, out, options = {}) {
+  const range = dateRange(options);
   const postUrls = readJson(out.postUrls, null) || await discoverPostUrls(tab, out, options);
   const scrapedUrls = new Set(readJsonl(out.postsJsonl).map((post) => post.url));
-  const pending = postUrls.filter((post) => !scrapedUrls.has(post.url));
+  const pending = postUrls.filter((post) => !scrapedUrls.has(post.url) && dateInRange(postDate(post), range));
   const selected = options.limitPosts ? pending.slice(0, options.limitPosts) : pending;
 
   for (const post of selected) {
@@ -274,6 +360,7 @@ export async function scrapePosts(tab, out, options = {}) {
       text,
       wordCount: text.split(/\s+/).filter(Boolean).length,
     };
+    if (!dateInRange(postDate(finalRecord), range)) continue;
     finalRecord.summary = excerptSummary(finalRecord);
     finalRecord.candidateTags = candidateTags(finalRecord);
     appendJsonl(out.postsJsonl, finalRecord);
@@ -320,6 +407,8 @@ export async function run(tab, options = {}) {
     discoveredPostUrls: urls.length,
     scrapedPosts: posts.length,
     indexRows: index.length,
+    fromDate: options.fromDate || null,
+    toDate: options.toDate || null,
     files: {
       months: out.months,
       postUrls: out.postUrls,

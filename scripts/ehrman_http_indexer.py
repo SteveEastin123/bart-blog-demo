@@ -6,7 +6,7 @@ import os
 import re
 import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urljoin, urlparse
@@ -73,6 +73,8 @@ TAG_RULES = [
 class Options:
     limit_months: int | None
     limit_posts: int | None
+    from_date: date | None
+    to_date: date | None
     skip_login: bool
     debug_login: bool
     reset: bool
@@ -155,6 +157,84 @@ def is_likely_post_url(url: str) -> bool:
 
 def slugify(value: str) -> str:
     return re.sub(r"(^-|-$)", "", re.sub(r"[^a-z0-9]+", "-", value.lower()))
+
+
+def parse_date_value(value: str | None) -> date | None:
+    if not value:
+        return None
+    text = clean_text(value)
+    if not text:
+        return None
+
+    iso_match = re.match(r"^(\d{4}-\d{2}-\d{2})", text)
+    if iso_match:
+        try:
+            return date.fromisoformat(iso_match.group(1))
+        except ValueError:
+            pass
+
+    text = re.sub(r"\b(\d{1,2})(?:st|nd|rd|th)\b", r"\1", text)
+    for fmt in ("%B %d, %Y", "%b %d, %Y", "%m/%d/%Y", "%Y/%m/%d"):
+        try:
+            return datetime.strptime(text, fmt).date()
+        except ValueError:
+            continue
+    return None
+
+
+def parse_required_date(value: str | None, label: str) -> date | None:
+    if not value:
+        return None
+    parsed = parse_date_value(value)
+    if parsed is None:
+        raise SystemExit(
+            f"Could not parse {label}: {value!r}. Use YYYY-MM-DD, M/D/YYYY, or 'Month D, YYYY'."
+        )
+    return parsed
+
+
+def archive_excerpt_date(post: dict) -> date | None:
+    match = re.search(
+        r"\b([A-Z][a-z]+\s+\d{1,2}(?:st|nd|rd|th)?),\s+(\d{4})\|",
+        post.get("archiveExcerpt", ""),
+    )
+    if not match:
+        return None
+    return parse_date_value(f"{match.group(1)}, {match.group(2)}")
+
+
+def post_date(post: dict) -> date | None:
+    return parse_date_value(post.get("dateText")) or archive_excerpt_date(post)
+
+
+def date_in_range(value: date | None, options: Options) -> bool:
+    if options.from_date is None and options.to_date is None:
+        return True
+    if value is None:
+        return True
+    if options.from_date is not None and value < options.from_date:
+        return False
+    if options.to_date is not None and value > options.to_date:
+        return False
+    return True
+
+
+def month_overlaps_range(month: dict, options: Options) -> bool:
+    if options.from_date is None and options.to_date is None:
+        return True
+    year = int(month["year"])
+    month_number = int(month["month"])
+    start = date(year, month_number, 1)
+    if month_number == 12:
+        next_month = date(year + 1, 1, 1)
+    else:
+        next_month = date(year, month_number + 1, 1)
+    end = next_month - timedelta(days=1)
+    if options.from_date is not None and end < options.from_date:
+        return False
+    if options.to_date is not None and start > options.to_date:
+        return False
+    return True
 
 
 def load_credentials() -> tuple[str, str]:
@@ -356,6 +436,7 @@ def posts_from_archive_html(html: str, source_archive: dict, page_url: str) -> l
 
 def discover_post_urls(session: requests.Session, options: Options) -> list[dict]:
     months = read_json(MONTHS_PATH, None) or discover_months(session)
+    months = [month for month in months if month_overlaps_range(month, options)]
     if options.limit_months:
         months = months[: options.limit_months]
 
@@ -374,6 +455,8 @@ def discover_post_urls(session: requests.Session, options: Options) -> list[dict
                 if empty_pages >= 1:
                     break
             for post in posts:
+                if not date_in_range(post_date(post), options):
+                    continue
                 seen[post["url"]] = {**seen.get(post["url"], {}), **post}
             time.sleep(options.delay)
         write_json(POST_URLS_PATH, list(seen.values()))
@@ -446,13 +529,19 @@ def candidate_tags(record: dict) -> list[str]:
 def scrape_posts(session: requests.Session, options: Options) -> list[dict]:
     post_urls = read_json(POST_URLS_PATH, None) or discover_post_urls(session, options)
     scraped = {row["url"] for row in read_jsonl(POSTS_JSONL_PATH)}
-    pending = [post for post in post_urls if post["url"] not in scraped]
+    pending = [
+        post
+        for post in post_urls
+        if post["url"] not in scraped and date_in_range(post_date(post), options)
+    ]
     if options.limit_posts:
         pending = pending[: options.limit_posts]
 
     for post in pending:
         response = request(session, post["url"])
         record = extract_post(response.text, post, post["url"])
+        if not date_in_range(post_date(record), options):
+            continue
         append_jsonl(POSTS_JSONL_PATH, record)
         time.sleep(options.delay)
     return read_jsonl(POSTS_JSONL_PATH)
@@ -490,12 +579,27 @@ def parse_args() -> Options:
     parser = argparse.ArgumentParser(description="Index Ehrman Blog posts using a temporary member login.")
     parser.add_argument("--limit-months", type=int)
     parser.add_argument("--limit-posts", type=int)
+    parser.add_argument("--from-date", help="Only download posts on or after this date. Accepts YYYY-MM-DD, M/D/YYYY, or 'Month D, YYYY'.")
+    parser.add_argument("--to-date", help="Only download posts on or before this date. Accepts YYYY-MM-DD, M/D/YYYY, or 'Month D, YYYY'.")
     parser.add_argument("--skip-login", action="store_true")
     parser.add_argument("--debug-login", action="store_true", help="Print non-secret login diagnostics and exit.")
     parser.add_argument("--reset", action="store_true", help="Delete generated index files before running.")
     parser.add_argument("--delay", type=float, default=0.25)
     args = parser.parse_args()
-    return Options(args.limit_months, args.limit_posts, args.skip_login, args.debug_login, args.reset, args.delay)
+    from_date = parse_required_date(args.from_date, "--from-date")
+    to_date = parse_required_date(args.to_date, "--to-date")
+    if from_date is not None and to_date is not None and from_date > to_date:
+        raise SystemExit("--from-date cannot be later than --to-date.")
+    return Options(
+        args.limit_months,
+        args.limit_posts,
+        from_date,
+        to_date,
+        args.skip_login,
+        args.debug_login,
+        args.reset,
+        args.delay,
+    )
 
 
 def main() -> None:
@@ -525,6 +629,8 @@ def main() -> None:
                 "discoveredPostUrls": len(post_urls),
                 "scrapedPosts": len(posts),
                 "indexRows": len(index),
+                "fromDate": options.from_date.isoformat() if options.from_date else None,
+                "toDate": options.to_date.isoformat() if options.to_date else None,
                 "files": {
                     "months": str(MONTHS_PATH),
                     "postUrls": str(POST_URLS_PATH),
