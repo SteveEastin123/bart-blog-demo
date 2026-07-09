@@ -21,7 +21,7 @@ from ehrman_demo_data import (
 
 DATA_START = "const DATA ="
 KEYWORD_INDEX_START = "    const KEYWORD_INDEX ="
-KEYWORD_SUGGESTIONS_START = "    const KEYWORD_SUGGESTIONS ="
+KEYWORD_SUGGESTIONS_START = "    const KEYWORD_SUGGESTIONS"
 MAX_SUGGESTIONS_START = "    const MAX_KEYWORD_SUGGESTIONS"
 
 
@@ -112,6 +112,7 @@ def validate_posts(
         url = require_string(post, "url", f"post #{index}", errors)
         date_text = clean_string(post.get("dateText", ""))
         author = clean_string(post.get("author", ""))
+        description = clean_string(post.get("description", ""))
 
         if url:
             if url in urls:
@@ -125,6 +126,12 @@ def validate_posts(
             errors.append(f"Post {title!r} has an unparseable dateText: {date_text!r}")
         if not author:
             warnings.append(f"Post {title!r} is missing author")
+        if not description:
+            errors.append(f"Post {title!r} is missing description")
+        elif "\n" in description or "\r" in description:
+            errors.append(f"Post {title!r} description contains a line break")
+        elif len(description) > 360:
+            warnings.append(f"Post {title!r} has a long description ({len(description)} characters)")
 
         themes = unique_strings(post.get("themes", []))
         secondary_keywords = unique_strings(post.get("secondaryKeywords", []))

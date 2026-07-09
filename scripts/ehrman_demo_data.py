@@ -159,6 +159,7 @@ def build_keyword_index(posts: list[dict[str, Any]]) -> list[list[Any]]:
         date_text = display_date_text(post.get("dateText", ""))
         date_sort = clean_string(post.get("dateSort", "")) or date_sort_value(post.get("dateText", ""))
         author = clean_string(post.get("author", ""))
+        description = clean_string(post.get("description", ""))
         keyword_index.append([
             title,
             url,
@@ -167,6 +168,7 @@ def build_keyword_index(posts: list[dict[str, Any]]) -> list[list[Any]]:
             author,
             keyword_pairs(post.get("themes", [])),
             keyword_pairs(post.get("secondaryKeywords", [])),
+            description,
         ])
     return keyword_index
 
