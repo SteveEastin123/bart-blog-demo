@@ -2,542 +2,130 @@
   "categories": [
     {
       "name": "Acts and Early Christianity",
-      "themes": [
-        "Acts (General)",
-        "Acts Historicity",
-        "Christian Community",
-        "Christian Exclusivity",
-        "Conversion",
-        "Early Christian Diversity",
-        "Early Christianity",
-        "Evangelism",
-        "Miracles in Acts",
-        "Paul in Acts",
-        "Rise of Christianity"
-      ],
       "description": "Posts on Acts, its historicity, early Christian communities, conversion, evangelism, miracles in Acts, Paul in Acts, and the rise of Christianity."
     },
     {
       "name": "Afterlife",
-      "themes": [
-        "Afterlife (General)",
-        "Afterlife and Suffering",
-        "Afterlife in the Hebrew Bible",
-        "Afterlife Journeys",
-        "Apocalypse of Peter",
-        "Eternal Punishment",
-        "Heaven",
-        "Heaven/Hell",
-        "Hell",
-        "Purgatory",
-        "Resurrection of the Dead",
-        "Rich and Poor in Afterlife",
-        "Sheol and Hades"
-      ],
       "description": "Posts on afterlife beliefs, heaven, hell, purgatory, eternal punishment, Sheol and Hades, resurrection of the dead, and afterlife journeys."
     },
     {
       "name": "Ancient World Context",
-      "themes": [
-        "Ancient Literacy",
-        "Ancient Wealth Ethics",
-        "Archaeology",
-        "Greco-Roman Religion",
-        "Magic and Amulets",
-        "Roman Crucifixion Practices",
-        "Roman World",
-        "Social Class"
-      ],
       "description": "Posts on ancient literacy, archaeology, Greco-Roman religion, magic, Roman crucifixion practices, social class, wealth, and the Roman world."
     },
     {
       "name": "Apocalypticism and Revelation",
-      "themes": [
-        "Apocalyptic Jesus",
-        "Jewish Apocalypticism",
-        "Modern Apocalypticism",
-        "Pauline Apocalypticism",
-        "Revelation"
-      ],
       "description": "Posts on Jewish, Pauline, modern, and Jesus-related apocalypticism, especially the book of Revelation."
     },
     {
       "name": "Authorship",
-      "themes": [
-        "Ancient Secretaries",
-        "Apostolic Fathers Attribution",
-        "General Epistles Authorship",
-        "Gospel Authorship",
-        "Hebrew Bible Authorship",
-        "Luke-Acts Authorship",
-        "Pauline Authorship",
-        "Revelation Authorship"
-      ],
       "description": "Posts on who wrote biblical and early Christian texts, including gospel authorship, Pauline authorship, Luke-Acts, Revelation, secretaries, and attribution."
     },
     {
       "name": "Bart's Books",
-      "themes": [
-        "Forged",
-        "Forgery and Counterforgery",
-        "Heaven and Hell",
-        "How Jesus Became God",
-        "Jesus Before the Gospels",
-        "Misquoting Jesus",
-        "Triumph of Christianity"
-      ],
       "description": "Posts focused on Bart's major books, including Misquoting Jesus, Forged, How Jesus Became God, Jesus Before the Gospels, Heaven and Hell, and The Triumph of Christianity."
     },
     {
       "name": "Blog Features and Personal Posts",
-      "themes": [
-        "Autobiographical Posts",
-        "Blog Fundraising and Charities",
-        "In a Nutshell Series",
-        "Personal Reflections"
-      ],
       "description": "Posts featuring autobiographical reflections, personal essays, blog fundraising and charities, and the In a Nutshell series."
     },
     {
       "name": "Books, Teaching, and Media",
-      "themes": [
-        "Book Publishing",
-        "Course and Lecture Announcements",
-        "General Audience Books",
-        "Life of Brian",
-        "Media Attention",
-        "Podcast Interviews",
-        "Podcast Production",
-        "Print and Broadcast Interviews",
-        "Public Scholarship",
-        "Teaching and Courses",
-        "Textbooks",
-        "Video Media",
-        "Writing and Research Process"
-      ],
       "description": "Posts on book publishing, textbooks, teaching, public scholarship, lectures, podcasts, interviews, video media, and writing process."
     },
     {
       "name": "Canon and Scripture",
-      "themes": [
-        "Biblical Contradictions (General)",
-        "Biblical Inerrancy",
-        "Canon",
-        "Christian Use of Scripture",
-        "Fulfillment Citations",
-        "Gematria",
-        "Gospel Contradictions",
-        "Hebrew Bible Contradictions",
-        "Moral Problems in Scripture"
-      ],
       "description": "Posts on canon, biblical inerrancy, contradictions, Christian use of scripture, fulfillment citations, gematria, and moral problems in scripture."
     },
     {
       "name": "Canonical Gospels",
-      "themes": [
-        "Gospel Analysis Methods",
-        "Gospel Authorship",
-        "Gospel Composition",
-        "Gospel Dating",
-        "Gospel Historicity",
-        "Gospel of John",
-        "Gospel of Luke",
-        "Gospel of Mark",
-        "Gospel of Matthew",
-        "Gospel Writers",
-        "Gospels (General)",
-        "Jesus' Genealogy",
-        "Messianic Secret",
-        "Q",
-        "Synoptic Problem"
-      ],
       "description": "Posts on Matthew, Mark, Luke, John, gospel writers, gospel authorship, gospel composition, dating, historicity, Q, and the Synoptic Problem."
     },
     {
       "name": "Christology",
-      "themes": [
-        "Arianism",
-        "Christ as an Angel",
-        "Christological Textual Variants",
-        "Christology (General)",
-        "Christology in the Gospels",
-        "Early Christology",
-        "Exaltation Christology",
-        "Incarnation",
-        "Jesus' Divine Status",
-        "Luke-Acts Christology",
-        "Philippians Christ Poem"
-      ],
       "description": "Posts on views of Christ, including early christology, exaltation, incarnation, Christ as an angel, Jesus' divine status, Luke-Acts christology, and the Philippians Christ poem."
     },
     {
       "name": "Early Church History",
-      "themes": [
-        "Apostolic Fathers",
-        "Athanasius",
-        "Augustine",
-        "Church History",
-        "Constantine",
-        "Didymus the Blind",
-        "Early Christian Diversity",
-        "Early Christian Writings",
-        "Early Christianity",
-        "Edessa",
-        "Eusebius",
-        "Martyrdom of Polycarp",
-        "Papias",
-        "Trinity"
-      ],
       "description": "Posts on early Christianity, early Christian writings, Apostolic Fathers, church history, Trinity, Edessa, and major figures such as Athanasius, Augustine, Eusebius, Papias, and Didymus the Blind."
     },
     {
       "name": "Epistles",
-      "themes": [
-        "2 Thessalonians",
-        "General Epistles",
-        "General Epistles Authorship",
-        "General Epistles Forgeries",
-        "Pauline Authorship",
-        "Pauline Forgeries",
-        "Pauline Letter Composition",
-        "Pauline Letters",
-        "Persecution in the Epistles",
-        "Philippians",
-        "Philippians Christ Poem"
-      ],
       "description": "Posts on Pauline letters, General Epistles, Philippians, 2 Thessalonians, epistolary authorship, forgeries, composition, and persecution in the epistles."
     },
     {
       "name": "Ethics and Social Issues",
-      "themes": [
-        "Ancient Wealth Ethics",
-        "Anti-Judaism",
-        "Charity",
-        "Early Christian Views on Wealth",
-        "Health Care",
-        "Homosexuality",
-        "Jesus and Wealth",
-        "Jesus and Women",
-        "Jesus' Ethics",
-        "Moral Philosophy",
-        "Moral Problems in Scripture",
-        "Paul and Women",
-        "Pauline Ethics",
-        "Rich and Poor in Afterlife",
-        "Sexual and Reproductive Ethics",
-        "Social Class",
-        "Women in Early Christianity"
-      ],
       "description": "Posts on wealth, charity, health care, anti-Judaism, homosexuality, women, moral philosophy, social class, and ethical teachings of Jesus and Paul."
     },
     {
       "name": "Forgery",
-      "themes": [
-        "Forgery (General)",
-        "General Epistles Forgeries",
-        "Modern Forgeries",
-        "Pauline Forgeries",
-        "Petrine Forgeries",
-        "Secret Gospel of Mark"
-      ],
       "description": "Posts on literary forgery, modern forgeries, Pauline forgeries, Petrine forgeries, General Epistles forgeries, and the Secret Gospel of Mark."
     },
     {
       "name": "Gnosticism and Heresy",
-      "themes": [
-        "Gnostic Textual Variants",
-        "Gnosticism (General)",
-        "Gnosticism and Proto-Orthodoxy",
-        "Gospel of Judas",
-        "Heresy",
-        "Marcion",
-        "Mary Magdalene and Gnosticism",
-        "Nag Hammadi",
-        "Proto-Orthodox Textual Changes",
-        "Sethian Gnostics",
-        "Valentinian Gnostics"
-      ],
       "description": "Posts on Gnosticism, heresy, Marcion, Nag Hammadi, Gospel of Judas, Sethian and Valentinian Gnostics, proto-orthodoxy, and related textual variants."
     },
     {
       "name": "Hebrew Bible and Early Judaism",
-      "themes": [
-        "Dead Sea Scrolls",
-        "Divine Beings",
-        "Documentary Hypothesis",
-        "Early Judaism",
-        "Ecclesiastes",
-        "Essenes",
-        "Genesis",
-        "Hebrew Bible Authorship",
-        "Jewish Law",
-        "Job",
-        "Old Testament Apocrypha",
-        "Pentateuch",
-        "Prophets"
-      ],
       "description": "Posts on the Hebrew Bible, early Judaism, Dead Sea Scrolls, Genesis, Job, Ecclesiastes, Pentateuch, Prophets, Jewish Law, and divine beings."
     },
     {
       "name": "Historical Figures and Scholars",
-      "themes": [
-        "Athanasius",
-        "Augustine",
-        "Bruce Metzger",
-        "Celsus",
-        "Constantine",
-        "Didymus the Blind",
-        "Eusebius",
-        "Josephus",
-        "Marcion",
-        "Papias"
-      ],
       "description": "Posts focused on named ancient figures and modern scholars, including Josephus, Celsus, Marcion, Papias, Eusebius, Bruce Metzger, Athanasius, Augustine, and Constantine."
     },
     {
       "name": "Historical Method and Scholarship",
-      "themes": [
-        "Academic Life",
-        "Classical Comparisons",
-        "Critical Biblical Scholarship",
-        "Dating Ancient Texts",
-        "Debates",
-        "Demythologizing",
-        "Gospel Analysis Methods",
-        "Hebrew Bible Historicity",
-        "Historical Jesus Research Methods",
-        "Historical Method (General)",
-        "History and Theology",
-        "Public Scholarship",
-        "Redaction Criticism",
-        "Research and Publishing",
-        "Scholar Memorials",
-        "Source Criticism"
-      ],
       "description": "Posts on historical method, biblical scholarship, debates, source criticism, redaction criticism, gospel analysis methods, dating texts, research, and public scholarship."
     },
     {
       "name": "Jesus",
-      "themes": [
-        "Apocalyptic Jesus",
-        "Birth Narrative",
-        "Historical Jesus Overview",
-        "Historical Jesus Research Methods",
-        "Jesus and Wealth",
-        "Jesus and Women",
-        "Jesus' Ethics",
-        "Jesus' Family",
-        "Jesus' Genealogy",
-        "Jesus' Miracles",
-        "Jesus' Teachings",
-        "Messiah",
-        "Mythicism",
-        "Nazareth",
-        "Son of Man",
-        "Virgin Birth",
-        "Zealot Hypothesis"
-      ],
       "description": "Posts on Jesus as a historical figure, including birth narratives, virgin birth, family, genealogy, miracles, teachings, ethics, wealth, women, Nazareth, Messiah, Son of Man, and apocalyptic Jesus."
     },
     {
       "name": "Jesus' Death, Burial, and Resurrection",
-      "themes": [
-        "Burial of Jesus",
-        "Crucified Messiah",
-        "Crucifixion of Jesus",
-        "Empty Tomb",
-        "Passion Narratives",
-        "Resurrection Apologetics",
-        "Resurrection Appearances",
-        "Resurrection of Jesus",
-        "Resurrection Theology",
-        "Roman Crucifixion Practices",
-        "Trial of Jesus"
-      ],
       "description": "Posts on Jesus' trial, crucifixion, burial, empty tomb, passion narratives, resurrection appearances, resurrection theology, and resurrection apologetics."
     },
     {
       "name": "Manuscripts and Translations",
-      "themes": [
-        "Bible Translations (General)",
-        "Codex Sinaiticus",
-        "Dead Sea Scrolls",
-        "First-Century Mark",
-        "Hebrew Bible Manuscripts",
-        "King James Version",
-        "Manuscript Dating",
-        "Manuscript Discoveries",
-        "New Testament Manuscripts (General)",
-        "NRSV",
-        "Papyrus Egerton",
-        "Quran Fragments",
-        "Septuagint",
-        "Translation Process"
-      ],
       "description": "Posts on manuscripts, manuscript discoveries and dating, Codex Sinaiticus, Dead Sea Scrolls, Papyrus Egerton, Bible translations, NRSV, Septuagint, and translation process."
     },
     {
       "name": "Memory and Oral Tradition",
-      "themes": [
-        "Eyewitness Reliability",
-        "Gospel Eyewitness Claims",
-        "Memory",
-        "Oral Tradition"
-      ],
       "description": "Posts on memory, oral tradition, eyewitness reliability, and gospel eyewitness claims."
     },
     {
       "name": "Miracles",
-      "themes": [
-        "Ancient Miracle Workers",
-        "Biblical Miracle Stories",
-        "Healing and Exorcism Stories",
-        "Historical Study of Miracles",
-        "Jesus' Miracles",
-        "Magic and Amulets",
-        "Miracle Claims and Apologetics",
-        "Miracles (General)",
-        "Miracles and Conversion",
-        "Miracles and Martyrdom",
-        "Miracles in Acts",
-        "Non-Canonical Miracle Stories",
-        "Signs in John",
-        "Visions"
-      ],
       "description": "Posts on miracle stories, Jesus' miracles, miracles in Acts, healing and exorcism, visions, magic and amulets, miracle claims, and non-canonical miracle traditions."
     },
     {
       "name": "Modern Faith and Nonbelief",
-      "themes": [
-        "Agnosticism",
-        "Atheism",
-        "Deconversion",
-        "Fundamentalism",
-        "Suffering and Loss of Faith"
-      ],
       "description": "Posts on agnosticism, atheism, deconversion, fundamentalism, and suffering as it relates to loss of faith."
     },
     {
       "name": "New Testament Individuals",
-      "themes": [
-        "James the Brother of Jesus",
-        "John the Baptist",
-        "Judas Iscariot",
-        "Mary Magdalene",
-        "Mary Magdalene and Gnosticism",
-        "Pontius Pilate"
-      ],
       "description": "Posts on major New Testament figures, including James the Brother of Jesus, John the Baptist, Judas Iscariot, Mary Magdalene, and Pontius Pilate."
     },
     {
       "name": "Non-Canonical Texts",
-      "themes": [
-        "Apocalypse of Peter",
-        "Apocryphal Acts",
-        "Didache",
-        "Gospel of Jesus Wife",
-        "Gospel of Judas",
-        "Gospel of Mary",
-        "Gospel of Peter",
-        "Gospel of Pseudo-Matthew",
-        "Gospel of the Ebionites",
-        "Gospel of the Egyptians",
-        "Gospel of Thomas",
-        "Greater Questions of Mary",
-        "History of Joseph the Carpenter",
-        "Infancy Gospel of Thomas",
-        "Jewish Christian Gospels",
-        "Letter of Barnabas",
-        "Non-Canonical Gospels (General)",
-        "Proto-Gospel of James"
-      ],
       "description": "Posts on non-canonical gospels and writings, including Gospel of Thomas, Gospel of Judas, Gospel of Peter, Gospel of Mary, Gospel of Jesus Wife, Didache, Letter of Barnabas, Apocryphal Acts, and Apocalypse of Peter."
     },
     {
       "name": "Paul and Pauline Christianity",
-      "themes": [
-        "Paul and Crucifixion",
-        "Paul and Jewish Law",
-        "Paul and Opponents",
-        "Paul and Resurrection",
-        "Paul and Women",
-        "Paul in Acts",
-        "Paul's Knowledge of Jesus",
-        "Pauline Apocalypticism",
-        "Pauline Authorship",
-        "Pauline Biography",
-        "Pauline Communities",
-        "Pauline Conversion",
-        "Pauline Ethics",
-        "Pauline Forgeries",
-        "Pauline Letter Composition",
-        "Pauline Letters",
-        "Pauline Salvation Models",
-        "Pauline Textual Criticism",
-        "Philippians",
-        "Philippians Christ Poem"
-      ],
       "description": "Posts on Paul, Pauline letters, Paul in Acts, Pauline communities, conversion, ethics, salvation, women, Jewish law, resurrection, crucifixion, authorship, forgeries, and textual criticism."
     },
     {
       "name": "Persecution and Martyrdom",
-      "themes": [
-        "Apostolic Martyrdom",
-        "Martyrdom (General)",
-        "Martyrdom of Perpetua",
-        "Martyrdom of Polycarp",
-        "Miracles and Martyrdom",
-        "Paul and Persecution",
-        "Persecution (General)",
-        "Persecution in the Epistles",
-        "Roman Persecution"
-      ],
       "description": "Posts on persecution, Roman persecution, martyrdom, apostolic martyrdom, Perpetua, Polycarp, miracles and martyrdom, Paul and persecution, and persecution in the epistles."
     },
     {
       "name": "Salvation and Judgment",
-      "themes": [
-        "Atonement",
-        "Divine Judgment",
-        "Eternal Punishment",
-        "Free Will",
-        "Grace",
-        "Luke-Acts Atonement",
-        "Pauline Salvation Models",
-        "Predestination",
-        "Salvation"
-      ],
       "description": "Posts on salvation, atonement, grace, free will, predestination, divine judgment, eternal punishment, Luke-Acts atonement, and Pauline salvation models."
     },
     {
       "name": "Suffering and Evil",
-      "themes": [
-        "Afterlife and Suffering",
-        "Arguments About Suffering",
-        "Biblical Views of Suffering",
-        "Disasters and Suffering",
-        "Free Will and Suffering",
-        "Job",
-        "Problem of Suffering (General)",
-        "Suffering and Loss of Faith"
-      ],
       "description": "Posts on the problem of suffering, biblical views of suffering, disasters, free will and suffering, Job, afterlife and suffering, and suffering tied to loss of faith."
     },
     {
       "name": "Textual Criticism",
-      "themes": [
-        "Bloody Sweat Textual Variant",
-        "Christological Textual Variants",
-        "Gnostic Textual Variants",
-        "Original Text",
-        "Patristic Textual Evidence",
-        "Pauline Textual Criticism",
-        "Proto-Orthodox Textual Changes",
-        "Scribal Changes",
-        "Textual Criticism (General)",
-        "Textual Criticism Methods",
-        "Textual Variants"
-      ],
       "description": "Posts on original text, scribal changes, textual variants, textual criticism methods, patristic evidence, Pauline textual criticism, and textual variants involving Christology, Gnosticism, and the bloody sweat passage."
     }
   ]

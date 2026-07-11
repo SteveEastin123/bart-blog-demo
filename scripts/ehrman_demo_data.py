@@ -11,6 +11,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
 DEFAULT_KEYWORDS_PATH = ROOT / "data" / "index" / "ehrman_posts_keywords.json"
+DEFAULT_THEMES_PATH = ROOT / "data" / "index" / "ehrman_themes.json"
 DEFAULT_DEMO_PATH = ROOT / "ehrman_search_demo.html"
 
 
@@ -38,6 +39,14 @@ def load_posts(path: Path = DEFAULT_KEYWORDS_PATH) -> list[dict[str, Any]]:
     if not isinstance(posts, list):
         raise ValueError(f"{path} must contain a list of posts")
     return posts
+
+
+def load_themes(path: Path = DEFAULT_THEMES_PATH) -> list[dict[str, Any]]:
+    data = read_json(path)
+    themes = data.get("themes") if isinstance(data, dict) else data
+    if not isinstance(themes, list):
+        raise ValueError(f"{path} must contain a themes list")
+    return themes
 
 
 def normalize_keyword(value: Any) -> str:
@@ -128,13 +137,30 @@ def build_articles_by_theme(posts: list[dict[str, Any]]) -> OrderedDict[str, lis
 
 def build_demo_data(
     categories: list[dict[str, Any]],
+    themes: list[dict[str, Any]],
     posts: list[dict[str, Any]],
 ) -> OrderedDict[str, Any]:
+    themes_by_category: dict[str, list[str]] = {}
+    theme_descriptions: OrderedDict[str, str] = OrderedDict()
+    for theme in themes:
+        if theme.get("displayInBrowser", True) is False:
+            continue
+        name = clean_string(theme.get("name", ""))
+        if not name:
+            continue
+        theme_descriptions[name] = clean_string(theme.get("description", ""))
+        for category_name in unique_strings(theme.get("categories", [])):
+            themes_by_category.setdefault(category_name, []).append(name)
+
     demo_categories: list[OrderedDict[str, Any]] = []
     for category in categories:
+        name = clean_string(category.get("name", ""))
         demo_category: OrderedDict[str, Any] = OrderedDict()
-        demo_category["name"] = clean_string(category.get("name", ""))
-        demo_category["themes"] = unique_strings(category.get("themes", []))
+        demo_category["name"] = name
+        demo_category["themes"] = sorted(
+            unique_strings(themes_by_category.get(name, [])),
+            key=str.casefold,
+        )
         demo_category["description"] = clean_string(category.get("description", ""))
         demo_categories.append(demo_category)
 
@@ -145,6 +171,7 @@ def build_demo_data(
 
     payload: OrderedDict[str, Any] = OrderedDict()
     payload["categories"] = demo_categories
+    payload["themeDescriptions"] = theme_descriptions
     payload["articlesByTheme"] = articles_by_theme
     return payload
 
@@ -199,9 +226,10 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
 
 def build_demo_payloads(
     categories: list[dict[str, Any]],
+    themes: list[dict[str, Any]],
     posts: list[dict[str, Any]],
 ) -> tuple[OrderedDict[str, Any], list[list[Any]], list[list[Any]]]:
-    demo_data = build_demo_data(categories, posts)
+    demo_data = build_demo_data(categories, themes, posts)
     keyword_index = build_keyword_index(posts)
     keyword_suggestions = build_keyword_suggestions(keyword_index)
     return demo_data, keyword_index, keyword_suggestions
