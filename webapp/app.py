@@ -271,14 +271,12 @@ def category_page(slug: str) -> bytes:
             </li>
             """
         )
-    actions = f'<a class="button-link" href="/categories/{esc(category["slug"])}/posts">View all posts in this category</a>'
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
         category["name"],
         f"{pluralize(len(themes), 'theme')} | {pluralize(post_count, 'post')}",
         category["description"],
         inner,
-        actions,
     )
     return render_page(category["name"], body, active="categories")
 
