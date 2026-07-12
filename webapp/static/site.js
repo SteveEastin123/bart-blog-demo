@@ -29,9 +29,7 @@
         event.preventDefault();
         input.value = suggestion.label;
         list.hidden = true;
-        const inputs = Array.from(form.querySelectorAll(".keyword-input"));
-        const next = inputs[inputs.indexOf(input) + 1];
-        if (next) next.focus();
+        input.focus({ preventScroll: true });
       });
       item.appendChild(button);
       list.appendChild(item);
