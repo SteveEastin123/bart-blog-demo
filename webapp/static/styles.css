@@ -286,6 +286,11 @@ a:hover {
   margin: 5px 0 0;
 }
 
+.content-description,
+.item-description {
+  color: var(--maroon);
+}
+
 .post-description {
   color: #36596b;
 }
