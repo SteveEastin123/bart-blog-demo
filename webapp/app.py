@@ -82,12 +82,12 @@ def header(active: str = "") -> str:
     links = [
         ("Join!", "#", "disabled"),
         ("Recent Posts", "#", "disabled"),
+        ("Categories", "/categories", "categories"),
+        ("Keyword Search", "/keyword-search", "keyword-search"),
         ("Forum", "#", "disabled"),
         ("About Blog", "#", "disabled"),
         ("About Bart", "#", "disabled"),
         ("Help", "#", "disabled"),
-        ("Categories", "/categories", "categories"),
-        ("Keyword Search", "/keyword-search", "keyword-search"),
     ]
     items: list[str] = []
     for label, href, key in links:
