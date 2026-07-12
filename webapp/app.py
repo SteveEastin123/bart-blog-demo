@@ -485,17 +485,32 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             params.extend(selected_normalized)
         rows = conn.execute(
             f"""
-            SELECT label, normalized, COUNT(DISTINCT post_id) AS post_count
+            SELECT
+                COALESCE(
+                    MIN(CASE WHEN kind = 'theme' THEN label END),
+                    MIN(label)
+                ) AS label,
+                normalized,
+                COUNT(DISTINCT post_id) AS post_count,
+                MAX(CASE WHEN kind = 'theme' THEN 1 ELSE 0 END) AS is_theme
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY post_count DESC, label COLLATE NOCASE
+            ORDER BY is_theme DESC, post_count DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
             tuple(params),
         ).fetchall()
     return json.dumps(
-        [{"label": row["label"], "normalized": row["normalized"], "postCount": row["post_count"]} for row in rows],
+        [
+            {
+                "label": row["label"],
+                "normalized": row["normalized"],
+                "postCount": row["post_count"],
+                "isTheme": bool(row["is_theme"]),
+            }
+            for row in rows
+        ],
         ensure_ascii=False,
     ).encode("utf-8")
 

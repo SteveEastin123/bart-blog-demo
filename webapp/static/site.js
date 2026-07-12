@@ -6,10 +6,20 @@
       .filter(Boolean);
   }
 
+  function isFirstKeywordInput(input) {
+    const form = input.closest("[data-keyword-form]");
+    if (!form) return false;
+    return Array.from(form.querySelectorAll(".keyword-input"))[0] === input;
+  }
+
   async function fetchSuggestions(input) {
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
     if (!form || !list) return;
+    if (isFirstKeywordInput(input) && !input.value.trim()) {
+      list.hidden = true;
+      return;
+    }
     const params = new URLSearchParams();
     params.set("q", input.value.trim());
     selectedValues(form, input).forEach((value) => params.append("selected", value));
@@ -43,7 +53,14 @@
       clearTimeout(timer);
       timer = setTimeout(() => fetchSuggestions(input), 90);
     });
-    input.addEventListener("focus", () => fetchSuggestions(input));
+    input.addEventListener("focus", () => {
+      if (isFirstKeywordInput(input)) {
+        const list = input.parentElement.querySelector(".keyword-suggestion-list");
+        if (list) list.hidden = true;
+        return;
+      }
+      fetchSuggestions(input);
+    });
     input.addEventListener("keydown", (event) => {
       if (event.key === "Tab") {
         const list = input.parentElement.querySelector(".keyword-suggestion-list");
