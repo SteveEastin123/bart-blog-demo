@@ -206,8 +206,8 @@ def categories_page() -> bytes:
             f"""
             <li class="list-item">
               <a class="item-title" href="/categories/{esc(row['slug'])}">{esc(row['name'])}</a>
-              <p class="item-meta">{pluralize(row['theme_count'], 'theme')} | {pluralize(row['post_count'], 'post')}</p>
               <p class="item-description">{esc(row['description'])}</p>
+              <p class="item-meta">{pluralize(row['theme_count'], 'theme')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -253,8 +253,8 @@ def category_page(slug: str) -> bytes:
             f"""
             <li class="list-item">
               <a class="item-title" href="/themes/{esc(theme['slug'])}">{esc(theme['name'])}</a>
-              <p class="item-meta">{pluralize(theme['post_count'], 'post')}</p>
               <p class="item-description">{esc(theme['description'])}</p>
+              <p class="item-meta">{pluralize(theme['post_count'], 'post')}</p>
             </li>
             """
         )
