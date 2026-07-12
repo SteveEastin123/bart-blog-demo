@@ -153,15 +153,23 @@ def render_page(title: str, body: str, active: str = "") -> bytes:
     return html_doc.encode("utf-8")
 
 
-def content_page(title: str, count_line: str, description: str = "", inner: str = "", actions: str = "") -> str:
+def content_page(
+    title: str,
+    count_line: str,
+    description: str = "",
+    inner: str = "",
+    actions: str = "",
+    description_first: bool = False,
+) -> str:
     description_html = f'<p class="content-description">{esc(description)}</p>' if description else ""
     actions_html = f'<div class="content-actions">{actions}</div>' if actions else ""
+    count_html = f'<p class="count-line">{esc(count_line)}</p>'
+    header_meta = description_html + count_html if description_first else count_html + description_html
     return f"""
     <section class="content-page">
       <div class="content-header">
         <h1>{esc(title)}</h1>
-        <p class="count-line">{esc(count_line)}</p>
-        {description_html}
+        {header_meta}
         {actions_html}
       </div>
       {inner}
@@ -277,6 +285,7 @@ def category_page(slug: str) -> bytes:
         f"{pluralize(len(themes), 'theme')} | {pluralize(post_count, 'post')}",
         category["description"],
         inner,
+        description_first=True,
     )
     return render_page(category["name"], body, active="categories")
 
