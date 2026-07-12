@@ -8,7 +8,7 @@ from typing import Any
 from ehrman_demo_data import (
     DEFAULT_CATEGORIES_PATH,
     DEFAULT_DEMO_PATH,
-    DEFAULT_KEYWORDS_PATH,
+    DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_THEMES_PATH,
     build_demo_payloads,
     clean_string,
@@ -77,7 +77,7 @@ def validate_categories(
             errors.append(f"{label} is missing a description")
 
         if "themes" in category:
-            errors.append(f"{label} should not contain a themes field; use ehrman_themes.json")
+            errors.append(f"{label} should not contain a themes field; use ehrman_post_themes.json")
 
     if has_case_duplicates(category_names):
         errors.append("Category names include duplicates that differ only by case")
@@ -136,7 +136,7 @@ def validate_themes(
 
     missing_theme_metadata = sorted(all_post_themes - linked_themes, key=str.casefold)
     if missing_theme_metadata:
-        errors.append("Themes used by posts but missing from ehrman_themes.json: " + ", ".join(missing_theme_metadata))
+        errors.append("Themes used by posts but missing from ehrman_post_themes.json: " + ", ".join(missing_theme_metadata))
 
     return linked_themes
 
@@ -251,7 +251,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
-    parser.add_argument("--keywords", type=Path, default=DEFAULT_KEYWORDS_PATH)
+    parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--html", type=Path, default=DEFAULT_DEMO_PATH)
     return parser.parse_args()
 
@@ -268,9 +268,9 @@ def main() -> int:
         return 1
 
     try:
-        posts = load_posts(args.keywords)
+        posts = load_posts(args.search_index)
     except Exception as exc:  # noqa: BLE001
-        print(f"Validation failed: could not load keywords JSON: {exc}")
+        print(f"Validation failed: could not load search-index JSON: {exc}")
         return 1
 
     try:

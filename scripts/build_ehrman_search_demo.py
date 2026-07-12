@@ -6,7 +6,7 @@ from pathlib import Path
 from ehrman_demo_data import (
     DEFAULT_CATEGORIES_PATH,
     DEFAULT_DEMO_PATH,
-    DEFAULT_KEYWORDS_PATH,
+    DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_THEMES_PATH,
     build_demo_payloads,
     dumps_compact,
@@ -37,11 +37,11 @@ def build_demo_html(
     template_html: str,
     categories_path: Path,
     themes_path: Path,
-    keywords_path: Path,
+    search_index_path: Path,
 ) -> tuple[str, dict[str, int]]:
     categories = load_categories(categories_path)
     themes = load_themes(themes_path)
-    posts = load_posts(keywords_path)
+    posts = load_posts(search_index_path)
     demo_data, keyword_index, keyword_suggestions = build_demo_payloads(categories, themes, posts)
 
     html = replace_block(
@@ -79,11 +79,11 @@ def build_demo_html(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Rebuild the self-contained Ehrman search demo HTML from category and keyword JSON."
+        description="Rebuild the self-contained Ehrman search demo HTML from category, theme, and search-index JSON."
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
-    parser.add_argument("--keywords", type=Path, default=DEFAULT_KEYWORDS_PATH)
+    parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--template", type=Path, default=DEFAULT_DEMO_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_DEMO_PATH)
     return parser.parse_args()
@@ -92,7 +92,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     template_html = args.template.read_text(encoding="utf-8")
-    output_html, stats = build_demo_html(template_html, args.categories, args.themes, args.keywords)
+    output_html, stats = build_demo_html(template_html, args.categories, args.themes, args.search_index)
     args.output.write_text(output_html, encoding="utf-8", newline="\n")
     size_bytes = args.output.stat().st_size
     print(f"Built {args.output}")

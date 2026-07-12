@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-07-02T16:44:35.947212+00:00",
-  "sourceFile": "data/index/ehrman_posts_keywords.json",
+  "sourceFile": "data/index/ehrman_post_search_index.json",
   "rawTextSource": "data/raw/posts.jsonl",
   "scope": "Articles with themes, no Ignore theme, and empty secondaryKeywords.",
   "policy": [

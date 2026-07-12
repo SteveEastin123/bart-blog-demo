@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-07-02T17:04:43.427796+00:00",
-  "sourceFile": "data/index/ehrman_posts_keywords.json",
+  "sourceFile": "data/index/ehrman_post_search_index.json",
   "scope": "Audit of articles tagged Ignore to identify substantive posts where a non-Ignore theme is central.",
   "policy": [
     "Replace Ignore only when the article itself has a clear central topic suitable for an existing theme.",

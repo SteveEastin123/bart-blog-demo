@@ -7,7 +7,7 @@ from collections import OrderedDict
 from pathlib import Path
 from typing import Any
 
-from ehrman_demo_data import DEFAULT_KEYWORDS_PATH, ROOT, clean_string, normalize_keyword, unique_strings
+from ehrman_demo_data import DEFAULT_SEARCH_INDEX_PATH, ROOT, clean_string, normalize_keyword, unique_strings
 
 
 DEFAULT_RAW_POSTS_PATH = ROOT / "data" / "raw" / "posts.jsonl"
@@ -1595,7 +1595,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Generate conservative one-sentence hover descriptions from raw post text."
     )
-    parser.add_argument("--keywords", type=Path, default=DEFAULT_KEYWORDS_PATH)
+    parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--raw-posts", type=Path, default=DEFAULT_RAW_POSTS_PATH)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--sample", type=int, default=0)
@@ -1604,7 +1604,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    posts = json.loads(args.keywords.read_text(encoding="utf-8"))
+    posts = json.loads(args.search_index.read_text(encoding="utf-8"))
     raw_posts = load_raw_posts(args.raw_posts)
     updated_posts, missing_raw_urls = add_descriptions(posts, raw_posts)
 
@@ -1618,12 +1618,12 @@ def main() -> int:
         print(f"Warning: {len(missing_raw_urls)} keyword posts were not found in the raw corpus.")
 
     if not args.dry_run:
-        args.keywords.write_text(
+        args.search_index.write_text(
             json.dumps(updated_posts, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
             newline="\n",
         )
-        print(f"Updated {args.keywords} with {len(updated_posts):,} descriptions.")
+        print(f"Updated {args.search_index} with {len(updated_posts):,} descriptions.")
     else:
         print(f"Dry run generated {len(updated_posts):,} descriptions.")
 

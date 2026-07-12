@@ -1,7 +1,7 @@
 {
   "createdAt": "2026-07-02T12:26:30",
-  "sourceFile": "data/index/ehrman_posts_keywords.json",
-  "scope": "Articles in ehrman_posts_keywords.json with an empty themes list",
+  "sourceFile": "data/index/ehrman_post_search_index.json",
+  "scope": "Articles in ehrman_post_search_index.json with an empty themes list",
   "policy": "Existing themes only; recommend additions only where title/category/summary/text indicate a main topic rather than incidental mention.",
   "summary": {
     "emptyThemeArticlesReviewed": 399,
@@ -1034,7 +1034,7 @@
   ],
   "applicationStatus": "applied",
   "appliedAt": "2026-07-02T12:28:14",
-  "appliedTo": "data/index/ehrman_posts_keywords.json",
+  "appliedTo": "data/index/ehrman_post_search_index.json",
   "primaryKeywordSyncStatus": "applied",
   "primaryKeywordSyncedAt": "2026-07-02T16:34:16.828530+00:00"
 }

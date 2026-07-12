@@ -10,8 +10,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
-DEFAULT_KEYWORDS_PATH = ROOT / "data" / "index" / "ehrman_posts_keywords.json"
-DEFAULT_THEMES_PATH = ROOT / "data" / "index" / "ehrman_themes.json"
+DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
+DEFAULT_THEMES_PATH = ROOT / "data" / "index" / "ehrman_post_themes.json"
 DEFAULT_DEMO_PATH = ROOT / "ehrman_search_demo.html"
 
 
@@ -34,7 +34,7 @@ def load_categories(path: Path = DEFAULT_CATEGORIES_PATH) -> list[dict[str, Any]
     return categories
 
 
-def load_posts(path: Path = DEFAULT_KEYWORDS_PATH) -> list[dict[str, Any]]:
+def load_posts(path: Path = DEFAULT_SEARCH_INDEX_PATH) -> list[dict[str, Any]]:
     posts = read_json(path)
     if not isinstance(posts, list):
         raise ValueError(f"{path} must contain a list of posts")

@@ -1,8 +1,8 @@
 {
   "createdAt": "2026-07-02T17:28:32.445940+00:00",
-  "sourceFile": "data/index/ehrman_posts_keywords.json",
+  "sourceFile": "data/index/ehrman_post_search_index.json",
   "rawTextSource": "data/raw/posts.jsonl",
-  "scope": "Audit of articles with empty themes in ehrman_posts_keywords.json.",
+  "scope": "Audit of articles with empty themes in ehrman_post_search_index.json.",
   "policy": "Conservative audit of empty-theme articles. No new themes are recommended; use existing themes only when central, otherwise use Ignore. Existing-theme recommendations have received a second-pass fit audit to remove incidental tags.",
   "summary": {
     "articlesAudited": 319,
@@ -9861,7 +9861,7 @@
       ]
     }
   ],
-  "applicationStatus": "Applied to ehrman_posts_keywords.json: themes and primaryKeywords set from recommendations; secondaryKeywords cleared for newly ignored articles.",
+  "applicationStatus": "Applied to ehrman_post_search_index.json: themes and primaryKeywords set from recommendations; secondaryKeywords cleared for newly ignored articles.",
   "appliedAt": "2026-07-02T17:35:47.057645+00:00",
   "appliedCounts": {
     "articlesUpdated": 319,

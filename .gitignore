@@ -7,3 +7,6 @@ node_modules/
 .codex_deps/
 data/raw/playwright-profile/
 .tools/
+webapp/data/*.db
+webapp/data/*.db-*
+webapp/data/*.log
