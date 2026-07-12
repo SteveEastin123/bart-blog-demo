@@ -455,6 +455,7 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
 def api_keywords(query: dict[str, list[str]]) -> bytes:
     q = normalize_keyword(query.get("q", [""])[0])
     selected = [value for value in query.get("selected", []) if value.strip()]
+    selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
     limit = 18
     with get_conn() as conn:
         selected_ids: set[int] | None = None
@@ -478,13 +479,17 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             placeholders = ",".join("?" for _ in selected_ids)
             where += f" AND post_id IN ({placeholders})"
             params.extend(sorted(selected_ids))
+        if selected_normalized:
+            placeholders = ",".join("?" for _ in selected_normalized)
+            where += f" AND normalized NOT IN ({placeholders})"
+            params.extend(selected_normalized)
         rows = conn.execute(
             f"""
             SELECT label, normalized, COUNT(DISTINCT post_id) AS post_count
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY label COLLATE NOCASE
+            ORDER BY post_count DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
             tuple(params),
