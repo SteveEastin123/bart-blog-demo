@@ -102,7 +102,20 @@ def header(active: str = "") -> str:
 
     return f"""
     <header class="site-header">
-      <div class="site-tagline">Engaging Discussions about Early Christianity</div>
+      <div class="site-utility">
+        <div class="site-utility-inner">
+          <div class="site-tagline">Engaging Discussions about Early Christianity</div>
+          <div class="site-utility-actions" aria-label="Site utility links">
+            <form class="site-search" action="#" aria-label="Site search">
+              <input type="search" placeholder="Search..." aria-label="Search" disabled>
+              <button type="button" disabled>All</button>
+            </form>
+            <span class="site-utility-link site-join-now">Join Now!</span>
+            <span class="site-utility-link site-login">Login</span>
+            <span class="site-utility-link">Account</span>
+          </div>
+        </div>
+      </div>
       <div class="site-top">
         <a class="site-brand" href="/">
           <span class="site-logo-mark" aria-hidden="true"></span>
