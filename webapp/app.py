@@ -495,6 +495,32 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
     ).encode("utf-8")
 
 
+def health_page() -> bytes:
+    with get_conn() as conn:
+        counts = conn.execute(
+            """
+            SELECT
+                (SELECT COUNT(*) FROM posts) AS posts,
+                (SELECT COUNT(*) FROM categories) AS categories,
+                (SELECT COUNT(*) FROM themes) AS themes,
+                (SELECT COUNT(*) FROM keywords) AS keywords
+            """
+        ).fetchone()
+    payload = {
+        "status": "ok",
+        "commit": os.environ.get("RENDER_GIT_COMMIT", ""),
+        "databaseExists": DB_PATH.exists(),
+        "staticFiles": sorted(path.name for path in STATIC_DIR.iterdir() if path.is_file()),
+        "counts": {
+            "posts": counts["posts"],
+            "categories": counts["categories"],
+            "themes": counts["themes"],
+            "keywords": counts["keywords"],
+        },
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
+
+
 def not_found() -> bytes:
     body = content_page("Page Not Found", "The requested page could not be found.")
     return render_page("Page Not Found", body)
@@ -525,6 +551,8 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return keyword_results_page(query), "200 OK", "text/html; charset=utf-8"
     if path == "/api/keywords":
         return api_keywords(query), "200 OK", "application/json; charset=utf-8"
+    if path == "/healthz":
+        return health_page(), "200 OK", "application/json; charset=utf-8"
     if path.startswith("/categories/") and path.endswith("/posts"):
         slug = path.removeprefix("/categories/").removesuffix("/posts").strip("/")
         return posts_for_category(slug), "200 OK", "text/html; charset=utf-8"
