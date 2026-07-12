@@ -287,12 +287,9 @@ a:hover {
 }
 
 .content-description,
-.item-description {
-  color: var(--maroon);
-}
-
+.item-description,
 .post-description {
-  color: #36596b;
+  color: var(--maroon);
 }
 
 .empty {
@@ -415,7 +412,7 @@ a:hover {
   background: #ffffff;
   border: 1px solid #d7c9a5;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-  color: #000000;
+  color: var(--maroon);
   content: attr(data-tooltip);
   display: block;
   font-size: 15px;
