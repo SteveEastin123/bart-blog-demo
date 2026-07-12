@@ -381,6 +381,15 @@ a:hover {
 .keyword-suggestion-list button:hover,
 .keyword-suggestion-list button:focus {
   background: #f0eee9;
+  color: #000000;
+  font-weight: 700;
+  outline: none;
+}
+
+.keyword-suggestion-list button:hover .suggestion-count,
+.keyword-suggestion-list button:focus .suggestion-count {
+  color: var(--muted);
+  font-weight: 700;
 }
 
 .suggestion-count {
