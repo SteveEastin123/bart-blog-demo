@@ -413,6 +413,20 @@ def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int
     return {int(row["post_id"]): int(row["score"]) for row in rows}
 
 
+def title_match_boost(title: str, term: str) -> int:
+    normalized_title = normalize_keyword(title)
+    normalized_term = normalize_keyword(term)
+    if not normalized_title or not normalized_term:
+        return 0
+    padded_title = f" {normalized_title} "
+    padded_term = f" {normalized_term} "
+    if padded_term in padded_title:
+        return 2
+    if " " not in normalized_term and any(normalized_term in word for word in normalized_title.split()):
+        return 1
+    return 0
+
+
 def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[str]]:
     clean_terms = [term for term in (clean.strip() for clean in terms) if term]
     if not clean_terms:
@@ -438,6 +452,9 @@ def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[s
             f"SELECT p.* FROM posts p WHERE p.id IN ({placeholders})",
             tuple(post_ids),
         ).fetchall()
+        for row in rows:
+            post_id = int(row["id"])
+            matches[post_id] += sum(title_match_boost(row["title"], term) for term in clean_terms)
 
     def sort_key(row: sqlite3.Row) -> tuple[object, ...]:
         if sort == "newest":
