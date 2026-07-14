@@ -482,17 +482,10 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
         for value in selected:
             matches = set(find_post_ids_for_term(conn, value).keys())
             selected_ids = matches if selected_ids is None else selected_ids & matches
-        like = f"{q}%"
-        params: list[object] = [like]
+        prefix_like = f"{q}%"
+        contains_like = f"%{q}%"
+        params: list[object] = [contains_like]
         where = "normalized LIKE ?"
-        if q:
-            fallback_count = conn.execute(
-                f"SELECT COUNT(DISTINCT normalized) FROM post_search_terms WHERE {where}",
-                params,
-            ).fetchone()[0]
-            if fallback_count == 0:
-                where = "normalized LIKE ?"
-                params = [f"%{q}%"]
         if selected_ids is not None:
             if not selected_ids:
                 return json.dumps([], ensure_ascii=False).encode("utf-8")
@@ -512,14 +505,19 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 ) AS label,
                 normalized,
                 COUNT(DISTINCT post_id) AS post_count,
-                MAX(CASE WHEN kind = 'theme' THEN 1 ELSE 0 END) AS is_theme
+                MAX(CASE WHEN kind = 'theme' THEN 1 ELSE 0 END) AS is_theme,
+                CASE
+                    WHEN normalized = ? THEN 3
+                    WHEN normalized LIKE ? THEN 2
+                    ELSE 1
+                END AS match_quality
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY is_theme DESC, post_count DESC, label COLLATE NOCASE
+            ORDER BY is_theme DESC, match_quality DESC, post_count DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
-            tuple(params),
+            (q, prefix_like, *params),
         ).fetchall()
     return json.dumps(
         [
