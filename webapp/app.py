@@ -193,9 +193,8 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces new features to find topics of interest on Bart's blog.</p>
-        <p>Two hyperlinks have been added to the navigation bar: <strong>Categories</strong> and <strong>Keyword Search</strong>.</p>
-        <p><strong>Categories</strong> let readers browse the blog in a structured way. The posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}. Selecting a category shows the themes within it, and selecting a theme shows the posts connected to that theme.</p>
+        <p>This demo introduces two new ways to find topics of interest on Bart's blog: <strong>Categories</strong> and <strong>Keyword Search</strong>.</p>
+        <p><strong>Categories</strong> let readers browse posts through a structured hierarchy. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused themes. Selecting a category shows its themes; selecting a theme shows the posts connected to it.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
         <p class="site-demo-date-range">{esc(date_range)}</p>
         <p class="site-demo-version">Version 1.0 database proof of concept | {pluralize(stats['posts'], 'post')} | {pluralize(stats['themes'], 'theme')} | {pluralize(stats['categories'], 'category', 'categories')}</p>
