@@ -248,12 +248,12 @@ a:hover {
   margin: 0 0 14px;
 }
 
-.site-demo-date-range {
+.site-demo-note .site-demo-date-range {
   font-size: 13px;
-  margin: 56px 0 14px;
+  margin: 48px 0 14px;
 }
 
-.site-demo-version {
+.site-demo-note .site-demo-version {
   font-size: 13px;
   margin: 0;
 }
