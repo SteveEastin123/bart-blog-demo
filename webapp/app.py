@@ -329,7 +329,7 @@ def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str
         <select id="sort" name="sort">{sort_options}</select>
       </div>
       <button type="submit">Search</button>
-      <p class="hover-help">Hover over a post title to see a short description or check this box to display all descriptions.
+      <p class="hover-help">Hover over a post title to see a short description or check box to display all descriptions.
         <label class="description-check"><input type="checkbox" data-description-toggle> Display all descriptions</label>
       </p>
     </form>
