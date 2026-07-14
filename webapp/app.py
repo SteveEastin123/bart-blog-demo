@@ -197,7 +197,7 @@ def home_page() -> bytes:
         <p><strong>Categories</strong> let readers browse posts through a structured hierarchy. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused themes. Selecting a category shows its themes; selecting a theme shows the posts connected to it.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
         <p class="site-demo-date-range">{esc(date_range)}</p>
-        <p class="site-demo-version">Version 1.0 database proof of concept | {pluralize(stats['posts'], 'post')} | {pluralize(stats['themes'], 'theme')} | {pluralize(stats['categories'], 'category', 'categories')}</p>
+        <p class="site-demo-version">Version 1.0 Blog Search Demo | {pluralize(stats['posts'], 'post')} | {pluralize(stats['themes'], 'theme')} | {pluralize(stats['categories'], 'category', 'categories')}</p>
       </section>
     </section>
     """
