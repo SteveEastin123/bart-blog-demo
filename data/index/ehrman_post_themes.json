@@ -1122,6 +1122,14 @@
       "displayInBrowser": false
     },
     {
+      "name": "Holy Spirit in Luke-Acts",
+      "description": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
+      "categories": [
+        "Acts and Early Christianity"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "In a Nutshell Series",
       "description": "Posts on In a Nutshell Series in relation to personal reflections and blog features.",
       "categories": [
@@ -1473,15 +1481,6 @@
       "categories": [
         "Miracles",
         "Persecution and Martyrdom"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Miracles in Acts",
-      "description": "Posts on Miracles in Acts in relation to Acts and early Christian origins and miracle stories, supernatural claims, healing, exorcism, and visions.",
-      "categories": [
-        "Acts and Early Christianity",
-        "Miracles"
       ],
       "displayInBrowser": true
     },
