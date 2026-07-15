@@ -115,6 +115,17 @@ def slugify(value: Any) -> str:
     return normalized.replace(" ", "-") or "item"
 
 
+def unique_slug(value: Any, used_slugs: set[str]) -> str:
+    base_slug = slugify(value)
+    slug = base_slug
+    suffix = 2
+    while slug in used_slugs:
+        slug = f"{base_slug}-{suffix}"
+        suffix += 1
+    used_slugs.add(slug)
+    return slug
+
+
 def unique_strings(values: Any) -> list[str]:
     if not isinstance(values, list):
         return []
@@ -220,15 +231,17 @@ def build_database(
     try:
         conn.executescript(SCHEMA)
 
+        used_category_slugs: set[str] = set()
         for category in categories:
             name = clean_string(category.get("name"))
             if not name:
                 continue
             conn.execute(
                 "INSERT INTO categories(name, slug, description) VALUES (?, ?, ?)",
-                (name, slugify(name), clean_string(category.get("description"))),
+                (name, unique_slug(name, used_category_slugs), clean_string(category.get("description"))),
             )
 
+        used_theme_slugs: set[str] = set()
         for theme in themes:
             name = clean_string(theme.get("name"))
             if not name:
@@ -240,7 +253,7 @@ def build_database(
                 """,
                 (
                     name,
-                    slugify(name),
+                    unique_slug(name, used_theme_slugs),
                     clean_string(theme.get("description")),
                     0 if theme.get("displayInBrowser") is False else 1,
                 ),

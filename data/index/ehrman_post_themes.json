@@ -118,7 +118,6 @@
       "name": "Apocalypse of Peter",
       "description": "Posts on Apocalypse of Peter in relation to ancient, biblical, and Christian afterlife traditions and non-canonical Christian texts and apocryphal writings.",
       "categories": [
-        "Afterlife",
         "Non-Canonical Texts"
       ],
       "displayInBrowser": true
@@ -1020,14 +1019,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Heaven",
-      "description": "Posts on Heaven in relation to ancient, biblical, and Christian afterlife traditions.",
-      "categories": [
-        "Afterlife"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Heaven and Hell",
       "description": "Posts on Heaven and Hell in relation to Bart Ehrman's books and related public discussions.",
       "categories": [
@@ -1037,7 +1028,7 @@
     },
     {
       "name": "Heaven/Hell",
-      "description": "Posts on Heaven/Hell in relation to ancient, biblical, and Christian afterlife traditions.",
+      "description": "Posts on heaven and hell in relation to ancient, biblical, and Christian afterlife traditions.",
       "categories": [
         "Afterlife"
       ],
@@ -1073,14 +1064,6 @@
       "description": "Posts on Hebrew Bible Manuscripts in relation to manuscripts, textual transmission, and Bible translation.",
       "categories": [
         "Manuscripts and Translations"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Hell",
-      "description": "Posts on Hell in relation to ancient, biblical, and Christian afterlife traditions.",
-      "categories": [
-        "Afterlife"
       ],
       "displayInBrowser": true
     },
