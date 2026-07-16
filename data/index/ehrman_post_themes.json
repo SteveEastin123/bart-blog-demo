@@ -229,8 +229,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Biblical Contradictions (General)",
-      "description": "Posts on Biblical Contradictions as a broad topic in relation to canon, scripture, biblical interpretation, and scriptural authority.",
+      "name": "Biblical Contradictions",
+      "description": "Posts on contradictions in biblical texts, including the Gospels, the Hebrew Bible, and broader questions of interpretation and scriptural authority.",
       "categories": [
         "Canon and Scripture"
       ],
@@ -281,14 +281,6 @@
       "description": "Posts on Bloody Sweat Textual Variant in relation to textual criticism, scribal changes, variants, and manuscript evidence.",
       "categories": [
         "Textual Criticism"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Book Publishing",
-      "description": "Posts on writing, titling, publishing, marketing, and reviewing scholarly and trade books for academic or general audiences.",
-      "categories": [
-        "Books, Teaching, and Media"
       ],
       "displayInBrowser": true
     },
@@ -366,14 +358,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Christology (General)",
-      "description": "Posts on Christology as a broad topic in relation to early Christian views of Christ.",
-      "categories": [
-        "Christology"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Christology in the Gospels",
       "description": "Posts on Christology in the Gospels in relation to early Christian views of Christ.",
       "categories": [
@@ -419,14 +403,6 @@
       "description": "Posts on Conversion in relation to Acts and early Christian origins.",
       "categories": [
         "Acts and Early Christianity"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Course and Lecture Announcements",
-      "description": "Posts on Course and Lecture Announcements in relation to books, teaching, lectures, media, and public scholarship.",
-      "categories": [
-        "Books, Teaching, and Media"
       ],
       "displayInBrowser": true
     },
@@ -809,14 +785,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Gospel Contradictions",
-      "description": "Posts on Gospel Contradictions in relation to canon, scripture, biblical interpretation, and scriptural authority.",
-      "categories": [
-        "Canon and Scripture"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Gospel Dating",
       "description": "Posts on Gospel Dating in relation to the canonical Gospels and their interpretation.",
       "categories": [
@@ -1019,14 +987,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Hebrew Bible Contradictions",
-      "description": "Posts on Hebrew Bible Contradictions in relation to canon, scripture, biblical interpretation, and scriptural authority.",
-      "categories": [
-        "Canon and Scripture"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Hebrew Bible Historicity",
       "description": "Posts on Hebrew Bible Historicity in relation to historical method, scholarship, criticism, and research.",
       "categories": [
@@ -1100,6 +1060,12 @@
       "displayInBrowser": true
     },
     {
+      "name": "Holy Spirit in Luke-Acts",
+      "description": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
+      "categories": [],
+      "displayInBrowser": true
+    },
+    {
       "name": "Homosexuality",
       "description": "Posts on Homosexuality in relation to ancient ethics, social issues, and Christian moral teaching.",
       "categories": [
@@ -1120,14 +1086,6 @@
       "description": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "categories": [],
       "displayInBrowser": false
-    },
-    {
-      "name": "Holy Spirit in Luke-Acts",
-      "description": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
-      "categories": [
-        "Acts and Early Christianity"
-      ],
-      "displayInBrowser": true
     },
     {
       "name": "In a Nutshell Series",
@@ -1184,14 +1142,6 @@
       "description": "Posts on Jesus Before the Gospels in relation to Bart Ehrman's books and related public discussions.",
       "categories": [
         "Bart's Books"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Jesus' Divine Status",
-      "description": "Posts on Jesus' Divine Status in relation to early Christian views of Christ.",
-      "categories": [
-        "Christology"
       ],
       "displayInBrowser": true
     },
@@ -1314,9 +1264,7 @@
     {
       "name": "Life of Brian",
       "description": "Posts on Life of Brian in relation to books, teaching, lectures, media, and public scholarship.",
-      "categories": [
-        "Books, Teaching, and Media"
-      ],
+      "categories": [],
       "displayInBrowser": true
     },
     {
@@ -1332,23 +1280,6 @@
       "description": "Posts on Luke-Acts Authorship in relation to questions of authorship, attribution, and textual authority.",
       "categories": [
         "Authorship"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Luke-Acts Christology",
-      "description": "Posts on Luke-Acts Christology in relation to early Christian views of Christ.",
-      "categories": [
-        "Christology"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Magic and Amulets",
-      "description": "Posts on Magic and Amulets in relation to the social, cultural, and religious context of the ancient world and miracle stories, supernatural claims, healing, exorcism, and visions.",
-      "categories": [
-        "Ancient World Context",
-        "Miracles"
       ],
       "displayInBrowser": true
     },
@@ -1422,6 +1353,14 @@
     {
       "name": "Media Attention",
       "description": "Posts on Media Attention in relation to books, teaching, lectures, media, and public scholarship.",
+      "categories": [
+        "Books, Teaching, and Media"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Media Interviews and Videos",
+      "description": "Posts featuring or discussing interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
       "categories": [
         "Books, Teaching, and Media"
       ],
@@ -1863,22 +1802,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Podcast Interviews",
-      "description": "Posts on Podcast Interviews in relation to books, teaching, lectures, media, and public scholarship.",
-      "categories": [
-        "Books, Teaching, and Media"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Podcast Production",
-      "description": "Posts on Podcast Production in relation to books, teaching, lectures, media, and public scholarship.",
-      "categories": [
-        "Books, Teaching, and Media"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Pontius Pilate",
       "description": "Posts on Pontius Pilate in relation to major figures in the New Testament narratives.",
       "categories": [
@@ -1891,14 +1814,6 @@
       "description": "Posts on Predestination in relation to salvation, judgment, atonement, grace, and divine punishment.",
       "categories": [
         "Salvation and Judgment"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Print and Broadcast Interviews",
-      "description": "Posts on Print and Broadcast Interviews in relation to books, teaching, lectures, media, and public scholarship.",
-      "categories": [
-        "Books, Teaching, and Media"
       ],
       "displayInBrowser": true
     },
@@ -2269,14 +2184,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Video Media",
-      "description": "Posts on Video Media in relation to books, teaching, lectures, media, and public scholarship.",
-      "categories": [
-        "Books, Teaching, and Media"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Virgin Birth",
       "description": "Posts on Virgin Birth in relation to Jesus as a historical and literary figure.",
       "categories": [
@@ -2301,8 +2208,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Writing and Research Process",
-      "description": "Posts on Writing and Research Process in relation to books, teaching, lectures, media, and public scholarship.",
+      "name": "Writing and Publishing",
+      "description": "Posts on writing, research habits, book production, publishing, titles, agents, reviews, and the process of bringing scholarship to readers.",
       "categories": [
         "Books, Teaching, and Media"
       ],
