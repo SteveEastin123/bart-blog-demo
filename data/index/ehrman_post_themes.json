@@ -26,23 +26,7 @@
     },
     {
       "name": "Afterlife (General)",
-      "description": "Posts on ancient and modern views of death, the afterlife, heaven, hell, reincarnation, consciousness, and life beyond death.",
-      "categories": [
-        "Afterlife"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Afterlife in the Hebrew Bible",
-      "description": "Posts on Afterlife in the Hebrew Bible in relation to ancient, biblical, and Christian afterlife traditions.",
-      "categories": [
-        "Afterlife"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Afterlife Journeys",
-      "description": "Posts on Afterlife Journeys in relation to ancient, biblical, and Christian afterlife traditions.",
+      "description": "Posts on broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing ideas of the afterlife.",
       "categories": [
         "Afterlife"
       ],
@@ -57,8 +41,16 @@
       "displayInBrowser": true
     },
     {
+      "name": "Ancient Jewish Afterlife",
+      "description": "Posts on Jewish views of death and life after death, including Sheol, Ecclesiastes, Samuel, Enoch, resurrection, and debates among ancient Jewish groups.",
+      "categories": [
+        "Afterlife"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Ancient Literacy",
-      "description": "Posts on Ancient Literacy in relation to the social, cultural, and religious context of the ancient world.",
+      "description": "Posts on reading, writing, literacy rates, education, secretaries, and whether figures such as Jesus, Peter, or early Christians could read or write.",
       "categories": [
         "Ancient World Context"
       ],
@@ -73,8 +65,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Ancient Secretaries",
-      "description": "Posts on Ancient Secretaries in relation to questions of authorship, attribution, and textual authority.",
+      "name": "Ancient Secretaries and Authorship",
+      "description": "Posts on ancient secretarial practices and authorship claims, including whether secretaries could compose texts, explain differences in style, or account for writings attributed to apostles.",
       "categories": [
         "Authorship"
       ],
@@ -82,7 +74,7 @@
     },
     {
       "name": "Ancient Wealth Ethics",
-      "description": "Posts on Ancient Wealth Ethics in relation to the social, cultural, and religious context of the ancient world and ancient ethics, social issues, and Christian moral teaching.",
+      "description": "Posts on ancient views of wealth, poverty, contentment, charity, Cynic poverty, and moral arguments about possessions.",
       "categories": [
         "Ancient World Context",
         "Ethics and Social Issues"
@@ -107,7 +99,7 @@
     },
     {
       "name": "Apocalyptic Jesus",
-      "description": "Posts on Apocalyptic Jesus in relation to apocalyptic thought and the book of Revelation and Jesus as a historical and literary figure.",
+      "description": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categories": [
         "Apocalypticism and Revelation",
         "Jesus"
@@ -132,7 +124,7 @@
     },
     {
       "name": "Apostolic Fathers Attribution",
-      "description": "Posts on Apostolic Fathers Attribution in relation to questions of authorship, attribution, and textual authority.",
+      "description": "Posts on authorship and attribution of early Christian writings such as 1 Clement, the Shepherd of Hermas, and the Letter of Barnabas.",
       "categories": [
         "Authorship"
       ],
@@ -147,8 +139,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Archaeology",
-      "description": "Posts on Archaeology in relation to the social, cultural, and religious context of the ancient world.",
+      "name": "Archaeology and Material Evidence",
+      "description": "Posts on archaeological evidence and material remains relevant to Jesus, early Judaism, and early Christianity, including Nazareth, Capernaum, crucifixion nails, artifacts, and the limits of archaeological claims.",
       "categories": [
         "Ancient World Context"
       ],
@@ -206,7 +198,7 @@
     },
     {
       "name": "Autobiographical Posts",
-      "description": "Posts on Autobiographical Posts in relation to personal reflections and blog features.",
+      "description": "Posts about Bart's life, education, career, family memories, retirement, and personal experiences.",
       "categories": [
         "Blog Features and Personal Posts"
       ],
@@ -262,7 +254,7 @@
     },
     {
       "name": "Blog Fundraising and Charities",
-      "description": "Posts on Blog Fundraising and Charities in relation to personal reflections and blog features.",
+      "description": "Posts about blog anniversaries, fundraising appeals, charity campaigns, stewardship, and support for charitable work.",
       "categories": [
         "Blog Features and Personal Posts"
       ],
@@ -596,7 +588,7 @@
     },
     {
       "name": "Eternal Punishment",
-      "description": "Posts on Eternal Punishment in relation to ancient, biblical, and Christian afterlife traditions and salvation, judgment, atonement, grace, and divine punishment.",
+      "description": "Posts on hell, Gehenna, eternal torment, annihilation, the unforgivable sin, degrees of punishment, and Christian debates about divine justice.",
       "categories": [
         "Afterlife",
         "Salvation and Judgment"
@@ -638,7 +630,7 @@
     },
     {
       "name": "Forged",
-      "description": "Posts on Forged in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about Bart Ehrman's trade book on ancient Christian literary forgery, including announcements, excerpts, interviews, and discussions of authorship and deception.",
       "categories": [
         "Bart's Books"
       ],
@@ -654,7 +646,7 @@
     },
     {
       "name": "Forgery and Counterforgery",
-      "description": "Posts on Forgery and Counterforgery in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about Bart Ehrman's scholarly study of pseudepigraphy, deception, and disputes over forged writings in early Christianity.",
       "categories": [
         "Bart's Books"
       ],
@@ -702,7 +694,7 @@
     },
     {
       "name": "General Audience Books",
-      "description": "Posts on General Audience Books in relation to books, teaching, lectures, media, and public scholarship.",
+      "description": "Posts about books written for general readers, including trade books, book ideas, excerpts, publication plans, and efforts to make scholarship accessible.",
       "categories": [
         "Books, Teaching, and Media"
       ],
@@ -712,15 +704,6 @@
       "name": "General Epistles",
       "description": "Posts on General Epistles in relation to New Testament letters and epistolary interpretation.",
       "categories": [
-        "Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "General Epistles Authorship",
-      "description": "Posts on General Epistles Authorship in relation to questions of authorship, attribution, and textual authority and New Testament letters and epistolary interpretation.",
-      "categories": [
-        "Authorship",
         "Epistles"
       ],
       "displayInBrowser": true
@@ -769,7 +752,7 @@
     },
     {
       "name": "Gospel Authorship",
-      "description": "Posts on who wrote the Gospels, why the Gospels are anonymous, and how early Christian traditions connected them with apostolic authorities.",
+      "description": "Posts on who wrote the canonical Gospels, why they are anonymous, how titles and traditions developed, and how early Christians connected them with apostolic figures.",
       "categories": [
         "Authorship",
         "Canonical Gospels and Acts"
@@ -931,7 +914,7 @@
     },
     {
       "name": "Greco-Roman Religion",
-      "description": "Posts on Greco-Roman Religion in relation to the social, cultural, and religious context of the ancient world.",
+      "description": "Posts on pagan worship, mystery religions, divine beings, miracles, emperor worship, and the religious world in which early Christianity developed.",
       "categories": [
         "Ancient World Context"
       ],
@@ -955,7 +938,7 @@
     },
     {
       "name": "Heaven and Hell",
-      "description": "Posts on Heaven and Hell in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about Bart Ehrman's book on the development of Christian afterlife beliefs, including excerpts, interviews, reader responses, and related discussions.",
       "categories": [
         "Bart's Books"
       ],
@@ -963,18 +946,9 @@
     },
     {
       "name": "Heaven/Hell",
-      "description": "Posts on heaven and hell in relation to ancient, biblical, and Christian afterlife traditions.",
+      "description": "Posts on heaven and hell as Christian afterlife destinations, including their origins, development, popular interpretations, and connections with Jesus, Paul, Revelation, and ancient traditions.",
       "categories": [
         "Afterlife"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Hebrew Bible Authorship",
-      "description": "Posts on Hebrew Bible Authorship in relation to questions of authorship, attribution, and textual authority and the Hebrew Bible, early Judaism, and Jewish scripture.",
-      "categories": [
-        "Authorship",
-        "Hebrew Bible and Early Judaism"
       ],
       "displayInBrowser": true
     },
@@ -991,6 +965,15 @@
       "description": "Posts on Hebrew Bible Manuscripts in relation to manuscripts, textual transmission, and Bible translation.",
       "categories": [
         "Manuscripts and Translations"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Hebrew Bible Sources and Authorship",
+      "description": "Posts on the sources and authorship of Hebrew Bible writings, including the Pentateuch, the Documentary Hypothesis, Isaiah, Genesis, and later scholarly theories.",
+      "categories": [
+        "Authorship",
+        "Hebrew Bible and Early Judaism"
       ],
       "displayInBrowser": true
     },
@@ -1067,7 +1050,7 @@
     },
     {
       "name": "How Jesus Became God",
-      "description": "Posts on How Jesus Became God in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about Bart Ehrman's book on early Christology, Jesus' divinity, public debates, interviews, and related arguments.",
       "categories": [
         "Bart's Books"
       ],
@@ -1081,7 +1064,7 @@
     },
     {
       "name": "In a Nutshell Series",
-      "description": "Posts on In a Nutshell Series in relation to personal reflections and blog features.",
+      "description": "Brief overview posts that summarize texts, movements, people, or historical issues in a compact In a Nutshell format.",
       "categories": [
         "Blog Features and Personal Posts"
       ],
@@ -1131,7 +1114,7 @@
     },
     {
       "name": "Jesus Before the Gospels",
-      "description": "Posts on Jesus Before the Gospels in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about memory, oral tradition, eyewitness claims, Gospel transmission, and public discussions connected with Bart Ehrman's book.",
       "categories": [
         "Bart's Books"
       ],
@@ -1182,7 +1165,7 @@
     },
     {
       "name": "Jewish Apocalypticism",
-      "description": "Posts on Jewish Apocalypticism in relation to apocalyptic thought and the book of Revelation.",
+      "description": "Posts on ancient Jewish apocalyptic thought, including its roots in prophecy, historical crisis, apocalypse as a genre, resurrection, judgment, and its background for Jesus and early Christianity.",
       "categories": [
         "Apocalypticism and Revelation"
       ],
@@ -1269,9 +1252,10 @@
     },
     {
       "name": "Luke-Acts Authorship",
-      "description": "Posts on Luke-Acts Authorship in relation to questions of authorship, attribution, and textual authority.",
+      "description": "Posts on who wrote Luke and Acts, whether the author was Paul's companion Luke, and how the two-volume work identifies or conceals its author.",
       "categories": [
-        "Authorship"
+        "Authorship",
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -1343,8 +1327,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Media Attention",
-      "description": "Posts on Media Attention in relation to books, teaching, lectures, media, and public scholarship.",
+      "name": "Media Coverage",
+      "description": "Posts about news coverage, reviews, bestseller lists, public controversy, and media attention involving Bart, his books, or topics from the blog.",
       "categories": [
         "Books, Teaching, and Media"
       ],
@@ -1352,7 +1336,7 @@
     },
     {
       "name": "Media Interviews and Videos",
-      "description": "Posts featuring or discussing interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
+      "description": "Posts featuring interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
       "categories": [
         "Books, Teaching, and Media"
       ],
@@ -1417,15 +1401,15 @@
     },
     {
       "name": "Misquoting Jesus",
-      "description": "Posts on Misquoting Jesus in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about textual criticism, manuscript transmission, scribal changes, public reception, and discussions tied to Bart Ehrman's book.",
       "categories": [
         "Bart's Books"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Modern Apocalypticism",
-      "description": "Posts on Modern Apocalypticism in relation to apocalyptic thought and the book of Revelation.",
+      "name": "Modern End-Times Belief",
+      "description": "Posts on modern end-times belief, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
       "categories": [
         "Apocalypticism and Revelation"
       ],
@@ -1505,6 +1489,15 @@
       "displayInBrowser": true
     },
     {
+      "name": "Non-Pauline Epistles Authorship",
+      "description": "Posts on authorship questions in Hebrews, Jude, 1 Peter, the Johannine letters, and other non-Pauline New Testament epistles.",
+      "categories": [
+        "Authorship",
+        "Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "NRSV",
       "description": "Posts on the New Revised Standard Version in relation to manuscripts, textual transmission, and Bible translation.",
       "categories": [
@@ -1533,6 +1526,14 @@
       "description": "Posts on Original Text in relation to textual criticism, scribal changes, variants, and manuscript evidence.",
       "categories": [
         "Textual Criticism"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Otherworldly Journeys",
+      "description": "Posts on ancient journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
+      "categories": [
+        "Afterlife"
       ],
       "displayInBrowser": true
     },
@@ -1636,7 +1637,7 @@
     },
     {
       "name": "Pauline Apocalypticism",
-      "description": "Posts on Pauline Apocalypticism in relation to apocalyptic thought and the book of Revelation and Paul, his letters, theology, communities, and later interpretation.",
+      "description": "Posts on Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
       "categories": [
         "Apocalypticism and Revelation",
         "Paul and Pauline Christianity"
@@ -1645,7 +1646,7 @@
     },
     {
       "name": "Pauline Authorship",
-      "description": "Posts on Pauline Authorship in relation to questions of authorship, attribution, and textual authority, New Testament letters and epistolary interpretation, and Paul, his letters, theology, communities, and later interpretation.",
+      "description": "Posts on which letters Paul wrote, which letters are disputed, and how scholars use style, theology, historical setting, and comparison with undisputed letters to assess authorship.",
       "categories": [
         "Authorship",
         "Epistles",
@@ -1759,7 +1760,7 @@
     },
     {
       "name": "Personal Reflections",
-      "description": "Posts on Personal Reflections in relation to personal reflections and blog features.",
+      "description": "Posts offering personal reflections on belief, doubt, ethics, suffering, public issues, holidays, or life experience.",
       "categories": [
         "Blog Features and Personal Posts"
       ],
@@ -1797,6 +1798,15 @@
       "description": "Posts on Pontius Pilate in relation to major figures in the New Testament narratives.",
       "categories": [
         "New Testament Individuals"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Popularizing Scholarship",
+      "description": "Posts about explaining scholarship clearly for non-specialists, responding to public misunderstandings, and making academic work accessible and interesting.",
+      "categories": [
+        "Books, Teaching, and Media",
+        "Historical Method and Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -1842,17 +1852,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Public Scholarship",
-      "description": "Posts on Public Scholarship in relation to books, teaching, lectures, media, and public scholarship and historical method, scholarship, criticism, and research.",
-      "categories": [
-        "Books, Teaching, and Media",
-        "Historical Method and Scholarship"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Purgatory",
-      "description": "Posts on Purgatory in relation to ancient, biblical, and Christian afterlife traditions.",
+      "description": "Posts on purgatory and related ideas, including postmortem purification, unforgivable sin, degrees of punishment, Perpetua, and the historical emergence of purgatorial belief.",
       "categories": [
         "Afterlife"
       ],
@@ -1916,7 +1917,7 @@
     },
     {
       "name": "Resurrection of the Dead",
-      "description": "Posts on Resurrection of the Dead in relation to ancient, biblical, and Christian afterlife traditions.",
+      "description": "Posts on future bodily resurrection, including Jewish origins, Daniel, Maccabean martyrdom, Paul, physical embodiment, personal identity, and resurrection as afterlife hope.",
       "categories": [
         "Afterlife"
       ],
@@ -1932,7 +1933,7 @@
     },
     {
       "name": "Revelation",
-      "description": "Posts on Revelation in relation to apocalyptic thought and the book of Revelation.",
+      "description": "Posts on the book of Revelation as an ancient apocalypse, including its authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "categories": [
         "Apocalypticism and Revelation"
       ],
@@ -1940,7 +1941,7 @@
     },
     {
       "name": "Revelation Authorship",
-      "description": "Posts on Revelation Authorship in relation to questions of authorship, attribution, and textual authority.",
+      "description": "Posts on who wrote Revelation, including the identity of John of Patmos and whether Revelation was written by the same author as the Gospel of John.",
       "categories": [
         "Authorship"
       ],
@@ -1948,7 +1949,7 @@
     },
     {
       "name": "Rich and Poor in Afterlife",
-      "description": "Posts on Rich and Poor in Afterlife in relation to ancient, biblical, and Christian afterlife traditions and ancient ethics, social issues, and Christian moral teaching.",
+      "description": "Posts on afterlife stories about wealth, poverty, reversal of fortunes, Lazarus and the rich man, and moral warnings about riches after death.",
       "categories": [
         "Afterlife",
         "Ethics and Social Issues"
@@ -1964,8 +1965,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Roman Crucifixion Practices",
-      "description": "Posts on Roman Crucifixion Practices in relation to the social, cultural, and religious context of the ancient world and Jesus' death, burial, and resurrection traditions.",
+      "name": "Roman Crucifixion and Burial Practices",
+      "description": "Posts on Roman crucifixion and burial practices, including how crucifixion was carried out, whether victims were buried, and how this evidence bears on Jesus' burial.",
       "categories": [
         "Ancient World Context",
         "Jesus' Death, Burial, and Resurrection"
@@ -1982,7 +1983,7 @@
     },
     {
       "name": "Roman World",
-      "description": "Posts on Roman World in relation to the social, cultural, and religious context of the ancient world.",
+      "description": "Posts on Roman political, legal, military, and cultural settings relevant to Jesus, Paul, early Christianity, and the spread of the Christian movement.",
       "categories": [
         "Ancient World Context"
       ],
@@ -2053,8 +2054,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Social Class",
-      "description": "Posts on Social Class in relation to the social, cultural, and religious context of the ancient world and ancient ethics, social issues, and Christian moral teaching.",
+      "name": "Social Class in Antiquity",
+      "description": "Posts on class, status, labor, poverty, slavery, gender hierarchy, and social conditions in the ancient Mediterranean world.",
       "categories": [
         "Ancient World Context",
         "Ethics and Social Issues"
@@ -2096,7 +2097,7 @@
     },
     {
       "name": "Teaching and Courses",
-      "description": "Posts on Teaching and Courses in relation to books, teaching, lectures, media, and public scholarship.",
+      "description": "Posts about teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
       "categories": [
         "Books, Teaching, and Media"
       ],
@@ -2104,7 +2105,7 @@
     },
     {
       "name": "Textbooks",
-      "description": "Posts on Textbooks in relation to books, teaching, lectures, media, and public scholarship.",
+      "description": "Posts about textbooks and introductory teaching materials, including how they are written, revised, illustrated, and used to teach biblical studies.",
       "categories": [
         "Books, Teaching, and Media"
       ],
@@ -2160,7 +2161,7 @@
     },
     {
       "name": "Triumph of Christianity",
-      "description": "Posts on Triumph of Christianity in relation to Bart Ehrman's books and related public discussions.",
+      "description": "Posts about how Christianity spread, converted the Roman world, and became a dominant religion.",
       "categories": [
         "Bart's Books"
       ],
@@ -2200,7 +2201,7 @@
     },
     {
       "name": "Writing and Publishing",
-      "description": "Posts on writing, research habits, book production, publishing, titles, agents, reviews, and the process of bringing scholarship to readers.",
+      "description": "Posts about writing habits, research, book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
       "categories": [
         "Books, Teaching, and Media"
       ],
