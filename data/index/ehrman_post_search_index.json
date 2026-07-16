@@ -511,11 +511,11 @@
     "description": "Explains why belief in a noninterventionist God does not resolve the problem of suffering that led to atheism.",
     "themes": [
       "Atheism",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Agnosticism",
-      "Free Will",
+      "Free Will and Predestination",
       "Noninterventionist God",
       "Problem of Evil",
       "Suffering"
@@ -650,7 +650,7 @@
     "author": "BDEhrman",
     "description": "Explains Max Weber's argument that Protestant predestination, especially in Calvinist thought, helped shape the modern capitalist drive for disciplined profit.",
     "themes": [
-      "Predestination"
+      "Free Will and Predestination"
     ],
     "secondaryKeywords": [
       "Cain",
@@ -671,15 +671,14 @@
     "author": "BDEhrman",
     "description": "Surveys biblical passages and theological problems connected with predestination, grace, divine sovereignty, free will, Augustine, Calvin, and double predestination.",
     "themes": [
-      "Free Will",
-      "Grace",
-      "Predestination"
+      "Free Will and Predestination"
     ],
     "secondaryKeywords": [
       "Augustine",
       "Church Fathers",
       "Double Predestination",
       "Ephesians",
+      "Grace",
       "NRSV",
       "Paul",
       "Romans"
@@ -693,7 +692,7 @@
     "author": "BDEhrman",
     "description": "Responds to reader questions about goodness and suffering, Luke's presentation of Jesus' divine sonship, and how anonymous gospels circulated.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -2247,7 +2246,7 @@
     "author": "BDEhrman",
     "description": "Responds to reader questions about Mark's consistency, scribal changes, suffering, and studying the New Testament without Greek.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -2954,7 +2953,7 @@
     "author": "BDEhrman",
     "description": "Explains how the Masoretic Text was standardized and why Jewish scribal transmission was more complex than claims of perfect copying suggest.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts",
       "Scribal Changes",
       "Septuagint"
@@ -2976,7 +2975,7 @@
     "author": "BDEhrman",
     "description": "Introduces the textual history of the Hebrew Bible and the difficulties of knowing the exact words of its earliest authors.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts"
     ],
     "secondaryKeywords": [
@@ -3008,7 +3007,7 @@
     "author": "BDEhrman",
     "description": "Explains the common scholarly view that the Hebrew Bible canon formed gradually, with Torah, Prophets, and Writings becoming fixed at different times.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Canon",
@@ -3295,7 +3294,7 @@
     "author": "BDEhrman",
     "description": "Recounts a legal scandal connected with the Dead Sea Scrolls and a lecture on their significance for Jesus and early Christianity.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -3311,9 +3310,8 @@
     "author": "BDEhrman",
     "description": "Explains why Jesus was not simply a member of the Dead Sea Scrolls community while the Scrolls still illuminate Jewish apocalyptic views.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Early Judaism (General)",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes",
+      "Early Judaism (General)"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -3328,7 +3326,7 @@
     "author": "BDEhrman",
     "description": "Explains how the Dead Sea Scrolls matter for understanding Jesus by illuminating the Jewish world from which Christianity emerged.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -3347,8 +3345,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Dead Sea Scrolls, their discovery, contents, and connection with the Essenes at Qumran.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Judaism"
@@ -4395,13 +4392,13 @@
     "description": "Argues that Jude attacks extreme post-Pauline claims about grace, morality, and angelic beings.",
     "themes": [
       "Divine Beings",
-      "Grace",
       "Non-Pauline Epistles",
       "Non-Pauline Epistles Authorship"
     ],
     "secondaryKeywords": [
       "Authorship",
       "Enoch",
+      "Grace",
       "James",
       "Jude",
       "Paul",
@@ -4430,7 +4427,6 @@
     "description": "Argues that Jude was forged to oppose an extreme form of post-Pauline Christianity that severed grace from moral conduct.",
     "themes": [
       "Early Christian Communities",
-      "Grace",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles"
     ],
@@ -4441,6 +4437,7 @@
       "Forged",
       "Forgery",
       "Forgery and Counterforgery",
+      "Grace",
       "Jewish Law",
       "Jude",
       "Paul",
@@ -4585,7 +4582,6 @@
     "description": "Summarizes Jude as a warning against false teachers who turn grace into license and face divine judgment.",
     "themes": [
       "Early Christian Communities",
-      "Grace",
       "In a Nutshell Series",
       "Non-Pauline Epistles"
     ],
@@ -4593,6 +4589,7 @@
       "Cain",
       "Canon",
       "Enoch",
+      "Grace",
       "Jude",
       "Moses"
     ]
@@ -4732,10 +4729,9 @@
     "author": "BDEhrman",
     "description": "Explains textual variants in 1 John 4:3 and their connection to separationist Christology and proto-orthodox concerns.",
     "themes": [
-      "Gnostic Textual Variants",
       "Gnostic-Orthodox Conflicts",
       "Non-Pauline Epistles",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "1 John",
@@ -4993,7 +4989,7 @@
     "themes": [
       "Biblical Views of Suffering",
       "Disasters and Suffering",
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
@@ -5004,7 +5000,6 @@
       "Job",
       "Old Testament",
       "Paul",
-      "Problem of Suffering",
       "Rebekah",
       "Revelation",
       "Suffering"
@@ -5165,7 +5160,7 @@
     "themes": [
       "2 Thessalonians",
       "Bible Translations (General)",
-      "Essenes",
+      "Dead Sea Scrolls and Essenes",
       "John the Baptist",
       "Pauline Forgeries",
       "Translation Process"
@@ -5354,7 +5349,7 @@
     "author": "BDEhrman",
     "description": "Reflects on artificial intelligence, consciousness, free will, and whether human thought is fundamentally different from machine processing.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Personal Reflections"
     ],
     "secondaryKeywords": [
@@ -5528,7 +5523,7 @@
     "author": "BDEhrman",
     "description": "Surveys the Christian idea of universal salvation and New Testament passages, especially in Paul, that may support it.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Salvation"
     ],
     "secondaryKeywords": [
@@ -5547,7 +5542,7 @@
     "author": "BDEhrman",
     "description": "Examines whether Hebrews teaches that salvation can be lost and contrasts that with once-saved-always-saved theology.",
     "themes": [
-      "Predestination",
+      "Free Will and Predestination",
       "Salvation"
     ],
     "secondaryKeywords": [
@@ -5689,7 +5684,7 @@
     "author": "BDEhrman",
     "description": "Surveys early traditions and legends about Peter's martyrdom, including the later upside-down crucifixion story.",
     "themes": [
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -5712,7 +5707,7 @@
     "author": "BDEhrman",
     "description": "Surveys early references and later legends about Paul's martyrdom.",
     "themes": [
-      "Apostolic Martyrdom",
+      "Apostles' Deaths",
       "Miracles and Martyrdom"
     ],
     "secondaryKeywords": [
@@ -5733,7 +5728,7 @@
     "themes": [
       "2 Thessalonians",
       "Bible Translations (General)",
-      "Essenes",
+      "Dead Sea Scrolls and Essenes",
       "John the Baptist",
       "Translation Process"
     ],
@@ -9580,9 +9575,8 @@
     "author": "BDEhrman",
     "description": "Introduces the Essenes and the Fourth Philosophy as Jewish groups known from Josephus and relevant to Jesus' world.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Early Judaism (General)",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes",
+      "Early Judaism (General)"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -9874,7 +9868,6 @@
     "author": "Diane",
     "description": "Presents a Platinum member proposal identifying Moses with an Egyptian official named Thutmose.",
     "themes": [
-      "Biblical Miracle Stories",
       "Hebrew Bible Historicity",
       "Historical Study of Miracles",
       "Pentateuch"
@@ -10058,7 +10051,6 @@
       "Dead Sea Scrolls",
       "Essenes",
       "Galatians",
-      "Grace",
       "James",
       "John the Baptist",
       "Mark",
@@ -10321,7 +10313,7 @@
     "description": "Reflects on why the Bible gives multiple, sometimes conflicting, answers to hard questions about suffering.",
     "themes": [
       "Personal Reflections",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering"
@@ -10369,12 +10361,11 @@
     "author": "BDEhrman",
     "description": "Examines whether free will adequately explains suffering in a world governed by a loving, all-powerful God.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
       "Pontius Pilate",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -10405,7 +10396,7 @@
     "author": "BDEhrman",
     "description": "Explains why suffering becomes a special intellectual problem in monotheistic belief.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering"
@@ -10420,7 +10411,7 @@
     "description": "Reflects on divine action, miracles, and the problem of suffering after leaving Christian faith.",
     "themes": [
       "Miracles (General)",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -10443,7 +10434,6 @@
       "Suffering and Loss of Faith"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Q&A",
       "Suffering"
     ]
@@ -11805,7 +11795,7 @@
     "author": "BDEhrman",
     "description": "Recounts the early controversy over Dan Wallace's claim about a first-century Mark fragment and its comparison to the Dead Sea Scrolls.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "First-Century Mark",
       "Gospel of Mark"
     ],
@@ -12035,8 +12025,8 @@
     "author": "BDEhrman",
     "description": "Explains how intentionality can be used as a functional category when evaluating scribal changes.",
     "themes": [
-      "Gnostic Textual Variants",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Mark"
@@ -13012,11 +13002,10 @@
     "author": "BDEhrman",
     "description": "Reposts a debate with Richard Swinburne on suffering and the adequacy of theistic explanations.",
     "themes": [
-      "Arguments About Suffering",
-      "Debates"
+      "Debates",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -13646,7 +13635,7 @@
     "author": "BDEhrman",
     "description": "Reposts a sharply critical review of God's Problem and reflects on criticism of the book.",
     "themes": [
-      "Arguments About Suffering"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -15812,7 +15801,7 @@
     "description": "Responds to objections based on differences between Bart Ehrman's views and Bruce Metzger's Christian commitments.",
     "themes": [
       "Bruce Metzger",
-      "Textual Criticism (General)"
+      "Original Text"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -16252,7 +16241,6 @@
       "Divine Beings",
       "Early Christian Writings",
       "Eve",
-      "Grace",
       "Salvation"
     ]
   },
@@ -17032,7 +17020,7 @@
     "description": "Presents a Platinum member's reflections on spirit, death, afterlife, consciousness, and free will.",
     "themes": [
       "Afterlife (General)",
-      "Free Will"
+      "Free Will and Predestination"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -20715,7 +20703,7 @@
     "author": "BDEhrman",
     "description": "Explores Job's dispute with friends who wrongly insist that suffering proves moral guilt.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -20796,7 +20784,7 @@
     "author": "BDEhrman",
     "description": "Presents a guest discussion of what the apostles' deaths can and cannot prove about early Christian faith.",
     "themes": [
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -20871,7 +20859,6 @@
     "secondaryKeywords": [
       "Hebrew Bible",
       "Old Testament",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -21063,12 +21050,11 @@
     "description": "Evaluates free will as an explanation for suffering in a world governed by a loving and powerful God.",
     "themes": [
       "Disasters and Suffering",
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
       "Pontius Pilate",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -21121,11 +21107,10 @@
     "author": "BDEhrman",
     "description": "Frames the problem of suffering as a conflict among claims about God's power, God's love, and human pain.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -21137,7 +21122,7 @@
     "author": "BDEhrman",
     "description": "Explains why suffering becomes a serious problem for believers in an all-powerful and loving God.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -21428,7 +21413,7 @@
     "author": "BDEhrman",
     "description": "Shows how New Testament manuscripts can reveal later theological disputes as well as earlier textual forms.",
     "themes": [
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -21815,8 +21800,8 @@
     "description": "Introduces textual variants in the Martyrdom of Polycarp and other Apostolic Fathers writings.",
     "themes": [
       "Apostolic Fathers",
-      "Gnostic Textual Variants",
-      "Martyrdom (General)"
+      "Martyrdom (General)",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -21838,9 +21823,9 @@
     "author": "BDEhrman",
     "description": "Explains that scribal changes affect ancient Christian writings beyond the New Testament.",
     "themes": [
-      "Gnostic Textual Variants",
       "Martyrdom (General)",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Apostolic Fathers",
@@ -22489,7 +22474,7 @@
     "author": "BDEhrman",
     "description": "Reflects on consciousness, the mind-body problem, and questions about free will and personal identity.",
     "themes": [
-      "Free Will"
+      "Free Will and Predestination"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -22790,7 +22775,7 @@
     "author": "BDEhrman",
     "description": "Introduces evidence from the Dead Sea Scrolls and Septuagint for the textual history of the Hebrew Bible.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Septuagint"
     ],
     "secondaryKeywords": [
@@ -22968,10 +22953,9 @@
     "author": "BDEhrman",
     "description": "Examines whether scribes altered Mark's opening verse for theological reasons involving Jesus as Son of God.",
     "themes": [
-      "Gnostic Textual Variants",
       "Gnostic-Orthodox Conflicts",
       "Gospel of Mark",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Gnosticism",
@@ -23010,8 +22994,8 @@
     "author": "BDEhrman",
     "description": "Examines a scribal change that may have softened a troubling line about Jesus on the cross.",
     "themes": [
-      "Gnostic Textual Variants",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Gospel of Mark",
@@ -23164,7 +23148,7 @@
     "author": "BDEhrman",
     "description": "Explains ancient versions as translations that help scholars reconstruct the New Testament text.",
     "themes": [
-      "Textual Criticism (General)",
+      "Textual Criticism Methods",
       "Translation Process"
     ],
     "secondaryKeywords": [
@@ -23451,7 +23435,7 @@
     "author": "BDEhrman",
     "description": "Presents a guest reflection on suffering, evil, and the range effect in evaluating pain and loss.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -24439,8 +24423,8 @@
     "author": "Diane",
     "description": "Presents an evangelical apologist's account of how apologetic arguments are changing.",
     "themes": [
-      "Arguments About Suffering",
-      "Miracle Claims and Apologetics"
+      "Miracle Claims and Apologetics",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -24822,7 +24806,7 @@
     "author": "BDEhrman",
     "description": "Reflects on theodicy after being asked to exchange views with a conservative Christian theologian.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -25441,7 +25425,7 @@
     "themes": [
       "Gospel of Luke",
       "Luke-Acts Atonement",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -25761,7 +25745,7 @@
     "author": "BDEhrman",
     "description": "Explains why a different understanding of God did not resolve the problem of suffering.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Divine Beings",
@@ -27060,9 +27044,8 @@
     "author": "BDEhrman",
     "description": "Evaluates claims that heretical Christian texts described incestuous rituals and whether those texts existed.",
     "themes": [
-      "Gnostic Textual Variants",
       "Gnostic-Orthodox Conflicts",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -28819,7 +28802,7 @@
     "author": "BDEhrman",
     "description": "Explains that Hebrew Bible prophets were not mainly predicting Jesus or the end of the world.",
     "themes": [
-      "Biblical Miracle Stories",
+      "Hebrew Bible Historicity",
       "Prophets"
     ],
     "secondaryKeywords": [
@@ -28887,7 +28870,7 @@
     "author": "BDEhrman",
     "description": "Concludes a discussion of Hebrew Bible short stories with Daniel and its famous court tales.",
     "themes": [
-      "Biblical Miracle Stories"
+      "Hebrew Bible Historicity"
     ],
     "secondaryKeywords": [
       "Canon",
@@ -29002,9 +28985,9 @@
     "author": "BDEhrman",
     "description": "Critiques simplistic explanations for suffering, especially in discussions of theodicy.",
     "themes": [
-      "Arguments About Suffering",
-      "Free Will",
-      "Free Will and Suffering"
+      "Free Will and Predestination",
+      "Free Will and Suffering",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -29020,11 +29003,10 @@
     "author": "BDEhrman",
     "description": "Reflects on debates and podcasts about the problem of suffering.",
     "themes": [
-      "Arguments About Suffering",
-      "Personal Reflections"
+      "Personal Reflections",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -29120,8 +29102,7 @@
     "author": "BDEhrman",
     "description": "Presents Kurt Jaros's evangelical support for Misquoting Jesus against some apologetic criticisms.",
     "themes": [
-      "Misquoting Jesus",
-      "Textual Criticism (General)"
+      "Misquoting Jesus"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -29420,8 +29401,7 @@
     "author": "BDEhrman",
     "description": "Presents evangelical support for Misquoting Jesus against common apologetic criticisms.",
     "themes": [
-      "Misquoting Jesus",
-      "Textual Criticism (General)"
+      "Misquoting Jesus"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -29961,8 +29941,7 @@
     "author": "BDEhrman",
     "description": "Explains why the NRSV remains a preferred Bible translation despite specific disagreements with it.",
     "themes": [
-      "NRSV",
-      "Textual Criticism (General)"
+      "NRSV"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -30076,9 +30055,9 @@
     "description": "Explains why later scribes may have added Luke's bloody sweat passage to emphasize Jesus' suffering.",
     "themes": [
       "Bloody Sweat Textual Variant",
-      "Christological Textual Variants",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Luke",
@@ -30638,7 +30617,7 @@
     "author": "BDEhrman",
     "description": "Examines traditions about Peter's martyrdom and the claim that Peter was crucified upside down.",
     "themes": [
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -31129,7 +31108,7 @@
     "author": "BDEhrman",
     "description": "Questions the historicity and moral meaning of Israel's conquest of the promised land.",
     "themes": [
-      "Biblical Miracle Stories"
+      "Hebrew Bible Historicity"
     ],
     "secondaryKeywords": [
       "Joshua",
@@ -32101,8 +32080,7 @@
     "author": "BDEhrman",
     "description": "Responds to mythicist claims about lost texts, Nazareth, and the existence of Jesus.",
     "themes": [
-      "Mythicism",
-      "Textual Criticism (General)"
+      "Mythicism"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -33558,7 +33536,7 @@
     "description": "Contrasts Jesus' own afterlife expectations with later Christian beliefs about Jesus after death.",
     "themes": [
       "Afterlife (General)",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -34703,7 +34681,7 @@
     "description": "Presents a guest reflection on suffering, miracles, and the cross.",
     "themes": [
       "Miracles (General)",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Atonement",
@@ -34864,7 +34842,7 @@
     "author": "BDEhrman",
     "description": "Explains a materialist view of the world and its implications for mind and free will.",
     "themes": [
-      "Free Will"
+      "Free Will and Predestination"
     ],
     "secondaryKeywords": [
       "Hell",
@@ -35291,7 +35269,7 @@
     "author": "BDEhrman",
     "description": "Presents a Platinum guest reflection on loving one's neighbor.",
     "themes": [
-      "Free Will"
+      "Free Will and Predestination"
     ],
     "secondaryKeywords": [
       "Heaven"
@@ -35573,7 +35551,7 @@
     "description": "Asks whether suffering is a problem primarily for those who experience it.",
     "themes": [
       "Personal Reflections",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering"
@@ -35587,7 +35565,7 @@
     "author": "BDEhrman",
     "description": "Uses The Brothers Karamazov to press the problem of suffering and belief.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
@@ -35603,7 +35581,7 @@
     "description": "Frames suffering as a direct challenge to belief in an active, loving, all-powerful God.",
     "themes": [
       "Personal Reflections",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering"
@@ -35648,7 +35626,7 @@
     "author": "BDEhrman",
     "description": "Reflects on why suffering became the central reason for leaving Christian faith.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
@@ -35833,7 +35811,7 @@
     "description": "Asks whether oral reading and transmission affected changes in Christian texts.",
     "themes": [
       "Didymus the Blind",
-      "Textual Criticism (General)"
+      "Patristic Textual Evidence"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -35861,8 +35839,8 @@
     "author": "BDEhrman",
     "description": "Explains why scribes changed New Testament manuscripts, including for theological reasons.",
     "themes": [
-      "Christological Textual Variants",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -36286,7 +36264,7 @@
     "author": "BDEhrman",
     "description": "Reflects on suffering from the perspective of privilege and distance from extreme hardship.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Dinesh Dsouza",
@@ -37734,7 +37712,7 @@
     "author": "BDEhrman",
     "description": "Reflects on why crises and suffering lead people to ask religious and existential questions.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering"
@@ -37811,7 +37789,7 @@
     "author": "BDEhrman",
     "description": "Explains how textual evidence from the Dead Sea Scrolls complicates claims about perfectly copied Hebrew Bible manuscripts.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Septuagint"
     ],
     "secondaryKeywords": [
@@ -37831,9 +37809,8 @@
     "author": "BDEhrman",
     "description": "Explains how the Dead Sea Scrolls illuminate the Jewish world of Jesus without making Jesus an Essene.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Early Judaism (General)",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes",
+      "Early Judaism (General)"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -37864,7 +37841,7 @@
     "author": "BDEhrman",
     "description": "Explains why the Dead Sea Scrolls matter for understanding Jesus and early Christianity in their Jewish context.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -37943,8 +37920,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Dead Sea Scrolls, their discovery, and their importance for ancient Jewish texts.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Historical Jesus",
@@ -37996,7 +37972,7 @@
     "author": "BDEhrman",
     "description": "Responds to suffering with a call for humility and careful reflection rather than easy answers.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering"
@@ -38840,9 +38816,9 @@
     "author": "BDEhrman",
     "description": "Reconsiders the argument that suffering is necessary by using tectonic plates and natural disaster.",
     "themes": [
-      "Arguments About Suffering",
-      "Free Will",
-      "Free Will and Suffering"
+      "Free Will and Predestination",
+      "Free Will and Suffering",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -39439,9 +39415,9 @@
     "description": "Evaluates whether scribes would have preferred including or omitting Luke's bloody sweat passage.",
     "themes": [
       "Bloody Sweat Textual Variant",
-      "Proto-Orthodox Textual Changes",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Luke"
@@ -39724,7 +39700,7 @@
     "author": "BDEhrman",
     "description": "Shares Buddhist interview questions about suffering and religious explanations for it.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Judaism",
@@ -40596,7 +40572,7 @@
     "author": "BDEhrman",
     "description": "Reflects on the meaning and emotional ambiguity of Christmas.",
     "themes": [
-      "Grace"
+      "Personal Reflections"
     ],
     "secondaryKeywords": [
       "Ambivalence",
@@ -40707,7 +40683,7 @@
       "Afterlife",
       "Apocalypticism",
       "Daniel",
-      "Free Will",
+      "Free Will and Predestination",
       "Hebrew Bible",
       "Hell",
       "Judaism",
@@ -40838,7 +40814,7 @@
     "author": "BDEhrman",
     "description": "Revisits an older controversy over access to the Dead Sea Scrolls.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Early Judaism (General)"
     ],
     "secondaryKeywords": [
@@ -41543,7 +41519,7 @@
     "author": "BDEhrman",
     "description": "Critiques exaggerated or misleading claims made by textual scholars.",
     "themes": [
-      "Textual Criticism (General)"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -41747,7 +41723,6 @@
     "author": "BDEhrman",
     "description": "Examines whether the biblical conquest of Canaan happened as described.",
     "themes": [
-      "Biblical Miracle Stories",
       "Hebrew Bible Historicity",
       "Historical Study of Miracles"
     ],
@@ -42032,7 +42007,7 @@
     "author": "BDEhrman",
     "description": "Explains textual problems in the Old Testament manuscript tradition.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Septuagint"
     ],
     "secondaryKeywords": [
@@ -42338,7 +42313,7 @@
     "description": "Connects belief in resurrection with Jewish attempts to explain suffering and divine justice.",
     "themes": [
       "Divine Judgment",
-      "Problem of Suffering (General)",
+      "Problem of Suffering",
       "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
@@ -42597,7 +42572,6 @@
     "author": "BDEhrman",
     "description": "Examines whether James is rejecting Paul directly or later interpretations of Paul.",
     "themes": [
-      "Grace",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles"
     ],
@@ -42605,6 +42579,7 @@
       "Ephesians",
       "Forgery",
       "Forgery and Counterforgery",
+      "Grace",
       "James",
       "Martin Luther",
       "Paul",
@@ -42619,8 +42594,8 @@
     "author": "BDEhrman",
     "description": "Explains why scribes sometimes changed New Testament texts intentionally.",
     "themes": [
-      "Gnostic Textual Variants",
-      "Gospel of Mark"
+      "Gospel of Mark",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Bible Translations",
@@ -43039,7 +43014,7 @@
     "author": "BDEhrman",
     "description": "Responds cautiously to a question about the reliability of the Qur'an compared with the New Testament.",
     "themes": [
-      "Textual Criticism (General)"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Textual Criticism"
@@ -43295,7 +43270,6 @@
       "Forged",
       "Forgery",
       "Forgery and Counterforgery",
-      "Grace",
       "Paul"
     ]
   },
@@ -43328,7 +43302,6 @@
     "description": "Examines why Christians kept the Old Testament and how figures such as Marcion challenged that choice.",
     "themes": [
       "Anti-Judaism",
-      "Grace",
       "Jewish Law",
       "Marcion"
     ],
@@ -43456,7 +43429,7 @@
     "author": "BDEhrman",
     "description": "Explores why Christians came to regard the Old Testament as a Christian book.",
     "themes": [
-      "Grace"
+      "Christian Use of Scripture"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -43955,9 +43928,9 @@
       "Church Fathers",
       "Early Christianity",
       "Enoch",
+      "Free Will and Predestination",
       "Old Testament",
       "Paul",
-      "Predestination",
       "Salvation"
     ]
   },
@@ -45203,7 +45176,6 @@
     "author": "BDEhrman",
     "description": "Presents Joel Marcus's guest post on a new book about John the Baptist.",
     "themes": [
-      "Grace",
       "John the Baptist"
     ],
     "secondaryKeywords": [
@@ -45506,7 +45478,7 @@
     "author": "BDEhrman",
     "description": "Explains Origen's view of preexistent souls as part of universal salvation.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Heaven/Hell"
     ],
     "secondaryKeywords": [
@@ -45712,11 +45684,11 @@
     "author": "BDEhrman",
     "description": "Reflects on Christmas, incarnation, and changing personal meanings of the holiday.",
     "themes": [
-      "Grace",
       "Incarnation"
     ],
     "secondaryKeywords": [
       "Eve",
+      "Grace",
       "Son of God"
     ]
   },
@@ -47201,7 +47173,7 @@
     "author": "BDEhrman",
     "description": "Presents an early and unusual account of Peter's martyrdom.",
     "themes": [
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -48685,12 +48657,11 @@
     "author": "BDEhrman",
     "description": "Revisits debates with Dinesh D'Souza in light of suffering and public controversy.",
     "themes": [
-      "Arguments About Suffering",
       "Debates",
-      "Media Coverage"
+      "Media Coverage",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -49753,7 +49724,7 @@
     "themes": [
       "Gospel of Luke",
       "Luke-Acts Atonement",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -49835,7 +49806,7 @@
     "description": "Reflects on suffering from the perspective of privilege.",
     "themes": [
       "Personal Reflections",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering",
@@ -50002,7 +49973,7 @@
     "description": "Examines what can and cannot be known about Paul's death from early sources.",
     "themes": [
       "Apocryphal Acts",
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -50021,7 +49992,7 @@
     "author": "BDEhrman",
     "description": "Explains legendary traditions about Peter's martyrdom and their value for resurrection arguments.",
     "themes": [
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -50654,7 +50625,7 @@
     "author": "BDEhrman",
     "description": "Introduces a Greek New Testament course focused on textual criticism and close reading.",
     "themes": [
-      "Textual Criticism (General)"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -52334,8 +52305,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Essenes and the Fourth Philosophy as ancient Jewish sects.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -53241,7 +53211,6 @@
     "secondaryKeywords": [
       "Heaven",
       "Pontius Pilate",
-      "Problem of Suffering",
       "Son of God",
       "Suffering"
     ]
@@ -53260,7 +53229,6 @@
     "secondaryKeywords": [
       "Apostasy",
       "Apostate",
-      "Grace",
       "Suffering"
     ]
   },
@@ -53290,7 +53258,7 @@
     "description": "Recasts apocalyptic thought in modern terms while discussing suffering and divine justice.",
     "themes": [
       "Disasters and Suffering",
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
@@ -53377,7 +53345,6 @@
       "Judaism",
       "Moses",
       "Paul",
-      "Problem of Suffering",
       "Prophets",
       "Suffering",
       "Theodicy"
@@ -53410,7 +53377,6 @@
       "Apocalypticism",
       "Eve",
       "Job",
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]
@@ -53432,7 +53398,6 @@
       "Deuteronomy",
       "Hebrew Bible",
       "Jeremiah",
-      "Problem of Suffering",
       "Prophets",
       "Suffering",
       "Theodicy"
@@ -53467,7 +53432,7 @@
     "author": "BDEhrman",
     "description": "Examines whether human-caused suffering removes the problem of divine responsibility.",
     "themes": [
-      "Free Will",
+      "Free Will and Predestination",
       "Free Will and Suffering"
     ],
     "secondaryKeywords": [
@@ -53521,7 +53486,7 @@
     "description": "Responds to the idea that only personal suffering can raise doubts about God.",
     "themes": [
       "Personal Reflections",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Existence of God",
@@ -53537,7 +53502,7 @@
     "author": "BDEhrman",
     "description": "Asks whether suffering is still a problem if God is understood differently.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Deism",
@@ -53555,7 +53520,7 @@
     "author": "BDEhrman",
     "description": "Explains the classic problem of suffering for belief in a loving and powerful God.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Agnosticism",
@@ -53572,10 +53537,9 @@
     "author": "BDEhrman",
     "description": "Evaluates two unsatisfactory attempts to solve the problem of suffering.",
     "themes": [
-      "Arguments About Suffering"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]
@@ -53589,7 +53553,7 @@
     "description": "Defines the suffering that creates a serious problem for belief in God.",
     "themes": [
       "Disasters and Suffering",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Existence of God",
@@ -54316,7 +54280,7 @@
     "author": "BDEhrman",
     "description": "Answers questions about mythicist claims, the virgin birth, and textual criticism.",
     "themes": [
-      "Textual Criticism (General)",
+      "Textual Criticism Methods",
       "Translation Process",
       "Virgin Birth"
     ],
@@ -54722,14 +54686,13 @@
     "description": "Explains how Job contains different perspectives on afterlife and suffering.",
     "themes": [
       "Job",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Afterlife",
       "Ancient Jewish Afterlife",
       "Ecclesiastes",
       "Hebrew Bible",
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]
@@ -54765,7 +54728,7 @@
     "themes": [
       "Ancient Jewish Afterlife",
       "Ecclesiastes",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -55245,7 +55208,7 @@
     "description": "Reposts a discussion of why good people suffer.",
     "themes": [
       "Ecclesiastes",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -56174,7 +56137,7 @@
     "description": "Summarizes modern scholarship on the formation of the Hebrew Bible canon.",
     "themes": [
       "Canon",
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Canonization",
@@ -56266,7 +56229,7 @@
     "author": "BDEhrman",
     "description": "Explains how the Hebrew Bible was copied and transmitted.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts",
       "Septuagint"
     ],
@@ -56287,7 +56250,7 @@
     "author": "BDEhrman",
     "description": "Introduces Hebrew Bible manuscripts and their importance for translation.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts",
       "Translation Process"
     ],
@@ -57030,7 +56993,6 @@
       "Early Christian Writings",
       "Eve",
       "Gnosticism",
-      "Grace",
       "Salvation",
       "Sethian Gnosticism",
       "Sethian Gnostics"
@@ -57405,7 +57367,7 @@
     "themes": [
       "Biblical Contradictions",
       "Gospel of John",
-      "Textual Criticism (General)"
+      "Textual Variants"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -57771,15 +57733,14 @@
     "author": "BDEhrman",
     "description": "Shares a debate with Michael Brown on suffering and the problem of evil.",
     "themes": [
-      "Arguments About Suffering",
-      "Debates"
+      "Debates",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
       "Gods Problem",
       "Michael Brown",
       "Osu Debate",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -57859,7 +57820,7 @@
     "themes": [
       "Biblical Inerrancy",
       "Deconversion",
-      "Textual Criticism (General)"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -57900,7 +57861,7 @@
     "author": "BDEhrman",
     "description": "Explains why textual criticism can feel safer for conservative Christians than other biblical scholarship.",
     "themes": [
-      "Textual Criticism (General)"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "1 Timothy",
@@ -58767,7 +58728,7 @@
     "author": "BDEhrman",
     "description": "Explains why Hebrew Bible and Old Testament manuscripts matter for evaluating textual reliability.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts",
       "Septuagint"
     ],
@@ -59480,7 +59441,7 @@
     "themes": [
       "James the Brother of Jesus",
       "Pauline Authorship",
-      "Textual Criticism (General)"
+      "Pauline Textual Criticism"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -60764,10 +60725,9 @@
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
-      "Free Will",
+      "Free Will and Predestination",
       "Harry Kreisler",
       "Paul",
-      "Problem of Suffering",
       "Salvation",
       "Suffering",
       "Theodicy"
@@ -61299,7 +61259,7 @@
     "author": "BDEhrman",
     "description": "Answers questions about Aramaic in Mark and English access to New Testament manuscripts.",
     "themes": [
-      "Textual Criticism (General)"
+      "New Testament Manuscripts (General)"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -61647,7 +61607,7 @@
     "description": "Explains Jesus' resurrection as an apocalyptic event connected to suffering and vindication.",
     "themes": [
       "Apocalyptic Jesus",
-      "Problem of Suffering (General)",
+      "Problem of Suffering",
       "Resurrection Theology"
     ],
     "secondaryKeywords": [
@@ -61917,7 +61877,7 @@
     "author": "BDEhrman",
     "description": "Questions the common claim that all the disciples were martyred for belief in Jesus' resurrection.",
     "themes": [
-      "Apostolic Martyrdom"
+      "Apostles' Deaths"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -62067,8 +62027,8 @@
     "themes": [
       "Apocalyptic Jesus",
       "John the Baptist",
-      "Problem of Suffering (General)",
-      "Textual Criticism (General)"
+      "Problem of Suffering",
+      "Textual Criticism Methods"
     ],
     "secondaryKeywords": [
       "Apocalypticism",
@@ -62159,7 +62119,7 @@
     "author": "BDEhrman",
     "description": "Answers reader questions on textual criticism and other Thanksgiving-week topics.",
     "themes": [
-      "Textual Criticism (General)"
+      "New Testament Manuscripts (General)"
     ],
     "secondaryKeywords": [
       "Divine Beings",
@@ -62277,7 +62237,7 @@
     ],
     "secondaryKeywords": [
       "Apocalypticism",
-      "Free Will",
+      "Free Will and Predestination",
       "Historical Jesus",
       "John",
       "Paul"
@@ -62732,10 +62692,10 @@
     "author": "BDEhrman",
     "description": "Explains how scribes may have changed the heavenly voice at Jesus' baptism to resist adoptionist Christology.",
     "themes": [
-      "Christological Textual Variants",
       "Exaltation Christology",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Adoptionist",
@@ -62837,10 +62797,9 @@
     "description": "Answers a question about whether the same manuscripts preserve anti-heretical textual variants.",
     "themes": [
       "Bloody Sweat Textual Variant",
-      "Christological Textual Variants",
-      "Proto-Orthodox Textual Changes",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -62859,7 +62818,7 @@
     "themes": [
       "Atonement",
       "Gospel of Luke",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -63043,7 +63002,7 @@
     "themes": [
       "Atonement",
       "Gospel of Luke",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -63085,7 +63044,7 @@
     "author": "BDEhrman",
     "description": "Shares a debate with Kyle Butt on suffering and the problem of evil.",
     "themes": [
-      "Arguments About Suffering"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Agnostic",
@@ -63093,7 +63052,6 @@
       "Existence of God",
       "Kyle Butt",
       "Mythicist",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -63105,9 +63063,8 @@
     "author": "BDEhrman",
     "description": "Explains how scholars can argue about scribal intentions in textual changes.",
     "themes": [
-      "Christological Textual Variants",
-      "Proto-Orthodox Textual Changes",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -63123,9 +63080,9 @@
     "author": "BDEhrman",
     "description": "Explores whether orthodox textual corruptions followed a consistent pattern.",
     "themes": [
-      "Proto-Orthodox Textual Changes",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Christological Issues",
@@ -63560,7 +63517,7 @@
     "themes": [
       "Bloody Sweat Textual Variant",
       "Marcion",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Bloody Sweat",
@@ -63880,10 +63837,9 @@
     "author": "BDEhrman",
     "description": "Argues that a variant in Mark 1:1 may be an intentional alteration of the text.",
     "themes": [
-      "Gnostic Textual Variants",
       "Gnostic-Orthodox Conflicts",
       "Gospel of Mark",
-      "Proto-Orthodox Textual Changes"
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Gnosticism",
@@ -63922,8 +63878,8 @@
     "author": "BDEhrman",
     "description": "Explains an intentional scribal change in Mark 15:34.",
     "themes": [
-      "Gnostic Textual Variants",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Gospel of Mark",
@@ -64417,10 +64373,10 @@
     "author": "BDEhrman",
     "description": "Shares Brice Jones's guest post on the reliability of early New Testament manuscripts.",
     "themes": [
-      "Gnostic Textual Variants",
       "Nag Hammadi",
       "New Testament Manuscripts (General)",
-      "Original Text"
+      "Original Text",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Autographs",
@@ -64501,8 +64457,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Dead Sea Scrolls in comparison with Nag Hammadi.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -65263,8 +65218,7 @@
     "author": "BDEhrman",
     "description": "Shares an interview about Misquoting Jesus and changes in the Bible.",
     "themes": [
-      "Misquoting Jesus",
-      "Textual Criticism (General)"
+      "Misquoting Jesus"
     ],
     "secondaryKeywords": [
       "Da Vinci Code",
@@ -67230,7 +67184,6 @@
       "Forged",
       "Forgery",
       "Forgery and Counterforgery",
-      "Grace",
       "Paul"
     ]
   },
@@ -67704,7 +67657,7 @@
     "description": "Answers why Bruce Metzger's faith and scholarship are often contrasted with later agnosticism.",
     "themes": [
       "Bruce Metzger",
-      "Textual Criticism (General)"
+      "Original Text"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -67952,7 +67905,6 @@
       "Divine Beings",
       "Eve",
       "Gnosticism",
-      "Grace",
       "Salvation",
       "Sethian Gnostics",
       "Sethians"
@@ -68043,8 +67995,8 @@
     "author": "BDEhrman",
     "description": "Shares a Diane Rehm interview about Misquoting Jesus and textual changes in the Bible.",
     "themes": [
-      "Christological Textual Variants",
-      "Misquoting Jesus"
+      "Misquoting Jesus",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -68264,10 +68216,10 @@
     "description": "Uses the bloody sweat passage to explain transcriptional probabilities in textual criticism.",
     "themes": [
       "Bloody Sweat Textual Variant",
-      "Proto-Orthodox Textual Changes",
       "Scribal Changes",
       "Textual Criticism Methods",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Bloody Sweat",
@@ -69415,13 +69367,12 @@
     "author": "BDEhrman",
     "description": "Shares a debate with Dinesh D'Souza on suffering and the problem of evil.",
     "themes": [
-      "Arguments About Suffering",
-      "Debates"
+      "Debates",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Dinesh Dsouza",
       "John",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -70283,11 +70234,10 @@
     "author": "BDEhrman",
     "description": "Shares a debate with Richard Swinburne on suffering and the problem of evil.",
     "themes": [
-      "Arguments About Suffering",
-      "Debates"
+      "Debates",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Richard G Swinburne",
       "Suffering",
       "Theodicy"
@@ -73713,7 +73663,6 @@
       "Forgery and Counterforgery",
       "Gospel of Peter",
       "Gospel of Thomas",
-      "Grace",
       "John",
       "Luke",
       "Mark",
@@ -73788,8 +73737,7 @@
     "author": "BDEhrman",
     "description": "Introduces a video feature with a lecture on Misquoting Jesus.",
     "themes": [
-      "Misquoting Jesus",
-      "Textual Criticism (General)"
+      "Misquoting Jesus"
     ],
     "secondaryKeywords": [
       "Heyns Lecture Series",
@@ -75120,13 +75068,13 @@
     "author": "BDEhrman",
     "description": "Concludes a detailed discussion of Luke 3:22 and its textual problem.",
     "themes": [
-      "Christological Textual Variants",
       "Christology in the Gospels",
       "Exaltation Christology",
       "Gospel of Luke",
       "Patristic Textual Evidence",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -75144,9 +75092,9 @@
     "author": "BDEhrman",
     "description": "Continues the intrinsic-probability argument about what Luke likely wrote at Jesus' baptism.",
     "themes": [
-      "Christological Textual Variants",
       "Christology in the Gospels",
-      "Exaltation Christology"
+      "Exaltation Christology",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -75169,12 +75117,11 @@
     "description": "Examines internal evidence for the wording of the voice at Jesus' baptism in Luke.",
     "themes": [
       "Atonement",
-      "Christological Textual Variants",
       "Christology in the Gospels",
       "Exaltation Christology",
       "Gospel of Luke",
-      "Proto-Orthodox Textual Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -75493,7 +75440,7 @@
     "author": "BDEhrman",
     "description": "Connects the problem of suffering with the purpose of the blog.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Existence of God",
@@ -75605,7 +75552,6 @@
       "Job"
     ],
     "secondaryKeywords": [
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -75617,7 +75563,7 @@
     "author": "BDEhrman",
     "description": "Answers a question about personal views on suffering, God, and human responsibility.",
     "themes": [
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -76201,7 +76147,6 @@
     "author": "BDEhrman",
     "description": "Discusses historical problems in the Hebrew Bible conquest narratives.",
     "themes": [
-      "Biblical Miracle Stories",
       "Hebrew Bible Historicity",
       "Historical Study of Miracles"
     ],
@@ -76267,7 +76212,7 @@
     "author": "BDEhrman",
     "description": "Explains manuscript problems in the Hebrew Bible and Old Testament.",
     "themes": [
-      "Dead Sea Scrolls",
+      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts",
       "Septuagint"
     ],
@@ -76613,7 +76558,7 @@
     "author": "BDEhrman",
     "description": "Remembers Geza Vermes as a major scholar of the Dead Sea Scrolls and Jesus.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Geza Vermes",
@@ -76628,8 +76573,7 @@
     "author": "BDEhrman",
     "description": "Explains how the Dead Sea Scrolls illuminate Jesus' Jewish world.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Essenes"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Jeremiah",
@@ -76645,7 +76589,7 @@
     "author": "BDEhrman",
     "description": "Introduces the significance of the Dead Sea Scrolls for Christianity.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -76679,7 +76623,7 @@
     "author": "BDEhrman",
     "description": "Describes visits to Qumran, Masada, and the Dead Sea.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -77525,7 +77469,7 @@
     "description": "Responds to criticism about discussing suffering from a position of privilege.",
     "themes": [
       "Personal Reflections",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Suffering",
@@ -77541,13 +77485,12 @@
     "description": "Connects agnosticism, morality, and the problem of suffering.",
     "themes": [
       "Agnosticism",
-      "Problem of Suffering (General)"
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Afterlife",
       "Atheism",
       "Ecclesiastes",
-      "Problem of Suffering",
       "Solomon",
       "Suffering"
     ]
@@ -77568,7 +77511,6 @@
       "Hebrew Bible",
       "Job",
       "Paul",
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]
@@ -77781,8 +77723,8 @@
     "author": "BDEhrman",
     "description": "Discusses an ancient accusation that Christians tampered with Gospel texts.",
     "themes": [
-      "Christological Textual Variants",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Adoptionist Christology",
@@ -77838,7 +77780,7 @@
     "author": "BDEhrman",
     "description": "Discusses a scandal connected with the Dead Sea Scrolls.",
     "themes": [
-      "Dead Sea Scrolls"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Archaeology and Material Evidence",
@@ -77893,10 +77835,10 @@
     "author": "BDEhrman",
     "description": "Uses a textual variant in Luke 2 to discuss early Christology.",
     "themes": [
-      "Christological Textual Variants",
       "Early Christology",
       "Exaltation Christology",
-      "Gospel of Luke"
+      "Gospel of Luke",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -78447,7 +78389,6 @@
     ],
     "secondaryKeywords": [
       "2 Kings",
-      "Grace",
       "Jacob",
       "James",
       "Job",
@@ -79571,8 +79512,8 @@
     "description": "Examines a significant textual variant in the Martyrdom of Polycarp.",
     "themes": [
       "Apostolic Fathers",
-      "Gnostic Textual Variants",
-      "Martyrdom (General)"
+      "Martyrdom (General)",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -79595,8 +79536,8 @@
     "description": "Introduces textual problems in the Apostolic Fathers caused by lost originals and differing copies.",
     "themes": [
       "Apostolic Fathers",
-      "Gnostic Textual Variants",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -80422,10 +80363,10 @@
     "description": "Interprets why later scribes may have added the bloody sweat passage to Luke.",
     "themes": [
       "Bloody Sweat Textual Variant",
-      "Christological Textual Variants",
       "Patristic Textual Evidence",
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Theological Textual Variants"
     ],
     "secondaryKeywords": [
       "Bloody Sweat",
@@ -81677,7 +81618,6 @@
     "secondaryKeywords": [
       "Charity",
       "Debates",
-      "Problem of Suffering",
       "Suffering"
     ]
   },
@@ -82107,8 +82047,7 @@
     "author": "BDEhrman",
     "description": "Assesses whether Jesus or John the Baptist were influenced by the Essenes.",
     "themes": [
-      "Dead Sea Scrolls",
-      "Essenes",
+      "Dead Sea Scrolls and Essenes",
       "John the Baptist"
     ],
     "secondaryKeywords": [
@@ -82188,7 +82127,6 @@
       "Debates",
       "Dinesh Dsouza",
       "Michael Brown",
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]
@@ -82864,15 +82802,14 @@
     "author": "BDEhrman",
     "description": "Challenges free-will explanations for natural suffering such as earthquakes.",
     "themes": [
-      "Arguments About Suffering",
-      "Free Will",
-      "Free Will and Suffering"
+      "Free Will and Predestination",
+      "Free Will and Suffering",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Debates",
       "Dinesh Dsouza",
       "Eve",
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]
@@ -83033,12 +82970,11 @@
     "author": "BDEhrman",
     "description": "Critiques the argument that suffering can be justified by benefits to others.",
     "themes": [
-      "Arguments About Suffering",
-      "Debates"
+      "Debates",
+      "Problem of Suffering"
     ],
     "secondaryKeywords": [
       "Holocaust",
-      "Problem of Suffering",
       "Suffering",
       "Theodicy"
     ]

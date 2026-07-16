@@ -21,6 +21,10 @@
       "description": "Covers Bart Ehrman's major books, including announcements, excerpts, interviews, reader questions, reviews, and discussions of the subjects each book develops."
     },
     {
+      "name": "Bible Translations and Versions",
+      "description": "Covers Bible translation, translation choices, major versions, the Septuagint, the King James Version, the NRSV, and the process of rendering ancient texts into modern languages."
+    },
+    {
       "name": "Blog Features and Personal Posts",
       "description": "Covers autobiographical posts, personal reflections, blog fundraising, charity updates, and the In a Nutshell series."
     },
@@ -53,12 +57,20 @@
       "description": "Covers early Christian history after the New Testament period, including church institutions, councils, doctrinal development, early Christian writings, Edessa traditions, and broad historical developments."
     },
     {
+      "name": "Early Judaism and Jewish Context",
+      "description": "Covers early Jewish groups, law, sectarian movements, the Dead Sea Scrolls and Essenes, and the Jewish world around Jesus and early Christianity."
+    },
+    {
       "name": "Epistles",
       "description": "Covers New Testament letters, including Pauline and non-Pauline epistles, authorship, forgery, composition, persecution, and individual letters such as 2 Thessalonians and Philippians."
     },
     {
       "name": "Ethics and Moral Reasoning",
       "description": "Covers posts on moral teaching, ethical reasoning, anti-Judaism, moral problems in scripture, and ethical issues in Jesus and Paul."
+    },
+    {
+      "name": "Faith, Doubt, and Nonbelief",
+      "description": "Covers belief, doubt, agnosticism, atheism, deconversion, fundamentalism, and personal or intellectual reasons people lose or question faith."
     },
     {
       "name": "Forgery",
@@ -69,8 +81,8 @@
       "description": "Covers Gnosticism, orthodoxy and heresy, Marcion, Nag Hammadi, Gnostic groups, and disputes over texts, doctrine, and authority in early Christianity."
     },
     {
-      "name": "Hebrew Bible and Early Judaism",
-      "description": "Covers major Hebrew Bible texts and traditions, early Jewish groups, Jewish law, apocrypha, Dead Sea Scrolls, and questions of authorship, textual transmission, and interpretation."
+      "name": "Hebrew Bible Texts and Traditions",
+      "description": "Covers Hebrew Bible books, sources, authorship, historicity, manuscript transmission, translation traditions, apocrypha, divine beings, and interpretation."
     },
     {
       "name": "Historical Jesus and Context",
@@ -93,52 +105,56 @@
       "description": "Covers Jesus' teachings, ethics, social world, views on wealth, and traditions involving women in his life and ministry."
     },
     {
-      "name": "Manuscripts and Translations",
-      "description": "Covers manuscripts, manuscript discoveries and dating, textual witnesses, Bible translations, and the process of translation."
+      "name": "Manuscripts and Textual Witnesses",
+      "description": "Covers biblical and related manuscript evidence, manuscript discoveries, dating, textual witnesses, and major manuscript finds such as Codex Sinaiticus and the Dead Sea Scrolls."
     },
     {
       "name": "Memory and Oral Tradition",
-      "description": "Explores how memory, oral transmission, eyewitness claims, and reliability shape discussion of Gospel traditions."
+      "description": "Covers oral transmission, memory, eyewitness testimony, and debates over how accurately traditions about Jesus and the Gospels were preserved."
     },
     {
-      "name": "Miracles",
-      "description": "Covers miracle traditions, healings, exorcisms, visions, apologetic claims, ancient miracle workers, and supernatural stories in biblical or related texts."
+      "name": "Miracles and Supernatural Claims",
+      "description": "Covers miracle traditions, healings, exorcisms, visions, miracle workers, apologetic arguments, and historical questions about supernatural claims in biblical and related texts."
     },
     {
-      "name": "Modern Faith and Nonbelief",
-      "description": "Explores belief, nonbelief, deconversion, fundamentalism, agnosticism, atheism, and suffering as a challenge to faith."
-    },
-    {
-      "name": "New Testament Individuals",
-      "description": "Covers major figures connected with the New Testament story and its interpretation."
+      "name": "New Testament Figures",
+      "description": "Covers major named figures connected with the New Testament narratives, including Jesus' family, followers, opponents, and Roman authorities."
     },
     {
       "name": "Non-Canonical Texts",
-      "description": "Covers non-canonical gospels, apocryphal acts, apostolic writings, infancy traditions, and other early Christian texts outside the canon."
+      "description": "Covers early Christian writings outside the New Testament, including non-canonical gospels, infancy and family traditions, apocalypses, apocryphal acts, church manuals, apostolic writings, and miracle stories."
     },
     {
-      "name": "Paul and Pauline Christianity",
-      "description": "Explores Paul, Pauline letters, communities, theology, ethics, conversion, Jewish law, resurrection, authorship, and later Pauline traditions."
+      "name": "Paul's Life, Mission, and Communities",
+      "description": "Explores Paul's life, conversion, missionary work, conflicts, persecution, communities, portrayal in Acts, and what Paul appears to have known about Jesus."
+    },
+    {
+      "name": "Pauline Letters, Authorship, and Texts",
+      "description": "Covers Paul's letters, disputed authorship, forgery, letter composition, textual problems, Philippians, and the transmission of Pauline writings."
+    },
+    {
+      "name": "Pauline Theology and Ethics",
+      "description": "Examines Paul's views on Jesus' death and resurrection, Jewish law, salvation, apocalyptic expectation, women, ethics, and the Philippians Christ poem."
     },
     {
       "name": "Persecution and Martyrdom",
-      "description": "Covers persecution and martyrdom traditions, including Roman persecution, apostolic martyrdom, Perpetua, Polycarp, and persecution in epistles."
+      "description": "Covers persecution and martyrdom traditions, including Roman persecution, apostles' deaths, Perpetua, Polycarp, miraculous martyrdom traditions, and persecution in the epistles."
     },
     {
-      "name": "Salvation and Judgment",
-      "description": "Explores salvation, atonement, grace, free will, predestination, divine judgment, eternal punishment, and Pauline or Luke-Acts models."
+      "name": "Salvation, Atonement, and Judgment",
+      "description": "Covers how biblical and early Christian texts explain salvation, atonement, divine judgment, eternal punishment, free will, predestination, and distinctive Pauline or Luke-Acts views."
     },
     {
       "name": "Scholarship, Publishing, and Public Engagement",
-      "description": "Covers academic life, research, publishing, public debates, scholar memorials, and efforts to explain biblical scholarship to wider audiences."
+      "description": "Covers academic life, research, publishing, public debates, scholarly mentors, scholar memorials, and efforts to explain biblical scholarship to wider audiences."
     },
     {
       "name": "Suffering and Evil",
-      "description": "Covers suffering, evil, disasters, free will, Job, biblical interpretation of suffering, and suffering as a challenge to faith."
+      "description": "Explores suffering and evil as theological, biblical, philosophical, and personal problems, including disasters, free will, Job, biblical explanations of suffering, and suffering as a challenge to faith."
     },
     {
       "name": "Textual Criticism",
-      "description": "Covers textual criticism, original texts, scribal changes, variants, methods, patristic evidence, and doctrinally significant textual changes."
+      "description": "Covers the study of manuscript differences, scribal changes, original texts, textual variants, methods, patristic evidence, and doctrinally significant changes to biblical texts."
     },
     {
       "name": "Wealth, Poverty, and Charity",
