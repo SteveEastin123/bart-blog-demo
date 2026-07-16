@@ -30,63 +30,67 @@
     },
     {
       "name": "Canon and Scripture",
-      "description": "Explores canon formation, biblical authority, inerrancy, contradictions, scriptural interpretation, and moral problems in scripture."
+      "description": "Explores canon formation, biblical authority, inerrancy, contradictions, moral problems, numerology, and how scripture is interpreted or used."
     },
     {
       "name": "Canonical Gospels and Acts",
-      "description": "Covers the canonical Gospels and Acts, including composition, authorship, dating, sources, historicity, contradictions, distinctive Gospel traditions, and Acts as a narrative of early Christianity."
+      "description": "Covers the canonical Gospels and Acts, including authorship, dating, sources, historicity, distinctive Gospel themes, Synoptic relationships, and Acts as a narrative of early Christianity."
     },
     {
       "name": "Christian Origins and Expansion",
-      "description": "Covers Christian origins and expansion, including early Christian communities, conversion, diversity, and Christianity's rise."
+      "description": "Covers early Christian communities, conversion, diversity, and explanations for Christianity's spread in the ancient world."
     },
     {
       "name": "Christology",
-      "description": "Examines early views of Christ's identity, status, divinity, incarnation, exaltation, and representation in key texts."
+      "description": "Examines early Christian views of Christ's identity, status, divinity, incarnation, exaltation, angelic status, and portrayal in key texts."
     },
     {
       "name": "Church Fathers",
-      "description": "Covers church fathers and apostolic-father traditions, including Apostolic Fathers, Athanasius, Augustine, Didymus the Blind, Eusebius, Papias, and the Martyrdom of Polycarp."
+      "description": "Covers apostolic fathers, patristic writers, and early Christian texts or traditions associated with figures such as Athanasius, Augustine, Didymus, Eusebius, Papias, and Polycarp."
     },
     {
       "name": "Early Church History",
-      "description": "Covers broad early church history, early Christian writings, early Christian diversity, Edessa, and doctrinal development such as the Trinity."
+      "description": "Covers early Christian history after the New Testament period, including church institutions, councils, doctrinal development, early Christian writings, Edessa traditions, and broad historical developments."
     },
     {
       "name": "Epistles",
-      "description": "Covers Pauline and General Epistles, including composition, authorship, forgery, persecution, and individual letters."
+      "description": "Covers New Testament letters, including Pauline and non-Pauline epistles, authorship, forgery, composition, persecution, and individual letters such as 2 Thessalonians and Philippians."
     },
     {
-      "name": "Ethics and Social Issues",
-      "description": "Explores moral teaching and social issues in biblical, Jewish, early Christian, and modern interpretive contexts."
+      "name": "Ethics and Moral Reasoning",
+      "description": "Covers posts on moral teaching, ethical reasoning, anti-Judaism, moral problems in scripture, and ethical issues in Jesus and Paul."
     },
     {
       "name": "Forgery",
-      "description": "Covers ancient and modern literary forgery, including Pauline, Petrine, General Epistles, and Secret Gospel of Mark cases."
+      "description": "Covers ancient and modern literary forgery, including general forgery, Pauline forgeries, non-Pauline epistle forgeries, Petrine forgeries, and modern forgery claims."
     },
     {
       "name": "Gnosticism and Heresy",
-      "description": "Explores Gnosticism, heresy, proto-orthodoxy, Nag Hammadi, Marcion, and related non-canonical or textual traditions."
+      "description": "Covers Gnosticism, orthodoxy and heresy, Marcion, Nag Hammadi, Gnostic groups, and disputes over texts, doctrine, and authority in early Christianity."
     },
     {
       "name": "Hebrew Bible and Early Judaism",
-      "description": "Covers Hebrew Bible texts, early Jewish groups, Jewish law, Dead Sea Scrolls, and major biblical books or traditions."
+      "description": "Covers major Hebrew Bible texts and traditions, early Jewish groups, Jewish law, apocrypha, Dead Sea Scrolls, and questions of authorship, textual transmission, and interpretation."
     },
     {
-      "name": "Historical Figures and Scholars",
-      "description": "Covers named ancient figures, early Christian leaders, and modern scholars."
+      "name": "Historical Jesus and Context",
+      "description": "Covers historical questions about Jesus, including his apocalyptic message, messiahship, social setting, Nazareth, Son of Man sayings, mythicism, and methods for studying the historical Jesus."
     },
     {
-      "name": "Historical Method and Scholarship",
-      "description": "Covers methods used to study biblical and early Christian texts, including historical, source, redaction, dating, and public scholarship."
+      "name": "Historical Methods and Criticism",
+      "description": "Covers methods used to study biblical and early Christian texts, including historical criticism, dating, source criticism, redaction criticism, historicity, and the relation between history and theology."
     },
     {
-      "name": "Jesus",
-      "description": "Explores traditions about Jesus' life, teachings, family, identity, historical context, and major claims about his significance."
+      "name": "Jesus Traditions and Narratives",
+      "description": "Covers narrative traditions about Jesus' birth, family, genealogy, miracles, and other Gospel stories about his life."
     },
     {
       "name": "Jesus' Death, Burial, and Resurrection",
-      "description": "Covers Jesus' arrest, trial, crucifixion, burial, empty tomb, resurrection traditions, appearances, and related interpretation."
+      "description": "Covers Jesus' arrest, trial, crucifixion, burial, empty tomb traditions, resurrection appearances, resurrection apologetics, and early interpretations of his death and resurrection."
+    },
+    {
+      "name": "Jesus' Teachings and Social World",
+      "description": "Covers Jesus' teachings, ethics, social world, views on wealth, and traditions involving women in his life and ministry."
     },
     {
       "name": "Manuscripts and Translations",
@@ -125,12 +129,24 @@
       "description": "Explores salvation, atonement, grace, free will, predestination, divine judgment, eternal punishment, and Pauline or Luke-Acts models."
     },
     {
+      "name": "Scholarship, Publishing, and Public Engagement",
+      "description": "Covers academic life, research, publishing, public debates, scholar memorials, and efforts to explain biblical scholarship to wider audiences."
+    },
+    {
       "name": "Suffering and Evil",
       "description": "Covers suffering, evil, disasters, free will, Job, biblical interpretation of suffering, and suffering as a challenge to faith."
     },
     {
       "name": "Textual Criticism",
       "description": "Covers textual criticism, original texts, scribal changes, variants, methods, patristic evidence, and doctrinally significant textual changes."
+    },
+    {
+      "name": "Wealth, Poverty, and Charity",
+      "description": "Covers posts on wealth, poverty, charity, social class, health care, and moral obligations toward people in need."
+    },
+    {
+      "name": "Women, Gender, and Sexuality",
+      "description": "Covers posts on women, gender roles, sexuality, same-sex relations, reproduction, and related biblical or early Christian debates."
     }
   ]
 }
