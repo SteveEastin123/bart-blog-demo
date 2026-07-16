@@ -1,10 +1,6 @@
 {
   "categories": [
     {
-      "name": "Acts and Early Christianity",
-      "description": "Covers Acts and the earliest Christian movement, including conversion, communities, evangelism, miracles, Paul in Acts, and Christian expansion."
-    },
-    {
       "name": "Afterlife",
       "description": "Explores ancient beliefs about life after death, including heaven, hell, Sheol and Hades, purgatory, eternal punishment, and resurrection."
     },
@@ -37,16 +33,24 @@
       "description": "Explores canon formation, biblical authority, inerrancy, contradictions, scriptural interpretation, and moral problems in scripture."
     },
     {
-      "name": "Canonical Gospels",
-      "description": "Covers the canonical Gospels, including composition, authorship, dating, sources, historicity, contradictions, and distinctive Gospel traditions."
+      "name": "Canonical Gospels and Acts",
+      "description": "Covers the canonical Gospels and Acts, including composition, authorship, dating, sources, historicity, contradictions, distinctive Gospel traditions, and Acts as a narrative of early Christianity."
+    },
+    {
+      "name": "Christian Origins and Expansion",
+      "description": "Covers Christian origins and expansion, including early Christian communities, conversion, diversity, and Christianity's rise."
     },
     {
       "name": "Christology",
       "description": "Examines early views of Christ's identity, status, divinity, incarnation, exaltation, and representation in key texts."
     },
     {
+      "name": "Church Fathers",
+      "description": "Covers church fathers and apostolic-father traditions, including Apostolic Fathers, Athanasius, Augustine, Didymus the Blind, Eusebius, Papias, and the Martyrdom of Polycarp."
+    },
+    {
       "name": "Early Church History",
-      "description": "Covers early Christian writings, church history, Apostolic Fathers, doctrinal development, and major early Christian figures."
+      "description": "Covers broad early church history, early Christian writings, early Christian diversity, Edessa, and doctrinal development such as the Trinity."
     },
     {
       "name": "Epistles",

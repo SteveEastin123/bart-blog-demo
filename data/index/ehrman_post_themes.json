@@ -17,18 +17,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Acts (General)",
-      "description": "Posts introducing Acts, its literary features, major themes, theology, and account of Christianity's spread from Jerusalem to Rome.",
+      "name": "Acts",
+      "description": "Posts on the book of Acts, including its literary features, historical reliability, major themes, theology, and account of early Christianity's spread.",
       "categories": [
-        "Acts and Early Christianity"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Acts Historicity",
-      "description": "Posts on Acts Historicity in relation to Acts and early Christian origins.",
-      "categories": [
-        "Acts and Early Christianity"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -134,7 +126,7 @@
       "name": "Apostolic Fathers",
       "description": "Posts on Apostolic Fathers in relation to early church history and early Christian writings.",
       "categories": [
-        "Early Church History"
+        "Church Fathers"
       ],
       "displayInBrowser": true
     },
@@ -182,7 +174,7 @@
       "name": "Athanasius",
       "description": "Posts on Athanasius in relation to early church history and early Christian writings and named ancient figures, church leaders, and modern scholars.",
       "categories": [
-        "Early Church History",
+        "Church Fathers",
         "Historical Figures and Scholars"
       ],
       "displayInBrowser": true
@@ -207,7 +199,7 @@
       "name": "Augustine",
       "description": "Posts on Augustine in relation to early church history and early Christian writings and named ancient figures, church leaders, and modern scholars.",
       "categories": [
-        "Early Church History",
+        "Church Fathers",
         "Historical Figures and Scholars"
       ],
       "displayInBrowser": true
@@ -336,7 +328,7 @@
       "name": "Christian Community",
       "description": "Posts on Christian Community in relation to Acts and early Christian origins.",
       "categories": [
-        "Acts and Early Christianity"
+        "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
@@ -402,7 +394,7 @@
       "name": "Conversion",
       "description": "Posts on Conversion in relation to Acts and early Christian origins.",
       "categories": [
-        "Acts and Early Christianity"
+        "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
@@ -483,7 +475,7 @@
       "name": "Didymus the Blind",
       "description": "Posts on Didymus the Blind in relation to early church history and early Christian writings and named ancient figures, church leaders, and modern scholars.",
       "categories": [
-        "Early Church History",
+        "Church Fathers",
         "Historical Figures and Scholars"
       ],
       "displayInBrowser": true
@@ -524,7 +516,7 @@
       "name": "Early Christian Diversity",
       "description": "Posts on Early Christian Diversity in relation to Acts and early Christian origins and early church history and early Christian writings.",
       "categories": [
-        "Acts and Early Christianity",
+        "Christian Origins and Expansion",
         "Early Church History"
       ],
       "displayInBrowser": true
@@ -549,7 +541,7 @@
       "name": "Early Christianity",
       "description": "Posts on Early Christianity in relation to Acts and early Christian origins and early church history and early Christian writings.",
       "categories": [
-        "Acts and Early Christianity",
+        "Christian Origins and Expansion",
         "Early Church History"
       ],
       "displayInBrowser": true
@@ -615,7 +607,7 @@
       "name": "Eusebius",
       "description": "Posts on Eusebius in relation to early church history and early Christian writings and named ancient figures, church leaders, and modern scholars.",
       "categories": [
-        "Early Church History",
+        "Church Fathers",
         "Historical Figures and Scholars"
       ],
       "displayInBrowser": true
@@ -780,7 +772,7 @@
       "description": "Posts on who wrote the Gospels, why the Gospels are anonymous, and how early Christian traditions connected them with apostolic authorities.",
       "categories": [
         "Authorship",
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -788,7 +780,7 @@
       "name": "Gospel Dating",
       "description": "Posts on Gospel Dating in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -804,7 +796,7 @@
       "name": "Gospel Historicity",
       "description": "Posts on Gospel Historicity in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -820,7 +812,7 @@
       "name": "Gospel of John",
       "description": "Posts focused on the Gospel of John, including its authorship, distinctive theology, historical reliability, signs, symbolism, and portrayal of Jesus.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -837,7 +829,7 @@
       "name": "Gospel of Luke",
       "description": "Posts on the Gospel of Luke in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -845,7 +837,7 @@
       "name": "Gospel of Mark",
       "description": "Posts on the Gospel of Mark in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -861,7 +853,7 @@
       "name": "Gospel of Matthew",
       "description": "Posts on the Gospel of Matthew in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -909,7 +901,7 @@
       "name": "Gospel Writers",
       "description": "Posts on Gospel Writers in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -917,7 +909,7 @@
       "name": "Gospels (General)",
       "description": "Posts on Gospels as a broad topic in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -1166,7 +1158,7 @@
       "name": "Jesus' Genealogy",
       "description": "Posts on Jesus' Genealogy in relation to the canonical Gospels and their interpretation and Jesus as a historical and literary figure.",
       "categories": [
-        "Canonical Gospels",
+        "Canonical Gospels and Acts",
         "Jesus"
       ],
       "displayInBrowser": true
@@ -1328,7 +1320,7 @@
       "name": "Martyrdom of Polycarp",
       "description": "Posts on Martyrdom of Polycarp in relation to early church history and early Christian writings and persecution, martyrdom, and Christian suffering under opposition.",
       "categories": [
-        "Early Church History",
+        "Church Fathers",
         "Persecution and Martyrdom"
       ],
       "displayInBrowser": true
@@ -1386,7 +1378,7 @@
       "name": "Messianic Secret",
       "description": "Posts on Messianic Secret in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -1548,7 +1540,7 @@
       "name": "Papias",
       "description": "Posts on Papias in relation to early church history and early Christian writings and named ancient figures, church leaders, and modern scholars.",
       "categories": [
-        "Early Church History",
+        "Church Fathers",
         "Historical Figures and Scholars"
       ],
       "displayInBrowser": true
@@ -1630,7 +1622,6 @@
       "name": "Paul in Acts",
       "description": "Posts on Paul in Acts in relation to Acts and early Christian origins and Paul, his letters, theology, communities, and later interpretation.",
       "categories": [
-        "Acts and Early Christianity",
         "Paul and Pauline Christianity"
       ],
       "displayInBrowser": true
@@ -1871,7 +1862,7 @@
       "name": "Q Source",
       "description": "Posts on Q as a proposed source behind Matthew and Luke in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -1968,7 +1959,7 @@
       "name": "Rise of Christianity",
       "description": "Posts on Rise of Christianity in relation to Acts and early Christian origins.",
       "categories": [
-        "Acts and Early Christianity"
+        "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
@@ -2099,7 +2090,7 @@
       "name": "Synoptic Problem",
       "description": "Posts on Synoptic Problem in relation to the canonical Gospels and their interpretation.",
       "categories": [
-        "Canonical Gospels"
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
