@@ -202,10 +202,10 @@ def home_page() -> bytes:
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
         <p>This demo introduces two new ways to find topics of interest on Bart's blog: <strong>Categories</strong> and <strong>Keyword Search</strong>.</p>
-        <p><strong>Categories</strong> let readers browse posts through a structured hierarchy. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused themes. Selecting a category shows its themes; selecting a theme shows the posts connected to it.</p>
+        <p><strong>Categories</strong> let readers browse posts through a structured hierarchy. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused topics. Selecting a category shows its topics; selecting a topic shows the posts connected to it.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
         <p class="site-demo-date-range">{esc(date_range)} ({pluralize(stats['posts'], 'post')})</p>
-        <p class="site-demo-version">Version 1.0 Blog Search Demo | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['themes'], 'theme')} | {pluralize(stats['keywords'], 'keyword')}</p>
+        <p class="site-demo-version">Version 1.0 Blog Search Demo | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['themes'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
       </section>
     </section>
     """
@@ -235,7 +235,7 @@ def categories_page() -> bytes:
             <li class="list-item">
               <a class="item-title" href="/categories/{esc(row['slug'])}">{esc(row['name'])}</a>
               <p class="item-description">{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['theme_count'], 'theme')} | {pluralize(row['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(row['theme_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -289,7 +289,7 @@ def category_page(slug: str) -> bytes:
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
         category["name"],
-        f"{pluralize(len(themes), 'theme')} | {pluralize(post_count, 'post')}",
+        f"{pluralize(len(themes), 'topic')} | {pluralize(post_count, 'post')}",
         category["description"],
         inner,
         description_first=True,
