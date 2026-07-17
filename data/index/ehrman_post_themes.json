@@ -17,6 +17,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Academic Research and Publishing",
+      "description": "Posts on scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
+      "categories": [
+        "Scholarship, Publishing, and Public Engagement"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Acts",
       "description": "Posts on the book of Acts, including its literary features, historical reliability, major themes, theology, and account of early Christianity's spread.",
       "categories": [
@@ -1797,14 +1805,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Research and Publishing",
-      "description": "Posts on scholarly research projects, academic publishing, peer review, journals, reference works, and the practical work of producing scholarship.",
-      "categories": [
-        "Scholarship, Publishing, and Public Engagement"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Resurrection Apologetics",
       "description": "Posts on arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
       "categories": [
@@ -2115,8 +2115,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Writing and Publishing",
-      "description": "Posts about writing habits, research, book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
+      "name": "Writing Process and Book Publishing",
+      "description": "Posts about writing habits, reading and research methods for books, trade-book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
       "categories": [
         "Teaching and Public Scholarship"
       ],
