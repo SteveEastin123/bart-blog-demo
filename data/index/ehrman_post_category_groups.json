@@ -1,0 +1,111 @@
+{
+  "categoryGroups": [
+    {
+      "name": "Jesus, Gospels, and Acts",
+      "description": "Covers the canonical Gospels, Acts, major New Testament figures, and traditions about Jesus' life, teachings, death, burial, and resurrection.",
+      "categories": [
+        "Canonical Gospels and Acts",
+        "Historical Jesus and Context",
+        "Jesus Traditions and Narratives",
+        "Jesus' Teachings and Social World",
+        "Jesus' Death, Burial, and Resurrection",
+        "New Testament Figures"
+      ]
+    },
+    {
+      "name": "Paul and the Epistles",
+      "description": "Covers Paul's life, mission, communities, letters, theology, ethics, and the broader collection of New Testament epistles.",
+      "categories": [
+        "Paul's Life, Mission, and Communities",
+        "Pauline Letters, Authorship, and Texts",
+        "Pauline Theology and Ethics",
+        "Epistles"
+      ]
+    },
+    {
+      "name": "Hebrew Bible and Early Judaism",
+      "description": "Covers Hebrew Bible texts, traditions, historical questions, and the early Jewish context for Jesus and early Christianity.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions",
+        "Early Judaism and Jewish Context"
+      ]
+    },
+    {
+      "name": "Early Christianity and Church History",
+      "description": "Covers Christian origins, the development of early Christianity, church fathers, persecution, martyrdom, and church history after the New Testament period.",
+      "categories": [
+        "Christian Origins and Expansion",
+        "Early Church History",
+        "Church Fathers",
+        "Persecution and Martyrdom"
+      ]
+    },
+    {
+      "name": "Theology, Belief, and Supernatural Claims",
+      "description": "Covers early Christian beliefs about Christ, salvation, faith, doubt, miracles, visions, and other claims about divine or supernatural activity.",
+      "categories": [
+        "Christology",
+        "Salvation, Atonement, and Judgment",
+        "Faith, Doubt, and Nonbelief",
+        "Miracles and Supernatural Claims"
+      ]
+    },
+    {
+      "name": "Afterlife, Apocalypticism, and Suffering",
+      "description": "Covers ancient and Christian views of the end times, resurrection, heaven and hell, divine judgment, suffering, evil, and life after death.",
+      "categories": [
+        "Afterlife",
+        "Apocalypticism and Revelation",
+        "Suffering and Evil"
+      ]
+    },
+    {
+      "name": "Non-Canonical Texts and Heresy",
+      "description": "Covers non-canonical Christian writings, Gnostic texts, heresy, and early Christian traditions outside the New Testament.",
+      "categories": [
+        "Non-Canonical Texts",
+        "Gnosticism and Heresy"
+      ]
+    },
+    {
+      "name": "Authorship, Forgery, and Methods",
+      "description": "Covers questions about who wrote biblical and early Christian texts, how traditions were transmitted, and how scholars evaluate sources, memory, authorship, and forgery.",
+      "categories": [
+        "Authorship",
+        "Forgery",
+        "Historical Methods and Criticism",
+        "Memory and Oral Tradition"
+      ]
+    },
+    {
+      "name": "Manuscripts, Canon, and Translation",
+      "description": "Covers how biblical texts were copied, collected, canonized, translated, and reconstructed from manuscripts and other textual witnesses.",
+      "categories": [
+        "Canon and Scripture",
+        "Manuscripts and Textual Witnesses",
+        "Textual Criticism",
+        "Bible Translations and Versions"
+      ]
+    },
+    {
+      "name": "Ancient World and Social Issues",
+      "description": "Covers the ancient social, cultural, and political world around biblical texts, including Roman context, ethics, wealth and poverty, gender, and sexuality.",
+      "categories": [
+        "Ancient World Context",
+        "Ethics and Moral Reasoning",
+        "Wealth, Poverty, and Charity",
+        "Women, Gender, and Sexuality"
+      ]
+    },
+    {
+      "name": "Books, Media, and Blog Features",
+      "description": "Covers Bart's books, teaching, media appearances, scholarship, public engagement, blog features, personal posts, and the In a Nutshell series.",
+      "categories": [
+        "Bart's Books",
+        "Teaching and Public Scholarship",
+        "Scholarship, Publishing, and Public Engagement",
+        "Blog Features and Personal Posts"
+      ]
+    }
+  ]
+}

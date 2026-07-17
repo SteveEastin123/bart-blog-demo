@@ -29,10 +29,6 @@
       "description": "Covers autobiographical posts, personal reflections, blog fundraising, charity updates, and the In a Nutshell series."
     },
     {
-      "name": "Books, Teaching, and Media",
-      "description": "Covers trade books, textbooks, courses, interviews, videos, writing, publishing, and other ways scholarship is presented to public audiences."
-    },
-    {
       "name": "Canon and Scripture",
       "description": "Explores canon formation, biblical authority, inerrancy, contradictions, moral problems, numerology, and how scripture is interpreted or used."
     },
@@ -151,6 +147,10 @@
     {
       "name": "Suffering and Evil",
       "description": "Explores suffering and evil as theological, biblical, philosophical, and personal problems, including disasters, free will, Job, biblical explanations of suffering, and suffering as a challenge to faith."
+    },
+    {
+      "name": "Teaching and Public Scholarship",
+      "description": "Covers courses, lectures, textbooks, media appearances, writing, publishing, and other ways scholarship is presented to public audiences."
     },
     {
       "name": "Textual Criticism",

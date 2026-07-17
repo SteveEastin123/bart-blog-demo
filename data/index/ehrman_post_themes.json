@@ -648,7 +648,7 @@
       "name": "General Audience Books",
       "description": "Posts about books written for general readers, including trade books, book ideas, excerpts, publication plans, and efforts to make scholarship accessible.",
       "categories": [
-        "Books, Teaching, and Media"
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -1233,7 +1233,7 @@
       "name": "Media Coverage",
       "description": "Posts about news coverage, reviews, bestseller lists, public controversy, and media attention involving Bart's books or topics from the blog.",
       "categories": [
-        "Books, Teaching, and Media"
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -1241,7 +1241,7 @@
       "name": "Media Interviews and Videos",
       "description": "Posts featuring interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
       "categories": [
-        "Books, Teaching, and Media"
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -1369,7 +1369,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "New Testament Manuscripts (General)",
+      "name": "New Testament Manuscripts",
       "description": "Posts on Greek New Testament manuscripts, early papyri, manuscript evidence, amulets, copying, and what manuscripts can or cannot show about original texts.",
       "categories": [
         "Manuscripts and Textual Witnesses"
@@ -1735,8 +1735,8 @@
       "name": "Popularizing Scholarship",
       "description": "Posts on explaining biblical scholarship to wider audiences through articles, books, media, public responses, and accessible presentations of academic work.",
       "categories": [
-        "Books, Teaching, and Media",
-        "Scholarship, Publishing, and Public Engagement"
+        "Scholarship, Publishing, and Public Engagement",
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -2006,7 +2006,7 @@
       "name": "Teaching and Courses",
       "description": "Posts about teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
       "categories": [
-        "Books, Teaching, and Media"
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -2014,7 +2014,7 @@
       "name": "Textbooks",
       "description": "Posts about textbooks and introductory teaching materials, including how they are written, revised, illustrated, and used to teach biblical studies.",
       "categories": [
-        "Books, Teaching, and Media"
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },
@@ -2118,7 +2118,7 @@
       "name": "Writing and Publishing",
       "description": "Posts about writing habits, research, book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
       "categories": [
-        "Books, Teaching, and Media"
+        "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
     },

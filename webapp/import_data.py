@@ -11,6 +11,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
+DEFAULT_CATEGORY_GROUPS_PATH = ROOT / "data" / "index" / "ehrman_post_category_groups.json"
 DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
 DEFAULT_THEMES_PATH = ROOT / "data" / "index" / "ehrman_post_themes.json"
 DEFAULT_DB_PATH = ROOT / "webapp" / "data" / "ehrman_search.db"
@@ -20,6 +21,13 @@ SCHEMA = """
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE categories (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE,
+    slug TEXT NOT NULL UNIQUE,
+    description TEXT NOT NULL DEFAULT ''
+);
+
+CREATE TABLE category_groups (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     slug TEXT NOT NULL UNIQUE,
@@ -57,6 +65,13 @@ CREATE TABLE theme_categories (
     PRIMARY KEY (theme_id, category_id)
 );
 
+CREATE TABLE category_group_categories (
+    category_group_id INTEGER NOT NULL REFERENCES category_groups(id) ON DELETE CASCADE,
+    category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+    position INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (category_group_id, category_id)
+);
+
 CREATE TABLE post_themes (
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
     theme_id INTEGER NOT NULL REFERENCES themes(id) ON DELETE CASCADE,
@@ -80,6 +95,8 @@ CREATE TABLE post_search_terms (
 
 CREATE INDEX idx_categories_name ON categories(name COLLATE NOCASE);
 CREATE INDEX idx_categories_slug ON categories(slug);
+CREATE INDEX idx_category_groups_name ON category_groups(name COLLATE NOCASE);
+CREATE INDEX idx_category_groups_slug ON category_groups(slug);
 CREATE INDEX idx_themes_name ON themes(name COLLATE NOCASE);
 CREATE INDEX idx_themes_slug ON themes(slug);
 CREATE INDEX idx_posts_date ON posts(date_iso DESC, id DESC);
@@ -88,6 +105,8 @@ CREATE INDEX idx_keywords_normalized ON keywords(normalized);
 CREATE INDEX idx_post_keywords_keyword_post ON post_keywords(keyword_id, post_id);
 CREATE INDEX idx_post_themes_theme_post ON post_themes(theme_id, post_id);
 CREATE INDEX idx_theme_categories_category_theme ON theme_categories(category_id, theme_id);
+CREATE INDEX idx_category_group_categories_group_position ON category_group_categories(category_group_id, position);
+CREATE INDEX idx_category_group_categories_category_group ON category_group_categories(category_id, category_group_id);
 CREATE INDEX idx_search_terms_normalized_post ON post_search_terms(normalized, post_id);
 CREATE INDEX idx_search_terms_label ON post_search_terms(label COLLATE NOCASE);
 """
@@ -180,6 +199,14 @@ def load_categories(path: Path) -> list[dict[str, Any]]:
     return categories
 
 
+def load_category_groups(path: Path) -> list[dict[str, Any]]:
+    data = read_json(path)
+    category_groups = data.get("categoryGroups") if isinstance(data, dict) else data
+    if not isinstance(category_groups, list):
+        raise ValueError(f"{path} must contain a categoryGroups list")
+    return category_groups
+
+
 def load_themes(path: Path) -> list[dict[str, Any]]:
     data = read_json(path)
     themes = data.get("themes") if isinstance(data, dict) else data
@@ -214,6 +241,7 @@ def insert_keyword(conn: sqlite3.Connection, label: str) -> int | None:
 def build_database(
     db_path: Path = DEFAULT_DB_PATH,
     categories_path: Path = DEFAULT_CATEGORIES_PATH,
+    category_groups_path: Path = DEFAULT_CATEGORY_GROUPS_PATH,
     themes_path: Path = DEFAULT_THEMES_PATH,
     search_index_path: Path = DEFAULT_SEARCH_INDEX_PATH,
 ) -> dict[str, int]:
@@ -223,6 +251,7 @@ def build_database(
         tmp_path.unlink()
 
     categories = load_categories(categories_path)
+    category_groups = load_category_groups(category_groups_path)
     themes = load_themes(themes_path)
     posts = load_posts(search_index_path)
 
@@ -263,6 +292,38 @@ def build_database(
             row["name"]: row["id"]
             for row in conn.execute("SELECT id, name FROM categories").fetchall()
         }
+
+        used_category_group_slugs: set[str] = set()
+        for category_group in category_groups:
+            name = clean_string(category_group.get("name"))
+            if not name:
+                continue
+            conn.execute(
+                "INSERT INTO category_groups(name, slug, description) VALUES (?, ?, ?)",
+                (name, unique_slug(name, used_category_group_slugs), clean_string(category_group.get("description"))),
+            )
+
+        category_group_ids = {
+            row["name"]: row["id"]
+            for row in conn.execute("SELECT id, name FROM category_groups").fetchall()
+        }
+        for category_group in category_groups:
+            group_name = clean_string(category_group.get("name"))
+            group_id = category_group_ids.get(group_name)
+            if not group_id:
+                continue
+            for position, category_name in enumerate(unique_strings(category_group.get("categories")), start=1):
+                category_id = category_ids.get(category_name)
+                if not category_id:
+                    continue
+                conn.execute(
+                    """
+                    INSERT OR IGNORE INTO category_group_categories(category_group_id, category_id, position)
+                    VALUES (?, ?, ?)
+                    """,
+                    (group_id, category_id, position),
+                )
+
         theme_ids = {
             row["name"]: row["id"]
             for row in conn.execute("SELECT id, name FROM themes").fetchall()
@@ -350,6 +411,7 @@ def build_database(
     with sqlite3.connect(db_path) as check_conn:
         counts = {
             "posts": check_conn.execute("SELECT COUNT(*) FROM posts").fetchone()[0],
+            "category_groups": check_conn.execute("SELECT COUNT(*) FROM category_groups").fetchone()[0],
             "categories": check_conn.execute("SELECT COUNT(*) FROM categories").fetchone()[0],
             "themes": check_conn.execute("SELECT COUNT(*) FROM themes").fetchone()[0],
             "keywords": check_conn.execute("SELECT COUNT(*) FROM keywords").fetchone()[0],
@@ -362,15 +424,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build the SQLite database for the Ehrman search web app.")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
+    parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
     parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
     parser.add_argument("--search-index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     args = parser.parse_args()
 
-    counts = build_database(args.db, args.categories, args.themes, args.search_index)
+    counts = build_database(args.db, args.categories, args.category_groups, args.themes, args.search_index)
     print(f"Built {args.db}")
     print(
         "Imported "
         f"{counts['posts']:,} posts, "
+        f"{counts['category_groups']:,} category groups, "
         f"{counts['categories']:,} categories, "
         f"{counts['themes']:,} themes, "
         f"{counts['keywords']:,} secondary keywords, "

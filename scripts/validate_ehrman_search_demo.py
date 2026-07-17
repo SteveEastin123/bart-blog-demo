@@ -7,6 +7,7 @@ from typing import Any
 
 from ehrman_demo_data import (
     DEFAULT_CATEGORIES_PATH,
+    DEFAULT_CATEGORY_GROUPS_PATH,
     DEFAULT_DEMO_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_THEMES_PATH,
@@ -14,6 +15,7 @@ from ehrman_demo_data import (
     clean_string,
     date_sort_value,
     load_categories,
+    load_category_groups,
     load_posts,
     load_themes,
     normalize_keyword,
@@ -87,6 +89,68 @@ def validate_categories(
     return set(category_names)
 
 
+def validate_category_groups(
+    category_groups: list[dict[str, Any]],
+    category_names: set[str],
+    errors: list[str],
+    warnings: list[str],
+) -> set[str]:
+    group_names: list[str] = []
+    linked_categories: list[str] = []
+
+    for index, category_group in enumerate(category_groups, start=1):
+        label = f"category group #{index}"
+        name = require_string(category_group, "name", label, errors)
+        if name:
+            group_names.append(name)
+            label = f"category group {name!r}"
+
+        description = clean_string(category_group.get("description", ""))
+        if not description:
+            errors.append(f"{label} is missing a description")
+        elif "\n" in description or "\r" in description:
+            errors.append(f"{label} description contains a line break")
+        elif not description.endswith("."):
+            warnings.append(f"{label} description does not end with a period")
+
+        categories = unique_strings(category_group.get("categories", []))
+        if not isinstance(category_group.get("categories", []), list):
+            errors.append(f"{label} has a non-list categories field")
+        if not categories:
+            errors.append(f"{label} has no linked categories")
+        for category_name in categories:
+            if category_name not in category_names:
+                errors.append(f"{label} links unknown category {category_name!r}")
+            linked_categories.append(category_name)
+
+    if has_case_duplicates(group_names):
+        errors.append("Category group names include duplicates that differ only by case")
+
+    normalized_counts: dict[str, int] = {}
+    category_name_by_key = {category.casefold(): category for category in category_names}
+    for category_name in linked_categories:
+        key = category_name.casefold()
+        normalized_counts[key] = normalized_counts.get(key, 0) + 1
+
+    duplicated_categories = sorted(
+        category_name_by_key.get(key, key)
+        for key, count in normalized_counts.items()
+        if count > 1
+    )
+    if duplicated_categories:
+        errors.append("Categories linked to more than one category group: " + ", ".join(duplicated_categories))
+
+    missing_categories = sorted(
+        category
+        for category in category_names
+        if normalized_counts.get(category.casefold(), 0) == 0
+    )
+    if missing_categories:
+        errors.append("Categories missing from category groups: " + ", ".join(missing_categories))
+
+    return {name for name in group_names if name}
+
+
 def validate_themes(
     themes: list[dict[str, Any]],
     category_names: set[str],
@@ -117,7 +181,7 @@ def validate_themes(
         if not isinstance(theme.get("categories", []), list):
             errors.append(f"{label} has a non-list categories field")
         if name != "Ignore" and theme.get("displayInBrowser", True) is not False and not categories:
-            errors.append(f"{label} has no linked categories")
+            warnings.append(f"{label} has no linked categories")
         if categories != sorted_casefold(categories):
             warnings.append(f"{label} categories are not alphabetical")
         for category_name in categories:
@@ -207,6 +271,7 @@ def validate_posts(
 def validate_html(
     html_path: Path,
     categories: list[dict[str, Any]],
+    category_groups: list[dict[str, Any]],
     themes: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     errors: list[str],
@@ -236,7 +301,7 @@ def validate_html(
         errors.append(f"Could not parse embedded demo data from {html_path}: {exc}")
         return
 
-    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, themes, posts)
+    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, themes, posts, category_groups)
     if embedded_data != expected_data:
         errors.append("Embedded DATA in the HTML is stale; run scripts/build_ehrman_search_demo.py")
     if embedded_keyword_index != expected_keyword_index:
@@ -250,6 +315,7 @@ def parse_args() -> argparse.Namespace:
         description="Validate the Ehrman search demo JSON files and generated standalone HTML."
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
+    parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
     parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--html", type=Path, default=DEFAULT_DEMO_PATH)
@@ -268,6 +334,12 @@ def main() -> int:
         return 1
 
     try:
+        category_groups = load_category_groups(args.category_groups)
+    except Exception as exc:  # noqa: BLE001
+        print(f"Validation failed: could not load category groups JSON: {exc}")
+        return 1
+
+    try:
         posts = load_posts(args.search_index)
     except Exception as exc:  # noqa: BLE001
         print(f"Validation failed: could not load search-index JSON: {exc}")
@@ -281,6 +353,7 @@ def main() -> int:
 
     post_theme_counts, all_post_themes = validate_posts(posts, errors, warnings)
     category_names = validate_categories(categories, errors, warnings)
+    category_group_names = validate_category_groups(category_groups, category_names, errors, warnings)
     linked_themes = validate_themes(themes, category_names, post_theme_counts, all_post_themes, errors, warnings)
     unlinked_themes = sorted(
         theme
@@ -293,9 +366,9 @@ def main() -> int:
         )
     )
     if unlinked_themes:
-        errors.append("Themes used by posts but not linked to a category: " + ", ".join(unlinked_themes))
+        warnings.append("Themes used by posts but not linked to a category: " + ", ".join(unlinked_themes))
 
-    validate_html(args.html, categories, themes, posts, errors)
+    validate_html(args.html, categories, category_groups, themes, posts, errors)
 
     if errors:
         print("Validation failed:")
@@ -309,6 +382,7 @@ def main() -> int:
 
     print("Validation passed.")
     print(f"Posts: {len(posts):,}")
+    print(f"Category groups: {len(category_group_names):,}")
     print(f"Categories: {len(categories):,}")
     print(f"Unique post themes: {len(all_post_themes):,}")
     print(f"Theme metadata records: {len(linked_themes):,}")

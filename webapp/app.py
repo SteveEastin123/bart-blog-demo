@@ -10,6 +10,7 @@ from urllib.parse import parse_qs, unquote
 
 from .import_data import (
     DEFAULT_CATEGORIES_PATH,
+    DEFAULT_CATEGORY_GROUPS_PATH,
     DEFAULT_DB_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_THEMES_PATH,
@@ -31,6 +32,7 @@ def ensure_database() -> None:
     sources = [
         DEFAULT_SEARCH_INDEX_PATH,
         DEFAULT_CATEGORIES_PATH,
+        DEFAULT_CATEGORY_GROUPS_PATH,
         DEFAULT_THEMES_PATH,
     ]
     if any(path.exists() and path.stat().st_mtime > db_mtime for path in sources):
@@ -82,7 +84,8 @@ def header(active: str = "") -> str:
     links = [
         ("Join!", "#", "disabled"),
         ("Recent Posts", "#", "disabled"),
-        ("Categories", "/categories", "categories"),
+        ("Categories1", "/categories", "categories"),
+        ("Categories2", "/category-groups", "category-groups"),
         ("Keyword Search", "/keyword-search", "keyword-search"),
         ("Forum", "#", "disabled"),
         ("About Blog", "#", "disabled"),
@@ -192,6 +195,7 @@ def home_page() -> bytes:
                         SELECT label FROM keywords
                     )
                 ) AS keywords,
+                (SELECT COUNT(*) FROM category_groups) AS category_groups,
                 (SELECT COUNT(*) FROM categories) AS categories
             """
         ).fetchone()
@@ -201,11 +205,13 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces two new ways to find topics of interest on Bart's blog: <strong>Categories</strong> and <strong>Keyword Search</strong>.</p>
-        <p><strong>Categories</strong> let readers browse posts through a structured hierarchy. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused topics. Selecting a category shows its topics; selecting a topic shows the posts connected to it.</p>
+        <p>This demo introduces new ways to find topics of interest on Bart's blog: <strong>Categories1</strong>, <strong>Categories2</strong>, and <strong>Keyword Search</strong>.</p>
+        <p><strong>Categories1</strong> and <strong>Categories2</strong> are two options for category searching. One of these approaches will be selected for future use. The drawback of <strong>Categories1</strong> is that it lists all {pluralize(stats['categories'], 'category', 'categories')} on one page, which may feel overwhelming to navigate. The drawback of <strong>Categories2</strong> is that readers must move through an additional layer before reaching the topic they want.</p>
+        <p><strong>Categories1</strong> lets readers browse posts through the current category-and-topic structure. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused topics.</p>
+        <p><strong>Categories2</strong> provides a broader starting point by organizing those categories into {pluralize(stats['category_groups'], 'larger group', 'larger groups')} before showing the topics connected to each category.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
         <p class="site-demo-date-range">{esc(date_range)} ({pluralize(stats['posts'], 'post')})</p>
-        <p class="site-demo-version">Version 1.0 Blog Search Demo | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['themes'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
+        <p class="site-demo-version">Version 2.0 Blog Search Demo | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['themes'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
       </section>
     </section>
     """
@@ -242,6 +248,99 @@ def categories_page() -> bytes:
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page("Categories", pluralize(len(rows), "category", "categories"), inner=inner)
     return render_page("Categories", body, active="categories")
+
+
+def category_groups_page() -> bytes:
+    rows = query_all(
+        """
+        SELECT
+            cg.name,
+            cg.slug,
+            cg.description,
+            COUNT(DISTINCT cgc.category_id) AS category_count,
+            COUNT(DISTINCT tc.theme_id) AS theme_count,
+            COUNT(DISTINCT pt.post_id) AS post_count
+        FROM category_groups cg
+        LEFT JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
+        LEFT JOIN theme_categories tc ON tc.category_id = cgc.category_id
+        LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+        GROUP BY cg.id
+        ORDER BY cg.id
+        """
+    )
+    items = []
+    for row in rows:
+        items.append(
+            f"""
+            <li class="list-item">
+              <a class="item-title" href="/category-groups/{esc(row['slug'])}">{esc(row['name'])}</a>
+              <p class="item-description">{esc(row['description'])}</p>
+              <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} | {pluralize(row['theme_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
+            </li>
+            """
+        )
+    inner = f'<ul class="item-list">{"".join(items)}</ul>'
+    body = content_page("Category Groups", pluralize(len(rows), "category group"), inner=inner)
+    return render_page("Category Groups", body, active="category-groups")
+
+
+def category_group_page(slug: str) -> bytes:
+    with get_conn() as conn:
+        category_group = conn.execute("SELECT * FROM category_groups WHERE slug = ?", (slug,)).fetchone()
+        if not category_group:
+            return not_found()
+        categories = conn.execute(
+            """
+            SELECT
+                c.name,
+                c.slug,
+                c.description,
+                COUNT(DISTINCT tc.theme_id) AS theme_count,
+                COUNT(DISTINCT pt.post_id) AS post_count
+            FROM category_group_categories cgc
+            JOIN categories c ON c.id = cgc.category_id
+            LEFT JOIN theme_categories tc ON tc.category_id = c.id
+            LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+            WHERE cgc.category_group_id = ?
+            GROUP BY c.id
+            ORDER BY cgc.position, c.name COLLATE NOCASE
+            """,
+            (category_group["id"],),
+        ).fetchall()
+        counts = conn.execute(
+            """
+            SELECT
+                COUNT(DISTINCT cgc.category_id) AS category_count,
+                COUNT(DISTINCT tc.theme_id) AS theme_count,
+                COUNT(DISTINCT pt.post_id) AS post_count
+            FROM category_group_categories cgc
+            LEFT JOIN theme_categories tc ON tc.category_id = cgc.category_id
+            LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+            WHERE cgc.category_group_id = ?
+            """,
+            (category_group["id"],),
+        ).fetchone()
+
+    items = []
+    for category in categories:
+        items.append(
+            f"""
+            <li class="list-item">
+              <a class="item-title" href="/categories/{esc(category['slug'])}">{esc(category['name'])}</a>
+              <p class="item-description">{esc(category['description'])}</p>
+              <p class="item-meta">{pluralize(category['theme_count'], 'topic')} | {pluralize(category['post_count'], 'post')}</p>
+            </li>
+            """
+        )
+    inner = f'<ul class="item-list">{"".join(items)}</ul>'
+    body = content_page(
+        category_group["name"],
+        f"{pluralize(counts['category_count'], 'category', 'categories')} | {pluralize(counts['theme_count'], 'topic')} | {pluralize(counts['post_count'], 'post')}",
+        category_group["description"],
+        inner,
+        description_first=True,
+    )
+    return render_page(category_group["name"], body, active="category-groups")
 
 
 def category_page(slug: str) -> bytes:
@@ -563,6 +662,7 @@ def health_page() -> bytes:
             """
             SELECT
                 (SELECT COUNT(*) FROM posts) AS posts,
+                (SELECT COUNT(*) FROM category_groups) AS category_groups,
                 (SELECT COUNT(*) FROM categories) AS categories,
                 (SELECT COUNT(*) FROM themes) AS themes,
                 (SELECT COUNT(*) FROM keywords) AS keywords
@@ -575,6 +675,7 @@ def health_page() -> bytes:
         "staticFiles": sorted(path.name for path in STATIC_DIR.iterdir() if path.is_file()),
         "counts": {
             "posts": counts["posts"],
+            "categoryGroups": counts["category_groups"],
             "categories": counts["categories"],
             "themes": counts["themes"],
             "keywords": counts["keywords"],
@@ -607,6 +708,8 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return home_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/categories":
         return categories_page(), "200 OK", "text/html; charset=utf-8"
+    if path == "/category-groups":
+        return category_groups_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-search":
         return keyword_search_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-results":
@@ -618,6 +721,9 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
     if path.startswith("/categories/") and path.endswith("/posts"):
         slug = path.removeprefix("/categories/").removesuffix("/posts").strip("/")
         return posts_for_category(slug), "200 OK", "text/html; charset=utf-8"
+    if path.startswith("/category-groups/"):
+        slug = path.removeprefix("/category-groups/").strip("/")
+        return category_group_page(slug), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/categories/"):
         slug = path.removeprefix("/categories/").strip("/")
         return category_page(slug), "200 OK", "text/html; charset=utf-8"
