@@ -526,15 +526,24 @@ a:hover {
 .described-heading[data-tooltip]:focus::after {
   background: #ffffff;
   border: 1px solid #d7c9a5;
+  box-sizing: border-box;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
   color: var(--maroon);
   content: attr(data-tooltip);
   display: block;
-  font-size: 15px;
-  line-height: 22px;
-  max-width: min(520px, 90vw);
-  padding: 12px 14px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0;
+  line-height: 24px;
+  max-width: calc(100vw - 48px);
+  padding: 14px 16px;
+  pointer-events: none;
   position: absolute;
+  text-align: left;
+  top: calc(100% + 8px);
+  white-space: normal;
+  width: min(780px, calc(100vw - 48px));
   z-index: 30;
 }
 
