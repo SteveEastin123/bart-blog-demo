@@ -331,10 +331,17 @@ a:hover {
 .post-title {
   color: var(--link);
   cursor: pointer;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  line-height: 24px;
+  display: inline-block;
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  position: relative;
   text-decoration: none;
+}
+
+.described-heading {
+  display: inline-block;
+  position: relative;
 }
 
 .item-title {
@@ -343,6 +350,11 @@ a:hover {
 
 .post-title {
   font-weight: 400;
+}
+
+.item-title:visited,
+.post-title:visited {
+  color: var(--link);
 }
 
 .item-title:hover,
@@ -486,6 +498,15 @@ a:hover {
   margin: 16px 0 0;
 }
 
+.search-description-toggle {
+  border-bottom: 1px solid var(--line);
+  padding: 0 28px 18px;
+}
+
+.search-description-toggle .hover-help {
+  margin: 0;
+}
+
 .description-check {
   display: inline-flex !important;
   gap: 6px;
@@ -498,7 +519,11 @@ a:hover {
 }
 
 .post-title[data-tooltip]:hover::after,
-.post-title[data-tooltip]:focus::after {
+.post-title[data-tooltip]:focus::after,
+.item-title[data-tooltip]:hover::after,
+.item-title[data-tooltip]:focus::after,
+.described-heading[data-tooltip]:hover::after,
+.described-heading[data-tooltip]:focus::after {
   background: #ffffff;
   border: 1px solid #d7c9a5;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);

@@ -78,12 +78,15 @@
   });
 
   document.querySelectorAll("[data-description-toggle]").forEach((checkbox) => {
+    const contentPage = checkbox.closest(".content-page") || document;
+    const descriptions = contentPage.querySelectorAll(".post-description, .item-description, .content-description");
+    const describedTitles = contentPage.querySelectorAll(".post-title, .item-title, .described-heading");
     checkbox.addEventListener("change", () => {
       const show = checkbox.checked;
-      document.querySelectorAll(".post-description").forEach((description) => {
+      descriptions.forEach((description) => {
         description.hidden = !show;
       });
-      document.querySelectorAll(".post-title").forEach((title) => {
+      describedTitles.forEach((title) => {
         if (show) {
           title.removeAttribute("data-tooltip");
         } else {
@@ -93,7 +96,7 @@
     });
   });
 
-  document.querySelectorAll(".post-title").forEach((title) => {
+  document.querySelectorAll(".post-title, .item-title, .described-heading").forEach((title) => {
     title.setAttribute("data-tooltip", title.getAttribute("data-description") || "");
   });
 })();

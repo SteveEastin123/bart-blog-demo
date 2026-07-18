@@ -156,6 +156,14 @@ def render_page(title: str, body: str, active: str = "") -> bytes:
     return html_doc.encode("utf-8")
 
 
+def description_toggle() -> str:
+    return """
+        <p class="hover-help">Hover over a title to see a short description or check box to display all descriptions.
+          <label class="description-check"><input type="checkbox" data-description-toggle> Display all descriptions</label>
+        </p>
+    """
+
+
 def content_page(
     title: str,
     count_line: str,
@@ -163,17 +171,26 @@ def content_page(
     inner: str = "",
     actions: str = "",
     description_first: bool = False,
+    toggle_descriptions: bool = False,
 ) -> str:
-    description_html = f'<p class="content-description">{esc(description)}</p>' if description else ""
+    h1_html = (
+        f'<h1><span class="described-heading" data-description="{esc(description)}">{esc(title)}</span></h1>'
+        if toggle_descriptions and description
+        else f"<h1>{esc(title)}</h1>"
+    )
+    description_hidden = " hidden" if toggle_descriptions else ""
+    description_html = f'<p class="content-description"{description_hidden}>{esc(description)}</p>' if description else ""
     actions_html = f'<div class="content-actions">{actions}</div>' if actions else ""
     count_html = f'<p class="count-line">{esc(count_line)}</p>'
     header_meta = description_html + count_html if description_first else count_html + description_html
+    toggle_html = description_toggle() if toggle_descriptions else ""
     return f"""
     <section class="content-page">
       <div class="content-header">
-        <h1>{esc(title)}</h1>
+        {h1_html}
         {header_meta}
         {actions_html}
+        {toggle_html}
       </div>
       {inner}
     </section>
@@ -239,14 +256,14 @@ def categories_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(row['slug'])}">{esc(row['name'])}</a>
-              <p class="item-description">{esc(row['description'])}</p>
+              <a class="item-title" href="/categories/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <p class="item-description" hidden>{esc(row['description'])}</p>
               <p class="item-meta">{pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
-    body = content_page("Categories", pluralize(len(rows), "category", "categories"), inner=inner)
+    body = content_page("Categories", pluralize(len(rows), "category", "categories"), inner=inner, toggle_descriptions=True)
     return render_page("Categories", body, active="categories")
 
 
@@ -273,14 +290,14 @@ def category_groups_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/category-groups/{esc(row['slug'])}">{esc(row['name'])}</a>
-              <p class="item-description">{esc(row['description'])}</p>
+              <a class="item-title" href="/category-groups/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <p class="item-description" hidden>{esc(row['description'])}</p>
               <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} | {pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
-    body = content_page("Category Groups", pluralize(len(rows), "category group"), inner=inner)
+    body = content_page("Category Groups", pluralize(len(rows), "category group"), inner=inner, toggle_descriptions=True)
     return render_page("Category Groups", body, active="category-groups")
 
 
@@ -326,8 +343,8 @@ def category_group_page(slug: str) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(category['slug'])}">{esc(category['name'])}</a>
-              <p class="item-description">{esc(category['description'])}</p>
+              <a class="item-title" href="/categories/{esc(category['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
+              <p class="item-description" hidden>{esc(category['description'])}</p>
               <p class="item-meta">{pluralize(category['topic_count'], 'topic')} | {pluralize(category['post_count'], 'post')}</p>
             </li>
             """
@@ -339,6 +356,7 @@ def category_group_page(slug: str) -> bytes:
         category_group["description"],
         inner,
         description_first=True,
+        toggle_descriptions=True,
     )
     return render_page(category_group["name"], body, active="category-groups")
 
@@ -379,8 +397,8 @@ def category_page(slug: str) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/topics/{esc(topic['slug'])}">{esc(topic['name'])}</a>
-              <p class="item-description">{esc(topic['description'])}</p>
+              <a class="item-title" href="/topics/{esc(topic['slug'])}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+              <p class="item-description" hidden>{esc(topic['description'])}</p>
               <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
             """
@@ -392,6 +410,7 @@ def category_page(slug: str) -> bytes:
         category["description"],
         inner,
         description_first=True,
+        toggle_descriptions=True,
     )
     return render_page(category["name"], body, active="categories")
 
@@ -428,10 +447,10 @@ def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str
         <select id="sort" name="sort">{sort_options}</select>
       </div>
       <button type="submit">Search</button>
-      <p class="hover-help">Hover over a post title to see a short description or check box to display all descriptions.
-        <label class="description-check"><input type="checkbox" data-description-toggle> Display all descriptions</label>
-      </p>
     </form>
+    <div class="search-description-toggle">
+      {description_toggle()}
+    </div>
     """
 
 
