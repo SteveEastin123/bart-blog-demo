@@ -13,7 +13,7 @@ from .import_data import (
     DEFAULT_CATEGORY_GROUPS_PATH,
     DEFAULT_DB_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
-    DEFAULT_THEMES_PATH,
+    DEFAULT_TOPICS_PATH,
     build_database,
     normalize_keyword,
 )
@@ -33,7 +33,7 @@ def ensure_database() -> None:
         DEFAULT_SEARCH_INDEX_PATH,
         DEFAULT_CATEGORIES_PATH,
         DEFAULT_CATEGORY_GROUPS_PATH,
-        DEFAULT_THEMES_PATH,
+        DEFAULT_TOPICS_PATH,
     ]
     if any(path.exists() and path.stat().st_mtime > db_mtime for path in sources):
         build_database(DB_PATH)
@@ -186,11 +186,11 @@ def home_page() -> bytes:
             """
             SELECT
                 (SELECT COUNT(*) FROM posts) AS posts,
-                (SELECT COUNT(*) FROM themes WHERE display_in_browser = 1) AS themes,
+                (SELECT COUNT(*) FROM topics WHERE display_in_browser = 1) AS topics,
                 (
                     SELECT COUNT(*)
                     FROM (
-                        SELECT name AS label FROM themes WHERE display_in_browser = 1
+                        SELECT name AS label FROM topics WHERE display_in_browser = 1
                         UNION
                         SELECT label FROM keywords
                     )
@@ -211,7 +211,7 @@ def home_page() -> bytes:
         <p><strong>Categories2</strong> provides a broader starting point by organizing those categories into {pluralize(stats['category_groups'], 'larger group', 'larger groups')} before showing the topics connected to each category.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
         <p class="site-demo-date-range">{esc(date_range)} ({pluralize(stats['posts'], 'post')})</p>
-        <p class="site-demo-version">Version 2.0 Blog Search Demo | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['themes'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
+        <p class="site-demo-version">Version 2.0 Blog Search Demo | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
       </section>
     </section>
     """
@@ -225,11 +225,11 @@ def categories_page() -> bytes:
             c.name,
             c.slug,
             c.description,
-            COUNT(DISTINCT tc.theme_id) AS theme_count,
+            COUNT(DISTINCT tc.topic_id) AS topic_count,
             COUNT(DISTINCT pt.post_id) AS post_count
         FROM categories c
-        LEFT JOIN theme_categories tc ON tc.category_id = c.id
-        LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+        LEFT JOIN topic_categories tc ON tc.category_id = c.id
+        LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
         GROUP BY c.id
         ORDER BY c.name COLLATE NOCASE
         """
@@ -241,7 +241,7 @@ def categories_page() -> bytes:
             <li class="list-item">
               <a class="item-title" href="/categories/{esc(row['slug'])}">{esc(row['name'])}</a>
               <p class="item-description">{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['theme_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -258,12 +258,12 @@ def category_groups_page() -> bytes:
             cg.slug,
             cg.description,
             COUNT(DISTINCT cgc.category_id) AS category_count,
-            COUNT(DISTINCT tc.theme_id) AS theme_count,
+            COUNT(DISTINCT tc.topic_id) AS topic_count,
             COUNT(DISTINCT pt.post_id) AS post_count
         FROM category_groups cg
         LEFT JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
-        LEFT JOIN theme_categories tc ON tc.category_id = cgc.category_id
-        LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+        LEFT JOIN topic_categories tc ON tc.category_id = cgc.category_id
+        LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
         GROUP BY cg.id
         ORDER BY cg.id
         """
@@ -275,7 +275,7 @@ def category_groups_page() -> bytes:
             <li class="list-item">
               <a class="item-title" href="/category-groups/{esc(row['slug'])}">{esc(row['name'])}</a>
               <p class="item-description">{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} | {pluralize(row['theme_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} | {pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -295,12 +295,12 @@ def category_group_page(slug: str) -> bytes:
                 c.name,
                 c.slug,
                 c.description,
-                COUNT(DISTINCT tc.theme_id) AS theme_count,
+                COUNT(DISTINCT tc.topic_id) AS topic_count,
                 COUNT(DISTINCT pt.post_id) AS post_count
             FROM category_group_categories cgc
             JOIN categories c ON c.id = cgc.category_id
-            LEFT JOIN theme_categories tc ON tc.category_id = c.id
-            LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+            LEFT JOIN topic_categories tc ON tc.category_id = c.id
+            LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
             WHERE cgc.category_group_id = ?
             GROUP BY c.id
             ORDER BY cgc.position, c.name COLLATE NOCASE
@@ -311,11 +311,11 @@ def category_group_page(slug: str) -> bytes:
             """
             SELECT
                 COUNT(DISTINCT cgc.category_id) AS category_count,
-                COUNT(DISTINCT tc.theme_id) AS theme_count,
+                COUNT(DISTINCT tc.topic_id) AS topic_count,
                 COUNT(DISTINCT pt.post_id) AS post_count
             FROM category_group_categories cgc
-            LEFT JOIN theme_categories tc ON tc.category_id = cgc.category_id
-            LEFT JOIN post_themes pt ON pt.theme_id = tc.theme_id
+            LEFT JOIN topic_categories tc ON tc.category_id = cgc.category_id
+            LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
             WHERE cgc.category_group_id = ?
             """,
             (category_group["id"],),
@@ -328,14 +328,14 @@ def category_group_page(slug: str) -> bytes:
             <li class="list-item">
               <a class="item-title" href="/categories/{esc(category['slug'])}">{esc(category['name'])}</a>
               <p class="item-description">{esc(category['description'])}</p>
-              <p class="item-meta">{pluralize(category['theme_count'], 'topic')} | {pluralize(category['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(category['topic_count'], 'topic')} | {pluralize(category['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
         category_group["name"],
-        f"{pluralize(counts['category_count'], 'category', 'categories')} | {pluralize(counts['theme_count'], 'topic')} | {pluralize(counts['post_count'], 'post')}",
+        f"{pluralize(counts['category_count'], 'category', 'categories')} | {pluralize(counts['topic_count'], 'topic')} | {pluralize(counts['post_count'], 'post')}",
         category_group["description"],
         inner,
         description_first=True,
@@ -348,16 +348,16 @@ def category_page(slug: str) -> bytes:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
             return not_found()
-        themes = conn.execute(
+        topics = conn.execute(
             """
             SELECT
                 t.name,
                 t.slug,
                 t.description,
                 COUNT(DISTINCT pt.post_id) AS post_count
-            FROM themes t
-            JOIN theme_categories tc ON tc.theme_id = t.id
-            LEFT JOIN post_themes pt ON pt.theme_id = t.id
+            FROM topics t
+            JOIN topic_categories tc ON tc.topic_id = t.id
+            LEFT JOIN post_topics pt ON pt.topic_id = t.id
             WHERE tc.category_id = ? AND t.display_in_browser = 1
             GROUP BY t.id
             ORDER BY t.name COLLATE NOCASE
@@ -367,28 +367,28 @@ def category_page(slug: str) -> bytes:
         post_count = conn.execute(
             """
             SELECT COUNT(DISTINCT pt.post_id)
-            FROM post_themes pt
-            JOIN theme_categories tc ON tc.theme_id = pt.theme_id
+            FROM post_topics pt
+            JOIN topic_categories tc ON tc.topic_id = pt.topic_id
             WHERE tc.category_id = ?
             """,
             (category["id"],),
         ).fetchone()[0]
 
     items = []
-    for theme in themes:
+    for topic in topics:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/themes/{esc(theme['slug'])}">{esc(theme['name'])}</a>
-              <p class="item-description">{esc(theme['description'])}</p>
-              <p class="item-meta">{pluralize(theme['post_count'], 'post')}</p>
+              <a class="item-title" href="/topics/{esc(topic['slug'])}">{esc(topic['name'])}</a>
+              <p class="item-description">{esc(topic['description'])}</p>
+              <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
         category["name"],
-        f"{pluralize(len(themes), 'topic')} | {pluralize(post_count, 'post')}",
+        f"{pluralize(len(topics), 'topic')} | {pluralize(post_count, 'post')}",
         category["description"],
         inner,
         description_first=True,
@@ -435,18 +435,18 @@ def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str
     """
 
 
-def post_list(posts: list[sqlite3.Row], context_theme: str = "") -> str:
+def post_list(posts: list[sqlite3.Row], context_topic: str = "") -> str:
     if not posts:
         return '<p class="empty">No posts matched this request.</p>'
     items = []
     for post in posts:
-        theme_text = context_theme or post["context_theme"] if "context_theme" in post.keys() else context_theme
+        topic_text = context_topic or post["context_topic"] if "context_topic" in post.keys() else context_topic
         meta_parts = [
             f"By {esc(post['author'])}" if post["author"] else "By unknown author",
             esc(post["date_text"]),
         ]
-        if theme_text:
-            meta_parts.append(esc(theme_text))
+        if topic_text:
+            meta_parts.append(esc(topic_text))
         description = esc(post["description"])
         items.append(
             f"""
@@ -460,26 +460,26 @@ def post_list(posts: list[sqlite3.Row], context_theme: str = "") -> str:
     return f'<ul class="post-list">{"".join(items)}</ul>'
 
 
-def posts_for_theme(slug: str, query: dict[str, list[str]]) -> bytes:
+def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["newest"])[0]
     with get_conn() as conn:
-        theme = conn.execute("SELECT * FROM themes WHERE slug = ?", (slug,)).fetchone()
-        if not theme:
+        topic = conn.execute("SELECT * FROM topics WHERE slug = ?", (slug,)).fetchone()
+        if not topic:
             return not_found()
         posts = conn.execute(
             """
             SELECT p.*
             FROM posts p
-            JOIN post_themes pt ON pt.post_id = p.id
-            WHERE pt.theme_id = ?
+            JOIN post_topics pt ON pt.post_id = p.id
+            WHERE pt.topic_id = ?
             ORDER BY p.date_iso DESC, p.id DESC
             """,
-            (theme["id"],),
+            (topic["id"],),
         ).fetchall()
-    panel = keyword_panel([theme["name"]], sort)
-    inner = panel + post_list(posts, theme["name"])
-    body = content_page(theme["name"], pluralize(len(posts), "post"), theme["description"], inner)
-    return render_page(theme["name"], body, active="categories")
+    panel = keyword_panel([topic["name"]], sort)
+    inner = panel + post_list(posts, topic["name"])
+    body = content_page(topic["name"], pluralize(len(posts), "post"), topic["description"], inner)
+    return render_page(topic["name"], body, active="categories")
 
 
 def posts_for_category(slug: str) -> bytes:
@@ -491,8 +491,8 @@ def posts_for_category(slug: str) -> bytes:
             """
             SELECT DISTINCT p.*
             FROM posts p
-            JOIN post_themes pt ON pt.post_id = p.id
-            JOIN theme_categories tc ON tc.theme_id = pt.theme_id
+            JOIN post_topics pt ON pt.post_id = p.id
+            JOIN topic_categories tc ON tc.topic_id = pt.topic_id
             WHERE tc.category_id = ?
             ORDER BY p.date_iso DESC, p.id DESC
             """,
@@ -623,12 +623,12 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             f"""
             SELECT
                 COALESCE(
-                    MIN(CASE WHEN kind = 'theme' THEN label END),
+                    MIN(CASE WHEN kind = 'topic' THEN label END),
                     MIN(label)
                 ) AS label,
                 normalized,
                 COUNT(DISTINCT post_id) AS post_count,
-                MAX(CASE WHEN kind = 'theme' THEN 1 ELSE 0 END) AS is_theme,
+                MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS is_topic,
                 CASE
                     WHEN normalized = ? THEN 3
                     WHEN normalized LIKE ? THEN 2
@@ -637,7 +637,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY is_theme DESC, match_quality DESC, post_count DESC, label COLLATE NOCASE
+            ORDER BY is_topic DESC, match_quality DESC, post_count DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
             (q, prefix_like, *params),
@@ -648,7 +648,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 "label": row["label"],
                 "normalized": row["normalized"],
                 "postCount": row["post_count"],
-                "isTheme": bool(row["is_theme"]),
+                "isTopic": bool(row["is_topic"]),
             }
             for row in rows
         ],
@@ -664,7 +664,7 @@ def health_page() -> bytes:
                 (SELECT COUNT(*) FROM posts) AS posts,
                 (SELECT COUNT(*) FROM category_groups) AS category_groups,
                 (SELECT COUNT(*) FROM categories) AS categories,
-                (SELECT COUNT(*) FROM themes) AS themes,
+                (SELECT COUNT(*) FROM topics) AS topics,
                 (SELECT COUNT(*) FROM keywords) AS keywords
             """
         ).fetchone()
@@ -677,7 +677,7 @@ def health_page() -> bytes:
             "posts": counts["posts"],
             "categoryGroups": counts["category_groups"],
             "categories": counts["categories"],
-            "themes": counts["themes"],
+            "topics": counts["topics"],
             "keywords": counts["keywords"],
         },
     }
@@ -727,9 +727,9 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
     if path.startswith("/categories/"):
         slug = path.removeprefix("/categories/").strip("/")
         return category_page(slug), "200 OK", "text/html; charset=utf-8"
-    if path.startswith("/themes/"):
-        slug = path.removeprefix("/themes/").strip("/")
-        return posts_for_theme(slug, query), "200 OK", "text/html; charset=utf-8"
+    if path.startswith("/topics/"):
+        slug = path.removeprefix("/topics/").strip("/")
+        return posts_for_topic(slug, query), "200 OK", "text/html; charset=utf-8"
     return not_found(), "404 Not Found", "text/html; charset=utf-8"
 
 

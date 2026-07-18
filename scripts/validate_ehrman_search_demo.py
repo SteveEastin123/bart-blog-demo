@@ -10,14 +10,14 @@ from ehrman_demo_data import (
     DEFAULT_CATEGORY_GROUPS_PATH,
     DEFAULT_DEMO_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
-    DEFAULT_THEMES_PATH,
+    DEFAULT_TOPICS_PATH,
     build_demo_payloads,
     clean_string,
     date_sort_value,
     load_categories,
     load_category_groups,
     load_posts,
-    load_themes,
+    load_topics,
     normalize_keyword,
     unique_strings,
 )
@@ -78,8 +78,8 @@ def validate_categories(
         if not description:
             errors.append(f"{label} is missing a description")
 
-        if "themes" in category:
-            errors.append(f"{label} should not contain a themes field; use ehrman_post_themes.json")
+        if "topics" in category:
+            errors.append(f"{label} should not contain a topics field; use ehrman_post_topics.json")
 
     if has_case_duplicates(category_names):
         errors.append("Category names include duplicates that differ only by case")
@@ -151,25 +151,25 @@ def validate_category_groups(
     return {name for name in group_names if name}
 
 
-def validate_themes(
-    themes: list[dict[str, Any]],
+def validate_topics(
+    topics: list[dict[str, Any]],
     category_names: set[str],
-    post_theme_counts: dict[str, int],
-    all_post_themes: set[str],
+    post_topic_counts: dict[str, int],
+    all_post_topics: set[str],
     errors: list[str],
     warnings: list[str],
 ) -> set[str]:
-    theme_names: list[str] = []
-    linked_themes: set[str] = set()
+    topic_names: list[str] = []
+    linked_topics: set[str] = set()
 
-    for index, theme in enumerate(themes, start=1):
-        label = f"theme #{index}"
-        name = require_string(theme, "name", label, errors)
+    for index, topic in enumerate(topics, start=1):
+        label = f"topic #{index}"
+        name = require_string(topic, "name", label, errors)
         if name:
-            theme_names.append(name)
-            label = f"theme {name!r}"
+            topic_names.append(name)
+            label = f"topic {name!r}"
 
-        description = clean_string(theme.get("description", ""))
+        description = clean_string(topic.get("description", ""))
         if not description:
             errors.append(f"{label} is missing a description")
         elif "\n" in description or "\r" in description:
@@ -177,10 +177,10 @@ def validate_themes(
         elif not description.endswith("."):
             warnings.append(f"{label} description does not end with a period")
 
-        categories = unique_strings(theme.get("categories", []))
-        if not isinstance(theme.get("categories", []), list):
+        categories = unique_strings(topic.get("categories", []))
+        if not isinstance(topic.get("categories", []), list):
             errors.append(f"{label} has a non-list categories field")
-        if name != "Ignore" and theme.get("displayInBrowser", True) is not False and not categories:
+        if name != "Ignore" and topic.get("displayInBrowser", True) is not False and not categories:
             warnings.append(f"{label} has no linked categories")
         if categories != sorted_casefold(categories):
             warnings.append(f"{label} categories are not alphabetical")
@@ -189,20 +189,20 @@ def validate_themes(
                 errors.append(f"{label} links unknown category {category_name!r}")
 
         if name:
-            linked_themes.add(name)
-            if name != "Ignore" and post_theme_counts.get(name, 0) == 0:
-                errors.append(f"{label} exists, but no post uses that theme")
+            linked_topics.add(name)
+            if name != "Ignore" and post_topic_counts.get(name, 0) == 0:
+                errors.append(f"{label} exists, but no post uses that topic")
 
-    if has_case_duplicates(theme_names):
-        errors.append("Theme names include duplicates that differ only by case")
-    if theme_names != sorted_casefold(theme_names):
-        warnings.append("Theme names are not alphabetical")
+    if has_case_duplicates(topic_names):
+        errors.append("Topic names include duplicates that differ only by case")
+    if topic_names != sorted_casefold(topic_names):
+        warnings.append("Topic names are not alphabetical")
 
-    missing_theme_metadata = sorted(all_post_themes - linked_themes, key=str.casefold)
-    if missing_theme_metadata:
-        errors.append("Themes used by posts but missing from ehrman_post_themes.json: " + ", ".join(missing_theme_metadata))
+    missing_topic_metadata = sorted(all_post_topics - linked_topics, key=str.casefold)
+    if missing_topic_metadata:
+        errors.append("Topics used by posts but missing from ehrman_post_topics.json: " + ", ".join(missing_topic_metadata))
 
-    return linked_themes
+    return linked_topics
 
 
 def validate_posts(
@@ -212,8 +212,8 @@ def validate_posts(
 ) -> tuple[dict[str, int], set[str]]:
     urls: set[str] = set()
     titles: set[str] = set()
-    post_theme_counts: dict[str, int] = {}
-    all_post_themes: set[str] = set()
+    post_topic_counts: dict[str, int] = {}
+    all_post_topics: set[str] = set()
 
     for index, post in enumerate(posts, start=1):
         title = require_string(post, "title", f"post #{index}", errors)
@@ -241,38 +241,38 @@ def validate_posts(
         elif len(description) > 360:
             warnings.append(f"Post {title!r} has a long description ({len(description)} characters)")
 
-        themes = unique_strings(post.get("themes", []))
+        topics = unique_strings(post.get("topics", []))
         secondary_keywords = unique_strings(post.get("secondaryKeywords", []))
-        if not isinstance(post.get("themes", []), list):
-            errors.append(f"Post {title!r} has a non-list themes field")
+        if not isinstance(post.get("topics", []), list):
+            errors.append(f"Post {title!r} has a non-list topics field")
         if not isinstance(post.get("secondaryKeywords", []), list):
             errors.append(f"Post {title!r} has a non-list secondaryKeywords field")
-        if not themes:
-            errors.append(f"Post {title!r} has no themes")
-        if len(themes) != len(post.get("themes", [])):
-            errors.append(f"Post {title!r} has duplicate or blank themes")
+        if not topics:
+            errors.append(f"Post {title!r} has no topics")
+        if len(topics) != len(post.get("topics", [])):
+            errors.append(f"Post {title!r} has duplicate or blank topics")
         if len(secondary_keywords) != len(post.get("secondaryKeywords", [])):
             errors.append(f"Post {title!r} has duplicate or blank secondary keywords")
 
-        for keyword in themes + secondary_keywords:
+        for keyword in topics + secondary_keywords:
             if not normalize_keyword(keyword):
                 errors.append(f"Post {title!r} has keyword that normalizes to an empty value: {keyword!r}")
 
-        for theme in themes:
-            all_post_themes.add(theme)
-            post_theme_counts[theme] = post_theme_counts.get(theme, 0) + 1
+        for topic in topics:
+            all_post_topics.add(topic)
+            post_topic_counts[topic] = post_topic_counts.get(topic, 0) + 1
 
     if len(titles) < len(posts):
         warnings.append("Some post titles are duplicated; URLs remain the unique post key")
 
-    return post_theme_counts, all_post_themes
+    return post_topic_counts, all_post_topics
 
 
 def validate_html(
     html_path: Path,
     categories: list[dict[str, Any]],
     category_groups: list[dict[str, Any]],
-    themes: list[dict[str, Any]],
+    topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     errors: list[str],
 ) -> None:
@@ -301,7 +301,7 @@ def validate_html(
         errors.append(f"Could not parse embedded demo data from {html_path}: {exc}")
         return
 
-    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, themes, posts, category_groups)
+    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, topics, posts, category_groups)
     if embedded_data != expected_data:
         errors.append("Embedded DATA in the HTML is stale; run scripts/build_ehrman_search_demo.py")
     if embedded_keyword_index != expected_keyword_index:
@@ -316,7 +316,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
-    parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
+    parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--html", type=Path, default=DEFAULT_DEMO_PATH)
     return parser.parse_args()
@@ -346,29 +346,29 @@ def main() -> int:
         return 1
 
     try:
-        themes = load_themes(args.themes)
+        topics = load_topics(args.topics)
     except Exception as exc:  # noqa: BLE001
-        print(f"Validation failed: could not load themes JSON: {exc}")
+        print(f"Validation failed: could not load topics JSON: {exc}")
         return 1
 
-    post_theme_counts, all_post_themes = validate_posts(posts, errors, warnings)
+    post_topic_counts, all_post_topics = validate_posts(posts, errors, warnings)
     category_names = validate_categories(categories, errors, warnings)
     category_group_names = validate_category_groups(category_groups, category_names, errors, warnings)
-    linked_themes = validate_themes(themes, category_names, post_theme_counts, all_post_themes, errors, warnings)
-    unlinked_themes = sorted(
-        theme
-        for theme in all_post_themes
-        if theme != "Ignore"
+    linked_topics = validate_topics(topics, category_names, post_topic_counts, all_post_topics, errors, warnings)
+    unlinked_topics = sorted(
+        topic
+        for topic in all_post_topics
+        if topic != "Ignore"
         and not any(
-            clean_string(theme_record.get("name", "")) == theme
-            and unique_strings(theme_record.get("categories", []))
-            for theme_record in themes
+            clean_string(topic_record.get("name", "")) == topic
+            and unique_strings(topic_record.get("categories", []))
+            for topic_record in topics
         )
     )
-    if unlinked_themes:
-        warnings.append("Themes used by posts but not linked to a category: " + ", ".join(unlinked_themes))
+    if unlinked_topics:
+        warnings.append("Topics used by posts but not linked to a category: " + ", ".join(unlinked_topics))
 
-    validate_html(args.html, categories, category_groups, themes, posts, errors)
+    validate_html(args.html, categories, category_groups, topics, posts, errors)
 
     if errors:
         print("Validation failed:")
@@ -384,8 +384,8 @@ def main() -> int:
     print(f"Posts: {len(posts):,}")
     print(f"Category groups: {len(category_group_names):,}")
     print(f"Categories: {len(categories):,}")
-    print(f"Unique post themes: {len(all_post_themes):,}")
-    print(f"Theme metadata records: {len(linked_themes):,}")
+    print(f"Unique post topics: {len(all_post_topics):,}")
+    print(f"Topic metadata records: {len(linked_topics):,}")
     if warnings:
         print("Warnings:")
         for warning in warnings:

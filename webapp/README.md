@@ -1,6 +1,6 @@
 # Bart Blog Demo Web App
 
-This is the database-backed proof of concept for the Ehrman blog category, theme, and keyword search demo.
+This is the database-backed proof of concept for the Ehrman blog category, topic, and keyword search demo.
 
 The app stores only post metadata:
 
@@ -10,7 +10,7 @@ The app stores only post metadata:
 - date
 - description
 - categories
-- themes
+- topics
 - secondary keywords
 
 The actual post content remains on `ehrmanblog.org`. Post titles link to the original blog URLs.

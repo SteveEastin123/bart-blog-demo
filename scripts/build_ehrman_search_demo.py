@@ -8,14 +8,14 @@ from ehrman_demo_data import (
     DEFAULT_CATEGORY_GROUPS_PATH,
     DEFAULT_DEMO_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
-    DEFAULT_THEMES_PATH,
+    DEFAULT_TOPICS_PATH,
     build_demo_payloads,
     dumps_compact,
     dumps_pretty,
     load_categories,
     load_category_groups,
     load_posts,
-    load_themes,
+    load_topics,
 )
 
 
@@ -39,14 +39,14 @@ def build_demo_html(
     template_html: str,
     categories_path: Path,
     category_groups_path: Path,
-    themes_path: Path,
+    topics_path: Path,
     search_index_path: Path,
 ) -> tuple[str, dict[str, int]]:
     categories = load_categories(categories_path)
     category_groups = load_category_groups(category_groups_path)
-    themes = load_themes(themes_path)
+    topics = load_topics(topics_path)
     posts = load_posts(search_index_path)
-    demo_data, keyword_index, keyword_suggestions = build_demo_payloads(categories, themes, posts, category_groups)
+    demo_data, keyword_index, keyword_suggestions = build_demo_payloads(categories, topics, posts, category_groups)
 
     html = replace_block(
         template_html,
@@ -67,16 +67,16 @@ def build_demo_html(
         f"{KEYWORD_SUGGESTIONS_START} {dumps_compact(keyword_suggestions)};\n",
     )
 
-    linked_themes = {
-        theme.get("name", "").strip()
-        for theme in themes
-        if theme.get("displayInBrowser", True) is not False and isinstance(theme.get("name"), str) and theme.get("name").strip()
+    linked_topics = {
+        topic.get("name", "").strip()
+        for topic in topics
+        if topic.get("displayInBrowser", True) is not False and isinstance(topic.get("name"), str) and topic.get("name").strip()
     }
     stats = {
         "posts": len(posts),
         "categories": len(categories),
         "category_groups": len(category_groups),
-        "linked_themes": len(linked_themes),
+        "linked_topics": len(linked_topics),
         "keyword_suggestions": len(keyword_suggestions),
     }
     return html, stats
@@ -84,11 +84,11 @@ def build_demo_html(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Rebuild the self-contained Ehrman search demo HTML from category, theme, and search-index JSON."
+        description="Rebuild the self-contained Ehrman search demo HTML from category, topic, and search-index JSON."
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
-    parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
+    parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--template", type=Path, default=DEFAULT_DEMO_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_DEMO_PATH)
@@ -98,7 +98,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     template_html = args.template.read_text(encoding="utf-8")
-    output_html, stats = build_demo_html(template_html, args.categories, args.category_groups, args.themes, args.search_index)
+    output_html, stats = build_demo_html(template_html, args.categories, args.category_groups, args.topics, args.search_index)
     args.output.write_text(output_html, encoding="utf-8", newline="\n")
     size_bytes = args.output.stat().st_size
     print(f"Built {args.output}")
@@ -107,7 +107,7 @@ def main() -> int:
         f"{stats['posts']} posts, "
         f"{stats['category_groups']} category groups, "
         f"{stats['categories']} categories, "
-        f"{stats['linked_themes']} linked themes, "
+        f"{stats['linked_topics']} linked topics, "
         f"{stats['keyword_suggestions']} keyword suggestions."
     )
     print(f"HTML size: {size_bytes:,} bytes")

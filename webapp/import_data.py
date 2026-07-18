@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
 DEFAULT_CATEGORY_GROUPS_PATH = ROOT / "data" / "index" / "ehrman_post_category_groups.json"
 DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
-DEFAULT_THEMES_PATH = ROOT / "data" / "index" / "ehrman_post_themes.json"
+DEFAULT_TOPICS_PATH = ROOT / "data" / "index" / "ehrman_post_topics.json"
 DEFAULT_DB_PATH = ROOT / "webapp" / "data" / "ehrman_search.db"
 
 
@@ -34,7 +34,7 @@ CREATE TABLE category_groups (
     description TEXT NOT NULL DEFAULT ''
 );
 
-CREATE TABLE themes (
+CREATE TABLE topics (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     slug TEXT NOT NULL UNIQUE,
@@ -59,10 +59,10 @@ CREATE TABLE keywords (
     normalized TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE theme_categories (
-    theme_id INTEGER NOT NULL REFERENCES themes(id) ON DELETE CASCADE,
+CREATE TABLE topic_categories (
+    topic_id INTEGER NOT NULL REFERENCES topics(id) ON DELETE CASCADE,
     category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
-    PRIMARY KEY (theme_id, category_id)
+    PRIMARY KEY (topic_id, category_id)
 );
 
 CREATE TABLE category_group_categories (
@@ -72,10 +72,10 @@ CREATE TABLE category_group_categories (
     PRIMARY KEY (category_group_id, category_id)
 );
 
-CREATE TABLE post_themes (
+CREATE TABLE post_topics (
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    theme_id INTEGER NOT NULL REFERENCES themes(id) ON DELETE CASCADE,
-    PRIMARY KEY (post_id, theme_id)
+    topic_id INTEGER NOT NULL REFERENCES topics(id) ON DELETE CASCADE,
+    PRIMARY KEY (post_id, topic_id)
 );
 
 CREATE TABLE post_keywords (
@@ -88,7 +88,7 @@ CREATE TABLE post_search_terms (
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
     label TEXT NOT NULL,
     normalized TEXT NOT NULL,
-    kind TEXT NOT NULL CHECK (kind IN ('theme', 'secondary')),
+    kind TEXT NOT NULL CHECK (kind IN ('topic', 'secondary')),
     weight INTEGER NOT NULL,
     PRIMARY KEY (post_id, normalized, kind)
 );
@@ -97,14 +97,14 @@ CREATE INDEX idx_categories_name ON categories(name COLLATE NOCASE);
 CREATE INDEX idx_categories_slug ON categories(slug);
 CREATE INDEX idx_category_groups_name ON category_groups(name COLLATE NOCASE);
 CREATE INDEX idx_category_groups_slug ON category_groups(slug);
-CREATE INDEX idx_themes_name ON themes(name COLLATE NOCASE);
-CREATE INDEX idx_themes_slug ON themes(slug);
+CREATE INDEX idx_topics_name ON topics(name COLLATE NOCASE);
+CREATE INDEX idx_topics_slug ON topics(slug);
 CREATE INDEX idx_posts_date ON posts(date_iso DESC, id DESC);
 CREATE INDEX idx_posts_title ON posts(title COLLATE NOCASE);
 CREATE INDEX idx_keywords_normalized ON keywords(normalized);
 CREATE INDEX idx_post_keywords_keyword_post ON post_keywords(keyword_id, post_id);
-CREATE INDEX idx_post_themes_theme_post ON post_themes(theme_id, post_id);
-CREATE INDEX idx_theme_categories_category_theme ON theme_categories(category_id, theme_id);
+CREATE INDEX idx_post_topics_topic_post ON post_topics(topic_id, post_id);
+CREATE INDEX idx_topic_categories_category_topic ON topic_categories(category_id, topic_id);
 CREATE INDEX idx_category_group_categories_group_position ON category_group_categories(category_group_id, position);
 CREATE INDEX idx_category_group_categories_category_group ON category_group_categories(category_id, category_group_id);
 CREATE INDEX idx_search_terms_normalized_post ON post_search_terms(normalized, post_id);
@@ -207,12 +207,12 @@ def load_category_groups(path: Path) -> list[dict[str, Any]]:
     return category_groups
 
 
-def load_themes(path: Path) -> list[dict[str, Any]]:
+def load_topics(path: Path) -> list[dict[str, Any]]:
     data = read_json(path)
-    themes = data.get("themes") if isinstance(data, dict) else data
-    if not isinstance(themes, list):
-        raise ValueError(f"{path} must contain a themes list")
-    return themes
+    topics = data.get("topics") if isinstance(data, dict) else data
+    if not isinstance(topics, list):
+        raise ValueError(f"{path} must contain a topics list")
+    return topics
 
 
 def load_posts(path: Path) -> list[dict[str, Any]]:
@@ -242,7 +242,7 @@ def build_database(
     db_path: Path = DEFAULT_DB_PATH,
     categories_path: Path = DEFAULT_CATEGORIES_PATH,
     category_groups_path: Path = DEFAULT_CATEGORY_GROUPS_PATH,
-    themes_path: Path = DEFAULT_THEMES_PATH,
+    topics_path: Path = DEFAULT_TOPICS_PATH,
     search_index_path: Path = DEFAULT_SEARCH_INDEX_PATH,
 ) -> dict[str, int]:
     db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -252,7 +252,7 @@ def build_database(
 
     categories = load_categories(categories_path)
     category_groups = load_category_groups(category_groups_path)
-    themes = load_themes(themes_path)
+    topics = load_topics(topics_path)
     posts = load_posts(search_index_path)
 
     conn = sqlite3.connect(tmp_path)
@@ -270,21 +270,21 @@ def build_database(
                 (name, unique_slug(name, used_category_slugs), clean_string(category.get("description"))),
             )
 
-        used_theme_slugs: set[str] = set()
-        for theme in themes:
-            name = clean_string(theme.get("name"))
+        used_topic_slugs: set[str] = set()
+        for topic in topics:
+            name = clean_string(topic.get("name"))
             if not name:
                 continue
             conn.execute(
                 """
-                INSERT INTO themes(name, slug, description, display_in_browser)
+                INSERT INTO topics(name, slug, description, display_in_browser)
                 VALUES (?, ?, ?, ?)
                 """,
                 (
                     name,
-                    unique_slug(name, used_theme_slugs),
-                    clean_string(theme.get("description")),
-                    0 if theme.get("displayInBrowser") is False else 1,
+                    unique_slug(name, used_topic_slugs),
+                    clean_string(topic.get("description")),
+                    0 if topic.get("displayInBrowser") is False else 1,
                 ),
             )
 
@@ -324,22 +324,22 @@ def build_database(
                     (group_id, category_id, position),
                 )
 
-        theme_ids = {
+        topic_ids = {
             row["name"]: row["id"]
-            for row in conn.execute("SELECT id, name FROM themes").fetchall()
+            for row in conn.execute("SELECT id, name FROM topics").fetchall()
         }
 
-        for theme in themes:
-            theme_name = clean_string(theme.get("name"))
-            theme_id = theme_ids.get(theme_name)
-            if not theme_id:
+        for topic in topics:
+            topic_name = clean_string(topic.get("name"))
+            topic_id = topic_ids.get(topic_name)
+            if not topic_id:
                 continue
-            for category_name in unique_strings(theme.get("categories")):
+            for category_name in unique_strings(topic.get("categories")):
                 category_id = category_ids.get(category_name)
                 if category_id:
                     conn.execute(
-                        "INSERT OR IGNORE INTO theme_categories(theme_id, category_id) VALUES (?, ?)",
-                        (theme_id, category_id),
+                        "INSERT OR IGNORE INTO topic_categories(topic_id, category_id) VALUES (?, ?)",
+                        (topic_id, category_id),
                     )
 
         for post in posts:
@@ -366,21 +366,21 @@ def build_database(
             )
             post_id = int(cur.lastrowid)
 
-            for theme_name in unique_strings(post.get("themes")):
-                theme_id = theme_ids.get(theme_name)
-                if not theme_id:
+            for topic_name in unique_strings(post.get("topics")):
+                topic_id = topic_ids.get(topic_name)
+                if not topic_id:
                     continue
-                normalized = normalize_keyword(theme_name)
+                normalized = normalize_keyword(topic_name)
                 conn.execute(
-                    "INSERT OR IGNORE INTO post_themes(post_id, theme_id) VALUES (?, ?)",
-                    (post_id, theme_id),
+                    "INSERT OR IGNORE INTO post_topics(post_id, topic_id) VALUES (?, ?)",
+                    (post_id, topic_id),
                 )
                 conn.execute(
                     """
                     INSERT OR IGNORE INTO post_search_terms(post_id, label, normalized, kind, weight)
-                    VALUES (?, ?, ?, 'theme', 5)
+                    VALUES (?, ?, ?, 'topic', 5)
                     """,
-                    (post_id, theme_name, normalized),
+                    (post_id, topic_name, normalized),
                 )
 
             for keyword in unique_strings(post.get("secondaryKeywords")):
@@ -413,7 +413,7 @@ def build_database(
             "posts": check_conn.execute("SELECT COUNT(*) FROM posts").fetchone()[0],
             "category_groups": check_conn.execute("SELECT COUNT(*) FROM category_groups").fetchone()[0],
             "categories": check_conn.execute("SELECT COUNT(*) FROM categories").fetchone()[0],
-            "themes": check_conn.execute("SELECT COUNT(*) FROM themes").fetchone()[0],
+            "topics": check_conn.execute("SELECT COUNT(*) FROM topics").fetchone()[0],
             "keywords": check_conn.execute("SELECT COUNT(*) FROM keywords").fetchone()[0],
             "search_terms": check_conn.execute("SELECT COUNT(*) FROM post_search_terms").fetchone()[0],
         }
@@ -425,18 +425,18 @@ def main() -> int:
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
-    parser.add_argument("--themes", type=Path, default=DEFAULT_THEMES_PATH)
+    parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     args = parser.parse_args()
 
-    counts = build_database(args.db, args.categories, args.category_groups, args.themes, args.search_index)
+    counts = build_database(args.db, args.categories, args.category_groups, args.topics, args.search_index)
     print(f"Built {args.db}")
     print(
         "Imported "
         f"{counts['posts']:,} posts, "
         f"{counts['category_groups']:,} category groups, "
         f"{counts['categories']:,} categories, "
-        f"{counts['themes']:,} themes, "
+        f"{counts['topics']:,} topics, "
         f"{counts['keywords']:,} secondary keywords, "
         f"{counts['search_terms']:,} searchable post terms."
     )

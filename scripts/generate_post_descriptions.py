@@ -972,12 +972,12 @@ def reader_topics_from_title(title: str) -> list[str]:
 
 
 def reader_topics_from_post(post: dict[str, Any]) -> list[str]:
-    themes = [
-        theme
-        for theme in unique_strings(post.get("themes", []))
-        if normalize_keyword(theme) != "ignore"
+    topics = [
+        topic
+        for topic in unique_strings(post.get("topics", []))
+        if normalize_keyword(topic) != "ignore"
     ]
-    return themes[:3]
+    return topics[:3]
 
 
 def reader_question_description(title: str, body: str, post: dict[str, Any]) -> str | None:
@@ -1014,13 +1014,13 @@ def join_phrases(values: list[str]) -> str:
 
 
 def fallback_description(title: str, post: dict[str, Any]) -> str:
-    themes = [
-        theme
-        for theme in unique_strings(post.get("themes", []))
-        if normalize_keyword(theme) != "ignore"
+    topics = [
+        topic
+        for topic in unique_strings(post.get("topics", []))
+        if normalize_keyword(topic) != "ignore"
     ]
-    if themes:
-        return f"{title_based_description(title, post).rstrip('.')} in connection with {join_phrases(themes[:3])}."
+    if topics:
+        return f"{title_based_description(title, post).rstrip('.')} in connection with {join_phrases(topics[:3])}."
     return f"Presents {quote_title(title)}."
 
 
@@ -1251,17 +1251,17 @@ def support_sentence_from_body(
     return candidates[0][1]
 
 
-def theme_support_sentence(post: dict[str, Any]) -> str:
-    themes = [
-        theme
-        for theme in unique_strings(post.get("themes", []))
-        if normalize_keyword(theme) != "ignore"
+def topic_support_sentence(post: dict[str, Any]) -> str:
+    topics = [
+        topic
+        for topic in unique_strings(post.get("topics", []))
+        if normalize_keyword(topic) != "ignore"
     ]
-    if not themes:
+    if not topics:
         return "It is mainly a blog notice rather than a topical essay."
-    if len(themes) == 1:
-        return f"The main topic is {themes[0]}."
-    return f"The discussion centers on {join_phrases(themes[:3])}."
+    if len(topics) == 1:
+        return f"The main topic is {topics[0]}."
+    return f"The discussion centers on {join_phrases(topics[:3])}."
 
 
 TOPIC_LABELS = {
@@ -1402,8 +1402,8 @@ def support_topic_key(topic: str) -> str:
 
 
 def support_topics(post: dict[str, Any], limit: int = 4) -> list[str]:
-    themes = unique_strings(post.get("themes", []))
-    theme_keys = {normalize_keyword(theme) for theme in themes}
+    topics = unique_strings(post.get("topics", []))
+    topic_keys = {normalize_keyword(topic) for topic in topics}
     skip = {
         "",
         "ignore",
@@ -1417,7 +1417,7 @@ def support_topics(post: dict[str, Any], limit: int = 4) -> list[str]:
     }
     topics: list[str] = []
     seen: set[str] = set()
-    for source in (themes, post.get("secondaryKeywords", [])):
+    for source in (topics, post.get("secondaryKeywords", [])):
         for topic in unique_strings(source):
             key = support_topic_key(topic)
             if key in skip or key in seen:
@@ -1436,15 +1436,15 @@ def metadata_support_sentence(post: dict[str, Any], primary: str) -> str:
     if lowered.startswith(("features", "presents blog information", "gives membership")):
         return "It is mainly a site notice rather than a topical essay."
     if not [
-        theme
-        for theme in unique_strings(post.get("themes", []))
-        if normalize_keyword(theme) != "ignore"
+        topic
+        for topic in unique_strings(post.get("topics", []))
+        if normalize_keyword(topic) != "ignore"
     ]:
         return "It is mainly a site notice rather than a topical essay."
 
     topics = support_topics(post)
     if not topics:
-        return theme_support_sentence(post)
+        return topic_support_sentence(post)
     if lowered.startswith("answers reader questions"):
         return f"The questions involve {join_phrases(topics)}."
     if lowered.startswith(("lists further reading", "summarizes")):
@@ -1471,7 +1471,7 @@ def make_two_sentence_description(
     if not second or sentence_overlap(first, second) > 0.72:
         second = support_sentence_from_body(sentences, title, post, first, used_sentence)
     if not second or sentence_overlap(first, second) > 0.72:
-        second = theme_support_sentence(post)
+        second = topic_support_sentence(post)
 
     second = normalize_sentence(second, 240)
     description = normalize_spacing(f"{first} {second}")
@@ -1538,13 +1538,13 @@ def build_description(post: dict[str, Any], raw_post: dict[str, Any] | None = No
         return ensure_description_shape(APPROVED_DESCRIPTIONS_BY_URL[url], title, post)
 
     lowered_title = title.lower()
-    themes = [
-        theme
-        for theme in unique_strings(post.get("themes", []))
-        if normalize_keyword(theme) != "ignore"
+    topics = [
+        topic
+        for topic in unique_strings(post.get("topics", []))
+        if normalize_keyword(topic) != "ignore"
     ]
 
-    if not themes or any(term in lowered_title for term in ADMIN_TITLE_TERMS):
+    if not topics or any(term in lowered_title for term in ADMIN_TITLE_TERMS):
         return ensure_description_shape(admin_description(title, body), title, post)
 
     question_description = reader_question_description(title, body, post)

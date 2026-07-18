@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
 DEFAULT_CATEGORY_GROUPS_PATH = ROOT / "data" / "index" / "ehrman_post_category_groups.json"
 DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
-DEFAULT_THEMES_PATH = ROOT / "data" / "index" / "ehrman_post_themes.json"
+DEFAULT_TOPICS_PATH = ROOT / "data" / "index" / "ehrman_post_topics.json"
 DEFAULT_DEMO_PATH = ROOT / "ehrman_search_demo.html"
 
 
@@ -50,12 +50,12 @@ def load_posts(path: Path = DEFAULT_SEARCH_INDEX_PATH) -> list[dict[str, Any]]:
     return posts
 
 
-def load_themes(path: Path = DEFAULT_THEMES_PATH) -> list[dict[str, Any]]:
+def load_topics(path: Path = DEFAULT_TOPICS_PATH) -> list[dict[str, Any]]:
     data = read_json(path)
-    themes = data.get("themes") if isinstance(data, dict) else data
-    if not isinstance(themes, list):
-        raise ValueError(f"{path} must contain a themes list")
-    return themes
+    topics = data.get("topics") if isinstance(data, dict) else data
+    if not isinstance(topics, list):
+        raise ValueError(f"{path} must contain a topics list")
+    return topics
 
 
 def normalize_keyword(value: Any) -> str:
@@ -122,9 +122,9 @@ def display_date_text(date_text: Any) -> str:
     return f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
 
 
-def build_articles_by_theme(posts: list[dict[str, Any]]) -> OrderedDict[str, list[dict[str, str]]]:
-    articles_by_theme: OrderedDict[str, list[dict[str, str]]] = OrderedDict()
-    seen_by_theme: dict[str, set[str]] = {}
+def build_posts_by_topic(posts: list[dict[str, Any]]) -> OrderedDict[str, list[dict[str, str]]]:
+    posts_by_topic: OrderedDict[str, list[dict[str, str]]] = OrderedDict()
+    seen_by_topic: dict[str, set[str]] = {}
 
     for post in posts:
         title = clean_string(post.get("title", ""))
@@ -133,51 +133,51 @@ def build_articles_by_theme(posts: list[dict[str, Any]]) -> OrderedDict[str, lis
             continue
 
         article = {"title": title, "url": url}
-        for theme in unique_strings(post.get("themes", [])):
-            articles_by_theme.setdefault(theme, [])
-            seen_by_theme.setdefault(theme, set())
-            if url in seen_by_theme[theme]:
+        for topic in unique_strings(post.get("topics", [])):
+            posts_by_topic.setdefault(topic, [])
+            seen_by_topic.setdefault(topic, set())
+            if url in seen_by_topic[topic]:
                 continue
-            seen_by_theme[theme].add(url)
-            articles_by_theme[theme].append(article)
+            seen_by_topic[topic].add(url)
+            posts_by_topic[topic].append(article)
 
-    return articles_by_theme
+    return posts_by_topic
 
 
 def build_demo_data(
     categories: list[dict[str, Any]],
-    themes: list[dict[str, Any]],
+    topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     category_groups: list[dict[str, Any]] | None = None,
 ) -> OrderedDict[str, Any]:
-    themes_by_category: dict[str, list[str]] = {}
-    theme_descriptions: OrderedDict[str, str] = OrderedDict()
-    for theme in themes:
-        if theme.get("displayInBrowser", True) is False:
+    topics_by_category: dict[str, list[str]] = {}
+    topic_descriptions: OrderedDict[str, str] = OrderedDict()
+    for topic in topics:
+        if topic.get("displayInBrowser", True) is False:
             continue
-        name = clean_string(theme.get("name", ""))
+        name = clean_string(topic.get("name", ""))
         if not name:
             continue
-        theme_descriptions[name] = clean_string(theme.get("description", ""))
-        for category_name in unique_strings(theme.get("categories", [])):
-            themes_by_category.setdefault(category_name, []).append(name)
+        topic_descriptions[name] = clean_string(topic.get("description", ""))
+        for category_name in unique_strings(topic.get("categories", [])):
+            topics_by_category.setdefault(category_name, []).append(name)
 
     demo_categories: list[OrderedDict[str, Any]] = []
     for category in categories:
         name = clean_string(category.get("name", ""))
         demo_category: OrderedDict[str, Any] = OrderedDict()
         demo_category["name"] = name
-        demo_category["themes"] = sorted(
-            unique_strings(themes_by_category.get(name, [])),
+        demo_category["topics"] = sorted(
+            unique_strings(topics_by_category.get(name, [])),
             key=str.casefold,
         )
         demo_category["description"] = clean_string(category.get("description", ""))
         demo_categories.append(demo_category)
 
-    articles_by_theme = build_articles_by_theme(posts)
+    posts_by_topic = build_posts_by_topic(posts)
     for category in demo_categories:
-        for theme in category["themes"]:
-            articles_by_theme.setdefault(theme, [])
+        for topic in category["topics"]:
+            posts_by_topic.setdefault(topic, [])
 
     demo_category_groups: list[OrderedDict[str, Any]] = []
     for category_group in category_groups or []:
@@ -193,8 +193,8 @@ def build_demo_data(
     payload: OrderedDict[str, Any] = OrderedDict()
     payload["categories"] = demo_categories
     payload["categoryGroups"] = demo_category_groups
-    payload["themeDescriptions"] = theme_descriptions
-    payload["articlesByTheme"] = articles_by_theme
+    payload["topicDescriptions"] = topic_descriptions
+    payload["articlesByTopic"] = posts_by_topic
     return payload
 
 
@@ -215,7 +215,7 @@ def build_keyword_index(posts: list[dict[str, Any]]) -> list[list[Any]]:
             date_text,
             date_sort,
             author,
-            keyword_pairs(post.get("themes", [])),
+            keyword_pairs(post.get("topics", [])),
             keyword_pairs(post.get("secondaryKeywords", [])),
             description,
         ])
@@ -248,11 +248,11 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
 
 def build_demo_payloads(
     categories: list[dict[str, Any]],
-    themes: list[dict[str, Any]],
+    topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     category_groups: list[dict[str, Any]] | None = None,
 ) -> tuple[OrderedDict[str, Any], list[list[Any]], list[list[Any]]]:
-    demo_data = build_demo_data(categories, themes, posts, category_groups)
+    demo_data = build_demo_data(categories, topics, posts, category_groups)
     keyword_index = build_keyword_index(posts)
     keyword_suggestions = build_keyword_suggestions(keyword_index)
     return demo_data, keyword_index, keyword_suggestions

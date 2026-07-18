@@ -1,5 +1,5 @@
 {
-  "themes": [
+  "topics": [
     {
       "name": "2 Thessalonians",
       "description": "Posts on 2 Thessalonians, including authorship, forgery, apocalyptic expectation, further reading, and later interpretation.",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Acts",
-      "description": "Posts on the book of Acts, including its literary features, historical reliability, major themes, theology, and account of early Christianity's spread.",
+      "description": "Posts on the book of Acts, including its literary features, historical reliability, major topics, theology, and account of early Christianity's spread.",
       "categories": [
         "Canonical Gospels and Acts"
       ],
@@ -816,7 +816,7 @@
     },
     {
       "name": "Gospel Writers",
-      "description": "Posts on the evangelists as authors and interpreters, including how they shaped traditions, arranged sources, emphasized themes, and presented Jesus differently.",
+      "description": "Posts on the evangelists as authors and interpreters, including how they shaped traditions, arranged sources, emphasized topics, and presented Jesus differently.",
       "categories": [
         "Canonical Gospels and Acts"
       ],
@@ -1271,7 +1271,7 @@
     },
     {
       "name": "Messianic Secret",
-      "description": "Posts on Mark's theme that Jesus' identity is hidden or silenced, including why Mark presents Jesus telling others not to reveal who he is.",
+      "description": "Posts on Mark's motif of Jesus' hidden or silenced identity, including why Mark presents Jesus telling others not to reveal who he is.",
       "categories": [
         "Canonical Gospels and Acts"
       ],
@@ -1287,7 +1287,7 @@
     },
     {
       "name": "Miracles (General)",
-      "description": "Posts on miracles as a broad topic, including divine action, miracle traditions, suffering, faith, and unusual claims that do not fit a narrower miracle theme.",
+      "description": "Posts on miracles as a broad topic, including divine action, miracle traditions, suffering, faith, and unusual claims that do not fit a narrower miracle topic.",
       "categories": [
         "Miracles and Supernatural Claims"
       ],
