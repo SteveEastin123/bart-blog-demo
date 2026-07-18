@@ -79,8 +79,8 @@
 
   document.querySelectorAll("[data-description-toggle]").forEach((checkbox) => {
     const contentPage = checkbox.closest(".content-page") || document;
-    const descriptions = contentPage.querySelectorAll(".post-description, .item-description, .content-description");
-    const describedTitles = contentPage.querySelectorAll(".post-title, .item-title, .described-heading");
+    const descriptions = contentPage.querySelectorAll(".post-description, .item-description");
+    const describedTitles = contentPage.querySelectorAll(".post-title, .item-title");
     checkbox.addEventListener("change", () => {
       const show = checkbox.checked;
       descriptions.forEach((description) => {
@@ -96,7 +96,7 @@
     });
   });
 
-  document.querySelectorAll(".post-title, .item-title, .described-heading").forEach((title) => {
+  document.querySelectorAll(".post-title, .item-title").forEach((title) => {
     title.setAttribute("data-tooltip", title.getAttribute("data-description") || "");
   });
 })();

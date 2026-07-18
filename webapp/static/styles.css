@@ -492,8 +492,13 @@ a:hover {
 }
 
 .hover-help {
-  color: #36596b;
+  align-items: flex-start;
+  color: var(--maroon);
+  display: flex;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 16px;
+  font-weight: 600;
+  gap: 8px;
   line-height: 24px;
   margin: 16px 0 0;
 }
@@ -508,14 +513,17 @@ a:hover {
 }
 
 .description-check {
-  display: inline-flex !important;
-  gap: 6px;
-  margin-left: 8px !important;
-  white-space: nowrap;
+  display: flex !important;
+  margin-left: 0 !important;
+  white-space: normal;
 }
 
 .description-check input {
-  width: auto;
+  accent-color: var(--link);
+  flex: 0 0 auto;
+  height: 16px;
+  margin: 4px 0 0;
+  width: 16px;
 }
 
 .post-title[data-tooltip]:hover::after,
