@@ -503,7 +503,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
             """,
             (topic["id"],),
         ).fetchall()
-    panel = keyword_panel([topic["name"]], sort)
+    panel = keyword_panel([topic["name"]], sort, descriptions_checked=True)
     inner = panel + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), topic["description"], inner)
     return render_page(topic["name"], body, active="categories")
@@ -525,7 +525,7 @@ def posts_for_category(slug: str) -> bytes:
             """,
             (category["id"],),
         ).fetchall()
-    inner = keyword_panel([], "newest") + post_list(posts, category["name"])
+    inner = keyword_panel([], "newest", descriptions_checked=True) + post_list(posts, category["name"])
     body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), category["description"], inner)
     return render_page(f"{category['name']} Posts", body, active="categories")
 
