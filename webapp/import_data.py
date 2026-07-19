@@ -62,6 +62,7 @@ CREATE TABLE keywords (
 CREATE TABLE topic_categories (
     topic_id INTEGER NOT NULL REFERENCES topics(id) ON DELETE CASCADE,
     category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+    position INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (topic_id, category_id)
 );
 
@@ -105,6 +106,7 @@ CREATE INDEX idx_keywords_normalized ON keywords(normalized);
 CREATE INDEX idx_post_keywords_keyword_post ON post_keywords(keyword_id, post_id);
 CREATE INDEX idx_post_topics_topic_post ON post_topics(topic_id, post_id);
 CREATE INDEX idx_topic_categories_category_topic ON topic_categories(category_id, topic_id);
+CREATE INDEX idx_topic_categories_category_position ON topic_categories(category_id, position, topic_id);
 CREATE INDEX idx_category_group_categories_group_position ON category_group_categories(category_group_id, position);
 CREATE INDEX idx_category_group_categories_category_group ON category_group_categories(category_id, category_group_id);
 CREATE INDEX idx_search_terms_normalized_post ON post_search_terms(normalized, post_id);
@@ -292,6 +294,13 @@ def build_database(
             row["name"]: row["id"]
             for row in conn.execute("SELECT id, name FROM categories").fetchall()
         }
+        category_topic_positions = {
+            clean_string(category.get("name")): {
+                topic_name: position
+                for position, topic_name in enumerate(unique_strings(category.get("topicOrder")), start=1)
+            }
+            for category in categories
+        }
 
         used_category_group_slugs: set[str] = set()
         for category_group in category_groups:
@@ -337,9 +346,13 @@ def build_database(
             for category_name in unique_strings(topic.get("categories")):
                 category_id = category_ids.get(category_name)
                 if category_id:
+                    position = category_topic_positions.get(category_name, {}).get(topic_name, 0)
                     conn.execute(
-                        "INSERT OR IGNORE INTO topic_categories(topic_id, category_id) VALUES (?, ?)",
-                        (topic_id, category_id),
+                        """
+                        INSERT OR IGNORE INTO topic_categories(topic_id, category_id, position)
+                        VALUES (?, ?, ?)
+                        """,
+                        (topic_id, category_id, position),
                     )
 
         for post in posts:

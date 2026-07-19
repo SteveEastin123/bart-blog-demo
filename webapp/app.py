@@ -517,7 +517,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
             LEFT JOIN post_topics pt ON pt.topic_id = t.id
             WHERE tc.category_id = ? AND t.display_in_browser = 1
             GROUP BY t.id
-            ORDER BY t.name COLLATE NOCASE
+            ORDER BY CASE WHEN tc.position > 0 THEN 0 ELSE 1 END, tc.position, t.name COLLATE NOCASE
             """,
             (category["id"],),
         ).fetchall()

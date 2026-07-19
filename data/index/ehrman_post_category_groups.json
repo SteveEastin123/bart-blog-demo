@@ -4,11 +4,11 @@
       "name": "Jesus, Gospels, and Acts",
       "description": "Covers the canonical Gospels, Acts, major New Testament figures, and traditions about Jesus' life, teachings, death, burial, and resurrection.",
       "categories": [
-        "Canonical Gospels and Acts",
-        "Historical Jesus and Context",
+        "Jesus in Historical Context",
         "Jesus Traditions and Narratives",
         "Jesus' Teachings and Social World",
         "Jesus' Death, Burial, and Resurrection",
+        "Canonical Gospels and Acts",
         "New Testament Figures"
       ]
     },
@@ -18,8 +18,8 @@
       "categories": [
         "Paul's Life, Mission, and Communities",
         "Pauline Letters, Authorship, and Texts",
-        "Pauline Theology and Ethics",
-        "Epistles"
+        "Epistles",
+        "Pauline Theology and Ethics"
       ]
     },
     {
@@ -41,40 +41,11 @@
       ]
     },
     {
-      "name": "Theology, Belief, and Supernatural Claims",
-      "description": "Covers theological beliefs and religious questions, including Christology, salvation, faith, doubt, miracles, visions, and other claims about divine or supernatural activity.",
-      "categories": [
-        "Christology",
-        "Salvation, Atonement, and Judgment",
-        "Faith, Doubt, and Nonbelief",
-        "Miracles and Supernatural Claims"
-      ]
-    },
-    {
-      "name": "Afterlife, Apocalypticism, and Suffering",
-      "description": "Covers ancient and Christian views of the end times, resurrection, heaven and hell, divine judgment, suffering/evil, and life after death.",
-      "categories": [
-        "Afterlife",
-        "Apocalypticism and Revelation",
-        "Suffering and Evil"
-      ]
-    },
-    {
       "name": "Non-Canonical Texts and Heresy",
       "description": "Covers non-canonical Christian writings, Gnostic texts, heresy, and early Christian traditions outside the New Testament.",
       "categories": [
         "Non-Canonical Texts",
         "Gnosticism and Heresy"
-      ]
-    },
-    {
-      "name": "Authorship, Forgery, and Methods",
-      "description": "Covers questions about who wrote biblical and early Christian texts, how traditions were transmitted, how scholars evaluate sources, and forgery.",
-      "categories": [
-        "Authorship",
-        "Forgery",
-        "Historical Methods and Criticism",
-        "Memory and Oral Tradition"
       ]
     },
     {
@@ -88,13 +59,42 @@
       ]
     },
     {
+      "name": "Authorship, Forgery, and Methods",
+      "description": "Covers questions about who wrote biblical and early Christian texts, how traditions were transmitted, how scholars evaluate sources, and forgery.",
+      "categories": [
+        "Authorship",
+        "Forgery",
+        "Historical Methods and Criticism",
+        "Memory and Oral Tradition"
+      ]
+    },
+    {
+      "name": "Theology, Belief, and Supernatural Claims",
+      "description": "Covers theological beliefs and religious questions, including Christology, salvation, faith, doubt, miracles, visions, and other claims about divine or supernatural activity.",
+      "categories": [
+        "Christology",
+        "Salvation, Atonement, and Judgment",
+        "Miracles and Supernatural Claims",
+        "Faith, Doubt, and Nonbelief"
+      ]
+    },
+    {
+      "name": "Afterlife, Apocalypticism, and Suffering",
+      "description": "Covers ancient and Christian views of the end times, resurrection, heaven and hell, divine judgment, suffering/evil, and life after death.",
+      "categories": [
+        "Apocalypticism and Revelation",
+        "Afterlife",
+        "Suffering and Evil"
+      ]
+    },
+    {
       "name": "Ancient World and Social Issues",
       "description": "Covers the ancient social, cultural, and political world around biblical texts, including Roman context, ethics, wealth and poverty, gender, and sexuality.",
       "categories": [
         "Ancient World Context",
-        "Ethics and Moral Reasoning",
         "Wealth, Poverty, and Charity",
-        "Women, Gender, and Sexuality"
+        "Women, Gender, and Sexuality",
+        "Ethics and Moral Reasoning"
       ]
     },
     {

@@ -165,11 +165,19 @@ def build_demo_data(
     demo_categories: list[OrderedDict[str, Any]] = []
     for category in categories:
         name = clean_string(category.get("name", ""))
+        topic_order = {
+            topic_name: index
+            for index, topic_name in enumerate(unique_strings(category.get("topicOrder", [])))
+        }
         demo_category: OrderedDict[str, Any] = OrderedDict()
         demo_category["name"] = name
         demo_category["topics"] = sorted(
             unique_strings(topics_by_category.get(name, [])),
-            key=str.casefold,
+            key=lambda topic_name: (
+                0 if topic_name in topic_order else 1,
+                topic_order.get(topic_name, 0),
+                topic_name.casefold(),
+            ),
         )
         demo_category["description"] = clean_string(category.get("description", ""))
         demo_categories.append(demo_category)
