@@ -202,6 +202,57 @@ def description_toggle(checked: bool = False) -> str:
     """
 
 
+def breadcrumb_nav(items: list[tuple[str, str | None]]) -> str:
+    if not items:
+        return ""
+    crumbs = []
+    for label, href in items:
+        if href:
+            content = f'<a href="{route(href)}">{esc(label)}</a>'
+        else:
+            content = f'<span aria-current="page">{esc(label)}</span>'
+        crumbs.append(f"<li>{content}</li>")
+    return f"""
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            {"".join(crumbs)}
+          </ol>
+        </nav>
+    """
+
+
+def primary_group_for_category(conn: sqlite3.Connection, category_id: int) -> sqlite3.Row | None:
+    return conn.execute(
+        """
+        SELECT cg.name, cg.slug
+        FROM category_groups cg
+        JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
+        WHERE cgc.category_id = ?
+        ORDER BY cg.id, cgc.position
+        LIMIT 1
+        """,
+        (category_id,),
+    ).fetchone()
+
+
+def category_breadcrumbs(conn: sqlite3.Connection, category: sqlite3.Row, current_label: str | None = None) -> list[tuple[str, str | None]]:
+    group = primary_group_for_category(conn, int(category["id"]))
+    if group:
+        items: list[tuple[str, str | None]] = [
+            ("Categories2", "/category-groups"),
+            (group["name"], f"/category-groups/{group['slug']}"),
+        ]
+    else:
+        items = [("Categories1", "/categories")]
+    category_label = current_label or category["name"]
+    if current_label:
+        items.append((category["name"], f"/categories/{category['slug']}"))
+        items.append((current_label, None))
+    else:
+        items.append((category_label, None))
+    return items
+
+
 def content_page(
     title: str,
     count_line: str,
@@ -211,6 +262,7 @@ def content_page(
     description_first: bool = False,
     toggle_descriptions: bool = False,
     descriptions_checked: bool = False,
+    breadcrumbs: list[tuple[str, str | None]] | None = None,
 ) -> str:
     h1_html = f"<h1>{esc(title)}</h1>"
     description_html = f'<p class="content-description">{esc(description)}</p>' if description else ""
@@ -221,6 +273,7 @@ def content_page(
     return f"""
     <section class="content-page">
       <div class="content-header">
+        {breadcrumb_nav(breadcrumbs or [])}
         {h1_html}
         {header_meta}
         {actions_html}
@@ -371,6 +424,10 @@ def category_group_page(slug: str) -> bytes:
             """,
             (category_group["id"],),
         ).fetchone()
+        breadcrumbs = [
+            ("Categories2", "/category-groups"),
+            (category_group["name"], None),
+        ]
 
     items = []
     for category in categories:
@@ -391,6 +448,7 @@ def category_group_page(slug: str) -> bytes:
         inner,
         description_first=True,
         toggle_descriptions=True,
+        breadcrumbs=breadcrumbs,
     )
     return render_page(category_group["name"], body, active="category-groups")
 
@@ -425,13 +483,14 @@ def category_page(slug: str) -> bytes:
             """,
             (category["id"],),
         ).fetchone()[0]
+        breadcrumbs = category_breadcrumbs(conn, category)
 
     items = []
     for topic in topics:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/topics/{esc(topic['slug'])}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+              <a class="item-title" href="/topics/{esc(topic['slug'])}?category={esc(category['slug'])}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
               <p class="item-description" hidden>{esc(topic['description'])}</p>
               <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
@@ -445,6 +504,7 @@ def category_page(slug: str) -> bytes:
         inner,
         description_first=True,
         toggle_descriptions=True,
+        breadcrumbs=breadcrumbs,
     )
     return render_page(category["name"], body, active="categories")
 
@@ -537,12 +597,46 @@ def post_list(posts: list[sqlite3.Row], context_topic: str = "") -> str:
     return f'<ul class="post-list">{"".join(items)}</ul>'
 
 
+def topic_context_category(
+    conn: sqlite3.Connection,
+    topic_id: int,
+    requested_category_slug: str = "",
+) -> sqlite3.Row | None:
+    if requested_category_slug:
+        row = conn.execute(
+            """
+            SELECT c.*
+            FROM categories c
+            JOIN topic_categories tc ON tc.category_id = c.id
+            WHERE tc.topic_id = ? AND c.slug = ?
+            LIMIT 1
+            """,
+            (topic_id, requested_category_slug),
+        ).fetchone()
+        if row:
+            return row
+    return conn.execute(
+        """
+        SELECT c.*
+        FROM categories c
+        JOIN topic_categories tc ON tc.category_id = c.id
+        WHERE tc.topic_id = ?
+        ORDER BY c.name COLLATE NOCASE
+        LIMIT 1
+        """,
+        (topic_id,),
+    ).fetchone()
+
+
 def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["newest"])[0]
+    requested_category_slug = query.get("category", [""])[0]
     with get_conn() as conn:
         topic = conn.execute("SELECT * FROM topics WHERE slug = ?", (slug,)).fetchone()
         if not topic:
             return not_found()
+        category = topic_context_category(conn, int(topic["id"]), requested_category_slug)
+        breadcrumbs = category_breadcrumbs(conn, category, topic["name"]) if category else []
         posts = conn.execute(
             """
             SELECT p.*
@@ -555,7 +649,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
         ).fetchall()
     panel = keyword_panel([topic["name"]], sort, descriptions_checked=True)
     inner = panel + post_list(posts, topic["name"])
-    body = content_page(topic["name"], pluralize(len(posts), "post"), topic["description"], inner)
+    body = content_page(topic["name"], pluralize(len(posts), "post"), topic["description"], inner, breadcrumbs=breadcrumbs)
     return render_page(topic["name"], body, active="categories")
 
 
@@ -564,6 +658,7 @@ def posts_for_category(slug: str) -> bytes:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
             return not_found()
+        breadcrumbs = category_breadcrumbs(conn, category, "Posts")
         posts = conn.execute(
             """
             SELECT DISTINCT p.*
@@ -576,7 +671,7 @@ def posts_for_category(slug: str) -> bytes:
             (category["id"],),
         ).fetchall()
     inner = keyword_panel([], "newest", descriptions_checked=True) + post_list(posts, category["name"])
-    body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), category["description"], inner)
+    body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), category["description"], inner, breadcrumbs=breadcrumbs)
     return render_page(f"{category['name']} Posts", body, active="categories")
 
 
