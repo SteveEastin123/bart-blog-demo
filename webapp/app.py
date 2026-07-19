@@ -6,7 +6,7 @@ import mimetypes
 import os
 import sqlite3
 from pathlib import Path
-from urllib.parse import parse_qs, unquote
+from urllib.parse import parse_qs, urlencode, unquote
 
 from .import_data import (
     DEFAULT_CATEGORIES_PATH,
@@ -221,7 +221,21 @@ def breadcrumb_nav(items: list[tuple[str, str | None]]) -> str:
     """
 
 
-def primary_group_for_category(conn: sqlite3.Connection, category_id: int) -> sqlite3.Row | None:
+def primary_group_for_category(conn: sqlite3.Connection, category_id: int, group_slug: str = "") -> sqlite3.Row | None:
+    if group_slug:
+        row = conn.execute(
+            """
+            SELECT cg.name, cg.slug
+            FROM category_groups cg
+            JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
+            WHERE cgc.category_id = ? AND cg.slug = ?
+            ORDER BY cgc.position
+            LIMIT 1
+            """,
+            (category_id, group_slug),
+        ).fetchone()
+        if row:
+            return row
     return conn.execute(
         """
         SELECT cg.name, cg.slug
@@ -235,8 +249,39 @@ def primary_group_for_category(conn: sqlite3.Connection, category_id: int) -> sq
     ).fetchone()
 
 
-def category_breadcrumbs(conn: sqlite3.Connection, category: sqlite3.Row, current_label: str | None = None) -> list[tuple[str, str | None]]:
-    group = primary_group_for_category(conn, int(category["id"]))
+def category_context_query(source: str = "", group_slug: str = "") -> str:
+    if source == "categories1":
+        return "?" + urlencode({"source": "categories1"})
+    if group_slug:
+        return "?" + urlencode({"group": group_slug})
+    return ""
+
+
+def category_href(category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
+    return f"/categories/{category['slug']}{category_context_query(source, group_slug)}"
+
+
+def category_posts_href(category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
+    return f"/categories/{category['slug']}/posts{category_context_query(source, group_slug)}"
+
+
+def topic_href(topic: sqlite3.Row, category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
+    params = {"category": category["slug"]}
+    if source == "categories1":
+        params["source"] = "categories1"
+    elif group_slug:
+        params["group"] = group_slug
+    return f"/topics/{topic['slug']}?{urlencode(params)}"
+
+
+def category_breadcrumbs(
+    conn: sqlite3.Connection,
+    category: sqlite3.Row,
+    current_label: str | None = None,
+    source: str = "",
+    group_slug: str = "",
+) -> list[tuple[str, str | None]]:
+    group = None if source == "categories1" else primary_group_for_category(conn, int(category["id"]), group_slug)
     if group:
         items: list[tuple[str, str | None]] = [
             ("Categories2", "/category-groups"),
@@ -246,7 +291,7 @@ def category_breadcrumbs(conn: sqlite3.Connection, category: sqlite3.Row, curren
         items = [("Categories1", "/categories")]
     category_label = current_label or category["name"]
     if current_label:
-        items.append((category["name"], f"/categories/{category['slug']}"))
+        items.append((category["name"], category_href(category, source, group["slug"] if group else "")))
         items.append((current_label, None))
     else:
         items.append((category_label, None))
@@ -343,7 +388,7 @@ def categories_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <a class="item-title" href="/categories/{esc(row['slug'])}?source=categories1" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
               <p class="item-description" hidden>{esc(row['description'])}</p>
               <p class="item-meta">{pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
@@ -434,7 +479,7 @@ def category_group_page(slug: str) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(category['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
+              <a class="item-title" href="/categories/{esc(category['slug'])}?group={esc(category_group['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
               <p class="item-description" hidden>{esc(category['description'])}</p>
               <p class="item-meta">{pluralize(category['topic_count'], 'topic')} | {pluralize(category['post_count'], 'post')}</p>
             </li>
@@ -453,7 +498,9 @@ def category_group_page(slug: str) -> bytes:
     return render_page(category_group["name"], body, active="category-groups")
 
 
-def category_page(slug: str) -> bytes:
+def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
+    source = query.get("source", [""])[0]
+    group_slug = query.get("group", [""])[0]
     with get_conn() as conn:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
@@ -483,14 +530,14 @@ def category_page(slug: str) -> bytes:
             """,
             (category["id"],),
         ).fetchone()[0]
-        breadcrumbs = category_breadcrumbs(conn, category)
+        breadcrumbs = category_breadcrumbs(conn, category, source=source, group_slug=group_slug)
 
     items = []
     for topic in topics:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/topics/{esc(topic['slug'])}?category={esc(category['slug'])}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+              <a class="item-title" href="{esc(topic_href(topic, category, source, group_slug))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
               <p class="item-description" hidden>{esc(topic['description'])}</p>
               <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
@@ -631,12 +678,14 @@ def topic_context_category(
 def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["newest"])[0]
     requested_category_slug = query.get("category", [""])[0]
+    source = query.get("source", [""])[0]
+    group_slug = query.get("group", [""])[0]
     with get_conn() as conn:
         topic = conn.execute("SELECT * FROM topics WHERE slug = ?", (slug,)).fetchone()
         if not topic:
             return not_found()
         category = topic_context_category(conn, int(topic["id"]), requested_category_slug)
-        breadcrumbs = category_breadcrumbs(conn, category, topic["name"]) if category else []
+        breadcrumbs = category_breadcrumbs(conn, category, topic["name"], source, group_slug) if category else []
         posts = conn.execute(
             """
             SELECT p.*
@@ -653,12 +702,14 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     return render_page(topic["name"], body, active="categories")
 
 
-def posts_for_category(slug: str) -> bytes:
+def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
+    source = query.get("source", [""])[0]
+    group_slug = query.get("group", [""])[0]
     with get_conn() as conn:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
             return not_found()
-        breadcrumbs = category_breadcrumbs(conn, category, "Posts")
+        breadcrumbs = category_breadcrumbs(conn, category, "Posts", source, group_slug)
         posts = conn.execute(
             """
             SELECT DISTINCT p.*
@@ -923,13 +974,13 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return health_page(), "200 OK", "application/json; charset=utf-8"
     if path.startswith("/categories/") and path.endswith("/posts"):
         slug = path.removeprefix("/categories/").removesuffix("/posts").strip("/")
-        return posts_for_category(slug), "200 OK", "text/html; charset=utf-8"
+        return posts_for_category(slug, query), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/category-groups/"):
         slug = path.removeprefix("/category-groups/").strip("/")
         return category_group_page(slug), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/categories/"):
         slug = path.removeprefix("/categories/").strip("/")
-        return category_page(slug), "200 OK", "text/html; charset=utf-8"
+        return category_page(slug, query), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/topics/"):
         slug = path.removeprefix("/topics/").strip("/")
         return posts_for_topic(slug, query), "200 OK", "text/html; charset=utf-8"
