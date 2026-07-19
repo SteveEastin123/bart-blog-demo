@@ -695,7 +695,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY is_topic DESC, match_quality DESC, post_count DESC, label COLLATE NOCASE
+            ORDER BY match_quality DESC, is_topic DESC, post_count DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
             (q, prefix_like, word_prefix_like, *params),
