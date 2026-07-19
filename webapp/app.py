@@ -415,15 +415,21 @@ def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str
     values = (prefill or [])[:4]
     while len(values) < 4:
         values.append("")
-    options = {
-        "ranked": "Ranked",
-        "newest": "Newest first",
-        "oldest": "Oldest first",
-        "title": "Title A-Z",
-    }
+    options = (
+        ("ranked", "Ranked"),
+        ("newest", "Newest first"),
+        ("oldest", "Oldest first"),
+    )
+    if sort not in {value for value, _ in options}:
+        sort = "ranked"
     sort_options = "".join(
-        f'<option value="{esc(value)}"{" selected" if value == sort else ""}>{esc(label)}</option>'
-        for value, label in options.items()
+        f"""
+        <label class="sort-choice">
+          <input type="radio" name="sort" value="{esc(value)}"{" checked" if value == sort else ""}>
+          <span>{esc(label)}</span>
+        </label>
+        """
+        for value, label in options
     )
     inputs = "".join(
         f"""
@@ -439,8 +445,8 @@ def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str
       <label>Enter up to four keywords. Keywords can be single words or phrases.</label>
       <div class="keyword-grid">{inputs}</div>
       <div class="sort-row">
-        <label for="sort">Sort by</label>
-        <select id="sort" name="sort">{sort_options}</select>
+        <span class="sort-label">Sort by</span>
+        {sort_options}
       </div>
       <button type="submit">Search</button>
     </form>
@@ -549,6 +555,8 @@ def title_match_boost(title: str, term: str) -> int:
 
 
 def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[str]]:
+    if sort not in {"ranked", "newest", "oldest"}:
+        sort = "ranked"
     clean_terms = [term for term in (clean.strip() for clean in terms) if term]
     if not clean_terms:
         return [], []
@@ -582,8 +590,6 @@ def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[s
             return (row["date_iso"], row["id"])
         if sort == "oldest":
             return (row["date_iso"], row["id"])
-        if sort == "title":
-            return (row["title"].casefold(),)
         return (matches[int(row["id"])], row["date_iso"], row["id"])
 
     reverse = sort in {"ranked", "newest"}

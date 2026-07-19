@@ -413,8 +413,7 @@ a:hover {
   position: relative;
 }
 
-.keyword-search-panel input,
-.keyword-search-panel select {
+.keyword-search-panel .keyword-input {
   border: 1px solid var(--line);
   border-radius: 4px;
   color: #000000;
@@ -426,14 +425,32 @@ a:hover {
 .sort-row {
   align-items: center;
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   margin-bottom: 14px;
-  max-width: 320px;
 }
 
-.sort-row label {
+.sort-label {
+  color: #000000;
+  font-size: 15px;
+  line-height: 24px;
+  margin-right: 2px;
+}
+
+.keyword-search-panel .sort-choice {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 6px;
   margin: 0;
   white-space: nowrap;
+}
+
+.keyword-search-panel .sort-choice input {
+  accent-color: var(--link);
+  height: 15px;
+  margin: 0;
+  width: 15px;
 }
 
 .keyword-suggestion-list {
