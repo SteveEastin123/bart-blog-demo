@@ -534,14 +534,15 @@ def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int
     normalized = normalize_keyword(term)
     if not normalized:
         return {}
+    padded_like = f"% {normalized} %"
     rows = conn.execute(
         """
         SELECT post_id, MAX(weight + CASE WHEN normalized = ? THEN 2 ELSE 0 END) AS score
         FROM post_search_terms
-        WHERE normalized = ? OR normalized LIKE ?
+        WHERE normalized = ? OR (' ' || normalized || ' ') LIKE ?
         GROUP BY post_id
         """,
-        (normalized, normalized, f"%{normalized}%"),
+        (normalized, normalized, padded_like),
     ).fetchall()
     return {int(row["post_id"]): int(row["score"]) for row in rows}
 
@@ -555,7 +556,7 @@ def title_match_boost(title: str, term: str) -> int:
     padded_term = f" {normalized_term} "
     if padded_term in padded_title:
         return 2
-    if " " not in normalized_term and any(normalized_term in word for word in normalized_title.split()):
+    if " " not in normalized_term and any(normalized_term == word for word in normalized_title.split()):
         return 1
     return 0
 
@@ -633,9 +634,12 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             matches = set(find_post_ids_for_term(conn, value).keys())
             selected_ids = matches if selected_ids is None else selected_ids & matches
         prefix_like = f"{q}%"
-        contains_like = f"%{q}%"
-        params: list[object] = [contains_like]
-        where = "normalized LIKE ? AND normalized <> 'ignore'"
+        word_prefix_like = f"% {q}%"
+        params: list[object] = []
+        where = "normalized <> 'ignore'"
+        if q:
+            where += " AND (normalized LIKE ? OR normalized LIKE ?)"
+            params.extend([prefix_like, word_prefix_like])
         if selected_ids is not None:
             if not selected_ids:
                 return json.dumps([], ensure_ascii=False).encode("utf-8")
@@ -659,6 +663,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 CASE
                     WHEN normalized = ? THEN 3
                     WHEN normalized LIKE ? THEN 2
+                    WHEN normalized LIKE ? THEN 1
                     ELSE 1
                 END AS match_quality
             FROM post_search_terms
@@ -667,7 +672,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             ORDER BY is_topic DESC, match_quality DESC, post_count DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
-            (q, prefix_like, *params),
+            (q, prefix_like, word_prefix_like, *params),
         ).fetchall()
     return json.dumps(
         [
