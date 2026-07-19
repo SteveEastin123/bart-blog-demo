@@ -501,7 +501,10 @@ def keyword_panel(
         <span class="sort-label">Sort by</span>
         {sort_options}
       </div>
-      <button type="submit">Search</button>
+      <div class="keyword-action-row">
+        <button type="submit">Search</button>
+        <button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button>
+      </div>
     </form>
     <div class="search-description-toggle">
       {description_toggle(descriptions_checked)}

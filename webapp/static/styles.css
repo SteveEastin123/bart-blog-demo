@@ -500,6 +500,36 @@ a:hover {
   width: 15px;
 }
 
+.keyword-action-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.keyword-clear-button {
+  background: transparent;
+  border: 0;
+  color: var(--maroon);
+  cursor: pointer;
+  font: 700 15px/22px "Open Sans", Arial, Helvetica, sans-serif;
+  padding: 8px 0;
+}
+
+.keyword-clear-button:hover,
+.keyword-clear-button:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.keyword-clear-button:disabled {
+  color: var(--muted);
+  cursor: default;
+  opacity: 0.65;
+  text-decoration: none;
+}
+
 .keyword-suggestion-list {
   background: #ffffff;
   border: 1px solid var(--line);

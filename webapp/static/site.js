@@ -62,11 +62,16 @@
   }
 
   function updateKeywordEntryState(form) {
+    if (!form) return;
     const input = form.querySelector(".keyword-input");
     if (!input) return;
     const values = selectedValues(form, input);
     input.placeholder = `Keyword ${Math.min(values.length + 1, MAX_KEYWORDS)}`;
     input.disabled = values.length >= MAX_KEYWORDS;
+    const clearButton = form.querySelector("[data-clear-keywords]");
+    if (clearButton) {
+      clearButton.disabled = values.length === 0 && !input.value.trim();
+    }
     const wrap = keywordEntryWrap(form);
     if (wrap) {
       wrap.hidden = values.length >= MAX_KEYWORDS;
@@ -131,6 +136,22 @@
       window.location.href = keywordSearchUrl(form, input);
     });
     form.addEventListener("click", (event) => {
+      const clearButton = event.target.closest("[data-clear-keywords]");
+      if (clearButton && form.contains(clearButton)) {
+        event.preventDefault();
+        keywordChipList(form)?.querySelectorAll(".keyword-chip").forEach((chip) => chip.remove());
+        const input = form.querySelector(".keyword-input");
+        if (!input) return;
+        input.value = "";
+        updateKeywordEntryState(form);
+        input.focus({ preventScroll: true });
+        if (form.dataset.refreshOnRemove === "true") {
+          window.location.href = keywordSearchUrl(form, input);
+          return;
+        }
+        fetchSuggestions(input);
+        return;
+      }
       const removeButton = event.target.closest("[data-remove-keyword]");
       if (!removeButton || !form.contains(removeButton)) return;
       removeButton.closest(".keyword-chip")?.remove();
@@ -153,6 +174,7 @@
     };
     input.addEventListener("input", () => {
       clearTimeout(timer);
+      updateKeywordEntryState(input.closest("[data-keyword-form]"));
       timer = setTimeout(() => fetchSuggestions(input), 90);
     });
     input.addEventListener("focus", showSuggestions);
