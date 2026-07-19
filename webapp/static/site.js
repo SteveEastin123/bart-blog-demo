@@ -77,11 +77,15 @@
     }
   });
 
+  document.querySelectorAll(".post-title, .item-title").forEach((title) => {
+    title.setAttribute("data-tooltip", title.getAttribute("data-description") || "");
+  });
+
   document.querySelectorAll("[data-description-toggle]").forEach((checkbox) => {
     const contentPage = checkbox.closest(".content-page") || document;
     const descriptions = contentPage.querySelectorAll(".post-description, .item-description");
     const describedTitles = contentPage.querySelectorAll(".post-title, .item-title");
-    checkbox.addEventListener("change", () => {
+    const applyDescriptionState = () => {
       const show = checkbox.checked;
       descriptions.forEach((description) => {
         description.hidden = !show;
@@ -93,10 +97,8 @@
           title.setAttribute("data-tooltip", title.getAttribute("data-description") || "");
         }
       });
-    });
-  });
-
-  document.querySelectorAll(".post-title, .item-title").forEach((title) => {
-    title.setAttribute("data-tooltip", title.getAttribute("data-description") || "");
+    };
+    checkbox.addEventListener("change", applyDescriptionState);
+    applyDescriptionState();
   });
 })();

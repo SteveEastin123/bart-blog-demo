@@ -156,11 +156,12 @@ def render_page(title: str, body: str, active: str = "") -> bytes:
     return html_doc.encode("utf-8")
 
 
-def description_toggle() -> str:
-    return """
+def description_toggle(checked: bool = False) -> str:
+    checked_attr = " checked" if checked else ""
+    return f"""
         <label class="hover-help description-check">
-          <input type="checkbox" data-description-toggle>
-          <span>Hover over a title to see a short description or check box to display all descriptions.</span>
+          <input type="checkbox" data-description-toggle{checked_attr}>
+          <span>Display descriptions</span>
         </label>
     """
 
@@ -173,13 +174,14 @@ def content_page(
     actions: str = "",
     description_first: bool = False,
     toggle_descriptions: bool = False,
+    descriptions_checked: bool = False,
 ) -> str:
     h1_html = f"<h1>{esc(title)}</h1>"
     description_html = f'<p class="content-description">{esc(description)}</p>' if description else ""
     actions_html = f'<div class="content-actions">{actions}</div>' if actions else ""
     count_html = f'<p class="count-line">{esc(count_line)}</p>'
     header_meta = description_html + count_html if description_first else count_html + description_html
-    toggle_html = description_toggle() if toggle_descriptions else ""
+    toggle_html = description_toggle(descriptions_checked) if toggle_descriptions else ""
     return f"""
     <section class="content-page">
       <div class="content-header">
@@ -411,7 +413,11 @@ def category_page(slug: str) -> bytes:
     return render_page(category["name"], body, active="categories")
 
 
-def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str:
+def keyword_panel(
+    prefill: list[str] | None = None,
+    sort: str = "ranked",
+    descriptions_checked: bool = False,
+) -> str:
     values = (prefill or [])[:4]
     while len(values) < 4:
         values.append("")
@@ -451,7 +457,7 @@ def keyword_panel(prefill: list[str] | None = None, sort: str = "ranked") -> str
       <button type="submit">Search</button>
     </form>
     <div class="search-description-toggle">
-      {description_toggle()}
+      {description_toggle(descriptions_checked)}
     </div>
     """
 
@@ -600,7 +606,7 @@ def keyword_search_page() -> bytes:
     body = content_page(
         "Keyword Search",
         "Search posts by keyword",
-        inner=keyword_panel(),
+        inner=keyword_panel(descriptions_checked=True),
     )
     return render_page("Keyword Search", body, active="keyword-search")
 
@@ -610,7 +616,7 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
     posts, clean_terms = search_posts(terms, sort)
     title = "Keywords: " + " + ".join(clean_terms) if clean_terms else "Keyword Search"
-    panel = keyword_panel(clean_terms, sort)
+    panel = keyword_panel(clean_terms, sort, descriptions_checked=True)
     inner = panel + post_list(posts, "Keyword Search")
     body = content_page(title, pluralize(len(posts), "post"), inner=inner)
     return render_page(title, body, active="keyword-search")
