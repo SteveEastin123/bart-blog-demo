@@ -294,7 +294,7 @@ a:hover {
 }
 
 .button-link,
-.keyword-search-panel button {
+.keyword-search-panel button[type="submit"] {
   background: var(--link);
   border: 1px solid var(--link);
   border-radius: 4px;
@@ -307,8 +307,8 @@ a:hover {
 }
 
 .button-link:hover,
-.keyword-search-panel button:hover,
-.keyword-search-panel button:focus-visible {
+.keyword-search-panel button[type="submit"]:hover,
+.keyword-search-panel button[type="submit"]:focus-visible {
   background: var(--link-hover);
   border-color: var(--link-hover);
   color: #ffffff;
@@ -403,10 +403,57 @@ a:hover {
 }
 
 .keyword-grid {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 14px;
+  max-width: 520px;
+}
+
+.keyword-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.keyword-chip-list:empty {
+  display: none;
+}
+
+.keyword-chip {
+  align-items: center;
+  background: #f7f2ed;
+  border: 1px solid #d7c9a5;
+  border-radius: 4px;
+  color: #000000;
+  display: inline-flex;
+  font: 600 14px/20px "Open Sans", Arial, Helvetica, sans-serif;
+  gap: 7px;
+  padding: 5px 7px 5px 9px;
+}
+
+.keyword-chip-remove {
+  background: transparent;
+  border: 0;
+  color: var(--maroon);
+  cursor: pointer;
+  font: 700 14px/18px "Open Sans", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0 2px;
+}
+
+.keyword-chip-remove:hover,
+.keyword-chip-remove:focus-visible {
+  color: #000000;
+  outline: 1px solid var(--maroon);
+  outline-offset: 2px;
+}
+
+.keyword-limit-note {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
 }
 
 .keyword-input-wrap {

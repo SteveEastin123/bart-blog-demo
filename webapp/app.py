@@ -55,6 +55,21 @@ def pluralize(count: int, singular: str, plural: str | None = None) -> str:
     return f"{count:,} {word}"
 
 
+def unique_terms(terms: list[str] | None) -> list[str]:
+    values: list[str] = []
+    seen: set[str] = set()
+    for term in terms or []:
+        value = term.strip()
+        if not value:
+            continue
+        key = normalize_keyword(value)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        values.append(value)
+    return values
+
+
 def format_date_range(conn: sqlite3.Connection) -> str:
     row = conn.execute(
         """
@@ -417,10 +432,9 @@ def keyword_panel(
     prefill: list[str] | None = None,
     sort: str = "ranked",
     descriptions_checked: bool = False,
+    refresh_on_remove: bool = False,
 ) -> str:
-    values = (prefill or [])[:4]
-    while len(values) < 4:
-        values.append("")
+    values = unique_terms(prefill)[:4]
     options = (
         ("ranked", "Ranked"),
         ("newest", "Newest first"),
@@ -437,19 +451,31 @@ def keyword_panel(
         """
         for value, label in options
     )
-    inputs = "".join(
+    chips = "".join(
         f"""
-        <div class="keyword-input-wrap">
-          <input class="keyword-input" name="keyword" value="{esc(value)}" placeholder="Keyword {idx}" autocomplete="off" {"autofocus" if idx == 1 and not value else ""}>
+        <span class="keyword-chip">
+          <input type="hidden" name="keyword" value="{esc(value)}">
+          <span>{esc(value)}</span>
+          <button type="button" class="keyword-chip-remove" data-remove-keyword aria-label="Remove {esc(value)}">x</button>
+        </span>
+        """
+        for value in values
+    )
+    next_index = len(values) + 1
+    entry = f"""
+        <div class="keyword-input-wrap"{" hidden" if len(values) >= 4 else ""}>
+          <input class="keyword-input" name="keyword" value="" placeholder="Keyword {min(next_index, 4)}" autocomplete="off" {"autofocus" if not values else ""}{" disabled" if len(values) >= 4 else ""}>
           <ul class="keyword-suggestion-list" hidden></ul>
         </div>
-        """
-        for idx, value in enumerate(values, start=1)
-    )
+    """
+    refresh_attr = ' data-refresh-on-remove="true"' if refresh_on_remove else ""
     return f"""
-    <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form>
+    <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form{refresh_attr}>
       <label>Enter up to four keywords. Keywords can be single words or phrases.</label>
-      <div class="keyword-grid">{inputs}</div>
+      <div class="keyword-grid">
+        <div class="keyword-chip-list" data-keyword-chip-list>{chips}</div>
+        {entry}
+      </div>
       <div class="sort-row">
         <span class="sort-label">Sort by</span>
         {sort_options}
@@ -564,7 +590,7 @@ def title_match_boost(title: str, term: str) -> int:
 def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[str]]:
     if sort not in {"ranked", "newest", "oldest"}:
         sort = "ranked"
-    clean_terms = [term for term in (clean.strip() for clean in terms) if term]
+    clean_terms = unique_terms(terms)
     if not clean_terms:
         return [], []
     with get_conn() as conn:
@@ -617,7 +643,7 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
     posts, clean_terms = search_posts(terms, sort)
     title = "Keywords: " + " + ".join(clean_terms) if clean_terms else "Keyword Search"
-    panel = keyword_panel(clean_terms, sort, descriptions_checked=True)
+    panel = keyword_panel(clean_terms, sort, descriptions_checked=True, refresh_on_remove=True)
     inner = panel + post_list(posts, "Keyword Search")
     body = content_page(title, pluralize(len(posts), "post"), inner=inner)
     return render_page(title, body, active="keyword-search")
