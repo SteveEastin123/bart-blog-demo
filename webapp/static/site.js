@@ -22,20 +22,10 @@
     );
   }
 
-  function isFirstKeywordInput(input) {
-    const form = input.closest("[data-keyword-form]");
-    if (!form) return false;
-    return Array.from(form.querySelectorAll(".keyword-input"))[0] === input;
-  }
-
   async function fetchSuggestions(input) {
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
     if (!form || !list) return;
-    if (isFirstKeywordInput(input) && !input.value.trim() && !selectedValues(form, input).length) {
-      list.hidden = true;
-      return;
-    }
     const params = new URLSearchParams();
     params.set("q", input.value.trim());
     selectedValues(form, input).forEach((value) => params.append("selected", value));
@@ -152,24 +142,13 @@
         window.location.href = keywordSearchUrl(form, input);
         return;
       }
-      if (input.value.trim() || selectedValues(form, input).length) {
-        fetchSuggestions(input);
-      } else {
-        const list = input.parentElement.querySelector(".keyword-suggestion-list");
-        if (list) list.hidden = true;
-      }
+      fetchSuggestions(input);
     });
   });
 
   document.querySelectorAll(".keyword-input").forEach((input) => {
     let timer = null;
     const showSuggestions = () => {
-      const form = input.closest("[data-keyword-form]");
-      if (isFirstKeywordInput(input) && !input.value.trim() && !selectedValues(form, input).length) {
-        const list = input.parentElement.querySelector(".keyword-suggestion-list");
-        if (list) list.hidden = true;
-        return;
-      }
       fetchSuggestions(input);
     };
     input.addEventListener("input", () => {

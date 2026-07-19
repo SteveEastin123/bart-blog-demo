@@ -23,6 +23,27 @@ ROOT = Path(__file__).resolve().parents[1]
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 DB_PATH = Path(os.environ.get("EHRMAN_DB_PATH", DEFAULT_DB_PATH))
 
+STARTER_TOPIC_LABELS = (
+    "Gospel of Luke",
+    "Gospel of Mark",
+    "Gospel of Matthew",
+    "Gospel of John",
+    "Jesus' Teachings",
+    "Historical Jesus (General)",
+    "Pauline Letters",
+    "Textual Variants",
+    "Scribal Changes",
+    "Original Text",
+    "Biblical Contradictions",
+    "Canon",
+    "Revelation",
+    "Birth Narrative",
+    "Resurrection of Jesus",
+    "Heaven/Hell",
+    "Forgery (General)",
+    "Early Christianity (General)",
+)
+
 
 def ensure_database() -> None:
     if not DB_PATH.exists():
@@ -649,12 +670,38 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     return render_page(title, body, active="keyword-search")
 
 
+def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, object]]:
+    placeholders = ",".join("?" for _ in STARTER_TOPIC_LABELS)
+    rows = conn.execute(
+        f"""
+        SELECT label, normalized, COUNT(DISTINCT post_id) AS post_count
+        FROM post_search_terms
+        WHERE kind = 'topic' AND label IN ({placeholders})
+        GROUP BY label, normalized
+        """,
+        STARTER_TOPIC_LABELS,
+    ).fetchall()
+    by_label = {row["label"]: row for row in rows}
+    return [
+        {
+            "label": row["label"],
+            "normalized": row["normalized"],
+            "postCount": row["post_count"],
+            "isTopic": True,
+        }
+        for label in STARTER_TOPIC_LABELS
+        if (row := by_label.get(label)) is not None
+    ]
+
+
 def api_keywords(query: dict[str, list[str]]) -> bytes:
     q = normalize_keyword(query.get("q", [""])[0])
     selected = [value for value in query.get("selected", []) if value.strip()]
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
     limit = 18
     with get_conn() as conn:
+        if not q and not selected_normalized:
+            return json.dumps(starter_keyword_suggestions(conn), ensure_ascii=False).encode("utf-8")
         selected_ids: set[int] | None = None
         for value in selected:
             matches = set(find_post_ids_for_term(conn, value).keys())
