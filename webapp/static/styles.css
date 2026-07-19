@@ -724,3 +724,173 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 700px) {
+  .site-utility-inner {
+    padding: 0 14px;
+  }
+
+  .site-utility-actions {
+    display: none;
+  }
+
+  .site-top {
+    gap: 12px;
+    min-height: 0;
+    padding: 12px 14px;
+  }
+
+  .site-brand {
+    flex-basis: auto;
+    gap: 10px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .site-logo-mark {
+    border-width: 3px;
+    flex-basis: 58px;
+    height: 58px;
+    width: 58px;
+  }
+
+  .site-logo-title {
+    font-size: 23px;
+    line-height: 27px;
+  }
+
+  .site-logo-subtitle {
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .site-menu {
+    gap: 8px 13px;
+    justify-content: flex-start;
+    line-height: 24px;
+    width: 100%;
+  }
+
+  .site-menu a,
+  .site-menu .disabled-link {
+    padding: 2px 0;
+  }
+
+  .page-shell {
+    margin: 14px auto 32px;
+    padding: 0 10px;
+  }
+
+  .site-home,
+  .content-page {
+    border-radius: 4px;
+  }
+
+  .site-hero {
+    min-height: 235px;
+  }
+
+  .site-demo-note,
+  .content-header,
+  .keyword-search-panel,
+  .search-description-toggle,
+  .item-list,
+  .post-list {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .content-header {
+    padding-top: 20px;
+    padding-bottom: 16px;
+  }
+
+  .content-header h1 {
+    font-size: 26px;
+    line-height: 31px;
+  }
+
+  .content-description {
+    line-height: 22px;
+  }
+
+  .breadcrumbs {
+    overflow-x: auto;
+    padding-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .breadcrumbs ol {
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+
+  .list-item,
+  .post-item {
+    padding: 11px 0;
+  }
+
+  .item-title,
+  .post-title {
+    display: inline-block;
+    line-height: 24px;
+    padding: 2px 0;
+  }
+
+  .keyword-search-panel {
+    padding-top: 18px;
+    padding-bottom: 20px;
+  }
+
+  .keyword-grid,
+  .keyword-input-wrap {
+    max-width: none;
+    width: 100%;
+  }
+
+  .keyword-search-panel .keyword-input {
+    font-size: 16px;
+    padding: 11px 12px;
+  }
+
+  .keyword-suggestion-list {
+    max-height: 280px;
+  }
+
+  .keyword-suggestion-list button {
+    font-size: 16px;
+    line-height: 23px;
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  .sort-row,
+  .keyword-action-row {
+    gap: 10px 14px;
+  }
+
+  .keyword-search-panel button[type="submit"] {
+    min-height: 42px;
+    padding: 9px 18px;
+  }
+
+  .keyword-clear-button {
+    min-height: 42px;
+    padding: 9px 4px;
+  }
+
+  .hover-help {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .post-title[data-tooltip]:hover::after,
+  .post-title[data-tooltip]:focus::after,
+  .item-title[data-tooltip]:hover::after,
+  .item-title[data-tooltip]:focus::after,
+  .described-heading[data-tooltip]:hover::after,
+  .described-heading[data-tooltip]:focus::after {
+    max-width: calc(100vw - 32px);
+    width: calc(100vw - 32px);
+  }
+}
