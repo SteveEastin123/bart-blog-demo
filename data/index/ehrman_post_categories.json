@@ -10,13 +10,12 @@
         "Heaven/Hell",
         "Eternal Punishment",
         "Purgatory",
-        "Otherworldly Journeys",
-        "Rich and Poor in Afterlife"
+        "Afterlife Journeys"
       ]
     },
     {
-      "name": "Ancient World Context",
-      "description": "Provides historical background for biblical and early Christian texts, including literacy, archaeology, Greco-Roman religion, Roman power, crucifixion, social class, wealth, and material culture.",
+      "name": "Ancient World and Social Context",
+      "description": "Provides historical and social background for biblical and early Christian texts, including literacy, archaeology, Greco-Roman religion, Roman power, crucifixion, social class, wealth, and material culture.",
       "topicOrder": [
         "Roman World",
         "Greco-Roman Religion",
@@ -45,11 +44,11 @@
         "Gospel Authorship",
         "Luke-Acts Authorship",
         "Pauline Authorship",
-        "Non-Pauline Epistles Authorship",
+        "Non-Pauline Epistle Authorship",
         "Revelation Authorship",
-        "Hebrew Bible Sources and Authorship",
+        "Hebrew Bible Authorship and Sources",
         "Apostolic Fathers Attribution",
-        "Ancient Secretaries and Authorship"
+        "Ancient Secretaries"
       ]
     },
     {
@@ -87,7 +86,7 @@
       ]
     },
     {
-      "name": "Canon and Scripture",
+      "name": "Biblical Canon and Scripture",
       "description": "Explores canon formation, biblical authority, inerrancy, contradictions, moral problems, numerology, and how scripture is interpreted or used.",
       "topicOrder": [
         "Canon",
@@ -104,7 +103,6 @@
       "description": "Covers the canonical Gospels and Acts, including authorship, dating, sources, historicity, distinctive Gospel topics, Synoptic relationships, and Acts as a narrative of early Christianity.",
       "topicOrder": [
         "Canonical Gospels (General)",
-        "Gospel Writers as Interpreters",
         "Gospel Authorship",
         "Luke-Acts Authorship",
         "Gospel Dating",
@@ -126,10 +124,8 @@
       "description": "Covers early Christian communities, conversion, diversity, and explanations for Christianity's spread in the ancient world.",
       "topicOrder": [
         "Early Christianity (General)",
-        "Early Christian Communities",
         "Early Christian Diversity",
         "Conversion",
-        "Miracles and Conversion",
         "Rise of Christianity",
         "Health Care"
       ]
@@ -174,7 +170,7 @@
       ]
     },
     {
-      "name": "Early Judaism and Jewish Context",
+      "name": "Early Judaism",
       "description": "Covers early Jewish groups, law, sectarian movements, the Dead Sea Scrolls and Essenes, and the Jewish world around Jesus and early Christianity.",
       "topicOrder": [
         "Early Judaism (General)",
@@ -194,7 +190,7 @@
         "Philippians Christ Poem",
         "2 Thessalonians",
         "Non-Pauline Epistles",
-        "Non-Pauline Epistles Authorship",
+        "Non-Pauline Epistle Authorship",
         "Non-Pauline Epistle Forgeries",
         "Persecution in the Epistles"
       ]
@@ -257,7 +253,7 @@
         "Ecclesiastes",
         "Job",
         "Divine Beings",
-        "Hebrew Bible Sources and Authorship",
+        "Hebrew Bible Authorship and Sources",
         "Hebrew Bible Historicity",
         "Hebrew Bible Manuscripts",
         "Septuagint",
@@ -289,7 +285,7 @@
         "Redaction Criticism",
         "Historical Jesus Research Methods",
         "Hebrew Bible Historicity",
-        "History and Theology",
+        "Historical Study and Theology",
         "Demythologizing",
         "Classical Comparisons"
       ]
@@ -333,8 +329,8 @@
       ]
     },
     {
-      "name": "Manuscripts and Textual Witnesses",
-      "description": "Covers biblical and related manuscript evidence, manuscript discoveries, dating, textual witnesses, and major manuscript finds such as Codex Sinaiticus and the Dead Sea Scrolls.",
+      "name": "Manuscripts and Textual Evidence",
+      "description": "Covers biblical and related manuscript evidence, manuscript discoveries, dating, textual evidence, and major manuscript finds such as Codex Sinaiticus and the Dead Sea Scrolls.",
       "topicOrder": [
         "New Testament Manuscripts",
         "Hebrew Bible Manuscripts",
@@ -369,14 +365,13 @@
         "Healing and Exorcism Stories",
         "Signs in John",
         "Visions",
-        "Miracles and Conversion",
         "Miracles and Martyrdom",
         "Non-Canonical Miracle Stories"
       ]
     },
     {
-      "name": "New Testament Figures",
-      "description": "Covers major named figures connected with the New Testament narratives, including Jesus' family, followers, opponents, and Roman authorities.",
+      "name": "New Testament People",
+      "description": "Covers named figures connected with the New Testament narratives, including Jesus' family, followers, opponents, and Roman authorities.",
       "topicOrder": [
         "John the Baptist",
         "Mary Magdalene",
@@ -386,7 +381,7 @@
       ]
     },
     {
-      "name": "Non-Canonical Texts",
+      "name": "Non-Canonical Christian Texts",
       "description": "Covers early Christian writings outside the New Testament, including non-canonical gospels, infancy and family traditions, apocalypses, apocryphal acts, church manuals, apostolic writings, and miracle stories.",
       "topicOrder": [
         "Non-Canonical Gospels (General)",
@@ -478,7 +473,7 @@
       ]
     },
     {
-      "name": "Scholarship, Publishing, and Public Engagement",
+      "name": "Academic Scholarship and Public Engagement",
       "description": "Covers academic life, research, publishing, public debates, scholarly mentors, scholar memorials, and efforts to explain biblical scholarship to wider audiences.",
       "topicOrder": [
         "Academic Life",
@@ -507,7 +502,7 @@
       "topicOrder": [
         "Teaching and Courses",
         "Textbooks",
-        "General Audience Books",
+        "Books for General Readers",
         "Popularizing Scholarship",
         "Writing Process and Book Publishing",
         "Media Interviews and Videos",
@@ -538,7 +533,6 @@
         "Early Christian Views on Wealth",
         "Ancient Wealth Ethics",
         "Social Class in Antiquity",
-        "Rich and Poor in Afterlife",
         "Health Care"
       ]
     },

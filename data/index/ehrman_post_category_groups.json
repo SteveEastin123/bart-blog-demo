@@ -1,7 +1,7 @@
 {
   "categoryGroups": [
     {
-      "name": "Jesus, Gospels, and Acts",
+      "name": "Jesus, the Gospels, and Acts",
       "description": "Covers the canonical Gospels, Acts, major New Testament figures, and traditions about Jesus' life, teachings, death, burial, and resurrection.",
       "categories": [
         "Jesus in Historical Context",
@@ -9,7 +9,7 @@
         "Jesus' Teachings and Social World",
         "Jesus' Death, Burial, and Resurrection",
         "Canonical Gospels and Acts",
-        "New Testament Figures"
+        "New Testament People"
       ]
     },
     {
@@ -27,7 +27,7 @@
       "description": "Covers Hebrew Bible texts, traditions, historical questions, and the early Jewish context for Jesus and early Christianity.",
       "categories": [
         "Hebrew Bible Texts and Traditions",
-        "Early Judaism and Jewish Context"
+        "Early Judaism"
       ]
     },
     {
@@ -44,7 +44,7 @@
       "name": "Non-Canonical Texts and Heresy",
       "description": "Covers non-canonical Christian writings, Gnostic texts, heresy, and early Christian traditions outside the New Testament.",
       "categories": [
-        "Non-Canonical Texts",
+        "Non-Canonical Christian Texts",
         "Gnosticism and Heresy"
       ]
     },
@@ -52,15 +52,15 @@
       "name": "Manuscripts, Canon, and Translation",
       "description": "Covers how biblical texts were copied, collected, canonized, translated, and reconstructed from manuscripts and other textual witnesses.",
       "categories": [
-        "Canon and Scripture",
-        "Manuscripts and Textual Witnesses",
+        "Biblical Canon and Scripture",
+        "Manuscripts and Textual Evidence",
         "Textual Criticism",
         "Bible Translations and Versions"
       ]
     },
     {
-      "name": "Authorship, Forgery, and Methods",
-      "description": "Covers questions about who wrote biblical and early Christian texts, how traditions were transmitted, how scholars evaluate sources, and forgery.",
+      "name": "Authorship, Forgery, and Historical Methods",
+      "description": "Covers questions about who wrote biblical and early Christian texts, how traditions were transmitted, how scholars evaluate sources, historical methods, and forgery.",
       "categories": [
         "Authorship",
         "Forgery",
@@ -88,10 +88,10 @@
       ]
     },
     {
-      "name": "Ancient World and Social Issues",
+      "name": "Ancient World, Ethics, and Social Issues",
       "description": "Covers the ancient social, cultural, and political world around biblical texts, including Roman context, ethics, wealth and poverty, gender, and sexuality.",
       "categories": [
-        "Ancient World Context",
+        "Ancient World and Social Context",
         "Wealth, Poverty, and Charity",
         "Women, Gender, and Sexuality",
         "Ethics and Moral Reasoning"
@@ -103,7 +103,7 @@
       "categories": [
         "Bart's Books",
         "Teaching and Public Scholarship",
-        "Scholarship, Publishing, and Public Engagement",
+        "Academic Scholarship and Public Engagement",
         "Blog Features and Personal Posts"
       ]
     }

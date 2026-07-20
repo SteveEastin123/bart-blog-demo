@@ -531,7 +531,7 @@
     "author": "BDEhrman",
     "description": "Explains the practical difficulties scholars face when trying to publish trade books for general readers.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -952,8 +952,7 @@
     "topics": [
       "Augustine",
       "Conversion",
-      "Miracle Claims and Apologetics",
-      "Miracles and Conversion"
+      "Miracle Claims and Apologetics"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -962,7 +961,8 @@
       "Resurrection",
       "Resurrection of Jesus",
       "Salvation",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -974,8 +974,7 @@
     "description": "Discusses later Christian biographies of Gregory the Wonderworker and Martin of Tours as miracle-centered stories of conversion and religious power.",
     "topics": [
       "Conversion",
-      "Miracle Claims and Apologetics",
-      "Miracles and Conversion"
+      "Miracle Claims and Apologetics"
     ],
     "secondaryKeywords": [
       "Gregory of Nyssa",
@@ -984,7 +983,8 @@
       "Martin of Tours",
       "Miracles",
       "Trinity",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -998,7 +998,6 @@
       "Apocryphal Acts",
       "Conversion",
       "Jesus and Abgar Legend",
-      "Miracles and Conversion",
       "Non-Canonical Miracle Stories"
     ],
     "secondaryKeywords": [
@@ -1013,7 +1012,8 @@
       "Peter",
       "Simon Magus",
       "Thaddaeus",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -1046,7 +1046,6 @@
     "topics": [
       "Conversion",
       "Greco-Roman Religion",
-      "Miracles and Conversion",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -1056,7 +1055,8 @@
       "Paul",
       "Peter",
       "Roman World",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -1089,7 +1089,6 @@
     "description": "Examines the claim that Christianity attracted converts because Christian communities offered unusually strong social support.",
     "topics": [
       "Conversion",
-      "Early Christian Communities",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -1098,7 +1097,8 @@
       "Julian",
       "Miracles",
       "Salvation",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Early Christian Communities"
     ]
   },
   {
@@ -3646,7 +3646,6 @@
     "description": "Uses Ignatius's letters to show features of proto-orthodox Christianity, including church unity, authority, and opposition to rival teachings.",
     "topics": [
       "Apostolic Fathers",
-      "Early Christian Communities",
       "Early Christian Diversity",
       "Gnostic-Orthodox Conflicts"
     ],
@@ -3655,7 +3654,8 @@
       "Martyrdom",
       "Paul",
       "Polycarp",
-      "Revelation"
+      "Revelation",
+      "Early Christian Communities"
     ]
   },
   {
@@ -4117,7 +4117,6 @@
     "description": "Introduces 1 Clement as a Roman church letter urging Corinthian rivals to restore displaced church leaders.",
     "topics": [
       "Apostolic Fathers",
-      "Early Christian Communities",
       "In a Nutshell Series"
     ],
     "secondaryKeywords": [
@@ -4125,7 +4124,8 @@
       "Abraham",
       "Cain",
       "Moses",
-      "Old Testament"
+      "Old Testament",
+      "Early Christian Communities"
     ]
   },
   {
@@ -4277,7 +4277,7 @@
     "description": "Responds to questions about Jesus as God, resurrection belief, early Christian secretaries, and the King James Version.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship",
+      "Ancient Secretaries",
       "King James Version",
       "Resurrection of Jesus"
     ],
@@ -4581,7 +4581,7 @@
     "topics": [
       "Divine Beings",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -4614,9 +4614,9 @@
     "author": "BDEhrman",
     "description": "Argues that Jude was forged to oppose an extreme form of post-Pauline Christianity that severed grace from moral conduct.",
     "topics": [
-      "Early Christian Communities",
       "Non-Pauline Epistle Forgeries",
-      "Non-Pauline Epistles"
+      "Non-Pauline Epistles",
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Balaam",
@@ -4704,7 +4704,7 @@
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -4730,7 +4730,7 @@
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -4770,9 +4770,9 @@
     "author": "BDEhrman",
     "description": "Summarizes Jude as a warning against false teachers who turn grace into license and face divine judgment.",
     "topics": [
-      "Early Christian Communities",
       "In a Nutshell Series",
-      "Non-Pauline Epistles"
+      "Non-Pauline Epistles",
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Cain",
@@ -4900,7 +4900,6 @@
     "author": "BDEhrman",
     "description": "Summarizes 2 John and 3 John as short letters from the elder about false teaching, hospitality, and community conflict.",
     "topics": [
-      "Early Christian Communities",
       "In a Nutshell Series",
       "Non-Pauline Epistles"
     ],
@@ -4908,7 +4907,8 @@
       "1 John",
       "2 John",
       "3 John",
-      "Gospel of John"
+      "Gospel of John",
+      "Johannine Community"
     ]
   },
   {
@@ -4962,16 +4962,16 @@
     "author": "BDEhrman",
     "description": "Examines the authorship, date, and purpose of 1 John in relation to the Gospel of John and the Johannine community.",
     "topics": [
-      "Early Christian Communities",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "1 John",
       "3 John",
       "Church Fathers",
       "Early Christianity",
-      "Gospel of John"
+      "Gospel of John",
+      "Johannine Community"
     ]
   },
   {
@@ -5042,7 +5042,7 @@
     "description": "Introduces a planned book on how the twenty-seven New Testament books came to be accepted as Christian Scripture.",
     "topics": [
       "Canon",
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -5210,7 +5210,7 @@
     "description": "Examines whether ancient secretaries could have composed apostolic letters for illiterate figures such as Peter or John.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -5230,9 +5230,9 @@
     "description": "Explores ancient secretarial practices to assess whether secretaries could explain the polished Greek of letters attributed to Peter.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship",
+      "Ancient Secretaries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship",
+      "Non-Pauline Epistle Authorship",
       "Petrine Forgeries"
     ],
     "secondaryKeywords": [
@@ -5378,7 +5378,7 @@
     "author": "BDEhrman",
     "description": "Argues that the author of 1 Peter may have used Pauline-sounding language to reconcile Petrine authority with Pauline Christianity.",
     "topics": [
-      "Non-Pauline Epistles Authorship",
+      "Non-Pauline Epistle Authorship",
       "Persecution in the Epistles",
       "Petrine Forgeries"
     ],
@@ -5426,7 +5426,7 @@
     "description": "Introduces the problem that 1 Peter claims Petrine authority while sounding unlike traditions associated with Peter.",
     "topics": [
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship",
+      "Non-Pauline Epistle Authorship",
       "Petrine Forgeries"
     ],
     "secondaryKeywords": [
@@ -5582,7 +5582,7 @@
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -5602,7 +5602,7 @@
     "topics": [
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -5622,7 +5622,7 @@
       "Ancient Literacy",
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -5823,7 +5823,7 @@
     "description": "Examines Hebrews as an anonymous sermon-like work and considers its authorship, date, audience, and purpose.",
     "topics": [
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship",
+      "Non-Pauline Epistle Authorship",
       "Persecution in the Epistles"
     ],
     "secondaryKeywords": [
@@ -6011,7 +6011,7 @@
     "author": "BDEhrman",
     "description": "Describes the Apocalypse of Paul's vision of heavenly bliss and hellish punishment in the afterlife.",
     "topics": [
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "2 Corinthians",
@@ -6357,7 +6357,8 @@
     "author": "jennao",
     "description": "Presents a Platinum member argument reconsidering whether Jewish Christians may have participated in the First Jewish-Roman War.",
     "topics": [
-      "Early Christian Communities"
+      "Early Christian Diversity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -6372,7 +6373,8 @@
       "Paul",
       "Pontius Pilate",
       "Roman World",
-      "Romans"
+      "Romans",
+      "Early Christian Communities"
     ]
   },
   {
@@ -7306,7 +7308,7 @@
     "description": "Compares Matthew and Paul on whether followers of Jesus should keep the Jewish Law.",
     "topics": [
       "Gospel of Matthew",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Jewish Law",
       "Paul and Jewish Law",
       "Paul and Opponents"
@@ -7317,7 +7319,8 @@
       "Matthew",
       "Paul",
       "Resurrection",
-      "Salvation"
+      "Salvation",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -7652,8 +7655,8 @@
     "author": "BDEhrman",
     "description": "Summarizes 1 Corinthians as Paul's response to ethical, communal, worship, and resurrection problems in Corinth.",
     "topics": [
-      "Early Christian Communities",
-      "In a Nutshell Series"
+      "In a Nutshell Series",
+      "Pauline Communities"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -10251,7 +10254,6 @@
     "author": "Diane",
     "description": "Continues Angus Nisbet's imagined reconstruction of the dispute between Paul and Barnabas, including John Mark and the Essenes.",
     "topics": [
-      "Early Christian Communities",
       "Jewish Law",
       "Paul in Acts"
     ],
@@ -10267,7 +10269,8 @@
       "Messiah",
       "Moses",
       "Paul",
-      "Peter"
+      "Peter",
+      "Early Christian Communities"
     ]
   },
   {
@@ -10310,7 +10313,6 @@
     "author": "Diane",
     "description": "Continues Angus Nisbet's imagined reconstruction of Paul and Barnabas's dispute using Acts and non-canonical traditions.",
     "topics": [
-      "Early Christian Communities",
       "Jewish Law",
       "Paul in Acts"
     ],
@@ -10324,7 +10326,8 @@
       "Messiah",
       "Moses",
       "Paul",
-      "Peter"
+      "Peter",
+      "Early Christian Communities"
     ]
   },
   {
@@ -10437,7 +10440,7 @@
     "author": "BDEhrman",
     "description": "Explains distinctions among forged, anonymous, and secretary-assisted writings in discussions of New Testament authorship.",
     "topics": [
-      "Ancient Secretaries and Authorship",
+      "Ancient Secretaries",
       "Forgery (General)"
     ],
     "secondaryKeywords": [
@@ -10997,7 +11000,7 @@
     "author": "Diane",
     "description": "Presents Robyn Faith Walsh's argument that Paul's letters may have shaped Gospel writers and later accounts of Christian origins.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Oral Tradition"
     ],
     "secondaryKeywords": [
@@ -11007,7 +11010,8 @@
       "Historical Jesus",
       "Luke",
       "Paul",
-      "Revelation"
+      "Revelation",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -11018,7 +11022,7 @@
     "author": "Diane",
     "description": "Presents Robyn Faith Walsh's challenge to treating the Gospels rather than Paul as the starting point for Christian origins.",
     "topics": [
-      "Gospel Writers as Interpreters"
+      "Canonical Gospels (General)"
     ],
     "secondaryKeywords": [
       "Canon",
@@ -11032,7 +11036,8 @@
       "New Testament Canon",
       "Paul",
       "Q Source",
-      "Textbooks"
+      "Textbooks",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -11191,7 +11196,7 @@
     "author": "BDEhrman",
     "description": "Introduces Jesus Interrupted as an accessible overview of critical scholarship on the New Testament.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Canon",
@@ -11317,14 +11322,14 @@
     "author": "BDEhrman",
     "description": "Uses Keith Hopkins's work to estimate early Christian communities and the volume of Christian letters.",
     "topics": [
-      "Early Christian Communities",
       "Rise of Christianity",
       "Roman World"
     ],
     "secondaryKeywords": [
       "Christian Letters",
       "Christian Numbers",
-      "Early Churches"
+      "Early Churches",
+      "Early Christian Communities"
     ]
   },
   {
@@ -11674,7 +11679,7 @@
     "author": "BDEhrman",
     "description": "Recounts how Misquoting Jesus received its title instead of the originally preferred Lost in Transmission.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Misquoting Jesus",
       "Writing Process and Book Publishing"
     ],
@@ -12193,7 +12198,7 @@
     "description": "Introduces Lost Scriptures as an anthology of non-canonical early Christian writings.",
     "topics": [
       "Early Christian Writings",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Mary Magdalene",
@@ -12225,7 +12230,7 @@
     "author": "BDEhrman",
     "description": "Introduces Jesus: Apocalyptic Prophet as a trade book presenting Jesus within Jewish apocalypticism.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Historical Jesus"
@@ -13934,7 +13939,6 @@
     "author": "BDEhrman",
     "description": "Imagines what could be learned from writings by Paul's Christian opponents, especially in Galatia.",
     "topics": [
-      "Early Christian Communities",
       "Jewish Law",
       "Paul and Jewish Law",
       "Paul and Opponents",
@@ -14150,8 +14154,7 @@
     "description": "Explains why Acts' historical reliability matters for reconstructing early Christianity's first decades.",
     "topics": [
       "Acts",
-      "Conversion",
-      "Miracles and Conversion"
+      "Conversion"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -14160,7 +14163,8 @@
       "James the Brother of Jesus",
       "Miracles",
       "Paul",
-      "Peter"
+      "Peter",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -14778,7 +14782,7 @@
     "description": "Introduces Andrew Jacobs's study of Gospel thrillers as fiction about conspiracies and vulnerable biblical texts.",
     "topics": [
       "Canonical Gospels (General)",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -16861,7 +16865,7 @@
     "author": "BDEhrman",
     "description": "Proposes a messier model of early Gospel circulation with multiple written and oral sources.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Oral Tradition",
       "Papyrus Egerton"
     ],
@@ -16870,7 +16874,8 @@
       "John",
       "Luke",
       "Mark",
-      "Matthew"
+      "Matthew",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -16881,7 +16886,7 @@
     "author": "BDEhrman",
     "description": "Presents Julius-Kei Kato's book on reading the New Testament as spiritual ancestry in a secular age.",
     "topics": [
-      "History and Theology"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Bible",
@@ -18817,7 +18822,6 @@
     "author": "BDEhrman",
     "description": "Compares Paul's letters with Acts to ask whether Paul was in harmony or conflict with the Jerusalem apostles.",
     "topics": [
-      "Early Christian Communities",
       "Paul and Opponents",
       "Paul in Acts"
     ],
@@ -18832,7 +18836,8 @@
       "Mission",
       "Paul",
       "Peter",
-      "Salvation"
+      "Salvation",
+      "Early Christian Communities"
     ]
   },
   {
@@ -19150,7 +19155,7 @@
     "description": "Compares Gospel memories of Jesus' trial before Pilate, especially John's distinctive portrayal and possible distortions.",
     "topics": [
       "Gospel of John",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Memory",
       "Pontius Pilate"
     ],
@@ -19161,7 +19166,8 @@
       "John",
       "Luke",
       "Messiah",
-      "Pilate"
+      "Pilate",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -19709,7 +19715,7 @@
     "description": "Challenges the older scholarly view that Mark preserves a bare-bones factual account of Jesus' life.",
     "topics": [
       "Gospel Eyewitness Claims",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Messianic Secret",
       "Oral Tradition"
     ],
@@ -19718,7 +19724,8 @@
       "Historical Jesus",
       "Jesus Before the Gospels",
       "Mark",
-      "Messiah"
+      "Messiah",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -19851,7 +19858,7 @@
     "author": "BDEhrman",
     "description": "Explains how invented or reshaped Gospel stories can still function as false memories of Jesus within a community.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Memory"
     ],
     "secondaryKeywords": [
@@ -19860,7 +19867,8 @@
       "Luke",
       "Mary",
       "Nazareth",
-      "Pontius Pilate"
+      "Pontius Pilate",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -19958,7 +19966,7 @@
     "description": "Argues that Matthew's Gospel appears to resist a major element of Paul's message about Jewish Law.",
     "topics": [
       "Gospel of Matthew",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Jewish Law"
     ],
     "secondaryKeywords": [
@@ -19972,7 +19980,8 @@
       "Misquoting Jesus",
       "Paul",
       "Resurrection",
-      "Salvation"
+      "Salvation",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -20497,7 +20506,7 @@
     "author": "BDEhrman",
     "description": "Explains why bestsellers usually result from publishing circumstances and readership response rather than authorial planning.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -20785,7 +20794,7 @@
     "author": "Diane",
     "description": "Shares excerpts from Gary McCarragher's novel Revelation, centered on a New Testament scholar with a fundamentalist past.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "James",
@@ -21564,7 +21573,7 @@
     "topics": [
       "Critical Biblical Scholarship",
       "Historical Method (General)",
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Daniel",
@@ -22083,7 +22092,7 @@
     "description": "Asks whether the Gospels are anti-Jewish and distinguishes that ancient issue from modern anti-Semitism.",
     "topics": [
       "Anti-Judaism",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Pontius Pilate"
     ],
     "secondaryKeywords": [
@@ -22091,7 +22100,8 @@
       "Gospels",
       "Herod",
       "Pilate",
-      "Roman Empire"
+      "Roman Empire",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -22298,7 +22308,7 @@
     "author": "BDEhrman",
     "description": "Presents a guest reflection on what could make Christian theology viable for modern sophisticated believers.",
     "topics": [
-      "History and Theology"
+      "Personal Reflections"
     ],
     "secondaryKeywords": [
       "John",
@@ -22970,7 +22980,7 @@
     "description": "Uses contradictions in the Pentateuch to introduce source-critical problems in the first five biblical books.",
     "topics": [
       "Biblical Contradictions",
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -23127,7 +23137,6 @@
     "author": "BDEhrman",
     "description": "Introduces the purpose of 1 Thessalonians while setting up further discussion of Pauline textual variants.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Communities",
       "Pauline Letters"
     ],
@@ -24439,7 +24448,7 @@
     "description": "Examines whether illiterate apostles could have used secretaries to produce writings attributed to them.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -24493,7 +24502,7 @@
     "description": "Explains how ancient writers used secretaries and what that means for claims about apostolic authorship.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -25248,7 +25257,7 @@
     "description": "Introduces a planned book project on how Christians formed the New Testament canon.",
     "topics": [
       "Canon",
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -25339,15 +25348,15 @@
     "description": "Asks whether early Christian teaching about charity produced actual charitable practice.",
     "topics": [
       "Charity",
-      "Conversion",
-      "Early Christian Communities"
+      "Conversion"
     ],
     "secondaryKeywords": [
       "Church Fathers",
       "Constantine",
       "Early Christianity",
       "Paul",
-      "Wealth"
+      "Wealth",
+      "Early Christian Communities"
     ]
   },
   {
@@ -25733,7 +25742,7 @@
     "author": "BDEhrman",
     "description": "Shares a detailed interview about scholarly research on early Christian journeys to heaven and hell.",
     "topics": [
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -25928,7 +25937,7 @@
     "topics": [
       "Heaven/Hell",
       "Media Interviews and Videos",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Heaven and Hell",
@@ -26121,7 +26130,7 @@
     "author": "BDEhrman",
     "description": "Compares the Rich Man and Lazarus with an Egyptian tale about reversed fortunes after death.",
     "topics": [
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -26131,7 +26140,8 @@
       "Lazarus",
       "Luke",
       "Matthew",
-      "Moses"
+      "Moses",
+      "Rich and Poor in Afterlife"
     ]
   },
   {
@@ -26142,8 +26152,8 @@
     "author": "BDEhrman",
     "description": "Uses the parable of Lazarus and the Rich Man to discuss wealth, judgment, and the afterlife.",
     "topics": [
-      "Jesus and Wealth",
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell",
+      "Jesus and Wealth"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -26154,6 +26164,7 @@
       "Lazarus",
       "Luke",
       "Moses",
+      "Rich and Poor in Afterlife",
       "Wealth"
     ]
   },
@@ -26185,7 +26196,7 @@
     "author": "BDEhrman",
     "description": "Explains practical steps and realities involved in getting a trade book published.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -26219,9 +26230,9 @@
     "author": "Diane",
     "description": "Uses the Acts of Thomas to connect near-death experience traditions with warnings about wealth.",
     "topics": [
+      "Afterlife Journeys",
       "Apocryphal Acts",
-      "Otherworldly Journeys",
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -26229,6 +26240,7 @@
       "Heaven and Hell",
       "Hell",
       "Job",
+      "Rich and Poor in Afterlife",
       "Thomas"
     ]
   },
@@ -26309,7 +26321,7 @@
     "author": "BDEhrman",
     "description": "Shares an interview about Journeys to Heaven and Hell and early Christian tours of the afterlife.",
     "topics": [
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -27624,7 +27636,7 @@
     "author": "BDEhrman",
     "description": "Explains Joshua through 2 Kings as the Deuteronomistic History within Hebrew Bible scholarship.",
     "topics": [
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "1 Kings",
@@ -28148,7 +28160,7 @@
     "description": "Continues summarizing lectures from a course on myth, legend, and history in Genesis.",
     "topics": [
       "Genesis",
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -28257,7 +28269,7 @@
     "topics": [
       "Forged",
       "Forgery (General)",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -28420,7 +28432,7 @@
     "description": "Uses Heaven and Hell to illustrate writing about afterlife traditions for a general audience.",
     "topics": [
       "Apocalypse of Peter",
-      "General Audience Books",
+      "Books for General Readers",
       "Heaven and Hell",
       "Heaven/Hell"
     ],
@@ -29015,7 +29027,7 @@
     "author": "BDEhrman",
     "description": "Explains why many scholars think Isaiah reflects multiple stages or authors.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Prophets"
     ],
     "secondaryKeywords": [
@@ -30165,7 +30177,7 @@
     "author": "BDEhrman",
     "description": "Reflects on changes in writing habits while beginning a trade book on Revelation.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -30391,7 +30403,7 @@
     "author": "BDEhrman",
     "description": "Reflects on starting a new trade book on Revelation and changing approaches to writing.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -31532,10 +31544,10 @@
     "author": "BDEhrman",
     "description": "Presents a guest reflection on religious literacy from a Christian perspective.",
     "topics": [
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
-      "History and Theology"
+      "Historical Study and Theology"
     ]
   },
   {
@@ -32163,7 +32175,7 @@
     "author": "BDEhrman",
     "description": "Explains how research notes are taken while preparing a book on Revelation.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -32331,7 +32343,7 @@
     "author": "BDEhrman",
     "description": "Discusses how fiction, fact, legend, and history relate in the study of Jesus traditions.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Historical Method (General)"
     ],
     "secondaryKeywords": [
@@ -32340,7 +32352,8 @@
       "Herod",
       "Moses",
       "Q Source",
-      "Resurrection"
+      "Resurrection",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -32418,7 +32431,7 @@
     "author": "BDEhrman",
     "description": "Reflects on why writing a trade book on Revelation has differed from earlier book projects.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -32741,7 +32754,8 @@
     "author": "BDEhrman",
     "description": "Explains how early Christians understood the Holy Spirit's role in the church at the end of time.",
     "topics": [
-      "Early Christian Communities"
+      "Pauline Apocalypticism",
+      "Pauline Communities"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -32750,7 +32764,8 @@
       "Prophets",
       "Resurrection",
       "Resurrection of the Dead",
-      "Visions"
+      "Visions",
+      "Early Christian Communities"
     ]
   },
   {
@@ -32826,7 +32841,7 @@
     "author": "BDEhrman",
     "description": "Introduces the possibility that 2 Corinthians combines more than one Pauline letter.",
     "topics": [
-      "Early Christian Communities"
+      "Pauline Letter Composition"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -32898,7 +32913,6 @@
     "author": "BDEhrman",
     "description": "Explains Paul's message to Corinthian converts and how it has often been misunderstood.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Communities"
     ],
     "secondaryKeywords": [
@@ -32934,7 +32948,6 @@
     "author": "BDEhrman",
     "description": "Introduces the Corinthian church as a key source for understanding early Christian community and the Spirit.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Communities",
       "Trinity"
     ],
@@ -32982,7 +32995,6 @@
     "author": "BDEhrman",
     "description": "Explains how the delay of Jesus' return affected Pauline communities.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Apocalypticism",
       "Pauline Communities"
     ],
@@ -33023,7 +33035,7 @@
     "author": "BDEhrman",
     "description": "Surveys more recent scholarship on the authorship of the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -33041,7 +33053,7 @@
     "author": "BDEhrman",
     "description": "Explains the JEDP documentary hypothesis for the sources behind the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -33069,7 +33081,7 @@
     "description": "Uses inconsistencies in the Pentateuch to explain why scholars see multiple sources behind it.",
     "topics": [
       "Biblical Contradictions",
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -33115,7 +33127,7 @@
     "author": "BDEhrman",
     "description": "Asks who wrote the Pentateuch if Moses did not.",
     "topics": [
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -33571,7 +33583,6 @@
     "author": "BDEhrman",
     "description": "Introduces Paul's Corinthian community as background for understanding the Spirit in 1 Corinthians.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Communities",
       "Social Class in Antiquity"
     ],
@@ -34240,7 +34251,7 @@
     "author": "BDEhrman",
     "description": "Introduces source-critical questions about the Hebrew Bible.",
     "topics": [
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -34766,10 +34777,10 @@
     "author": "BDEhrman",
     "description": "Presents a guest reflection on religious literacy from a Christian perspective.",
     "topics": [
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
-      "History and Theology"
+      "Historical Study and Theology"
     ]
   },
   {
@@ -36535,7 +36546,7 @@
     "author": "BDEhrman",
     "description": "Explains how trade books get their titles and why authors often do not control them.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -36656,7 +36667,6 @@
     "topics": [
       "Apocryphal Acts",
       "Conversion",
-      "Miracles and Conversion",
       "Non-Canonical Miracle Stories"
     ],
     "secondaryKeywords": [
@@ -36669,7 +36679,8 @@
       "Resurrection",
       "Resurrection of Jesus",
       "Thomas",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -36681,14 +36692,15 @@
     "description": "Challenges the apologetic claim that women discovering the empty tomb could not have been invented.",
     "topics": [
       "Empty Tomb",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Women in Early Christianity"
     ],
     "secondaryKeywords": [
       "Gospels",
       "Paul",
       "Resurrection",
-      "Women"
+      "Women",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -37231,7 +37243,7 @@
     "description": "Presents James Tabor's guest post on Paul's ascent to paradise and its relation to ancient Jewish heavenly journeys.",
     "topics": [
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "2 Corinthians",
@@ -37948,12 +37960,12 @@
     "author": "BDEhrman",
     "description": "Explores ancient charges that Christians were immoral and how such accusations related to Christian communities.",
     "topics": [
-      "Early Christian Communities",
       "Early Church History (General)"
     ],
     "secondaryKeywords": [
       "Tertullian",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Early Christian Communities"
     ]
   },
   {
@@ -37964,15 +37976,15 @@
     "author": "BDEhrman",
     "description": "Responds to a reader question about whether the benefits of Christian community helped attract converts.",
     "topics": [
-      "Conversion",
-      "Early Christian Communities"
+      "Conversion"
     ],
     "secondaryKeywords": [
       "Constantine",
       "E. R. Dodds",
       "Julian",
       "Roman Empire",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Early Christian Communities"
     ]
   },
   {
@@ -38367,7 +38379,7 @@
     "author": "BDEhrman",
     "description": "Evaluates whether the Gospel writers invented the Barabbas episode in the passion narratives.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Pontius Pilate"
     ],
     "secondaryKeywords": [
@@ -38377,7 +38389,8 @@
       "Memory",
       "Pilate",
       "Romans",
-      "Son of God"
+      "Son of God",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -38707,7 +38720,6 @@
     "author": "BDEhrman",
     "description": "Presents Hugo Mendez's argument about authorship and the Johannine writings.",
     "topics": [
-      "Early Christian Communities",
       "Forgery (General)",
       "Gospel Eyewitness Claims",
       "Gospel of John"
@@ -38738,7 +38750,7 @@
       "Gospel Eyewitness Claims",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "1 Timothy",
@@ -38814,7 +38826,6 @@
     "author": "BDEhrman",
     "description": "Presents Hugo Mendez's argument that the Gospel and Epistles of John raise forgery and authorship questions.",
     "topics": [
-      "Early Christian Communities",
       "Forgery (General)",
       "Gospel Eyewitness Claims",
       "Gospel of John",
@@ -38840,14 +38851,14 @@
     "author": "BDEhrman",
     "description": "Presents Hugo Mendez's challenge to the theory of a single Johannine author or community.",
     "topics": [
-      "Early Christian Communities",
       "Gospel of John"
     ],
     "secondaryKeywords": [
       "1 John",
       "2 John",
       "3 John",
-      "Gospels"
+      "Gospels",
+      "Johannine Community"
     ]
   },
   {
@@ -38892,10 +38903,9 @@
     "author": "BDEhrman",
     "description": "Presents Hugo Mendez's argument about whether Gospels and letters were written for specific Christian communities.",
     "topics": [
-      "Early Christian Communities",
       "Gospel Eyewitness Claims",
       "Gospel of John",
-      "Gospel Writers as Interpreters"
+      "Canonical Gospels (General)"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -38903,7 +38913,9 @@
       "John",
       "Mark",
       "Matthew",
-      "Paul"
+      "Paul",
+      "Gospel Writers as Interpreters",
+      "Johannine Community"
     ]
   },
   {
@@ -38932,11 +38944,11 @@
     "author": "BDEhrman",
     "description": "Introduces Hugo Mendez's series on whether a Johannine community stands behind the Gospel and letters of John.",
     "topics": [
-      "Early Christian Communities",
       "Non-Pauline Epistles"
     ],
     "secondaryKeywords": [
-      "John"
+      "John",
+      "Johannine Community"
     ]
   },
   {
@@ -38996,14 +39008,14 @@
     "author": "BDEhrman",
     "description": "Summarizes what can be inferred about the Johannine letters and their community setting.",
     "topics": [
-      "Early Christian Communities",
       "Non-Pauline Epistles"
     ],
     "secondaryKeywords": [
       "1 John",
       "2 John",
       "3 John",
-      "Gnosticism"
+      "Gnosticism",
+      "Johannine Community"
     ]
   },
   {
@@ -39014,14 +39026,14 @@
     "author": "BDEhrman",
     "description": "Explains the contents and historical setting of 1, 2, and 3 John.",
     "topics": [
-      "Early Christian Communities",
       "Non-Pauline Epistles"
     ],
     "secondaryKeywords": [
       "1 John",
       "2 John",
       "3 John",
-      "Christology"
+      "Christology",
+      "Johannine Community"
     ]
   },
   {
@@ -39238,12 +39250,12 @@
     "author": "BDEhrman",
     "description": "Uses internal clues in John to reconstruct the history of the community behind the Gospel.",
     "topics": [
-      "Early Christian Communities",
       "Gospel of John"
     ],
     "secondaryKeywords": [
       "Abraham",
-      "John"
+      "John",
+      "Johannine Community"
     ]
   },
   {
@@ -39269,12 +39281,12 @@
     "author": "BDEhrman",
     "description": "Explains how differing views of Jesus in John may reflect the history of the Johannine community.",
     "topics": [
-      "Early Christian Communities",
       "Gospel of John"
     ],
     "secondaryKeywords": [
       "John",
-      "Messiah"
+      "Messiah",
+      "Johannine Community"
     ]
   },
   {
@@ -39518,8 +39530,8 @@
     "author": "BDEhrman",
     "description": "Examines conflict among early Christians over law, community, and identity already within the New Testament.",
     "topics": [
-      "Early Christian Communities",
-      "Jewish Law"
+      "Jewish Law",
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -41924,7 +41936,7 @@
     "author": "BDEhrman",
     "description": "Explains the Documentary Hypothesis for the authorship of the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -42226,7 +42238,7 @@
     "author": "BDEhrman",
     "description": "Reviews John Barton's general-audience book on the Bible.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Popularizing Scholarship"
     ],
     "secondaryKeywords": [
@@ -42290,7 +42302,7 @@
     "description": "Explains literary inconsistencies in the Old Testament, especially in the Pentateuch.",
     "topics": [
       "Biblical Contradictions",
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -42333,7 +42345,7 @@
     "author": "BDEhrman",
     "description": "Explains pitfalls scholars face when writing for general audiences.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -42348,7 +42360,7 @@
     "author": "BDEhrman",
     "description": "Explains why many scholars avoid writing trade books for general readers.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Jesus Before the Gospels",
@@ -42523,7 +42535,7 @@
     "topics": [
       "Forged",
       "Forgery and Counterforgery",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -42539,7 +42551,7 @@
     "author": "BDEhrman",
     "description": "Explains the challenge of writing scholarly and popular books on the same topic.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -42743,7 +42755,7 @@
     "topics": [
       "Apocryphal Acts",
       "Classical Comparisons",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -42866,7 +42878,7 @@
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -43033,7 +43045,7 @@
       "Jesus' Family",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -43196,7 +43208,7 @@
       "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -43761,7 +43773,7 @@
     "description": "Introduces a possible trade book on why Christians have an Old Testament.",
     "topics": [
       "Christian Use of Scripture",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Heaven and Hell",
@@ -44569,7 +44581,7 @@
       "Ancient Jewish Afterlife",
       "Classical Comparisons",
       "Heaven and Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -44762,7 +44774,7 @@
     "description": "Introduces a Roman vision of the afterlife as background for heaven and hell traditions.",
     "topics": [
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -44880,7 +44892,7 @@
     "author": "BDEhrman",
     "description": "Introduces ancient otherworldly journey traditions relevant to heaven and hell research.",
     "topics": [
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -44959,7 +44971,7 @@
     "author": "BDEhrman",
     "description": "Explains how scholarly interest in afterlife journeys became focused on questions of origins.",
     "topics": [
-      "Otherworldly Journeys",
+      "Afterlife Journeys",
       "Visions"
     ],
     "secondaryKeywords": [
@@ -44971,7 +44983,7 @@
       "Heaven and Hell",
       "Hell",
       "James",
-      "Otherworldly Journeys",
+      "Afterlife Journeys",
       "Paul",
       "Visions"
     ]
@@ -45006,7 +45018,7 @@
     "topics": [
       "Apocalypse of Peter",
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -45133,7 +45145,7 @@
     "author": "BDEhrman",
     "description": "Explains Gospel writers as editors who shaped inherited traditions.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Redaction Criticism"
     ],
     "secondaryKeywords": [
@@ -45141,7 +45153,8 @@
       "John",
       "John the Baptist",
       "Mark",
-      "Matthew"
+      "Matthew",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -45152,7 +45165,7 @@
     "author": "BDEhrman",
     "description": "Introduces redaction criticism as a new way of reading the Gospels.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Redaction Criticism"
     ],
     "secondaryKeywords": [
@@ -45163,7 +45176,8 @@
       "Mark",
       "Matthew",
       "Source Criticism",
-      "Synoptic Problem"
+      "Synoptic Problem",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -45191,14 +45205,15 @@
     "description": "Explains what scholars did after confidence in Mark as straightforward history collapsed.",
     "topics": [
       "Gospel of Mark",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Messianic Secret",
       "Oral Tradition"
     ],
     "secondaryKeywords": [
       "Gospels",
       "Historical Jesus",
-      "Mark"
+      "Mark",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -45495,7 +45510,7 @@
       "Forgiveness",
       "Gospel of Mark",
       "Gospels",
-      "History and Theology",
+      "Historical Study and Theology",
       "John",
       "Josephus",
       "Judaism",
@@ -45609,7 +45624,7 @@
     "author": "BDEhrman",
     "description": "Explains the process by which a trade book moves from manuscript to publication.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -46128,7 +46143,7 @@
       "Canon",
       "Gospel of Peter",
       "Non-Pauline Epistles",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -46741,7 +46756,7 @@
     "author": "BDEhrman",
     "description": "Answers recurring criticisms about secretaries, authorship, and ancient writing.",
     "topics": [
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -46777,7 +46792,6 @@
     "description": "Explains Christian growth through conversion, miracles, and social expansion.",
     "topics": [
       "Conversion",
-      "Miracles and Conversion",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -46789,7 +46803,8 @@
       "Paul",
       "Rodney Stark",
       "Roman World",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -46819,15 +46834,15 @@
     "author": "BDEhrman",
     "description": "Explains miraculous conversions in Acts as evidence of early Christian claims about divine power.",
     "topics": [
-      "Conversion",
-      "Miracles and Conversion"
+      "Conversion"
     ],
     "secondaryKeywords": [
       "Acts",
       "Early Christianity",
       "Miracles",
       "Paul",
-      "Peter"
+      "Peter",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -46838,7 +46853,6 @@
     "author": "BDEhrman",
     "description": "Describes the mix of Jews and Gentiles in Paul's churches.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Communities"
     ],
     "secondaryKeywords": [
@@ -46996,9 +47010,9 @@
     "author": "BDEhrman",
     "description": "Introduces miraculous stories in non-canonical Christian texts as examples of oral and literary tradition.",
     "topics": [
-      "Miracles and Conversion",
       "Non-Canonical Miracle Stories",
-      "Oral Tradition"
+      "Oral Tradition",
+      "Conversion"
     ],
     "secondaryKeywords": [
       "2 Corinthians",
@@ -47006,7 +47020,8 @@
       "Miracles",
       "Paul",
       "Peter",
-      "Simon Magus"
+      "Simon Magus",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -47211,7 +47226,7 @@
     "author": "BDEhrman",
     "description": "Compares an Egyptian story of rich and poor after death with Luke's parable.",
     "topics": [
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -47219,6 +47234,7 @@
       "Lazarus",
       "Luke",
       "Miriam",
+      "Rich and Poor in Afterlife",
       "Wealth"
     ]
   },
@@ -47232,8 +47248,7 @@
     "topics": [
       "Gospel of Luke",
       "Heaven and Hell",
-      "Heaven/Hell",
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -47242,7 +47257,8 @@
       "Historical Jesus",
       "Lazarus",
       "Luke",
-      "Moses"
+      "Moses",
+      "Rich and Poor in Afterlife"
     ]
   },
   {
@@ -47416,7 +47432,7 @@
       "Historical Method (General)"
     ],
     "secondaryKeywords": [
-      "History and Theology",
+      "Historical Study and Theology",
       "Martin Luther",
       "Textbooks"
     ]
@@ -47429,7 +47445,7 @@
     "author": "BDEhrman",
     "description": "Explains note-taking practices for writing a trade book on the afterlife.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -48256,7 +48272,7 @@
     "description": "Evaluates whether Peter could have used a secretary to produce writings attributed to him.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship",
+      "Ancient Secretaries",
       "Non-Pauline Epistles",
       "Petrine Forgeries"
     ],
@@ -48307,7 +48323,7 @@
     "author": "BDEhrman",
     "description": "Explains how publishers and authors arrive at book titles.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -48483,7 +48499,7 @@
     "author": "BDEhrman",
     "description": "Explains why the Gospels were not written primarily as neutral historical reports.",
     "topics": [
-      "Gospel Writers as Interpreters"
+      "Canonical Gospels (General)"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -48493,7 +48509,8 @@
       "Jairus",
       "John",
       "Mark",
-      "Matthew"
+      "Matthew",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -48541,7 +48558,7 @@
     "description": "Explains how biblical contradictions can help historians analyze sources.",
     "topics": [
       "Biblical Contradictions",
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -48687,7 +48704,7 @@
     "author": "BDEhrman",
     "description": "Reposts an explanation of source theories behind the Hebrew Bible.",
     "topics": [
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -48814,7 +48831,7 @@
     "author": "BDEhrman",
     "description": "Explains the second phase of writing a trade book.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -49069,7 +49086,7 @@
     "author": "BDEhrman",
     "description": "Explains how research for a trade book begins.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -49176,7 +49193,7 @@
     "author": "BDEhrman",
     "description": "Explains how scholars learn to write clearly for general audiences.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -49194,7 +49211,7 @@
     "author": "BDEhrman",
     "description": "Describes the practical process of writing a book.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -49222,7 +49239,7 @@
     "author": "BDEhrman",
     "description": "Explains the process of writing a trade book for general readers.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -49772,7 +49789,7 @@
     "author": "BDEhrman",
     "description": "Reflects on media attention and reaching the bestseller list.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Media Coverage",
       "Triumph of Christianity"
     ],
@@ -49977,7 +49994,7 @@
     "author": "BDEhrman",
     "description": "Explains how media attention can affect the reach of trade books.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Media Coverage"
     ],
     "secondaryKeywords": [
@@ -50700,7 +50717,7 @@
     "author": "BDEhrman",
     "description": "Reflects on which general-audience book may be the strongest work.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -52772,13 +52789,14 @@
     "description": "Uses Lucian's satire to connect wealth with afterlife punishment.",
     "topics": [
       "Classical Comparisons",
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell"
     ],
     "secondaryKeywords": [
       "Acts",
       "Afterlife",
       "Heaven",
       "Lucian of Samosata",
+      "Rich and Poor in Afterlife",
       "Thomas",
       "Wealth"
     ]
@@ -52841,11 +52859,12 @@
     "description": "Uses Lucian's afterlife satire to show moral lessons in journeys to the dead.",
     "topics": [
       "Classical Comparisons",
-      "Rich and Poor in Afterlife"
+      "Heaven/Hell"
     ],
     "secondaryKeywords": [
       "Afterlife",
       "Lucian of Samosata",
+      "Rich and Poor in Afterlife",
       "Wealth"
     ]
   },
@@ -52922,7 +52941,7 @@
     "author": "BDEhrman",
     "description": "Explains life in Hades through Odysseus's encounter with the dead.",
     "topics": [
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -52942,7 +52961,7 @@
     "description": "Explains body and soul in Hades through scenes from the Odyssey.",
     "topics": [
       "Classical Comparisons",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -52961,7 +52980,7 @@
     "description": "Introduces Odysseus's journey to the realm of the dead.",
     "topics": [
       "Classical Comparisons",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -53002,7 +53021,7 @@
     "topics": [
       "Apocalypse of Peter",
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -53011,7 +53030,7 @@
       "Heaven and Hell",
       "Hell",
       "Katabasis",
-      "Otherworldly Journeys",
+      "Afterlife Journeys",
       "Paul",
       "Peter"
     ]
@@ -54047,7 +54066,7 @@
     "description": "Explains how Mark's non-historical portrayal of Jesus' death can still be meaningful.",
     "topics": [
       "Gospel of Mark",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Passion Narratives"
     ],
     "secondaryKeywords": [
@@ -54057,7 +54076,8 @@
       "Mark",
       "Pontius Pilate",
       "Revelation",
-      "Suffering"
+      "Suffering",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -54221,7 +54241,7 @@
       "Birth Narrative",
       "Gospel of Luke",
       "Gospel of Matthew",
-      "Gospel Writers as Interpreters"
+      "Canonical Gospels (General)"
     ],
     "secondaryKeywords": [
       "Biblical Discrepancies",
@@ -54232,7 +54252,8 @@
       "Luke",
       "Mary",
       "Matthew",
-      "Nazareth"
+      "Nazareth",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -54274,8 +54295,8 @@
     "author": "BDEhrman",
     "description": "Explores whether theological truth can matter more than historical accuracy in Gospel narratives.",
     "topics": [
-      "Gospel Writers as Interpreters",
-      "History and Theology"
+      "Canonical Gospels (General)",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Biblical Discrepancies",
@@ -54285,7 +54306,8 @@
       "John the Baptist",
       "Judas Iscariot",
       "Mark",
-      "Pontius Pilate"
+      "Pontius Pilate",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -54297,7 +54319,7 @@
     "description": "Introduces the idea of a Gospel story that can be meaningful without being historically accurate.",
     "topics": [
       "Biblical Contradictions",
-      "Gospel Writers as Interpreters"
+      "Canonical Gospels (General)"
     ],
     "secondaryKeywords": [
       "Biblical Discrepancies",
@@ -54305,7 +54327,8 @@
       "Gospels",
       "John",
       "Mark",
-      "Moses"
+      "Moses",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -54333,7 +54356,7 @@
     "author": "BDEhrman",
     "description": "Explains how stories can function as true myths without having happened historically.",
     "topics": [
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "David",
@@ -54391,7 +54414,7 @@
     "description": "Explains older readings of the Gospels as supernatural histories.",
     "topics": [
       "Historical Study of Miracles",
-      "History and Theology",
+      "Historical Study and Theology",
       "Jesus' Miracles"
     ],
     "secondaryKeywords": [
@@ -54531,7 +54554,7 @@
     "topics": [
       "Biblical Contradictions",
       "Biblical Inerrancy",
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -55240,7 +55263,7 @@
       "Apocalypse of Peter",
       "Eternal Punishment",
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -55301,7 +55324,7 @@
     "description": "Introduces the Apocalypse of Paul as a later Christian tour of heaven and hell.",
     "topics": [
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -55329,7 +55352,7 @@
     "topics": [
       "Apocalypse of Peter",
       "Heaven/Hell",
-      "Otherworldly Journeys"
+      "Afterlife Journeys"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -55839,7 +55862,7 @@
     "description": "Answers questions about work habits and the authorship of James.",
     "topics": [
       "James the Brother of Jesus",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -56032,7 +56055,7 @@
     "description": "Presents Jeff Siker's response to questions about faith, critical scholarship, and Christianity.",
     "topics": [
       "Critical Biblical Scholarship",
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -56055,7 +56078,7 @@
     "description": "Reposts Jeff Siker's explanation of being both Christian and New Testament scholar.",
     "topics": [
       "Critical Biblical Scholarship",
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -57720,7 +57743,7 @@
     "description": "Reposts a discussion of anti-Judaism in the Gospels.",
     "topics": [
       "Anti-Judaism",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Pontius Pilate"
     ],
     "secondaryKeywords": [
@@ -57733,7 +57756,8 @@
       "Matthew",
       "Pilate",
       "Resurrection",
-      "Roman Empire"
+      "Roman Empire",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -57851,7 +57875,7 @@
     "author": "BDEhrman",
     "description": "Explains learning to write trade books for general audiences.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -57921,7 +57945,7 @@
     "author": "BDEhrman",
     "description": "Explains the editorial process after submitting a book manuscript.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -57938,7 +57962,7 @@
     "author": "BDEhrman",
     "description": "Reflects on writing books that are both interesting and important.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Triumph of Christianity",
       "Writing Process and Book Publishing"
     ],
@@ -58616,7 +58640,7 @@
     "author": "BDEhrman",
     "description": "Explains why scholarly training often does not prepare academics to write trade books.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Popularizing Scholarship"
     ],
     "secondaryKeywords": [
@@ -58639,7 +58663,7 @@
     "author": "BDEhrman",
     "description": "Describes the process of choosing a title for a trade book on the triumph of Christianity.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Triumph of Christianity",
       "Writing Process and Book Publishing"
     ],
@@ -58659,7 +58683,7 @@
     "description": "Explains how ancient secretaries could assist writers and whether they composed works for others.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -58701,7 +58725,7 @@
     "description": "Explains how ancient writers used secretaries and why that matters for authorship claims.",
     "topics": [
       "Ancient Literacy",
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -59181,7 +59205,7 @@
     "author": "BDEhrman",
     "description": "Summarizes modern scholarly views on the authorship and sources of the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -59199,7 +59223,7 @@
     "author": "BDEhrman",
     "description": "Explains the JEDP hypothesis and why scholars question Mosaic authorship of the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -59226,7 +59250,7 @@
     "author": "BDEhrman",
     "description": "Identifies literary tensions in the Pentateuch that suggest multiple sources.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -59290,7 +59314,7 @@
     "author": "BDEhrman",
     "description": "Introduces early questions about who wrote the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -59313,7 +59337,7 @@
     "author": "BDEhrman",
     "description": "Answers questions about Saul's name Paul and the sources behind the Pentateuch.",
     "topics": [
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -60139,14 +60163,14 @@
     "description": "Summarizes the early growth of Christianity for a book on its triumph.",
     "topics": [
       "Conversion",
-      "Miracles and Conversion",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Constantine",
       "Miracles",
       "Roman Empire",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -60290,7 +60314,7 @@
     "author": "BDEhrman",
     "description": "Explains how a literary agent became part of the move to a new trade publisher.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -60326,7 +60350,7 @@
     "author": "BDEhrman",
     "description": "Offers practical advice about getting a first trade book published.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -60341,7 +60365,7 @@
     "author": "BDEhrman",
     "description": "Explains who is qualified to write trade books for general audiences.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Book Publishing",
@@ -60378,7 +60402,7 @@
     "author": "BDEhrman",
     "description": "Explains the move from HarperOne to Simon and Schuster for future trade books.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -60413,7 +60437,7 @@
     "author": "BDEhrman",
     "description": "Reflects on publishing with HarperOne and the books produced through that relationship.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -60673,8 +60697,7 @@
     "description": "Surveys major topics in Acts, including conversion, miracles, and apostolic mission.",
     "topics": [
       "Acts",
-      "Conversion",
-      "Miracles and Conversion"
+      "Conversion"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -60683,7 +60706,8 @@
       "James",
       "Miracles",
       "Paul",
-      "Peter"
+      "Peter",
+      "Miracles and Conversion"
     ]
   },
   {
@@ -64160,7 +64184,6 @@
     "author": "BDEhrman",
     "description": "Introduces 1 Thessalonians as Paul's earliest surviving letter and as context for a textual variant.",
     "topics": [
-      "Early Christian Communities",
       "Pauline Communities",
       "Pauline Letters"
     ],
@@ -65337,7 +65360,7 @@
     "author": "BDEhrman",
     "description": "Explains how a scholarly career moved into trade publishing for general readers.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -65632,14 +65655,14 @@
     "author": "BDEhrman",
     "description": "Continues discussion of the community behind the Gospel of John.",
     "topics": [
-      "Early Christian Communities",
       "Gospel of John"
     ],
     "secondaryKeywords": [
       "Abraham",
       "Historical Jesus",
       "John",
-      "Memory"
+      "Memory",
+      "Johannine Community"
     ]
   },
   {
@@ -65650,7 +65673,6 @@
     "author": "BDEhrman",
     "description": "Introduces the community behind the Gospel of John as part of a memory-focused book project.",
     "topics": [
-      "Early Christian Communities",
       "Gospel of John"
     ],
     "secondaryKeywords": [
@@ -65660,7 +65682,8 @@
       "Mark",
       "Memory",
       "Messiah",
-      "Thomas"
+      "Thomas",
+      "Johannine Community"
     ]
   },
   {
@@ -66060,7 +66083,7 @@
     "description": "Asks whether Paul's view of the Law conflicts with Matthew's Gospel.",
     "topics": [
       "Gospel of Matthew",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Paul and Jewish Law"
     ],
     "secondaryKeywords": [
@@ -66070,7 +66093,8 @@
       "Moses",
       "Paul",
       "Resurrection",
-      "Salvation"
+      "Salvation",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -66081,7 +66105,6 @@
     "author": "BDEhrman",
     "description": "Explains Paul's Christian opponents in Galatia and their insistence on circumcision and the Law.",
     "topics": [
-      "Early Christian Communities",
       "Jewish Law",
       "Paul and Jewish Law",
       "Paul and Opponents",
@@ -69100,7 +69123,7 @@
     "author": "BDEhrman",
     "description": "Explains the challenge of communicating scholarship to non-specialists.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Popularizing Scholarship"
     ],
     "secondaryKeywords": [
@@ -69117,7 +69140,7 @@
     "author": "BDEhrman",
     "description": "Explains how topics are chosen for trade books.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Trade Books"
@@ -69162,7 +69185,7 @@
     "author": "BDEhrman",
     "description": "Explains where to begin reading when researching a trade book.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -69179,7 +69202,7 @@
     "author": "BDEhrman",
     "description": "Explains planning and drafting a trade book for general readers.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -69255,7 +69278,7 @@
     "author": "BDEhrman",
     "description": "Explains how titles for trade books differ from titles for scholarly books.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Misquoting Jesus",
       "Writing Process and Book Publishing"
     ],
@@ -69297,7 +69320,7 @@
     "topics": [
       "Forged",
       "Forgery and Counterforgery",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -69313,7 +69336,7 @@
     "author": "BDEhrman",
     "description": "Explains the trade-book version of a project on non-canonical Gospels.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Nag Hammadi",
       "Non-Canonical Gospels (General)",
       "Translation Process"
@@ -69415,7 +69438,7 @@
     "author": "BDEhrman",
     "description": "Explains a third pairing of scholarly and trade books on the same topic.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Apostolic Fathers",
@@ -69435,7 +69458,7 @@
     "topics": [
       "Forged",
       "Forgery and Counterforgery",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Counterforgery",
@@ -69455,7 +69478,7 @@
     "author": "BDEhrman",
     "description": "Explains planned future trade and scholarly books.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -69496,7 +69519,7 @@
     "author": "BDEhrman",
     "description": "Discusses future book plans and ongoing research while in London.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -70809,7 +70832,6 @@
     "description": "Introduces redaction criticism as a stage in modern New Testament scholarship.",
     "topics": [
       "Canonical Gospels (General)",
-      "Gospel Writers as Interpreters",
       "Redaction Criticism"
     ],
     "secondaryKeywords": [
@@ -70820,7 +70842,8 @@
       "Mark",
       "Matthew",
       "Source Criticism",
-      "Textual Criticism"
+      "Textual Criticism",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -70849,7 +70872,7 @@
     "author": "BDEhrman",
     "description": "Explains form criticism and oral tradition in the study of the Gospels.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Oral Tradition"
     ],
     "secondaryKeywords": [
@@ -70860,7 +70883,8 @@
       "Mark",
       "Martin Dibelius",
       "Messianic Secret",
-      "Rudolf Bultmann"
+      "Rudolf Bultmann",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -70944,7 +70968,7 @@
     "author": "BDEhrman",
     "description": "Discusses possible future books, including Paul and Christian use of Jewish Scripture.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -71786,7 +71810,7 @@
     "author": "BDEhrman",
     "description": "Defends writing serious scholarship for popular audiences.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Popularizing Scholarship"
     ],
     "secondaryKeywords": [
@@ -71839,7 +71863,7 @@
     "author": "BDEhrman",
     "description": "Explains how trade books are sold through timing, promotion, and media attention.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -76556,7 +76580,7 @@
     "description": "Explains inconsistencies in the Hebrew Bible and their significance.",
     "topics": [
       "Biblical Contradictions",
-      "Hebrew Bible Sources and Authorship",
+      "Hebrew Bible Authorship and Sources",
       "Pentateuch"
     ],
     "secondaryKeywords": [
@@ -76624,7 +76648,7 @@
     "description": "Discusses Mark's ending and the absence of a resurrection appearance by Jesus.",
     "topics": [
       "Gospel of Mark",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Resurrection of Jesus"
     ],
     "secondaryKeywords": [
@@ -76634,7 +76658,8 @@
       "Paul",
       "Peter",
       "Resurrection",
-      "Resurrection Appearances"
+      "Resurrection Appearances",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -76687,7 +76712,7 @@
     "author": "BDEhrman",
     "description": "Discusses possible future books and the alternation between scholarly and trade projects.",
     "topics": [
-      "General Audience Books",
+      "Books for General Readers",
       "Writing Process and Book Publishing"
     ],
     "secondaryKeywords": [
@@ -76780,7 +76805,7 @@
     "description": "Explains plans for a trade book on Jews, Christians, and anti-Judaism.",
     "topics": [
       "Anti-Judaism",
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Book Projects",
@@ -77549,7 +77574,7 @@
     "author": "BDEhrman",
     "description": "Explains why the Gospels are problematic witnesses to the resurrection.",
     "topics": [
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Resurrection of Jesus"
     ],
     "secondaryKeywords": [
@@ -77561,7 +77586,8 @@
       "Matthew",
       "Resurrection",
       "Resurrection Accounts",
-      "Salome"
+      "Salome",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -77813,7 +77839,7 @@
     "author": "BDEhrman",
     "description": "Explains how anecdotes can help trade books introduce scholarly topics.",
     "topics": [
-      "General Audience Books"
+      "Books for General Readers"
     ],
     "secondaryKeywords": [
       "Misquoting Jesus",
@@ -78529,7 +78555,7 @@
     "description": "Continues Jeff Siker's explanation of being both Christian and a New Testament scholar.",
     "topics": [
       "Critical Biblical Scholarship",
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -79828,7 +79854,7 @@
     "author": "BDEhrman",
     "description": "Addresses a criticism about ancient secretaries, dictation, and arguments over pseudonymous writings.",
     "topics": [
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -80191,7 +80217,7 @@
     "description": "Discusses anti-Jewish tendencies in Gospel passion narratives and the shift of blame away from Rome.",
     "topics": [
       "Anti-Judaism",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Pontius Pilate"
     ],
     "secondaryKeywords": [
@@ -80204,7 +80230,8 @@
       "Matthew",
       "Pilate",
       "Resurrection",
-      "Roman Empire"
+      "Roman Empire",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -80314,7 +80341,7 @@
     "description": "Considers why Gospel writers give women a prominent role in empty tomb stories.",
     "topics": [
       "Empty Tomb",
-      "Gospel Writers as Interpreters",
+      "Canonical Gospels (General)",
       "Women in Early Christianity"
     ],
     "secondaryKeywords": [
@@ -80322,7 +80349,8 @@
       "Gospels",
       "Paul",
       "Resurrection",
-      "Women"
+      "Women",
+      "Gospel Writers as Interpreters"
     ]
   },
   {
@@ -80523,12 +80551,12 @@
     "description": "Explains the difference between studying the Bible historically and theologically.",
     "topics": [
       "Historical Method (General)",
-      "History and Theology"
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Biblical History",
       "Biblical Theology",
-      "History and Theology",
+      "Historical Study and Theology",
       "Martin Luther"
     ]
   },
@@ -81290,7 +81318,7 @@
     "description": "Assesses whether Peter's social background makes authorship of 1 Peter plausible.",
     "topics": [
       "Ancient Literacy",
-      "Non-Pauline Epistles Authorship"
+      "Non-Pauline Epistle Authorship"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -81327,7 +81355,7 @@
     "author": "BDEhrman",
     "description": "Examines whether ancient secretarial practices could explain pseudepigraphic New Testament writings.",
     "topics": [
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -81344,7 +81372,7 @@
     "author": "BDEhrman",
     "description": "Summarizes ancient secretarial practices in relation to 1 Peter and Pauline pseudepigraphy.",
     "topics": [
-      "Ancient Secretaries and Authorship"
+      "Ancient Secretaries"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -81459,7 +81487,7 @@
     "author": "BDEhrman",
     "description": "Evaluates whether Silvanus could explain 1 Peter as Peter's letter through a secretary.",
     "topics": [
-      "Ancient Secretaries and Authorship",
+      "Ancient Secretaries",
       "Petrine Forgeries"
     ],
     "secondaryKeywords": [
@@ -81522,7 +81550,6 @@
     "author": "BDEhrman",
     "description": "Compares Paul's letters and Acts on Paul's conversion, mission, and communities.",
     "topics": [
-      "Early Christian Communities",
       "Paul in Acts",
       "Pauline Communities"
     ],
@@ -82072,7 +82099,7 @@
     "author": "BDEhrman",
     "description": "Recommends resources on Hebrew Bible composition and the Documentary Hypothesis.",
     "topics": [
-      "Hebrew Bible Sources and Authorship"
+      "Hebrew Bible Authorship and Sources"
     ],
     "secondaryKeywords": [
       "Authorship",
