@@ -172,7 +172,6 @@
     "topics": [
       "Apostolic Fathers",
       "In a Nutshell Series",
-      "Martyrdom (General)",
       "Martyrdom of Polycarp",
       "Miracles and Martyrdom"
     ],
@@ -433,7 +432,7 @@
     "description": "Presents and contextualizes the apocryphal Handing Over of Pilate, where Pilate is punished by Tiberius but repents and turns to Christ.",
     "topics": [
       "Anti-Judaism",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Pontius Pilate",
       "Trial of Jesus"
     ],
@@ -489,7 +488,7 @@
     "topics": [
       "Anti-Judaism",
       "Crucifixion of Jesus",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Pontius Pilate",
       "Trial of Jesus"
     ],
@@ -592,8 +591,8 @@
     "description": "Argues that Paul understood himself as specially appointed to bring Gentiles into God's people without adopting Jewish law.",
     "topics": [
       "Paul and Jewish Law",
-      "Pauline Biography",
-      "Pauline Conversion"
+      "Paul's Life and Career",
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Covenant",
@@ -1965,7 +1964,7 @@
     "topics": [
       "Canonical Gospels (General)",
       "Gospel Eyewitness Claims",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospel of Thomas",
@@ -2195,7 +2194,7 @@
     "author": "BDEhrman",
     "description": "Examines Paul's importance during life, later Christian memory of Paul, and the reliability of traditions about Paul.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -2875,7 +2874,7 @@
     "author": "BDEhrman",
     "description": "Presents a translated excerpt from the History of Joseph the Carpenter in which Jesus narrates Joseph's illness, life, and death.",
     "topics": [
-      "History of Joseph the Carpenter"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -2883,7 +2882,8 @@
       "Jacob",
       "Joseph",
       "Mary",
-      "Nazareth"
+      "Nazareth",
+      "History of Joseph the Carpenter"
     ]
   },
   {
@@ -2894,7 +2894,7 @@
     "author": "BDEhrman",
     "description": "Introduces the History of Joseph the Carpenter as a little-known apocryphal Gospel that fills gaps in traditions about Joseph.",
     "topics": [
-      "History of Joseph the Carpenter"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -2902,7 +2902,8 @@
       "Joseph",
       "Mary",
       "Non-Canonical Gospels",
-      "Paul"
+      "Paul",
+      "History of Joseph the Carpenter"
     ]
   },
   {
@@ -4560,7 +4561,7 @@
     "author": "BDEhrman",
     "description": "Introduces non-Gospel sources and critical issues scholars consider when studying the historical Jesus.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -5379,7 +5380,6 @@
     "description": "Argues that the author of 1 Peter may have used Pauline-sounding language to reconcile Petrine authority with Pauline Christianity.",
     "topics": [
       "Non-Pauline Epistle Authorship",
-      "Persecution in the Epistles",
       "Petrine Forgeries"
     ],
     "secondaryKeywords": [
@@ -6205,7 +6205,7 @@
     "topics": [
       "Early Christianity (General)",
       "Moral Problems in Scripture",
-      "Pauline Ethics"
+      "Paul and Slavery"
     ],
     "secondaryKeywords": [
       "Jewish Law",
@@ -6222,7 +6222,7 @@
     "description": "Summarizes Philemon as Paul's appeal for Onesimus to be received by Philemon without punishment.",
     "topics": [
       "In a Nutshell Series",
-      "Pauline Ethics",
+      "Paul and Slavery",
       "Pauline Letters"
     ],
     "secondaryKeywords": [
@@ -6867,7 +6867,7 @@
     "author": "BDEhrman",
     "description": "Responds to reader questions about Old Testament authorship, Pauline letters, and other biblical issues.",
     "topics": [
-      "Didache"
+      "Ignore"
     ],
     "secondaryKeywords": [
       "2 Kings",
@@ -7150,7 +7150,7 @@
     "author": "BDEhrman",
     "description": "Responds to reader questions about the collection of Paul's letters, 2 Peter, and related early Christian texts.",
     "topics": [
-      "Didache"
+      "Ignore"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -7441,7 +7441,7 @@
     "author": "BDEhrman",
     "description": "Explains the argument that 2 Corinthians may be composed from multiple Pauline letters spliced together.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -7480,7 +7480,7 @@
     "description": "Examines 2 Corinthians as an undisputed Pauline letter complicated by evidence of multiple letter fragments.",
     "topics": [
       "Pauline Authorship",
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -7658,7 +7658,7 @@
     "description": "Summarizes 1 Corinthians as Paul's response to ethical, communal, worship, and resurrection problems in Corinth.",
     "topics": [
       "In a Nutshell Series",
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -7974,7 +7974,7 @@
     "author": "BDEhrman",
     "description": "Recommends further reading on Paul's life, letters, and significance.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "David",
@@ -7996,8 +7996,7 @@
     "description": "Summarizes Paul's life as a persecutor turned missionary after a vision of the resurrected Jesus.",
     "topics": [
       "In a Nutshell Series",
-      "Paul and Persecution",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "2 Corinthians",
@@ -8021,7 +8020,7 @@
     "description": "Introduces Paul's significance and the seven undisputed letters as central evidence for early Christianity.",
     "topics": [
       "In a Nutshell Series",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -9358,8 +9357,7 @@
     "author": "jennao",
     "description": "Reposts the first part of a Newsweek article on the Christmas story, non-canonical Gospels, and historical questions.",
     "topics": [
-      "Birth Narrative",
-      "Gospel of Jesus Wife"
+      "Birth Narrative"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -9542,7 +9540,7 @@
     "description": "Introduces the Gospel of Pseudo-Matthew as a later infancy Gospel expanding traditions about Mary, Joseph, and Jesus.",
     "topics": [
       "Birth Narrative",
-      "Gospel of Pseudo-Matthew"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospel of Pseudo-Matthew",
@@ -9624,7 +9622,7 @@
     ],
     "secondaryKeywords": [
       "Forgery",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Mark",
       "Mission"
     ]
@@ -10888,8 +10886,7 @@
     "description": "Explains how early Christian writings circulated and why some eventually became Scripture while others did not.",
     "topics": [
       "Athanasius",
-      "Canon",
-      "Non-Canonical Gospels (General)"
+      "Canon"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -10908,8 +10905,7 @@
     "author": "BDEhrman",
     "description": "Introduces an anthology that places the New Testament alongside other surviving Christian writings from the first century of Christianity.",
     "topics": [
-      "Early Christian Writings",
-      "Non-Canonical Gospels (General)"
+      "Early Christian Writings"
     ],
     "secondaryKeywords": [
       "Canon",
@@ -11248,7 +11244,7 @@
     "author": "Diane",
     "description": "Presents James Tabor's second post on sources for reconstructing Paul's life and letters.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -11278,7 +11274,7 @@
     "description": "Presents James Tabor's first post on the difficulty of reconstructing the historical Paul from surviving sources.",
     "topics": [
       "Paul in Acts",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -11585,7 +11581,7 @@
     "topics": [
       "Jesus' Family",
       "Mary Magdalene",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Bathsheba",
@@ -12095,7 +12091,7 @@
     "author": "BDEhrman",
     "description": "Surveys non-canonical Gospels and other writings used by early Christian groups outside the emerging canon.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -12757,7 +12753,7 @@
     "author": "BDEhrman",
     "description": "Explores practical problems that arise after Paul's letters were copied, circulated, and possibly edited.",
     "topics": [
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians",
       "Roman World"
     ],
@@ -12775,7 +12771,7 @@
     "description": "Explains how dictation, correction, and recopying complicate the idea of an original Pauline letter.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians",
       "Scribal Changes"
     ],
@@ -12794,7 +12790,7 @@
     "description": "Examines how Paul's use of a secretary complicates claims about the original text of Philippians.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians",
       "Scribal Changes"
     ],
@@ -12811,7 +12807,7 @@
     "description": "Questions what an original text means when Philippians may combine multiple letters and later copying.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -12826,7 +12822,7 @@
     "author": "Diane",
     "description": "Presents the argument that Philippians may be two Pauline letters spliced into one.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Philippians",
       "Source Criticism"
     ],
@@ -12845,7 +12841,7 @@
     "author": "BDEhrman",
     "description": "Presents a Platinum member's medical hypothesis about Paul and the experiences that shaped Christian mission.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Paul"
@@ -12860,7 +12856,7 @@
     "description": "Introduces a series on whether the original text of Philippians can be identified.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -12943,7 +12939,7 @@
     "author": "BDEhrman",
     "description": "Explores the scholarly proposal that 2 Corinthians may be composed from five Pauline letters.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -12959,7 +12955,7 @@
     "author": "BDEhrman",
     "description": "Explains why many scholars think 2 Corinthians may combine two originally separate Pauline letters.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -13020,7 +13016,7 @@
     "description": "Argues that 1 Corinthians 14:34-35 may be a later interpolation rather than Paul's own instruction.",
     "topics": [
       "Paul and Women",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Textual Variants"
     ],
     "secondaryKeywords": [
@@ -13829,7 +13825,7 @@
     "author": "BDEhrman",
     "description": "Discusses a mysterious Gospel harmony fragment and whether it could come from the Diatessaron.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -13845,15 +13841,16 @@
     "author": "BDEhrman",
     "description": "Presents sayings from the Gospel of the Egyptians about women, childbirth, and death.",
     "topics": [
-      "Gospel of the Egyptians",
-      "Nag Hammadi"
+      "Nag Hammadi",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Eve",
       "Gospel of Thomas",
       "Gospels",
       "Salome",
-      "Salvation"
+      "Salvation",
+      "Gospel of the Egyptians"
     ]
   },
   {
@@ -13949,7 +13946,7 @@
       "Jewish Law",
       "Paul and Jewish Law",
       "Paul and Opponents",
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -14402,7 +14399,7 @@
     "author": "BDEhrman",
     "description": "Surveys the sources for Paul's life, including authentic letters, Acts, and later legends.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -14737,7 +14734,7 @@
     "author": "Diane",
     "description": "Presents Andrew Jacobs's discussion of how Gospel thrillers resemble real controversies over discovered Gospels.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Modern Forgeries"
     ],
     "secondaryKeywords": [
@@ -14757,7 +14754,7 @@
     "author": "Diane",
     "description": "Presents Andrew Jacobs's account of the plots and cultural fears inside Gospel thrillers.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Dead Sea Scrolls",
@@ -15006,7 +15003,7 @@
     "description": "Presents a Platinum member's controversial claims about Paul, apostasy, and Christian separation from Judaism.",
     "topics": [
       "Conversion",
-      "Pauline Conversion"
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Gamaliel",
@@ -15572,7 +15569,7 @@
     "description": "Explains how canon placement could make a potentially unorthodox text seem orthodox.",
     "topics": [
       "Early Christian Diversity",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -15743,7 +15740,7 @@
     "description": "Shares a Getty Museum lecture on Jesus legends in medieval Gospel illumination.",
     "topics": [
       "Media Interviews and Videos",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -16541,7 +16538,7 @@
     "description": "Answers reader questions about the Nag Hammadi books and their dating.",
     "topics": [
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -17317,7 +17314,7 @@
     "description": "Presents a Platinum member's retelling of Paul's conversion and mission.",
     "topics": [
       "Conversion",
-      "Pauline Conversion"
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Gamaliel",
@@ -17357,7 +17354,7 @@
     "description": "Uses the Gospel of the Ebionites to discuss harmonizing Gospel contradictions.",
     "topics": [
       "Biblical Contradictions",
-      "Gospel of the Ebionites"
+      "Jewish Christian Gospels"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -18783,13 +18780,14 @@
     "author": "BDEhrman",
     "description": "Discusses the lost Greater Questions of Mary and the difficulty of knowing whether it existed.",
     "topics": [
-      "Greater Questions of Mary",
-      "Mary Magdalene"
+      "Mary Magdalene",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
       "Heresy",
-      "Mary"
+      "Mary",
+      "Greater Questions of Mary"
     ]
   },
   {
@@ -18800,7 +18798,7 @@
     "author": "BDEhrman",
     "description": "Introduces the lost Gospel of Basilides and the problem of knowing lost Gnostic texts through hostile witnesses.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apocalypse of Peter",
@@ -18864,7 +18862,7 @@
       "Acts",
       "Biblical Contradictions",
       "Paul in Acts",
-      "Pauline Conversion"
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -21172,7 +21170,6 @@
     "author": "BDEhrman",
     "description": "Uses the Gospel of the Ebionites to compare different versions of the heavenly voice at Jesus' baptism.",
     "topics": [
-      "Gospel of the Ebionites",
       "Jewish Christian Gospels"
     ],
     "secondaryKeywords": [
@@ -21185,7 +21182,8 @@
       "Jewish Christian Gospels",
       "Luke",
       "Mark",
-      "Matthew"
+      "Matthew",
+      "Gospel of the Ebionites"
     ]
   },
   {
@@ -22062,7 +22060,6 @@
     "description": "Introduces textual variants in the Martyrdom of Polycarp and other Apostolic Fathers writings.",
     "topics": [
       "Apostolic Fathers",
-      "Martyrdom (General)",
       "Martyrdom of Polycarp",
       "Textual Variants"
     ],
@@ -22086,7 +22083,6 @@
     "author": "BDEhrman",
     "description": "Explains that scribal changes affect ancient Christian writings beyond the New Testament.",
     "topics": [
-      "Martyrdom (General)",
       "Scribal Changes",
       "Theological Textual Variants"
     ],
@@ -23133,7 +23129,7 @@
     "author": "BDEhrman",
     "description": "Shows how a one-letter textual variant in 1 Thessalonians can change the meaning of Paul's statement.",
     "topics": [
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Scribal Changes"
     ],
     "secondaryKeywords": [
@@ -23161,7 +23157,7 @@
     "author": "BDEhrman",
     "description": "Introduces the purpose of 1 Thessalonians while setting up further discussion of Pauline textual variants.",
     "topics": [
-      "Pauline Communities",
+      "Paul's Churches",
       "Pauline Letters"
     ],
     "secondaryKeywords": [
@@ -23574,8 +23570,7 @@
     "author": "BDEhrman",
     "description": "Responds to a reader question about whether books such as Hebrews and Revelation should remain in the New Testament canon.",
     "topics": [
-      "Canon",
-      "Non-Canonical Gospels (General)"
+      "Canon"
     ],
     "secondaryKeywords": [
       "1 Timothy",
@@ -24035,7 +24030,7 @@
     "topics": [
       "New Testament Manuscripts",
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Scribal Changes"
     ],
     "secondaryKeywords": [
@@ -27345,7 +27340,7 @@
       "Forgery (General)",
       "Forgery and Counterforgery",
       "Gnostic-Orthodox Conflicts",
-      "Greater Questions of Mary"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -27392,7 +27387,7 @@
     "topics": [
       "Forgery (General)",
       "Forgery and Counterforgery",
-      "Greater Questions of Mary"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -27802,7 +27797,7 @@
     "author": "BDEhrman",
     "description": "Examines Paul's letter to Philemon and whether Paul condemns slavery.",
     "topics": [
-      "Pauline Ethics",
+      "Paul and Slavery",
       "Pauline Letters"
     ],
     "secondaryKeywords": [
@@ -28361,8 +28356,8 @@
     "author": "BDEhrman",
     "description": "Presents a guest proposal about Damascus, Arabia, and the chronology of Paul's conversion.",
     "topics": [
-      "Pauline Biography",
-      "Pauline Conversion"
+      "Paul's Life and Career",
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -30845,8 +30840,7 @@
     "description": "Explains why and when Christians came to have the present New Testament canon.",
     "topics": [
       "Athanasius",
-      "Canon",
-      "Non-Canonical Gospels (General)"
+      "Canon"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -32750,7 +32744,7 @@
     "author": "BDEhrman",
     "description": "Announces a Zoom lecture on stories of Jesus as a young boy.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels"
@@ -32786,7 +32780,7 @@
     "description": "Explains how early Christians understood the Holy Spirit's role in the church at the end of time.",
     "topics": [
       "Pauline Apocalypticism",
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -32856,7 +32850,7 @@
     "author": "BDEhrman",
     "description": "Explores whether 2 Corinthians may be composed of as many as five separate letters.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -32872,7 +32866,7 @@
     "author": "BDEhrman",
     "description": "Introduces the possibility that 2 Corinthians combines more than one Pauline letter.",
     "topics": [
-      "Pauline Letter Composition"
+      "Composite Pauline Letters"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -32944,7 +32938,7 @@
     "author": "BDEhrman",
     "description": "Explains Paul's message to Corinthian converts and how it has often been misunderstood.",
     "topics": [
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -32979,7 +32973,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Corinthian church as a key source for understanding early Christian community and the Spirit.",
     "topics": [
-      "Pauline Communities",
+      "Paul's Churches",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -33027,7 +33021,7 @@
     "description": "Explains how the delay of Jesus' return affected Pauline communities.",
     "topics": [
       "Pauline Apocalypticism",
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -33615,7 +33609,7 @@
     "author": "BDEhrman",
     "description": "Introduces Paul's Corinthian community as background for understanding the Spirit in 1 Corinthians.",
     "topics": [
-      "Pauline Communities",
+      "Paul's Churches",
       "Social Class in Antiquity"
     ],
     "secondaryKeywords": [
@@ -33690,7 +33684,7 @@
       "Acts",
       "Bart Ehrman",
       "Enoch",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "James",
       "John",
       "Jude",
@@ -33929,7 +33923,7 @@
     "author": "BDEhrman",
     "description": "Announces a live lecture on the ethics of Paul.",
     "topics": [
-      "Pauline Ethics"
+      "Paul and Slavery"
     ],
     "secondaryKeywords": [
       "Lectures",
@@ -34164,7 +34158,7 @@
     "description": "Announces live lectures on the death of Jesus and the life of Paul.",
     "topics": [
       "Crucifixion of Jesus",
-      "Pauline Biography",
+      "Paul's Life and Career",
       "Resurrection of Jesus",
       "Teaching and Courses"
     ],
@@ -35781,7 +35775,7 @@
     "author": "BDEhrman",
     "description": "Shares a Newsweek article on Christmas and historical questions about Jesus' birth.",
     "topics": [
-      "Gospel of Jesus Wife"
+      "Birth Narrative"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -35839,14 +35833,15 @@
     "description": "Shares an apocryphal account of Mary's conception of Jesus from Pseudo-Matthew.",
     "topics": [
       "Birth Narrative",
-      "Gospel of Pseudo-Matthew"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
       "Heaven",
       "Joseph",
       "Mary",
-      "Matthew"
+      "Matthew",
+      "Gospel of Pseudo-Matthew"
     ]
   },
   {
@@ -35858,7 +35853,7 @@
     "description": "Introduces Pseudo-Matthew's expanded account of Joseph, Mary, and Jesus' birth.",
     "topics": [
       "Early Christian Writings",
-      "Gospel of Pseudo-Matthew"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -35976,7 +35971,7 @@
     "description": "Explains how Paul's dictation of letters complicates the search for an original text.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Roman World",
       "Scribal Changes"
     ],
@@ -35996,7 +35991,7 @@
     "description": "Explains why identifying an original text is more complicated than finding the earliest copy.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians",
       "Roman World"
     ],
@@ -36013,7 +36008,7 @@
     "description": "Asks what original means when dealing with ancient writings and later copies.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -36186,8 +36181,8 @@
     "author": "BDEhrman",
     "description": "Explores competition between Peter and Mary Magdalene in early Christian traditions.",
     "topics": [
-      "Gospel of Mary",
-      "Mary Magdalene"
+      "Mary Magdalene",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -36198,7 +36193,8 @@
       "Paul",
       "Peter",
       "Resurrection",
-      "Salome"
+      "Salome",
+      "Gospel of Mary"
     ]
   },
   {
@@ -36248,9 +36244,9 @@
     "author": "BDEhrman",
     "description": "Introduces the Gospel of Mary and its portrayal of Mary Magdalene as recipient of secret teaching.",
     "topics": [
-      "Gospel of Mary",
       "Mary Magdalene",
-      "Mary Magdalene and Gnosticism"
+      "Mary Magdalene and Gnosticism",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gnosticism",
@@ -36260,7 +36256,8 @@
       "Levi",
       "Mary",
       "Papyrus Egerton",
-      "Revelation"
+      "Revelation",
+      "Gospel of Mary"
     ]
   },
   {
@@ -36564,7 +36561,7 @@
     "description": "Explains how the Nag Hammadi writings commonly called Gnostic Gospels were discovered.",
     "topics": [
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -37063,7 +37060,7 @@
     "author": "BDEhrman",
     "description": "Uses a class quiz to raise questions and problems about canonical and non-canonical Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospel of Peter",
@@ -37333,7 +37330,7 @@
     "author": "BDEhrman",
     "description": "Introduces a PhD seminar on early Christian apocrypha and the kinds of non-canonical texts it covers.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -37936,8 +37933,8 @@
       "Forgery (General)",
       "Forgery and Counterforgery",
       "Gnostic-Orthodox Conflicts",
-      "Greater Questions of Mary",
-      "Valentinian Gnostics"
+      "Valentinian Gnostics",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -37961,8 +37958,8 @@
       "Forgery (General)",
       "Forgery and Counterforgery",
       "Gnostic-Orthodox Conflicts",
-      "Greater Questions of Mary",
-      "Nag Hammadi"
+      "Nag Hammadi",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Forged",
@@ -38691,7 +38688,7 @@
     ],
     "secondaryKeywords": [
       "Forgery",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Gospel of Mark",
       "Mission"
     ]
@@ -40313,7 +40310,7 @@
     "author": "BDEhrman",
     "description": "Revisits whether Jesus was married.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Jesus' Family"
     ],
     "secondaryKeywords": [
@@ -40582,8 +40579,7 @@
     "description": "Asks whether any companion of Paul could plausibly have written Luke and Acts.",
     "topics": [
       "Gospel of Luke",
-      "Luke-Acts Authorship",
-      "Paul in Acts"
+      "Luke-Acts Authorship"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -40890,7 +40886,7 @@
     "author": "BDEhrman",
     "description": "Surveys Paul's life and message within a broader introduction to the New Testament.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -42446,7 +42442,7 @@
     "description": "Describes a readable translation edition of non-canonical Gospels.",
     "topics": [
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -42470,7 +42466,7 @@
     "author": "BDEhrman",
     "description": "Describes the scholarly edition of the Apocryphal Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -43016,7 +43012,6 @@
     "author": "BDEhrman",
     "description": "Presents Stephanie Cobb's explanation of why martyrdom accounts portray torture as painless.",
     "topics": [
-      "Martyrdom (General)",
       "Miracles and Martyrdom"
     ],
     "secondaryKeywords": [
@@ -43104,7 +43099,7 @@
     "author": "BDEhrman",
     "description": "Presents Stephanie Cobb's discussion of painlessness in early Christian martyrdom accounts.",
     "topics": [
-      "Martyrdom (General)"
+      "Miracles and Martyrdom"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -43182,7 +43177,7 @@
     "author": "BDEhrman",
     "description": "Presents Stephanie Cobb's argument about whether early Christian martyrs experienced pain.",
     "topics": [
-      "Martyrdom (General)"
+      "Miracles and Martyrdom"
     ],
     "secondaryKeywords": [
       "Early Christian Communities",
@@ -43510,8 +43505,7 @@
     "description": "Explains why Christians needed the Old Testament in responding to pagan critics.",
     "topics": [
       "Anti-Judaism",
-      "Early Christianity (General)",
-      "Persecution (General)"
+      "Early Christianity (General)"
     ],
     "secondaryKeywords": [
       "Judaism",
@@ -46899,7 +46893,7 @@
     "author": "BDEhrman",
     "description": "Describes the mix of Jews and Gentiles in Paul's churches.",
     "topics": [
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "Judas Iscariot",
@@ -49330,7 +49324,7 @@
     "author": "BDEhrman",
     "description": "Examines Paul's letter to Philemon and whether it condemns slavery.",
     "topics": [
-      "Pauline Ethics",
+      "Paul and Slavery",
       "Pauline Letters"
     ],
     "secondaryKeywords": [
@@ -49411,8 +49405,7 @@
     "topics": [
       "Conversion",
       "Early Church History (General)",
-      "Greco-Roman Religion",
-      "Roman Persecution"
+      "Greco-Roman Religion"
     ],
     "secondaryKeywords": [
       "Constantine",
@@ -50747,7 +50740,7 @@
       "Paul's Knowledge of Jesus"
     ],
     "secondaryKeywords": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Jewish Law",
       "Kingdom of God",
       "Paul",
@@ -51071,7 +51064,7 @@
     "author": "BDEhrman",
     "description": "Explores whether Philippians may be a composite letter.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Philippians",
       "Source Criticism"
     ],
@@ -51168,7 +51161,7 @@
     "author": "BDEhrman",
     "description": "Explains the theory that 2 Corinthians may combine multiple Pauline letters.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -51874,7 +51867,7 @@
     "author": "BDEhrman",
     "description": "Describes Paul's sense of mission as fulfillment of ancient prophecy.",
     "topics": [
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Archaeology and Material Evidence",
@@ -52063,7 +52056,7 @@
     "author": "BDEhrman",
     "description": "Describes the translation project behind an edition of the Apocryphal Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -52881,9 +52874,8 @@
     "author": "BDEhrman",
     "description": "Reposts a discussion of Jewish Christian Gospels outside the New Testament.",
     "topics": [
-      "Gospel of the Ebionites",
       "Jewish Christian Gospels",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Orthodoxy and Heresy"
     ],
     "secondaryKeywords": [
@@ -53198,7 +53190,6 @@
     "author": "BDEhrman",
     "description": "Connects physical persecution with the emergence of bodily resurrection belief.",
     "topics": [
-      "Persecution (General)",
       "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
@@ -53464,7 +53455,7 @@
     "author": "BDEhrman",
     "description": "Introduces Daniel as the first surviving Jewish apocalypse.",
     "topics": [
-      "Persecution (General)"
+      "Jewish Apocalypticism"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -54198,8 +54189,7 @@
     "author": "BDEhrman",
     "description": "Asks whether the canon of Scripture could or should be changed.",
     "topics": [
-      "Canon",
-      "Non-Canonical Gospels (General)"
+      "Canon"
     ],
     "secondaryKeywords": [
       "1 Timothy",
@@ -55241,7 +55231,7 @@
     "author": "BDEhrman",
     "description": "Reposts a discussion of manuscript discoveries, including the Gospel of Jesus' Wife and Mark claims.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Manuscript Discoveries"
     ],
     "secondaryKeywords": [
@@ -56515,7 +56505,7 @@
     "topics": [
       "Athanasius",
       "Marcion",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apocalypse of Peter",
@@ -57125,7 +57115,6 @@
     "description": "Shares the first part of a Newsweek article on Christmas and birth narratives.",
     "topics": [
       "Birth Narrative",
-      "Gospel of Jesus Wife",
       "Proto-Gospel of James"
     ],
     "secondaryKeywords": [
@@ -57328,15 +57317,16 @@
     "author": "BDEhrman",
     "description": "Reposts a discussion of the Greater Questions of Mary and its strange lost-Gospel tradition.",
     "topics": [
-      "Greater Questions of Mary",
-      "Mary Magdalene"
+      "Mary Magdalene",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Christian Apocrypha",
       "Epiphanius",
       "Gospels",
       "Mary",
-      "The Greater Questions of Mary"
+      "The Greater Questions of Mary",
+      "Greater Questions of Mary"
     ]
   },
   {
@@ -58918,7 +58908,7 @@
       "Celibacy",
       "Essenes",
       "Forgery",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Jesus' Family",
       "John",
       "Mary Magdalene",
@@ -59504,7 +59494,7 @@
     "description": "Explains how Paul's conversion changed Paul's self-understanding and mission.",
     "topics": [
       "Conversion",
-      "Pauline Conversion"
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Isaiah",
@@ -59526,7 +59516,7 @@
     "topics": [
       "Conversion",
       "Early Judaism (General)",
-      "Pauline Conversion"
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -59564,7 +59554,7 @@
     "topics": [
       "Conversion",
       "Paul in Acts",
-      "Pauline Conversion"
+      "Paul's Conversion"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -59765,7 +59755,7 @@
     "description": "Describes Paul as a persecutor of the church before conversion.",
     "topics": [
       "Paul and Persecution",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Conversion",
@@ -59879,7 +59869,7 @@
     "description": "Answers questions about Galatians, Paul's conversion, and the textual reliability of Paul's letter.",
     "topics": [
       "James the Brother of Jesus",
-      "Pauline Textual Criticism"
+      "Pauline Textual Issues"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -60219,7 +60209,7 @@
     "topics": [
       "Apostles' Deaths",
       "Paul in Acts",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -63763,7 +63753,7 @@
     "author": "BDEhrman",
     "description": "Reports new evidence that the Gospel of Jesus' Wife was a modern forgery.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Modern Forgeries"
     ],
     "secondaryKeywords": [
@@ -64162,7 +64152,7 @@
     "author": "BDEhrman",
     "description": "Examines the textual variant between gentle and infants in 1 Thessalonians 2:7.",
     "topics": [
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Scribal Changes",
       "Textual Variants"
     ],
@@ -64180,7 +64170,7 @@
     "author": "BDEhrman",
     "description": "Continues the textual problem of 1 Thessalonians 2:7 and why the evidence is difficult.",
     "topics": [
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Textual Variants"
     ],
     "secondaryKeywords": [
@@ -64198,7 +64188,7 @@
     "author": "BDEhrman",
     "description": "Introduces the textual problem in 1 Thessalonians 2:7 after discussing the letter's purpose.",
     "topics": [
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Scribal Changes",
       "Textual Variants"
     ],
@@ -64270,7 +64260,7 @@
     "author": "BDEhrman",
     "description": "Introduces 1 Thessalonians as Paul's earliest surviving letter and as context for a textual variant.",
     "topics": [
-      "Pauline Communities",
+      "Paul's Churches",
       "Pauline Letters"
     ],
     "secondaryKeywords": [
@@ -64877,7 +64867,7 @@
     "description": "Answers questions about the discovery of the Nag Hammadi Library.",
     "topics": [
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Mark"
@@ -65685,7 +65675,7 @@
     "author": "BDEhrman",
     "description": "Announces a symposium on early Christian apocrypha.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apocrypha",
@@ -66193,7 +66183,7 @@
       "Jewish Law",
       "Paul and Jewish Law",
       "Paul and Opponents",
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "Circumcision",
@@ -66360,7 +66350,6 @@
     "author": "BDEhrman",
     "description": "Introduces the lost Q source as a desired discovery from early Christianity.",
     "topics": [
-      "Non-Canonical Gospels (General)",
       "Q Source",
       "Synoptic Problem"
     ],
@@ -66864,7 +66853,7 @@
     "author": "BDEhrman",
     "description": "Announces an all-day UNC seminar on non-canonical Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Christian Apocrypha",
@@ -68986,7 +68975,7 @@
     "author": "BDEhrman",
     "description": "Explains the decision to write a historical introduction to the New Testament.",
     "topics": [
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Textbooks"
     ],
     "secondaryKeywords": [
@@ -69426,7 +69415,7 @@
     "topics": [
       "Books for General Readers",
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -69451,7 +69440,7 @@
     "author": "BDEhrman",
     "description": "Explains the scholarly edition of apocryphal Gospels and its translation work.",
     "topics": [
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -69493,7 +69482,7 @@
     "description": "Explains the decision to publish the apocryphal Gospels.",
     "topics": [
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apostolic Fathers",
@@ -70589,7 +70578,7 @@
     "description": "Uses Philippians to show hypothetical problems in identifying an original text.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians",
       "Scribal Changes"
     ],
@@ -70607,7 +70596,7 @@
     "description": "Explains how dictation complicates the idea of an original text of Philippians.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -70626,7 +70615,7 @@
     "description": "Continues the problem of defining and recovering an original text of Philippians.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -70642,7 +70631,7 @@
     "description": "Asks what would count as the original text of Philippians.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -70657,7 +70646,7 @@
     "author": "BDEhrman",
     "description": "Examines whether Philippians may combine two separate Pauline letters.",
     "topics": [
-      "Pauline Letter Composition",
+      "Composite Pauline Letters",
       "Philippians",
       "Source Criticism"
     ],
@@ -70677,7 +70666,7 @@
     "description": "Answers questions about whether the original text of Philippians can be recovered.",
     "topics": [
       "Original Text",
-      "Pauline Textual Criticism",
+      "Pauline Textual Issues",
       "Philippians"
     ],
     "secondaryKeywords": [
@@ -70945,7 +70934,7 @@
     "author": "BDEhrman",
     "description": "Reports new developments concerning the Gospel of Jesus' Wife.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Modern Forgeries"
     ],
     "secondaryKeywords": [
@@ -71217,7 +71206,7 @@
     "secondaryKeywords": [
       "1 Corinthians",
       "David",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Historical Jesus",
       "James",
       "Judas Iscariot",
@@ -71235,7 +71224,7 @@
       "Paul's Knowledge of Jesus"
     ],
     "secondaryKeywords": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Jewish Law",
       "Kingdom of God",
       "Paul",
@@ -72359,7 +72348,7 @@
     "author": "BDEhrman",
     "description": "Shares a video discussion about whether it would matter if Jesus were married.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Jesus' Family"
     ],
     "secondaryKeywords": [
@@ -72730,7 +72719,7 @@
     "description": "Shares a Getty Museum lecture on illuminated manuscripts and legends about Jesus.",
     "topics": [
       "Media Interviews and Videos",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -72862,7 +72851,7 @@
     "author": "BDEhrman",
     "description": "Asks whether Jesus was married and whether that question would matter.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Jesus' Family"
     ],
     "secondaryKeywords": [
@@ -73158,7 +73147,7 @@
       "Nicodemus",
       "NT Syllabus",
       "Paul",
-      "Pauline Ethics",
+      "Paul and Slavery",
       "Peter",
       "Pontius Pilate",
       "Teaching",
@@ -74320,7 +74309,7 @@
     "author": "BDEhrman",
     "description": "Announces upcoming Smithsonian lectures on non-canonical Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apocryphal Gospels",
@@ -74549,8 +74538,7 @@
     "topics": [
       "Constantine",
       "Conversion",
-      "Early Church History (General)",
-      "Roman Persecution"
+      "Early Church History (General)"
     ],
     "secondaryKeywords": [
       "Canon",
@@ -74842,7 +74830,7 @@
     "author": "BDEhrman",
     "description": "Imagines a messier scenario for first- and second-century Gospel traditions.",
     "topics": [
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Oral Tradition"
     ],
     "secondaryKeywords": [
@@ -75028,7 +75016,7 @@
     "author": "BDEhrman",
     "description": "Discusses the Gospel of the Ebionites through quotations preserved by Epiphanius.",
     "topics": [
-      "Gospel of the Ebionites"
+      "Jewish Christian Gospels"
     ],
     "secondaryKeywords": [
       "Epiphanius",
@@ -75036,7 +75024,8 @@
       "Jewish Christianity",
       "Jewish Law",
       "John the Baptist",
-      "Moses"
+      "Moses",
+      "Gospel of the Ebionites"
     ]
   },
   {
@@ -75064,7 +75053,7 @@
     "description": "Explains Gospel harmonization through a quotation from the Gospel of the Ebionites.",
     "topics": [
       "Biblical Contradictions",
-      "Gospel of the Ebionites"
+      "Jewish Christian Gospels"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -76118,7 +76107,7 @@
     "description": "Explains why dating Paul's letters is more difficult than it may seem.",
     "topics": [
       "Paul in Acts",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -77025,7 +77014,7 @@
     "author": "BDEhrman",
     "description": "Asks whether calling Jesus God would have led to immediate persecution for blasphemy.",
     "topics": [
-      "Persecution (General)"
+      "Early Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -77688,7 +77677,7 @@
     "description": "Updates readers on recent manuscript discoveries, including Mark and the Gospel of Jesus' Wife.",
     "topics": [
       "First-Century Mark",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Manuscript Discoveries"
     ],
     "secondaryKeywords": [
@@ -78408,7 +78397,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Gospel of the Savior from a translation project on non-canonical Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -79453,8 +79442,8 @@
     "description": "Gives basic background on the Christmas story in canonical and later Gospels.",
     "topics": [
       "Birth Narrative",
-      "Gospel of Pseudo-Matthew",
-      "Proto-Gospel of James"
+      "Proto-Gospel of James",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Birth Narratives",
@@ -79462,7 +79451,8 @@
       "Herod",
       "Joseph",
       "Mary",
-      "Nazareth"
+      "Nazareth",
+      "Gospel of Pseudo-Matthew"
     ]
   },
   {
@@ -79616,7 +79606,7 @@
     "description": "Introduces birth stories in non-canonical Gospels.",
     "topics": [
       "Birth Narrative",
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apocryphal Gospels",
@@ -79743,7 +79733,6 @@
     "author": "BDEhrman",
     "description": "Explains why Q counts as a lost Gospel that remains lost.",
     "topics": [
-      "Non-Canonical Gospels (General)",
       "Q Source",
       "Synoptic Problem"
     ],
@@ -79766,14 +79755,15 @@
     "author": "BDEhrman",
     "description": "Introduces the lost Gospel called the Greater Questions of Mary.",
     "topics": [
-      "Greater Questions of Mary",
-      "Mary Magdalene"
+      "Mary Magdalene",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Gospels",
       "Heresy",
       "Mary",
-      "The Greater Questions of Mary"
+      "The Greater Questions of Mary",
+      "Greater Questions of Mary"
     ]
   },
   {
@@ -79817,7 +79807,7 @@
     "description": "Examines the Gospel of Basilides as a lost Gnostic Gospel known only through hostile ancient reports.",
     "topics": [
       "Gnosticism (General)",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Orthodoxy and Heresy"
     ],
     "secondaryKeywords": [
@@ -79847,7 +79837,7 @@
       "Cain",
       "Eve",
       "Gnosticism",
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Gospels",
       "Isaac",
       "Jacob",
@@ -79864,7 +79854,7 @@
     "description": "Explains the purpose and scope of a bilingual edition of the Apocryphal Gospels.",
     "topics": [
       "Nag Hammadi",
-      "Non-Canonical Gospels (General)",
+      "Non-Canonical Gospel Traditions",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -79888,7 +79878,7 @@
     "author": "BDEhrman",
     "description": "Describes the chance circumstances that led to producing a volume on the Apocryphal Gospels.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Apocryphal Gospels",
@@ -80014,7 +80004,6 @@
     "description": "Examines a significant textual variant in the Martyrdom of Polycarp.",
     "topics": [
       "Apostolic Fathers",
-      "Martyrdom (General)",
       "Martyrdom of Polycarp",
       "Textual Variants"
     ],
@@ -80359,7 +80348,7 @@
     "author": "BDEhrman",
     "description": "Reports new scholarly arguments that the Gospel of Jesus' Wife fragment may derive from the Gospel of Thomas.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Modern Forgeries"
     ],
     "secondaryKeywords": [
@@ -80707,7 +80696,7 @@
     "author": "BDEhrman",
     "description": "Reviews early arguments that the Gospel of Jesus' Wife fragment may be a modern forgery.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Modern Forgeries"
     ],
     "secondaryKeywords": [
@@ -80741,7 +80730,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Gospel of Jesus' Wife fragment and questions about authenticity.",
     "topics": [
-      "Gospel of Jesus Wife",
+      "Gospel of Jesus' Wife",
       "Modern Forgeries"
     ],
     "secondaryKeywords": [
@@ -80761,7 +80750,7 @@
     "author": "BDEhrman",
     "description": "Announces Karen King's release of a newly public Coptic fragment in which Jesus mentions a wife.",
     "topics": [
-      "Gospel of Jesus Wife"
+      "Gospel of Jesus' Wife"
     ],
     "secondaryKeywords": [
       "Gnosticism",
@@ -81655,7 +81644,7 @@
     "description": "Compares Paul's letters and Acts on Paul's conversion, mission, and communities.",
     "topics": [
       "Paul in Acts",
-      "Pauline Communities"
+      "Paul's Churches"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -81747,7 +81736,7 @@
       "Paul and Persecution",
       "Paul in Acts",
       "Paul's Knowledge of Jesus",
-      "Pauline Biography"
+      "Paul's Life and Career"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -82471,7 +82460,7 @@
     "author": "BDEhrman",
     "description": "Reflects on summer academic work while leading an apocrypha seminar.",
     "topics": [
-      "Non-Canonical Gospels (General)"
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -82529,8 +82518,7 @@
     "author": "BDEhrman",
     "description": "Considers whether the New Testament canon should change in light of authorship questions.",
     "topics": [
-      "Canon",
-      "Non-Canonical Gospels (General)"
+      "Canon"
     ],
     "secondaryKeywords": [
       "1 Timothy",

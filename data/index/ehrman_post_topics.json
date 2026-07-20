@@ -710,7 +710,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Gospel of Jesus Wife",
+      "name": "Gospel of Jesus' Wife",
       "description": "Posts on the Gospel of Jesus' Wife fragment, including discovery claims, forgery debates, media coverage, and questions about whether Jesus was married.",
       "categories": [
         "Non-Canonical Christian Texts"
@@ -751,14 +751,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Gospel of Mary",
-      "description": "Posts on the Gospel of Mary, including Mary Magdalene's role, tension with Peter, and non-canonical traditions about Mary's authority.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Gospel of Matthew",
       "description": "Posts focused on the Gospel of Matthew, including its use of Jewish scripture, genealogy, birth narrative, relation to Mark and Luke, portrayal of Jesus, and distinctive teachings.",
       "categories": [
@@ -775,40 +767,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Gospel of Pseudo-Matthew",
-      "description": "Posts on the Gospel of Pseudo-Matthew, especially apocryphal birth and childhood traditions about Mary, Joseph, and Jesus.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Gospel of the Ebionites",
-      "description": "Posts on the Gospel of the Ebionites and related Jewish-Christian gospel traditions, including Jesus' baptism and Ebionite beliefs.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Gospel of the Egyptians",
-      "description": "Posts on the Gospel of the Egyptians, including its place among lost or fragmentary non-canonical gospel traditions and Nag Hammadi materials.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Gospel of Thomas",
       "description": "Posts on the Gospel of Thomas, including its sayings, possible relation to Q, use of canonical Gospels, Thomasine Christianity, and debates over its date and meaning.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Greater Questions of Mary",
-      "description": "Posts on the lost Greater Questions of Mary, including reports about its contents, Mary Magdalene traditions, and ancient claims about non-canonical gospels.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -924,14 +884,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "History of Joseph the Carpenter",
-      "description": "Posts on the History of Joseph the Carpenter, including apocryphal traditions about Joseph's death and family stories told in Jesus' voice.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Holy Spirit in Luke-Acts",
       "description": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
       "categories": [],
@@ -987,7 +939,7 @@
       "name": "Jesus and Abgar Legend",
       "description": "Posts on the Edessa/Abgar tradition, especially stories that Jesus wrote a letter and later claims about writings attributed to Jesus.",
       "categories": [
-        "Early Church History"
+        "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
@@ -1174,7 +1126,7 @@
     },
     {
       "name": "Martyrdom (General)",
-      "description": "Posts on Christian martyrdom as a broad topic, including the value assigned to martyrdom, suffering, conversion, torture, and martyr texts.",
+      "description": "Posts on Christian martyrdom as a broad topic, including the value assigned to martyrdom, suffering, conversion, martyr texts, and the memory of the dead.",
       "categories": [
         "Persecution and Martyrdom"
       ],
@@ -1360,8 +1312,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Non-Canonical Gospels (General)",
-      "description": "Posts on early Christian gospels outside the New Testament, including their contents, historical value, theological claims, discovery, and reasons for exclusion from the canon.",
+      "name": "Non-Canonical Gospel Traditions",
+      "description": "Posts on non-canonical gospel traditions outside the New Testament when no more specific topic is used, including lost, fragmentary, legendary, infancy, Pilate, and other gospel-like traditions.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -1462,7 +1414,8 @@
       "name": "Papyrus Egerton",
       "description": "Posts on Papyrus Egerton, an early non-canonical gospel fragment, including its stories, relationship to other Gospel traditions, and significance for early Gospel circulation.",
       "categories": [
-        "Manuscripts and Textual Evidence"
+        "Manuscripts and Textual Evidence",
+        "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
@@ -1486,7 +1439,7 @@
       "name": "Paul and Crucifixion",
       "description": "Posts on how Paul interprets Jesus' crucifixion, including the crucified messiah, Jesus' death, and the meaning of the cross in Paul's letters.",
       "categories": [
-        "Pauline Theology and Ethics"
+        "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
@@ -1494,7 +1447,7 @@
       "name": "Paul and Jewish Law",
       "description": "Posts on Paul's views of the Jewish law, including Galatians, Gentile believers, salvation, love, and debates over law observance.",
       "categories": [
-        "Pauline Theology and Ethics"
+        "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
@@ -1519,7 +1472,7 @@
       "name": "Paul and Resurrection",
       "description": "Posts on Paul's teaching about resurrection, including Jesus' resurrection, the resurrection of believers, spiritual bodies, and eternal life.",
       "categories": [
-        "Pauline Theology and Ethics"
+        "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
@@ -1527,7 +1480,7 @@
       "name": "Paul and Women",
       "description": "Posts on Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
       "categories": [
-        "Pauline Theology and Ethics",
+        "Pauline Thought and Practice",
         "Women, Gender, and Sexuality"
       ],
       "displayInBrowser": true
@@ -1553,7 +1506,7 @@
       "description": "Posts on Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
       "categories": [
         "Apocalypticism and Revelation",
-        "Pauline Theology and Ethics"
+        "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
@@ -1563,12 +1516,12 @@
       "categories": [
         "Authorship",
         "Epistles",
-        "Pauline Letters, Authorship, and Texts"
+        "Pauline Letters and Textual Questions"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Biography",
+      "name": "Paul's Life and Career",
       "description": "Posts on Paul's life and career, including conversion, travel, chronology, imprisonment, letters, and the major sources for reconstructing his biography.",
       "categories": [
         "Paul's Life, Mission, and Communities"
@@ -1576,7 +1529,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Communities",
+      "name": "Paul's Churches",
       "description": "Posts on the churches connected with Paul, including Corinth, Thessalonica, Gentile inclusion, community conflicts, and expectations about the end.",
       "categories": [
         "Paul's Life, Mission, and Communities"
@@ -1584,7 +1537,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Conversion",
+      "name": "Paul's Conversion",
       "description": "Posts on Paul's conversion, its historical circumstances, and how it shaped his mission, theology, and understanding of Gentile inclusion.",
       "categories": [
         "Paul's Life, Mission, and Communities"
@@ -1592,11 +1545,11 @@
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Ethics",
-      "description": "Posts on Paul's ethical teachings, especially slavery, Philemon, Onesimus, and moral questions in Pauline letters.",
+      "name": "Paul and Slavery",
+      "description": "Posts on Paul, Philemon, Onesimus, and slavery, especially whether Paul's letters challenge or accept slavery.",
       "categories": [
         "Ethics and Moral Reasoning",
-        "Pauline Theology and Ethics"
+        "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
@@ -1606,16 +1559,16 @@
       "categories": [
         "Epistles",
         "Forgery",
-        "Pauline Letters, Authorship, and Texts"
+        "Pauline Letters and Textual Questions"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Letter Composition",
-      "description": "Posts on how Pauline letters were composed, edited, combined, or transmitted, especially questions about 2 Corinthians and Philippians.",
+      "name": "Composite Pauline Letters",
+      "description": "Posts on arguments that some Pauline letters, especially 2 Corinthians and Philippians, may combine originally separate letters or fragments.",
       "categories": [
         "Epistles",
-        "Pauline Letters, Authorship, and Texts"
+        "Pauline Letters and Textual Questions"
       ],
       "displayInBrowser": true
     },
@@ -1624,7 +1577,7 @@
       "description": "Posts on Paul's letters as a group, including lost letters, individual epistles, interpretation, communities, and broader questions about Paul's correspondence.",
       "categories": [
         "Epistles",
-        "Pauline Letters, Authorship, and Texts"
+        "Pauline Letters and Textual Questions"
       ],
       "displayInBrowser": true
     },
@@ -1632,16 +1585,16 @@
       "name": "Pauline Salvation Models",
       "description": "Posts on Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "categories": [
-        "Pauline Theology and Ethics",
+        "Pauline Thought and Practice",
         "Salvation, Atonement, and Judgment"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Textual Criticism",
-      "description": "Posts on textual problems in Paul's letters, including variants, interpolations, scribal changes, manuscript evidence, and questions about the original text.",
+      "name": "Pauline Textual Issues",
+      "description": "Posts on textual issues in Paul's letters, including variants, interpolations, scribal changes, manuscript evidence, dictation, and questions about the original text.",
       "categories": [
-        "Pauline Letters, Authorship, and Texts",
+        "Pauline Letters and Textual Questions",
         "Textual Criticism"
       ],
       "displayInBrowser": true
@@ -1651,14 +1604,6 @@
       "description": "Posts on the Torah/Pentateuch, including Moses, Exodus, Sinai, the law, contradictions, sources, and historical questions about its narratives.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Persecution (General)",
-      "description": "Posts on persecution as a broad topic, including opposition to Christians, pagan criticism, suffering, resurrection hope, and Christian claims about Jesus.",
-      "categories": [
-        "Persecution and Martyrdom"
       ],
       "displayInBrowser": true
     },
@@ -1692,7 +1637,7 @@
       "description": "Posts on Philippians, including authorship, composition, textual problems, further reading, and the letter's place among Paul's writings.",
       "categories": [
         "Epistles",
-        "Pauline Letters, Authorship, and Texts"
+        "Pauline Letters and Textual Questions"
       ],
       "displayInBrowser": true
     },
@@ -1702,7 +1647,7 @@
       "categories": [
         "Christology",
         "Epistles",
-        "Pauline Theology and Ethics"
+        "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
@@ -1854,7 +1799,7 @@
     },
     {
       "name": "Roman Persecution",
-      "description": "Posts on Roman persecution of Christians, including imperial involvement, charges against Christians, Constantine, Roman religion, and the political context of persecution.",
+      "description": "Posts on Roman persecution of Christians, including imperial involvement, charges against Christians, Roman religion, and the political context of persecution.",
       "categories": [
         "Persecution and Martyrdom"
       ],

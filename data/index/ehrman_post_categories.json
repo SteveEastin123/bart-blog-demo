@@ -158,15 +158,14 @@
     },
     {
       "name": "Early Church History",
-      "description": "Covers early Christian history after the New Testament period, including church institutions, councils, doctrinal development, early Christian writings, Edessa traditions, and broad historical developments.",
+      "description": "Covers early Christian history after the New Testament period, including church institutions, councils, doctrinal development, early Christian writings, and broad historical developments.",
       "topicOrder": [
         "Early Church History (General)",
         "Early Christianity (General)",
         "Early Christian Diversity",
         "Early Christian Writings",
         "Constantine",
-        "Trinity",
-        "Jesus and Abgar Legend"
+        "Trinity"
       ]
     },
     {
@@ -183,7 +182,7 @@
       "description": "Covers New Testament letters, including Pauline and non-Pauline epistles, authorship, forgery, composition, persecution, and individual letters such as 2 Thessalonians and Philippians.",
       "topicOrder": [
         "Pauline Letters",
-        "Pauline Letter Composition",
+        "Composite Pauline Letters",
         "Pauline Authorship",
         "Pauline Forgeries",
         "Philippians",
@@ -201,7 +200,7 @@
       "topicOrder": [
         "Moral Philosophy",
         "Jesus' Ethics",
-        "Pauline Ethics",
+        "Paul and Slavery",
         "Moral Problems in Scripture",
         "Anti-Judaism"
       ]
@@ -382,78 +381,73 @@
     },
     {
       "name": "Non-Canonical Christian Texts",
-      "description": "Covers early Christian writings outside the New Testament, including non-canonical gospels, infancy and family traditions, apocalypses, apocryphal acts, church manuals, apostolic writings, and miracle stories.",
+      "description": "Covers early Christian writings outside the New Testament, including non-canonical gospels, infancy traditions, apocalypses, apocryphal acts, church manuals, apostolic writings, and miracle stories.",
       "topicOrder": [
-        "Non-Canonical Gospels (General)",
-        "Jewish Christian Gospels",
+        "Non-Canonical Gospel Traditions",
         "Gospel of Thomas",
         "Gospel of Peter",
         "Gospel of Judas",
-        "Gospel of Mary",
-        "Gospel of Jesus Wife",
-        "Gospel of the Ebionites",
-        "Gospel of the Egyptians",
-        "Gospel of Pseudo-Matthew",
-        "Infancy Gospel of Thomas",
+        "Gospel of Jesus' Wife",
+        "Jewish Christian Gospels",
+        "Papyrus Egerton",
         "Proto-Gospel of James",
-        "History of Joseph the Carpenter",
-        "Greater Questions of Mary",
+        "Infancy Gospel of Thomas",
+        "Jesus and Abgar Legend",
         "Apocalypse of Peter",
         "Apocryphal Acts",
+        "Non-Canonical Miracle Stories",
         "Didache",
-        "Letter of Barnabas",
-        "Non-Canonical Miracle Stories"
+        "Letter of Barnabas"
       ]
     },
     {
       "name": "Paul's Life, Mission, and Communities",
-      "description": "Explores Paul's life, conversion, missionary work, conflicts, persecution, communities, portrayal in Acts, and what Paul appears to have known about Jesus.",
+      "description": "Explores Paul's life, conversion, missionary work, conflicts, persecution, churches, portrayal in Acts, and what Paul appears to have known about Jesus.",
       "topicOrder": [
-        "Pauline Biography",
-        "Pauline Conversion",
+        "Paul's Life and Career",
+        "Paul's Conversion",
         "Paul's Knowledge of Jesus",
         "Paul in Acts",
-        "Pauline Communities",
+        "Paul's Churches",
         "Paul and Opponents",
         "Paul and Persecution"
       ]
     },
     {
-      "name": "Pauline Letters, Authorship, and Texts",
-      "description": "Covers Paul's letters, disputed authorship, forgery, letter composition, textual problems, Philippians, and the transmission of Pauline writings.",
+      "name": "Pauline Letters and Textual Questions",
+      "description": "Covers Paul's letters, including disputed authorship, Pauline forgeries, composite letters, textual variants, original-text problems, Philippians, and the transmission of Pauline writings.",
       "topicOrder": [
         "Pauline Letters",
-        "Pauline Letter Composition",
+        "Philippians",
+        "Composite Pauline Letters",
         "Pauline Authorship",
         "Pauline Forgeries",
-        "Pauline Textual Criticism",
-        "Philippians"
+        "Pauline Textual Issues"
       ]
     },
     {
-      "name": "Pauline Theology and Ethics",
-      "description": "Examines Paul's views on Jesus' death and resurrection, Jewish law, salvation, apocalyptic expectation, women, ethics, and the Philippians Christ poem.",
+      "name": "Pauline Thought and Practice",
+      "description": "Examines Paul's thought and practice, including salvation, Jesus' death and resurrection, Jewish law, apocalyptic expectation, slavery, women, ethics, and the Philippians Christ poem.",
       "topicOrder": [
         "Pauline Salvation Models",
         "Paul and Crucifixion",
         "Paul and Resurrection",
         "Pauline Apocalypticism",
         "Paul and Jewish Law",
-        "Pauline Ethics",
+        "Paul and Slavery",
         "Paul and Women",
         "Philippians Christ Poem"
       ]
     },
     {
       "name": "Persecution and Martyrdom",
-      "description": "Covers persecution and martyrdom traditions, including Roman persecution, apostles' deaths, Perpetua, Polycarp, miraculous martyrdom traditions, and persecution in the epistles.",
+      "description": "Covers persecution and martyrdom traditions, including Roman persecution, persecution in New Testament letters, Paul as persecutor or persecuted figure, apostles' deaths, Perpetua, Polycarp, and miraculous martyrdom traditions.",
       "topicOrder": [
-        "Persecution (General)",
         "Roman Persecution",
         "Persecution in the Epistles",
         "Paul and Persecution",
-        "Martyrdom (General)",
         "Apostles' Deaths",
+        "Martyrdom (General)",
         "Martyrdom of Perpetua",
         "Martyrdom of Polycarp",
         "Miracles and Martyrdom"
@@ -520,7 +514,7 @@
         "Scribal Changes",
         "Theological Textual Variants",
         "Patristic Textual Evidence",
-        "Pauline Textual Criticism",
+        "Pauline Textual Issues",
         "Bloody Sweat Textual Variant"
       ]
     },
