@@ -69,7 +69,7 @@
       "description": "Covers major Bible versions, translation choices, the Septuagint, the King James Version, the NRSV, and the process of rendering ancient texts into modern languages.",
       "topicOrder": [
         "Bible Translations (General)",
-        "Translation Process",
+        "Translation Issues",
         "Septuagint",
         "King James Version",
         "NRSV"
@@ -160,13 +160,13 @@
       "name": "Early Church History",
       "description": "Covers early Christian history after the New Testament period, including church institutions, councils, doctrinal development, early Christian writings, Edessa traditions, and broad historical developments.",
       "topicOrder": [
-        "Early Christianity (General)",
         "Early Church History (General)",
+        "Early Christianity (General)",
         "Early Christian Diversity",
         "Early Christian Writings",
-        "Jesus and Abgar Legend",
         "Constantine",
-        "Trinity"
+        "Trinity",
+        "Jesus and Abgar Legend"
       ]
     },
     {
