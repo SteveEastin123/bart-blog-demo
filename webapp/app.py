@@ -547,9 +547,8 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
     body = content_page(
         category["name"],
         f"{pluralize(len(topics), 'topic')} | {pluralize(post_count, 'post')}",
-        category["description"],
+        "",
         inner,
-        description_first=True,
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
