@@ -13,7 +13,7 @@
       "name": "Academic Life",
       "description": "Posts on graduate study, teaching, dissertations, university life, scholarly careers, and what academic biblical scholars actually do.",
       "categories": [
-        "Academic Scholarship and Public Engagement"
+        "Scholarship and Public Engagement"
       ],
       "displayInBrowser": true
     },
@@ -21,7 +21,7 @@
       "name": "Academic Research and Publishing",
       "description": "Posts on scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "categories": [
-        "Academic Scholarship and Public Engagement"
+        "Scholarship and Public Engagement"
       ],
       "displayInBrowser": true
     },
@@ -164,6 +164,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Armageddon",
+      "description": "Posts about Bart's book Armageddon, including announcements, interviews, excerpts, publication updates, and discussions of Revelation or modern end-times interpretation tied to the book.",
+      "categories": [
+        "Bart's Books"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Athanasius",
       "description": "Posts on Athanasius, especially his role in canon formation, Nicene Christianity, and fourth-century theological debates.",
       "categories": [
@@ -223,7 +231,7 @@
       "name": "Biblical Contradictions",
       "description": "Posts on contradictions in biblical texts, including the Gospels, the Hebrew Bible, and broader questions of interpretation and scriptural authority.",
       "categories": [
-        "Biblical Canon and Scripture"
+        "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -231,7 +239,7 @@
       "name": "Biblical Inerrancy",
       "description": "Posts on claims that the Bible is without error, including fundamentalism, contradictions, personal deconversion, and debates over biblical authority.",
       "categories": [
-        "Biblical Canon and Scripture"
+        "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -239,7 +247,7 @@
       "name": "Biblical Numerology",
       "description": "Posts on number symbolism and numerical interpretation in biblical texts, especially 666 and Matthew's genealogy.",
       "categories": [
-        "Biblical Canon and Scripture"
+        "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -260,8 +268,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Blog Fundraising and Charities",
-      "description": "Posts about blog anniversaries, fundraising appeals, charity campaigns, stewardship, and support for charitable work.",
+      "name": "Blog Updates and Fundraising",
+      "description": "Posts about blog anniversaries, year-in-review updates, fundraising appeals, charity campaigns, stewardship, and support for charitable work.",
       "categories": [
         "Blog Features and Personal Posts"
       ],
@@ -279,7 +287,7 @@
       "name": "Bruce Metzger",
       "description": "Posts on Bruce Metzger as Bart's teacher and mentor, including graduate training, dissertation work, textual criticism, Bible translation, and personal reminiscences.",
       "categories": [
-        "Academic Scholarship and Public Engagement"
+        "Scholarship and Public Engagement"
       ],
       "displayInBrowser": true
     },
@@ -292,10 +300,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Canon",
-      "description": "Posts on how writings became scripture, including early canon lists, disputed books, Athanasius, Marcion, and the formation of the New Testament.",
+      "name": "Canon Formation",
+      "description": "Posts on how writings became scripture, including early canon lists, disputed books, books included or excluded, and the formation of the New Testament and Hebrew Bible canons.",
       "categories": [
-        "Biblical Canon and Scripture"
+        "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -330,10 +338,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Christian Use of Scripture",
+      "name": "Christian Interpretation of Scripture",
       "description": "Posts on how early Christians interpreted Jewish scripture, used prophetic texts, debated meaning, and developed Christian readings of scripture.",
       "categories": [
-        "Biblical Canon and Scripture"
+        "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -422,7 +430,7 @@
       "name": "Debates",
       "description": "Posts on public debates, debate strategy, announcements, rebuttals, and exchanges over biblical history, reliability, miracles, suffering, and faith.",
       "categories": [
-        "Academic Scholarship and Public Engagement"
+        "Scholarship and Public Engagement"
       ],
       "displayInBrowser": true
     },
@@ -790,8 +798,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Greco-Roman Religion",
-      "description": "Posts on pagan worship, mystery religions, divine beings, miracles, emperor worship, and the religious world in which early Christianity developed.",
+      "name": "Greco-Roman Religion and Ethics",
+      "description": "Posts on pagan worship, mystery religions, emperor worship, ancient moral philosophy, virtue, benefaction, and the religious and ethical world in which early Christianity developed.",
       "categories": [
         "Ancient World and Social Context"
       ],
@@ -1177,7 +1185,8 @@
       "name": "Matthew's Use of Scripture",
       "description": "Posts on Matthew's fulfillment citations and how Matthew presents Jesus as fulfilling scripture.",
       "categories": [
-        "Biblical Canon and Scripture"
+        "Biblical Canon, Authority, and Interpretation",
+        "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
@@ -1248,17 +1257,17 @@
     },
     {
       "name": "Misquoting Jesus",
-      "description": "Posts about textual criticism, manuscript transmission, scribal changes, public reception, and discussions tied to Bart's book.",
+      "description": "Posts about Bart's book Misquoting Jesus, including its argument, reception, critiques, interviews, and broader issues in textual criticism.",
       "categories": [
         "Bart's Books"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Modern End-Times Belief",
-      "description": "Posts on modern end-times belief, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
+      "name": "Modern End-Times Interpretation",
+      "description": "Posts on modern end-times interpretation, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
       "categories": [
-        "Revelation and End-Time Belief"
+        "Revelation and End-Times Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -1282,7 +1291,7 @@
       "name": "Moral Problems in Scripture",
       "description": "Posts on ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
       "categories": [
-        "Biblical Canon and Scripture",
+        "Biblical Canon, Authority, and Interpretation",
         "Ethics and Moral Reasoning"
       ],
       "displayInBrowser": true
@@ -1635,6 +1644,7 @@
       "name": "Petrine Authorship and Forgeries",
       "description": "Posts on writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, authorship, and other texts falsely or questionably connected with Peter.",
       "categories": [
+        "Authorship",
         "Forgery"
       ],
       "displayInBrowser": true
@@ -1670,7 +1680,7 @@
       "name": "Popularizing Scholarship",
       "description": "Posts on explaining biblical scholarship to wider audiences through articles, books, media, public responses, and accessible presentations of academic work.",
       "categories": [
-        "Academic Scholarship and Public Engagement",
+        "Scholarship and Public Engagement",
         "Teaching and Public Scholarship"
       ],
       "displayInBrowser": true
@@ -1775,7 +1785,7 @@
       "name": "Revelation",
       "description": "Posts on the book of Revelation as an ancient apocalypse, including its authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "categories": [
-        "Revelation and End-Time Belief"
+        "Revelation and End-Times Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -1808,6 +1818,7 @@
       "name": "Roman Persecution",
       "description": "Posts on Roman persecution of Christians, including imperial involvement, charges against Christians, Roman religion, and the political context of persecution.",
       "categories": [
+        "Ancient World and Social Context",
         "Persecution and Martyrdom"
       ],
       "displayInBrowser": true
@@ -1832,7 +1843,7 @@
       "name": "Scholar Memorials",
       "description": "Posts remembering scholars and public religious figures, including their work, influence, and significance for biblical or early Christian studies.",
       "categories": [
-        "Academic Scholarship and Public Engagement"
+        "Scholarship and Public Engagement"
       ],
       "displayInBrowser": true
     },
@@ -1969,7 +1980,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Translation Issues",
+      "name": "Translation Choices",
       "description": "Posts on translation choices, difficult words and passages, ancient languages, textual bases, inclusive language, and how translation affects interpretation.",
       "categories": [
         "Bible Translations and Versions"
@@ -1994,7 +2005,7 @@
     },
     {
       "name": "Triumph of Christianity",
-      "description": "Posts about how Christianity spread, converted the Roman world, and became a dominant religion.",
+      "description": "Posts about Bart's book The Triumph of Christianity, including writing updates, interviews, lectures, reviews, and discussions of how Christianity spread in the Roman world.",
       "categories": [
         "Bart's Books"
       ],

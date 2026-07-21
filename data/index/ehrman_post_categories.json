@@ -15,10 +15,11 @@
     },
     {
       "name": "Ancient World and Social Context",
-      "description": "Provides historical and social background for biblical and early Christian texts, including literacy, archaeology, Greco-Roman religion, Roman power, crucifixion, social class, wealth, and material culture.",
+      "description": "Provides historical and social background for biblical and early Christian texts, including Roman politics and culture, Greco-Roman religion, literacy, archaeology, social class, wealth, and crucifixion and burial practices.",
       "topicOrder": [
         "Roman World",
-        "Greco-Roman Religion",
+        "Roman Persecution",
+        "Greco-Roman Religion and Ethics",
         "Social Class in Antiquity",
         "Ancient Wealth Ethics",
         "Ancient Literacy",
@@ -27,21 +28,22 @@
       ]
     },
     {
-      "name": "Revelation and End-Time Belief",
-      "description": "Covers Revelation and modern interpretations of end-time belief, including apocalyptic imagery, judgment, symbolism, and later readings of biblical prophecy.",
+      "name": "Revelation and End-Times Interpretation",
+      "description": "Covers the book of Revelation and later end-times interpretations, including apocalyptic imagery, authorship, historical setting, symbolism, judgment, 666, the rapture, Armageddon, and modern uses of biblical prophecy.",
       "topicOrder": [
         "Revelation",
-        "Modern End-Times Belief"
+        "Modern End-Times Interpretation"
       ]
     },
     {
       "name": "Authorship",
-      "description": "Examines attribution, composition, anonymity, secretaries, sources, and named authorship of biblical and early Christian writings.",
+      "description": "Examines who wrote biblical and early Christian texts, how anonymous writings received names, how sources were composed, and how secretaries affect authorship claims.",
       "topicOrder": [
         "Gospel Authorship",
         "Luke-Acts Authorship",
         "Pauline Authorship",
         "Non-Pauline Epistle Authorship",
+        "Petrine Authorship and Forgeries",
         "Revelation Authorship",
         "Hebrew Bible Authorship and Sources",
         "Apostolic Fathers Attribution",
@@ -50,16 +52,17 @@
     },
     {
       "name": "Bart's Books",
-      "description": "Covers Bart's major books, including announcements, excerpts, interviews, reader questions, reviews, and discussions of the topics each book develops.",
+      "description": "Covers Bart's major books, including announcements, excerpts, interviews, reader questions, reviews, responses to critics, and posts developing arguments from those books.",
       "topicOrder": [
         "Misquoting Jesus",
-        "Did Jesus Exist?",
         "How Jesus Became God",
-        "Jesus Before the Gospels",
-        "Heaven and Hell",
         "Forged",
+        "Jesus Before the Gospels",
+        "Triumph of Christianity",
+        "Heaven and Hell",
+        "Armageddon",
         "Forgery and Counterforgery",
-        "Triumph of Christianity"
+        "Did Jesus Exist?"
       ]
     },
     {
@@ -67,7 +70,7 @@
       "description": "Covers major Bible versions, translation choices, the Septuagint, the King James Version, the NRSV, and the process of rendering ancient texts into modern languages.",
       "topicOrder": [
         "Bible Translations (General)",
-        "Translation Issues",
+        "Translation Choices",
         "Septuagint",
         "King James Version",
         "NRSV"
@@ -75,24 +78,24 @@
     },
     {
       "name": "Blog Features and Personal Posts",
-      "description": "Covers autobiographical posts, personal reflections, blog fundraising, charity updates, and the In a Nutshell series.",
+      "description": "Covers recurring blog features, fundraising and charity updates, autobiographical posts, and personal reflections.",
       "topicOrder": [
         "In a Nutshell Series",
-        "Blog Fundraising and Charities",
-        "Personal Reflections",
-        "Autobiographical Posts"
+        "Blog Updates and Fundraising",
+        "Autobiographical Posts",
+        "Personal Reflections"
       ]
     },
     {
-      "name": "Biblical Canon and Scripture",
-      "description": "Explores canon formation, biblical authority, inerrancy, contradictions, moral problems, numerology, and how scripture is interpreted or used.",
+      "name": "Biblical Canon, Authority, and Interpretation",
+      "description": "Covers how writings became scripture, how biblical authority is defended or challenged, and how biblical texts are interpreted, debated, harmonized, or read as Christian scripture.",
       "topicOrder": [
-        "Canon",
-        "Christian Use of Scripture",
-        "Matthew's Use of Scripture",
+        "Canon Formation",
         "Biblical Inerrancy",
         "Biblical Contradictions",
         "Moral Problems in Scripture",
+        "Christian Interpretation of Scripture",
+        "Matthew's Use of Scripture",
         "Biblical Numerology"
       ]
     },
@@ -114,7 +117,8 @@
         "Acts",
         "Jesus' Genealogy",
         "Messianic Secret",
-        "Signs in John"
+        "Signs in John",
+        "Matthew's Use of Scripture"
       ]
     },
     {
@@ -467,15 +471,15 @@
       ]
     },
     {
-      "name": "Academic Scholarship and Public Engagement",
-      "description": "Covers academic life, research, publishing, public debates, scholarly mentors, scholar memorials, and efforts to explain biblical scholarship to wider audiences.",
+      "name": "Scholarship and Public Engagement",
+      "description": "Covers academic life, research, publishing, scholarly mentors, memorials, public debates, and efforts to bring biblical scholarship to wider audiences.",
       "topicOrder": [
         "Academic Life",
         "Academic Research and Publishing",
-        "Popularizing Scholarship",
-        "Debates",
         "Bruce Metzger",
-        "Scholar Memorials"
+        "Scholar Memorials",
+        "Popularizing Scholarship",
+        "Debates"
       ]
     },
     {
