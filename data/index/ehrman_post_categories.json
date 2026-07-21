@@ -119,33 +119,35 @@
     },
     {
       "name": "Christian Origins and Expansion",
-      "description": "Covers early Christian communities, conversion, diversity, and explanations for Christianity's spread in the ancient world.",
+      "description": "Covers the beginnings and growth of early Christianity, including early diversity, conversion, and explanations for Christianity's spread in the Roman world.",
       "topicOrder": [
         "Early Christianity (General)",
         "Early Christian Diversity",
-        "Conversion",
         "Rise of Christianity",
+        "Conversion",
         "Health Care"
       ]
     },
     {
       "name": "Christology",
-      "description": "Examines early Christian views of Christ's identity, status, divinity, incarnation, exaltation, angelic status, and portrayal in key texts.",
+      "description": "Examines early Christian views of Christ's identity, status, divinity, exaltation, adoption, incarnation, angelic status, and portrayal in key texts.",
       "topicOrder": [
-        "Early Christology",
+        "Christology (General)",
         "Christology in the Gospels",
-        "Philippians Christ Poem",
         "Exaltation Christology",
-        "Incarnation",
-        "Christ as an Angel",
+        "Adoptionist Christology",
+        "Incarnation Christology",
+        "Angelic Christology",
+        "Philippians Christ Poem",
         "Arianism"
       ]
     },
     {
       "name": "Church Fathers",
-      "description": "Covers the Apostolic Fathers, patristic writers, and early Christian texts or traditions associated with figures such as Athanasius, Augustine, Didymus, Eusebius, Papias, and Polycarp.",
+      "description": "Covers the Apostolic Fathers and later early church writers, including Papias, Polycarp, Eusebius, Athanasius, Didymus the Blind, Augustine, and writings or traditions associated with them.",
       "topicOrder": [
         "Apostolic Fathers",
+        "Apostolic Fathers Attribution",
         "Papias",
         "Martyrdom of Polycarp",
         "Eusebius",

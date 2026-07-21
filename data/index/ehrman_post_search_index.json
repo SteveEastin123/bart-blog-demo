@@ -8,7 +8,7 @@
     "description": "Surveys Jewish and biblical precedents for figures other than the one God being called divine, setting up an explanation for early claims about Jesus' divine status.",
     "topics": [
       "Divine Beings",
-      "Early Christology",
+      "Christology (General)",
       "Early Judaism (General)",
       "How Jesus Became God"
     ],
@@ -1391,8 +1391,8 @@
     "author": "BDEhrman",
     "description": "Explains the argument that Paul understood Christ's pre-existent state in angelic terms.",
     "topics": [
-      "Christ as an Angel",
-      "Incarnation",
+      "Angelic Christology",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -1903,7 +1903,6 @@
     "description": "Summarizes the rise of Christian anti-Judaism and the debate over whether followers of Jesus should keep Jewish law.",
     "topics": [
       "Anti-Judaism",
-      "Early Christianity (General)",
       "In a Nutshell Series",
       "Messiah"
     ],
@@ -1981,7 +1980,7 @@
     "author": "BDEhrman",
     "description": "Considers Christianity's moral legacy by weighing harms done in Christian history against ethical ideals shaped by Jesus' teachings.",
     "topics": [
-      "Early Christianity (General)"
+      "Jesus' Ethics"
     ],
     "secondaryKeywords": []
   },
@@ -3570,7 +3569,7 @@
     "author": "BDEhrman",
     "description": "Responds to Gospel questions about John's incarnation theology, virgin birth traditions, and related passages.",
     "topics": [
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -3773,7 +3772,7 @@
     "description": "Responds to questions about John's incarnation theology, Paul's phrase \"born of a woman,\" and the study of the historical Jesus.",
     "topics": [
       "Gospel of John",
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -5150,7 +5149,6 @@
     "author": "BDEhrman",
     "description": "Describes writing assignments for a course on early Christian history and literature after the New Testament.",
     "topics": [
-      "Early Christianity (General)",
       "Teaching and Courses"
     ],
     "secondaryKeywords": [
@@ -6203,7 +6201,6 @@
     "author": "BDEhrman",
     "description": "Uses Philemon to discuss Paul's posture toward slavery, social justice, and apostolic authority.",
     "topics": [
-      "Early Christianity (General)",
       "Moral Problems in Scripture",
       "Paul and Slavery"
     ],
@@ -6890,8 +6887,8 @@
     "author": "BDEhrman",
     "description": "Reflects on how Athens prompted fresh thinking about Christianity's rise among lower-status people in the cultured Greco-Roman world.",
     "topics": [
-      "Early Christianity (General)",
-      "Social Class in Antiquity"
+      "Social Class in Antiquity",
+      "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Lectures",
@@ -6928,11 +6925,11 @@
     "author": "BDEhrman",
     "description": "Discusses the structure and Christology of the Philippians Christ poem, including Christ's equality with God.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
-      "Incarnation",
+      "Incarnation Christology",
       "Paul",
       "Philippians",
       "Resurrection"
@@ -6970,7 +6967,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Philippians Christ poem as a key passage for Paul's incarnation Christology.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -7251,7 +7248,7 @@
     "author": "BDEhrman",
     "description": "Explains how Galatians 4:14 shaped an argument that Paul understood Christ as a preexistent angelic being.",
     "topics": [
-      "Christ as an Angel"
+      "Angelic Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -7804,7 +7801,6 @@
     "author": "BDEhrman",
     "description": "Uses Romans 1:3-4 to argue that an early Christology understood Jesus as exalted to divine sonship after resurrection.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -8146,9 +8142,7 @@
     "author": "BDEhrman",
     "description": "Explains exaltation Christology in Acts and contrasts it with incarnation Christology.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology",
-      "Incarnation"
+      "Exaltation Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -9208,7 +9202,7 @@
     "author": "BDEhrman",
     "description": "Responds to questions about what to call Jesus' homeland and whether Jesus was thought to preexist.",
     "topics": [
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -10298,7 +10292,6 @@
     "author": "BDEhrman",
     "description": "Argues that belief in resurrection alone would not have led Jesus' followers to call Jesus the messiah.",
     "topics": [
-      "Early Christianity (General)",
       "Messiah",
       "Meaning of Jesus' Resurrection"
     ],
@@ -10486,7 +10479,6 @@
     "author": "BDEhrman",
     "description": "Uses textbook sidebars to discuss early Christian claims about Jesus' divinity and exaltation.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology",
       "How Jesus Became God"
     ],
@@ -11397,7 +11389,6 @@
     "author": "BDEhrman",
     "description": "Explores the difficulty of defining who counts as Christian when estimating early Christian growth.",
     "topics": [
-      "Early Christianity (General)",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -11455,7 +11446,6 @@
     "description": "Explains how growth-rate math can be used to estimate the spread of early Christianity.",
     "topics": [
       "Conversion",
-      "Early Christianity (General)",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -15509,7 +15499,8 @@
     "topics": [
       "Christology in the Gospels",
       "Infancy Gospel of Thomas",
-      "Non-Canonical Miracle Stories"
+      "Non-Canonical Miracle Stories",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -15608,7 +15599,8 @@
     "description": "Explores why an editor might add the virgin birth to Luke to reinforce orthodox Christology.",
     "topics": [
       "Christology in the Gospels",
-      "Virgin Birth"
+      "Virgin Birth",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -15628,9 +15620,8 @@
     "author": "BDEhrman",
     "description": "Examines whether Luke originally portrayed Jesus as adopted as God's son at baptism.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology",
-      "Virgin Birth"
+      "Virgin Birth",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -16042,7 +16033,7 @@
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
-      "Incarnation",
+      "Incarnation Christology",
       "Original Text",
       "Peter",
       "Resurrection",
@@ -16749,7 +16740,6 @@
     "description": "Examines the Proto-Gospel of James scene where time stops at Jesus' birth.",
     "topics": [
       "Christology in the Gospels",
-      "Incarnation",
       "Proto-Gospel of James"
     ],
     "secondaryKeywords": [
@@ -16807,8 +16797,7 @@
     "author": "BDEhrman",
     "description": "Explains why adoptionist Christology could still be a high view of Jesus' divine status.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology"
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -16829,7 +16818,8 @@
     "topics": [
       "Christology in the Gospels",
       "John the Baptist",
-      "Marcion"
+      "Marcion",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -16960,7 +16950,6 @@
     "description": "Uses Papyrus Egerton 2 to question simple models of how early Gospels copied one another.",
     "topics": [
       "Canonical Gospels (General)",
-      "Early Christianity (General)",
       "Papyrus Egerton"
     ],
     "secondaryKeywords": [
@@ -17300,8 +17289,7 @@
     "author": "BDEhrman",
     "description": "Explains what can and cannot be known about the Gospel of the Ebionites from Epiphanius's quotations.",
     "topics": [
-      "Early Christian Diversity",
-      "Early Christianity (General)"
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Gospel of the Ebionites",
@@ -17871,7 +17859,6 @@
     "description": "Explains why Jesus' Sanhedrin trial in Mark does not straightforwardly show a historical claim to be God.",
     "topics": [
       "Christology in the Gospels",
-      "Early Christology",
       "Gospel of Mark"
     ],
     "secondaryKeywords": [
@@ -18317,8 +18304,7 @@
     "author": "Diane",
     "description": "Presents a Platinum member's proposal that early Greek converts to Jesus included ascetic Pythagorean philosophers.",
     "topics": [
-      "Conversion",
-      "Early Christianity (General)"
+      "Conversion"
     ],
     "secondaryKeywords": [
       "James",
@@ -20120,7 +20106,7 @@
     "author": "BDEhrman",
     "description": "Shares a final exam from a course on Christian developments after the New Testament through Constantine.",
     "topics": [
-      "Early Christianity (General)"
+      "Teaching and Courses"
     ],
     "secondaryKeywords": [
       "Apocalypse of Peter",
@@ -20130,7 +20116,7 @@
       "Gospel of Mary",
       "Gospel of Peter",
       "Gospel of Thomas",
-      "Incarnation",
+      "Incarnation Christology",
       "Infancy Gospel of Thomas",
       "Persecution",
       "Proto-Gospel of James",
@@ -22563,8 +22549,7 @@
     "author": "BDEhrman",
     "description": "Offers a Christmas reflection on incarnation, human suffering, and the meaning of the season.",
     "topics": [
-      "Disasters and Suffering",
-      "Incarnation"
+      "Disasters and Suffering"
     ],
     "secondaryKeywords": [
       "Eve"
@@ -24302,8 +24287,7 @@
     "author": "BDEhrman",
     "description": "Explains a planned book project on Christian love, wealth, and social obligation in the Roman world.",
     "topics": [
-      "Charity",
-      "Early Christianity (General)"
+      "Charity"
     ],
     "secondaryKeywords": [
       "Paul",
@@ -25454,7 +25438,7 @@
     "author": "BDEhrman",
     "description": "Explores an ancient Christian attempt to explain how Christ could be both divine and human.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -28860,7 +28844,6 @@
     "author": "BDEhrman",
     "description": "Shares an older Fresh Air interview about How Jesus Became God.",
     "topics": [
-      "Early Christology",
       "How Jesus Became God",
       "Media Interviews and Videos"
     ],
@@ -31258,7 +31241,7 @@
     "author": "BDEhrman",
     "description": "Shares a pop quiz used on the first day of an early Christianity course.",
     "topics": [
-      "Early Christianity (General)"
+      "Teaching and Courses"
     ],
     "secondaryKeywords": [
       "Constantine"
@@ -32079,7 +32062,6 @@
     "author": "BDEhrman",
     "description": "Offers recordings of three lectures on how early Christians understood Jesus.",
     "topics": [
-      "Early Christology",
       "Teaching and Courses"
     ],
     "secondaryKeywords": [
@@ -32918,7 +32900,6 @@
     "author": "BDEhrman",
     "description": "Announces a three-part lecture series on Jesus according to early Christians.",
     "topics": [
-      "Early Christology",
       "Teaching and Courses"
     ],
     "secondaryKeywords": [
@@ -33589,7 +33570,7 @@
     "author": "BDEhrman",
     "description": "Explains Origen's unusual view of how Christ could be both divine and human.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -33606,7 +33587,6 @@
     "author": "BDEhrman",
     "description": "Argues against the claim that the New Testament straightforwardly identifies Jesus as Yahweh.",
     "topics": [
-      "Early Christology",
       "Philippians Christ Poem",
       "Trinity"
     ],
@@ -33645,7 +33625,7 @@
     "description": "Asks in what sense Christians can or cannot identify Jesus with Yahweh.",
     "topics": [
       "Divine Beings",
-      "Early Christology",
+      "Christology (General)",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -33738,7 +33718,7 @@
     "author": "BDEhrman",
     "description": "Surveys early views of the Trinity that developed long after the New Testament.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -33778,7 +33758,7 @@
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Heresy",
       "How Jesus Became God",
       "Old Testament",
@@ -34199,7 +34179,7 @@
       "Early Christianity",
       "Gospel of John",
       "How Jesus Became God",
-      "Incarnation",
+      "Incarnation Christology",
       "Paul",
       "Pontius Pilate",
       "Resurrection"
@@ -34213,8 +34193,7 @@
     "author": "BDEhrman",
     "description": "Explains the antichrists of 1 John as opponents who denied Christ's real humanity.",
     "topics": [
-      "Early Christology",
-      "Incarnation",
+      "Incarnation Christology",
       "Non-Pauline Epistles"
     ],
     "secondaryKeywords": [
@@ -34251,9 +34230,8 @@
     "author": "BDEhrman",
     "description": "Explains adoptionist Christians who viewed Christ as human but not naturally divine.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology",
-      "Orthodoxy and Heresy"
+      "Orthodoxy and Heresy",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -34311,9 +34289,8 @@
     "author": "BDEhrman",
     "description": "Explains early Jewish adoptionist views that treated Christ as human rather than divine by nature.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology",
-      "Orthodoxy and Heresy"
+      "Orthodoxy and Heresy",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -34396,7 +34373,7 @@
     "description": "Explores Hebrew Bible passages where God appears in apparently human form.",
     "topics": [
       "Divine Beings",
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -34488,8 +34465,7 @@
     "author": "BDEhrman",
     "description": "Explains a changed view of whether Matthew, Mark, and Luke portray Jesus as God.",
     "topics": [
-      "Christology in the Gospels",
-      "Early Christology"
+      "Christology in the Gospels"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -34513,13 +34489,12 @@
     "description": "Explains what ancient people could mean when calling a human or heavenly being God.",
     "topics": [
       "Divine Beings",
-      "Early Christology",
-      "Incarnation",
+      "Incarnation Christology",
       "Trinity"
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Gospel Writers as Interpreters",
       "How Jesus Became God",
       "Paul",
@@ -34734,7 +34709,7 @@
     "author": "BDEhrman",
     "description": "Questions whether Paul teaches incarnation in the Philippians Christ poem.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -34754,7 +34729,7 @@
     "description": "Introduces John's fully incarnational Christology as Christ made flesh.",
     "topics": [
       "Gospel of John",
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -34888,7 +34863,7 @@
     "author": "BDEhrman",
     "description": "Introduces Paul's Christ poem as one of the New Testament's most important Christological passages.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -34905,8 +34880,8 @@
     "author": "BDEhrman",
     "description": "Explains an incarnational Christology in which God becomes human in Christ.",
     "topics": [
-      "Christ as an Angel",
-      "Incarnation",
+      "Angelic Christology",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -34960,7 +34935,7 @@
     "secondaryKeywords": [
       "Acts",
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Exaltation Christology",
       "Gospels",
       "Heresy",
@@ -35052,7 +35027,6 @@
     "author": "BDEhrman",
     "description": "Explains early Christology preserved in Luke-Acts despite the book's later date.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -35062,7 +35036,7 @@
       "Gospel of John",
       "Heaven",
       "Heresy",
-      "Incarnation",
+      "Incarnation Christology",
       "Luke",
       "Messiah",
       "Paul",
@@ -35118,7 +35092,6 @@
     "author": "BDEhrman",
     "description": "Explains how scholars can infer Christian views about Jesus before the New Testament writings.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -35157,7 +35130,6 @@
     "description": "Introduces the earliest Christian understandings of Christ after Jesus' death.",
     "topics": [
       "Crucified Messiah",
-      "Early Christology",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -35194,7 +35166,7 @@
     "description": "Explores whether Israelite kings or other figures could be called God.",
     "topics": [
       "Divine Beings",
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -35228,7 +35200,7 @@
     "description": "Asks whether ancient Jews could consider someone other than God to be divine.",
     "topics": [
       "Divine Beings",
-      "Early Christology",
+      "Christology (General)",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -35251,7 +35223,7 @@
     "description": "Explains Jewish traditions in which humans could be exalted to divine status.",
     "topics": [
       "Divine Beings",
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -35418,7 +35390,7 @@
     "author": "BDEhrman",
     "description": "Introduces the problem of how Christians could call Jesus God while maintaining belief in one God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "Trinity"
     ],
     "secondaryKeywords": [
@@ -35462,7 +35434,7 @@
     "author": "BDEhrman",
     "description": "Introduces Paul's Christ poem in Philippians as a major text for incarnation Christology.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -35623,7 +35595,7 @@
     "topics": [
       "Christology in the Gospels",
       "Gospel of John",
-      "Incarnation",
+      "Incarnation Christology",
       "Virgin Birth"
     ],
     "secondaryKeywords": [
@@ -39842,7 +39814,6 @@
     "author": "BDEhrman",
     "description": "Explains how manuscript evidence affects interpretation of the Philippians Christ poem.",
     "topics": [
-      "Incarnation",
       "Philippians Christ Poem",
       "Scribal Changes",
       "Textual Variants"
@@ -39929,7 +39900,7 @@
     "author": "BDEhrman",
     "description": "Explains Paul's high Christology in Philippians, including incarnation and exaltation.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -39963,7 +39934,7 @@
     "author": "BDEhrman",
     "description": "Provides a fuller interpretation of the Philippians Christ poem and its view of Christ's descent and exaltation.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -40002,7 +39973,6 @@
     "description": "Evaluates whether Paul viewed Jesus as a new Adam rather than as a divine being.",
     "topics": [
       "Divine Beings",
-      "Early Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -40027,8 +39997,8 @@
     "author": "BDEhrman",
     "description": "Explores whether Paul's language could suggest that Christ was understood as an angelic being.",
     "topics": [
-      "Christ as an Angel",
-      "Incarnation",
+      "Angelic Christology",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -40125,7 +40095,7 @@
     "author": "BDEhrman",
     "description": "Explains why the Philippians Christ hymn may preserve an early idea of Christ's incarnation.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -42112,7 +42082,6 @@
     "description": "Examines ancient Christian views on lying and their relevance to forgery.",
     "topics": [
       "Augustine",
-      "Early Christianity (General)",
       "Literary Forgery (General)"
     ],
     "secondaryKeywords": [
@@ -43347,8 +43316,7 @@
     "author": "BDEhrman",
     "description": "Traces increasing anti-Jewish rhetoric in early Christianity.",
     "topics": [
-      "Anti-Judaism",
-      "Early Christianity (General)"
+      "Anti-Judaism"
     ],
     "secondaryKeywords": [
       "Judaism",
@@ -43518,7 +43486,7 @@
     "description": "Explains why Christians needed the Old Testament in responding to pagan critics.",
     "topics": [
       "Anti-Judaism",
-      "Early Christianity (General)"
+      "Christian Use of Scripture"
     ],
     "secondaryKeywords": [
       "Judaism",
@@ -43537,8 +43505,7 @@
     "author": "BDEhrman",
     "description": "Explains how Gentile Christian churches came to claim the Jewish Bible as their own scripture.",
     "topics": [
-      "Christian Use of Scripture",
-      "Early Christianity (General)"
+      "Christian Use of Scripture"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -43932,7 +43899,7 @@
     "author": "BDEhrman",
     "description": "Presents Jeffrey Siker's question about Jesus' humanity and later claims of sinlessness.",
     "topics": [
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -46018,7 +45985,7 @@
     "topics": [
       "Christology in the Gospels",
       "Gospel of John",
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -46063,7 +46030,7 @@
     "author": "BDEhrman",
     "description": "Reflects on Christmas, incarnation, and changing personal meanings of the holiday.",
     "topics": [
-      "Incarnation"
+      "Personal Reflections"
     ],
     "secondaryKeywords": [
       "Eve",
@@ -46083,7 +46050,8 @@
       "Christology in the Gospels",
       "Gospel of Luke",
       "John the Baptist",
-      "Marcion"
+      "Marcion",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -47234,8 +47202,8 @@
     "author": "BDEhrman",
     "description": "Discusses the diversity of earliest Christianity and how oral traditions circulated.",
     "topics": [
-      "Early Christianity (General)",
-      "Oral Tradition"
+      "Oral Tradition",
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -49415,7 +49383,6 @@
     "author": "BDEhrman",
     "description": "Examines ancient Christian intolerance toward other religions.",
     "topics": [
-      "Conversion",
       "Early Church History (General)",
       "Greco-Roman Religion"
     ],
@@ -49486,7 +49453,6 @@
     "description": "Explains why Constantine did not outlaw pagan religions.",
     "topics": [
       "Constantine",
-      "Conversion",
       "Early Church History (General)",
       "Greco-Roman Religion"
     ],
@@ -49637,7 +49603,6 @@
     "author": "BDEhrman",
     "description": "Reflects on earlier responses to criticism of How Jesus Became God.",
     "topics": [
-      "Early Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -49691,8 +49656,7 @@
     "author": "BDEhrman",
     "description": "Explains a changed view about whether the Synoptic Gospels portray Jesus as divine.",
     "topics": [
-      "Christology in the Gospels",
-      "Early Christology"
+      "Christology in the Gospels"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -50250,7 +50214,6 @@
     "author": "BDEhrman",
     "description": "Explains why women came to be silenced in early Christian communities.",
     "topics": [
-      "Early Christianity (General)",
       "Early Church History (General)",
       "Women in Early Christianity"
     ],
@@ -50305,12 +50268,12 @@
     "description": "Reflects on changing views about early Christology while writing How Jesus Became God.",
     "topics": [
       "How Jesus Became God",
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God",
       "Paul",
       "Resurrection",
@@ -51252,7 +51215,7 @@
     "description": "Reposts a discussion of John and the absence of a virgin birth story.",
     "topics": [
       "Gospel of John",
-      "Incarnation",
+      "Incarnation Christology",
       "Virgin Birth"
     ],
     "secondaryKeywords": [
@@ -53426,7 +53389,6 @@
     "author": "BDEhrman",
     "description": "Reposts an explanation of how women came to be silenced in early Christianity.",
     "topics": [
-      "Early Christianity (General)",
       "Early Church History (General)",
       "Women in Early Christianity"
     ],
@@ -56736,8 +56698,7 @@
     "author": "BDEhrman",
     "description": "Reposts a personal Christmas reflection on incarnation and suffering.",
     "topics": [
-      "Disasters and Suffering",
-      "Incarnation"
+      "Disasters and Suffering"
     ],
     "secondaryKeywords": [
       "Agnosticism",
@@ -59443,7 +59404,6 @@
     "description": "Continues a numerical discussion of early Christian conversion and growth.",
     "topics": [
       "Conversion",
-      "Early Christianity (General)",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -59860,8 +59820,7 @@
     "author": "BDEhrman",
     "description": "Estimates literacy among early Christians near the end of the New Testament period.",
     "topics": [
-      "Ancient Literacy",
-      "Early Christianity (General)"
+      "Ancient Literacy"
     ],
     "secondaryKeywords": [
       "Judaism",
@@ -59904,7 +59863,6 @@
     "author": "BDEhrman",
     "description": "Discusses the number of early churches and letters implied by estimates of Christian growth.",
     "topics": [
-      "Early Christianity (General)",
       "Early Church History (General)",
       "Rise of Christianity"
     ],
@@ -59924,7 +59882,6 @@
     "description": "Considers how significant Christianity was within the Roman world before Constantine.",
     "topics": [
       "Conversion",
-      "Early Christianity (General)",
       "Rise of Christianity"
     ],
     "secondaryKeywords": [
@@ -61143,7 +61100,8 @@
     "author": "BDEhrman",
     "description": "Explains a debate over whether early Christians thought Jesus became God at the resurrection.",
     "topics": [
-      "Incarnation"
+      "Adoptionist Christology",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -61211,8 +61169,7 @@
     "author": "BDEhrman",
     "description": "Explains adoptionist Christology and the claim that Jesus became Son of God.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology"
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Adoptionism",
@@ -62120,7 +62077,7 @@
     "author": "BDEhrman",
     "description": "Answers a question about whether Jesus' messiahship during life explains later claims about Jesus.",
     "topics": [
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -62349,8 +62306,7 @@
     "author": "BDEhrman",
     "description": "Shares a debate with Justin Bass on whether the historical Jesus claimed to be divine.",
     "topics": [
-      "Debates",
-      "Early Christology"
+      "Debates"
     ],
     "secondaryKeywords": [
       "Historical Jesus",
@@ -63013,8 +62969,8 @@
     "author": "BDEhrman",
     "description": "Responds to criticism of the argument that Paul could portray Christ as an angelic being.",
     "topics": [
-      "Christ as an Angel",
-      "Incarnation",
+      "Angelic Christology",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -63140,10 +63096,10 @@
     "author": "BDEhrman",
     "description": "Explains how scribes may have changed the heavenly voice at Jesus' baptism to resist adoptionist Christology.",
     "topics": [
-      "Exaltation Christology",
       "Scribal Changes",
       "Textual Variants",
-      "Theological Textual Variants"
+      "Theological Textual Variants",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Adoptionist",
@@ -63182,7 +63138,6 @@
     "author": "BDEhrman",
     "description": "Discusses early Christians who denied that Christ was divine by nature.",
     "topics": [
-      "Early Christology",
       "Early Church History (General)",
       "Exaltation Christology"
     ],
@@ -63203,9 +63158,8 @@
     "description": "Explains the Ebionite view that Christ was human rather than divine by nature.",
     "topics": [
       "Early Christian Diversity",
-      "Early Christology",
-      "Exaltation Christology",
-      "Gnostic-Orthodox Conflicts"
+      "Gnostic-Orthodox Conflicts",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Adoptionist Christology",
@@ -63227,7 +63181,7 @@
     "author": "BDEhrman",
     "description": "Introduces adoptionistic Christologies in the early church.",
     "topics": [
-      "Exaltation Christology"
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Adoptionistic Christologies",
@@ -63476,7 +63430,7 @@
     "author": "BDEhrman",
     "description": "Introduces docetic Christology as background for textual variants in the New Testament manuscripts.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "Marcion"
     ],
     "secondaryKeywords": [
@@ -63613,8 +63567,7 @@
     "author": "BDEhrman",
     "description": "Announces livestream information for a debate on whether Jesus claimed to be divine.",
     "topics": [
-      "Debates",
-      "Early Christology"
+      "Debates"
     ],
     "secondaryKeywords": [
       "Historical Jesus",
@@ -63652,8 +63605,7 @@
     "author": "BDEhrman",
     "description": "Announces a Dallas debate on whether the historical Jesus claimed to be divine.",
     "topics": [
-      "Debates",
-      "Early Christology"
+      "Debates"
     ],
     "secondaryKeywords": [
       "Debate",
@@ -63951,7 +63903,7 @@
     "author": "BDEhrman",
     "description": "Uses incarnation and Philippians to explain how God could become human.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -64614,8 +64566,8 @@
     "author": "BDEhrman",
     "description": "Discusses earliest Christian diversity and a book about how Gospel traditions developed.",
     "topics": [
-      "Early Christianity (General)",
-      "Oral Tradition"
+      "Oral Tradition",
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Early Christian Diversity",
@@ -64673,7 +64625,6 @@
     "description": "Shares a video interview on Lost Christianities and early Christian diversity.",
     "topics": [
       "Early Christian Diversity",
-      "Early Christianity (General)",
       "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
@@ -65858,7 +65809,7 @@
       "Christology",
       "Controversy",
       "Early Christianity",
-      "Early Christology",
+      "Christology (General)",
       "Historical Jesus",
       "How Jesus Became God",
       "Paul"
@@ -67259,7 +67210,7 @@
     ],
     "secondaryKeywords": [
       "Debates",
-      "Incarnation"
+      "Incarnation Christology"
     ]
   },
   {
@@ -67473,7 +67424,7 @@
     "description": "Explains how John's Gospel relates to the virgin birth tradition.",
     "topics": [
       "Gospel of John",
-      "Incarnation",
+      "Incarnation Christology",
       "Virgin Birth"
     ],
     "secondaryKeywords": [
@@ -68517,7 +68468,6 @@
     "author": "BDEhrman",
     "description": "Presents textbook boxes on Jesus as God in the New Testament.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology",
       "How Jesus Became God"
     ],
@@ -69238,7 +69188,6 @@
     "author": "BDEhrman",
     "description": "Shares a Shaffer lecture on Christ as a divine man in early Christian tradition.",
     "topics": [
-      "Early Christology",
       "Teaching and Courses"
     ],
     "secondaryKeywords": [
@@ -69341,7 +69290,6 @@
     "author": "BDEhrman",
     "description": "Shares a Shaffer lecture on Christ come in the flesh and disputed early Christian texts.",
     "topics": [
-      "Early Christology",
       "Teaching and Courses"
     ],
     "secondaryKeywords": [
@@ -70703,14 +70651,14 @@
     "author": "admin",
     "description": "Explains the argument that Paul could think of Christ as an angelic being.",
     "topics": [
-      "Christ as an Angel",
-      "Incarnation"
+      "Angelic Christology",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
       "Galatians",
       "How Jesus Became God",
-      "Incarnation",
+      "Incarnation Christology",
       "Larry Hurtado",
       "Paul"
     ]
@@ -70723,7 +70671,7 @@
     "author": "BDEhrman",
     "description": "Explains why hallucinations matter in discussing resurrection appearances and Christology.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God",
       "Resurrection Appearances",
       "Visions"
@@ -70751,7 +70699,7 @@
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Historical Jesus",
       "Justin Martyr",
       "Larry Hurtado",
@@ -70802,12 +70750,12 @@
     "author": "BDEhrman",
     "description": "Introduces Larry Hurtado's critique of How Jesus Became God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Gospel of Mark",
       "Historical Jesus",
       "Larry Hurtado",
@@ -71534,7 +71482,7 @@
     "author": "BDEhrman",
     "description": "Responds to Robert Barron's critique of How Jesus Became God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -71559,8 +71507,7 @@
     "author": "BDEhrman",
     "description": "Critiques Robert Barron's response to How Jesus Became God.",
     "topics": [
-      "How Jesus Became God",
-      "Incarnation"
+      "How Jesus Became God"
     ],
     "secondaryKeywords": [
       "Bart Ehrman",
@@ -71638,7 +71585,6 @@
     "description": "Explains divine status in the Synoptic Gospels and a changed view developed while writing How Jesus Became God.",
     "topics": [
       "Christology in the Gospels",
-      "Early Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -71683,7 +71629,7 @@
     "author": "BDEhrman",
     "description": "Explains the argument that Paul could view Christ as an angelic figure.",
     "topics": [
-      "Christ as an Angel",
+      "Angelic Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -71727,7 +71673,6 @@
     "author": "BDEhrman",
     "description": "Explains the fascination with Jesus behind work on How Jesus Became God.",
     "topics": [
-      "Conversion",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -71817,9 +71762,8 @@
     "author": "BDEhrman",
     "description": "Explains adoptionist Christology and Jesus as Son of God.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology",
-      "How Jesus Became God"
+      "How Jesus Became God",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Adoptionist Christology",
@@ -71875,7 +71819,7 @@
     "author": "BDEhrman",
     "description": "Shares a Huffington Post article introducing How Jesus Became God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -71966,7 +71910,7 @@
     "author": "BDEhrman",
     "description": "Announces the release of How Jesus Became God and introduces a new thread on the book.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -72006,7 +71950,6 @@
     "author": "BDEhrman",
     "description": "Provides a short promotional summary of How Jesus Became God.",
     "topics": [
-      "Early Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -72335,7 +72278,6 @@
     "author": "BDEhrman",
     "description": "Explains response books and reactions to How Jesus Became God.",
     "topics": [
-      "Early Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -75542,12 +75484,12 @@
     "description": "Concludes a detailed discussion of Luke 3:22 and its textual problem.",
     "topics": [
       "Christology in the Gospels",
-      "Exaltation Christology",
       "Gospel of Luke",
       "Patristic Textual Evidence",
       "Scribal Changes",
       "Textual Variants",
-      "Theological Textual Variants"
+      "Theological Textual Variants",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -75566,8 +75508,8 @@
     "description": "Continues the intrinsic-probability argument about what Luke likely wrote at Jesus' baptism.",
     "topics": [
       "Christology in the Gospels",
-      "Exaltation Christology",
-      "Theological Textual Variants"
+      "Theological Textual Variants",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -75590,10 +75532,10 @@
     "description": "Examines internal evidence for the wording of the voice at Jesus' baptism in Luke.",
     "topics": [
       "Christology in the Gospels",
-      "Exaltation Christology",
       "Gospel of Luke",
       "Textual Variants",
-      "Theological Textual Variants"
+      "Theological Textual Variants",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -75741,7 +75683,6 @@
     "author": "BDEhrman",
     "description": "Explains how women came to be silenced in early Christian tradition.",
     "topics": [
-      "Early Christianity (General)",
       "Early Church History (General)",
       "Women in Early Christianity"
     ],
@@ -76551,8 +76492,7 @@
     "author": "BDEhrman",
     "description": "Introduces material cut from How Jesus Became God during final edits.",
     "topics": [
-      "How Jesus Became God",
-      "Incarnation"
+      "How Jesus Became God"
     ],
     "secondaryKeywords": [
       "Deconversion",
@@ -76572,7 +76512,7 @@
     ],
     "secondaryKeywords": [
       "Christology",
-      "Incarnation",
+      "Incarnation Christology",
       "John",
       "John Shelby Spong",
       "Mission",
@@ -77018,7 +76958,7 @@
     "author": "BDEhrman",
     "description": "Asks whether calling Jesus God would have led to immediate persecution for blasphemy.",
     "topics": [
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -77366,7 +77306,6 @@
     "author": "BDEhrman",
     "description": "Explains ongoing work on How Jesus Became God and related Christology questions.",
     "topics": [
-      "Early Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -77384,7 +77323,7 @@
     "author": "BDEhrman",
     "description": "Discusses traditions about humans becoming angels in ancient Judaism.",
     "topics": [
-      "Christ as an Angel",
+      "Angelic Christology",
       "Divine Beings",
       "How Jesus Became God"
     ],
@@ -77408,7 +77347,7 @@
     "author": "BDEhrman",
     "description": "Continues discussing divine and human angels in Jewish traditions.",
     "topics": [
-      "Christ as an Angel",
+      "Angelic Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -77428,7 +77367,7 @@
     "author": "BDEhrman",
     "description": "Explains how angels could be understood as divine in ancient Jewish texts.",
     "topics": [
-      "Christ as an Angel",
+      "Angelic Christology",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -77477,9 +77416,9 @@
     "author": "BDEhrman",
     "description": "Presents the argument that Paul understood Christ as an angelic being before incarnation.",
     "topics": [
-      "Christ as an Angel",
+      "Angelic Christology",
       "How Jesus Became God",
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -77498,7 +77437,7 @@
     "author": "BDEhrman",
     "description": "Introduces Paul's Christology in How Jesus Became God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -77824,7 +77763,7 @@
     "description": "Discusses the Jewish king as God within ancient Jewish traditions.",
     "topics": [
       "Divine Beings",
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -77855,7 +77794,7 @@
     "description": "Introduces Greco-Roman traditions about gods appearing as humans.",
     "topics": [
       "How Jesus Became God",
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Philemon",
@@ -77875,7 +77814,7 @@
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "James",
       "James Bonk"
     ]
@@ -78010,7 +77949,7 @@
     "description": "Discusses Old Testament texts where God appears in human form.",
     "topics": [
       "Divine Beings",
-      "Early Christology"
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -78047,8 +77986,7 @@
     "author": "BDEhrman",
     "description": "Explains how the Synoptic Gospels portray Jesus as divine in some sense.",
     "topics": [
-      "Christology in the Gospels",
-      "Early Christology"
+      "Christology in the Gospels"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -78068,12 +78006,12 @@
     "author": "BDEhrman",
     "description": "Explains a change of mind about early Christology and incarnation.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God",
       "Paul",
       "Resurrection",
@@ -78120,7 +78058,7 @@
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Historical Jesus",
       "Lectures",
       "Paul",
@@ -78172,7 +78110,7 @@
     "description": "Introduces the Christ-poem in the prologue of John's Gospel.",
     "topics": [
       "Gospel of John",
-      "Incarnation"
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -78190,7 +78128,7 @@
     "author": "BDEhrman",
     "description": "Offers final thoughts on the Philippians Christ-poem and incarnation Christology.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -78250,7 +78188,7 @@
     "author": "BDEhrman",
     "description": "Introduces the pre-Pauline poem in Philippians 2 and incarnation Christology.",
     "topics": [
-      "Incarnation",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -78298,8 +78236,8 @@
     "author": "BDEhrman",
     "description": "Connects incarnation Christology, angels, and Paul's understanding of Christ.",
     "topics": [
-      "Christ as an Angel",
-      "Incarnation",
+      "Angelic Christology",
+      "Incarnation Christology",
       "Philippians Christ Poem"
     ],
     "secondaryKeywords": [
@@ -78322,16 +78260,15 @@
     "author": "BDEhrman",
     "description": "Uses a textual variant in Luke 2 to discuss early Christology.",
     "topics": [
-      "Early Christology",
-      "Exaltation Christology",
       "Gospel of Luke",
-      "Theological Textual Variants"
+      "Theological Textual Variants",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Acts",
       "Adoptionist Christology",
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Exaltation Christology",
       "Gospel of Luke",
       "Gospels",
@@ -78383,7 +78320,7 @@
       "Acts",
       "Christology",
       "David",
-      "Early Christology",
+      "Christology (General)",
       "Luke",
       "Messiah",
       "Paul",
@@ -78405,7 +78342,7 @@
     ],
     "secondaryKeywords": [
       "Christology",
-      "Early Christology",
+      "Christology (General)",
       "Gospel of the Savior",
       "Gospels",
       "Nicodemus",
@@ -78421,7 +78358,6 @@
     "author": "BDEhrman",
     "description": "Explains exaltation Christology in an early creed about Jesus.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -78462,7 +78398,6 @@
     "author": "BDEhrman",
     "description": "Explains the earliest Christology and the move beyond a simple low-to-high model.",
     "topics": [
-      "Early Christology",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -78484,7 +78419,7 @@
     "author": "BDEhrman",
     "description": "Raises further questions about the direction of How Jesus Became God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -78504,7 +78439,6 @@
     "author": "BDEhrman",
     "description": "Explains a change of direction in planning How Jesus Became God.",
     "topics": [
-      "Early Christology",
       "How Jesus Became God",
       "Philippians Christ Poem"
     ],
@@ -78540,7 +78474,7 @@
     "author": "BDEhrman",
     "description": "Continues the original idea for How Jesus Became God.",
     "topics": [
-      "Early Christology",
+      "Christology (General)",
       "How Jesus Became God"
     ],
     "secondaryKeywords": [
@@ -79109,8 +79043,7 @@
     "author": "BDEhrman",
     "description": "Reflects on Christmas, incarnation, and suffering after the holiday season.",
     "topics": [
-      "Disasters and Suffering",
-      "Incarnation"
+      "Disasters and Suffering"
     ],
     "secondaryKeywords": [
       "Eve"
@@ -79145,7 +79078,8 @@
       "Christology in the Gospels",
       "Gospel of Luke",
       "John the Baptist",
-      "Marcion"
+      "Marcion",
+      "Adoptionist Christology"
     ],
     "secondaryKeywords": [
       "Adoptionist Christology",
@@ -80453,7 +80387,6 @@
     "author": "BDEhrman",
     "description": "Presents second-century accusations that Christians were immoral and criminal.",
     "topics": [
-      "Early Christianity (General)",
       "Roman Persecution"
     ],
     "secondaryKeywords": [
@@ -82309,8 +82242,8 @@
     "description": "Clarifies Constantine's importance while focusing on Christian growth before the fourth century.",
     "topics": [
       "Constantine",
-      "Early Christianity (General)",
-      "Early Church History (General)"
+      "Early Church History (General)",
+      "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Constantines Conversion",

@@ -142,7 +142,8 @@
       "name": "Apostolic Fathers Attribution",
       "description": "Posts on authorship and attribution of early Christian writings such as 1 Clement, the Shepherd of Hermas, and the Letter of Barnabas.",
       "categories": [
-        "Authorship"
+        "Authorship",
+        "Church Fathers"
       ],
       "displayInBrowser": true
     },
@@ -321,8 +322,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Christ as an Angel",
-      "description": "Posts on whether early Christians, especially Paul, understood Christ as an angelic or preexistent heavenly being.",
+      "name": "Angelic Christology",
+      "description": "Posts on angelic Christology, especially whether early Christians, including Paul, understood Christ as an angelic or preexistent heavenly being.",
       "categories": [
         "Christology"
       ],
@@ -522,8 +523,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Early Christology",
-      "description": "Posts on the earliest Christian views of Jesus' identity, exaltation, preexistence, divine status, and the development of belief in Christ.",
+      "name": "Christology (General)",
+      "description": "General posts on views of Jesus' identity, divine status, relation to God, and the Jewish or ancient background for later Christian claims about Christ.",
       "categories": [
         "Christology"
       ],
@@ -581,6 +582,14 @@
     {
       "name": "Exaltation Christology",
       "description": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
+      "categories": [
+        "Christology"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Adoptionist Christology",
+      "description": "Posts on adoptionist Christology, especially views that Jesus was adopted, appointed, or declared God's Son at baptism, resurrection, or another point.",
       "categories": [
         "Christology"
       ],
@@ -911,8 +920,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Incarnation",
-      "description": "Posts on views that Christ was a preexistent divine or heavenly being who became human.",
+      "name": "Incarnation Christology",
+      "description": "Posts on incarnation Christology, especially views that Christ was a preexistent divine or heavenly being who became human.",
       "categories": [
         "Christology"
       ],
