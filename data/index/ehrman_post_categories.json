@@ -329,22 +329,22 @@
     },
     {
       "name": "Manuscripts and Textual Evidence",
-      "description": "Covers biblical and related manuscript evidence, manuscript discoveries, dating, textual evidence, and major manuscript finds such as Codex Sinaiticus and the Dead Sea Scrolls.",
+      "description": "Covers ancient manuscript evidence, manuscript discoveries and controversies, dating methods, and major textual finds such as Codex Sinaiticus, the Dead Sea Scrolls, Papyrus Egerton, and early Quran fragments.",
       "topicOrder": [
         "New Testament Manuscripts",
         "Hebrew Bible Manuscripts",
         "Manuscript Discoveries",
         "Manuscript Dating",
+        "First-Century Mark",
         "Codex Sinaiticus",
         "Dead Sea Scrolls and Essenes",
         "Papyrus Egerton",
-        "First-Century Mark",
         "Quran Fragments"
       ]
     },
     {
       "name": "Memory and Oral Tradition",
-      "description": "Covers oral transmission, memory, eyewitness testimony, and debates over how accurately traditions about Jesus and the Gospels were preserved.",
+      "description": "Covers oral transmission, memory, eyewitness testimony, and debates over how traditions about Jesus and early Christian texts were preserved, reshaped, or invented before being written.",
       "topicOrder": [
         "Oral Tradition",
         "Memory",
@@ -369,8 +369,8 @@
       ]
     },
     {
-      "name": "New Testament People",
-      "description": "Covers named figures connected with the New Testament narratives, including Jesus' family, followers, opponents, and Roman authorities.",
+      "name": "New Testament Figures",
+      "description": "Covers named figures in and around the New Testament narratives, including Jesus' family, followers, opponents, and Roman authorities.",
       "topicOrder": [
         "John the Baptist",
         "Mary Magdalene",
