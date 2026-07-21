@@ -110,7 +110,7 @@
       "description": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categories": [
         "Apocalypticism and Revelation",
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -254,7 +254,7 @@
       "name": "Birth Narrative",
       "description": "Posts on stories of Jesus' birth in Matthew and Luke, including Bethlehem, Herod, the census, angels, contradictions, and questions of history and theology.",
       "categories": [
-        "Jesus Traditions and Narratives"
+        "Jesus' Birth, Family, and Miracle Traditions"
       ],
       "displayInBrowser": true
     },
@@ -446,6 +446,14 @@
       "description": "Posts on the Didache, including prayers, church order, ethical instructions, dating, composition, and its place among early Christian writings.",
       "categories": [
         "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Did Jesus Exist?",
+      "description": "Posts on Bart's book Did Jesus Exist?, including announcements, interviews, video presentations, reader questions, and responses to mythicist criticism.",
+      "categories": [
+        "Bart's Books"
       ],
       "displayInBrowser": true
     },
@@ -783,14 +791,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Healing and Exorcism Stories",
-      "description": "Posts on healing and exorcism traditions, especially stories about Jesus as healer, demons, leprosy, paralysis, and early Christian differences in miracle stories.",
-      "categories": [
-        "Miracles and Supernatural Claims"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Health Care",
       "description": "Posts on health care, hospitals, and care for the sick as ethical practice and as a possible factor in Christianity's spread.",
       "categories": [
@@ -846,15 +846,15 @@
       "name": "Historical Jesus (General)",
       "description": "Posts offering broad overviews of the historical Jesus, including what can be known about his life, how scholars reconstruct it, and major debates about his significance.",
       "categories": [
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Historical Jesus Research Methods",
+      "name": "Methods for Studying the Historical Jesus",
       "description": "Posts on methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "categories": [
-        "Jesus in Historical Context",
+        "The Historical Jesus",
         "Historical Methods and Criticism"
       ],
       "displayInBrowser": true
@@ -947,7 +947,7 @@
       "name": "Jesus and Wealth",
       "description": "Posts on Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "categories": [
-        "Jesus' Teachings and Social World",
+        "Jesus' Teachings, Ethics, and Social World",
         "Wealth, Poverty, and Charity"
       ],
       "displayInBrowser": true
@@ -956,7 +956,7 @@
       "name": "Jesus and Women",
       "description": "Posts on women in Jesus' life, teaching, social world, and Gospel traditions, including Mary Magdalene and women followers or patrons.",
       "categories": [
-        "Jesus' Teachings and Social World",
+        "Jesus' Teachings, Ethics, and Social World",
         "Women, Gender, and Sexuality"
       ],
       "displayInBrowser": true
@@ -974,7 +974,7 @@
       "description": "Posts on Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "categories": [
         "Ethics and Moral Reasoning",
-        "Jesus' Teachings and Social World"
+        "Jesus' Teachings, Ethics, and Social World"
       ],
       "displayInBrowser": true
     },
@@ -982,7 +982,7 @@
       "name": "Jesus' Family",
       "description": "Posts on traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
       "categories": [
-        "Jesus Traditions and Narratives"
+        "Jesus' Birth, Family, and Miracle Traditions"
       ],
       "displayInBrowser": true
     },
@@ -991,15 +991,15 @@
       "description": "Posts on the genealogies of Jesus in Matthew and Luke, including differences between them, women in Matthew's genealogy, textual problems, and theological aims.",
       "categories": [
         "Canonical Gospels and Acts",
-        "Jesus Traditions and Narratives"
+        "Jesus' Birth, Family, and Miracle Traditions"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Jesus' Miracles",
+      "name": "Jesus' Miracle Stories",
       "description": "Posts on miracle stories connected with Jesus, including healings, exorcisms, nature miracles, Gospel summaries, and historical questions about miracle claims.",
       "categories": [
-        "Jesus Traditions and Narratives",
+        "Jesus' Birth, Family, and Miracle Traditions",
         "Miracles and Supernatural Claims"
       ],
       "displayInBrowser": true
@@ -1008,7 +1008,7 @@
       "name": "Jesus' Teachings",
       "description": "Posts on Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categories": [
-        "Jesus' Teachings and Social World"
+        "Jesus' Teachings, Ethics, and Social World"
       ],
       "displayInBrowser": true
     },
@@ -1201,7 +1201,7 @@
       "name": "Messiah",
       "description": "Posts on whether Jesus understood himself or was understood by others as Messiah, including Jewish messianic expectations, resurrection belief, and early Christian claims.",
       "categories": [
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -1283,7 +1283,7 @@
       "name": "Mythicism",
       "description": "Posts on arguments that Jesus did not exist, Bart's responses to mythicists, evidence for Jesus' existence, and related debates about Nazareth or Jesus' family.",
       "categories": [
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -1299,7 +1299,7 @@
       "name": "Nazareth",
       "description": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "categories": [
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -1420,8 +1420,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Passion Narratives",
-      "description": "Posts on Gospel traditions about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
+      "name": "Jesus' Passion Narratives",
+      "description": "Posts on Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -1757,8 +1757,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Resurrection Theology",
-      "description": "Posts on theological interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Trinity, and early Christian belief.",
+      "name": "Meaning of Jesus' Resurrection",
+      "description": "Posts on early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -1884,7 +1884,7 @@
       "name": "Son of Man",
       "description": "Posts on the Son of Man sayings, including what the phrase meant, whether Jesus used it for himself, and its role in apocalyptic traditions.",
       "categories": [
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -2005,7 +2005,7 @@
       "name": "Virgin Birth",
       "description": "Posts on the virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
       "categories": [
-        "Jesus Traditions and Narratives"
+        "Jesus' Birth, Family, and Miracle Traditions"
       ],
       "displayInBrowser": true
     },
@@ -2037,7 +2037,7 @@
       "name": "Zealot Hypothesis",
       "description": "Posts on claims that Jesus supported armed resistance to Rome, including the temple incident, zealot interpretations, Roman rule, and Bart's critique of the hypothesis.",
       "categories": [
-        "Jesus in Historical Context"
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     }

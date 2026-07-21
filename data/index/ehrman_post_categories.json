@@ -56,6 +56,7 @@
       "description": "Covers Bart's major books, including announcements, excerpts, interviews, reader questions, reviews, and discussions of the topics each book develops.",
       "topicOrder": [
         "Misquoting Jesus",
+        "Did Jesus Exist?",
         "How Jesus Became God",
         "Jesus Before the Gospels",
         "Heaven and Hell",
@@ -260,17 +261,17 @@
       ]
     },
     {
-      "name": "Jesus in Historical Context",
-      "description": "Covers historical topics about Jesus, including his apocalyptic message, messiahship, social setting, Nazareth, Son of Man sayings, debates over Jesus' existence, and methods for studying the historical Jesus.",
+      "name": "The Historical Jesus",
+      "description": "Covers topics in historical Jesus research, including Jesus' existence, apocalyptic message, messiahship, Son of Man sayings, Nazareth, Roman political context, and methods used to reconstruct his life.",
       "topicOrder": [
         "Historical Jesus (General)",
-        "Historical Jesus Research Methods",
+        "Mythicism",
+        "Methods for Studying the Historical Jesus",
         "Apocalyptic Jesus",
         "Messiah",
         "Son of Man",
         "Zealot Hypothesis",
-        "Nazareth",
-        "Mythicism"
+        "Nazareth"
       ]
     },
     {
@@ -282,7 +283,7 @@
         "Dating Ancient Texts",
         "Source Criticism",
         "Redaction Criticism",
-        "Historical Jesus Research Methods",
+        "Methods for Studying the Historical Jesus",
         "Hebrew Bible Historicity",
         "Historical Study and Theology",
         "Demythologizing",
@@ -290,36 +291,36 @@
       ]
     },
     {
-      "name": "Jesus Traditions and Narratives",
-      "description": "Covers narrative traditions about Jesus' birth, family, genealogy, miracles, and other Gospel stories about his life.",
+      "name": "Jesus' Birth, Family, and Miracle Traditions",
+      "description": "Covers traditions about Jesus' birth, family, genealogy, possible marriage, brothers, and miracle stories in canonical and related Gospel traditions.",
       "topicOrder": [
         "Birth Narrative",
         "Virgin Birth",
         "Jesus' Genealogy",
         "Jesus' Family",
-        "Jesus' Miracles"
+        "Jesus' Miracle Stories"
       ]
     },
     {
       "name": "Jesus' Death, Burial, and Resurrection",
-      "description": "Covers Jesus' arrest, trial, crucifixion, burial, empty tomb traditions, resurrection appearances, resurrection apologetics, and early interpretations of his death and resurrection.",
+      "description": "Covers Gospel passion narratives, Jesus' trial and crucifixion, Roman crucifixion and burial practices, burial and empty tomb traditions, resurrection appearances, apologetic debates, and early interpretations of Jesus' death and resurrection.",
       "topicOrder": [
-        "Passion Narratives",
+        "Jesus' Passion Narratives",
         "Trial of Jesus",
-        "Roman Crucifixion and Burial Practices",
         "Crucifixion of Jesus",
         "Crucified Messiah",
+        "Roman Crucifixion and Burial Practices",
         "Burial of Jesus",
         "Empty Tomb",
         "Resurrection of Jesus",
         "Resurrection Appearances",
-        "Resurrection Apologetics",
-        "Resurrection Theology"
+        "Meaning of Jesus' Resurrection",
+        "Resurrection Apologetics"
       ]
     },
     {
-      "name": "Jesus' Teachings and Social World",
-      "description": "Covers Jesus' teachings, ethics, social world, views on wealth, and traditions involving women in his life and ministry.",
+      "name": "Jesus' Teachings, Ethics, and Social World",
+      "description": "Covers Jesus' teachings, ethical vision, economic world, views on wealth and poverty, and traditions involving women in his life and Gospel portrayals.",
       "topicOrder": [
         "Jesus' Teachings",
         "Jesus' Ethics",
@@ -360,8 +361,7 @@
         "Historical Study of Miracles",
         "Miracle Claims and Apologetics",
         "Ancient Miracle Workers",
-        "Jesus' Miracles",
-        "Healing and Exorcism Stories",
+        "Jesus' Miracle Stories",
         "Signs in John",
         "Visions",
         "Miracles and Martyrdom",
