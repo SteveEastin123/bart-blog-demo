@@ -580,7 +580,7 @@ def keyword_panel(
     )
     chips = "".join(
         f"""
-        <span class="keyword-chip">
+        <span class="keyword-slot keyword-chip">
           <input type="hidden" name="keyword" value="{esc(value)}">
           <span>{esc(value)}</span>
           <button type="button" class="keyword-chip-remove" data-remove-keyword aria-label="Remove {esc(value)}">x</button>
@@ -590,18 +590,25 @@ def keyword_panel(
     )
     next_index = len(values) + 1
     entry = f"""
-        <div class="keyword-input-wrap"{" hidden" if len(values) >= 4 else ""}>
+        <div class="keyword-slot keyword-input-wrap"{" hidden" if len(values) >= 4 else ""}>
           <input class="keyword-input" name="keyword" value="" placeholder="Keyword {min(next_index, 4)}" autocomplete="off" {"autofocus" if not values else ""}{" disabled" if len(values) >= 4 else ""}>
           <ul class="keyword-suggestion-list" hidden></ul>
         </div>
     """
+    empty_slots = "".join(
+        f'<span class="keyword-slot keyword-empty-slot">Keyword {slot_index}</span>'
+        for slot_index in range(next_index + (0 if len(values) >= 4 else 1), 5)
+    )
     refresh_attr = ' data-refresh-on-remove="true"' if refresh_on_remove else ""
     return f"""
     <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form{refresh_attr}>
       <label>Enter up to four keywords. Keywords can be single words or phrases.</label>
       <div class="keyword-grid">
-        <div class="keyword-chip-list" data-keyword-chip-list>{chips}</div>
-        {entry}
+        <div class="keyword-slot-grid" data-keyword-chip-list>
+          {chips}
+          {entry}
+          {empty_slots}
+        </div>
       </div>
       <div class="sort-row">
         <span class="sort-label">Sort by</span>
@@ -697,7 +704,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
         ).fetchall()
     panel = keyword_panel([topic["name"]], sort, descriptions_checked=True)
     inner = panel + post_list(posts, topic["name"])
-    body = content_page(topic["name"], pluralize(len(posts), "post"), topic["description"], inner, breadcrumbs=breadcrumbs)
+    body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
     return render_page(topic["name"], body, active="categories")
 
 
@@ -846,7 +853,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
     q = normalize_keyword(query.get("q", [""])[0])
     selected = [value for value in query.get("selected", []) if value.strip()]
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
-    limit = 18
+    limit = 48
     with get_conn() as conn:
         if not q and not selected_normalized:
             return json.dumps(starter_keyword_suggestions(conn), ensure_ascii=False).encode("utf-8")

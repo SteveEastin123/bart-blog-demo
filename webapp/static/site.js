@@ -22,6 +22,41 @@
     );
   }
 
+  function resetKeywordSuggestionList(list) {
+    if (!list) return;
+    list.hidden = true;
+    list.classList.remove("open-above");
+    list.style.left = "";
+    list.style.maxHeight = "";
+    list.style.top = "";
+    list.style.width = "";
+    list.style.removeProperty("--keyword-suggestion-width");
+  }
+
+  function positionKeywordSuggestionList(input) {
+    const list = input.parentElement.querySelector(".keyword-suggestion-list");
+    if (!list || list.hidden) return;
+    list.classList.remove("open-above");
+    const rect = input.getBoundingClientRect();
+    const below = window.innerHeight - rect.bottom - 16;
+    const above = rect.top - 16;
+    const openAbove = below < 320 && above > below;
+    const available = Math.max(180, Math.min(openAbove ? above : below, window.innerHeight - 32, 720));
+    const width = Math.min(rect.width, window.innerWidth - 32);
+    const left = Math.max(16, Math.min(rect.left, window.innerWidth - width - 16));
+    const top = openAbove
+      ? Math.max(16, rect.top - available - 4)
+      : Math.min(window.innerHeight - 16, rect.bottom + 4);
+    if (openAbove) {
+      list.classList.add("open-above");
+    }
+    list.style.left = `${left}px`;
+    list.style.maxHeight = `${available}px`;
+    list.style.top = `${top}px`;
+    list.style.width = `${width}px`;
+    list.style.setProperty("--keyword-suggestion-width", `${width}px`);
+  }
+
   async function fetchSuggestions(input) {
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
@@ -33,7 +68,7 @@
     const suggestions = await response.json();
     list.innerHTML = "";
     if (!suggestions.length) {
-      list.hidden = true;
+      resetKeywordSuggestionList(list);
       return;
     }
     suggestions.forEach((suggestion) => {
@@ -44,13 +79,14 @@
       button.addEventListener("mousedown", (event) => {
         event.preventDefault();
         addKeywordChip(form, input, suggestion.label);
-        list.hidden = true;
+        resetKeywordSuggestionList(list);
         input.focus({ preventScroll: true });
       });
       item.appendChild(button);
       list.appendChild(item);
     });
     list.hidden = false;
+    positionKeywordSuggestionList(input);
   }
 
   function keywordChipList(form) {
@@ -75,6 +111,19 @@
     const wrap = keywordEntryWrap(form);
     if (wrap) {
       wrap.hidden = values.length >= MAX_KEYWORDS;
+    }
+    const chipList = keywordChipList(form);
+    if (chipList) {
+      chipList.querySelectorAll(".keyword-empty-slot").forEach((slot) => slot.remove());
+      const activeSlotCount = values.length >= MAX_KEYWORDS ? 0 : 1;
+      const emptySlotCount = Math.max(0, MAX_KEYWORDS - values.length - activeSlotCount);
+      const startIndex = values.length + activeSlotCount + 1;
+      for (let index = 0; index < emptySlotCount; index += 1) {
+        const emptySlot = document.createElement("span");
+        emptySlot.className = "keyword-slot keyword-empty-slot";
+        emptySlot.textContent = `Keyword ${startIndex + index}`;
+        chipList.appendChild(emptySlot);
+      }
     }
   }
 
@@ -108,7 +157,7 @@
     const chipList = keywordChipList(form);
     if (!chipList) return;
     const chip = document.createElement("span");
-    chip.className = "keyword-chip";
+    chip.className = "keyword-slot keyword-chip";
     const hidden = document.createElement("input");
     hidden.type = "hidden";
     hidden.name = "keyword";
@@ -122,7 +171,8 @@
     remove.setAttribute("aria-label", `Remove ${cleanValue}`);
     remove.textContent = "x";
     chip.append(hidden, label, remove);
-    chipList.appendChild(chip);
+    const wrap = keywordEntryWrap(form);
+    chipList.insertBefore(chip, wrap || chipList.querySelector(".keyword-empty-slot"));
     input.value = "";
     updateKeywordEntryState(form);
   }
@@ -182,7 +232,7 @@
     input.addEventListener("keydown", (event) => {
       if (event.key === "Tab") {
         const list = input.parentElement.querySelector(".keyword-suggestion-list");
-        if (list) list.hidden = true;
+        resetKeywordSuggestionList(list);
       }
     });
   });
@@ -190,10 +240,17 @@
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".keyword-input-wrap")) {
       document.querySelectorAll(".keyword-suggestion-list").forEach((list) => {
-        list.hidden = true;
+        resetKeywordSuggestionList(list);
       });
     }
   });
+
+  function repositionOpenKeywordLists() {
+    document.querySelectorAll(".keyword-input").forEach(positionKeywordSuggestionList);
+  }
+
+  window.addEventListener("resize", repositionOpenKeywordLists);
+  window.addEventListener("scroll", repositionOpenKeywordLists, true);
 
   document.querySelectorAll(".post-title, .item-title").forEach((title) => {
     title.setAttribute("data-tooltip", title.getAttribute("data-description") || "");
