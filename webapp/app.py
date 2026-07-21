@@ -40,7 +40,7 @@ STARTER_TOPIC_LABELS = (
     "Birth Narrative",
     "Resurrection of Jesus",
     "Heaven/Hell",
-    "Forgery (General)",
+    "Literary Forgery (General)",
     "Early Christianity (General)",
 )
 

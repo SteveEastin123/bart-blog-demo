@@ -4,7 +4,8 @@
       "name": "2 Thessalonians",
       "description": "Posts on 2 Thessalonians, including authorship, forgery, apocalyptic expectation, further reading, and later interpretation.",
       "categories": [
-        "Epistles"
+        "Epistles",
+        "Pauline Letters and Textual Questions"
       ],
       "displayInBrowser": true
     },
@@ -109,7 +110,6 @@
       "name": "Apocalyptic Jesus",
       "description": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categories": [
-        "Apocalypticism and Revelation",
         "The Historical Jesus"
       ],
       "displayInBrowser": true
@@ -348,7 +348,7 @@
       "name": "Classical Comparisons",
       "description": "Posts comparing biblical texts, historical claims, and manuscript traditions with other ancient sources or Greco-Roman materials.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -380,7 +380,7 @@
       "name": "Critical Biblical Scholarship",
       "description": "Posts explaining critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -404,7 +404,7 @@
       "name": "Dating Ancient Texts",
       "description": "Posts on how scholars date ancient writings, including the Gospels, Barnabas, and other early Christian texts.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -437,7 +437,7 @@
       "name": "Demythologizing",
       "description": "Posts on demythologizing the New Testament, including arguments for and against reinterpreting supernatural or ethical claims in modern terms.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -493,8 +493,7 @@
       "name": "Early Christian Diversity",
       "description": "Posts on competing forms of early Christianity, including alternative beliefs, rival groups, unorthodox texts, and the question of which Christianity became dominant.",
       "categories": [
-        "Christian Origins and Expansion",
-        "Early Church History"
+        "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
@@ -518,8 +517,7 @@
       "name": "Early Christianity (General)",
       "description": "Posts on broad issues in early Christianity, including beliefs, practices, social setting, historical development, and the early Christian movement.",
       "categories": [
-        "Christian Origins and Expansion",
-        "Early Church History"
+        "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
@@ -613,7 +611,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Forgery (General)",
+      "name": "Literary Forgery (General)",
       "description": "Posts on ancient literary forgery, pseudepigraphy, deception, motives for false attribution, and general debates about whether forged writings were meant to mislead readers.",
       "categories": [
         "Forgery"
@@ -672,7 +670,7 @@
       "name": "Gnostic-Orthodox Conflicts",
       "description": "Posts on disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -680,7 +678,7 @@
       "name": "Gnosticism (General)",
       "description": "Posts introducing Gnosticism as a broad topic, including definitions, summaries, lectures, and examples of Gnostic groups or teachings.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -737,7 +735,7 @@
       "name": "Gospel of Judas",
       "description": "Posts on the Gospel of Judas, including its discovery, opening sections, Sethian Gnostic setting, portrayal of Judas, and modern scholarly discussion.",
       "categories": [
-        "Gnosticism and Heresy",
+        "Gnosticism, Orthodoxy, and Heresy",
         "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
@@ -820,7 +818,7 @@
       "description": "Posts on historical questions about Hebrew Bible narratives, including Moses, Exodus, David, conquest, Israelite origins, miracle stories, archaeology, and comparative evidence.",
       "categories": [
         "Hebrew Bible Texts and Traditions",
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -854,8 +852,8 @@
       "name": "Methods for Studying the Historical Jesus",
       "description": "Posts on methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "categories": [
-        "The Historical Jesus",
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods",
+        "The Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -863,7 +861,7 @@
       "name": "Historical Method (General)",
       "description": "Posts on historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -871,6 +869,7 @@
       "name": "Historical Study of Miracles",
       "description": "Posts on how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
       "categories": [
+        "Historical and Critical Methods",
         "Miracles and Supernatural Claims"
       ],
       "displayInBrowser": true
@@ -879,7 +878,7 @@
       "name": "Historical Study and Theology",
       "description": "Posts on the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -1016,7 +1015,7 @@
       "name": "Jewish Apocalypticism",
       "description": "Posts on ancient Jewish apocalyptic thought, including its roots in prophecy, historical crisis, apocalypse as a genre, resurrection, judgment, and its background for Jesus and early Christianity.",
       "categories": [
-        "Apocalypticism and Revelation"
+        "Early Judaism"
       ],
       "displayInBrowser": true
     },
@@ -1120,7 +1119,7 @@
       "name": "Marcion",
       "description": "Posts on Marcion, his teachings, canon, view of the Jewish scriptures, relationship to Paul, and later Christian judgments of his theology.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -1161,7 +1160,7 @@
       "name": "Mary Magdalene and Gnosticism",
       "description": "Posts on Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -1250,7 +1249,7 @@
       "name": "Modern End-Times Belief",
       "description": "Posts on modern end-times belief, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
       "categories": [
-        "Apocalypticism and Revelation"
+        "Revelation and End-Time Belief"
       ],
       "displayInBrowser": true
     },
@@ -1291,7 +1290,7 @@
       "name": "Nag Hammadi",
       "description": "Posts on the Nag Hammadi library, its discovery, contents, interpretation, and debates about whether its texts illuminate Gnostic Christianity.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -1390,7 +1389,7 @@
       "name": "Orthodoxy and Heresy",
       "description": "Posts on how early Christians defined orthodoxy and heresy, including competing Christian views, Bauer's thesis, Eusebius, Marcion, and Jewish-Christian groups.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -1505,7 +1504,6 @@
       "name": "Pauline Apocalypticism",
       "description": "Posts on Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
       "categories": [
-        "Apocalypticism and Revelation",
         "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
@@ -1625,8 +1623,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Petrine Forgeries",
-      "description": "Posts on writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, and other texts falsely or questionably connected with Peter.",
+      "name": "Petrine Authorship and Forgeries",
+      "description": "Posts on writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, authorship, and other texts falsely or questionably connected with Peter.",
       "categories": [
         "Forgery"
       ],
@@ -1720,7 +1718,7 @@
       "name": "Redaction Criticism",
       "description": "Posts on redaction criticism, especially how Gospel writers shaped, edited, and interpreted inherited traditions for their own theological or literary purposes.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -1768,7 +1766,7 @@
       "name": "Revelation",
       "description": "Posts on the book of Revelation as an ancient apocalypse, including its authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "categories": [
-        "Apocalypticism and Revelation"
+        "Revelation and End-Time Belief"
       ],
       "displayInBrowser": true
     },
@@ -1850,7 +1848,7 @@
       "name": "Sethian Gnostics",
       "description": "Posts on Sethian Gnostics, including their myths, teachings, relationship to the Gospel of Judas, and place within discussions of Gnostic Christianity.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -1892,7 +1890,7 @@
       "name": "Source Criticism",
       "description": "Posts on source criticism, including how scholars identify written sources, composite texts, Gospel relationships, and possible spliced or edited writings.",
       "categories": [
-        "Historical Methods and Criticism"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -1997,7 +1995,7 @@
       "name": "Valentinian Gnostics",
       "description": "Posts on Valentinian Christians, their interpretation of scripture, theology, Gospel of Philip, and disputes with other early Christian groups.",
       "categories": [
-        "Gnosticism and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },

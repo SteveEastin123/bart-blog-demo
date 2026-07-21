@@ -27,14 +27,11 @@
       ]
     },
     {
-      "name": "Apocalypticism and Revelation",
-      "description": "Covers apocalyptic expectations in ancient Jewish traditions, Jesus' message, Pauline texts, and modern interpretation, with special attention to Revelation.",
+      "name": "Revelation and End-Time Belief",
+      "description": "Covers Revelation and modern interpretations of end-time belief, including apocalyptic imagery, judgment, symbolism, and later readings of biblical prophecy.",
       "topicOrder": [
-        "Apocalyptic Jesus",
-        "Jewish Apocalypticism",
         "Revelation",
-        "Modern End-Times Belief",
-        "Pauline Apocalypticism"
+        "Modern End-Times Belief"
       ]
     },
     {
@@ -159,11 +156,9 @@
     },
     {
       "name": "Early Church History",
-      "description": "Covers early Christian history after the New Testament period, including church institutions, councils, doctrinal development, early Christian writings, and broad historical developments.",
+      "description": "Focuses on post-New-Testament church history, including bishops, councils, Constantine, early Christian writings, institutional changes, and the development of doctrine such as the Trinity.",
       "topicOrder": [
         "Early Church History (General)",
-        "Early Christianity (General)",
-        "Early Christian Diversity",
         "Early Christian Writings",
         "Constantine",
         "Trinity"
@@ -171,16 +166,17 @@
     },
     {
       "name": "Early Judaism",
-      "description": "Covers early Jewish groups, law, sectarian movements, the Dead Sea Scrolls and Essenes, and the Jewish world around Jesus and early Christianity.",
+      "description": "Covers Jewish groups, law, apocalyptic thought, practices, texts, and historical setting around the time of Jesus and early Christianity, including the Dead Sea Scrolls and Essenes.",
       "topicOrder": [
         "Early Judaism (General)",
-        "Dead Sea Scrolls and Essenes",
-        "Jewish Law"
+        "Jewish Apocalypticism",
+        "Jewish Law",
+        "Dead Sea Scrolls and Essenes"
       ]
     },
     {
       "name": "Epistles",
-      "description": "Covers New Testament letters, including Pauline and non-Pauline epistles, authorship, forgery, composition, persecution, and individual letters such as 2 Thessalonians and Philippians.",
+      "description": "Covers New Testament epistles, including Pauline and non-Pauline letters, authorship, forgery, composition, persecution, and individual letters such as Philippians and 2 Thessalonians.",
       "topicOrder": [
         "Pauline Letters",
         "Composite Pauline Letters",
@@ -197,12 +193,12 @@
     },
     {
       "name": "Ethics and Moral Reasoning",
-      "description": "Covers moral teaching, ethical reasoning, anti-Judaism, moral problems in scripture, and ethical issues in the teachings of Jesus and Paul.",
+      "description": "Covers ethical reasoning, moral problems in scripture, anti-Judaism, and moral issues in the teachings of Jesus and Paul.",
       "topicOrder": [
         "Moral Philosophy",
+        "Moral Problems in Scripture",
         "Jesus' Ethics",
         "Paul and Slavery",
-        "Moral Problems in Scripture",
         "Anti-Judaism"
       ]
     },
@@ -219,45 +215,45 @@
     },
     {
       "name": "Forgery",
-      "description": "Covers ancient and modern literary forgery, including general forgery, Pauline forgeries, non-Pauline epistle forgeries, Petrine forgeries, and modern forgery claims.",
+      "description": "Covers ancient and modern literary forgery, pseudepigraphy, disputed attributions, forged Pauline and non-Pauline writings, Petrine authorship questions, and modern forgery claims.",
       "topicOrder": [
-        "Forgery (General)",
+        "Literary Forgery (General)",
         "Pauline Forgeries",
         "Non-Pauline Epistle Forgeries",
-        "Petrine Forgeries",
+        "Petrine Authorship and Forgeries",
         "Modern Forgeries"
       ]
     },
     {
-      "name": "Gnosticism and Heresy",
-      "description": "Covers Gnosticism, orthodoxy and heresy, Marcion, Nag Hammadi, Gnostic groups, and disputes over texts, doctrine, and authority in early Christianity.",
+      "name": "Gnosticism, Orthodoxy, and Heresy",
+      "description": "Covers Gnosticism, Nag Hammadi writings, Marcion, competing Christian groups, and disputes over texts, doctrine, scripture, and authority in early Christianity.",
       "topicOrder": [
         "Orthodoxy and Heresy",
+        "Gnostic-Orthodox Conflicts",
+        "Marcion",
         "Gnosticism (General)",
         "Nag Hammadi",
         "Sethian Gnostics",
         "Valentinian Gnostics",
-        "Gnostic-Orthodox Conflicts",
-        "Marcion",
         "Gospel of Judas",
         "Mary Magdalene and Gnosticism"
       ]
     },
     {
       "name": "Hebrew Bible Texts and Traditions",
-      "description": "Covers Hebrew Bible books, sources, authorship, historicity, manuscript transmission, translation traditions, apocrypha, divine beings, and interpretation.",
+      "description": "Covers Hebrew Bible books, sources, authorship, historical questions, manuscript transmission, translation traditions, apocrypha, divine beings, and interpretation.",
       "topicOrder": [
         "Pentateuch",
         "Genesis",
         "Prophets",
-        "Ecclesiastes",
         "Job",
-        "Divine Beings",
+        "Ecclesiastes",
         "Hebrew Bible Authorship and Sources",
         "Hebrew Bible Historicity",
         "Hebrew Bible Manuscripts",
         "Septuagint",
-        "Old Testament Apocrypha"
+        "Old Testament Apocrypha",
+        "Divine Beings"
       ]
     },
     {
@@ -275,19 +271,20 @@
       ]
     },
     {
-      "name": "Historical Methods and Criticism",
-      "description": "Covers methods used to study biblical and early Christian texts, including historical criticism, dating, source criticism, redaction criticism, historicity, and the relationship between history and theology.",
+      "name": "Historical and Critical Methods",
+      "description": "Covers historical and critical methods used to study biblical and early Christian texts, including dating, source criticism, redaction criticism, historicity, miracle claims, comparative analysis, and the relationship between history and theology.",
       "topicOrder": [
         "Historical Method (General)",
         "Critical Biblical Scholarship",
+        "Methods for Studying the Historical Jesus",
+        "Historical Study of Miracles",
+        "Historical Study and Theology",
         "Dating Ancient Texts",
         "Source Criticism",
         "Redaction Criticism",
-        "Methods for Studying the Historical Jesus",
         "Hebrew Bible Historicity",
-        "Historical Study and Theology",
-        "Demythologizing",
-        "Classical Comparisons"
+        "Classical Comparisons",
+        "Demythologizing"
       ]
     },
     {
@@ -419,6 +416,7 @@
       "topicOrder": [
         "Pauline Letters",
         "Philippians",
+        "2 Thessalonians",
         "Composite Pauline Letters",
         "Pauline Authorship",
         "Pauline Forgeries",
