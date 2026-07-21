@@ -120,9 +120,9 @@ def header(active: str = "") -> str:
     links = [
         ("Join!", "#", "disabled"),
         ("Recent Posts", "#", "disabled"),
+        ("Keyword Search", "/keyword-search", "keyword-search"),
         ("Categories1", "/categories", "categories"),
         ("Categories2", "/category-groups", "category-groups"),
-        ("Keyword Search", "/keyword-search", "keyword-search"),
         ("Forum", "#", "disabled"),
         ("About Blog", "#", "disabled"),
         ("About Bart", "#", "disabled"),
@@ -354,11 +354,11 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces new ways to find topics of interest on Bart's blog: <strong>Categories1</strong>, <strong>Categories2</strong>, and <strong>Keyword Search</strong>.</p>
-        <p><strong>Categories1</strong> and <strong>Categories2</strong> are two options for category searching. One of these approaches will be selected for future use. The drawback of <strong>Categories1</strong> is that it lists all {pluralize(stats['categories'], 'category', 'categories')} on one page, which may feel overwhelming to navigate. The drawback of <strong>Categories2</strong> is that readers must move through an additional layer before reaching the topic they want.</p>
-        <p><strong>Categories1</strong> lets readers browse posts through the current category-and-topic structure. The blog's posts have been organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused topics.</p>
-        <p><strong>Categories2</strong> provides a broader starting point by organizing those categories into {pluralize(stats['category_groups'], 'larger group', 'larger groups')} before showing the topics connected to each category.</p>
-        <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords.</p>
+        <p>This demo introduces two ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Categories1/Categories2</strong>.</p>
+        <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords. It is designed for readers who already know what they are looking for.</p>
+        <p><strong>Categories1</strong> and <strong>Categories2</strong> offer two options for browsing by category. They are designed for readers who are exploring the blog, are unsure what to search for, or are new to the range of topics Bart covers. Only one category approach will be used in the final version, and feedback will help determine which works better.</p>
+        <p><strong>Categories1</strong> lets readers browse through the current category-and-topic structure. The posts are organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused topics. The drawback is that all {stats['categories']} categories appear on one page, which may feel overwhelming.</p>
+        <p><strong>Categories2</strong> provides a broader starting point by grouping those categories into {pluralize(stats['category_groups'], 'larger section', 'larger sections')} before showing the topics within each category. The drawback is that readers must move through one additional layer before reaching the topic they want.</p>
         <p class="site-demo-date-range">{esc(date_range)} ({pluralize(stats['posts'], 'post')})</p>
         <p class="site-demo-version">Version 2.0 Blog Search Demo | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
       </section>
