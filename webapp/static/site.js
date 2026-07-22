@@ -284,6 +284,8 @@
       const storedPreference = window.sessionStorage.getItem(preferenceKey);
       if (storedPreference !== null) {
         checkbox.checked = storedPreference === "true";
+      } else if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+        checkbox.checked = true;
       }
     } catch (_error) {
       // Keep the page default when browser storage is unavailable.
