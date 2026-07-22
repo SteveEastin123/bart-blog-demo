@@ -326,23 +326,6 @@ def content_page(
 
 def home_page() -> bytes:
     with get_conn() as conn:
-        stats = conn.execute(
-            """
-            SELECT
-                (SELECT COUNT(*) FROM posts) AS posts,
-                (SELECT COUNT(*) FROM topics WHERE display_in_browser = 1) AS topics,
-                (
-                    SELECT COUNT(*)
-                    FROM (
-                        SELECT name AS label FROM topics WHERE display_in_browser = 1
-                        UNION
-                        SELECT label FROM keywords
-                    )
-                ) AS keywords,
-                (SELECT COUNT(*) FROM category_groups) AS category_groups,
-                (SELECT COUNT(*) FROM categories) AS categories
-            """
-        ).fetchone()
         date_range = format_date_range(conn)
 
     body = f"""
@@ -352,9 +335,10 @@ def home_page() -> bytes:
         <p>This demo introduces two ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse by Topic</strong>.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords. It is designed for readers who already know what they are looking for.</p>
         <p><strong>Browse by Topic</strong> lets readers explore the blog through broad subject areas. Selecting a subject area shows related categories, selecting a category shows its topics, and selecting a topic shows the posts connected to it.</p>
-        <p>Together, these tools give readers two ways to navigate the blog: searching directly by keyword or browsing through organized topics.</p>
+        <figure class="search-methods-figure">
+          <img class="search-methods-image" src="/static/ehrman-search-methods.png" alt="Diagram comparing Browse by Topic with Keyword Search">
+        </figure>
         <p class="site-demo-date-range">{esc(date_range)}</p>
-        <p class="site-demo-stats">{pluralize(stats['posts'], 'post')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['category_groups'], 'subject area')} | {pluralize(stats['keywords'], 'keyword')}</p>
         <p class="site-demo-version">Version 2.0</p>
       </section>
     </section>

@@ -139,7 +139,7 @@ a:hover {
   justify-content: space-between;
   min-height: 114px;
   overflow: hidden;
-  padding: 14px 70px;
+  padding: 14px 58px 14px 70px;
 }
 
 .site-brand {
@@ -251,18 +251,25 @@ a:hover {
   margin: 0 0 14px;
 }
 
+.search-methods-figure {
+  margin: 26px 0 0;
+}
+
+.search-methods-image {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .site-demo-note .site-demo-date-range {
   font-size: 13px;
   margin: 48px 0 14px;
 }
 
-.site-demo-note .site-demo-stats,
 .site-demo-note .site-demo-version {
   font-size: 13px;
-}
-
-.site-demo-note .site-demo-stats {
-  margin: 0 0 14px;
 }
 
 .site-demo-note .site-demo-version {

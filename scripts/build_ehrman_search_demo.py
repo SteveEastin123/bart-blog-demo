@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import mimetypes
 from pathlib import Path
 
 from ehrman_demo_data import (
@@ -23,6 +25,9 @@ DATA_START = "const DATA ="
 KEYWORD_INDEX_START = "    const KEYWORD_INDEX ="
 KEYWORD_SUGGESTIONS_START = "    const KEYWORD_SUGGESTIONS ="
 MAX_SUGGESTIONS_START = "    const MAX_KEYWORD_SUGGESTIONS"
+SEARCH_METHODS_IMAGE_START = "<!-- SEARCH_METHODS_IMAGE_START -->"
+SEARCH_METHODS_IMAGE_END = "<!-- SEARCH_METHODS_IMAGE_END -->"
+DEFAULT_SEARCH_METHODS_IMAGE = Path(__file__).resolve().parents[1] / "webapp" / "static" / "ehrman-search-methods.png"
 
 
 def replace_block(html: str, start_marker: str, end_marker: str, replacement: str) -> str:
@@ -41,6 +46,7 @@ def build_demo_html(
     category_groups_path: Path,
     topics_path: Path,
     search_index_path: Path,
+    search_methods_image_path: Path,
 ) -> tuple[str, dict[str, int]]:
     categories = load_categories(categories_path)
     category_groups = load_category_groups(category_groups_path)
@@ -66,6 +72,15 @@ def build_demo_html(
         "\n\n" + MAX_SUGGESTIONS_START,
         f"{KEYWORD_SUGGESTIONS_START} {dumps_compact(keyword_suggestions)};\n",
     )
+    image_mime = mimetypes.guess_type(search_methods_image_path.name)[0] or "image/png"
+    image_data = base64.b64encode(search_methods_image_path.read_bytes()).decode("ascii")
+    image_markup = (
+        f'{SEARCH_METHODS_IMAGE_START}'
+        f'<img class="search-methods-image" src="data:{image_mime};base64,{image_data}" '
+        'alt="Diagram comparing Browse by Topic with Keyword Search">'
+        f'{SEARCH_METHODS_IMAGE_END}'
+    )
+    html = replace_block(html, SEARCH_METHODS_IMAGE_START, SEARCH_METHODS_IMAGE_END, image_markup)
 
     linked_topics = {
         topic.get("name", "").strip()
@@ -90,6 +105,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
+    parser.add_argument("--search-methods-image", type=Path, default=DEFAULT_SEARCH_METHODS_IMAGE)
     parser.add_argument("--template", type=Path, default=DEFAULT_DEMO_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_DEMO_PATH)
     return parser.parse_args()
@@ -98,7 +114,14 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     template_html = args.template.read_text(encoding="utf-8")
-    output_html, stats = build_demo_html(template_html, args.categories, args.category_groups, args.topics, args.search_index)
+    output_html, stats = build_demo_html(
+        template_html,
+        args.categories,
+        args.category_groups,
+        args.topics,
+        args.search_index,
+        args.search_methods_image,
+    )
     args.output.write_text(output_html, encoding="utf-8", newline="\n")
     size_bytes = args.output.stat().st_size
     print(f"Built {args.output}")
