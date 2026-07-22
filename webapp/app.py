@@ -121,8 +121,7 @@ def header(active: str = "") -> str:
         ("Join!", "#", "disabled"),
         ("Recent Posts", "#", "disabled"),
         ("Keyword Search", "/keyword-search", "keyword-search"),
-        ("Categories1", "/categories", "categories"),
-        ("Categories2", "/category-groups", "category-groups"),
+        ("Browse by Topic", "/browse-by-topic", "browse-by-topic"),
         ("Forum", "#", "disabled"),
         ("About Blog", "#", "disabled"),
         ("About Bart", "#", "disabled"),
@@ -250,8 +249,6 @@ def primary_group_for_category(conn: sqlite3.Connection, category_id: int, group
 
 
 def category_context_query(source: str = "", group_slug: str = "") -> str:
-    if source == "categories1":
-        return "?" + urlencode({"source": "categories1"})
     if group_slug:
         return "?" + urlencode({"group": group_slug})
     return ""
@@ -267,9 +264,7 @@ def category_posts_href(category: sqlite3.Row, source: str = "", group_slug: str
 
 def topic_href(topic: sqlite3.Row, category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
     params = {"category": category["slug"]}
-    if source == "categories1":
-        params["source"] = "categories1"
-    elif group_slug:
+    if group_slug:
         params["group"] = group_slug
     return f"/topics/{topic['slug']}?{urlencode(params)}"
 
@@ -281,14 +276,14 @@ def category_breadcrumbs(
     source: str = "",
     group_slug: str = "",
 ) -> list[tuple[str, str | None]]:
-    group = None if source == "categories1" else primary_group_for_category(conn, int(category["id"]), group_slug)
+    group = primary_group_for_category(conn, int(category["id"]), group_slug)
     if group:
         items: list[tuple[str, str | None]] = [
-            ("Categories2", "/category-groups"),
-            (group["name"], f"/category-groups/{group['slug']}"),
+            ("Browse by Topic", "/browse-by-topic"),
+            (group["name"], f"/browse-by-topic/{group['slug']}"),
         ]
     else:
-        items = [("Categories1", "/categories")]
+        items = [("Browse by Topic", "/browse-by-topic")]
     category_label = current_label or category["name"]
     if current_label:
         items.append((category["name"], category_href(category, source, group["slug"] if group else "")))
@@ -354,13 +349,13 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces two ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Categories1/Categories2</strong>.</p>
+        <p>This demo introduces two ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse by Topic</strong>.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords. It is designed for readers who already know what they are looking for.</p>
-        <p><strong>Categories1</strong> and <strong>Categories2</strong> offer two options for browsing by category. They are designed for readers who are exploring the blog, are unsure what to search for, or are new to the range of topics Bart covers. Only one category approach will be used in the final version, and feedback will help determine which works better.</p>
-        <p><strong>Categories1</strong> lets readers browse through the current category-and-topic structure. The posts are organized into {pluralize(stats['categories'], 'broad category', 'broad categories')}, each containing more focused topics. The drawback is that all {stats['categories']} categories appear on one page, which may feel overwhelming.</p>
-        <p><strong>Categories2</strong> provides a broader starting point by grouping those categories into {pluralize(stats['category_groups'], 'larger section', 'larger sections')} before showing the topics within each category. The drawback is that readers must move through one additional layer before reaching the topic they want.</p>
-        <p class="site-demo-date-range">{esc(date_range)} ({pluralize(stats['posts'], 'post')})</p>
-        <p class="site-demo-version">Version 2.0 Blog Search Demo | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['keywords'], 'keyword')}</p>
+        <p><strong>Browse by Topic</strong> lets readers explore the blog through broad subject areas. Selecting a subject area shows related categories, selecting a category shows its topics, and selecting a topic shows the posts connected to it.</p>
+        <p>Together, these tools give readers two ways to navigate the blog: searching directly by keyword or browsing through organized topics.</p>
+        <p class="site-demo-date-range">{esc(date_range)}</p>
+        <p class="site-demo-stats">{pluralize(stats['posts'], 'post')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['keywords'], 'keyword')}</p>
+        <p class="site-demo-version">Version 2.0</p>
       </section>
     </section>
     """
@@ -388,7 +383,7 @@ def categories_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(row['slug'])}?source=categories1" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <a class="item-title" href="/categories/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
               <p class="item-description" hidden>{esc(row['description'])}</p>
               <p class="item-meta">{pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
@@ -422,15 +417,15 @@ def category_groups_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/category-groups/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <a class="item-title" href="/browse-by-topic/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
               <p class="item-description" hidden>{esc(row['description'])}</p>
               <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} | {pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
-    body = content_page("Category Groups", pluralize(len(rows), "category group"), inner=inner, toggle_descriptions=True)
-    return render_page("Category Groups", body, active="category-groups")
+    body = content_page("Browse by Topic", pluralize(len(rows), "subject area"), inner=inner, toggle_descriptions=True)
+    return render_page("Browse by Topic", body, active="browse-by-topic")
 
 
 def category_group_page(slug: str) -> bytes:
@@ -470,7 +465,7 @@ def category_group_page(slug: str) -> bytes:
             (category_group["id"],),
         ).fetchone()
         breadcrumbs = [
-            ("Categories2", "/category-groups"),
+            ("Browse by Topic", "/browse-by-topic"),
             (category_group["name"], None),
         ]
 
@@ -495,7 +490,7 @@ def category_group_page(slug: str) -> bytes:
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
-    return render_page(category_group["name"], body, active="category-groups")
+    return render_page(category_group["name"], body, active="browse-by-topic")
 
 
 def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
@@ -552,7 +547,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
-    return render_page(category["name"], body, active="categories")
+    return render_page(category["name"], body, active="browse-by-topic")
 
 
 def keyword_panel(
@@ -705,7 +700,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     panel = keyword_panel([topic["name"]], sort, descriptions_checked=True)
     inner = panel + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
-    return render_page(topic["name"], body, active="categories")
+    return render_page(topic["name"], body, active="browse-by-topic")
 
 
 def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
@@ -729,7 +724,7 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
         ).fetchall()
     inner = keyword_panel([], "newest", descriptions_checked=True) + post_list(posts, category["name"])
     body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), category["description"], inner, breadcrumbs=breadcrumbs)
-    return render_page(f"{category['name']} Posts", body, active="categories")
+    return render_page(f"{category['name']} Posts", body, active="browse-by-topic")
 
 
 def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int]:
@@ -966,9 +961,7 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return serve_static(path)
     if path in ("", "/"):
         return home_page(), "200 OK", "text/html; charset=utf-8"
-    if path == "/categories":
-        return categories_page(), "200 OK", "text/html; charset=utf-8"
-    if path == "/category-groups":
+    if path in ("/categories", "/category-groups", "/browse-by-topic"):
         return category_groups_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-search":
         return keyword_search_page(), "200 OK", "text/html; charset=utf-8"
@@ -983,6 +976,9 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return posts_for_category(slug, query), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/category-groups/"):
         slug = path.removeprefix("/category-groups/").strip("/")
+        return category_group_page(slug), "200 OK", "text/html; charset=utf-8"
+    if path.startswith("/browse-by-topic/"):
+        slug = path.removeprefix("/browse-by-topic/").strip("/")
         return category_group_page(slug), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/categories/"):
         slug = path.removeprefix("/categories/").strip("/")

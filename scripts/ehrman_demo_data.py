@@ -122,7 +122,10 @@ def display_date_text(date_text: Any) -> str:
     return f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
 
 
-def build_posts_by_topic(posts: list[dict[str, Any]]) -> OrderedDict[str, list[dict[str, str]]]:
+def build_posts_by_topic(
+    posts: list[dict[str, Any]],
+    allowed_topics: set[str] | None = None,
+) -> OrderedDict[str, list[dict[str, str]]]:
     posts_by_topic: OrderedDict[str, list[dict[str, str]]] = OrderedDict()
     seen_by_topic: dict[str, set[str]] = {}
 
@@ -134,6 +137,8 @@ def build_posts_by_topic(posts: list[dict[str, Any]]) -> OrderedDict[str, list[d
 
         article = {"title": title, "url": url}
         for topic in unique_strings(post.get("topics", [])):
+            if allowed_topics is not None and topic not in allowed_topics:
+                continue
             posts_by_topic.setdefault(topic, [])
             seen_by_topic.setdefault(topic, set())
             if url in seen_by_topic[topic]:
@@ -182,7 +187,7 @@ def build_demo_data(
         demo_category["description"] = clean_string(category.get("description", ""))
         demo_categories.append(demo_category)
 
-    posts_by_topic = build_posts_by_topic(posts)
+    posts_by_topic = build_posts_by_topic(posts, set(topic_descriptions))
     for category in demo_categories:
         for topic in category["topics"]:
             posts_by_topic.setdefault(topic, [])

@@ -256,8 +256,16 @@ a:hover {
   margin: 48px 0 14px;
 }
 
+.site-demo-note .site-demo-stats,
 .site-demo-note .site-demo-version {
   font-size: 13px;
+}
+
+.site-demo-note .site-demo-stats {
+  margin: 0 0 14px;
+}
+
+.site-demo-note .site-demo-version {
   margin: 0;
 }
 
