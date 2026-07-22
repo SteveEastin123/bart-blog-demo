@@ -185,6 +185,25 @@
       event.preventDefault();
       window.location.href = keywordSearchUrl(form, input);
     });
+    form.addEventListener("change", (event) => {
+      const sortInput = event.target.closest('input[name="sort"]');
+      if (!sortInput || !form.contains(sortInput)) return;
+      const input = form.querySelector(".keyword-input");
+      if (!input) return;
+      if (form.dataset.refreshOnRemove === "true") {
+        window.location.href = keywordSearchUrl(form, input);
+        return;
+      }
+      if (form.dataset.sortCurrentPage === "true") {
+        const url = new URL(window.location.href);
+        if (sortInput.value === "ranked") {
+          url.searchParams.delete("sort");
+        } else {
+          url.searchParams.set("sort", sortInput.value);
+        }
+        window.location.href = url.toString();
+      }
+    });
     form.addEventListener("click", (event) => {
       const clearButton = event.target.closest("[data-clear-keywords]");
       if (clearButton && form.contains(clearButton)) {

@@ -538,6 +538,7 @@ def keyword_panel(
     sort: str = "ranked",
     descriptions_checked: bool = False,
     refresh_on_remove: bool = False,
+    sort_current_page: bool = False,
 ) -> str:
     values = unique_terms(prefill)[:4]
     options = (
@@ -578,8 +579,9 @@ def keyword_panel(
         for slot_index in range(next_index + (0 if len(values) >= 4 else 1), 5)
     )
     refresh_attr = ' data-refresh-on-remove="true"' if refresh_on_remove else ""
+    sort_attr = ' data-sort-current-page="true"' if sort_current_page else ""
     return f"""
-    <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form{refresh_attr}>
+    <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form{refresh_attr}{sort_attr}>
       <label>Enter up to four keywords. Keywords can be single words or phrases.</label>
       <div class="keyword-grid">
         <div class="keyword-slot-grid" data-keyword-chip-list>
@@ -660,7 +662,7 @@ def topic_context_category(
 
 
 def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
-    sort = query.get("sort", ["newest"])[0]
+    sort = query.get("sort", ["ranked"])[0]
     requested_category_slug = query.get("category", [""])[0]
     source = query.get("source", [""])[0]
     group_slug = query.get("group", [""])[0]
@@ -680,13 +682,20 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
             """,
             (topic["id"],),
         ).fetchall()
-    panel = keyword_panel([topic["name"]], sort, descriptions_checked=True)
+    posts = sort_scoped_posts(posts, sort, [topic["name"]])
+    panel = keyword_panel(
+        [topic["name"]],
+        sort,
+        descriptions_checked=True,
+        sort_current_page=True,
+    )
     inner = panel + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
     return render_page(topic["name"], body, active="browse-by-topic")
 
 
 def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
+    sort = query.get("sort", ["ranked"])[0]
     source = query.get("source", [""])[0]
     group_slug = query.get("group", [""])[0]
     with get_conn() as conn:
@@ -705,7 +714,13 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
             """,
             (category["id"],),
         ).fetchall()
-    inner = keyword_panel([], "newest", descriptions_checked=True) + post_list(posts, category["name"])
+    posts = sort_scoped_posts(posts, sort, [])
+    inner = keyword_panel(
+        [],
+        sort,
+        descriptions_checked=True,
+        sort_current_page=True,
+    ) + post_list(posts, category["name"])
     body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
     return render_page(f"{category['name']} Posts", body, active="browse-by-topic")
 
@@ -739,6 +754,23 @@ def title_match_boost(title: str, term: str) -> int:
     if " " not in normalized_term and any(normalized_term == word for word in normalized_title.split()):
         return 1
     return 0
+
+
+def sort_scoped_posts(
+    posts: list[sqlite3.Row],
+    sort: str,
+    ranking_terms: list[str],
+) -> list[sqlite3.Row]:
+    if sort not in {"ranked", "newest", "oldest"}:
+        sort = "ranked"
+
+    def sort_key(row: sqlite3.Row) -> tuple[object, ...]:
+        if sort == "ranked":
+            relevance = sum(title_match_boost(row["title"], term) for term in ranking_terms)
+            return (relevance, row["date_iso"], row["id"])
+        return (row["date_iso"], row["id"])
+
+    return sorted(posts, key=sort_key, reverse=sort != "oldest")
 
 
 def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[str]]:

@@ -72,13 +72,14 @@ def build_demo_html(
         "\n\n" + MAX_SUGGESTIONS_START,
         f"{KEYWORD_SUGGESTIONS_START} {dumps_compact(keyword_suggestions)};\n",
     )
+    while SEARCH_METHODS_IMAGE_END + SEARCH_METHODS_IMAGE_END in html:
+        html = html.replace(SEARCH_METHODS_IMAGE_END + SEARCH_METHODS_IMAGE_END, SEARCH_METHODS_IMAGE_END)
     image_mime = mimetypes.guess_type(search_methods_image_path.name)[0] or "image/png"
     image_data = base64.b64encode(search_methods_image_path.read_bytes()).decode("ascii")
     image_markup = (
         f'{SEARCH_METHODS_IMAGE_START}'
         f'<img class="search-methods-image" src="data:{image_mime};base64,{image_data}" '
         'alt="Diagram comparing Browse by Topic with Keyword Search">'
-        f'{SEARCH_METHODS_IMAGE_END}'
     )
     html = replace_block(html, SEARCH_METHODS_IMAGE_START, SEARCH_METHODS_IMAGE_END, image_markup)
 
