@@ -132,8 +132,9 @@ def header(active: str = "") -> str:
         classes = ["site-menu-link"]
         if key == "disabled":
             classes.append("disabled-link")
-            items.append(f'<span class="{" ".join(classes)}">{esc(label)}</span>')
+            items.append(f'<span class="{" ".join(classes)}" aria-disabled="true">{esc(label)}</span>')
         else:
+            classes.append("primary-menu-link")
             if active == key:
                 classes.append("active")
             items.append(f'<a class="{" ".join(classes)}" href="{route(href)}">{esc(label)}</a>')
@@ -191,12 +192,12 @@ def render_page(title: str, body: str, active: str = "") -> bytes:
     return html_doc.encode("utf-8")
 
 
-def description_toggle(checked: bool = False) -> str:
+def description_toggle(checked: bool = False, scope: str = "browse") -> str:
     checked_attr = " checked" if checked else ""
     return f"""
         <label class="hover-help description-check">
-          <input type="checkbox" data-description-toggle{checked_attr}>
-          <span>Display descriptions</span>
+          <input type="checkbox" data-description-toggle data-description-scope="{esc(scope)}"{checked_attr}>
+          <span>Show descriptions</span>
         </label>
     """
 
@@ -309,7 +310,7 @@ def content_page(
     actions_html = f'<div class="content-actions">{actions}</div>' if actions else ""
     count_html = f'<p class="count-line">{esc(count_line)}</p>'
     header_meta = description_html + count_html if description_first else count_html + description_html
-    toggle_html = description_toggle(descriptions_checked) if toggle_descriptions else ""
+    toggle_html = description_toggle(descriptions_checked, "browse") if toggle_descriptions else ""
     return f"""
     <section class="content-page">
       <div class="content-header">
@@ -369,7 +370,7 @@ def categories_page() -> bytes:
             <li class="list-item">
               <a class="item-title" href="/categories/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
               <p class="item-description" hidden>{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -403,7 +404,7 @@ def category_groups_page() -> bytes:
             <li class="list-item">
               <a class="item-title" href="/browse-by-topic/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
               <p class="item-description" hidden>{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} | {pluralize(row['topic_count'], 'topic')} | {pluralize(row['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} &bull; {pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -460,14 +461,14 @@ def category_group_page(slug: str) -> bytes:
             <li class="list-item">
               <a class="item-title" href="/categories/{esc(category['slug'])}?group={esc(category_group['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
               <p class="item-description" hidden>{esc(category['description'])}</p>
-              <p class="item-meta">{pluralize(category['topic_count'], 'topic')} | {pluralize(category['post_count'], 'post')}</p>
+              <p class="item-meta">{pluralize(category['topic_count'], 'topic')} &bull; {pluralize(category['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
         category_group["name"],
-        f"{pluralize(counts['category_count'], 'category', 'categories')} | {pluralize(counts['topic_count'], 'topic')} | {pluralize(counts['post_count'], 'post')}",
+        f"{pluralize(counts['category_count'], 'category', 'categories')} \u2022 {pluralize(counts['topic_count'], 'topic')} \u2022 {pluralize(counts['post_count'], 'post')}",
         "",
         inner,
         toggle_descriptions=True,
@@ -524,7 +525,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
         category["name"],
-        f"{pluralize(len(topics), 'topic')} | {pluralize(post_count, 'post')}",
+        f"{pluralize(len(topics), 'topic')} \u2022 {pluralize(post_count, 'post')}",
         "",
         inner,
         toggle_descriptions=True,
@@ -542,7 +543,7 @@ def keyword_panel(
 ) -> str:
     values = unique_terms(prefill)[:4]
     options = (
-        ("ranked", "Ranked"),
+        ("ranked", "Best match"),
         ("newest", "Newest first"),
         ("oldest", "Oldest first"),
     )
@@ -582,7 +583,7 @@ def keyword_panel(
     sort_attr = ' data-sort-current-page="true"' if sort_current_page else ""
     return f"""
     <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form{refresh_attr}{sort_attr}>
-      <label>Enter up to four keywords. Keywords can be single words or phrases.</label>
+      <label>Enter up to four keywords. Keywords can be single words or phrases. Each additional keyword narrows the results.</label>
       <div class="keyword-grid">
         <div class="keyword-slot-grid" data-keyword-chip-list>
           {chips}
@@ -600,9 +601,23 @@ def keyword_panel(
       </div>
     </form>
     <div class="search-description-toggle">
-      {description_toggle(descriptions_checked)}
+      {description_toggle(descriptions_checked, "posts")}
     </div>
     """
+
+
+def results_summary(post_count: int, terms: list[str]) -> str:
+    clean_terms = unique_terms(terms)
+    if not clean_terms:
+        return ""
+    count_label = pluralize(post_count, "post")
+    verb = "matches" if post_count == 1 else "match"
+    query_label = " + ".join(clean_terms)
+    return (
+        f'<p class="results-summary" aria-live="polite">'
+        f'<strong>{esc(count_label)}</strong> {verb} <strong>{esc(query_label)}</strong>.'
+        "</p>"
+    )
 
 
 def post_list(posts: list[sqlite3.Row], context_topic: str = "") -> str:
@@ -689,7 +704,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
         descriptions_checked=True,
         sort_current_page=True,
     )
-    inner = panel + post_list(posts, topic["name"])
+    inner = panel + results_summary(len(posts), [topic["name"]]) + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
     return render_page(topic["name"], body, active="browse-by-topic")
 
@@ -830,7 +845,7 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     posts, clean_terms = search_posts(terms, sort)
     title = "Keywords: " + " + ".join(clean_terms) if clean_terms else "Keyword Search"
     panel = keyword_panel(clean_terms, sort, descriptions_checked=True, refresh_on_remove=True)
-    inner = panel + post_list(posts, "Keyword Search")
+    inner = panel + results_summary(len(posts), clean_terms) + post_list(posts, "Keyword Search")
     body = content_page(title, pluralize(len(posts), "post"), inner=inner)
     return render_page(title, body, active="keyword-search")
 
