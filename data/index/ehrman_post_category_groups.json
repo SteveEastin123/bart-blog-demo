@@ -17,7 +17,7 @@
       "description": "Covers Paul's life, mission, communities, letters, theology, ethics, and the broader collection of New Testament epistles.",
       "categories": [
         "Paul's Life, Mission, and Communities",
-        "Pauline Letters and Textual Questions",
+        "Pauline Letters and Textual Issues",
         "Epistles",
         "Pauline Thought and Practice"
       ]
@@ -32,7 +32,7 @@
     },
     {
       "name": "Early Christianity and Church History",
-      "description": "Covers Christian origins, the development of early Christianity, church fathers, persecution, martyrdom, and church history after the New Testament period.",
+      "description": "Covers Christian origins, early Christian diversity, church fathers, persecution, martyrdom, and church history after the New Testament period.",
       "categories": [
         "Christian Origins and Expansion",
         "Early Church History",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "name": "Manuscripts, Canon, and Translation",
+      "name": "Manuscripts, Canon, and Bible Translation",
       "description": "Covers how biblical texts were copied, collected, canonized, translated, and reconstructed from manuscripts and other textual witnesses.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation",
@@ -60,7 +60,7 @@
     },
     {
       "name": "Authorship, Forgery, and Historical Methods",
-      "description": "Covers questions about who wrote biblical and early Christian texts, how traditions were transmitted, how scholars evaluate sources, historical methods, and forgery.",
+      "description": "Covers who wrote biblical and early Christian texts, how traditions were transmitted, how scholars evaluate sources, historical methods, and forgery.",
       "categories": [
         "Authorship",
         "Forgery",
@@ -70,7 +70,7 @@
     },
     {
       "name": "Theology, Belief, and Supernatural Claims",
-      "description": "Covers theological beliefs and religious questions, including Christology, salvation, faith, doubt, miracles, visions, and other claims about divine or supernatural activity.",
+      "description": "Covers theological beliefs and religious questions, including Christology, salvation, atonement, judgment, faith, doubt, miracles, visions, and claims about divine or supernatural activity.",
       "categories": [
         "Christology",
         "Salvation, Atonement, and Judgment",
@@ -79,10 +79,10 @@
       ]
     },
     {
-      "name": "Afterlife, Revelation, and Suffering",
-      "description": "Covers ancient and Christian views of the end times, resurrection, heaven and hell, divine judgment, suffering/evil, and life after death.",
+      "name": "Afterlife, Revelation, End Times, and Suffering",
+      "description": "Covers ancient and Christian views of life after death, Revelation, end-time expectations, resurrection, heaven and hell, divine judgment, suffering, and evil.",
       "categories": [
-        "Revelation and End-Times Interpretation",
+        "Revelation and End-Time Interpretation",
         "Afterlife",
         "Suffering and Evil"
       ]
@@ -98,11 +98,11 @@
       ]
     },
     {
-      "name": "Books, Media, and Blog Features",
-      "description": "Covers Bart's books, teaching, media appearances, scholarship, public engagement, blog features, personal posts, and the In a Nutshell series.",
+      "name": "Books, Teaching, Media, and Blog Features",
+      "description": "Covers Bart's books, teaching, courses, media appearances, scholarship, public engagement, blog features, personal posts, and the In a Nutshell series.",
       "categories": [
         "Bart's Books",
-        "Teaching, Books, and Media",
+        "Teaching, General Books, and Media",
         "Academic Life, Scholars, and Public Debate",
         "Blog Features and Personal Posts"
       ]
