@@ -33,7 +33,7 @@ STARTER_TOPIC_LABELS = (
     "Pauline Letters",
     "Textual Variants",
     "Scribal Changes",
-    "Original Text",
+    "Original Text Questions",
     "Biblical Contradictions",
     "Canon",
     "Revelation",

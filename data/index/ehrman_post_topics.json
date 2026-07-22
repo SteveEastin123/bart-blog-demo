@@ -10,18 +10,18 @@
       "displayInBrowser": true
     },
     {
-      "name": "Academic Life",
-      "description": "Posts on graduate study, teaching, dissertations, university life, scholarly careers, and what academic biblical scholars actually do.",
+      "name": "Academic Careers and University Life",
+      "description": "Covers graduate study, teaching, dissertations, university life, scholarly careers, and what academic biblical scholars actually do.",
       "categories": [
-        "Scholarship and Public Engagement"
+        "Academic Life, Scholars, and Public Debate"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Academic Research and Publishing",
-      "description": "Posts on scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
+      "name": "Scholarly Research and Publishing",
+      "description": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "categories": [
-        "Scholarship and Public Engagement"
+        "Academic Life, Scholars, and Public Debate"
       ],
       "displayInBrowser": true
     },
@@ -34,8 +34,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Afterlife (General)",
-      "description": "Posts on broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing ideas of the afterlife.",
+      "name": "Life After Death (General)",
+      "description": "Covers broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing afterlife beliefs.",
       "categories": [
         "Afterlife"
       ],
@@ -43,15 +43,15 @@
     },
     {
       "name": "Agnosticism",
-      "description": "Posts on agnosticism, including Bart's own views, interviews, personal reflections, uncertainty about God, and the difference between agnosticism and atheism.",
+      "description": "Covers agnosticism, including Bart's own views, interviews, personal reflections, uncertainty about God, and the difference between agnosticism and atheism.",
       "categories": [
         "Faith, Doubt, and Nonbelief"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Ancient Jewish Afterlife",
-      "description": "Posts on Jewish views of death and life after death, including Sheol, Ecclesiastes, Samuel, Enoch, resurrection, and debates among ancient Jewish groups.",
+      "name": "Ancient Jewish Afterlife Beliefs",
+      "description": "Covers ancient Jewish views of death and life after death, including Sheol, Ecclesiastes, Samuel, Enoch, resurrection, and disagreements among Jewish groups.",
       "categories": [
         "Afterlife"
       ],
@@ -67,23 +67,23 @@
     },
     {
       "name": "Ancient Miracle Workers",
-      "description": "Posts on ancient figures associated with miracle-working, including Vespasian, Jewish miracle workers, Jesus as a wonder-worker, and early Christian apologetic claims.",
+      "description": "Covers ancient figures associated with miracle-working, including Vespasian, Jewish miracle workers, Jesus as a wonder-worker, and early Christian apologetic claims.",
       "categories": [
         "Miracles and Supernatural Claims"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Ancient Secretaries",
-      "description": "Posts on ancient secretarial practices and authorship claims, including whether secretaries could compose texts, explain differences in style, or account for writings attributed to apostles.",
+      "name": "Ancient Secretaries and Authorship",
+      "description": "Covers ancient secretarial practices and how they affect authorship claims, including whether secretaries could compose texts, explain differences in style, or account for writings attributed to apostles.",
       "categories": [
         "Authorship"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Ancient Wealth Ethics",
-      "description": "Posts on ancient views of wealth, poverty, contentment, charity, Cynic poverty, and moral arguments about possessions.",
+      "name": "Wealth and Poverty in Antiquity",
+      "description": "Covers ancient views of wealth, poverty, charity, contentment, Cynic poverty, and moral arguments about possessions.",
       "categories": [
         "Ancient World and Social Context",
         "Wealth, Poverty, and Charity"
@@ -91,8 +91,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Anti-Judaism",
-      "description": "Posts on anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
+      "name": "Christian Anti-Judaism",
+      "description": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
       "categories": [
         "Ethics and Moral Reasoning"
       ],
@@ -100,7 +100,7 @@
     },
     {
       "name": "Apocalypse of Peter",
-      "description": "Posts on the Apocalypse of Peter, including its afterlife scenes, relationship to heaven and hell, canon debates, Christology, and why it was not included in the New Testament.",
+      "description": "Covers the Apocalypse of Peter, including its afterlife scenes, relationship to heaven and hell, canon debates, Christology, and why it was not included in the New Testament.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -116,15 +116,15 @@
     },
     {
       "name": "Apocryphal Acts",
-      "description": "Posts on apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, Thomas, and other apostles.",
+      "description": "Covers apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, Thomas, and other apostles.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Apostles' Deaths",
-      "description": "Posts on traditions about the deaths of Peter, Paul, and other apostles, including martyrdom claims and what those stories are used to argue.",
+      "name": "Apostolic Death Traditions",
+      "description": "Covers traditions about the deaths of Peter, Paul, and other apostles, including martyrdom claims and how those stories are used in later arguments.",
       "categories": [
         "Persecution and Martyrdom"
       ],
@@ -156,8 +156,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Arianism",
-      "description": "Posts on Arius, the Arian controversy, and debates over Christ's divine status around the Council of Nicaea.",
+      "name": "Arius and Arianism",
+      "description": "Covers Arius, the Arian controversy, and debates over Christ's divine status around the Council of Nicaea.",
       "categories": [
         "Christology"
       ],
@@ -172,8 +172,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Athanasius",
-      "description": "Posts on Athanasius, especially his role in canon formation, Nicene Christianity, and fourth-century theological debates.",
+      "name": "Athanasius of Alexandria",
+      "description": "Covers Athanasius, especially his role in canon formation, Nicene Christianity, and fourth-century theological debates.",
       "categories": [
         "Church Fathers"
       ],
@@ -181,23 +181,23 @@
     },
     {
       "name": "Atheism",
-      "description": "Posts on atheism, including why people do or do not believe in God, atheist engagement with Jesus and the Bible, and relationships between believers and nonbelievers.",
+      "description": "Covers atheism, including why people do or do not believe in God, atheist engagement with Jesus and the Bible, and relationships between believers and nonbelievers.",
       "categories": [
         "Faith, Doubt, and Nonbelief"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Atonement",
-      "description": "Posts on Jesus' death as atonement, sacrifice, forgiveness, vicarious suffering, or the means of salvation.",
+      "name": "Atonement (General)",
+      "description": "Covers Jesus' death as atonement, sacrifice, forgiveness, vicarious suffering, or the means of salvation outside the Luke-Acts-specific discussion.",
       "categories": [
         "Salvation, Atonement, and Judgment"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Augustine",
-      "description": "Posts on Augustine's writings, theology, conversion, views of miracles, ethics, and influence on later Christianity.",
+      "name": "Augustine of Hippo",
+      "description": "Covers Augustine's writings, theology, conversion, views of miracles, ethics, and influence on later Christianity.",
       "categories": [
         "Church Fathers"
       ],
@@ -212,7 +212,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Bible and Same-Sex Relations",
+      "name": "Biblical Debates on Same-Sex Relations",
       "description": "Posts on biblical passages, translation issues, webinars, and interpretive debates about same-sex relations and sexual morality.",
       "categories": [
         "Women, Gender, and Sexuality"
@@ -221,7 +221,7 @@
     },
     {
       "name": "Bible Translations (General)",
-      "description": "Posts on Bible translations broadly, including choosing translations, comparing versions, the Apocrypha, and general questions about how translations relate to manuscripts and interpretation.",
+      "description": "Covers broad questions about Bible translations, including choosing translations, comparing versions, the Apocrypha, and how translations relate to manuscripts and interpretation.",
       "categories": [
         "Bible Translations and Versions"
       ],
@@ -245,25 +245,25 @@
     },
     {
       "name": "Biblical Numerology",
-      "description": "Posts on number symbolism and numerical interpretation in biblical texts, especially 666 and Matthew's genealogy.",
+      "description": "Covers number symbolism and numerical interpretation in biblical texts, especially 666, gematria, Greek numerals, and Matthew's genealogy.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Biblical Views of Suffering",
-      "description": "Posts on how biblical texts explain suffering, including divine punishment, wisdom traditions, Job, Ecclesiastes, and competing biblical answers.",
+      "name": "Biblical Explanations of Suffering",
+      "description": "Covers how biblical texts explain suffering, including divine punishment, wisdom traditions, Job, Ecclesiastes, and competing biblical answers.",
       "categories": [
         "Suffering and Evil"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Birth Narrative",
-      "description": "Posts on stories of Jesus' birth in Matthew and Luke, including Bethlehem, Herod, the census, angels, contradictions, and questions of history and theology.",
+      "name": "Jesus' Birth Narratives",
+      "description": "Covers stories of Jesus' birth in Matthew and Luke, including Bethlehem, Herod, the census, angels, contradictions, and questions of history and theology.",
       "categories": [
-        "Jesus' Birth, Family, and Miracle Traditions"
+        "Jesus' Birth, Family, and Miracles"
       ],
       "displayInBrowser": true
     },
@@ -285,15 +285,15 @@
     },
     {
       "name": "Bruce Metzger",
-      "description": "Posts on Bruce Metzger as Bart's teacher and mentor, including graduate training, dissertation work, textual criticism, Bible translation, and personal reminiscences.",
+      "description": "Covers Bruce Metzger as Bart's teacher and mentor, including graduate training, dissertation work, textual criticism, Bible translation, and personal reminiscences.",
       "categories": [
-        "Scholarship and Public Engagement"
+        "Academic Life, Scholars, and Public Debate"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Burial of Jesus",
-      "description": "Posts on whether Jesus was buried, who may have buried him, Jewish and Roman burial practices, Josephus, Pilate, archaeological evidence, and the historical plausibility of the burial traditions.",
+      "description": "Covers whether Jesus was buried, who may have buried him, Jewish and Roman burial practices, Josephus, Pilate, archaeological evidence, and the historical plausibility of the burial traditions.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -322,8 +322,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Charity",
-      "description": "Posts on charity, altruism, giving, care for the poor, and debates over Christian obligations to help those in need.",
+      "name": "Charity and Altruism",
+      "description": "Posts on charity, altruism, giving, care for the poor, and debates over moral obligations to help those in need.",
       "categories": [
         "Wealth, Poverty, and Charity"
       ],
@@ -338,8 +338,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Christian Interpretation of Scripture",
-      "description": "Posts on how early Christians interpreted Jewish scripture, used prophetic texts, debated meaning, and developed Christian readings of scripture.",
+      "name": "Christian Interpretation of Jewish Scripture",
+      "description": "Covers how early Christians interpreted Jewish scripture, used prophetic texts, debated meaning, and developed Christian readings of Israel's scriptures.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation"
       ],
@@ -347,15 +347,15 @@
     },
     {
       "name": "Christology in the Gospels",
-      "description": "Posts on how Gospel texts portray Jesus' identity, sonship, divinity, messiahship, and relation to God.",
+      "description": "Covers how Gospel texts portray Jesus' identity, sonship, divinity, messiahship, and relationship to God.",
       "categories": [
         "Christology"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Classical Comparisons",
-      "description": "Posts comparing biblical texts, historical claims, and manuscript traditions with other ancient sources or Greco-Roman materials.",
+      "name": "Comparative Ancient Evidence",
+      "description": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -363,7 +363,7 @@
     },
     {
       "name": "Codex Sinaiticus",
-      "description": "Posts on Codex Sinaiticus, including its discovery, St. Catherine's Monastery, its importance for the New Testament and Septuagint, and Bart's visits or reflections.",
+      "description": "Covers Codex Sinaiticus, including its discovery, St. Catherine's Monastery, its importance for the New Testament and Septuagint, and Bart's visits or reflections.",
       "categories": [
         "Manuscripts and Textual Evidence"
       ],
@@ -379,7 +379,7 @@
     },
     {
       "name": "Conversion",
-      "description": "Posts on why people converted to Christianity, including miracles, fear of hell, social appeal, martyrdom, missions, and ancient accounts of conversion.",
+      "description": "Covers why people converted to Christianity, including miracles, fear of hell, social appeal, martyrdom, missions, and ancient accounts of conversion.",
       "categories": [
         "Christian Origins and Expansion"
       ],
@@ -387,7 +387,7 @@
     },
     {
       "name": "Critical Biblical Scholarship",
-      "description": "Posts explaining critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
+      "description": "Covers critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -395,7 +395,7 @@
     },
     {
       "name": "Crucified Messiah",
-      "description": "Posts on why a crucified messiah was a problem, how early Christians interpreted Jesus' crucifixion, and how messiahship, kingship, Judaism, and Paul shape the issue.",
+      "description": "Covers why a crucified messiah was a problem, how early Christians interpreted Jesus' crucifixion, and how messiahship, kingship, Judaism, and Paul shape the issue.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -403,7 +403,7 @@
     },
     {
       "name": "Crucifixion of Jesus",
-      "description": "Posts on Jesus' crucifixion as a historical event, including how it is reconstructed, disputed, interpreted, or compared with later religious claims.",
+      "description": "Covers Jesus' crucifixion as a historical event, including how it is reconstructed, disputed, interpreted, or compared with later religious claims.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -411,7 +411,7 @@
     },
     {
       "name": "Dating Ancient Texts",
-      "description": "Posts on how scholars date ancient writings, including the Gospels, Barnabas, and other early Christian texts.",
+      "description": "Covers how scholars date ancient writings, including the Gospels, Barnabas, and other early Christian texts.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -419,7 +419,7 @@
     },
     {
       "name": "Dead Sea Scrolls and Essenes",
-      "description": "Posts on the Dead Sea Scrolls, the Essenes, Qumran, Jewish sectarian movements, manuscript discoveries, and their significance for early Judaism and Jesus.",
+      "description": "Covers the Dead Sea Scrolls, the Essenes, Qumran, Jewish sectarian movements, manuscript discoveries, and their significance for early Judaism and Jesus.",
       "categories": [
         "Early Judaism",
         "Manuscripts and Textual Evidence"
@@ -427,24 +427,24 @@
       "displayInBrowser": true
     },
     {
-      "name": "Debates",
-      "description": "Posts on public debates, debate strategy, announcements, rebuttals, and exchanges over biblical history, reliability, miracles, suffering, and faith.",
+      "name": "Public Debates",
+      "description": "Covers public debates, debate strategy, announcements, rebuttals, and exchanges over biblical history, reliability, miracles, suffering, and faith.",
       "categories": [
-        "Scholarship and Public Engagement"
+        "Academic Life, Scholars, and Public Debate"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Deconversion",
-      "description": "Posts on leaving Christian faith, including Bart's own loss of faith, pastors who lose faith, family and community effects, inerrancy, suffering, and reasons for no longer being Christian.",
+      "description": "Covers leaving Christian faith, including Bart's own loss of faith, pastors who lose faith, family and community effects, inerrancy, suffering, and reasons for no longer being Christian.",
       "categories": [
         "Faith, Doubt, and Nonbelief"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Demythologizing",
-      "description": "Posts on demythologizing the New Testament, including arguments for and against reinterpreting supernatural or ethical claims in modern terms.",
+      "name": "Demythologizing the New Testament",
+      "description": "Covers demythologizing the New Testament, including arguments for and against reinterpreting supernatural or ethical claims in modern terms.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -452,7 +452,7 @@
     },
     {
       "name": "Didache",
-      "description": "Posts on the Didache, including prayers, church order, ethical instructions, dating, composition, and its place among early Christian writings.",
+      "description": "Covers the Didache, including prayers, church order, ethical instructions, dating, composition, and its place among early Christian writings.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -475,16 +475,16 @@
       "displayInBrowser": true
     },
     {
-      "name": "Disasters and Suffering",
-      "description": "Posts on natural disasters, large-scale suffering, and attempts to explain tragedy through theology, apocalypticism, or divine action.",
+      "name": "Disasters and Human Suffering",
+      "description": "Covers natural disasters, large-scale suffering, and attempts to explain tragedy through theology, apocalypticism, or divine action.",
       "categories": [
         "Suffering and Evil"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Divine Beings",
-      "description": "Posts on angels, divine figures, heavenly beings, monsters, monotheism, personified Wisdom, and how ancient Israelites and Jews understood God and other powers.",
+      "name": "Divine Beings in the Hebrew Bible",
+      "description": "Covers angels, divine figures, heavenly beings, monsters, monotheism, personified Wisdom, and how ancient Israelites and Jews understood God and other powers.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
       ],
@@ -492,7 +492,7 @@
     },
     {
       "name": "Divine Judgment",
-      "description": "Posts on God's judgment, punishment, wrath, destruction, justice, and biblical claims about accountability before God.",
+      "description": "Covers God's judgment, punishment, wrath, destruction, justice, and biblical claims about accountability before God.",
       "categories": [
         "Salvation, Atonement, and Judgment"
       ],
@@ -500,14 +500,14 @@
     },
     {
       "name": "Early Christian Diversity",
-      "description": "Posts on competing forms of early Christianity, including alternative beliefs, rival groups, unorthodox texts, and the question of which Christianity became dominant.",
+      "description": "Covers competing forms of early Christianity, including alternative beliefs, rival groups, unorthodox texts, and the question of which Christianity became dominant.",
       "categories": [
         "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Early Christian Views on Wealth",
+      "name": "Early Christian Teachings on Wealth",
       "description": "Posts on early Christian teachings about wealth, poverty, giving, and possessions, especially in texts such as the Shepherd of Hermas and the Didache.",
       "categories": [
         "Wealth, Poverty, and Charity"
@@ -516,7 +516,7 @@
     },
     {
       "name": "Early Christian Writings",
-      "description": "Posts on early Christian texts outside or alongside the New Testament, including collections, lost writings, dating, transmission, and later use.",
+      "description": "Covers early Christian writings outside or alongside the New Testament, including collections, lost texts, dating, transmission, and later use.",
       "categories": [
         "Early Church History"
       ],
@@ -524,7 +524,7 @@
     },
     {
       "name": "Early Christianity (General)",
-      "description": "Posts on broad issues in early Christianity, including beliefs, practices, social setting, historical development, and the early Christian movement.",
+      "description": "Covers broad issues in early Christianity, including beliefs, practices, social setting, historical development, and the early Christian movement.",
       "categories": [
         "Christian Origins and Expansion"
       ],
@@ -532,15 +532,15 @@
     },
     {
       "name": "Christology (General)",
-      "description": "General posts on views of Jesus' identity, divine status, relation to God, and the Jewish or ancient background for later Christian claims about Christ.",
+      "description": "Covers broad questions about Jesus' identity, divine status, relationship to God, and the Jewish or ancient background for later Christian claims about Christ.",
       "categories": [
         "Christology"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Early Church History (General)",
-      "description": "Posts on broad developments in early church history, including bishops, councils, Constantine, persecution, institutional growth, and changing Christian practices.",
+      "name": "Early Church Developments",
+      "description": "Covers broad developments in post-New-Testament church history, including bishops, councils, institutional growth, Constantine, persecution, Christianization of Rome, and changing Christian practices.",
       "categories": [
         "Early Church History"
       ],
@@ -548,7 +548,7 @@
     },
     {
       "name": "Early Judaism (General)",
-      "description": "Posts on Jewish groups, practices, historical setting, and beliefs in the Second Temple period and around the time of Jesus.",
+      "description": "Covers Jewish groups, practices, historical settings, and beliefs in the Second Temple period and around the time of Jesus.",
       "categories": [
         "Early Judaism"
       ],
@@ -556,15 +556,15 @@
     },
     {
       "name": "Ecclesiastes",
-      "description": "Posts on Ecclesiastes, including its reflections on mortality, meaning, wisdom, skepticism, suffering, and possible afterlife expectations.",
+      "description": "Covers Ecclesiastes, including mortality, meaning, wisdom, skepticism, suffering, and possible afterlife expectations.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Empty Tomb",
-      "description": "Posts on the empty tomb traditions, including the women at the tomb, invention arguments, doubt, burial questions, and connections with resurrection appearances.",
+      "name": "Empty Tomb Traditions",
+      "description": "Covers empty tomb traditions, including the women at the tomb, invention arguments, doubt, burial questions, and connections with resurrection appearances.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -572,7 +572,7 @@
     },
     {
       "name": "Eternal Punishment",
-      "description": "Posts on hell, Gehenna, eternal torment, annihilation, the unforgivable sin, degrees of punishment, and Christian debates about divine justice.",
+      "description": "Covers hell, Gehenna, eternal torment, annihilation, the unforgivable sin, degrees of punishment, and Christian debates about divine justice.",
       "categories": [
         "Afterlife",
         "Salvation, Atonement, and Judgment"
@@ -580,8 +580,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Eusebius",
-      "description": "Posts on Eusebius as an early church historian and source for Constantine, heresy, canon, and early Christian history.",
+      "name": "Eusebius of Caesarea",
+      "description": "Covers Eusebius as an early church historian and source for Constantine, heresy, canon, and early Christian history.",
       "categories": [
         "Church Fathers"
       ],
@@ -605,15 +605,15 @@
     },
     {
       "name": "Eyewitness Reliability",
-      "description": "Posts on the reliability and limits of eyewitness testimony, including memory distortion, expertise, oral cultures, and whether eyewitnesses preserve historical events accurately.",
+      "description": "Covers the reliability and limits of eyewitness testimony, including memory distortion, expertise, oral cultures, and whether eyewitnesses preserve historical events accurately.",
       "categories": [
-        "Memory and Oral Tradition"
+        "Memory, Oral Tradition, and Eyewitnesses"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "First-Century Mark",
-      "description": "Posts on the claimed first-century fragment of Mark, including mummy masks, discovery claims, scholarly controversy, and whether such a fragment would change what we know.",
+      "name": "First-Century Mark Fragment",
+      "description": "Covers the claimed first-century fragment of Mark, including mummy masks, discovery claims, scholarly controversy, and whether such a fragment would change what we know.",
       "categories": [
         "Manuscripts and Textual Evidence"
       ],
@@ -628,8 +628,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Literary Forgery (General)",
-      "description": "Posts on ancient literary forgery, pseudepigraphy, deception, motives for false attribution, and general debates about whether forged writings were meant to mislead readers.",
+      "name": "Forgery (General)",
+      "description": "Covers ancient literary forgery, pseudepigraphy, deception, motives for false attribution, and general debates about whether forged writings were meant to mislead readers.",
       "categories": [
         "Forgery"
       ],
@@ -645,15 +645,15 @@
     },
     {
       "name": "Free Will and Predestination",
-      "description": "Posts on free will and predestination, including divine sovereignty, human choice, salvation, suffering, and whether people can lose salvation.",
+      "description": "Covers free will and predestination, including divine sovereignty, human choice, salvation, suffering, and whether people can lose salvation.",
       "categories": [
         "Salvation, Atonement, and Judgment"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Free Will and Suffering",
-      "description": "Posts on whether free will explains suffering, including critiques of free-will defenses and related arguments about natural evil.",
+      "name": "Free Will Explanations of Suffering",
+      "description": "Covers whether free will explains suffering, including critiques of free-will defenses and related arguments about natural evil.",
       "categories": [
         "Suffering and Evil"
       ],
@@ -661,31 +661,31 @@
     },
     {
       "name": "Fundamentalism",
-      "description": "Posts on fundamentalist Christianity, including biblical inerrancy, evangelical apologetics, Bart's early religious background, and critiques of fundamentalist approaches to the Bible.",
+      "description": "Covers fundamentalist Christianity, including biblical inerrancy, evangelical apologetics, Bart's early religious background, and critiques of fundamentalist approaches to the Bible.",
       "categories": [
         "Faith, Doubt, and Nonbelief"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Books for General Readers",
-      "description": "Posts about books written for general readers, including trade books, book ideas, excerpts, publication plans, and efforts to make scholarship accessible.",
+      "name": "General-Audience Books",
+      "description": "Covers books written for general readers, including trade books, book ideas, excerpts, publication plans, and efforts to make scholarship accessible.",
       "categories": [
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Genesis",
-      "description": "Posts on Genesis, including creation stories, Abraham, strange biblical episodes, translation issues, and questions about sources and interpretation.",
+      "description": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Gnostic-Orthodox Conflicts",
-      "description": "Posts on disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
+      "name": "Gnostic and Orthodox Conflicts",
+      "description": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -693,7 +693,7 @@
     },
     {
       "name": "Gnosticism (General)",
-      "description": "Posts introducing Gnosticism as a broad topic, including definitions, summaries, lectures, and examples of Gnostic groups or teachings.",
+      "description": "Covers general discussions of Gnosticism, including definitions, introductory summaries, classification problems, Nag Hammadi evidence, and examples of Gnostic or Gnostic-adjacent groups.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -709,8 +709,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Gospel Dating",
-      "description": "Posts on when the canonical Gospels were written, including arguments for post-70 dates and how scholars date the Gospels.",
+      "name": "Dating the Gospels",
+      "description": "Covers when the canonical Gospels were written, including arguments for post-70 dates and how scholars date the Gospels.",
       "categories": [
         "Canonical Gospels and Acts"
       ],
@@ -718,23 +718,23 @@
     },
     {
       "name": "Gospel Eyewitness Claims",
-      "description": "Posts on claims that the Gospels are based on eyewitness testimony, including Papias, Gospel authorship, Richard Bauckham-style arguments, and whether eyewitness access makes the Gospels reliable.",
+      "description": "Covers claims that the Gospels are based on eyewitness testimony, including Papias, Gospel authorship, Richard Bauckham-style arguments, and whether eyewitness access makes the Gospels reliable.",
       "categories": [
-        "Memory and Oral Tradition"
+        "Memory, Oral Tradition, and Eyewitnesses"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Gospel Historicity",
-      "description": "Posts on the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
+      "name": "Gospel Historical Reliability",
+      "description": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "categories": [
         "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Gospel of Jesus' Wife",
-      "description": "Posts on the Gospel of Jesus' Wife fragment, including discovery claims, forgery debates, media coverage, and questions about whether Jesus was married.",
+      "name": "Gospel of Jesus' Wife Fragment",
+      "description": "Covers the Gospel of Jesus' Wife fragment, including discovery claims, forgery debates, media coverage, and questions about whether Jesus was married.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -750,7 +750,7 @@
     },
     {
       "name": "Gospel of Judas",
-      "description": "Posts on the Gospel of Judas, including its discovery, opening sections, Sethian Gnostic setting, portrayal of Judas, and modern scholarly discussion.",
+      "description": "Covers the Gospel of Judas, including its discovery, opening sections, Sethian Gnostic setting, portrayal of Judas, and modern scholarly discussion.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy",
         "Non-Canonical Christian Texts"
@@ -783,7 +783,7 @@
     },
     {
       "name": "Gospel of Peter",
-      "description": "Posts on the Gospel of Peter, including its surviving fragment, resurrection scene, connection to Peter, canon questions, and distinctive portrayal of Jesus' death.",
+      "description": "Covers the Gospel of Peter, including its surviving fragment, resurrection scene, connection to Peter, canon questions, and distinctive portrayal of Jesus' death.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -791,23 +791,23 @@
     },
     {
       "name": "Gospel of Thomas",
-      "description": "Posts on the Gospel of Thomas, including its sayings, possible relation to Q, use of canonical Gospels, Thomasine Christianity, and debates over its date and meaning.",
+      "description": "Covers the Gospel of Thomas, including its sayings, possible relation to Q, use of canonical Gospels, Thomasine Christianity, and debates over its date and meaning.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Greco-Roman Religion and Ethics",
-      "description": "Posts on pagan worship, mystery religions, emperor worship, ancient moral philosophy, virtue, benefaction, and the religious and ethical world in which early Christianity developed.",
+      "name": "Greco-Roman Religious Culture",
+      "description": "Covers pagan worship, mystery religions, emperor worship, moral philosophy, virtue, benefaction, and the religious culture in which early Christianity developed.",
       "categories": [
         "Ancient World and Social Context"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Health Care",
-      "description": "Posts on health care, hospitals, and care for the sick as ethical practice and as a possible factor in Christianity's spread.",
+      "name": "Christian Health Care",
+      "description": "Posts on Christian care for the sick, hospitals, and health care as possible factors in Christianity's spread.",
       "categories": [
         "Christian Origins and Expansion",
         "Wealth, Poverty, and Charity"
@@ -823,16 +823,16 @@
       "displayInBrowser": true
     },
     {
-      "name": "Heaven/Hell",
-      "description": "Posts on the origins, development, and interpretation of heaven and hell, including Christian afterlife destinations, eternal reward and punishment, wealth-and-poverty reversal traditions, and connections with Jesus, Paul, Revelation, and ancient Jewish, Greek, and Roman traditions.",
+      "name": "Heaven and Hell Beliefs",
+      "description": "Covers ancient and Christian ideas about heaven and hell, including reward, punishment, moral reversal, and connections with Jesus, Paul, Revelation, Jewish traditions, Greek traditions, and Roman traditions.",
       "categories": [
         "Afterlife"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Hebrew Bible Historicity",
-      "description": "Posts on historical questions about Hebrew Bible narratives, including Moses, Exodus, David, conquest, Israelite origins, miracle stories, archaeology, and comparative evidence.",
+      "name": "Hebrew Bible Historical Reliability",
+      "description": "Covers historical questions about Hebrew Bible narratives, including Moses, Exodus, David, conquest, Israelite origins, miracle stories, archaeology, and comparative evidence.",
       "categories": [
         "Hebrew Bible Texts and Traditions",
         "Historical and Critical Methods"
@@ -841,7 +841,7 @@
     },
     {
       "name": "Hebrew Bible Manuscripts",
-      "description": "Posts on manuscript evidence for the Hebrew Bible, including textual accuracy, copying, Dead Sea Scrolls, and how Hebrew Bible texts were transmitted.",
+      "description": "Covers manuscript evidence for the Hebrew Bible, including textual accuracy, copying, Dead Sea Scrolls, and how Hebrew Bible texts were transmitted.",
       "categories": [
         "Hebrew Bible Texts and Traditions",
         "Manuscripts and Textual Evidence"
@@ -849,8 +849,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Hebrew Bible Authorship and Sources",
-      "description": "Posts on the sources, composition, and authorship of Hebrew Bible writings, including Pentateuchal sources, the Documentary Hypothesis, Isaiah, Genesis, and related scholarly theories.",
+      "name": "Hebrew Bible Composition and Sources",
+      "description": "Covers the composition and sources of Hebrew Bible writings, including Pentateuchal sources, the Documentary Hypothesis, Isaiah, Genesis, and related scholarly theories.",
       "categories": [
         "Authorship",
         "Hebrew Bible Texts and Traditions"
@@ -867,7 +867,7 @@
     },
     {
       "name": "Methods for Studying the Historical Jesus",
-      "description": "Posts on methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
+      "description": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "categories": [
         "Historical and Critical Methods",
         "The Historical Jesus"
@@ -875,8 +875,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Historical Method (General)",
-      "description": "Posts on historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
+      "name": "Historical Methods (General)",
+      "description": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -884,7 +884,7 @@
     },
     {
       "name": "Historical Study of Miracles",
-      "description": "Posts on how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
+      "description": "Covers how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
       "categories": [
         "Historical and Critical Methods",
         "Miracles and Supernatural Claims"
@@ -893,7 +893,7 @@
     },
     {
       "name": "Historical Study and Theology",
-      "description": "Posts on the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
+      "description": "Covers the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -937,7 +937,7 @@
     },
     {
       "name": "Infancy Gospel of Thomas",
-      "description": "Posts on the Infancy Gospel of Thomas, including stories of Jesus as a child, miracle traditions, interpretive problems, and relation to other infancy traditions.",
+      "description": "Covers the Infancy Gospel of Thomas, including stories of Jesus as a child, miracle traditions, interpretive problems, and relation to other infancy traditions.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -945,7 +945,7 @@
     },
     {
       "name": "James the Brother of Jesus",
-      "description": "Posts on James, the brother of Jesus, including his role in early Christianity, traditions about Jesus' family, mythicist arguments, and authorship questions involving James and Jude.",
+      "description": "Covers James, the brother of Jesus, including his role in early Christianity, traditions about Jesus' family, mythicist arguments, and authorship questions involving James and Jude.",
       "categories": [
         "New Testament Figures"
       ],
@@ -953,26 +953,26 @@
     },
     {
       "name": "Jesus and Abgar Legend",
-      "description": "Posts on the Edessa/Abgar tradition, especially stories that Jesus wrote a letter and later claims about writings attributed to Jesus.",
+      "description": "Covers the Edessa/Abgar tradition, especially stories that Jesus wrote a letter and later claims about writings attributed to Jesus.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Jesus and Wealth",
-      "description": "Posts on Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
+      "name": "Jesus on Wealth and Poverty",
+      "description": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "categories": [
-        "Jesus' Teachings, Ethics, and Social World",
+        "Jesus' Teachings and Social World",
         "Wealth, Poverty, and Charity"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Jesus and Women",
-      "description": "Posts on women in Jesus' life, teaching, social world, and Gospel traditions, including Mary Magdalene and women followers or patrons.",
+      "description": "Covers women in Jesus' life, teaching, social world, and Gospel traditions, including Mary Magdalene and women followers or patrons.",
       "categories": [
-        "Jesus' Teachings, Ethics, and Social World",
+        "Jesus' Teachings and Social World",
         "Women, Gender, and Sexuality"
       ],
       "displayInBrowser": true
@@ -987,50 +987,50 @@
     },
     {
       "name": "Jesus' Ethics",
-      "description": "Posts on Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
+      "description": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "categories": [
         "Ethics and Moral Reasoning",
-        "Jesus' Teachings, Ethics, and Social World"
+        "Jesus' Teachings and Social World"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Jesus' Family",
-      "description": "Posts on traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
+      "name": "Jesus' Family Traditions",
+      "description": "Covers traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
       "categories": [
-        "Jesus' Birth, Family, and Miracle Traditions"
+        "Jesus' Birth, Family, and Miracles"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Jesus' Genealogy",
-      "description": "Posts on the genealogies of Jesus in Matthew and Luke, including differences between them, women in Matthew's genealogy, textual problems, and theological aims.",
+      "name": "Genealogies of Jesus",
+      "description": "Covers the genealogies of Jesus in Matthew and Luke, including differences between them, women in Matthew's genealogy, textual problems, and theological aims.",
       "categories": [
         "Canonical Gospels and Acts",
-        "Jesus' Birth, Family, and Miracle Traditions"
+        "Jesus' Birth, Family, and Miracles"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Jesus' Miracle Stories",
-      "description": "Posts on miracle stories connected with Jesus, including healings, exorcisms, nature miracles, Gospel summaries, and historical questions about miracle claims.",
+      "description": "Covers miracle stories connected with Jesus, including healings, exorcisms, nature miracles, Gospel summaries, and historical questions about miracle claims.",
       "categories": [
-        "Jesus' Birth, Family, and Miracle Traditions",
+        "Jesus' Birth, Family, and Miracles",
         "Miracles and Supernatural Claims"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Jesus' Teachings",
-      "description": "Posts on Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
+      "description": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categories": [
-        "Jesus' Teachings, Ethics, and Social World"
+        "Jesus' Teachings and Social World"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Jewish Apocalypticism",
-      "description": "Posts on ancient Jewish apocalyptic thought, including its roots in prophecy, historical crisis, apocalypse as a genre, resurrection, judgment, and its background for Jesus and early Christianity.",
+      "description": "Covers ancient Jewish apocalyptic thought, including prophecy, historical crisis, apocalypse as a genre, resurrection, judgment, and its background for Jesus and early Christianity.",
       "categories": [
         "Early Judaism"
       ],
@@ -1038,23 +1038,23 @@
     },
     {
       "name": "Jewish Christian Gospels",
-      "description": "Posts on Jewish-Christian gospels, including the Gospel of the Ebionites and other apocryphal gospels connected with Jewish-Christian groups.",
+      "description": "Covers Jewish-Christian gospels, including the Gospel of the Ebionites and other apocryphal gospels connected with Jewish-Christian groups.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Jewish Law",
-      "description": "Posts on Jewish law in biblical, Second Temple, Gospel, and Pauline contexts, including Torah, legal observance, Matthew, Galatians, and debates over whether Judaism was legalistic.",
+      "name": "Jewish Law and Torah",
+      "description": "Covers Jewish law and Torah observance in biblical, Second Temple, Gospel, and Pauline contexts, including Matthew, Galatians, and debates over whether Judaism was legalistic.",
       "categories": [
         "Early Judaism"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Job",
-      "description": "Posts on Job, including suffering, divine justice, Job's friends, the book's different perspectives, and biblical responses to pain.",
+      "name": "Book of Job",
+      "description": "Covers Job, including suffering, divine justice, Job's friends, the book's different perspectives, and biblical responses to pain.",
       "categories": [
         "Hebrew Bible Texts and Traditions",
         "Suffering and Evil"
@@ -1063,7 +1063,7 @@
     },
     {
       "name": "John the Baptist",
-      "description": "Posts on John the Baptist, including his relationship to Jesus, baptism, apocalyptic preaching, Gospel traditions, birth narratives, and historical significance.",
+      "description": "Covers John the Baptist, including his relationship to Jesus, baptism, apocalyptic preaching, Gospel traditions, birth narratives, and historical significance.",
       "categories": [
         "New Testament Figures"
       ],
@@ -1071,7 +1071,7 @@
     },
     {
       "name": "Judas Iscariot",
-      "description": "Posts on Judas Iscariot, including his betrayal of Jesus, death traditions, Gospel portrayals, Papias, and questions about what Paul or early Christians knew about him.",
+      "description": "Covers Judas Iscariot, including his betrayal of Jesus, death traditions, Gospel portrayals, Papias, and questions about what Paul or early Christians knew about him.",
       "categories": [
         "New Testament Figures"
       ],
@@ -1079,7 +1079,7 @@
     },
     {
       "name": "King James Version",
-      "description": "Posts on the King James Version, including translation choices, textual basis, famous typos, relation to Tyndale, and issues such as the ending of Mark.",
+      "description": "Covers the King James Version, including translation choices, textual basis, famous typos, relation to Tyndale, and passages such as the ending of Mark.",
       "categories": [
         "Bible Translations and Versions"
       ],
@@ -1087,7 +1087,7 @@
     },
     {
       "name": "Letter of Barnabas",
-      "description": "Posts on the Letter of Barnabas, including its attribution, date, use of scripture, gematria, and place among early Christian writings.",
+      "description": "Covers the Letter of Barnabas, including its attribution, date, use of scripture, gematria, and place among early Christian writings.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -1100,8 +1100,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Luke-Acts Atonement",
-      "description": "Posts on whether Luke and Acts present Jesus' death as atoning, salvific, or significant in a different way.",
+      "name": "Atonement in Luke-Acts",
+      "description": "Covers whether Luke and Acts present Jesus' death as atoning, salvific, or significant in a different way, including Luke's Last Supper textual problem.",
       "categories": [
         "Salvation, Atonement, and Judgment"
       ],
@@ -1118,15 +1118,15 @@
     },
     {
       "name": "Manuscript Dating",
-      "description": "Posts on how scholars date manuscripts, including paleography, radiocarbon dating, mummy masks, Gospel fragments, Quran fragments, and questions about original manuscripts.",
+      "description": "Covers how scholars date manuscripts, including paleography, radiocarbon dating, mummy masks, Gospel fragments, Quran fragments, and questions about original manuscripts.",
       "categories": [
         "Manuscripts and Textual Evidence"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Manuscript Discoveries",
-      "description": "Posts on manuscript discoveries and controversies, including mummy masks, Quran fragments, the Didache, new finds, and ethical or scholarly issues around acquiring ancient manuscripts.",
+      "name": "Manuscript Discoveries and Controversies",
+      "description": "Covers manuscript discoveries and controversies, including mummy masks, Quran fragments, the Didache, new finds, acquisition ethics, and scholarly issues around ancient manuscripts.",
       "categories": [
         "Manuscripts and Textual Evidence"
       ],
@@ -1134,15 +1134,15 @@
     },
     {
       "name": "Marcion",
-      "description": "Posts on Marcion, his teachings, canon, view of the Jewish scriptures, relationship to Paul, and later Christian judgments of his theology.",
+      "description": "Covers Marcion, his teachings, canon, view of Jewish scriptures, relationship to Paul, and later Christian judgments of his theology.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Martyrdom (General)",
-      "description": "Posts on Christian martyrdom as a broad topic, including the value assigned to martyrdom, suffering, conversion, martyr texts, and the memory of the dead.",
+      "name": "Martyrdom Traditions (General)",
+      "description": "Covers martyrdom as a broad topic, including the value assigned to martyrdom, suffering, conversion, martyr texts, and the memory of the dead.",
       "categories": [
         "Persecution and Martyrdom"
       ],
@@ -1150,7 +1150,7 @@
     },
     {
       "name": "Martyrdom of Perpetua",
-      "description": "Posts on the Martyrdom of Perpetua, especially its afterlife imagery, family conflict, suffering, and later significance for ideas such as purgatory.",
+      "description": "Covers the Martyrdom of Perpetua, especially its afterlife imagery, family conflict, suffering, and later significance for ideas such as purgatory.",
       "categories": [
         "Persecution and Martyrdom"
       ],
@@ -1158,7 +1158,7 @@
     },
     {
       "name": "Martyrdom of Polycarp",
-      "description": "Posts on the Martyrdom of Polycarp, including its claims, literary features, martyrdom theology, miracles, and possible forgery.",
+      "description": "Covers the Martyrdom of Polycarp, including its claims, literary features, martyrdom theology, miracles, and possible forgery.",
       "categories": [
         "Church Fathers",
         "Persecution and Martyrdom"
@@ -1167,15 +1167,16 @@
     },
     {
       "name": "Mary Magdalene",
-      "description": "Posts on Mary Magdalene, including her role among Jesus' followers, resurrection traditions, later legends, claims that she was a prostitute, and non-canonical traditions about her.",
+      "description": "Covers Mary Magdalene, including her role among Jesus' followers, resurrection traditions, later legends, claims that she was a prostitute, and non-canonical traditions about her.",
       "categories": [
-        "New Testament Figures"
+        "New Testament Figures",
+        "Women, Gender, and Sexuality"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Mary Magdalene and Gnosticism",
-      "description": "Posts on Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
+      "name": "Mary Magdalene in Gnostic Traditions",
+      "description": "Covers Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -1191,26 +1192,26 @@
       "displayInBrowser": true
     },
     {
-      "name": "Media Coverage",
-      "description": "Posts about news coverage, reviews, bestseller lists, public controversy, and media attention involving Bart's books or topics from the blog.",
+      "name": "Media Coverage and Reviews",
+      "description": "Covers news coverage, reviews, bestseller lists, public controversy, and media attention involving Bart's books or topics from the blog.",
       "categories": [
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Media Interviews and Videos",
-      "description": "Posts featuring interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
+      "description": "Covers interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
       "categories": [
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Memory",
-      "description": "Posts on memory, false memory, group memory, distortion, and how remembered traditions about Jesus may have changed over time.",
+      "name": "Memory and Jesus Traditions",
+      "description": "Covers memory, false memory, group memory, distortion, and how remembered traditions about Jesus may have changed over time.",
       "categories": [
-        "Memory and Oral Tradition"
+        "Memory, Oral Tradition, and Eyewitnesses"
       ],
       "displayInBrowser": true
     },
@@ -1232,23 +1233,23 @@
     },
     {
       "name": "Miracle Claims and Apologetics",
-      "description": "Posts on miracle claims used in apologetic arguments, including eyewitness claims, signs from God, Augustine's miracles, resurrection arguments, and modern defenses of supernatural events.",
+      "description": "Covers miracle claims used in apologetic arguments, including eyewitness claims, signs from God, Augustine's miracles, resurrection arguments, and modern defenses of supernatural events.",
       "categories": [
         "Miracles and Supernatural Claims"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Miracles (General)",
-      "description": "Posts on miracles as a broad topic, including divine action, miracle traditions, suffering, faith, and unusual claims that do not fit a narrower miracle topic.",
+      "name": "Miracle Traditions (General)",
+      "description": "Covers miracles as a broad topic, including divine action, miracle traditions, suffering, faith, and unusual claims that do not fit a narrower miracle topic.",
       "categories": [
         "Miracles and Supernatural Claims"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Miracles and Martyrdom",
-      "description": "Posts on miraculous elements in martyrdom traditions, including painless torture, Polycarp, apostolic deaths, and Christian claims about suffering and divine power.",
+      "name": "Miraculous Martyrdom Traditions",
+      "description": "Covers miraculous elements in martyrdom traditions, including painless torture, Polycarp, apostolic deaths, and Christian claims about suffering and divine power.",
       "categories": [
         "Miracles and Supernatural Claims",
         "Persecution and Martyrdom"
@@ -1265,15 +1266,15 @@
     },
     {
       "name": "Modern End-Times Interpretation",
-      "description": "Posts on modern end-times interpretation, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
+      "description": "Covers modern end-times interpretation, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
       "categories": [
         "Revelation and End-Times Interpretation"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Modern Forgeries",
-      "description": "Posts on modern forged or disputed discoveries, including the Gospel of Jesus' Wife, Secret Gospel of Mark, Museum of the Bible controversies, and other recent forgery claims.",
+      "name": "Modern Forgery Claims",
+      "description": "Covers modern forgery claims and disputed discoveries, including the Gospel of Jesus' Wife, Secret Gospel of Mark, Museum of the Bible controversies, and other recent authenticity debates.",
       "categories": [
         "Forgery"
       ],
@@ -1281,7 +1282,7 @@
     },
     {
       "name": "Moral Philosophy",
-      "description": "Posts on ethical reasoning, altruism, lying, war, Stoic moral thought, and broader questions about how people should live.",
+      "description": "Covers ethical reasoning, altruism, lying, war, Stoic moral thought, happiness, contentment, and broader questions about how people should live.",
       "categories": [
         "Ethics and Moral Reasoning"
       ],
@@ -1289,7 +1290,7 @@
     },
     {
       "name": "Moral Problems in Scripture",
-      "description": "Posts on ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
+      "description": "Covers ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation",
         "Ethics and Moral Reasoning"
@@ -1306,7 +1307,7 @@
     },
     {
       "name": "Nag Hammadi",
-      "description": "Posts on the Nag Hammadi library, its discovery, contents, interpretation, and debates about whether its texts illuminate Gnostic Christianity.",
+      "description": "Covers the Nag Hammadi library, its discovery, contents, interpretation, and debates about whether its texts illuminate Gnostic Christianity.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -1322,7 +1323,7 @@
     },
     {
       "name": "New Testament Manuscripts",
-      "description": "Posts on Greek New Testament manuscripts, early papyri, manuscript evidence, amulets, copying, and what manuscripts can or cannot show about original texts.",
+      "description": "Covers Greek New Testament manuscripts, early papyri, manuscript evidence, amulets, copying, and what manuscripts can or cannot show about original texts.",
       "categories": [
         "Manuscripts and Textual Evidence"
       ],
@@ -1330,15 +1331,15 @@
     },
     {
       "name": "Non-Canonical Gospel Traditions",
-      "description": "Posts on non-canonical gospel traditions outside the New Testament when no more specific topic is used, including lost, fragmentary, legendary, infancy, Pilate, and other gospel-like traditions.",
+      "description": "Covers non-canonical gospel traditions outside the New Testament when no more specific topic is used, including lost, fragmentary, legendary, infancy, Pilate, and other gospel-like traditions.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Non-Canonical Miracle Stories",
-      "description": "Posts on miracle stories in non-canonical Christian texts, including Apocryphal Acts, Infancy Gospel of Thomas, Acts of Thomas, and stories about the young Jesus or apostles.",
+      "name": "Miracle Stories in Non-Canonical Texts",
+      "description": "Covers miracle stories in non-canonical Christian texts, including Apocryphal Acts, Infancy Gospel of Thomas, Acts of Thomas, and stories about the young Jesus or apostles.",
       "categories": [
         "Miracles and Supernatural Claims",
         "Non-Canonical Christian Texts"
@@ -1347,7 +1348,7 @@
     },
     {
       "name": "Non-Pauline Epistle Forgeries",
-      "description": "Posts on forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
+      "description": "Covers forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
       "categories": [
         "Epistles",
         "Forgery"
@@ -1356,7 +1357,7 @@
     },
     {
       "name": "Non-Pauline Epistles",
-      "description": "Posts on Hebrews, James, 1-2 Peter, the Johannine letters, Jude, and other New Testament letters not attributed to Paul.",
+      "description": "Covers Hebrews, James, 1-2 Peter, the Johannine letters, Jude, and other New Testament letters not attributed to Paul.",
       "categories": [
         "Epistles"
       ],
@@ -1372,8 +1373,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "NRSV",
-      "description": "Posts on the New Revised Standard Version, including Bart's work on the translation committee, inclusive language, translation decisions, and the role of Bruce Metzger.",
+      "name": "New Revised Standard Version (NRSV)",
+      "description": "Covers the New Revised Standard Version, including Bart's work on the translation committee, inclusive language, translation decisions, and the role of Bruce Metzger.",
       "categories": [
         "Bible Translations and Versions"
       ],
@@ -1381,7 +1382,7 @@
     },
     {
       "name": "Old Testament Apocrypha",
-      "description": "Posts on Jewish apocryphal writings outside the Protestant Old Testament, including Tobit, Judith, Sirach, Wisdom of Solomon, 1-2 Maccabees, additions to Daniel, and related texts.",
+      "description": "Covers Jewish apocryphal writings outside the Protestant Old Testament, including Tobit, Judith, Sirach, Wisdom of Solomon, 1-2 Maccabees, additions to Daniel, and related texts.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
       ],
@@ -1389,14 +1390,14 @@
     },
     {
       "name": "Oral Tradition",
-      "description": "Posts on the oral transmission of stories about Jesus, including storytelling, oral cultures, Papias, Gospel traditions before writing, and how traditions changed before becoming texts.",
+      "description": "Covers oral transmission of stories about Jesus, including storytelling, oral cultures, Papias, Gospel traditions before writing, and how traditions changed before becoming texts.",
       "categories": [
-        "Memory and Oral Tradition"
+        "Memory, Oral Tradition, and Eyewitnesses"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Original Text",
+      "name": "Original Text Questions",
       "description": "Posts on whether the original wording of New Testament writings can be identified, including lost originals, authorial drafts, copied texts, and arguments for reconstruction.",
       "categories": [
         "Textual Criticism"
@@ -1404,8 +1405,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Orthodoxy and Heresy",
-      "description": "Posts on how early Christians defined orthodoxy and heresy, including competing Christian views, Bauer's thesis, Eusebius, Marcion, and Jewish-Christian groups.",
+      "name": "Early Christian Orthodoxy and Heresy",
+      "description": "Covers debates over orthodoxy and heresy in early Christianity, including early Christian diversity, Bauer's thesis, Eusebius, Marcion, adoptionist views, Jewish-Christian texts, and the rise of proto-orthodox Christianity.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -1413,7 +1414,7 @@
     },
     {
       "name": "Afterlife Journeys",
-      "description": "Posts on ancient journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
+      "description": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "categories": [
         "Afterlife"
       ],
@@ -1429,7 +1430,7 @@
     },
     {
       "name": "Papyrus Egerton",
-      "description": "Posts on Papyrus Egerton, an early non-canonical gospel fragment, including its stories, relationship to other Gospel traditions, and significance for early Gospel circulation.",
+      "description": "Covers Papyrus Egerton, an early non-canonical gospel fragment, including its stories, relationship to other Gospel traditions, and significance for early Gospel circulation.",
       "categories": [
         "Manuscripts and Textual Evidence",
         "Non-Canonical Christian Texts"
@@ -1438,47 +1439,47 @@
     },
     {
       "name": "Jesus' Passion Narratives",
-      "description": "Posts on Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
+      "description": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Patristic Textual Evidence",
-      "description": "Posts on using quotations in early Christian writers to reconstruct the New Testament text, including the limits, dating, location, and reliability of patristic evidence.",
+      "name": "Church Fathers as Textual Evidence",
+      "description": "Posts on using quotations in early Christian writers to reconstruct the New Testament text, including the limits, dating, location, and reliability of this evidence.",
       "categories": [
         "Textual Criticism"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Crucifixion",
-      "description": "Posts on how Paul interprets Jesus' crucifixion, including the crucified messiah, Jesus' death, and the meaning of the cross in Paul's letters.",
+      "name": "Paul on Jesus' Crucifixion",
+      "description": "Covers how Paul interprets Jesus' crucifixion, including the crucified messiah, Jesus' death, and the meaning of the cross in Paul's letters.",
       "categories": [
         "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Jewish Law",
-      "description": "Posts on Paul's views of the Jewish law, including Galatians, Gentile believers, salvation, love, and debates over law observance.",
+      "name": "Paul on Jewish Law",
+      "description": "Covers Paul's views of Jewish law, including Galatians, Gentile believers, salvation, love, and debates over law observance.",
       "categories": [
         "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Opponents",
-      "description": "Posts on conflicts involving Paul, including rival teachers, disputes with other apostles, and later arguments about Paul's authority.",
+      "name": "Paul and His Opponents",
+      "description": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
       "categories": [
         "Paul's Life, Mission, and Communities"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Persecution",
-      "description": "Posts on Paul as persecutor and persecuted figure, including Acts, Paul's letters, historical reconstruction, and claims about opposition to Paul.",
+      "name": "Paul as Persecutor and Persecuted",
+      "description": "Covers Paul as both persecutor and persecuted figure, including Acts, Paul's letters, historical reconstruction, and claims about opposition to Paul.",
       "categories": [
         "Paul's Life, Mission, and Communities",
         "Persecution and Martyrdom"
@@ -1486,16 +1487,16 @@
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Resurrection",
-      "description": "Posts on Paul's teaching about resurrection, including Jesus' resurrection, the resurrection of believers, spiritual bodies, and eternal life.",
+      "name": "Paul on Resurrection",
+      "description": "Covers Paul's teaching about resurrection, including Jesus' resurrection, the resurrection of believers, spiritual bodies, and eternal life.",
       "categories": [
         "Pauline Thought and Practice"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Women",
-      "description": "Posts on Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
+      "name": "Women in Pauline Traditions",
+      "description": "Covers women in Pauline traditions, including Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
       "categories": [
         "Pauline Thought and Practice",
         "Women, Gender, and Sexuality"
@@ -1504,7 +1505,7 @@
     },
     {
       "name": "Paul in Acts",
-      "description": "Posts comparing the Paul of Acts with Paul's letters, including chronology, missionary activity, speeches, conversion stories, and historical reliability.",
+      "description": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
       "categories": [
         "Paul's Life, Mission, and Communities"
       ],
@@ -1512,15 +1513,15 @@
     },
     {
       "name": "Paul's Knowledge of Jesus",
-      "description": "Posts on what Paul appears to know about the historical Jesus, including Jesus' teachings, death, disciples, family, and traditions Paul cites.",
+      "description": "Covers what Paul appears to know about Jesus, including Jesus' teachings, death, disciples, family, and traditions cited in Paul's letters.",
       "categories": [
         "Paul's Life, Mission, and Communities"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Pauline Apocalypticism",
-      "description": "Posts on Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
+      "name": "Pauline End-Time Expectations",
+      "description": "Covers Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
       "categories": [
         "Pauline Thought and Practice"
       ],
@@ -1538,15 +1539,15 @@
     },
     {
       "name": "Paul's Life and Career",
-      "description": "Posts on Paul's life and career, including conversion, travel, chronology, imprisonment, letters, and the major sources for reconstructing his biography.",
+      "description": "Covers Paul's biography, chronology, travel, imprisonment, letters, and the sources used to reconstruct his life and work.",
       "categories": [
         "Paul's Life, Mission, and Communities"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Paul's Churches",
-      "description": "Posts on the churches connected with Paul, including Corinth, Thessalonica, Gentile inclusion, community conflicts, and expectations about the end.",
+      "name": "Paul's Churches and Communities",
+      "description": "Covers communities connected with Paul, including Corinth, Thessalonica, Gentile inclusion, internal conflict, and expectations about the end.",
       "categories": [
         "Paul's Life, Mission, and Communities"
       ],
@@ -1554,7 +1555,7 @@
     },
     {
       "name": "Paul's Conversion",
-      "description": "Posts on Paul's conversion, its historical circumstances, and how it shaped his mission, theology, and understanding of Gentile inclusion.",
+      "description": "Covers Paul's conversion, its historical setting, and how the experience shaped Paul's mission and understanding of Gentile inclusion.",
       "categories": [
         "Paul's Life, Mission, and Communities"
       ],
@@ -1562,7 +1563,7 @@
     },
     {
       "name": "Paul and Slavery",
-      "description": "Posts on Paul, Philemon, Onesimus, and slavery, especially whether Paul's letters challenge or accept slavery.",
+      "description": "Covers Paul, Philemon, Onesimus, and slavery, especially whether Paul's letters challenge or accept slavery.",
       "categories": [
         "Ethics and Moral Reasoning",
         "Pauline Thought and Practice"
@@ -1571,7 +1572,7 @@
     },
     {
       "name": "Pauline Forgeries",
-      "description": "Posts on letters falsely attributed to Paul, including disputed Pauline letters, pseudepigraphy, motives for forgery, and debates over authenticity.",
+      "description": "Covers letters falsely attributed to Paul, including disputed Pauline letters, pseudepigraphy, motives for forgery, and debates over authenticity.",
       "categories": [
         "Epistles",
         "Forgery",
@@ -1581,7 +1582,7 @@
     },
     {
       "name": "Composite Pauline Letters",
-      "description": "Posts on arguments that some Pauline letters, especially 2 Corinthians and Philippians, may combine originally separate letters or fragments.",
+      "description": "Covers arguments that some Pauline letters, especially 2 Corinthians and Philippians, may combine originally separate letters or fragments.",
       "categories": [
         "Epistles",
         "Pauline Letters and Textual Questions"
@@ -1599,7 +1600,7 @@
     },
     {
       "name": "Pauline Salvation Models",
-      "description": "Posts on Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
+      "description": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "categories": [
         "Pauline Thought and Practice",
         "Salvation, Atonement, and Judgment"
@@ -1617,7 +1618,7 @@
     },
     {
       "name": "Pentateuch",
-      "description": "Posts on the Torah/Pentateuch, including Moses, Exodus, Sinai, the law, contradictions, sources, and historical questions about its narratives.",
+      "description": "Covers the Torah/Pentateuch, including Moses, Exodus, Sinai, law, contradictions, source theories, and historical questions about its narratives.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
       ],
@@ -1625,7 +1626,7 @@
     },
     {
       "name": "Persecution in the Epistles",
-      "description": "Posts on persecution, suffering, opposition, and endurance as addressed in New Testament letters such as 1 Peter, Hebrews, and 1 Thessalonians.",
+      "description": "Covers persecution, suffering, opposition, and endurance as addressed in New Testament letters such as 1 Peter, Hebrews, 1 Thessalonians, and 2 Thessalonians.",
       "categories": [
         "Epistles",
         "Persecution and Martyrdom"
@@ -1642,7 +1643,7 @@
     },
     {
       "name": "Petrine Authorship and Forgeries",
-      "description": "Posts on writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, authorship, and other texts falsely or questionably connected with Peter.",
+      "description": "Covers writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, authorship, and other texts falsely or questionably connected with Peter.",
       "categories": [
         "Authorship",
         "Forgery"
@@ -1659,8 +1660,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Philippians Christ Poem",
-      "description": "Posts on Philippians 2:6-11, including Christ's status, humility, exaltation, and possible preexistence or incarnation.",
+      "name": "Philippians 2 Christ Poem",
+      "description": "Covers Philippians 2:6-11, including Christ's status, humility, exaltation, and possible preexistence or incarnation.",
       "categories": [
         "Christology",
         "Epistles",
@@ -1670,32 +1671,31 @@
     },
     {
       "name": "Pontius Pilate",
-      "description": "Posts on Pontius Pilate, including his role in Jesus' trial and crucifixion, Gospel portrayals, anti-Jewish traditions, burial questions, and later legends about Pilate.",
+      "description": "Covers Pontius Pilate, including his role in Jesus' trial and crucifixion, Gospel portrayals, anti-Jewish traditions, burial questions, and later legends about Pilate.",
       "categories": [
         "New Testament Figures"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Popularizing Scholarship",
-      "description": "Posts on explaining biblical scholarship to wider audiences through articles, books, media, public responses, and accessible presentations of academic work.",
+      "name": "Public-Facing Scholarship",
+      "description": "Covers efforts to explain biblical scholarship to wider audiences through articles, books, media, public responses, and accessible presentations of academic work.",
       "categories": [
-        "Scholarship and Public Engagement",
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Problem of Suffering",
-      "description": "Posts on suffering as a challenge to belief in a loving and all-powerful God, including debates, proposed answers, apologetic arguments, biblical responses, and personal reflections.",
+      "name": "Problem of Evil and Suffering",
+      "description": "Covers suffering as a challenge to belief in a loving and all-powerful God, including debates, proposed answers, apologetic arguments, biblical responses, and personal reflections.",
       "categories": [
         "Suffering and Evil"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Prophets",
-      "description": "Posts on Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
+      "name": "Hebrew Bible Prophets",
+      "description": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
       "categories": [
         "Hebrew Bible Texts and Traditions"
       ],
@@ -1703,7 +1703,7 @@
     },
     {
       "name": "Proto-Gospel of James",
-      "description": "Posts on the Proto-Gospel of James, including traditions about Mary's background, Jesus' birth, Jesus' brothers, and later Christian infancy stories.",
+      "description": "Covers the Proto-Gospel of James, including traditions about Mary's background, Jesus' birth, Jesus' brothers, and later Christian infancy stories.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -1726,8 +1726,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Quran Fragments",
-      "description": "Posts on ancient Quran fragments, including discovery claims, radiocarbon dating, manuscript dating, and broader issues in comparing Quranic and biblical manuscript evidence.",
+      "name": "Quran Manuscript Fragments",
+      "description": "Covers ancient Quran manuscript fragments, including discovery claims, radiocarbon dating, manuscript dating, and broader issues in comparing Quranic and biblical manuscript evidence.",
       "categories": [
         "Manuscripts and Textual Evidence"
       ],
@@ -1735,23 +1735,23 @@
     },
     {
       "name": "Redaction Criticism",
-      "description": "Posts on redaction criticism, especially how Gospel writers shaped, edited, and interpreted inherited traditions for their own theological or literary purposes.",
+      "description": "Covers redaction criticism, especially how Gospel writers shaped, edited, and interpreted inherited traditions for their own theological or literary purposes.",
       "categories": [
         "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Resurrection Apologetics",
-      "description": "Posts on arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
+      "name": "Resurrection Arguments and Apologetics",
+      "description": "Covers arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Resurrection Appearances",
-      "description": "Posts on traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
+      "name": "Jesus' Resurrection Appearances",
+      "description": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -1759,7 +1759,7 @@
     },
     {
       "name": "Resurrection of Jesus",
-      "description": "Posts on Jesus' resurrection broadly, including historical reconstruction, early Christian belief, miracle claims, tomb traditions, and how the resurrection was understood.",
+      "description": "Covers Jesus' resurrection broadly, including historical reconstruction, early Christian belief, miracle claims, tomb traditions, and how the resurrection was understood.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
@@ -1775,15 +1775,15 @@
     },
     {
       "name": "Meaning of Jesus' Resurrection",
-      "description": "Posts on early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
+      "description": "Covers early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Revelation",
-      "description": "Posts on the book of Revelation as an ancient apocalypse, including its authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
+      "name": "Book of Revelation",
+      "description": "Covers the book of Revelation as an ancient apocalypse, including authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "categories": [
         "Revelation and End-Times Interpretation"
       ],
@@ -1791,23 +1791,24 @@
     },
     {
       "name": "Revelation Authorship",
-      "description": "Posts on who wrote Revelation, including the identity of John of Patmos and whether Revelation was written by the same author as the Gospel of John.",
+      "description": "Covers who wrote Revelation, including the identity of John of Patmos and whether Revelation was written by the same author as the Gospel of John.",
       "categories": [
-        "Authorship"
+        "Authorship",
+        "Revelation and End-Times Interpretation"
       ],
       "displayInBrowser": true
     },
     {
       "name": "Rise of Christianity",
-      "description": "Posts on how Christianity spread and became successful in the Roman world, including social, religious, political, and cultural explanations.",
+      "description": "Covers how Christianity spread and became successful in the Roman world, including social, religious, political, and cultural explanations.",
       "categories": [
         "Christian Origins and Expansion"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Roman Crucifixion and Burial Practices",
-      "description": "Posts on Roman crucifixion and burial practices, including how crucifixion was carried out, whether victims were buried, and how this evidence bears on Jesus' burial.",
+      "name": "Roman Crucifixion and Burial",
+      "description": "Covers Roman crucifixion and burial practices, including how crucifixion was carried out, whether victims were buried, and how this evidence relates to Jesus' burial.",
       "categories": [
         "Ancient World and Social Context",
         "Jesus' Death, Burial, and Resurrection"
@@ -1815,8 +1816,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Roman Persecution",
-      "description": "Posts on Roman persecution of Christians, including imperial involvement, charges against Christians, Roman religion, and the political context of persecution.",
+      "name": "Roman Persecution of Christians",
+      "description": "Covers Roman actions against Christians, including imperial involvement, accusations against Christians, Roman religious expectations, and the political context of persecution.",
       "categories": [
         "Ancient World and Social Context",
         "Persecution and Martyrdom"
@@ -1825,25 +1826,25 @@
     },
     {
       "name": "Roman World",
-      "description": "Posts on Roman political, legal, military, and cultural settings relevant to Jesus, Paul, early Christianity, and the spread of the Christian movement.",
+      "description": "Covers Roman political, legal, military, and cultural settings relevant to Jesus, Paul, early Judaism, early Christianity, and the spread of the Christian movement.",
       "categories": [
         "Ancient World and Social Context"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Salvation",
-      "description": "Posts on who is saved, how salvation happens, whether salvation can be lost, and how Jesus, Paul, or later Christians understood eternal life.",
+      "name": "Salvation (General)",
+      "description": "Covers who is saved, how salvation happens, whether salvation can be lost, and how Jesus, Paul, or later Christians understood eternal life.",
       "categories": [
         "Salvation, Atonement, and Judgment"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Scholar Memorials",
-      "description": "Posts remembering scholars and public religious figures, including their work, influence, and significance for biblical or early Christian studies.",
+      "name": "Scholar Tributes and Memorials",
+      "description": "Covers memorials and tributes to scholars and public religious figures, including their work, influence, and significance for biblical or early Christian studies.",
       "categories": [
-        "Scholarship and Public Engagement"
+        "Academic Life, Scholars, and Public Debate"
       ],
       "displayInBrowser": true
     },
@@ -1857,7 +1858,7 @@
     },
     {
       "name": "Septuagint",
-      "description": "Posts on the Greek translation of Jewish scripture, including its origin, textual issues, translation traditions, and importance for early Jewish and Christian interpretation.",
+      "description": "Covers the Greek translation of Jewish scripture, including its origin, textual issues, translation traditions, and importance for early Jewish and Christian interpretation.",
       "categories": [
         "Bible Translations and Versions",
         "Hebrew Bible Texts and Traditions"
@@ -1866,7 +1867,7 @@
     },
     {
       "name": "Sethian Gnostics",
-      "description": "Posts on Sethian Gnostics, including their myths, teachings, relationship to the Gospel of Judas, and place within discussions of Gnostic Christianity.",
+      "description": "Covers Sethian Gnostics, including their myths, teachings, relationship to the Gospel of Judas, and place within discussions of Gnostic Christianity.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -1881,8 +1882,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Signs in John",
-      "description": "Posts on the signs in the Gospel of John, including how John portrays Jesus' miracles, how John differs from the Synoptics, and whether signs function as evidence for Jesus' identity.",
+      "name": "Signs in the Gospel of John",
+      "description": "Covers the signs in the Gospel of John, including how John portrays Jesus' miracles, how John differs from the Synoptics, and whether signs function as evidence for Jesus' identity.",
       "categories": [
         "Canonical Gospels and Acts",
         "Miracles and Supernatural Claims"
@@ -1893,8 +1894,7 @@
       "name": "Social Class in Antiquity",
       "description": "Posts on class, status, labor, poverty, slavery, gender hierarchy, and social conditions in the ancient Mediterranean world.",
       "categories": [
-        "Ancient World and Social Context",
-        "Wealth, Poverty, and Charity"
+        "Ancient World and Social Context"
       ],
       "displayInBrowser": true
     },
@@ -1908,7 +1908,7 @@
     },
     {
       "name": "Source Criticism",
-      "description": "Posts on source criticism, including how scholars identify written sources, composite texts, Gospel relationships, and possible spliced or edited writings.",
+      "description": "Covers source criticism, including how scholars identify written sources, composite texts, Gospel relationships, and possible spliced or edited writings.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -1916,7 +1916,7 @@
     },
     {
       "name": "Suffering and Loss of Faith",
-      "description": "Posts on suffering as a reason for losing or questioning faith, including personal reflections, disasters, miracles, and the problem of reconciling suffering with Christian belief.",
+      "description": "Covers suffering as a reason for losing or questioning faith, including personal reflections, disasters, miracles, and the problem of reconciling suffering with Christian belief.",
       "categories": [
         "Faith, Doubt, and Nonbelief",
         "Suffering and Evil"
@@ -1932,18 +1932,18 @@
       "displayInBrowser": true
     },
     {
-      "name": "Teaching and Courses",
-      "description": "Posts about teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
+      "name": "Courses and Teaching",
+      "description": "Covers teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
       "categories": [
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Textbooks",
-      "description": "Posts about textbooks and introductory teaching materials, including how they are written, revised, illustrated, and used to teach biblical studies.",
+      "name": "Textbooks and Teaching Materials",
+      "description": "Covers textbooks and introductory teaching materials, including how they are written, revised, illustrated, and used to teach biblical studies.",
       "categories": [
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
@@ -1972,7 +1972,7 @@
       "displayInBrowser": true
     },
     {
-      "name": "Theological Textual Variants",
+      "name": "Theologically Significant Variants",
       "description": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "categories": [
         "Textual Criticism"
@@ -1980,8 +1980,8 @@
       "displayInBrowser": true
     },
     {
-      "name": "Translation Choices",
-      "description": "Posts on translation choices, difficult words and passages, ancient languages, textual bases, inclusive language, and how translation affects interpretation.",
+      "name": "Translation Issues",
+      "description": "Covers difficult translation decisions, ancient languages, textual bases, inclusive language, misleading translations, and how translation affects interpretation.",
       "categories": [
         "Bible Translations and Versions"
       ],
@@ -1989,15 +1989,15 @@
     },
     {
       "name": "Trial of Jesus",
-      "description": "Posts on Jesus' trial before Jewish leaders or Pilate, including the charge against him, Gospel portrayals, anti-Judaism, Pilate traditions, and later non-canonical expansions.",
+      "description": "Covers Jesus' trial before Jewish leaders or Pilate, including the charge against him, Gospel portrayals, anti-Judaism, Pilate traditions, and later non-canonical expansions.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Trinity",
-      "description": "Posts on the development of the doctrine of the Trinity, including the Father, Son, Spirit, Nicaea, biblical interpretation, and later Christian theology.",
+      "name": "Development of the Trinity",
+      "description": "Covers the development of the doctrine of the Trinity, including the Father, Son, Spirit, Nicaea, biblical interpretation, and later Christian theology.",
       "categories": [
         "Early Church History"
       ],
@@ -2013,7 +2013,7 @@
     },
     {
       "name": "Valentinian Gnostics",
-      "description": "Posts on Valentinian Christians, their interpretation of scripture, theology, Gospel of Philip, and disputes with other early Christian groups.",
+      "description": "Covers Valentinian Christians, their interpretation of scripture, theology, Gospel of Philip, and disputes with other early Christian groups.",
       "categories": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
@@ -2021,15 +2021,15 @@
     },
     {
       "name": "Virgin Birth",
-      "description": "Posts on the virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
+      "description": "Covers virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
       "categories": [
-        "Jesus' Birth, Family, and Miracle Traditions"
+        "Jesus' Birth, Family, and Miracles"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Visions",
-      "description": "Posts on visions, group visions, hallucinations, resurrection appearances, and questions about whether visionary experiences can be shared or historically evaluated.",
+      "name": "Visionary Experiences",
+      "description": "Covers visions, group visions, hallucinations, resurrection appearances, and questions about whether visionary experiences can be shared or historically evaluated.",
       "categories": [
         "Miracles and Supernatural Claims"
       ],
@@ -2044,10 +2044,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Writing Process and Book Publishing",
-      "description": "Posts about writing habits, reading and research methods for books, trade-book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
+      "name": "Writing and Publishing Process",
+      "description": "Covers writing habits, reading and research methods for books, trade-book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
       "categories": [
-        "Teaching and Public Scholarship"
+        "Teaching, Books, and Media"
       ],
       "displayInBrowser": true
     },
