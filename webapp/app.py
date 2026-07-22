@@ -354,7 +354,7 @@ def home_page() -> bytes:
         <p><strong>Browse by Topic</strong> lets readers explore the blog through broad subject areas. Selecting a subject area shows related categories, selecting a category shows its topics, and selecting a topic shows the posts connected to it.</p>
         <p>Together, these tools give readers two ways to navigate the blog: searching directly by keyword or browsing through organized topics.</p>
         <p class="site-demo-date-range">{esc(date_range)}</p>
-        <p class="site-demo-stats">{pluralize(stats['posts'], 'post')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['category_groups'], 'category group')} | {pluralize(stats['keywords'], 'keyword')}</p>
+        <p class="site-demo-stats">{pluralize(stats['posts'], 'post')} | {pluralize(stats['topics'], 'topic')} | {pluralize(stats['categories'], 'category', 'categories')} | {pluralize(stats['category_groups'], 'subject area')} | {pluralize(stats['keywords'], 'keyword')}</p>
         <p class="site-demo-version">Version 2.0</p>
       </section>
     </section>
@@ -484,9 +484,8 @@ def category_group_page(slug: str) -> bytes:
     body = content_page(
         category_group["name"],
         f"{pluralize(counts['category_count'], 'category', 'categories')} | {pluralize(counts['topic_count'], 'topic')} | {pluralize(counts['post_count'], 'post')}",
-        category_group["description"],
+        "",
         inner,
-        description_first=True,
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
@@ -723,7 +722,7 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
             (category["id"],),
         ).fetchall()
     inner = keyword_panel([], "newest", descriptions_checked=True) + post_list(posts, category["name"])
-    body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), category["description"], inner, breadcrumbs=breadcrumbs)
+    body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
     return render_page(f"{category['name']} Posts", body, active="browse-by-topic")
 
 

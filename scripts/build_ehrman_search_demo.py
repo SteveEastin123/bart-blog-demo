@@ -105,7 +105,7 @@ def main() -> int:
     print(
         "Embedded "
         f"{stats['posts']} posts, "
-        f"{stats['category_groups']} category groups, "
+        f"{stats['category_groups']} subject areas, "
         f"{stats['categories']} categories, "
         f"{stats['linked_topics']} linked topics, "
         f"{stats['keyword_suggestions']} keyword suggestions."

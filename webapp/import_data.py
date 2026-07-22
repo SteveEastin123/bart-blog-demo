@@ -447,7 +447,7 @@ def main() -> int:
     print(
         "Imported "
         f"{counts['posts']:,} posts, "
-        f"{counts['category_groups']:,} category groups, "
+        f"{counts['category_groups']:,} subject areas, "
         f"{counts['categories']:,} categories, "
         f"{counts['topics']:,} topics, "
         f"{counts['keywords']:,} secondary keywords, "

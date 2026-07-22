@@ -31404,7 +31404,7 @@ const DATA = {
             <p><strong>Browse by Topic</strong> lets readers explore the blog through broad subject areas. Selecting a subject area shows related categories, selecting a category shows its topics, and selecting a topic shows the posts connected to it.</p>
             <p>Together, these tools give readers two ways to navigate the blog: searching directly by keyword or browsing through organized topics.</p>
             <p class="site-demo-date-range">Posts from April 3, 2012 - July 19, 2026</p>
-            <p class="site-demo-stats">${formattedPluralize(articleCount, 'post', 'posts')} | ${formattedPluralize(topicCountValue, 'topic', 'topics')} | ${formattedPluralize(categoryCount, 'category', 'categories')} | ${formattedPluralize(categoryGroupCount, 'category group', 'category groups')} | ${formattedPluralize(keywordCount, 'keyword', 'keywords')}</p>
+            <p class="site-demo-stats">${formattedPluralize(articleCount, 'post', 'posts')} | ${formattedPluralize(topicCountValue, 'topic', 'topics')} | ${formattedPluralize(categoryCount, 'category', 'categories')} | ${formattedPluralize(categoryGroupCount, 'subject area', 'subject areas')} | ${formattedPluralize(keywordCount, 'keyword', 'keywords')}</p>
             <p class="site-demo-version">Version 2.0</p>
           </section>
         </div>
@@ -31559,7 +31559,6 @@ const DATA = {
                 { label: categoryGroup.name }
               ])}
               <h1>${escapeHtml(categoryGroup.name)}</h1>
-              ${contentDescriptionMarkup(categoryGroup.description)}
               <p class="meta">${pluralize(stats.categoryCount, 'category', 'categories')} | ${pluralize(stats.topicCount, 'topic', 'topics')} | ${pluralize(stats.postCount, 'post', 'posts')}</p>
             </header>
             ${descriptionToggleMarkup()}
@@ -31708,7 +31707,7 @@ const DATA = {
               <div class="eyebrow">Ehrman Category Demo</div>
               <h1>Not found</h1>
             </header>
-            <p class="empty">The requested category, category group, or topic is not available in this browser.</p>
+            <p class="empty">The requested subject area, category, or topic is not available in this browser.</p>
           </section>
         </div>
       `;
