@@ -57,6 +57,21 @@
     list.style.setProperty("--keyword-suggestion-width", `${width}px`);
   }
 
+  function appendHighlightedSuggestionText(container, label, query) {
+    const text = String(label || "");
+    const match = String(query || "").trim();
+    const matchIndex = match ? text.toLocaleLowerCase().indexOf(match.toLocaleLowerCase()) : -1;
+    if (matchIndex < 0) {
+      container.textContent = text;
+      return;
+    }
+    container.append(document.createTextNode(text.slice(0, matchIndex)));
+    const strong = document.createElement("strong");
+    strong.className = "suggestion-match";
+    strong.textContent = text.slice(matchIndex, matchIndex + match.length);
+    container.append(strong, document.createTextNode(text.slice(matchIndex + match.length)));
+  }
+
   async function fetchSuggestions(input) {
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
@@ -74,8 +89,20 @@
     suggestions.forEach((suggestion) => {
       const item = document.createElement("li");
       const button = document.createElement("button");
+      const main = document.createElement("span");
+      const label = document.createElement("span");
+      const type = document.createElement("span");
+      const count = document.createElement("span");
       button.type = "button";
-      button.innerHTML = `<span>${suggestion.label}</span><span class="suggestion-count">${suggestion.postCount} posts</span>`;
+      main.className = "suggestion-main";
+      label.className = "suggestion-label";
+      appendHighlightedSuggestionText(label, suggestion.label, input.value);
+      type.className = `suggestion-type ${suggestion.isTopic ? "is-topic" : "is-keyword"}`;
+      type.textContent = suggestion.isTopic ? "Topic" : "Keyword";
+      count.className = "suggestion-count";
+      count.textContent = `${suggestion.postCount} ${suggestion.postCount === 1 ? "post" : "posts"}`;
+      main.append(label, type);
+      button.append(main, count);
       button.addEventListener("mousedown", (event) => {
         event.preventDefault();
         addKeywordChip(form, input, suggestion.label);

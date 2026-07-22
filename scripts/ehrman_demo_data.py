@@ -240,18 +240,29 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
 
     for article_index, row in enumerate(keyword_index):
         seen_in_article: set[str] = set()
-        for label, normalized in row[5] + row[6]:
-            if not normalized or normalized in seen_in_article:
-                continue
-            seen_in_article.add(normalized)
-            suggestion = suggestions.setdefault(
-                normalized,
-                {"label": label, "articleIndexes": set()},
-            )
-            suggestion["articleIndexes"].add(article_index)
+        for is_topic, terms in ((True, row[5]), (False, row[6])):
+            for label, normalized in terms:
+                if not normalized:
+                    continue
+                suggestion = suggestions.setdefault(
+                    normalized,
+                    {"label": label, "articleIndexes": set(), "isTopic": False},
+                )
+                if is_topic:
+                    suggestion["label"] = label
+                    suggestion["isTopic"] = True
+                if normalized in seen_in_article:
+                    continue
+                seen_in_article.add(normalized)
+                suggestion["articleIndexes"].add(article_index)
 
     return [
-        [suggestion["label"], len(suggestion["articleIndexes"]), normalized]
+        [
+            suggestion["label"],
+            len(suggestion["articleIndexes"]),
+            normalized,
+            suggestion["isTopic"],
+        ]
         for normalized, suggestion in sorted(
             suggestions.items(),
             key=lambda item: (str(item[1]["label"]).casefold(), item[0]),

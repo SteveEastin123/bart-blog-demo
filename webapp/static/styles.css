@@ -692,10 +692,39 @@ a:hover {
   font-weight: 700;
 }
 
+.suggestion-main {
+  align-items: baseline;
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+}
+
+.suggestion-label {
+  overflow-wrap: anywhere;
+}
+
+.suggestion-match {
+  font-weight: 700;
+}
+
+.suggestion-type {
+  color: var(--maroon);
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.suggestion-type.is-keyword {
+  color: #5f625f;
+}
+
 .suggestion-count {
   color: var(--muted);
+  flex: 0 0 auto;
   font-size: 13px;
   margin-left: 12px;
+  text-align: right;
 }
 
 .hover-help {
