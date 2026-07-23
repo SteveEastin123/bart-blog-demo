@@ -182,8 +182,9 @@ def render_page(title: str, body: str, active: str = "") -> bytes:
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   {header(active)}
-  <main class="page-shell">
+  <main id="main-content" class="page-shell" tabindex="-1">
     {body}
   </main>
   <script src="/static/site.js"></script>
