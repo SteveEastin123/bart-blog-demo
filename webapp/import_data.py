@@ -11,7 +11,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
-DEFAULT_CATEGORY_GROUPS_PATH = ROOT / "data" / "index" / "ehrman_post_category_groups.json"
+DEFAULT_SUBJECT_AREAS_PATH = ROOT / "data" / "index" / "ehrman_post_subject_areas.json"
 DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
 DEFAULT_TOPICS_PATH = ROOT / "data" / "index" / "ehrman_post_topics.json"
 DEFAULT_DB_PATH = ROOT / "webapp" / "data" / "ehrman_search.db"
@@ -27,7 +27,7 @@ CREATE TABLE categories (
     description TEXT NOT NULL DEFAULT ''
 );
 
-CREATE TABLE category_groups (
+CREATE TABLE subject_areas (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     slug TEXT NOT NULL UNIQUE,
@@ -66,11 +66,11 @@ CREATE TABLE topic_categories (
     PRIMARY KEY (topic_id, category_id)
 );
 
-CREATE TABLE category_group_categories (
-    category_group_id INTEGER NOT NULL REFERENCES category_groups(id) ON DELETE CASCADE,
+CREATE TABLE subject_area_categories (
+    subject_area_id INTEGER NOT NULL REFERENCES subject_areas(id) ON DELETE CASCADE,
     category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
     position INTEGER NOT NULL DEFAULT 0,
-    PRIMARY KEY (category_group_id, category_id)
+    PRIMARY KEY (subject_area_id, category_id)
 );
 
 CREATE TABLE post_topics (
@@ -96,8 +96,8 @@ CREATE TABLE post_search_terms (
 
 CREATE INDEX idx_categories_name ON categories(name COLLATE NOCASE);
 CREATE INDEX idx_categories_slug ON categories(slug);
-CREATE INDEX idx_category_groups_name ON category_groups(name COLLATE NOCASE);
-CREATE INDEX idx_category_groups_slug ON category_groups(slug);
+CREATE INDEX idx_subject_areas_name ON subject_areas(name COLLATE NOCASE);
+CREATE INDEX idx_subject_areas_slug ON subject_areas(slug);
 CREATE INDEX idx_topics_name ON topics(name COLLATE NOCASE);
 CREATE INDEX idx_topics_slug ON topics(slug);
 CREATE INDEX idx_posts_date ON posts(date_iso DESC, id DESC);
@@ -107,8 +107,8 @@ CREATE INDEX idx_post_keywords_keyword_post ON post_keywords(keyword_id, post_id
 CREATE INDEX idx_post_topics_topic_post ON post_topics(topic_id, post_id);
 CREATE INDEX idx_topic_categories_category_topic ON topic_categories(category_id, topic_id);
 CREATE INDEX idx_topic_categories_category_position ON topic_categories(category_id, position, topic_id);
-CREATE INDEX idx_category_group_categories_group_position ON category_group_categories(category_group_id, position);
-CREATE INDEX idx_category_group_categories_category_group ON category_group_categories(category_id, category_group_id);
+CREATE INDEX idx_subject_area_categories_area_position ON subject_area_categories(subject_area_id, position);
+CREATE INDEX idx_subject_area_categories_subject_area ON subject_area_categories(category_id, subject_area_id);
 CREATE INDEX idx_search_terms_normalized_post ON post_search_terms(normalized, post_id);
 CREATE INDEX idx_search_terms_label ON post_search_terms(label COLLATE NOCASE);
 """
@@ -201,12 +201,12 @@ def load_categories(path: Path) -> list[dict[str, Any]]:
     return categories
 
 
-def load_category_groups(path: Path) -> list[dict[str, Any]]:
+def load_subject_areas(path: Path) -> list[dict[str, Any]]:
     data = read_json(path)
-    category_groups = data.get("categoryGroups") if isinstance(data, dict) else data
-    if not isinstance(category_groups, list):
-        raise ValueError(f"{path} must contain a categoryGroups list")
-    return category_groups
+    subject_areas = data.get("subjectAreas") if isinstance(data, dict) else data
+    if not isinstance(subject_areas, list):
+        raise ValueError(f"{path} must contain a subjectAreas list")
+    return subject_areas
 
 
 def load_topics(path: Path) -> list[dict[str, Any]]:
@@ -243,7 +243,7 @@ def insert_keyword(conn: sqlite3.Connection, label: str) -> int | None:
 def build_database(
     db_path: Path = DEFAULT_DB_PATH,
     categories_path: Path = DEFAULT_CATEGORIES_PATH,
-    category_groups_path: Path = DEFAULT_CATEGORY_GROUPS_PATH,
+    subject_areas_path: Path = DEFAULT_SUBJECT_AREAS_PATH,
     topics_path: Path = DEFAULT_TOPICS_PATH,
     search_index_path: Path = DEFAULT_SEARCH_INDEX_PATH,
 ) -> dict[str, int]:
@@ -253,7 +253,7 @@ def build_database(
         tmp_path.unlink()
 
     categories = load_categories(categories_path)
-    category_groups = load_category_groups(category_groups_path)
+    subject_areas = load_subject_areas(subject_areas_path)
     topics = load_topics(topics_path)
     posts = load_posts(search_index_path)
 
@@ -302,35 +302,35 @@ def build_database(
             for category in categories
         }
 
-        used_category_group_slugs: set[str] = set()
-        for category_group in category_groups:
-            name = clean_string(category_group.get("name"))
+        used_subject_area_slugs: set[str] = set()
+        for subject_area in subject_areas:
+            name = clean_string(subject_area.get("name"))
             if not name:
                 continue
             conn.execute(
-                "INSERT INTO category_groups(name, slug, description) VALUES (?, ?, ?)",
-                (name, unique_slug(name, used_category_group_slugs), clean_string(category_group.get("description"))),
+                "INSERT INTO subject_areas(name, slug, description) VALUES (?, ?, ?)",
+                (name, unique_slug(name, used_subject_area_slugs), clean_string(subject_area.get("description"))),
             )
 
-        category_group_ids = {
+        subject_area_ids = {
             row["name"]: row["id"]
-            for row in conn.execute("SELECT id, name FROM category_groups").fetchall()
+            for row in conn.execute("SELECT id, name FROM subject_areas").fetchall()
         }
-        for category_group in category_groups:
-            group_name = clean_string(category_group.get("name"))
-            group_id = category_group_ids.get(group_name)
-            if not group_id:
+        for subject_area in subject_areas:
+            subject_area_name = clean_string(subject_area.get("name"))
+            subject_area_id = subject_area_ids.get(subject_area_name)
+            if not subject_area_id:
                 continue
-            for position, category_name in enumerate(unique_strings(category_group.get("categories")), start=1):
+            for position, category_name in enumerate(unique_strings(subject_area.get("categories")), start=1):
                 category_id = category_ids.get(category_name)
                 if not category_id:
                     continue
                 conn.execute(
                     """
-                    INSERT OR IGNORE INTO category_group_categories(category_group_id, category_id, position)
+                    INSERT OR IGNORE INTO subject_area_categories(subject_area_id, category_id, position)
                     VALUES (?, ?, ?)
                     """,
-                    (group_id, category_id, position),
+                    (subject_area_id, category_id, position),
                 )
 
         topic_ids = {
@@ -424,7 +424,7 @@ def build_database(
     with sqlite3.connect(db_path) as check_conn:
         counts = {
             "posts": check_conn.execute("SELECT COUNT(*) FROM posts").fetchone()[0],
-            "category_groups": check_conn.execute("SELECT COUNT(*) FROM category_groups").fetchone()[0],
+            "subject_areas": check_conn.execute("SELECT COUNT(*) FROM subject_areas").fetchone()[0],
             "categories": check_conn.execute("SELECT COUNT(*) FROM categories").fetchone()[0],
             "topics": check_conn.execute("SELECT COUNT(*) FROM topics").fetchone()[0],
             "keywords": check_conn.execute("SELECT COUNT(*) FROM keywords").fetchone()[0],
@@ -437,17 +437,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build the SQLite database for the Ehrman search web app.")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
-    parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
+    parser.add_argument("--subject-areas", type=Path, default=DEFAULT_SUBJECT_AREAS_PATH)
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     args = parser.parse_args()
 
-    counts = build_database(args.db, args.categories, args.category_groups, args.topics, args.search_index)
+    counts = build_database(args.db, args.categories, args.subject_areas, args.topics, args.search_index)
     print(f"Built {args.db}")
     print(
         "Imported "
         f"{counts['posts']:,} posts, "
-        f"{counts['category_groups']:,} subject areas, "
+        f"{counts['subject_areas']:,} subject areas, "
         f"{counts['categories']:,} categories, "
         f"{counts['topics']:,} topics, "
         f"{counts['keywords']:,} secondary keywords, "

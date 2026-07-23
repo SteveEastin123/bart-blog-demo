@@ -4,6 +4,7 @@ This document describes the JSON files used by the Ehrman search demo and how a 
 
 The JSON files define a topic-browsing and keyword-search layer for Bart Ehrman's blog posts. They are intended to support:
 
+- Subject-area browsing
 - Category browsing
 - Topic browsing
 - Topic-to-post result pages
@@ -12,9 +13,10 @@ The JSON files define a topic-browsing and keyword-search layer for Bart Ehrman'
 
 ## Source Files
 
-The current integration package uses three JSON files:
+The current integration package uses four JSON files:
 
 ```text
+data/index/ehrman_post_subject_areas.json
 data/index/ehrman_post_categories.json
 data/index/ehrman_post_topics.json
 data/index/ehrman_post_search_index.json
@@ -24,8 +26,9 @@ These files are related, but they serve different purposes.
 
 | File | Purpose | Approximate size |
 | --- | --- | ---: |
-| `ehrman_post_categories.json` | Defines broad category names and descriptions. | 6 KB |
-| `ehrman_post_topics.json` | Defines topic names, descriptions, category links, and browser visibility. | 84 KB |
+| `ehrman_post_subject_areas.json` | Defines broad subject areas and their category links. | 5 KB |
+| `ehrman_post_categories.json` | Defines category names, descriptions, and topic display order. | 23 KB |
+| `ehrman_post_topics.json` | Defines topic names, descriptions, category links, and browser visibility. | 87 KB |
 | `ehrman_post_search_index.json` | Defines post-level metadata, topic links, secondary keywords, and descriptions. | 2.5 MB |
 
 ## Current Record Counts
@@ -34,30 +37,34 @@ As of the current local data:
 
 | Item | Count |
 | --- | ---: |
-| Categories | 32 |
-| Topic metadata records | 291 |
-| Topics displayed in browser | 290 |
+| Subject areas | 11 |
+| Subject-area/category links | 41 |
+| Categories | 41 |
+| Topic metadata records | 252 |
+| Topics displayed in browser | 251 |
 | Hidden topics | 1 |
-| Category-topic links | 348 |
-| Posts | 4,373 |
-| Unique post URLs | 4,373 |
+| Category-topic links | 299 |
+| Posts | 4,381 |
+| Unique post URLs | 4,381 |
 | Duplicate post titles | 36 |
 | Posts with no topics | 0 |
-| Posts with no secondary keywords | 263 |
+| Posts with no secondary keywords | 500 |
 
 The duplicate-title count is expected. Do not use title as the unique identifier. Use `wpId` when it matches the production WordPress post ID; otherwise use `url`.
 
 ## Conceptual Model
 
-The content model has three levels:
+The browsing model has four levels:
 
-1. A **Category** is a broad grouping.
-2. A **Topic** is a narrower topic. A topic can belong to more than one category.
-3. A **Post** can have one or more topics and zero or more secondary keywords.
+1. A **Subject Area** is the broadest grouping and contains related categories.
+2. A **Category** is a focused grouping of related topics.
+3. A **Topic** is a specific subject used to connect related posts. A topic can belong to more than one category.
+4. A **Post** can have one or more topics and zero or more secondary keywords.
 
 ```mermaid
 flowchart TD
-    C["Category"] --> T["Topic"]
+    S["Subject Area"] --> C["Category"]
+    C --> T["Topic"]
     T --> P["Post"]
     P --> K["Secondary Keyword"]
     T --> K2["Topic as Search Keyword"]
@@ -69,18 +76,25 @@ Topics function as the primary topic tags for posts. Secondary keywords add supp
 
 ```mermaid
 erDiagram
-    CATEGORY ||--o{ THEME_CATEGORY : contains
-    THEME ||--o{ THEME_CATEGORY : assigned_to
-    THEME ||--o{ POST_THEME : tags
-    POST ||--o{ POST_THEME : has
+    SUBJECT_AREA ||--o{ SUBJECT_AREA_CATEGORY : contains
+    CATEGORY ||--o{ SUBJECT_AREA_CATEGORY : assigned_to
+    CATEGORY ||--o{ TOPIC_CATEGORY : contains
+    TOPIC ||--o{ TOPIC_CATEGORY : assigned_to
+    TOPIC ||--o{ POST_TOPIC : tags
+    POST ||--o{ POST_TOPIC : has
     POST ||--o{ POST_SECONDARY_KEYWORD : has
+
+    SUBJECT_AREA {
+        string name
+        string description
+    }
 
     CATEGORY {
         string name
         string description
     }
 
-    THEME {
+    TOPIC {
         string name
         string description
         boolean displayInBrowser
@@ -95,12 +109,17 @@ erDiagram
         string description
     }
 
-    THEME_CATEGORY {
+    SUBJECT_AREA_CATEGORY {
+        string subjectAreaName
+        string categoryName
+    }
+
+    TOPIC_CATEGORY {
         string topicName
         string categoryName
     }
 
-    POST_THEME {
+    POST_TOPIC {
         string wpId
         string topicName
     }
@@ -111,11 +130,63 @@ erDiagram
     }
 ```
 
-## File 1: `ehrman_post_categories.json`
+## File 1: `ehrman_post_subject_areas.json`
 
 ### Purpose
 
-This file defines the broad categories shown on the category browsing page.
+This file defines the broad subject areas shown at the start of Browse by Topic and links each subject area to its categories.
+
+### Top-Level Shape
+
+```json
+{
+  "subjectAreas": [
+    {
+      "name": "Jesus, the Gospels, and Acts",
+      "description": "Covers the canonical Gospels, Acts, major New Testament figures, and traditions about Jesus' life, teachings, death, burial, and resurrection.",
+      "categories": [
+        "The Historical Jesus",
+        "Canonical Gospels and Acts"
+      ]
+    }
+  ]
+}
+```
+
+### Schema
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `subjectAreas` | array | yes | Top-level subject-area records. |
+| `subjectAreas[].name` | string | yes | Unique display name for the subject area. |
+| `subjectAreas[].description` | string | yes | One-sentence subject-area description. |
+| `subjectAreas[].categories` | array of strings | yes | Ordered category names from `ehrman_post_categories.json`. |
+
+### WordPress Use
+
+Recommended tables:
+
+```text
+ehrman_subject_areas
+- id
+- name
+- slug
+- description
+- sort_order
+
+ehrman_subject_area_categories
+- subject_area_id
+- category_id
+- sort_order
+```
+
+Use the JSON order for both subject areas and their category links.
+
+## File 2: `ehrman_post_categories.json`
+
+### Purpose
+
+This file defines the categories shown after a reader selects a subject area.
 
 ### Top-Level Shape
 
@@ -157,7 +228,7 @@ sort_order
 
 Use the JSON order as the default display order unless the site wants alphabetical ordering.
 
-## File 2: `ehrman_post_topics.json`
+## File 3: `ehrman_post_topics.json`
 
 ### Purpose
 
@@ -221,7 +292,7 @@ ehrman_topic_categories
 - category_id
 ```
 
-## File 3: `ehrman_post_search_index.json`
+## File 4: `ehrman_post_search_index.json`
 
 ### Purpose
 
@@ -314,15 +385,18 @@ Import in this order:
 
 ```mermaid
 flowchart LR
-    A["Load categories JSON"] --> B["Create/update categories"]
-    B --> C["Load topics JSON"]
-    C --> D["Create/update topics"]
-    D --> E["Create topic-category links"]
-    E --> F["Load search index JSON"]
-    F --> G["Match posts by wpId or URL"]
-    G --> H["Create post-topic links"]
-    H --> I["Create secondary keyword index"]
-    I --> J["Validate counts and missing links"]
+    A["Load subject areas JSON"] --> B["Create/update subject areas"]
+    B --> C["Load categories JSON"]
+    C --> D["Create/update categories"]
+    D --> E["Create subject-area/category links"]
+    E --> F["Load topics JSON"]
+    F --> G["Create/update topics"]
+    G --> H["Create topic-category links"]
+    H --> I["Load search index JSON"]
+    I --> J["Match posts by wpId or URL"]
+    J --> K["Create post-topic links"]
+    K --> L["Create secondary keyword index"]
+    L --> M["Validate counts and missing links"]
 ```
 
 ## Search Behavior
@@ -372,7 +446,7 @@ ehrman-topic-browser/
 Suggested shortcodes or blocks:
 
 ```text
-[ehrman_categories]
+[ehrman_browse_topics]
 [ehrman_keyword_search]
 [ehrman_topic_results]
 ```
@@ -380,6 +454,8 @@ Suggested shortcodes or blocks:
 Suggested REST endpoints:
 
 ```text
+GET /wp-json/ehrman/v1/subject-areas
+GET /wp-json/ehrman/v1/subject-areas/{slug}/categories
 GET /wp-json/ehrman/v1/categories
 GET /wp-json/ehrman/v1/categories/{slug}/topics
 GET /wp-json/ehrman/v1/topics/{slug}/posts
@@ -391,20 +467,34 @@ GET /wp-json/ehrman/v1/keywords?prefix=pa
 
 After import, the developer should confirm:
 
-- 32 categories imported.
-- 291 topic records imported.
-- 290 topics are visible in the browser.
+- 11 subject areas imported.
+- 41 subject-area/category links exist.
+- 41 categories imported.
+- 252 topic records imported.
+- 251 topics are visible in the browser.
 - 1 topic is hidden: `Ignore`.
-- 348 category-topic links exist.
-- 4,373 post records imported or matched.
-- 4,373 unique URLs exist.
+- 299 category-topic links exist.
+- 4,381 post records imported or matched.
+- 4,381 unique URLs exist.
 - Every post has at least one topic.
+- Every subject-area category exists in the category metadata.
 - Every post topic exists in the topic metadata.
 - Every topic category exists in the category metadata.
 - Duplicate titles are allowed.
 - URLs or confirmed WordPress IDs are used as the unique post key.
 
 ## Display Rules
+
+### Subject Area Page
+
+Show:
+
+- Subject-area name
+- Subject-area description on hover or when descriptions are enabled
+- Category count
+- Topic count
+- Post count
+- Linked categories
 
 ### Category Page
 
@@ -440,20 +530,38 @@ The selected topic should be the topic the user clicked or searched from, not ne
 - Do not load and parse the JSON files on every public request.
 - Import the JSON into WordPress tables or cached options.
 - Build normalized keyword lookup tables for fast autocomplete and search.
-- Cache category, topic, and search-result counts.
-- Preserve exact topic/category names for display, but create slugs for URLs.
+- Cache subject-area, category, topic, and search-result counts.
+- Preserve exact subject-area, category, and topic names for display, but create slugs for URLs.
 - Keep a re-import process so future JSON updates can refresh the WordPress data.
 - Treat the JSON files as source data, not as the live runtime database.
 
 ## Minimal Import Pseudocode
 
 ```php
+$subject_areas = json_decode(file_get_contents('ehrman_post_subject_areas.json'), true)['subjectAreas'];
 $categories = json_decode(file_get_contents('ehrman_post_categories.json'), true)['categories'];
 $topics = json_decode(file_get_contents('ehrman_post_topics.json'), true)['topics'];
 $posts = json_decode(file_get_contents('ehrman_post_search_index.json'), true);
 
+$subject_area_ids = [];
+foreach ($subject_areas as $subject_area) {
+    $subject_area_ids[$subject_area['name']] = upsert_subject_area(
+        $subject_area['name'],
+        $subject_area['description']
+    );
+}
+
 foreach ($categories as $category) {
     upsert_category($category['name'], $category['description']);
+}
+
+foreach ($subject_areas as $subject_area) {
+    foreach ($subject_area['categories'] as $category_name) {
+        link_subject_area_to_category(
+            $subject_area_ids[$subject_area['name']],
+            find_category_id($category_name)
+        );
+    }
 }
 
 foreach ($topics as $topic) {
@@ -491,9 +599,8 @@ foreach ($posts as $post_record) {
 
 The safest production approach is:
 
-1. Import categories and topics into dedicated WordPress plugin tables.
+1. Import subject areas, categories, and topics into dedicated WordPress plugin tables.
 2. Match search-index post records to existing WordPress posts by `wpId` or URL.
 3. Store topic links and secondary keywords in indexed tables.
-4. Expose categories, topics, autocomplete, and search through cached REST endpoints.
+4. Expose subject areas, categories, topics, autocomplete, and search through cached REST endpoints.
 5. Render the front end through a WordPress plugin, shortcode, or block that matches the site's existing design.
-

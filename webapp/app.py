@@ -10,7 +10,7 @@ from urllib.parse import parse_qs, urlencode, unquote
 
 from .import_data import (
     DEFAULT_CATEGORIES_PATH,
-    DEFAULT_CATEGORY_GROUPS_PATH,
+    DEFAULT_SUBJECT_AREAS_PATH,
     DEFAULT_DB_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_TOPICS_PATH,
@@ -53,7 +53,7 @@ def ensure_database() -> None:
     sources = [
         DEFAULT_SEARCH_INDEX_PATH,
         DEFAULT_CATEGORIES_PATH,
-        DEFAULT_CATEGORY_GROUPS_PATH,
+        DEFAULT_SUBJECT_AREAS_PATH,
         DEFAULT_TOPICS_PATH,
     ]
     if any(path.exists() and path.stat().st_mtime > db_mtime for path in sources):
@@ -222,52 +222,56 @@ def breadcrumb_nav(items: list[tuple[str, str | None]]) -> str:
     """
 
 
-def primary_group_for_category(conn: sqlite3.Connection, category_id: int, group_slug: str = "") -> sqlite3.Row | None:
-    if group_slug:
+def primary_subject_area_for_category(
+    conn: sqlite3.Connection,
+    category_id: int,
+    subject_area_slug: str = "",
+) -> sqlite3.Row | None:
+    if subject_area_slug:
         row = conn.execute(
             """
-            SELECT cg.name, cg.slug
-            FROM category_groups cg
-            JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
-            WHERE cgc.category_id = ? AND cg.slug = ?
-            ORDER BY cgc.position
+            SELECT sa.name, sa.slug
+            FROM subject_areas sa
+            JOIN subject_area_categories sac ON sac.subject_area_id = sa.id
+            WHERE sac.category_id = ? AND sa.slug = ?
+            ORDER BY sac.position
             LIMIT 1
             """,
-            (category_id, group_slug),
+            (category_id, subject_area_slug),
         ).fetchone()
         if row:
             return row
     return conn.execute(
         """
-        SELECT cg.name, cg.slug
-        FROM category_groups cg
-        JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
-        WHERE cgc.category_id = ?
-        ORDER BY cg.id, cgc.position
+        SELECT sa.name, sa.slug
+        FROM subject_areas sa
+        JOIN subject_area_categories sac ON sac.subject_area_id = sa.id
+        WHERE sac.category_id = ?
+        ORDER BY sa.id, sac.position
         LIMIT 1
         """,
         (category_id,),
     ).fetchone()
 
 
-def category_context_query(source: str = "", group_slug: str = "") -> str:
-    if group_slug:
-        return "?" + urlencode({"group": group_slug})
+def category_context_query(source: str = "", subject_area_slug: str = "") -> str:
+    if subject_area_slug:
+        return "?" + urlencode({"subject-area": subject_area_slug})
     return ""
 
 
-def category_href(category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
-    return f"/categories/{category['slug']}{category_context_query(source, group_slug)}"
+def category_href(category: sqlite3.Row, source: str = "", subject_area_slug: str = "") -> str:
+    return f"/categories/{category['slug']}{category_context_query(source, subject_area_slug)}"
 
 
-def category_posts_href(category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
-    return f"/categories/{category['slug']}/posts{category_context_query(source, group_slug)}"
+def category_posts_href(category: sqlite3.Row, source: str = "", subject_area_slug: str = "") -> str:
+    return f"/categories/{category['slug']}/posts{category_context_query(source, subject_area_slug)}"
 
 
-def topic_href(topic: sqlite3.Row, category: sqlite3.Row, source: str = "", group_slug: str = "") -> str:
+def topic_href(topic: sqlite3.Row, category: sqlite3.Row, source: str = "", subject_area_slug: str = "") -> str:
     params = {"category": category["slug"]}
-    if group_slug:
-        params["group"] = group_slug
+    if subject_area_slug:
+        params["subject-area"] = subject_area_slug
     return f"/topics/{topic['slug']}?{urlencode(params)}"
 
 
@@ -276,19 +280,24 @@ def category_breadcrumbs(
     category: sqlite3.Row,
     current_label: str | None = None,
     source: str = "",
-    group_slug: str = "",
+    subject_area_slug: str = "",
 ) -> list[tuple[str, str | None]]:
-    group = primary_group_for_category(conn, int(category["id"]), group_slug)
-    if group:
+    subject_area = primary_subject_area_for_category(conn, int(category["id"]), subject_area_slug)
+    if subject_area:
         items: list[tuple[str, str | None]] = [
             ("Browse by Topic", "/browse-by-topic"),
-            (group["name"], f"/browse-by-topic/{group['slug']}"),
+            (subject_area["name"], f"/browse-by-topic/{subject_area['slug']}"),
         ]
     else:
         items = [("Browse by Topic", "/browse-by-topic")]
     category_label = current_label or category["name"]
     if current_label:
-        items.append((category["name"], category_href(category, source, group["slug"] if group else "")))
+        items.append(
+            (
+                category["name"],
+                category_href(category, source, subject_area["slug"] if subject_area else ""),
+            )
+        )
         items.append((current_label, None))
     else:
         items.append((category_label, None))
@@ -380,22 +389,22 @@ def categories_page() -> bytes:
     return render_page("Categories", body, active="categories")
 
 
-def category_groups_page() -> bytes:
+def subject_areas_page() -> bytes:
     rows = query_all(
         """
         SELECT
-            cg.name,
-            cg.slug,
-            cg.description,
-            COUNT(DISTINCT cgc.category_id) AS category_count,
+            sa.name,
+            sa.slug,
+            sa.description,
+            COUNT(DISTINCT sac.category_id) AS category_count,
             COUNT(DISTINCT tc.topic_id) AS topic_count,
             COUNT(DISTINCT pt.post_id) AS post_count
-        FROM category_groups cg
-        LEFT JOIN category_group_categories cgc ON cgc.category_group_id = cg.id
-        LEFT JOIN topic_categories tc ON tc.category_id = cgc.category_id
+        FROM subject_areas sa
+        LEFT JOIN subject_area_categories sac ON sac.subject_area_id = sa.id
+        LEFT JOIN topic_categories tc ON tc.category_id = sac.category_id
         LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
-        GROUP BY cg.id
-        ORDER BY cg.id
+        GROUP BY sa.id
+        ORDER BY sa.id
         """
     )
     items = []
@@ -414,10 +423,10 @@ def category_groups_page() -> bytes:
     return render_page("Browse by Topic", body, active="browse-by-topic")
 
 
-def category_group_page(slug: str) -> bytes:
+def subject_area_page(slug: str) -> bytes:
     with get_conn() as conn:
-        category_group = conn.execute("SELECT * FROM category_groups WHERE slug = ?", (slug,)).fetchone()
-        if not category_group:
+        subject_area = conn.execute("SELECT * FROM subject_areas WHERE slug = ?", (slug,)).fetchone()
+        if not subject_area:
             return not_found()
         categories = conn.execute(
             """
@@ -427,32 +436,32 @@ def category_group_page(slug: str) -> bytes:
                 c.description,
                 COUNT(DISTINCT tc.topic_id) AS topic_count,
                 COUNT(DISTINCT pt.post_id) AS post_count
-            FROM category_group_categories cgc
-            JOIN categories c ON c.id = cgc.category_id
+            FROM subject_area_categories sac
+            JOIN categories c ON c.id = sac.category_id
             LEFT JOIN topic_categories tc ON tc.category_id = c.id
             LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
-            WHERE cgc.category_group_id = ?
+            WHERE sac.subject_area_id = ?
             GROUP BY c.id
-            ORDER BY cgc.position, c.name COLLATE NOCASE
+            ORDER BY sac.position, c.name COLLATE NOCASE
             """,
-            (category_group["id"],),
+            (subject_area["id"],),
         ).fetchall()
         counts = conn.execute(
             """
             SELECT
-                COUNT(DISTINCT cgc.category_id) AS category_count,
+                COUNT(DISTINCT sac.category_id) AS category_count,
                 COUNT(DISTINCT tc.topic_id) AS topic_count,
                 COUNT(DISTINCT pt.post_id) AS post_count
-            FROM category_group_categories cgc
-            LEFT JOIN topic_categories tc ON tc.category_id = cgc.category_id
+            FROM subject_area_categories sac
+            LEFT JOIN topic_categories tc ON tc.category_id = sac.category_id
             LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
-            WHERE cgc.category_group_id = ?
+            WHERE sac.subject_area_id = ?
             """,
-            (category_group["id"],),
+            (subject_area["id"],),
         ).fetchone()
         breadcrumbs = [
             ("Browse by Topic", "/browse-by-topic"),
-            (category_group["name"], None),
+            (subject_area["name"], None),
         ]
 
     items = []
@@ -460,7 +469,7 @@ def category_group_page(slug: str) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(category['slug'])}?group={esc(category_group['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
+              <a class="item-title" href="/categories/{esc(category['slug'])}?subject-area={esc(subject_area['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
               <p class="item-description" hidden>{esc(category['description'])}</p>
               <p class="item-meta">{pluralize(category['topic_count'], 'topic')} &bull; {pluralize(category['post_count'], 'post')}</p>
             </li>
@@ -468,19 +477,19 @@ def category_group_page(slug: str) -> bytes:
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
     body = content_page(
-        category_group["name"],
+        subject_area["name"],
         f"{pluralize(counts['category_count'], 'category', 'categories')} \u2022 {pluralize(counts['topic_count'], 'topic')} \u2022 {pluralize(counts['post_count'], 'post')}",
         "",
         inner,
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
-    return render_page(category_group["name"], body, active="browse-by-topic")
+    return render_page(subject_area["name"], body, active="browse-by-topic")
 
 
 def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
     source = query.get("source", [""])[0]
-    group_slug = query.get("group", [""])[0]
+    subject_area_slug = query.get("subject-area", [""])[0]
     with get_conn() as conn:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
@@ -510,14 +519,19 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
             """,
             (category["id"],),
         ).fetchone()[0]
-        breadcrumbs = category_breadcrumbs(conn, category, source=source, group_slug=group_slug)
+        breadcrumbs = category_breadcrumbs(
+            conn,
+            category,
+            source=source,
+            subject_area_slug=subject_area_slug,
+        )
 
     items = []
     for topic in topics:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="{esc(topic_href(topic, category, source, group_slug))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+              <a class="item-title" href="{esc(topic_href(topic, category, source, subject_area_slug))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
               <p class="item-description" hidden>{esc(topic['description'])}</p>
               <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
@@ -681,13 +695,17 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
     requested_category_slug = query.get("category", [""])[0]
     source = query.get("source", [""])[0]
-    group_slug = query.get("group", [""])[0]
+    subject_area_slug = query.get("subject-area", [""])[0]
     with get_conn() as conn:
         topic = conn.execute("SELECT * FROM topics WHERE slug = ?", (slug,)).fetchone()
         if not topic:
             return not_found()
         category = topic_context_category(conn, int(topic["id"]), requested_category_slug)
-        breadcrumbs = category_breadcrumbs(conn, category, topic["name"], source, group_slug) if category else []
+        breadcrumbs = (
+            category_breadcrumbs(conn, category, topic["name"], source, subject_area_slug)
+            if category
+            else []
+        )
         posts = conn.execute(
             """
             SELECT p.*
@@ -713,12 +731,12 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
 def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
     source = query.get("source", [""])[0]
-    group_slug = query.get("group", [""])[0]
+    subject_area_slug = query.get("subject-area", [""])[0]
     with get_conn() as conn:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
             return not_found()
-        breadcrumbs = category_breadcrumbs(conn, category, "Posts", source, group_slug)
+        breadcrumbs = category_breadcrumbs(conn, category, "Posts", source, subject_area_slug)
         posts = conn.execute(
             """
             SELECT DISTINCT p.*
@@ -948,7 +966,7 @@ def health_page() -> bytes:
             """
             SELECT
                 (SELECT COUNT(*) FROM posts) AS posts,
-                (SELECT COUNT(*) FROM category_groups) AS category_groups,
+                (SELECT COUNT(*) FROM subject_areas) AS subject_areas,
                 (SELECT COUNT(*) FROM categories) AS categories,
                 (SELECT COUNT(*) FROM topics) AS topics,
                 (SELECT COUNT(*) FROM keywords) AS keywords
@@ -961,7 +979,7 @@ def health_page() -> bytes:
         "staticFiles": sorted(path.name for path in STATIC_DIR.iterdir() if path.is_file()),
         "counts": {
             "posts": counts["posts"],
-            "categoryGroups": counts["category_groups"],
+            "subjectAreas": counts["subject_areas"],
             "categories": counts["categories"],
             "topics": counts["topics"],
             "keywords": counts["keywords"],
@@ -992,8 +1010,8 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return serve_static(path)
     if path in ("", "/"):
         return home_page(), "200 OK", "text/html; charset=utf-8"
-    if path in ("/categories", "/category-groups", "/browse-by-topic"):
-        return category_groups_page(), "200 OK", "text/html; charset=utf-8"
+    if path in ("/subject-areas", "/browse-by-topic"):
+        return subject_areas_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-search":
         return keyword_search_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-results":
@@ -1005,12 +1023,12 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
     if path.startswith("/categories/") and path.endswith("/posts"):
         slug = path.removeprefix("/categories/").removesuffix("/posts").strip("/")
         return posts_for_category(slug, query), "200 OK", "text/html; charset=utf-8"
-    if path.startswith("/category-groups/"):
-        slug = path.removeprefix("/category-groups/").strip("/")
-        return category_group_page(slug), "200 OK", "text/html; charset=utf-8"
+    if path.startswith("/subject-areas/"):
+        slug = path.removeprefix("/subject-areas/").strip("/")
+        return subject_area_page(slug), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/browse-by-topic/"):
         slug = path.removeprefix("/browse-by-topic/").strip("/")
-        return category_group_page(slug), "200 OK", "text/html; charset=utf-8"
+        return subject_area_page(slug), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/categories/"):
         slug = path.removeprefix("/categories/").strip("/")
         return category_page(slug, query), "200 OK", "text/html; charset=utf-8"

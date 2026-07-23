@@ -9,6 +9,7 @@ The app stores only post metadata:
 - author
 - date
 - description
+- subject areas
 - categories
 - topics
 - secondary keywords

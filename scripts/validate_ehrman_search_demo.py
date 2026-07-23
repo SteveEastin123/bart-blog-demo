@@ -7,7 +7,7 @@ from typing import Any
 
 from ehrman_demo_data import (
     DEFAULT_CATEGORIES_PATH,
-    DEFAULT_CATEGORY_GROUPS_PATH,
+    DEFAULT_SUBJECT_AREAS_PATH,
     DEFAULT_DEMO_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_TOPICS_PATH,
@@ -15,7 +15,7 @@ from ehrman_demo_data import (
     clean_string,
     date_sort_value,
     load_categories,
-    load_category_groups,
+    load_subject_areas,
     load_posts,
     load_topics,
     normalize_keyword,
@@ -89,23 +89,23 @@ def validate_categories(
     return set(category_names)
 
 
-def validate_category_groups(
-    category_groups: list[dict[str, Any]],
+def validate_subject_areas(
+    subject_areas: list[dict[str, Any]],
     category_names: set[str],
     errors: list[str],
     warnings: list[str],
 ) -> set[str]:
-    group_names: list[str] = []
+    subject_area_names: list[str] = []
     linked_categories: list[str] = []
 
-    for index, category_group in enumerate(category_groups, start=1):
-        label = f"category group #{index}"
-        name = require_string(category_group, "name", label, errors)
+    for index, subject_area in enumerate(subject_areas, start=1):
+        label = f"subject area #{index}"
+        name = require_string(subject_area, "name", label, errors)
         if name:
-            group_names.append(name)
-            label = f"category group {name!r}"
+            subject_area_names.append(name)
+            label = f"subject area {name!r}"
 
-        description = clean_string(category_group.get("description", ""))
+        description = clean_string(subject_area.get("description", ""))
         if not description:
             errors.append(f"{label} is missing a description")
         elif "\n" in description or "\r" in description:
@@ -113,8 +113,8 @@ def validate_category_groups(
         elif not description.endswith("."):
             warnings.append(f"{label} description does not end with a period")
 
-        categories = unique_strings(category_group.get("categories", []))
-        if not isinstance(category_group.get("categories", []), list):
+        categories = unique_strings(subject_area.get("categories", []))
+        if not isinstance(subject_area.get("categories", []), list):
             errors.append(f"{label} has a non-list categories field")
         if not categories:
             errors.append(f"{label} has no linked categories")
@@ -123,8 +123,8 @@ def validate_category_groups(
                 errors.append(f"{label} links unknown category {category_name!r}")
             linked_categories.append(category_name)
 
-    if has_case_duplicates(group_names):
-        errors.append("Category group names include duplicates that differ only by case")
+    if has_case_duplicates(subject_area_names):
+        errors.append("Subject area names include duplicates that differ only by case")
 
     normalized_counts: dict[str, int] = {}
     category_name_by_key = {category.casefold(): category for category in category_names}
@@ -138,7 +138,7 @@ def validate_category_groups(
         if count > 1
     )
     if duplicated_categories:
-        errors.append("Categories linked to more than one category group: " + ", ".join(duplicated_categories))
+        errors.append("Categories linked to more than one subject area: " + ", ".join(duplicated_categories))
 
     missing_categories = sorted(
         category
@@ -146,9 +146,9 @@ def validate_category_groups(
         if normalized_counts.get(category.casefold(), 0) == 0
     )
     if missing_categories:
-        errors.append("Categories missing from category groups: " + ", ".join(missing_categories))
+        errors.append("Categories missing from subject areas: " + ", ".join(missing_categories))
 
-    return {name for name in group_names if name}
+    return {name for name in subject_area_names if name}
 
 
 def validate_topics(
@@ -271,7 +271,7 @@ def validate_posts(
 def validate_html(
     html_path: Path,
     categories: list[dict[str, Any]],
-    category_groups: list[dict[str, Any]],
+    subject_areas: list[dict[str, Any]],
     topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     errors: list[str],
@@ -301,7 +301,7 @@ def validate_html(
         errors.append(f"Could not parse embedded demo data from {html_path}: {exc}")
         return
 
-    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, topics, posts, category_groups)
+    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, topics, posts, subject_areas)
     if embedded_data != expected_data:
         errors.append("Embedded DATA in the HTML is stale; run scripts/build_ehrman_search_demo.py")
     if embedded_keyword_index != expected_keyword_index:
@@ -315,7 +315,7 @@ def parse_args() -> argparse.Namespace:
         description="Validate the Ehrman search demo JSON files and generated standalone HTML."
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
-    parser.add_argument("--category-groups", type=Path, default=DEFAULT_CATEGORY_GROUPS_PATH)
+    parser.add_argument("--subject-areas", type=Path, default=DEFAULT_SUBJECT_AREAS_PATH)
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--html", type=Path, default=DEFAULT_DEMO_PATH)
@@ -334,9 +334,9 @@ def main() -> int:
         return 1
 
     try:
-        category_groups = load_category_groups(args.category_groups)
+        subject_areas = load_subject_areas(args.subject_areas)
     except Exception as exc:  # noqa: BLE001
-        print(f"Validation failed: could not load category groups JSON: {exc}")
+        print(f"Validation failed: could not load subject areas JSON: {exc}")
         return 1
 
     try:
@@ -353,7 +353,7 @@ def main() -> int:
 
     post_topic_counts, all_post_topics = validate_posts(posts, errors, warnings)
     category_names = validate_categories(categories, errors, warnings)
-    category_group_names = validate_category_groups(category_groups, category_names, errors, warnings)
+    subject_area_names = validate_subject_areas(subject_areas, category_names, errors, warnings)
     linked_topics = validate_topics(topics, category_names, post_topic_counts, all_post_topics, errors, warnings)
     unlinked_topics = sorted(
         topic
@@ -368,7 +368,7 @@ def main() -> int:
     if unlinked_topics:
         warnings.append("Topics used by posts but not linked to a category: " + ", ".join(unlinked_topics))
 
-    validate_html(args.html, categories, category_groups, topics, posts, errors)
+    validate_html(args.html, categories, subject_areas, topics, posts, errors)
 
     if errors:
         print("Validation failed:")
@@ -382,7 +382,7 @@ def main() -> int:
 
     print("Validation passed.")
     print(f"Posts: {len(posts):,}")
-    print(f"Category groups: {len(category_group_names):,}")
+    print(f"Subject areas: {len(subject_area_names):,}")
     print(f"Categories: {len(categories):,}")
     print(f"Unique post topics: {len(all_post_topics):,}")
     print(f"Topic metadata records: {len(linked_topics):,}")
