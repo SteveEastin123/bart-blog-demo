@@ -1,0 +1,100 @@
+{
+  "subjectAreas": [
+    {
+      "name": "Jesus, the Gospels and Acts",
+      "description": "Covers the canonical Gospels, Acts, historical study of Jesus, traditions about his birth, teachings, death, burial, and resurrection, and other New Testament figures.",
+      "categories": [
+        "Canonical Gospels and Acts",
+        "The Historical Jesus",
+        "Jesus' Birth, Family, and Miracles",
+        "Jesus' Teachings and Social World",
+        "Jesus' Death, Burial, and Resurrection",
+        "New Testament Figures"
+      ]
+    },
+    {
+      "name": "Paul and the Epistles",
+      "description": "Covers Paul's life, mission, communities, letters, theology, ethics, and the broader collection of New Testament epistles.",
+      "categories": [
+        "Paul's Life, Mission, and Communities",
+        "Pauline Letters and Textual Issues",
+        "Pauline Thought and Practice",
+        "Epistles"
+      ]
+    },
+    {
+      "name": "Early Christian History",
+      "description": "Covers Christian origins, early expansion, canonical and non-canonical writings, persecution, martyrdom, church history, and the church fathers.",
+      "categories": [
+        "Christian Origins and Expansion",
+        "Canonical Gospels and Acts",
+        "Non-Canonical Christian Texts",
+        "Persecution and Martyrdom",
+        "Early Church History",
+        "Church Fathers"
+      ]
+    },
+    {
+      "name": "Christian Theology and Belief",
+      "description": "Covers Christian understandings of Christ, salvation, orthodoxy and heresy, suffering and evil, faith, doubt, and nonbelief.",
+      "categories": [
+        "Christology",
+        "Salvation, Atonement, and Judgment",
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Suffering and Evil",
+        "Faith, Doubt, and Nonbelief"
+      ]
+    },
+    {
+      "name": "Afterlife, Revelation, and Supernatural Claims",
+      "description": "Covers beliefs about life after death, the Book of Revelation and the end times, miracles, visions, and other supernatural claims.",
+      "categories": [
+        "Afterlife",
+        "Revelation and End-Time Interpretation",
+        "Miracles and Supernatural Claims"
+      ]
+    },
+    {
+      "name": "Ethics and Social Issues",
+      "description": "Covers moral reasoning, wealth, poverty, charity, women, gender, sexuality, and related biblical and Christian social questions.",
+      "categories": [
+        "Ethics and Moral Reasoning",
+        "Wealth, Poverty, and Charity",
+        "Women, Gender, and Sexuality"
+      ]
+    },
+    {
+      "name": "Hebrew Bible, Early Judaism, and Ancient Context",
+      "description": "Covers Hebrew Bible texts and traditions, early Jewish groups and beliefs, and the wider social, political, and religious setting of the ancient world.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions",
+        "Early Judaism",
+        "Ancient World and Social Context"
+      ]
+    },
+    {
+      "name": "Texts, Manuscripts, and Methods",
+      "description": "Covers how ancient texts were transmitted, remembered, written, attributed, collected, copied, evaluated, translated, and studied using historical and textual methods.",
+      "categories": [
+        "Historical and Critical Methods",
+        "Memory, Oral Tradition, and Eyewitnesses",
+        "Authorship",
+        "Forgery",
+        "Biblical Canon, Authority, and Interpretation",
+        "Manuscripts and Textual Evidence",
+        "Textual Criticism",
+        "Bible Translations and Versions"
+      ]
+    },
+    {
+      "name": "Books, Scholarship, and the Blog",
+      "description": "Covers Bart's books, teaching, media appearances, academic life, public debates, recurring blog features, and personal posts.",
+      "categories": [
+        "Bart's Books",
+        "Teaching, General Books, and Media",
+        "Academic Life, Scholars, and Public Debate",
+        "Blog Features and Personal Posts"
+      ]
+    }
+  ]
+}

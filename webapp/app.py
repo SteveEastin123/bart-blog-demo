@@ -11,6 +11,7 @@ from urllib.parse import parse_qs, urlencode, unquote
 from .import_data import (
     DEFAULT_CATEGORIES_PATH,
     DEFAULT_SUBJECT_AREAS_PATH,
+    DEFAULT_SUBJECT_AREAS_2_PATH,
     DEFAULT_DB_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_TOPICS_PATH,
@@ -54,6 +55,7 @@ def ensure_database() -> None:
         DEFAULT_SEARCH_INDEX_PATH,
         DEFAULT_CATEGORIES_PATH,
         DEFAULT_SUBJECT_AREAS_PATH,
+        DEFAULT_SUBJECT_AREAS_2_PATH,
         DEFAULT_TOPICS_PATH,
     ]
     if any(path.exists() and path.stat().st_mtime > db_mtime for path in sources):
@@ -121,7 +123,8 @@ def header(active: str = "") -> str:
         ("Join!", "#", "disabled"),
         ("Recent Posts", "#", "disabled"),
         ("Keyword Search", "/keyword-search", "keyword-search"),
-        ("Browse by Topic", "/browse-by-topic", "browse-by-topic"),
+        ("Browse Topics 1", "/browse-topics-1", "browse-topics-1"),
+        ("Browse Topics 2", "/browse-topics-2", "browse-topics-2"),
         ("Forum", "#", "disabled"),
         ("About Blog", "#", "disabled"),
         ("About Bart", "#", "disabled"),
@@ -226,13 +229,15 @@ def primary_subject_area_for_category(
     conn: sqlite3.Connection,
     category_id: int,
     subject_area_slug: str = "",
+    subject_area_set: int = 1,
 ) -> sqlite3.Row | None:
+    area_table, link_table, _, _, _ = subject_area_config(subject_area_set)
     if subject_area_slug:
         row = conn.execute(
-            """
+            f"""
             SELECT sa.name, sa.slug
-            FROM subject_areas sa
-            JOIN subject_area_categories sac ON sac.subject_area_id = sa.id
+            FROM {area_table} sa
+            JOIN {link_table} sac ON sac.subject_area_id = sa.id
             WHERE sac.category_id = ? AND sa.slug = ?
             ORDER BY sac.position
             LIMIT 1
@@ -242,10 +247,10 @@ def primary_subject_area_for_category(
         if row:
             return row
     return conn.execute(
-        """
+        f"""
         SELECT sa.name, sa.slug
-        FROM subject_areas sa
-        JOIN subject_area_categories sac ON sac.subject_area_id = sa.id
+        FROM {area_table} sa
+        JOIN {link_table} sac ON sac.subject_area_id = sa.id
         WHERE sac.category_id = ?
         ORDER BY sa.id, sac.position
         LIMIT 1
@@ -254,24 +259,78 @@ def primary_subject_area_for_category(
     ).fetchone()
 
 
-def category_context_query(source: str = "", subject_area_slug: str = "") -> str:
+def normalize_subject_area_set(value: object) -> int:
+    return 2 if str(value) == "2" else 1
+
+
+def subject_area_config(subject_area_set: int) -> tuple[str, str, str, str, str]:
+    if normalize_subject_area_set(subject_area_set) == 2:
+        return (
+            "subject_areas_2",
+            "subject_area_2_categories",
+            "Browse Topics 2",
+            "/browse-topics-2",
+            "browse-topics-2",
+        )
+    return (
+        "subject_areas",
+        "subject_area_categories",
+        "Browse Topics 1",
+        "/browse-topics-1",
+        "browse-topics-1",
+    )
+
+
+def category_context_query(
+    source: str = "",
+    subject_area_slug: str = "",
+    subject_area_set: int = 1,
+) -> str:
     if subject_area_slug:
-        return "?" + urlencode({"subject-area": subject_area_slug})
+        return "?" + urlencode(
+            {
+                "subject-area": subject_area_slug,
+                "subject-area-set": normalize_subject_area_set(subject_area_set),
+            }
+        )
     return ""
 
 
-def category_href(category: sqlite3.Row, source: str = "", subject_area_slug: str = "") -> str:
-    return f"/categories/{category['slug']}{category_context_query(source, subject_area_slug)}"
+def category_href(
+    category: sqlite3.Row,
+    source: str = "",
+    subject_area_slug: str = "",
+    subject_area_set: int = 1,
+) -> str:
+    return (
+        f"/categories/{category['slug']}"
+        f"{category_context_query(source, subject_area_slug, subject_area_set)}"
+    )
 
 
-def category_posts_href(category: sqlite3.Row, source: str = "", subject_area_slug: str = "") -> str:
-    return f"/categories/{category['slug']}/posts{category_context_query(source, subject_area_slug)}"
+def category_posts_href(
+    category: sqlite3.Row,
+    source: str = "",
+    subject_area_slug: str = "",
+    subject_area_set: int = 1,
+) -> str:
+    return (
+        f"/categories/{category['slug']}/posts"
+        f"{category_context_query(source, subject_area_slug, subject_area_set)}"
+    )
 
 
-def topic_href(topic: sqlite3.Row, category: sqlite3.Row, source: str = "", subject_area_slug: str = "") -> str:
+def topic_href(
+    topic: sqlite3.Row,
+    category: sqlite3.Row,
+    source: str = "",
+    subject_area_slug: str = "",
+    subject_area_set: int = 1,
+) -> str:
     params = {"category": category["slug"]}
     if subject_area_slug:
         params["subject-area"] = subject_area_slug
+        params["subject-area-set"] = str(normalize_subject_area_set(subject_area_set))
     return f"/topics/{topic['slug']}?{urlencode(params)}"
 
 
@@ -281,21 +340,34 @@ def category_breadcrumbs(
     current_label: str | None = None,
     source: str = "",
     subject_area_slug: str = "",
+    subject_area_set: int = 1,
 ) -> list[tuple[str, str | None]]:
-    subject_area = primary_subject_area_for_category(conn, int(category["id"]), subject_area_slug)
+    subject_area_set = normalize_subject_area_set(subject_area_set)
+    _, _, browse_label, browse_path, _ = subject_area_config(subject_area_set)
+    subject_area = primary_subject_area_for_category(
+        conn,
+        int(category["id"]),
+        subject_area_slug,
+        subject_area_set,
+    )
     if subject_area:
         items: list[tuple[str, str | None]] = [
-            ("Browse by Topic", "/browse-by-topic"),
-            (subject_area["name"], f"/browse-by-topic/{subject_area['slug']}"),
+            (browse_label, browse_path),
+            (subject_area["name"], f"{browse_path}/{subject_area['slug']}"),
         ]
     else:
-        items = [("Browse by Topic", "/browse-by-topic")]
+        items = [(browse_label, browse_path)]
     category_label = current_label or category["name"]
     if current_label:
         items.append(
             (
                 category["name"],
-                category_href(category, source, subject_area["slug"] if subject_area else ""),
+                category_href(
+                    category,
+                    source,
+                    subject_area["slug"] if subject_area else "",
+                    subject_area_set,
+                ),
             )
         )
         items.append((current_label, None))
@@ -343,11 +415,11 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces two ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse by Topic</strong>.</p>
+        <p>This demo introduces three ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong>, <strong>Browse Topics 1</strong>, and <strong>Browse Topics 2</strong>.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords. It is designed for readers who already know what they are looking for.</p>
-        <p><strong>Browse by Topic</strong> lets readers explore the blog through broad subject areas. Selecting a subject area shows related categories, selecting a category shows its topics, and selecting a topic shows the posts connected to it.</p>
+        <p><strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> offer two alternative ways to explore the same posts. Each path begins with a different arrangement of broad subject areas, followed by categories, topics, and related posts.</p>
         <figure class="search-methods-figure">
-          <img class="search-methods-image" src="/static/ehrman-search-methods.png" alt="Diagram comparing Browse by Topic with Keyword Search">
+          <img class="search-methods-image" src="/static/ehrman-search-methods.png" alt="Diagram comparing topic browsing with keyword search">
         </figure>
         <p class="site-demo-date-range">{esc(date_range)}</p>
         <p class="site-demo-version">Version 2.0</p>
@@ -389,9 +461,11 @@ def categories_page() -> bytes:
     return render_page("Categories", body, active="categories")
 
 
-def subject_areas_page() -> bytes:
+def subject_areas_page(subject_area_set: int = 1) -> bytes:
+    subject_area_set = normalize_subject_area_set(subject_area_set)
+    area_table, link_table, browse_label, browse_path, active_key = subject_area_config(subject_area_set)
     rows = query_all(
-        """
+        f"""
         SELECT
             sa.name,
             sa.slug,
@@ -399,8 +473,8 @@ def subject_areas_page() -> bytes:
             COUNT(DISTINCT sac.category_id) AS category_count,
             COUNT(DISTINCT tc.topic_id) AS topic_count,
             COUNT(DISTINCT pt.post_id) AS post_count
-        FROM subject_areas sa
-        LEFT JOIN subject_area_categories sac ON sac.subject_area_id = sa.id
+        FROM {area_table} sa
+        LEFT JOIN {link_table} sac ON sac.subject_area_id = sa.id
         LEFT JOIN topic_categories tc ON tc.category_id = sac.category_id
         LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
         GROUP BY sa.id
@@ -412,31 +486,33 @@ def subject_areas_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/browse-by-topic/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <a class="item-title" href="{browse_path}/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
               <p class="item-description" hidden>{esc(row['description'])}</p>
               <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} &bull; {pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
     inner = f'<ul class="item-list">{"".join(items)}</ul>'
-    body = content_page("Browse by Topic", pluralize(len(rows), "subject area"), inner=inner, toggle_descriptions=True)
-    return render_page("Browse by Topic", body, active="browse-by-topic")
+    body = content_page(browse_label, pluralize(len(rows), "subject area"), inner=inner, toggle_descriptions=True)
+    return render_page(browse_label, body, active=active_key)
 
 
-def subject_area_page(slug: str) -> bytes:
+def subject_area_page(slug: str, subject_area_set: int = 1) -> bytes:
+    subject_area_set = normalize_subject_area_set(subject_area_set)
+    area_table, link_table, browse_label, browse_path, active_key = subject_area_config(subject_area_set)
     with get_conn() as conn:
-        subject_area = conn.execute("SELECT * FROM subject_areas WHERE slug = ?", (slug,)).fetchone()
+        subject_area = conn.execute(f"SELECT * FROM {area_table} WHERE slug = ?", (slug,)).fetchone()
         if not subject_area:
             return not_found()
         categories = conn.execute(
-            """
+            f"""
             SELECT
                 c.name,
                 c.slug,
                 c.description,
                 COUNT(DISTINCT tc.topic_id) AS topic_count,
                 COUNT(DISTINCT pt.post_id) AS post_count
-            FROM subject_area_categories sac
+            FROM {link_table} sac
             JOIN categories c ON c.id = sac.category_id
             LEFT JOIN topic_categories tc ON tc.category_id = c.id
             LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
@@ -447,12 +523,12 @@ def subject_area_page(slug: str) -> bytes:
             (subject_area["id"],),
         ).fetchall()
         counts = conn.execute(
-            """
+            f"""
             SELECT
                 COUNT(DISTINCT sac.category_id) AS category_count,
                 COUNT(DISTINCT tc.topic_id) AS topic_count,
                 COUNT(DISTINCT pt.post_id) AS post_count
-            FROM subject_area_categories sac
+            FROM {link_table} sac
             LEFT JOIN topic_categories tc ON tc.category_id = sac.category_id
             LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
             WHERE sac.subject_area_id = ?
@@ -460,7 +536,7 @@ def subject_area_page(slug: str) -> bytes:
             (subject_area["id"],),
         ).fetchone()
         breadcrumbs = [
-            ("Browse by Topic", "/browse-by-topic"),
+            (browse_label, browse_path),
             (subject_area["name"], None),
         ]
 
@@ -469,7 +545,7 @@ def subject_area_page(slug: str) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(category['slug'])}?subject-area={esc(subject_area['slug'])}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
+              <a class="item-title" href="/categories/{esc(category['slug'])}?{urlencode({'subject-area': subject_area['slug'], 'subject-area-set': subject_area_set})}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
               <p class="item-description" hidden>{esc(category['description'])}</p>
               <p class="item-meta">{pluralize(category['topic_count'], 'topic')} &bull; {pluralize(category['post_count'], 'post')}</p>
             </li>
@@ -484,12 +560,14 @@ def subject_area_page(slug: str) -> bytes:
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
-    return render_page(subject_area["name"], body, active="browse-by-topic")
+    return render_page(subject_area["name"], body, active=active_key)
 
 
 def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
+    subject_area_set = normalize_subject_area_set(query.get("subject-area-set", ["1"])[0])
+    _, _, _, _, active_key = subject_area_config(subject_area_set)
     with get_conn() as conn:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
@@ -524,6 +602,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
             category,
             source=source,
             subject_area_slug=subject_area_slug,
+            subject_area_set=subject_area_set,
         )
 
     items = []
@@ -531,7 +610,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="{esc(topic_href(topic, category, source, subject_area_slug))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+              <a class="item-title" href="{esc(topic_href(topic, category, source, subject_area_slug, subject_area_set))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
               <p class="item-description" hidden>{esc(topic['description'])}</p>
               <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
@@ -546,7 +625,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
-    return render_page(category["name"], body, active="browse-by-topic")
+    return render_page(category["name"], body, active=active_key)
 
 
 def keyword_panel(
@@ -696,13 +775,22 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     requested_category_slug = query.get("category", [""])[0]
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
+    subject_area_set = normalize_subject_area_set(query.get("subject-area-set", ["1"])[0])
+    _, _, _, _, active_key = subject_area_config(subject_area_set)
     with get_conn() as conn:
         topic = conn.execute("SELECT * FROM topics WHERE slug = ?", (slug,)).fetchone()
         if not topic:
             return not_found()
         category = topic_context_category(conn, int(topic["id"]), requested_category_slug)
         breadcrumbs = (
-            category_breadcrumbs(conn, category, topic["name"], source, subject_area_slug)
+            category_breadcrumbs(
+                conn,
+                category,
+                topic["name"],
+                source,
+                subject_area_slug,
+                subject_area_set,
+            )
             if category
             else []
         )
@@ -725,18 +813,27 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     )
     inner = panel + results_summary(len(posts), [topic["name"]]) + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
-    return render_page(topic["name"], body, active="browse-by-topic")
+    return render_page(topic["name"], body, active=active_key)
 
 
 def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
+    subject_area_set = normalize_subject_area_set(query.get("subject-area-set", ["1"])[0])
+    _, _, _, _, active_key = subject_area_config(subject_area_set)
     with get_conn() as conn:
         category = conn.execute("SELECT * FROM categories WHERE slug = ?", (slug,)).fetchone()
         if not category:
             return not_found()
-        breadcrumbs = category_breadcrumbs(conn, category, "Posts", source, subject_area_slug)
+        breadcrumbs = category_breadcrumbs(
+            conn,
+            category,
+            "Posts",
+            source,
+            subject_area_slug,
+            subject_area_set,
+        )
         posts = conn.execute(
             """
             SELECT DISTINCT p.*
@@ -756,7 +853,7 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
         sort_current_page=True,
     ) + post_list(posts, category["name"])
     body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
-    return render_page(f"{category['name']} Posts", body, active="browse-by-topic")
+    return render_page(f"{category['name']} Posts", body, active=active_key)
 
 
 def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int]:
@@ -967,6 +1064,7 @@ def health_page() -> bytes:
             SELECT
                 (SELECT COUNT(*) FROM posts) AS posts,
                 (SELECT COUNT(*) FROM subject_areas) AS subject_areas,
+                (SELECT COUNT(*) FROM subject_areas_2) AS subject_areas_2,
                 (SELECT COUNT(*) FROM categories) AS categories,
                 (SELECT COUNT(*) FROM topics) AS topics,
                 (SELECT COUNT(*) FROM keywords) AS keywords
@@ -980,6 +1078,7 @@ def health_page() -> bytes:
         "counts": {
             "posts": counts["posts"],
             "subjectAreas": counts["subject_areas"],
+            "subjectAreas2": counts["subject_areas_2"],
             "categories": counts["categories"],
             "topics": counts["topics"],
             "keywords": counts["keywords"],
@@ -1010,8 +1109,10 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return serve_static(path)
     if path in ("", "/"):
         return home_page(), "200 OK", "text/html; charset=utf-8"
-    if path in ("/subject-areas", "/browse-by-topic"):
-        return subject_areas_page(), "200 OK", "text/html; charset=utf-8"
+    if path in ("/subject-areas", "/browse-by-topic", "/browse-topics-1"):
+        return subject_areas_page(1), "200 OK", "text/html; charset=utf-8"
+    if path == "/browse-topics-2":
+        return subject_areas_page(2), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-search":
         return keyword_search_page(), "200 OK", "text/html; charset=utf-8"
     if path == "/keyword-results":
@@ -1025,10 +1126,16 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
         return posts_for_category(slug, query), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/subject-areas/"):
         slug = path.removeprefix("/subject-areas/").strip("/")
-        return subject_area_page(slug), "200 OK", "text/html; charset=utf-8"
+        return subject_area_page(slug, 1), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/browse-by-topic/"):
         slug = path.removeprefix("/browse-by-topic/").strip("/")
-        return subject_area_page(slug), "200 OK", "text/html; charset=utf-8"
+        return subject_area_page(slug, 1), "200 OK", "text/html; charset=utf-8"
+    if path.startswith("/browse-topics-1/"):
+        slug = path.removeprefix("/browse-topics-1/").strip("/")
+        return subject_area_page(slug, 1), "200 OK", "text/html; charset=utf-8"
+    if path.startswith("/browse-topics-2/"):
+        slug = path.removeprefix("/browse-topics-2/").strip("/")
+        return subject_area_page(slug, 2), "200 OK", "text/html; charset=utf-8"
     if path.startswith("/categories/"):
         slug = path.removeprefix("/categories/").strip("/")
         return category_page(slug, query), "200 OK", "text/html; charset=utf-8"

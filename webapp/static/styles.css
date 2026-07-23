@@ -225,7 +225,7 @@ a:hover {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 14px;
+  gap: 10px 22px;
   justify-content: flex-end;
   font-family: "Roboto Condensed", "Arial Narrow", Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -824,9 +824,9 @@ a:hover {
   z-index: 30;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1440px) {
   .site-menu {
-    gap: 8px 18px;
+    gap: 8px 24px;
   }
 
   .site-menu .disabled-link {

@@ -12,6 +12,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
 DEFAULT_SUBJECT_AREAS_PATH = ROOT / "data" / "index" / "ehrman_post_subject_areas.json"
+DEFAULT_SUBJECT_AREAS_2_PATH = ROOT / "data" / "index" / "ehrman_post_subject_areas_2.json"
 DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
 DEFAULT_TOPICS_PATH = ROOT / "data" / "index" / "ehrman_post_topics.json"
 DEFAULT_DB_PATH = ROOT / "webapp" / "data" / "ehrman_search.db"
@@ -28,6 +29,13 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE subject_areas (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE,
+    slug TEXT NOT NULL UNIQUE,
+    description TEXT NOT NULL DEFAULT ''
+);
+
+CREATE TABLE subject_areas_2 (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     slug TEXT NOT NULL UNIQUE,
@@ -73,6 +81,13 @@ CREATE TABLE subject_area_categories (
     PRIMARY KEY (subject_area_id, category_id)
 );
 
+CREATE TABLE subject_area_2_categories (
+    subject_area_id INTEGER NOT NULL REFERENCES subject_areas_2(id) ON DELETE CASCADE,
+    category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+    position INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (subject_area_id, category_id)
+);
+
 CREATE TABLE post_topics (
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
     topic_id INTEGER NOT NULL REFERENCES topics(id) ON DELETE CASCADE,
@@ -98,6 +113,8 @@ CREATE INDEX idx_categories_name ON categories(name COLLATE NOCASE);
 CREATE INDEX idx_categories_slug ON categories(slug);
 CREATE INDEX idx_subject_areas_name ON subject_areas(name COLLATE NOCASE);
 CREATE INDEX idx_subject_areas_slug ON subject_areas(slug);
+CREATE INDEX idx_subject_areas_2_name ON subject_areas_2(name COLLATE NOCASE);
+CREATE INDEX idx_subject_areas_2_slug ON subject_areas_2(slug);
 CREATE INDEX idx_topics_name ON topics(name COLLATE NOCASE);
 CREATE INDEX idx_topics_slug ON topics(slug);
 CREATE INDEX idx_posts_date ON posts(date_iso DESC, id DESC);
@@ -109,6 +126,8 @@ CREATE INDEX idx_topic_categories_category_topic ON topic_categories(category_id
 CREATE INDEX idx_topic_categories_category_position ON topic_categories(category_id, position, topic_id);
 CREATE INDEX idx_subject_area_categories_area_position ON subject_area_categories(subject_area_id, position);
 CREATE INDEX idx_subject_area_categories_subject_area ON subject_area_categories(category_id, subject_area_id);
+CREATE INDEX idx_subject_area_2_categories_area_position ON subject_area_2_categories(subject_area_id, position);
+CREATE INDEX idx_subject_area_2_categories_subject_area ON subject_area_2_categories(category_id, subject_area_id);
 CREATE INDEX idx_search_terms_normalized_post ON post_search_terms(normalized, post_id);
 CREATE INDEX idx_search_terms_label ON post_search_terms(label COLLATE NOCASE);
 """
@@ -246,6 +265,7 @@ def build_database(
     subject_areas_path: Path = DEFAULT_SUBJECT_AREAS_PATH,
     topics_path: Path = DEFAULT_TOPICS_PATH,
     search_index_path: Path = DEFAULT_SEARCH_INDEX_PATH,
+    subject_areas_2_path: Path = DEFAULT_SUBJECT_AREAS_2_PATH,
 ) -> dict[str, int]:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path = db_path.with_suffix(db_path.suffix + ".tmp")
@@ -254,6 +274,7 @@ def build_database(
 
     categories = load_categories(categories_path)
     subject_areas = load_subject_areas(subject_areas_path)
+    subject_areas_2 = load_subject_areas(subject_areas_2_path)
     topics = load_topics(topics_path)
     posts = load_posts(search_index_path)
 
@@ -328,6 +349,37 @@ def build_database(
                 conn.execute(
                     """
                     INSERT OR IGNORE INTO subject_area_categories(subject_area_id, category_id, position)
+                    VALUES (?, ?, ?)
+                    """,
+                    (subject_area_id, category_id, position),
+                )
+
+        used_subject_area_2_slugs: set[str] = set()
+        for subject_area in subject_areas_2:
+            name = clean_string(subject_area.get("name"))
+            if not name:
+                continue
+            conn.execute(
+                "INSERT INTO subject_areas_2(name, slug, description) VALUES (?, ?, ?)",
+                (name, unique_slug(name, used_subject_area_2_slugs), clean_string(subject_area.get("description"))),
+            )
+
+        subject_area_2_ids = {
+            row["name"]: row["id"]
+            for row in conn.execute("SELECT id, name FROM subject_areas_2").fetchall()
+        }
+        for subject_area in subject_areas_2:
+            subject_area_name = clean_string(subject_area.get("name"))
+            subject_area_id = subject_area_2_ids.get(subject_area_name)
+            if not subject_area_id:
+                continue
+            for position, category_name in enumerate(unique_strings(subject_area.get("categories")), start=1):
+                category_id = category_ids.get(category_name)
+                if not category_id:
+                    continue
+                conn.execute(
+                    """
+                    INSERT OR IGNORE INTO subject_area_2_categories(subject_area_id, category_id, position)
                     VALUES (?, ?, ?)
                     """,
                     (subject_area_id, category_id, position),
@@ -425,6 +477,7 @@ def build_database(
         counts = {
             "posts": check_conn.execute("SELECT COUNT(*) FROM posts").fetchone()[0],
             "subject_areas": check_conn.execute("SELECT COUNT(*) FROM subject_areas").fetchone()[0],
+            "subject_areas_2": check_conn.execute("SELECT COUNT(*) FROM subject_areas_2").fetchone()[0],
             "categories": check_conn.execute("SELECT COUNT(*) FROM categories").fetchone()[0],
             "topics": check_conn.execute("SELECT COUNT(*) FROM topics").fetchone()[0],
             "keywords": check_conn.execute("SELECT COUNT(*) FROM keywords").fetchone()[0],
@@ -438,16 +491,25 @@ def main() -> int:
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--subject-areas", type=Path, default=DEFAULT_SUBJECT_AREAS_PATH)
+    parser.add_argument("--subject-areas-2", type=Path, default=DEFAULT_SUBJECT_AREAS_2_PATH)
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     args = parser.parse_args()
 
-    counts = build_database(args.db, args.categories, args.subject_areas, args.topics, args.search_index)
+    counts = build_database(
+        args.db,
+        args.categories,
+        args.subject_areas,
+        args.topics,
+        args.search_index,
+        args.subject_areas_2,
+    )
     print(f"Built {args.db}")
     print(
         "Imported "
         f"{counts['posts']:,} posts, "
         f"{counts['subject_areas']:,} subject areas, "
+        f"{counts['subject_areas_2']:,} alternate subject areas, "
         f"{counts['categories']:,} categories, "
         f"{counts['topics']:,} topics, "
         f"{counts['keywords']:,} secondary keywords, "

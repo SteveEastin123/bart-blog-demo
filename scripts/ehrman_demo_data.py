@@ -11,6 +11,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CATEGORIES_PATH = ROOT / "data" / "index" / "ehrman_post_categories.json"
 DEFAULT_SUBJECT_AREAS_PATH = ROOT / "data" / "index" / "ehrman_post_subject_areas.json"
+DEFAULT_SUBJECT_AREAS_2_PATH = ROOT / "data" / "index" / "ehrman_post_subject_areas_2.json"
 DEFAULT_SEARCH_INDEX_PATH = ROOT / "data" / "index" / "ehrman_post_search_index.json"
 DEFAULT_TOPICS_PATH = ROOT / "data" / "index" / "ehrman_post_topics.json"
 DEFAULT_DEMO_PATH = ROOT / "ehrman_search_demo.html"
@@ -154,6 +155,7 @@ def build_demo_data(
     topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     subject_areas: list[dict[str, Any]] | None = None,
+    subject_areas_2: list[dict[str, Any]] | None = None,
 ) -> OrderedDict[str, Any]:
     topics_by_category: dict[str, list[str]] = {}
     topic_descriptions: OrderedDict[str, str] = OrderedDict()
@@ -192,20 +194,25 @@ def build_demo_data(
         for topic in category["topics"]:
             posts_by_topic.setdefault(topic, [])
 
-    demo_subject_areas: list[OrderedDict[str, Any]] = []
-    for subject_area in subject_areas or []:
-        name = clean_string(subject_area.get("name", ""))
-        if not name:
-            continue
-        demo_subject_area: OrderedDict[str, Any] = OrderedDict()
-        demo_subject_area["name"] = name
-        demo_subject_area["description"] = clean_string(subject_area.get("description", ""))
-        demo_subject_area["categories"] = unique_strings(subject_area.get("categories", []))
-        demo_subject_areas.append(demo_subject_area)
+    def build_subject_area_records(
+        records: list[dict[str, Any]] | None,
+    ) -> list[OrderedDict[str, Any]]:
+        demo_records: list[OrderedDict[str, Any]] = []
+        for subject_area in records or []:
+            name = clean_string(subject_area.get("name", ""))
+            if not name:
+                continue
+            demo_subject_area: OrderedDict[str, Any] = OrderedDict()
+            demo_subject_area["name"] = name
+            demo_subject_area["description"] = clean_string(subject_area.get("description", ""))
+            demo_subject_area["categories"] = unique_strings(subject_area.get("categories", []))
+            demo_records.append(demo_subject_area)
+        return demo_records
 
     payload: OrderedDict[str, Any] = OrderedDict()
     payload["categories"] = demo_categories
-    payload["subjectAreas"] = demo_subject_areas
+    payload["subjectAreas"] = build_subject_area_records(subject_areas)
+    payload["subjectAreas2"] = build_subject_area_records(subject_areas_2)
     payload["topicDescriptions"] = topic_descriptions
     payload["articlesByTopic"] = posts_by_topic
     return payload
@@ -275,8 +282,9 @@ def build_demo_payloads(
     topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     subject_areas: list[dict[str, Any]] | None = None,
+    subject_areas_2: list[dict[str, Any]] | None = None,
 ) -> tuple[OrderedDict[str, Any], list[list[Any]], list[list[Any]]]:
-    demo_data = build_demo_data(categories, topics, posts, subject_areas)
+    demo_data = build_demo_data(categories, topics, posts, subject_areas, subject_areas_2)
     keyword_index = build_keyword_index(posts)
     keyword_suggestions = build_keyword_suggestions(keyword_index)
     return demo_data, keyword_index, keyword_suggestions

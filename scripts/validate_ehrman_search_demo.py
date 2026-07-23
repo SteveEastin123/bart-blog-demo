@@ -8,6 +8,7 @@ from typing import Any
 from ehrman_demo_data import (
     DEFAULT_CATEGORIES_PATH,
     DEFAULT_SUBJECT_AREAS_PATH,
+    DEFAULT_SUBJECT_AREAS_2_PATH,
     DEFAULT_DEMO_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_TOPICS_PATH,
@@ -94,6 +95,9 @@ def validate_subject_areas(
     category_names: set[str],
     errors: list[str],
     warnings: list[str],
+    *,
+    label_prefix: str = "Subject areas",
+    allow_shared_categories: bool = False,
 ) -> set[str]:
     subject_area_names: list[str] = []
     linked_categories: list[str] = []
@@ -124,7 +128,7 @@ def validate_subject_areas(
             linked_categories.append(category_name)
 
     if has_case_duplicates(subject_area_names):
-        errors.append("Subject area names include duplicates that differ only by case")
+        errors.append(f"{label_prefix} names include duplicates that differ only by case")
 
     normalized_counts: dict[str, int] = {}
     category_name_by_key = {category.casefold(): category for category in category_names}
@@ -138,7 +142,11 @@ def validate_subject_areas(
         if count > 1
     )
     if duplicated_categories:
-        errors.append("Categories linked to more than one subject area: " + ", ".join(duplicated_categories))
+        message = f"{label_prefix} link categories more than once: " + ", ".join(duplicated_categories)
+        if allow_shared_categories:
+            warnings.append(message)
+        else:
+            errors.append(message)
 
     missing_categories = sorted(
         category
@@ -146,7 +154,7 @@ def validate_subject_areas(
         if normalized_counts.get(category.casefold(), 0) == 0
     )
     if missing_categories:
-        errors.append("Categories missing from subject areas: " + ", ".join(missing_categories))
+        errors.append(f"Categories missing from {label_prefix.lower()}: " + ", ".join(missing_categories))
 
     return {name for name in subject_area_names if name}
 
@@ -272,6 +280,7 @@ def validate_html(
     html_path: Path,
     categories: list[dict[str, Any]],
     subject_areas: list[dict[str, Any]],
+    subject_areas_2: list[dict[str, Any]],
     topics: list[dict[str, Any]],
     posts: list[dict[str, Any]],
     errors: list[str],
@@ -301,7 +310,13 @@ def validate_html(
         errors.append(f"Could not parse embedded demo data from {html_path}: {exc}")
         return
 
-    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(categories, topics, posts, subject_areas)
+    expected_data, expected_keyword_index, expected_keyword_suggestions = build_demo_payloads(
+        categories,
+        topics,
+        posts,
+        subject_areas,
+        subject_areas_2,
+    )
     if embedded_data != expected_data:
         errors.append("Embedded DATA in the HTML is stale; run scripts/build_ehrman_search_demo.py")
     if embedded_keyword_index != expected_keyword_index:
@@ -316,6 +331,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--subject-areas", type=Path, default=DEFAULT_SUBJECT_AREAS_PATH)
+    parser.add_argument("--subject-areas-2", type=Path, default=DEFAULT_SUBJECT_AREAS_2_PATH)
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--html", type=Path, default=DEFAULT_DEMO_PATH)
@@ -340,6 +356,12 @@ def main() -> int:
         return 1
 
     try:
+        subject_areas_2 = load_subject_areas(args.subject_areas_2)
+    except Exception as exc:  # noqa: BLE001
+        print(f"Validation failed: could not load alternate subject areas JSON: {exc}")
+        return 1
+
+    try:
         posts = load_posts(args.search_index)
     except Exception as exc:  # noqa: BLE001
         print(f"Validation failed: could not load search-index JSON: {exc}")
@@ -353,7 +375,21 @@ def main() -> int:
 
     post_topic_counts, all_post_topics = validate_posts(posts, errors, warnings)
     category_names = validate_categories(categories, errors, warnings)
-    subject_area_names = validate_subject_areas(subject_areas, category_names, errors, warnings)
+    subject_area_names = validate_subject_areas(
+        subject_areas,
+        category_names,
+        errors,
+        warnings,
+        label_prefix="Browse Topics 1 subject areas",
+    )
+    subject_area_2_names = validate_subject_areas(
+        subject_areas_2,
+        category_names,
+        errors,
+        warnings,
+        label_prefix="Browse Topics 2 subject areas",
+        allow_shared_categories=True,
+    )
     linked_topics = validate_topics(topics, category_names, post_topic_counts, all_post_topics, errors, warnings)
     unlinked_topics = sorted(
         topic
@@ -368,7 +404,7 @@ def main() -> int:
     if unlinked_topics:
         warnings.append("Topics used by posts but not linked to a category: " + ", ".join(unlinked_topics))
 
-    validate_html(args.html, categories, subject_areas, topics, posts, errors)
+    validate_html(args.html, categories, subject_areas, subject_areas_2, topics, posts, errors)
 
     if errors:
         print("Validation failed:")
@@ -382,7 +418,8 @@ def main() -> int:
 
     print("Validation passed.")
     print(f"Posts: {len(posts):,}")
-    print(f"Subject areas: {len(subject_area_names):,}")
+    print(f"Browse Topics 1 subject areas: {len(subject_area_names):,}")
+    print(f"Browse Topics 2 subject areas: {len(subject_area_2_names):,}")
     print(f"Categories: {len(categories):,}")
     print(f"Unique post topics: {len(all_post_topics):,}")
     print(f"Topic metadata records: {len(linked_topics):,}")

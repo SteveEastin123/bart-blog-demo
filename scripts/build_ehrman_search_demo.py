@@ -8,6 +8,7 @@ from pathlib import Path
 from ehrman_demo_data import (
     DEFAULT_CATEGORIES_PATH,
     DEFAULT_SUBJECT_AREAS_PATH,
+    DEFAULT_SUBJECT_AREAS_2_PATH,
     DEFAULT_DEMO_PATH,
     DEFAULT_SEARCH_INDEX_PATH,
     DEFAULT_TOPICS_PATH,
@@ -44,15 +45,23 @@ def build_demo_html(
     template_html: str,
     categories_path: Path,
     subject_areas_path: Path,
+    subject_areas_2_path: Path,
     topics_path: Path,
     search_index_path: Path,
     search_methods_image_path: Path,
 ) -> tuple[str, dict[str, int]]:
     categories = load_categories(categories_path)
     subject_areas = load_subject_areas(subject_areas_path)
+    subject_areas_2 = load_subject_areas(subject_areas_2_path)
     topics = load_topics(topics_path)
     posts = load_posts(search_index_path)
-    demo_data, keyword_index, keyword_suggestions = build_demo_payloads(categories, topics, posts, subject_areas)
+    demo_data, keyword_index, keyword_suggestions = build_demo_payloads(
+        categories,
+        topics,
+        posts,
+        subject_areas,
+        subject_areas_2,
+    )
 
     html = replace_block(
         template_html,
@@ -79,7 +88,7 @@ def build_demo_html(
     image_markup = (
         f'{SEARCH_METHODS_IMAGE_START}'
         f'<img class="search-methods-image" src="data:{image_mime};base64,{image_data}" '
-        'alt="Diagram comparing Browse by Topic with Keyword Search">'
+        'alt="Diagram comparing topic browsing with keyword search">'
     )
     html = replace_block(html, SEARCH_METHODS_IMAGE_START, SEARCH_METHODS_IMAGE_END, image_markup)
 
@@ -92,6 +101,7 @@ def build_demo_html(
         "posts": len(posts),
         "categories": len(categories),
         "subject_areas": len(subject_areas),
+        "subject_areas_2": len(subject_areas_2),
         "linked_topics": len(linked_topics),
         "keyword_suggestions": len(keyword_suggestions),
     }
@@ -104,6 +114,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES_PATH)
     parser.add_argument("--subject-areas", type=Path, default=DEFAULT_SUBJECT_AREAS_PATH)
+    parser.add_argument("--subject-areas-2", type=Path, default=DEFAULT_SUBJECT_AREAS_2_PATH)
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--search-methods-image", type=Path, default=DEFAULT_SEARCH_METHODS_IMAGE)
@@ -119,6 +130,7 @@ def main() -> int:
         template_html,
         args.categories,
         args.subject_areas,
+        args.subject_areas_2,
         args.topics,
         args.search_index,
         args.search_methods_image,
@@ -130,6 +142,7 @@ def main() -> int:
         "Embedded "
         f"{stats['posts']} posts, "
         f"{stats['subject_areas']} subject areas, "
+        f"{stats['subject_areas_2']} alternate subject areas, "
         f"{stats['categories']} categories, "
         f"{stats['linked_topics']} linked topics, "
         f"{stats['keyword_suggestions']} keyword suggestions."
