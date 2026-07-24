@@ -31,25 +31,19 @@
       ]
     },
     {
-      "name": "Early Christianity and Church History",
-      "description": "Covers Christian origins, early Christian diversity, church fathers, persecution, martyrdom, and church history after the New Testament period.",
+      "name": "Early Christianity, Church History, and Diversity",
+      "description": "Covers Christian origins, early Christian diversity, non-canonical writings, Gnostic movements, orthodoxy and heresy, persecution, martyrdom, church fathers, and later early church history.",
       "categories": [
         "Christian Origins and Expansion",
-        "Early Church History",
-        "Church Fathers",
-        "Persecution and Martyrdom"
-      ]
-    },
-    {
-      "name": "Non-Canonical Texts and Heresy",
-      "description": "Covers non-canonical Christian writings, Gnostic texts, heresy, and early Christian traditions outside the New Testament.",
-      "categories": [
         "Non-Canonical Christian Texts",
-        "Gnosticism, Orthodoxy, and Heresy"
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Persecution and Martyrdom",
+        "Early Church History",
+        "Church Fathers"
       ]
     },
     {
-      "name": "Manuscripts, Canon, and Bible Translation",
+      "name": "Manuscripts, Canon, and Bible Translations",
       "description": "Covers how biblical texts were copied, collected, canonized, translated, and reconstructed from manuscripts and other textual witnesses.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation",
@@ -88,7 +82,7 @@
       ]
     },
     {
-      "name": "Ancient World, Ethics, and Social Issues",
+      "name": "Ancient Society, Ethics, and Social Issues",
       "description": "Covers the ancient social, cultural, and political world around biblical texts, including Roman context, ethics, wealth and poverty, gender, and sexuality.",
       "categories": [
         "Ancient World and Social Context",
