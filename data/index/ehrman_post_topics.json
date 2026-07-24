@@ -4,8 +4,7 @@
       "name": "2 Thessalonians",
       "description": "Posts on 2 Thessalonians, including authorship, forgery, apocalyptic expectation, further reading, and later interpretation.",
       "categories": [
-        "Epistles",
-        "Pauline Letters and Textual Issues"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1350,7 +1349,7 @@
       "name": "Non-Pauline Epistle Forgeries",
       "description": "Covers forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
       "categories": [
-        "Epistles",
+        "Non-Pauline Epistles",
         "Forgery"
       ],
       "displayInBrowser": true
@@ -1359,7 +1358,7 @@
       "name": "Non-Pauline Epistles",
       "description": "Covers Hebrews, James, 1-2 Peter, the Johannine letters, Jude, and other New Testament letters not attributed to Paul.",
       "categories": [
-        "Epistles"
+        "Non-Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1368,7 +1367,7 @@
       "description": "Posts on authorship questions in Hebrews, Jude, 1 Peter, the Johannine letters, and other New Testament epistles not attributed to Paul.",
       "categories": [
         "Authorship",
-        "Epistles"
+        "Non-Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1532,8 +1531,7 @@
       "description": "Posts on which letters Paul wrote, which letters are disputed, and how scholars use style, theology, historical setting, and comparison with undisputed letters to assess authorship.",
       "categories": [
         "Authorship",
-        "Epistles",
-        "Pauline Letters and Textual Issues"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1574,9 +1572,8 @@
       "name": "Pauline Forgeries",
       "description": "Covers letters falsely attributed to Paul, including disputed Pauline letters, pseudepigraphy, motives for forgery, and debates over authenticity.",
       "categories": [
-        "Epistles",
         "Forgery",
-        "Pauline Letters and Textual Issues"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1584,8 +1581,7 @@
       "name": "Composite Pauline Letters",
       "description": "Covers arguments that some Pauline letters, especially 2 Corinthians and Philippians, may combine originally separate letters or fragments.",
       "categories": [
-        "Epistles",
-        "Pauline Letters and Textual Issues"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1593,8 +1589,7 @@
       "name": "Pauline Letters",
       "description": "Posts on Paul's letters as a group, including lost letters, individual epistles, interpretation, communities, and broader questions about Paul's correspondence.",
       "categories": [
-        "Epistles",
-        "Pauline Letters and Textual Issues"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1611,7 +1606,7 @@
       "name": "Pauline Textual Issues",
       "description": "Posts on textual issues in Paul's letters, including variants, interpolations, scribal changes, manuscript evidence, dictation, and questions about the original text.",
       "categories": [
-        "Pauline Letters and Textual Issues",
+        "Pauline Epistles",
         "Textual Criticism"
       ],
       "displayInBrowser": true
@@ -1628,7 +1623,6 @@
       "name": "Persecution in the Epistles",
       "description": "Covers persecution, suffering, opposition, and endurance as addressed in New Testament letters such as 1 Peter, Hebrews, 1 Thessalonians, and 2 Thessalonians.",
       "categories": [
-        "Epistles",
         "Persecution and Martyrdom"
       ],
       "displayInBrowser": true
@@ -1654,8 +1648,7 @@
       "name": "Philippians",
       "description": "Posts on Philippians, including authorship, composition, textual problems, further reading, and the letter's place among Paul's writings.",
       "categories": [
-        "Epistles",
-        "Pauline Letters and Textual Issues"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1664,7 +1657,7 @@
       "description": "Covers Philippians 2:6-11, including Christ's status, humility, exaltation, and possible preexistence or incarnation.",
       "categories": [
         "Christology",
-        "Epistles",
+        "Pauline Epistles",
         "Pauline Thought and Practice"
       ],
       "displayInBrowser": true

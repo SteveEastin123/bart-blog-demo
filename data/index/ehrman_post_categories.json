@@ -182,20 +182,12 @@
       ]
     },
     {
-      "name": "Epistles",
-      "description": "Covers New Testament epistles, including Pauline and non-Pauline letters, authorship, forgery, letter composition, persecution, and individual letters such as Philippians and 2 Thessalonians.",
+      "name": "Non-Pauline Epistles",
+      "description": "Covers New Testament epistles outside the Pauline corpus, including their contents, authorship, possible forgeries, and historical settings.",
       "topicOrder": [
-        "Pauline Letters",
-        "Composite Pauline Letters",
-        "Pauline Authorship",
-        "Pauline Forgeries",
-        "Philippians",
-        "Philippians 2 Christ Poem",
-        "2 Thessalonians",
         "Non-Pauline Epistles",
         "Non-Pauline Epistle Authorship",
-        "Non-Pauline Epistle Forgeries",
-        "Persecution in the Epistles"
+        "Non-Pauline Epistle Forgeries"
       ]
     },
     {
@@ -418,16 +410,17 @@
       ]
     },
     {
-      "name": "Pauline Letters and Textual Issues",
-      "description": "Covers Paul's letters, including disputed authorship, Pauline forgeries, composite letters, textual variants, original-text problems, Philippians, 2 Thessalonians, and the transmission of Pauline writings.",
+      "name": "Pauline Epistles",
+      "description": "Covers letters written by or attributed to Paul, including individual letters, disputed authorship, possible forgeries, composite letters, textual issues, and the transmission of Pauline writings.",
       "topicOrder": [
         "Pauline Letters",
-        "Philippians",
-        "2 Thessalonians",
         "Composite Pauline Letters",
         "Pauline Authorship",
         "Pauline Forgeries",
-        "Pauline Textual Issues"
+        "Pauline Textual Issues",
+        "Philippians",
+        "Philippians 2 Christ Poem",
+        "2 Thessalonians"
       ]
     },
     {
