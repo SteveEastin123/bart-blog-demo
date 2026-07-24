@@ -1,33 +1,34 @@
 {
   "subjectAreas": [
     {
-      "name": "Jesus, the Gospels and Acts",
-      "description": "Covers the canonical Gospels, Acts, historical study of Jesus, traditions about his birth, teachings, death, burial, and resurrection, and other New Testament figures.",
+      "name": "New Testament Writings",
+      "description": "Covers the canonical Gospels, Acts, Pauline letters, non-Pauline epistles, and Revelation, including their authorship, sources, dating, historical reliability, textual issues, transmission, and interpretation.",
       "categories": [
         "Canonical Gospels and Acts",
+        "Pauline Letters and Textual Issues",
+        "Epistles",
+        "Revelation and End-Time Interpretation"
+      ]
+    },
+    {
+      "name": "Jesus and Paul",
+      "description": "Covers historical study of Jesus and Paul, traditions about Jesus' life and teachings, other New Testament figures, and Paul's life, mission, communities, theology, and ethics.",
+      "categories": [
         "The Historical Jesus",
         "Jesus' Birth, Family, and Miracles",
         "Jesus' Teachings and Social World",
         "Jesus' Death, Burial, and Resurrection",
-        "New Testament Figures"
-      ]
-    },
-    {
-      "name": "Paul and the Epistles",
-      "description": "Covers Paul's life, mission, communities, letters, theology, ethics, and the broader collection of New Testament epistles.",
-      "categories": [
+        "New Testament Figures",
         "Paul's Life, Mission, and Communities",
-        "Pauline Letters and Textual Issues",
-        "Pauline Thought and Practice",
-        "Epistles"
+        "Pauline Thought and Practice"
       ]
     },
     {
-      "name": "Early Christian History",
-      "description": "Covers Christian origins, early expansion, canonical and non-canonical writings, persecution, martyrdom, church history, and the church fathers.",
+      "name": "Early Christianity and Ancient Context",
+      "description": "Covers Christian origins, early expansion, non-canonical writings, persecution, martyrdom, church history, the church fathers, and the wider Roman and Greco-Roman setting of early Christianity.",
       "categories": [
         "Christian Origins and Expansion",
-        "Canonical Gospels and Acts",
+        "Ancient World and Social Context",
         "Non-Canonical Christian Texts",
         "Persecution and Martyrdom",
         "Early Church History",
@@ -46,11 +47,10 @@
       ]
     },
     {
-      "name": "Afterlife, Revelation, and Supernatural Claims",
-      "description": "Covers beliefs about life after death, the Book of Revelation and the end times, miracles, visions, and other supernatural claims.",
+      "name": "Afterlife and Supernatural Claims",
+      "description": "Covers beliefs about life after death, resurrection, heaven and hell, miracles, visions, and other supernatural claims.",
       "categories": [
         "Afterlife",
-        "Revelation and End-Time Interpretation",
         "Miracles and Supernatural Claims"
       ]
     },
@@ -64,17 +64,16 @@
       ]
     },
     {
-      "name": "Hebrew Bible, Early Judaism, and Ancient Context",
-      "description": "Covers Hebrew Bible texts and traditions, early Jewish groups and beliefs, and the wider social, political, and religious setting of the ancient world.",
+      "name": "Hebrew Bible and Early Judaism",
+      "description": "Covers Hebrew Bible texts and traditions, early Jewish groups, Jewish beliefs, apocalyptic expectations, scripture, law, and the historical development of early Judaism.",
       "categories": [
         "Hebrew Bible Texts and Traditions",
-        "Early Judaism",
-        "Ancient World and Social Context"
+        "Early Judaism"
       ]
     },
     {
       "name": "Texts, Manuscripts, and Methods",
-      "description": "Covers how ancient texts were transmitted, remembered, written, attributed, collected, copied, evaluated, translated, and studied using historical and textual methods.",
+      "description": "Covers how biblical and early Christian traditions were composed, remembered, attributed, collected, copied, translated, interpreted, and evaluated through historical and textual methods.",
       "categories": [
         "Historical and Critical Methods",
         "Memory, Oral Tradition, and Eyewitnesses",
