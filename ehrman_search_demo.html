@@ -667,6 +667,29 @@
       max-width: 75ch;
     }
 
+    .keyword-scope-row {
+      margin: 0 0 12px;
+    }
+
+    .keyword-scope {
+      align-items: center;
+      background: #f7f2ed;
+      border: 1px solid #d7c9a5;
+      border-radius: 4px;
+      color: #000000;
+      display: inline-flex;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      gap: 6px;
+      line-height: 22px;
+      padding: 9px 11px;
+    }
+
+    .keyword-scope strong {
+      color: var(--maroon);
+      font-weight: 700;
+    }
+
     .keyword-search-panel .keyword-search-input {
       border: 1px solid var(--line);
       border-radius: 4px;
@@ -31889,6 +31912,20 @@ const DATA = {
       const contextTerms = input ? keywordContextTerms(input, inputs) : [];
       const hasContext = contextTerms.length > 0;
       const scopeArticleIndexes = options.scopeArticleIndexes || null;
+      const allowedTopicNormalized = options.allowedTopicNormalized || null;
+      const scopeSecondaryKeywordNormalized = options.scopeSecondaryKeywordNormalized || null;
+      const scopedSuggestionType = (normalized, isTopic) => {
+        if (!isTopic || !allowedTopicNormalized) {
+          return isTopic;
+        }
+        if (allowedTopicNormalized.has(normalized)) {
+          return true;
+        }
+        if (scopeSecondaryKeywordNormalized && scopeSecondaryKeywordNormalized.has(normalized)) {
+          return false;
+        }
+        return null;
+      };
       if (!query) {
         const isFirstInput = input && Number(input.dataset.keywordIndex) === 1;
         if (isFirstInput && !hasContext && !scopeArticleIndexes) {
@@ -31896,13 +31933,17 @@ const DATA = {
         }
         const matches = [];
         KEYWORD_SUGGESTIONS.forEach(([label, count, normalized, isTopic]) => {
+          const scopedIsTopic = scopedSuggestionType(normalized, isTopic);
+          if (scopedIsTopic === null) {
+            return;
+          }
           const contextualCount = hasContext
             ? keywordMatchCountForTermsInScope([...contextTerms, normalized], scopeArticleIndexes)
             : (scopeArticleIndexes ? keywordMatchCountForTermsInScope([normalized], scopeArticleIndexes) : count);
           if ((hasContext || scopeArticleIndexes) && contextualCount === 0) {
             return;
           }
-          matches.push([label, contextualCount, normalized, isTopic]);
+          matches.push([label, contextualCount, normalized, scopedIsTopic]);
         });
         sortContextualSuggestions(matches);
         return matches.slice(0, MAX_KEYWORD_SUGGESTIONS);
@@ -31910,6 +31951,10 @@ const DATA = {
       const prefixMatches = [];
       const wordMatches = [];
       KEYWORD_SUGGESTIONS.forEach(([label, count, normalized, isTopic]) => {
+        const scopedIsTopic = scopedSuggestionType(normalized, isTopic);
+        if (scopedIsTopic === null) {
+          return;
+        }
         const isPrefixMatch = normalized.startsWith(query);
         const isWordMatch = !isPrefixMatch && normalized.split(' ').some(word => word.startsWith(query));
         if (!isPrefixMatch && !isWordMatch) {
@@ -31922,11 +31967,11 @@ const DATA = {
           return;
         }
         if (isPrefixMatch) {
-          prefixMatches.push([label, contextualCount, normalized, isTopic]);
+          prefixMatches.push([label, contextualCount, normalized, scopedIsTopic]);
           return;
         }
         if (isWordMatch) {
-          wordMatches.push([label, contextualCount, normalized, isTopic]);
+          wordMatches.push([label, contextualCount, normalized, scopedIsTopic]);
         }
       });
       sortContextualSuggestions(prefixMatches, query);
@@ -32269,6 +32314,7 @@ const DATA = {
       const includeSort = Boolean(options.includeSort);
       const includeDescriptionToggle = Boolean(options.includeDescriptionToggle);
       const descriptionsChecked = Boolean(options.descriptionsChecked);
+      const scopeLabel = String(options.scopeLabel || '').trim();
       const cleanValues = uniqueKeywordValues(values).slice(0, MAX_SELECTED_KEYWORDS);
       const nextKeywordIndex = cleanValues.length + 1;
       const keywordEntry = keywordInputMarkup(1, '').replace('Keyword 1', `Keyword ${Math.min(nextKeywordIndex, MAX_SELECTED_KEYWORDS)}`);
@@ -32293,9 +32339,15 @@ const DATA = {
         </div>
       ` : '';
       const descriptionTogglePanel = includeDescriptionToggle ? descriptionToggleMarkup(descriptionsChecked, 'posts') : '';
+      const scopeMarkup = scopeLabel ? `
+        <div class="keyword-scope-row" aria-label="Search scope">
+          <span class="keyword-scope"><strong>Category:</strong> ${escapeHtml(scopeLabel)}</span>
+        </div>
+      ` : '';
       return `
         <form id="keyword-search-form" class="keyword-search-panel">
           <label for="keyword-search-input-1">Enter up to four keywords. Keywords can be single words or phrases. Each additional keyword narrows the results.</label>
+          ${scopeMarkup}
           <div class="keyword-search-controls">
             <div class="keyword-slot-grid" data-keyword-chip-list>
               ${cleanValues.map(keywordChipMarkup).join('')}
@@ -32888,7 +32940,7 @@ const DATA = {
               ${breadcrumbMarkup(categoryBreadcrumbItems(index, '', context))}
               <h1>${escapeHtml(category.name)}</h1>
               <p class="meta">${pluralize(category.topics.length, 'topic', 'topics')} &bull; ${pluralize(postCount, 'post', 'posts')}</p>
-              <p class="meta"><a href="${categoryPostsUrl(index, '', 'best', context)}">View all posts in this category</a></p>
+              <p class="meta"><a href="${categoryPostsUrl(index, '', 'best', context)}">View all ${pluralize(postCount, 'post', 'posts')} in this category</a></p>
             </header>
             ${descriptionToggleMarkup()}
             <ul class="post-list">${items}</ul>
@@ -32909,6 +32961,13 @@ const DATA = {
 
       const articles = categoryArticles(category);
       const scopeArticleIndexes = articleIndexesForArticleList(articles);
+      const allowedTopicNormalized = new Set(category.topics.map(normalizeKeywordSearchValue));
+      const scopeSecondaryKeywordNormalized = new Set();
+      scopeArticleIndexes.forEach(articleIndex => {
+        (KEYWORD_INDEX[articleIndex]?.[6] || []).forEach(([, normalized]) => {
+          scopeSecondaryKeywordNormalized.add(normalized);
+        });
+      });
       const displayedArticles = sortTopicArticles(filterArticlesByKeywordQuery(articles, urlQuery), sort, urlQuery);
 
       app.innerHTML = `
@@ -32920,7 +32979,7 @@ const DATA = {
               <h1>${escapeHtml(category.name)}</h1>
               <p id="topic-article-count" class="meta">${pluralize(displayedArticles.length, 'post', 'posts')}</p>
             </header>
-            ${keywordSearchFormMarkup(keywordInputValuesFromQuery(urlQuery), { includeSort: true, sort, includeDescriptionToggle: displayedArticles.length > 0, descriptionsChecked: true })}
+            ${keywordSearchFormMarkup(keywordInputValuesFromQuery(urlQuery), { includeSort: true, sort, includeDescriptionToggle: displayedArticles.length > 0, descriptionsChecked: true, scopeLabel: category.name })}
             ${resultsSummaryMarkup(displayedArticles.length, urlQuery)}
             <div id="topic-article-results">
               ${topicArticleResultsMarkup(displayedArticles, 'No posts are currently linked to this category.', category.name)}
@@ -32930,6 +32989,8 @@ const DATA = {
       `;
       setupKeywordSearchForm('best', {
         scopeArticleIndexes,
+        allowedTopicNormalized,
+        scopeSecondaryKeywordNormalized,
         onSubmit: ({ query, sort }) => {
           const nextHash = categoryPostsUrl(categoryIndex, query, sort, context);
           if (window.location.hash === nextHash) {

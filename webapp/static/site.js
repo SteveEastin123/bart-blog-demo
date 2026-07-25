@@ -79,6 +79,9 @@
     const params = new URLSearchParams();
     params.set("q", input.value.trim());
     selectedValues(form, input).forEach((value) => params.append("selected", value));
+    if (form.dataset.categorySlug) {
+      params.set("category", form.dataset.categorySlug);
+    }
     const response = await fetch("/api/keywords?" + params.toString());
     const suggestions = await response.json();
     list.innerHTML = "";
@@ -155,7 +158,10 @@
   }
 
   function keywordSearchUrl(form, input) {
-    const params = new URLSearchParams();
+    const target = new URL(form.getAttribute("action") || "/keyword-results", window.location.origin);
+    const params = target.searchParams;
+    params.delete("keyword");
+    params.delete("sort");
     uniqueKeywordValues([...selectedValues(form, input), input.value]).forEach((value) =>
       params.append("keyword", value)
     );
@@ -163,8 +169,11 @@
     if (selectedSort && selectedSort.value && selectedSort.value !== "ranked") {
       params.set("sort", selectedSort.value);
     }
+    if (!params.has("keyword") && target.pathname === "/keyword-results") {
+      return "/keyword-search";
+    }
     const queryString = params.toString();
-    return queryString ? `/keyword-results?${queryString}` : "/keyword-search";
+    return target.pathname + (queryString ? `?${queryString}` : "");
   }
 
   function addKeywordChip(form, input, value) {

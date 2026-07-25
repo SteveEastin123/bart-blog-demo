@@ -622,6 +622,11 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
         f"{pluralize(len(topics), 'topic')} \u2022 {pluralize(post_count, 'post')}",
         "",
         inner,
+        actions=(
+            f'<a href="{esc(category_posts_href(category, source, subject_area_slug, subject_area_set))}">'
+            f"View all {esc(pluralize(post_count, 'post'))} in this category"
+            "</a>"
+        ),
         toggle_descriptions=True,
         breadcrumbs=breadcrumbs,
     )
@@ -634,6 +639,9 @@ def keyword_panel(
     descriptions_checked: bool = False,
     refresh_on_remove: bool = False,
     sort_current_page: bool = False,
+    form_action: str = "/keyword-results",
+    scope_label: str = "",
+    scope_slug: str = "",
 ) -> str:
     values = unique_terms(prefill)[:4]
     options = (
@@ -675,9 +683,20 @@ def keyword_panel(
     )
     refresh_attr = ' data-refresh-on-remove="true"' if refresh_on_remove else ""
     sort_attr = ' data-sort-current-page="true"' if sort_current_page else ""
+    scope_attr = f' data-category-slug="{esc(scope_slug)}"' if scope_slug else ""
+    scope_markup = (
+        f"""
+        <div class="keyword-scope-row" aria-label="Search scope">
+          <span class="keyword-scope"><strong>Category:</strong> {esc(scope_label)}</span>
+        </div>
+        """
+        if scope_label
+        else ""
+    )
     return f"""
-    <form class="keyword-search-panel" action="/keyword-results" method="get" data-keyword-form{refresh_attr}{sort_attr}>
+    <form class="keyword-search-panel" action="{esc(form_action)}" method="get" data-keyword-form{refresh_attr}{sort_attr}{scope_attr}>
       <label>Enter up to four keywords. Keywords can be single words or phrases. Each additional keyword narrows the results.</label>
+      {scope_markup}
       <div class="keyword-grid">
         <div class="keyword-slot-grid" data-keyword-chip-list>
           {chips}
@@ -700,16 +719,17 @@ def keyword_panel(
     """
 
 
-def results_summary(post_count: int, terms: list[str]) -> str:
+def results_summary(post_count: int, terms: list[str], scope_label: str = "") -> str:
     clean_terms = unique_terms(terms)
     if not clean_terms:
         return ""
     count_label = pluralize(post_count, "post")
     verb = "matches" if post_count == 1 else "match"
     query_label = " + ".join(clean_terms)
+    scope_text = f" in {esc(scope_label)}" if scope_label else ""
     return (
         f'<p class="results-summary" aria-live="polite">'
-        f'<strong>{esc(count_label)}</strong> {verb} <strong>{esc(query_label)}</strong>.'
+        f'<strong>{esc(count_label)}</strong>{scope_text} {verb} <strong>{esc(query_label)}</strong>.'
         "</p>"
     )
 
@@ -818,6 +838,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
 
 def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
+    clean_terms = unique_terms(query.get("keyword", []))
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
     subject_area_set = normalize_subject_area_set(query.get("subject-area-set", ["1"])[0])
@@ -845,15 +866,37 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
             """,
             (category["id"],),
         ).fetchall()
-    posts = sort_scoped_posts(posts, sort, [])
+        category_post_ids = {int(post["id"]) for post in posts}
+        matches: dict[int, int] = {post_id: 0 for post_id in category_post_ids}
+        for term in clean_terms:
+            term_matches = find_post_ids_for_term(conn, term)
+            matches = {
+                post_id: score + term_matches[post_id]
+                for post_id, score in matches.items()
+                if post_id in term_matches
+            }
+        if clean_terms:
+            posts = [post for post in posts if int(post["id"]) in matches]
+    posts = sort_scoped_posts(posts, sort, clean_terms, matches if clean_terms else None)
+    form_action = category_posts_href(
+        category,
+        source,
+        subject_area_slug,
+        subject_area_set,
+    )
     inner = keyword_panel(
-        [],
+        clean_terms,
         sort,
         descriptions_checked=True,
-        sort_current_page=True,
-    ) + post_list(posts, category["name"])
-    body = content_page(f"{category['name']} Posts", pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
-    return render_page(f"{category['name']} Posts", body, active=active_key)
+        refresh_on_remove=True,
+        form_action=form_action,
+        scope_label=category["name"],
+        scope_slug=category["slug"],
+    )
+    inner += results_summary(len(posts), clean_terms, category["name"])
+    inner += post_list(posts, category["name"])
+    body = content_page(category["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
+    return render_page(category["name"], body, active=active_key)
 
 
 def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int]:
@@ -891,13 +934,15 @@ def sort_scoped_posts(
     posts: list[sqlite3.Row],
     sort: str,
     ranking_terms: list[str],
+    relevance_scores: dict[int, int] | None = None,
 ) -> list[sqlite3.Row]:
     if sort not in {"ranked", "newest", "oldest"}:
         sort = "ranked"
 
     def sort_key(row: sqlite3.Row) -> tuple[object, ...]:
         if sort == "ranked":
-            relevance = sum(title_match_boost(row["title"], term) for term in ranking_terms)
+            relevance = (relevance_scores or {}).get(int(row["id"]), 0)
+            relevance += sum(title_match_boost(row["title"], term) for term in ranking_terms)
             return (relevance, row["date_iso"], row["id"])
         return (row["date_iso"], row["id"])
 
@@ -993,12 +1038,38 @@ def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, obje
 def api_keywords(query: dict[str, list[str]]) -> bytes:
     q = normalize_keyword(query.get("q", [""])[0])
     selected = [value for value in query.get("selected", []) if value.strip()]
+    category_slug = query.get("category", [""])[0].strip()
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
+    allowed_category_topics: list[str] = []
     limit = 48
     with get_conn() as conn:
-        if not q and not selected_normalized:
+        if not q and not selected_normalized and not category_slug:
             return json.dumps(starter_keyword_suggestions(conn), ensure_ascii=False).encode("utf-8")
         selected_ids: set[int] | None = None
+        if category_slug:
+            category = conn.execute("SELECT id FROM categories WHERE slug = ?", (category_slug,)).fetchone()
+            if not category:
+                return json.dumps([], ensure_ascii=False).encode("utf-8")
+            category_rows = conn.execute(
+                """
+                SELECT DISTINCT pt.post_id
+                FROM post_topics pt
+                JOIN topic_categories tc ON tc.topic_id = pt.topic_id
+                WHERE tc.category_id = ?
+                """,
+                (category["id"],),
+            ).fetchall()
+            selected_ids = {int(row["post_id"]) for row in category_rows}
+            topic_rows = conn.execute(
+                """
+                SELECT t.name
+                FROM topics t
+                JOIN topic_categories tc ON tc.topic_id = t.id
+                WHERE tc.category_id = ? AND t.display_in_browser = 1
+                """,
+                (category["id"],),
+            ).fetchall()
+            allowed_category_topics = [row["name"] for row in topic_rows]
         for value in selected:
             matches = set(find_post_ids_for_term(conn, value).keys())
             selected_ids = matches if selected_ids is None else selected_ids & matches
@@ -1015,6 +1086,13 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             placeholders = ",".join("?" for _ in selected_ids)
             where += f" AND post_id IN ({placeholders})"
             params.extend(sorted(selected_ids))
+        if category_slug:
+            if allowed_category_topics:
+                placeholders = ",".join("?" for _ in allowed_category_topics)
+                where += f" AND (kind <> 'topic' OR label IN ({placeholders}))"
+                params.extend(allowed_category_topics)
+            else:
+                where += " AND kind <> 'topic'"
         if selected_normalized:
             placeholders = ",".join("?" for _ in selected_normalized)
             where += f" AND normalized NOT IN ({placeholders})"
@@ -1043,15 +1121,61 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             """,
             (q, prefix_like, word_prefix_like, *params),
         ).fetchall()
+        candidate_normalized = {row["normalized"] for row in rows}
+        count_params: tuple[object, ...] = ()
+        count_where = ""
+        if selected_ids is not None:
+            placeholders = ",".join("?" for _ in selected_ids)
+            count_where = f"WHERE post_id IN ({placeholders})"
+            count_params = tuple(sorted(selected_ids))
+        count_rows = conn.execute(
+            f"""
+            SELECT DISTINCT post_id, normalized
+            FROM post_search_terms
+            {count_where}
+            """,
+            count_params,
+        ).fetchall()
+        matching_posts: dict[str, set[int]] = {value: set() for value in candidate_normalized}
+        for count_row in count_rows:
+            indexed_value = count_row["normalized"]
+            padded_indexed_value = f" {indexed_value} "
+            post_id = int(count_row["post_id"])
+            for candidate in candidate_normalized:
+                if indexed_value == candidate or f" {candidate} " in padded_indexed_value:
+                    matching_posts[candidate].add(post_id)
+
+        suggestions = []
+        for row in rows:
+            post_count = len(matching_posts[row["normalized"]])
+            if not post_count:
+                continue
+            suggestions.append(
+                {
+                    "label": row["label"],
+                    "normalized": row["normalized"],
+                    "postCount": post_count,
+                    "isTopic": bool(row["is_topic"]),
+                    "matchQuality": int(row["match_quality"]),
+                }
+            )
+    suggestions.sort(
+        key=lambda suggestion: (
+            -suggestion["matchQuality"],
+            -int(suggestion["isTopic"]),
+            -suggestion["postCount"],
+            suggestion["label"].casefold(),
+        )
+    )
     return json.dumps(
         [
             {
-                "label": row["label"],
-                "normalized": row["normalized"],
-                "postCount": row["post_count"],
-                "isTopic": bool(row["is_topic"]),
+                "label": suggestion["label"],
+                "normalized": suggestion["normalized"],
+                "postCount": suggestion["postCount"],
+                "isTopic": suggestion["isTopic"],
             }
-            for row in rows
+            for suggestion in suggestions
         ],
         ensure_ascii=False,
     ).encode("utf-8")

@@ -531,6 +531,27 @@ a:hover {
   max-width: 75ch;
 }
 
+.keyword-scope-row {
+  margin: 0 0 12px;
+}
+
+.keyword-scope {
+  align-items: center;
+  background: #f7f2ed;
+  border: 1px solid #d7c9a5;
+  border-radius: 4px;
+  color: #000000;
+  display: inline-flex;
+  font: 15px/22px "Open Sans", Arial, Helvetica, sans-serif;
+  gap: 6px;
+  padding: 9px 11px;
+}
+
+.keyword-scope strong {
+  color: var(--maroon);
+  font-weight: 700;
+}
+
 .keyword-grid {
   display: flex;
   flex-direction: column;
