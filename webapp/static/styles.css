@@ -396,6 +396,24 @@ a:hover {
   margin-top: 16px;
 }
 
+.category-posts-link {
+  background: var(--link);
+  border: 1px solid var(--link);
+  border-radius: 4px;
+  color: #ffffff;
+  display: inline-flex;
+  font: 700 15px/22px "Open Sans", Arial, Helvetica, sans-serif;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.category-posts-link:hover,
+.category-posts-link:focus-visible {
+  background: var(--link-hover);
+  border-color: var(--link-hover);
+  color: #ffffff;
+}
+
 .button-link,
 .keyword-search-panel button[type="submit"] {
   background: var(--link);

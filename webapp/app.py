@@ -623,7 +623,7 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
         "",
         inner,
         actions=(
-            f'<a href="{esc(category_posts_href(category, source, subject_area_slug, subject_area_set))}">'
+            f'<a class="category-posts-link" href="{esc(category_posts_href(category, source, subject_area_slug, subject_area_set))}">'
             f"View all {esc(pluralize(post_count, 'post'))} in this category"
             "</a>"
         ),

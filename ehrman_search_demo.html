@@ -467,6 +467,32 @@
       text-underline-offset: 3px;
     }
 
+    .category-posts-action {
+      margin: 16px 0 0;
+    }
+
+    .content-header .category-posts-link {
+      background: var(--link);
+      border: 1px solid var(--link);
+      border-radius: 4px;
+      color: #ffffff;
+      display: inline-flex;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 22px;
+      padding: 10px 15px;
+      text-decoration: none;
+    }
+
+    .content-header .category-posts-link:hover,
+    .content-header .category-posts-link:focus-visible {
+      background: var(--link-hover);
+      border-color: var(--link-hover);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
     .post-list {
       list-style: none;
       margin: 0;
@@ -32940,7 +32966,7 @@ const DATA = {
               ${breadcrumbMarkup(categoryBreadcrumbItems(index, '', context))}
               <h1>${escapeHtml(category.name)}</h1>
               <p class="meta">${pluralize(category.topics.length, 'topic', 'topics')} &bull; ${pluralize(postCount, 'post', 'posts')}</p>
-              <p class="meta"><a href="${categoryPostsUrl(index, '', 'best', context)}">View all ${pluralize(postCount, 'post', 'posts')} in this category</a></p>
+              <p class="category-posts-action"><a class="category-posts-link" href="${categoryPostsUrl(index, '', 'best', context)}">View all ${pluralize(postCount, 'post', 'posts')} in this category</a></p>
             </header>
             ${descriptionToggleMarkup()}
             <ul class="post-list">${items}</ul>
