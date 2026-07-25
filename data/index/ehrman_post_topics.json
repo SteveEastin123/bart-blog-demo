@@ -1355,14 +1355,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Non-Pauline Epistles (General)",
-      "description": "Covers Hebrews, James, 1-2 Peter, the Johannine letters, Jude, and other New Testament letters not attributed to Paul.",
-      "categories": [
-        "Non-Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Non-Pauline Epistle Authorship",
       "description": "Posts on authorship questions in Hebrews, Jude, 1 Peter, the Johannine letters, and other New Testament epistles not attributed to Paul.",
       "categories": [
@@ -2049,6 +2041,166 @@
       "description": "Posts on claims that Jesus supported armed resistance to Rome, including the temple incident, zealot interpretations, Roman rule, and Bart's critique of the hypothesis.",
       "categories": [
         "The Historical Jesus"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Moses",
+      "description": "Covers traditions and historical questions about Moses, including the Exodus, Sinai, Mosaic law, death, literacy, and attribution of the Pentateuch.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Enoch Traditions",
+      "description": "Covers Enoch and writings attributed to him, including 1-2 Enoch, heavenly journeys, angelic transformation, afterlife traditions, and the use of Enochic writings.",
+      "categories": [
+        "Early Judaism"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Book of Isaiah",
+      "description": "Covers the composition and message of Isaiah, Isaiah 7 and 53, the suffering servant, virgin-birth interpretation, and Christian readings of the book.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Book of Daniel",
+      "description": "Covers Daniel's court stories, apocalyptic visions, resurrection teaching, prophecies, and additions to the book.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Romans",
+      "description": "Covers Paul's Letter to the Romans, including its purpose, mission setting, salvation models, Christology, and women apostles.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "1 Corinthians",
+      "description": "Covers 1 Corinthians, including the Corinthian community, the crucified messiah, resurrection, Christian love, women in worship, and textual questions.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "2 Corinthians",
+      "description": "Covers 2 Corinthians, especially its historical setting and arguments that the surviving text combines multiple Pauline letters.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Galatians",
+      "description": "Covers Galatians, including Gentile circumcision, Jewish Law, Paul's opponents, relations with the Jerusalem apostles, Christology, and authorship.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Ephesians",
+      "description": "Covers Ephesians, including its message, purpose, writing style, disputed authorship, and possible composition in Paul's name by a later author.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Colossians",
+      "description": "Covers Colossians, including its message, purpose, date, disputed authorship, and arguments that it was written in Paul's name by someone else.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "1 Thessalonians",
+      "description": "Covers 1 Thessalonians as Paul's earliest surviving letter, including its purpose, expectations of Jesus' return, later rapture interpretations, and textual problems.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Philemon",
+      "description": "Covers Paul's Letter to Philemon, especially Onesimus, slavery, social ethics, apostolic authority, and whether Paul challenged the institution of slavery.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Pastoral Epistles",
+      "description": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Hebrews",
+      "description": "Covers Hebrews, including its authorship, date, audience, teachings about Christ and salvation, and questions about Jesus' earthly existence.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Letter of James",
+      "description": "Covers the Letter of James, including its authorship, relationship to James the brother of Jesus, teachings about faith and works, and possible response to Paul.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "1 Peter",
+      "description": "Covers 1 Peter, including its authorship, ancient literacy, possible use of secretaries, relationship to Pauline traditions, and teachings about persecution and suffering.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "2 Peter",
+      "description": "Covers 2 Peter, including its authorship, possible pseudepigraphy, disputed canonical status, warnings against false teachers, and expectation of judgment.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "1 John",
+      "description": "Covers 1 John, including its authorship, Christology, community conflict, false teachers, and important textual variants such as the Johannine Comma.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Johannine Epistles",
+      "description": "Covers the Johannine epistles collectively, including their authorship, community setting, possible pseudepigraphy, and the contents of 2 and 3 John.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Letter of Jude",
+      "description": "Covers the Letter of Jude, including its authorship, possible pseudepigraphy, opposition to false teachers, angelic beings, and use of Jewish apocalyptic traditions.",
+      "categories": [
+        "Non-Pauline Epistles"
       ],
       "displayInBrowser": true
     }

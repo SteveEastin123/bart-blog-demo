@@ -415,9 +415,9 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces three ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong>, <strong>Browse Topics 1</strong>, and <strong>Browse Topics 2</strong>.</p>
+        <p>This demo introduces two new ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>. Two alternative Browse Topics structures are included for evaluation; only one will be used in the final product.</p>
         <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords. It is designed for readers who already know what they are looking for.</p>
-        <p><strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> provide two ways to explore the same collection of posts. Each uses a different arrangement of broad subject areas, followed by categories, topics, and related posts. User feedback will help determine which approach is used in the final version.</p>
+        <p><strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> let readers explore the same collection of posts through different arrangements of subject areas, categories, topics, and related posts.</p>
         <figure class="search-methods-figure">
           <img class="search-methods-image" src="/static/ehrman-search-methods.png" alt="Diagram comparing topic browsing with keyword search">
         </figure>
