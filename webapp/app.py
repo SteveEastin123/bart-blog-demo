@@ -423,9 +423,9 @@ def home_page() -> bytes:
     <section class="site-home">
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
-        <p>This demo introduces two new ways to find topics of interest on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>. Two alternative Browse Topics structures are included for evaluation; only one will be used in the final product.</p>
-        <p><strong>Keyword Search</strong> lets readers find posts by entering up to four keywords. It is designed for readers who already know what they are looking for.</p>
-        <p><strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> let readers explore the same collection of posts through different arrangements of subject areas, categories, topics, and related posts.</p>
+        <p>This demo offers two ways to discover posts on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>.</p>
+        <p><strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can combine up to four topics or keywords to narrow the results.</p>
+        <p><strong>Browse Topics</strong> supports exploration by guiding readers from subject areas to categories, topics, and related posts. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; both are included for evaluation, but only one will appear in the final version.</p>
         <figure class="search-methods-figure">
           <img class="search-methods-image" src="/static/ehrman-search-methods.png" alt="Diagram comparing topic browsing with keyword search">
         </figure>
@@ -715,7 +715,7 @@ def keyword_panel(
     )
     return f"""
     <form class="keyword-search-panel" action="{esc(form_action)}" method="get" data-keyword-form{refresh_attr}{sort_attr}{scope_attr}{topic_scope_attr}>
-      <label>Enter up to four keywords. Keywords can be single words or phrases. Each additional keyword narrows the results.</label>
+      <label><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. Keywords identify significant people, texts, places, or supporting ideas discussed in the post. Combine either type to narrow your results.</label>
       {scope_markup}
       <div class="keyword-grid">
         <div class="keyword-slot-grid" data-keyword-chip-list>

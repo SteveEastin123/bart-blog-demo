@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import base64
 import mimetypes
+import re
+from datetime import datetime
 from pathlib import Path
 
 from ehrman_demo_data import (
@@ -29,6 +31,7 @@ MAX_SUGGESTIONS_START = "    const MAX_KEYWORD_SUGGESTIONS"
 SEARCH_METHODS_IMAGE_START = "<!-- SEARCH_METHODS_IMAGE_START -->"
 SEARCH_METHODS_IMAGE_END = "<!-- SEARCH_METHODS_IMAGE_END -->"
 DEFAULT_SEARCH_METHODS_IMAGE = Path(__file__).resolve().parents[1] / "webapp" / "static" / "ehrman-search-methods.png"
+DATE_RANGE_PATTERN = re.compile(r'(<p class="site-demo-date-range">).*?(</p>)')
 
 
 def replace_block(html: str, start_marker: str, end_marker: str, replacement: str) -> str:
@@ -39,6 +42,25 @@ def replace_block(html: str, start_marker: str, end_marker: str, replacement: st
     if end < 0:
         raise ValueError(f"Could not find end marker after {start_marker}: {end_marker}")
     return html[:start] + replacement + html[end:]
+
+
+def format_post_date_range(posts: list[dict]) -> str | None:
+    dates = []
+    for post in posts:
+        value = post.get("dateText", "")
+        if not isinstance(value, str) or not value.strip():
+            continue
+        try:
+            dates.append(datetime.strptime(value.strip(), "%B %d, %Y"))
+        except ValueError:
+            continue
+    if not dates:
+        return None
+
+    def display(value: datetime) -> str:
+        return f"{value.strftime('%B')} {value.day}, {value.year}"
+
+    return f"Posts from {display(min(dates))} - {display(max(dates))}"
 
 
 def build_demo_html(
@@ -81,6 +103,15 @@ def build_demo_html(
         "\n\n" + MAX_SUGGESTIONS_START,
         f"{KEYWORD_SUGGESTIONS_START} {dumps_compact(keyword_suggestions)};\n",
     )
+    date_range = format_post_date_range(posts)
+    if date_range:
+        html, replacements = DATE_RANGE_PATTERN.subn(
+            lambda match: f"{match.group(1)}{date_range}{match.group(2)}",
+            html,
+            count=1,
+        )
+        if replacements != 1:
+            raise ValueError("Could not find the landing-page post date range.")
     while SEARCH_METHODS_IMAGE_END + SEARCH_METHODS_IMAGE_END in html:
         html = html.replace(SEARCH_METHODS_IMAGE_END + SEARCH_METHODS_IMAGE_END, SEARCH_METHODS_IMAGE_END)
     image_mime = mimetypes.guess_type(search_methods_image_path.name)[0] or "image/png"
