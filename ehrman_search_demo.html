@@ -447,6 +447,10 @@
       font-weight: 600;
     }
 
+    .mobile-breadcrumb {
+      display: none;
+    }
+
     .content-header .meta {
       color: #000000;
       font-family: "Open Sans", Arial, Helvetica, sans-serif;
@@ -758,7 +762,7 @@
     }
 
     .keyword-search-panel .keyword-suggestion-list button {
-      align-items: baseline;
+      align-items: center;
       background: transparent;
       border: 0;
       border-radius: 0;
@@ -784,9 +788,11 @@
     }
 
     .suggestion-main {
-      align-items: baseline;
-      display: flex;
+      align-items: center;
+      display: grid;
+      flex: 1 1 auto;
       gap: 8px;
+      grid-template-columns: minmax(0, 1fr) 64px;
       min-width: 0;
     }
 
@@ -799,22 +805,36 @@
     }
 
     .suggestion-type {
+      align-items: center;
+      background: #f5e7e4;
+      border: 1px solid #d8aaa4;
+      border-radius: 3px;
       color: var(--maroon);
+      display: inline-flex;
       flex: 0 0 auto;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
+      justify-content: center;
       letter-spacing: 0;
+      line-height: 16px;
+      padding: 1px 4px;
+      text-transform: uppercase;
+      width: 64px;
     }
 
     .suggestion-type.is-keyword {
-      color: #5f625f;
+      background: #e9f0f5;
+      border-color: #b8cbd8;
+      color: #3f5665;
     }
 
     .keyword-suggestion-count {
       color: var(--muted);
       flex: 0 0 auto;
       font-size: 13px;
+      min-width: 82px;
       text-align: right;
+      white-space: nowrap;
     }
 
     .keyword-search-controls {
@@ -963,6 +983,15 @@
       outline-offset: 2px;
     }
 
+    .keyword-search-panel button[type="submit"]:disabled,
+    .keyword-search-panel button[type="submit"]:disabled:hover {
+      background: #9a9a9a;
+      border-color: #9a9a9a;
+      color: #ffffff;
+      cursor: not-allowed;
+      opacity: 0.68;
+    }
+
     .keyword-clear-button {
       background: transparent;
       border: 0;
@@ -1065,13 +1094,15 @@
       }
 
       .site-tagline {
-        padding: 8px 14px;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 5px 12px;
       }
 
       .site-top {
-        gap: 12px;
+        gap: 6px;
         min-height: 0;
-        padding: 12px 14px;
+        padding: 8px 12px;
       }
 
       .site-brand {
@@ -1081,25 +1112,33 @@
 
       .site-logo-mark {
         border-width: 3px;
-        flex-basis: 58px;
-        height: 58px;
-        width: 58px;
+        flex-basis: 48px;
+        height: 48px;
+        width: 48px;
       }
 
       .site-logo-title {
-        font-size: 23px;
-        line-height: 27px;
+        font-size: 21px;
+        line-height: 24px;
       }
 
       .site-logo-subtitle {
-        font-size: 13px;
-        line-height: 17px;
+        font-size: 12px;
+        line-height: 15px;
       }
 
       .site-menu {
-        gap: 8px 13px;
-        line-height: 24px;
+        flex-wrap: nowrap;
+        gap: 14px;
+        line-height: 20px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        white-space: nowrap;
         width: 100%;
+      }
+
+      .site-menu::-webkit-scrollbar {
+        display: none;
       }
 
       .site-menu a,
@@ -1110,8 +1149,8 @@
       .site-menu a {
         align-items: center;
         display: inline-flex;
-        min-height: 44px;
-        padding: 10px 0;
+        min-height: 40px;
+        padding: 8px 0;
       }
 
       .site-home,
@@ -1148,20 +1187,19 @@
       }
 
       .breadcrumbs {
-        overflow-x: auto;
-        padding-bottom: 2px;
-        white-space: nowrap;
+        margin-bottom: 8px;
       }
 
       .breadcrumbs ol {
-        flex-wrap: nowrap;
-        min-width: max-content;
+        display: none;
       }
 
-      .breadcrumbs a {
+      .breadcrumbs .mobile-breadcrumb {
         align-items: center;
         display: inline-flex;
-        min-height: 44px;
+        font-size: 14px;
+        font-weight: 600;
+        min-height: 36px;
       }
 
       .post-entry {
@@ -1211,6 +1249,19 @@
         line-height: 23px;
         min-height: 44px;
         padding: 10px 12px;
+      }
+
+      .suggestion-main {
+        gap: 6px;
+        grid-template-columns: minmax(0, 1fr) 58px;
+      }
+
+      .suggestion-type {
+        width: 58px;
+      }
+
+      .keyword-suggestion-count {
+        min-width: 68px;
       }
 
       .keyword-sort-wrap,
@@ -31652,9 +31703,14 @@ const DATA = {
           : `<span aria-current="page">${label}</span>`;
         return `<li>${content}</li>`;
       }).join('');
+      const mobileBack = [...items].reverse().find(item => item.href);
+      const mobileBackMarkup = mobileBack
+        ? `<a class="mobile-breadcrumb" href="${escapeHtml(mobileBack.href)}"><span aria-hidden="true">&lsaquo;</span> ${escapeHtml(mobileBack.label)}</a>`
+        : '';
       return `
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <ol>${crumbs}</ol>
+          ${mobileBackMarkup}
         </nav>
       `;
     }
@@ -32055,17 +32111,11 @@ const DATA = {
       list.classList.remove('open-above');
       const rect = input.getBoundingClientRect();
       const below = window.innerHeight - rect.bottom - 16;
-      const above = rect.top - 16;
-      const openAbove = below < 320 && above > below;
-      const available = Math.max(180, Math.min(openAbove ? above : below, window.innerHeight - 32, 720));
-      const width = Math.min(rect.width, window.innerWidth - 32);
+      const available = Math.max(120, Math.min(below, window.innerHeight - 32, 720));
+      const preferredWidth = window.innerWidth > 700 ? Math.max(rect.width, 540) : rect.width;
+      const width = Math.min(preferredWidth, window.innerWidth - 32);
       const left = Math.max(16, Math.min(rect.left, window.innerWidth - width - 16));
-      const top = openAbove
-        ? Math.max(16, rect.top - available - 4)
-        : Math.min(window.innerHeight - 16, rect.bottom + 4);
-      if (openAbove) {
-        list.classList.add('open-above');
-      }
+      const top = Math.min(window.innerHeight - 16, rect.bottom + 4);
       list.style.left = `${left}px`;
       list.style.maxHeight = `${available}px`;
       list.style.top = `${top}px`;
@@ -32092,6 +32142,10 @@ const DATA = {
       const clearButton = form.querySelector('[data-clear-keywords]');
       if (clearButton) {
         clearButton.disabled = values.length === 0 && !input.value.trim();
+      }
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = values.length === 0;
       }
       const wrap = keywordEntryWrap(form);
       if (wrap) {
@@ -32424,6 +32478,9 @@ const DATA = {
       };
       form.addEventListener('submit', event => {
         event.preventDefault();
+        if (!selectedKeywordValues(form, inputs[0]).length) {
+          return;
+        }
         runCurrentSearch();
       });
       sortInputs.forEach(sortInput => {

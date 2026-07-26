@@ -374,6 +374,10 @@ a:hover {
   font-weight: 600;
 }
 
+.mobile-breadcrumb {
+  display: none;
+}
+
 .count-line,
 .content-description,
 .item-meta,
@@ -433,6 +437,15 @@ a:hover {
   background: var(--link-hover);
   border-color: var(--link-hover);
   color: #ffffff;
+}
+
+.keyword-search-panel button[type="submit"]:disabled,
+.keyword-search-panel button[type="submit"]:disabled:hover {
+  background: #9a9a9a;
+  border-color: #9a9a9a;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.68;
 }
 
 .item-list,
@@ -737,7 +750,7 @@ a:hover {
 }
 
 .keyword-suggestion-list button {
-  align-items: baseline;
+  align-items: center;
   background: transparent;
   border: 0;
   color: #000000;
@@ -765,9 +778,11 @@ a:hover {
 }
 
 .suggestion-main {
-  align-items: baseline;
-  display: flex;
+  align-items: center;
+  display: grid;
+  flex: 1 1 auto;
   gap: 8px;
+  grid-template-columns: minmax(0, 1fr) 64px;
   min-width: 0;
 }
 
@@ -780,15 +795,27 @@ a:hover {
 }
 
 .suggestion-type {
+  align-items: center;
+  background: #f5e7e4;
+  border: 1px solid #d8aaa4;
+  border-radius: 3px;
   color: var(--maroon);
+  display: inline-flex;
   flex: 0 0 auto;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
+  justify-content: center;
   letter-spacing: 0;
+  line-height: 16px;
+  padding: 1px 4px;
+  text-transform: uppercase;
+  width: 64px;
 }
 
 .suggestion-type.is-keyword {
-  color: #5f625f;
+  background: #e9f0f5;
+  border-color: #b8cbd8;
+  color: #3f5665;
 }
 
 .suggestion-count {
@@ -796,7 +823,9 @@ a:hover {
   flex: 0 0 auto;
   font-size: 13px;
   margin-left: 12px;
+  min-width: 82px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .hover-help {
@@ -910,6 +939,12 @@ a:hover {
 }
 
 @media (max-width: 700px) {
+  .site-tagline {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 5px 0;
+  }
+
   .site-utility-inner {
     padding: 0 14px;
   }
@@ -919,9 +954,9 @@ a:hover {
   }
 
   .site-top {
-    gap: 12px;
+    gap: 6px;
     min-height: 0;
-    padding: 12px 14px;
+    padding: 8px 12px;
   }
 
   .site-brand {
@@ -933,26 +968,34 @@ a:hover {
 
   .site-logo-mark {
     border-width: 3px;
-    flex-basis: 58px;
-    height: 58px;
-    width: 58px;
+    flex-basis: 48px;
+    height: 48px;
+    width: 48px;
   }
 
   .site-logo-title {
-    font-size: 23px;
-    line-height: 27px;
+    font-size: 21px;
+    line-height: 24px;
   }
 
   .site-logo-subtitle {
-    font-size: 13px;
-    line-height: 17px;
+    font-size: 12px;
+    line-height: 15px;
   }
 
   .site-menu {
-    gap: 8px 13px;
+    flex-wrap: nowrap;
+    gap: 14px;
     justify-content: flex-start;
-    line-height: 24px;
+    line-height: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
     width: 100%;
+  }
+
+  .site-menu::-webkit-scrollbar {
+    display: none;
   }
 
   .site-menu a,
@@ -963,8 +1006,8 @@ a:hover {
   .site-menu a {
     align-items: center;
     display: inline-flex;
-    min-height: 44px;
-    padding: 10px 0;
+    min-height: 40px;
+    padding: 8px 0;
   }
 
   .page-shell {
@@ -1007,20 +1050,19 @@ a:hover {
   }
 
   .breadcrumbs {
-    overflow-x: auto;
-    padding-bottom: 2px;
-    white-space: nowrap;
+    margin-bottom: 8px;
   }
 
   .breadcrumbs ol {
-    flex-wrap: nowrap;
-    min-width: max-content;
+    display: none;
   }
 
-  .breadcrumbs a {
+  .breadcrumbs .mobile-breadcrumb {
     align-items: center;
     display: inline-flex;
-    min-height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 36px;
   }
 
   .list-item,
@@ -1066,6 +1108,20 @@ a:hover {
     line-height: 23px;
     min-height: 44px;
     padding: 10px 12px;
+  }
+
+  .suggestion-main {
+    gap: 6px;
+    grid-template-columns: minmax(0, 1fr) 58px;
+  }
+
+  .suggestion-type {
+    width: 58px;
+  }
+
+  .suggestion-count {
+    margin-left: 6px;
+    min-width: 68px;
   }
 
   .sort-row,

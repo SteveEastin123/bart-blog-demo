@@ -216,11 +216,19 @@ def breadcrumb_nav(items: list[tuple[str, str | None]]) -> str:
         else:
             content = f'<span aria-current="page">{esc(label)}</span>'
         crumbs.append(f"<li>{content}</li>")
+    mobile_back = next(((label, href) for label, href in reversed(items) if href), None)
+    mobile_back_markup = (
+        f'<a class="mobile-breadcrumb" href="{route(mobile_back[1])}">'
+        f'<span aria-hidden="true">&lsaquo;</span> {esc(mobile_back[0])}</a>'
+        if mobile_back
+        else ""
+    )
     return f"""
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <ol>
             {"".join(crumbs)}
           </ol>
+          {mobile_back_markup}
         </nav>
     """
 

@@ -39,17 +39,11 @@
     list.classList.remove("open-above");
     const rect = input.getBoundingClientRect();
     const below = window.innerHeight - rect.bottom - 16;
-    const above = rect.top - 16;
-    const openAbove = below < 320 && above > below;
-    const available = Math.max(180, Math.min(openAbove ? above : below, window.innerHeight - 32, 720));
-    const width = Math.min(rect.width, window.innerWidth - 32);
+    const available = Math.max(120, Math.min(below, window.innerHeight - 32, 720));
+    const preferredWidth = window.innerWidth > 700 ? Math.max(rect.width, 540) : rect.width;
+    const width = Math.min(preferredWidth, window.innerWidth - 32);
     const left = Math.max(16, Math.min(rect.left, window.innerWidth - width - 16));
-    const top = openAbove
-      ? Math.max(16, rect.top - available - 4)
-      : Math.min(window.innerHeight - 16, rect.bottom + 4);
-    if (openAbove) {
-      list.classList.add("open-above");
-    }
+    const top = Math.min(window.innerHeight - 16, rect.bottom + 4);
     list.style.left = `${left}px`;
     list.style.maxHeight = `${available}px`;
     list.style.top = `${top}px`;
@@ -138,6 +132,10 @@
     if (clearButton) {
       clearButton.disabled = values.length === 0 && !input.value.trim();
     }
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = values.length === 0;
+    }
     const wrap = keywordEntryWrap(form);
     if (wrap) {
       wrap.hidden = values.length >= MAX_KEYWORDS;
@@ -219,6 +217,7 @@
       const input = form.querySelector(".keyword-input");
       if (!input) return;
       event.preventDefault();
+      if (!selectedValues(form, input).length) return;
       window.location.href = keywordSearchUrl(form, input);
     });
     form.addEventListener("change", (event) => {
