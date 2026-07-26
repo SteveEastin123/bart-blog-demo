@@ -462,6 +462,29 @@ a:hover {
   padding: 10px;
 }
 
+.list-item {
+  padding-bottom: 13px;
+  padding-top: 13px;
+}
+
+.browse-item-row {
+  align-items: baseline;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.browse-item-row .item-title {
+  min-width: 0;
+}
+
+.browse-item-row .item-meta {
+  flex: 0 0 auto;
+  margin-top: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .list-item:hover,
 .list-item:focus-within,
 .post-item:hover,
@@ -1068,6 +1091,21 @@ a:hover {
   .list-item,
   .post-item {
     padding: 11px 10px;
+  }
+
+  .list-item {
+    padding-bottom: 13px;
+    padding-top: 13px;
+  }
+
+  .browse-item-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .browse-item-row .item-meta {
+    text-align: left;
   }
 
   .item-title,

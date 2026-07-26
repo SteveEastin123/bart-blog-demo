@@ -522,6 +522,29 @@
       padding: 10px;
     }
 
+    .browse-entry {
+      padding-bottom: 13px;
+      padding-top: 13px;
+    }
+
+    .browse-item-row {
+      align-items: baseline;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+    }
+
+    .browse-item-row h2 {
+      min-width: 0;
+    }
+
+    .browse-item-row .browse-meta {
+      flex: 0 0 auto;
+      margin: 0;
+      text-align: right;
+      white-space: nowrap;
+    }
+
     .post-entry:hover,
     .post-entry:focus-within {
       background: #faf7f1;
@@ -1204,6 +1227,21 @@
 
       .post-entry {
         padding: 11px 10px;
+      }
+
+      .browse-entry {
+        padding-bottom: 13px;
+        padding-top: 13px;
+      }
+
+      .browse-item-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .browse-item-row .browse-meta {
+        text-align: left;
       }
 
       .post-entry h2,
@@ -32904,10 +32942,12 @@ const DATA = {
       const items = DATA.categories.map((category, index) => {
         const postCount = categoryArticles(category).length;
         return `
-          <li class="post-entry">
-            <h2>${describedLink(categoryUrl(index, { source: 'categories1' }), category.name, category.description)}</h2>
+          <li class="post-entry browse-entry">
+            <div class="browse-item-row">
+              <h2>${describedLink(categoryUrl(index, { source: 'categories1' }), category.name, category.description)}</h2>
+              <p class="post-meta browse-meta">${pluralize(category.topics.length, 'topic', 'topics')} &bull; ${pluralize(postCount, 'post', 'posts')}</p>
+            </div>
             ${descriptionInlineMarkup(category.description)}
-            <p class="post-meta browse-meta">${pluralize(category.topics.length, 'topic', 'topics')} &bull; ${pluralize(postCount, 'post', 'posts')}</p>
           </li>
         `;
       }).join('');
@@ -32934,10 +32974,12 @@ const DATA = {
       const items = subjectAreas.map((subjectArea, index) => {
         const stats = subjectAreaStats(subjectArea);
         return `
-          <li class="post-entry">
-            <h2>${describedLink(subjectAreaUrl(subjectAreaSet, index), subjectArea.name, subjectArea.description)}</h2>
+          <li class="post-entry browse-entry">
+            <div class="browse-item-row">
+              <h2>${describedLink(subjectAreaUrl(subjectAreaSet, index), subjectArea.name, subjectArea.description)}</h2>
+              <p class="post-meta browse-meta">${pluralize(stats.categoryCount, 'category', 'categories')} &bull; ${pluralize(stats.topicCount, 'topic', 'topics')} &bull; ${pluralize(stats.postCount, 'post', 'posts')}</p>
+            </div>
             ${descriptionInlineMarkup(subjectArea.description)}
-            <p class="post-meta browse-meta">${pluralize(stats.categoryCount, 'category', 'categories')} &bull; ${pluralize(stats.topicCount, 'topic', 'topics')} &bull; ${pluralize(stats.postCount, 'post', 'posts')}</p>
           </li>
         `;
       }).join('');
@@ -32969,10 +33011,12 @@ const DATA = {
       const items = subjectAreaCategories(subjectArea).map(({ category, index: categoryIndex }) => {
         const postCount = categoryArticles(category).length;
         return `
-          <li class="post-entry">
-            <h2>${describedLink(categoryUrl(categoryIndex, { subjectAreaIndex: index, subjectAreaSet }), category.name, category.description)}</h2>
+          <li class="post-entry browse-entry">
+            <div class="browse-item-row">
+              <h2>${describedLink(categoryUrl(categoryIndex, { subjectAreaIndex: index, subjectAreaSet }), category.name, category.description)}</h2>
+              <p class="post-meta browse-meta">${pluralize(category.topics.length, 'topic', 'topics')} &bull; ${pluralize(postCount, 'post', 'posts')}</p>
+            </div>
             ${descriptionInlineMarkup(category.description)}
-            <p class="post-meta browse-meta">${pluralize(category.topics.length, 'topic', 'topics')} &bull; ${pluralize(postCount, 'post', 'posts')}</p>
           </li>
         `;
       }).join('');
@@ -33008,10 +33052,12 @@ const DATA = {
 
       const postCount = categoryArticles(category).length;
       const items = category.topics.map(topic => `
-        <li class="post-entry">
-          <h2>${describedLink(topicUrl(index, topic, '', 'best', context), topic, DATA.topicDescriptions && DATA.topicDescriptions[topic])}</h2>
+        <li class="post-entry browse-entry">
+          <div class="browse-item-row">
+            <h2>${describedLink(topicUrl(index, topic, '', 'best', context), topic, DATA.topicDescriptions && DATA.topicDescriptions[topic])}</h2>
+            <p class="post-meta browse-meta">${pluralize(topicCount(topic), 'post', 'posts')}</p>
+          </div>
           ${descriptionInlineMarkup(DATA.topicDescriptions && DATA.topicDescriptions[topic])}
-          <p class="post-meta browse-meta">${pluralize(topicCount(topic), 'post', 'posts')}</p>
         </li>
       `).join('');
 

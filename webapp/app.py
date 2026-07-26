@@ -458,9 +458,11 @@ def categories_page() -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <div class="browse-item-row">
+                <a class="item-title" href="/categories/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+                <p class="item-meta">{pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
+              </div>
               <p class="item-description" hidden>{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -494,9 +496,11 @@ def subject_areas_page(subject_area_set: int = 1) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="{browse_path}/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+              <div class="browse-item-row">
+                <a class="item-title" href="{browse_path}/{esc(row['slug'])}" data-description="{esc(row['description'])}">{esc(row['name'])}</a>
+                <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} &bull; {pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
+              </div>
               <p class="item-description" hidden>{esc(row['description'])}</p>
-              <p class="item-meta">{pluralize(row['category_count'], 'category', 'categories')} &bull; {pluralize(row['topic_count'], 'topic')} &bull; {pluralize(row['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -553,9 +557,11 @@ def subject_area_page(slug: str, subject_area_set: int = 1) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="/categories/{esc(category['slug'])}?{urlencode({'subject-area': subject_area['slug'], 'subject-area-set': subject_area_set})}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
+              <div class="browse-item-row">
+                <a class="item-title" href="/categories/{esc(category['slug'])}?{urlencode({'subject-area': subject_area['slug'], 'subject-area-set': subject_area_set})}" data-description="{esc(category['description'])}">{esc(category['name'])}</a>
+                <p class="item-meta">{pluralize(category['topic_count'], 'topic')} &bull; {pluralize(category['post_count'], 'post')}</p>
+              </div>
               <p class="item-description" hidden>{esc(category['description'])}</p>
-              <p class="item-meta">{pluralize(category['topic_count'], 'topic')} &bull; {pluralize(category['post_count'], 'post')}</p>
             </li>
             """
         )
@@ -618,9 +624,11 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
         items.append(
             f"""
             <li class="list-item">
-              <a class="item-title" href="{esc(topic_href(topic, category, source, subject_area_slug, subject_area_set))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+              <div class="browse-item-row">
+                <a class="item-title" href="{esc(topic_href(topic, category, source, subject_area_slug, subject_area_set))}" data-description="{esc(topic['description'])}">{esc(topic['name'])}</a>
+                <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
+              </div>
               <p class="item-description" hidden>{esc(topic['description'])}</p>
-              <p class="item-meta">{pluralize(topic['post_count'], 'post')}</p>
             </li>
             """
         )
