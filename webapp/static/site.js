@@ -76,6 +76,9 @@
     if (form.dataset.categorySlug) {
       params.set("category", form.dataset.categorySlug);
     }
+    if (form.dataset.topicSlug) {
+      params.set("topic", form.dataset.topicSlug);
+    }
     const response = await fetch("/api/keywords?" + params.toString());
     const suggestions = await response.json();
     list.innerHTML = "";

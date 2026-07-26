@@ -148,13 +148,13 @@ def header(active: str = "") -> str:
         <div class="site-utility-inner">
           <div class="site-tagline">Engaging Discussions about Early Christianity</div>
           <div class="site-utility-actions" aria-label="Site utility links">
-            <form class="site-search" action="#" aria-label="Site search">
+            <form class="site-search" action="#" aria-label="Site search" aria-disabled="true">
               <input type="search" placeholder="Search..." aria-label="Search" disabled>
               <button type="button" disabled>All</button>
             </form>
-            <span class="site-utility-link site-join-now">Join Now!</span>
-            <span class="site-utility-link site-login">Login</span>
-            <span class="site-utility-link">Account</span>
+            <span class="site-utility-link site-join-now" aria-disabled="true">Join Now!</span>
+            <span class="site-utility-link site-login" aria-disabled="true">Login</span>
+            <span class="site-utility-link" aria-disabled="true">Account</span>
           </div>
         </div>
       </div>
@@ -658,6 +658,7 @@ def keyword_panel(
     form_action: str = "/keyword-results",
     scope_label: str = "",
     scope_slug: str = "",
+    scope_topic_slug: str = "",
 ) -> str:
     values = unique_terms(prefill)[:4]
     options = (
@@ -700,6 +701,9 @@ def keyword_panel(
     refresh_attr = ' data-refresh-on-remove="true"' if refresh_on_remove else ""
     sort_attr = ' data-sort-current-page="true"' if sort_current_page else ""
     scope_attr = f' data-category-slug="{esc(scope_slug)}"' if scope_slug else ""
+    topic_scope_attr = (
+        f' data-topic-slug="{esc(scope_topic_slug)}"' if scope_topic_slug else ""
+    )
     scope_markup = (
         f"""
         <div class="keyword-scope-row" aria-label="Search scope">
@@ -710,7 +714,7 @@ def keyword_panel(
         else ""
     )
     return f"""
-    <form class="keyword-search-panel" action="{esc(form_action)}" method="get" data-keyword-form{refresh_attr}{sort_attr}{scope_attr}>
+    <form class="keyword-search-panel" action="{esc(form_action)}" method="get" data-keyword-form{refresh_attr}{sort_attr}{scope_attr}{topic_scope_attr}>
       <label>Enter up to four keywords. Keywords can be single words or phrases. Each additional keyword narrows the results.</label>
       {scope_markup}
       <div class="keyword-grid">
@@ -808,6 +812,7 @@ def topic_context_category(
 
 def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
+    clean_terms = unique_terms(query.get("keyword", []))
     requested_category_slug = query.get("category", [""])[0]
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
@@ -840,14 +845,42 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
             """,
             (topic["id"],),
         ).fetchall()
-    posts = sort_scoped_posts(posts, sort, [topic["name"]])
+        relevance_scores: dict[int, int] | None = None
+        filter_terms = [
+            term
+            for term in clean_terms
+            if normalize_keyword(term) != normalize_keyword(topic["name"])
+        ]
+        if filter_terms:
+            scoped_ids = {int(post["id"]) for post in posts}
+            relevance_scores = {post_id: 0 for post_id in scoped_ids}
+            for term in filter_terms:
+                term_matches = find_post_ids_for_term(conn, term)
+                relevance_scores = {
+                    post_id: score + term_matches[post_id]
+                    for post_id, score in relevance_scores.items()
+                    if post_id in term_matches
+                }
+            posts = [post for post in posts if int(post["id"]) in relevance_scores]
+    display_terms = clean_terms or [topic["name"]]
+    posts = sort_scoped_posts(posts, sort, display_terms, relevance_scores)
+    form_action = topic_href(
+        topic,
+        category,
+        source,
+        subject_area_slug,
+        subject_area_set,
+    ) if category else f"/topics/{topic['slug']}"
     panel = keyword_panel(
-        [topic["name"]],
+        display_terms,
         sort,
         descriptions_checked=True,
+        refresh_on_remove=True,
         sort_current_page=True,
+        form_action=form_action,
+        scope_topic_slug=topic["slug"],
     )
-    inner = panel + results_summary(len(posts), [topic["name"]]) + post_list(posts, topic["name"])
+    inner = panel + results_summary(len(posts), display_terms) + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
     return render_page(topic["name"], body, active=active_key)
 
@@ -1055,11 +1088,12 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
     q = normalize_keyword(query.get("q", [""])[0])
     selected = [value for value in query.get("selected", []) if value.strip()]
     category_slug = query.get("category", [""])[0].strip()
+    topic_slug = query.get("topic", [""])[0].strip()
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
     allowed_category_topics: list[str] = []
     limit = 48
     with get_conn() as conn:
-        if not q and not selected_normalized and not category_slug:
+        if not q and not selected_normalized and not category_slug and not topic_slug:
             return json.dumps(starter_keyword_suggestions(conn), ensure_ascii=False).encode("utf-8")
         selected_ids: set[int] | None = None
         if category_slug:
@@ -1086,6 +1120,16 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 (category["id"],),
             ).fetchall()
             allowed_category_topics = [row["name"] for row in topic_rows]
+        if topic_slug:
+            topic = conn.execute("SELECT id FROM topics WHERE slug = ?", (topic_slug,)).fetchone()
+            if not topic:
+                return json.dumps([], ensure_ascii=False).encode("utf-8")
+            topic_rows = conn.execute(
+                "SELECT post_id FROM post_topics WHERE topic_id = ?",
+                (topic["id"],),
+            ).fetchall()
+            topic_ids = {int(row["post_id"]) for row in topic_rows}
+            selected_ids = topic_ids if selected_ids is None else selected_ids & topic_ids
         for value in selected:
             matches = set(find_post_ids_for_term(conn, value).keys())
             selected_ids = matches if selected_ids is None else selected_ids & matches
