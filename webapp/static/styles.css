@@ -8,7 +8,7 @@
   --link-hover: #18496b;
   --maroon: #751f1b;
   --focus-ring: #a6342a;
-  --shadow: 0 1px 4px rgba(0, 0, 0, 0.11);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -282,7 +282,7 @@ a:hover {
 
 .site-demo-note {
   color: #000000;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: 24px 28px 30px;
 }
@@ -325,8 +325,8 @@ a:hover {
 .content-header h1 {
   color: #000000;
   font-family: "Roboto Condensed", "Arial Narrow", Arial, Helvetica, sans-serif;
-  font-size: 31px;
-  line-height: 36px;
+  font-size: 30px;
+  line-height: 35px;
   margin: 0 0 8px;
 }
 
@@ -386,12 +386,12 @@ a:hover {
 }
 
 .count-line {
-  font-size: 15px;
+  font-size: 14px;
   margin: 0;
 }
 
 .content-description {
-  font-size: 15px;
+  font-size: 16px;
   margin: 10px 0 0;
   max-width: 75ch;
 }
@@ -510,7 +510,7 @@ a:hover {
 }
 
 .item-title {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 24px;
 }
@@ -535,7 +535,7 @@ a:hover {
 
 .item-meta,
 .post-meta {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin: 2px 0 0;
 }
@@ -543,8 +543,8 @@ a:hover {
 .item-description,
 .post-description {
   color: #2f3f49;
-  font-size: 15px;
-  line-height: 23px;
+  font-size: 16px;
+  line-height: 24px;
   margin: 5px 0 0;
   max-width: 75ch;
 }
@@ -561,8 +561,8 @@ a:hover {
 
 .results-summary {
   color: #262626;
-  font-size: 15px;
-  line-height: 23px;
+  font-size: 16px;
+  line-height: 24px;
   margin: 0;
   padding: 16px 28px 0;
 }
@@ -895,7 +895,7 @@ a:hover {
   background: #ffffff;
   border: 1px solid #d7c9a5;
   box-sizing: border-box;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   color: var(--maroon);
   content: attr(data-tooltip);
   display: block;
@@ -1064,8 +1064,8 @@ a:hover {
   }
 
   .content-header h1 {
-    font-size: 26px;
-    line-height: 31px;
+    font-size: 28px;
+    line-height: 33px;
   }
 
   .content-description {
