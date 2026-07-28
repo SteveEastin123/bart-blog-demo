@@ -45,3 +45,43 @@ Suggested settings:
 - Database: none for version 1; SQLite is generated from the JSON files
 
 The same settings are also included in `render.yaml`.
+
+## Python/PHP Search Parity Harness
+
+The parity harness captures the Python application's search behavior before a
+PHP port. Generated cases and baseline artifacts are written under
+`tests/parity/artifacts/`, which is ignored by Git.
+
+Generate and capture the local smoke suite:
+
+```powershell
+python -B scripts\search_parity.py generate --profile smoke
+python -B scripts\search_parity.py capture
+```
+
+Generate the full deterministic suite:
+
+```powershell
+python -B scripts\search_parity.py generate --profile full
+```
+
+Compare two captures:
+
+```powershell
+python -B scripts\search_parity.py compare expected.jsonl.gz actual.jsonl.gz
+```
+
+Remote testing uses `POST /api/parity/batch`. The endpoint returns `404` unless
+`EHRMAN_PARITY_TEST_TOKEN` is configured on the service. The caller must send
+the same value in the `X-Ehrman-Parity-Token` request header. Do not commit the
+token.
+
+Capture a configured Render service by placing the token in the local
+environment and supplying its base URL:
+
+```powershell
+python -B scripts\search_parity.py capture --base-url https://example.onrender.com
+```
+
+See `docs/python_php_search_parity_test_plan.md` for the behavioral contract,
+coverage, artifacts, and acceptance criteria.

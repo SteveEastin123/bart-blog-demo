@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import hmac
 import json
 import mimetypes
 import os
@@ -23,6 +24,7 @@ from .import_data import (
 ROOT = Path(__file__).resolve().parents[1]
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 DB_PATH = Path(os.environ.get("EHRMAN_DB_PATH", DEFAULT_DB_PATH))
+MAX_PARITY_REQUEST_BYTES = 2_000_000
 
 STARTER_TOPIC_LABELS = (
     "Gospel of Luke",
@@ -810,9 +812,85 @@ def topic_context_category(
     ).fetchone()
 
 
+def search_topic_posts(
+    conn: sqlite3.Connection,
+    topic: sqlite3.Row,
+    terms: list[str] | None,
+    sort: str,
+) -> tuple[list[sqlite3.Row], list[str], list[str]]:
+    clean_terms = unique_terms(terms)
+    posts = conn.execute(
+        """
+        SELECT p.*
+        FROM posts p
+        JOIN post_topics pt ON pt.post_id = p.id
+        WHERE pt.topic_id = ?
+        ORDER BY p.date_iso DESC, p.url COLLATE NOCASE DESC
+        """,
+        (topic["id"],),
+    ).fetchall()
+    relevance_scores: dict[int, int] | None = None
+    filter_terms = [
+        term
+        for term in clean_terms
+        if normalize_keyword(term) != normalize_keyword(topic["name"])
+    ]
+    if filter_terms:
+        scoped_ids = {int(post["id"]) for post in posts}
+        relevance_scores = {post_id: 0 for post_id in scoped_ids}
+        for term in filter_terms:
+            term_matches = find_post_ids_for_term(conn, term)
+            relevance_scores = {
+                post_id: score + term_matches[post_id]
+                for post_id, score in relevance_scores.items()
+                if post_id in term_matches
+            }
+        posts = [post for post in posts if int(post["id"]) in relevance_scores]
+    display_terms = clean_terms or [topic["name"]]
+    return (
+        sort_scoped_posts(posts, sort, display_terms, relevance_scores),
+        clean_terms,
+        display_terms,
+    )
+
+
+def search_category_posts(
+    conn: sqlite3.Connection,
+    category: sqlite3.Row,
+    terms: list[str] | None,
+    sort: str,
+) -> tuple[list[sqlite3.Row], list[str]]:
+    clean_terms = unique_terms(terms)
+    posts = conn.execute(
+        """
+        SELECT DISTINCT p.*
+        FROM posts p
+        JOIN post_topics pt ON pt.post_id = p.id
+        JOIN topic_categories tc ON tc.topic_id = pt.topic_id
+        WHERE tc.category_id = ?
+        ORDER BY p.date_iso DESC, p.url COLLATE NOCASE DESC
+        """,
+        (category["id"],),
+    ).fetchall()
+    category_post_ids = {int(post["id"]) for post in posts}
+    matches: dict[int, int] = {post_id: 0 for post_id in category_post_ids}
+    for term in clean_terms:
+        term_matches = find_post_ids_for_term(conn, term)
+        matches = {
+            post_id: score + term_matches[post_id]
+            for post_id, score in matches.items()
+            if post_id in term_matches
+        }
+    if clean_terms:
+        posts = [post for post in posts if int(post["id"]) in matches]
+    return (
+        sort_scoped_posts(posts, sort, clean_terms, matches if clean_terms else None),
+        clean_terms,
+    )
+
+
 def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
-    clean_terms = unique_terms(query.get("keyword", []))
     requested_category_slug = query.get("category", [""])[0]
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
@@ -835,35 +913,12 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
             if category
             else []
         )
-        posts = conn.execute(
-            """
-            SELECT p.*
-            FROM posts p
-            JOIN post_topics pt ON pt.post_id = p.id
-            WHERE pt.topic_id = ?
-            ORDER BY p.date_iso DESC, p.id DESC
-            """,
-            (topic["id"],),
-        ).fetchall()
-        relevance_scores: dict[int, int] | None = None
-        filter_terms = [
-            term
-            for term in clean_terms
-            if normalize_keyword(term) != normalize_keyword(topic["name"])
-        ]
-        if filter_terms:
-            scoped_ids = {int(post["id"]) for post in posts}
-            relevance_scores = {post_id: 0 for post_id in scoped_ids}
-            for term in filter_terms:
-                term_matches = find_post_ids_for_term(conn, term)
-                relevance_scores = {
-                    post_id: score + term_matches[post_id]
-                    for post_id, score in relevance_scores.items()
-                    if post_id in term_matches
-                }
-            posts = [post for post in posts if int(post["id"]) in relevance_scores]
-    display_terms = clean_terms or [topic["name"]]
-    posts = sort_scoped_posts(posts, sort, display_terms, relevance_scores)
+        posts, clean_terms, display_terms = search_topic_posts(
+            conn,
+            topic,
+            query.get("keyword", []),
+            sort,
+        )
     form_action = topic_href(
         topic,
         category,
@@ -887,7 +942,6 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
 
 def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
     sort = query.get("sort", ["ranked"])[0]
-    clean_terms = unique_terms(query.get("keyword", []))
     source = query.get("source", [""])[0]
     subject_area_slug = query.get("subject-area", [""])[0]
     subject_area_set = normalize_subject_area_set(query.get("subject-area-set", ["1"])[0])
@@ -904,29 +958,12 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
             subject_area_slug,
             subject_area_set,
         )
-        posts = conn.execute(
-            """
-            SELECT DISTINCT p.*
-            FROM posts p
-            JOIN post_topics pt ON pt.post_id = p.id
-            JOIN topic_categories tc ON tc.topic_id = pt.topic_id
-            WHERE tc.category_id = ?
-            ORDER BY p.date_iso DESC, p.id DESC
-            """,
-            (category["id"],),
-        ).fetchall()
-        category_post_ids = {int(post["id"]) for post in posts}
-        matches: dict[int, int] = {post_id: 0 for post_id in category_post_ids}
-        for term in clean_terms:
-            term_matches = find_post_ids_for_term(conn, term)
-            matches = {
-                post_id: score + term_matches[post_id]
-                for post_id, score in matches.items()
-                if post_id in term_matches
-            }
-        if clean_terms:
-            posts = [post for post in posts if int(post["id"]) in matches]
-    posts = sort_scoped_posts(posts, sort, clean_terms, matches if clean_terms else None)
+        posts, clean_terms = search_category_posts(
+            conn,
+            category,
+            query.get("keyword", []),
+            sort,
+        )
     form_action = category_posts_href(
         category,
         source,
@@ -992,8 +1029,8 @@ def sort_scoped_posts(
         if sort == "ranked":
             relevance = (relevance_scores or {}).get(int(row["id"]), 0)
             relevance += sum(title_match_boost(row["title"], term) for term in ranking_terms)
-            return (relevance, row["date_iso"], row["id"])
-        return (row["date_iso"], row["id"])
+            return (relevance, row["date_iso"], row["url"].casefold())
+        return (row["date_iso"], row["url"].casefold())
 
     return sorted(posts, key=sort_key, reverse=sort != "oldest")
 
@@ -1031,10 +1068,10 @@ def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[s
 
     def sort_key(row: sqlite3.Row) -> tuple[object, ...]:
         if sort == "newest":
-            return (row["date_iso"], row["id"])
+            return (row["date_iso"], row["url"].casefold())
         if sort == "oldest":
-            return (row["date_iso"], row["id"])
-        return (matches[int(row["id"])], row["date_iso"], row["id"])
+            return (row["date_iso"], row["url"].casefold())
+        return (matches[int(row["id"])], row["date_iso"], row["url"].casefold())
 
     reverse = sort in {"ranked", "newest"}
     return sorted(rows, key=sort_key, reverse=reverse), clean_terms
@@ -1271,6 +1308,50 @@ def health_page() -> bytes:
     return json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
 
 
+def _json_error(message: str) -> bytes:
+    return json.dumps({"error": message}, ensure_ascii=False).encode("utf-8")
+
+
+def parity_batch_api(environ: dict[str, object]) -> tuple[bytes, str, str]:
+    configured_token = os.environ.get("EHRMAN_PARITY_TEST_TOKEN", "")
+    if not configured_token:
+        return b"Not found", "404 Not Found", "text/plain; charset=utf-8"
+    if str(environ.get("REQUEST_METHOD", "GET")).upper() != "POST":
+        return _json_error("POST required"), "405 Method Not Allowed", "application/json; charset=utf-8"
+    provided_token = str(environ.get("HTTP_X_EHRMAN_PARITY_TOKEN", ""))
+    if not provided_token or not hmac.compare_digest(configured_token, provided_token):
+        return _json_error("Forbidden"), "403 Forbidden", "application/json; charset=utf-8"
+
+    try:
+        content_length = int(str(environ.get("CONTENT_LENGTH", "0")) or "0")
+    except ValueError:
+        return _json_error("Invalid Content-Length"), "400 Bad Request", "application/json; charset=utf-8"
+    if content_length <= 0:
+        return _json_error("JSON request body required"), "400 Bad Request", "application/json; charset=utf-8"
+    if content_length > MAX_PARITY_REQUEST_BYTES:
+        return _json_error("Request body too large"), "413 Payload Too Large", "application/json; charset=utf-8"
+
+    stream = environ.get("wsgi.input")
+    if stream is None or not hasattr(stream, "read"):
+        return _json_error("Request body unavailable"), "400 Bad Request", "application/json; charset=utf-8"
+    try:
+        payload = json.loads(stream.read(content_length).decode("utf-8"))
+    except (AttributeError, UnicodeDecodeError, json.JSONDecodeError):
+        return _json_error("Invalid JSON request body"), "400 Bad Request", "application/json; charset=utf-8"
+    if not isinstance(payload, dict):
+        return _json_error("JSON request body must be an object"), "400 Bad Request", "application/json; charset=utf-8"
+    if payload.get("schemaVersion") not in (None, 1):
+        return _json_error("Unsupported schemaVersion"), "400 Bad Request", "application/json; charset=utf-8"
+
+    from .parity import ParityRequestError, run_batch
+
+    try:
+        response = run_batch(payload.get("cases"))
+    except ParityRequestError as exc:
+        return _json_error(str(exc)), "400 Bad Request", "application/json; charset=utf-8"
+    return json.dumps(response, ensure_ascii=False).encode("utf-8"), "200 OK", "application/json; charset=utf-8"
+
+
 def not_found() -> bytes:
     body = content_page("Page Not Found", "The requested page could not be found.")
     return render_page("Page Not Found", body)
@@ -1332,13 +1413,21 @@ def dispatch(path: str, query: dict[str, list[str]]) -> tuple[bytes, str, str]:
 def application(environ: dict[str, object], start_response) -> list[bytes]:
     path = str(environ.get("PATH_INFO", "/"))
     query = parse_qs(str(environ.get("QUERY_STRING", "")), keep_blank_values=False)
+    extra_headers: list[tuple[str, str]] = []
     try:
-        body, status, content_type = dispatch(path, query)
+        if path == "/api/parity/batch":
+            body, status, content_type = parity_batch_api(environ)
+            extra_headers.append(("Cache-Control", "no-store"))
+        else:
+            body, status, content_type = dispatch(path, query)
     except Exception as exc:  # pragma: no cover - last-resort web error response
         status = "500 Internal Server Error"
         content_type = "text/plain; charset=utf-8"
         body = f"Internal server error: {exc}".encode("utf-8")
-    start_response(status, [("Content-Type", content_type), ("Content-Length", str(len(body)))])
+    start_response(
+        status,
+        [("Content-Type", content_type), ("Content-Length", str(len(body))), *extra_headers],
+    )
     return [body]
 
 
