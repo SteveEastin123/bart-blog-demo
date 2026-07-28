@@ -3,9 +3,12 @@ from __future__ import annotations
 import io
 import json
 import os
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
+from scripts import search_parity
 from webapp import app
 from webapp.parity import MAX_BATCH_CASES, ParityRequestError, run_batch, source_fingerprints
 
@@ -107,6 +110,32 @@ class SearchParityTests(unittest.TestCase):
         cases = [{"id": f"case-{index}", "operation": "search", "terms": ["Paul"]} for index in range(MAX_BATCH_CASES + 1)]
         with self.assertRaises(ParityRequestError):
             run_batch(cases)
+
+    def test_generate_arguments_do_not_require_capture_only_options(self) -> None:
+        args = search_parity.build_parser().parse_args(["generate", "--profile", "smoke"])
+        search_parity.validate_args(args)
+
+    def test_standard_profile_is_deterministic_and_contains_500_cases(self) -> None:
+        with app.get_conn() as conn:
+            first = search_parity.standard_cases(conn, search_parity.DEFAULT_SEED)
+            second = search_parity.standard_cases(conn, search_parity.DEFAULT_SEED)
+        self.assertEqual(first, second)
+        self.assertEqual(len(first), search_parity.STANDARD_CASE_COUNT)
+        self.assertEqual(len({case["id"] for case in first}), len(first))
+        self.assertEqual({case["operation"] for case in first}, {"browse", "search", "suggest"})
+
+    def test_capture_progress_counts_completed_records(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "capture.jsonl"
+            path.write_text(
+                '{"recordType":"manifest","schemaVersion":1}\n'
+                '{"recordType":"result","id":"one"}\n'
+                '{"recordType":"result","id":"two"}\n',
+                encoding="utf-8",
+            )
+            manifest, completed = search_parity.capture_progress(path, "result")
+        self.assertEqual(manifest["schemaVersion"], 1)
+        self.assertEqual(completed, 2)
 
     def test_endpoint_is_disabled_without_token_configuration(self) -> None:
         with patch.dict(os.environ, {}, clear=False):

@@ -10,6 +10,7 @@ import os
 import random
 import sqlite3
 import sys
+import time
 from contextlib import contextmanager
 from itertools import zip_longest
 from pathlib import Path
@@ -27,6 +28,7 @@ from webapp.parity import MAX_BATCH_CASES, run_batch  # noqa: E402
 
 
 DEFAULT_SEED = 20260728
+STANDARD_CASE_COUNT = 500
 DEFAULT_CASES_PATH = ROOT / "tests" / "parity" / "artifacts" / "cases.jsonl"
 DEFAULT_BASELINE_PATH = ROOT / "tests" / "parity" / "artifacts" / "baseline.jsonl.gz"
 DEFAULT_DIGEST_PATH = ROOT / "tests" / "parity" / "artifacts" / "baseline-digests.jsonl"
@@ -65,13 +67,15 @@ def text_reader(path: Path) -> Iterator[TextIO]:
 
 
 @contextmanager
-def text_writer(path: Path) -> Iterator[TextIO]:
+def text_writer(path: Path, append: bool = False) -> Iterator[TextIO]:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.suffix == ".gz":
-        with gzip.open(path, "wt", encoding="utf-8", newline="\n") as handle:
+        mode = "at" if append else "wt"
+        with gzip.open(path, mode, encoding="utf-8", newline="\n") as handle:
             yield handle
     else:
-        with path.open("w", encoding="utf-8", newline="\n") as handle:
+        mode = "a" if append else "w"
+        with path.open(mode, encoding="utf-8", newline="\n") as handle:
             yield handle
 
 
@@ -159,6 +163,13 @@ def sampled_combinations(
     return [ordered[index] for index in indexes]
 
 
+def sampled_values(values: list[str], limit: int, seed: int) -> list[str]:
+    if len(values) <= limit:
+        return values
+    indexes = sorted(random.Random(seed).sample(range(len(values)), limit))
+    return [values[index] for index in indexes]
+
+
 def case_builder() -> tuple[list[dict[str, Any]], Any]:
     cases: list[dict[str, Any]] = []
     counter = 0
@@ -198,6 +209,56 @@ def smoke_cases(conn: sqlite3.Connection) -> list[dict[str, Any]]:
         add("topic-search", "search", terms=[], sort="ranked", scope={"type": "topic", "slug": slug})
         add("topic-suggest", "suggest", query="", selected=[], topicSlug=slug)
     add("browse", "browse")
+    return cases
+
+
+def standard_cases(conn: sqlite3.Connection, seed: int) -> list[dict[str, Any]]:
+    cases = smoke_cases(conn)
+    additional_cases, add = case_builder()
+    normalized_terms, labels = term_catalog(conn)
+    values_by_post = terms_by_post(conn)
+    sampled_terms = sampled_values(normalized_terms, 80, seed)
+
+    for normalized in sampled_terms:
+        add("standard-single-ranked", "search", terms=[labels[normalized]], sort="ranked")
+    for normalized in sampled_terms[:10]:
+        label = labels[normalized]
+        add("standard-single-newest", "search", terms=[label], sort="newest")
+        add("standard-single-oldest", "search", terms=[label], sort="oldest")
+
+    for values in sampled_combinations(values_by_post, 2, 125, seed):
+        add("standard-pair-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+    for values in sampled_combinations(values_by_post, 3, 40, seed):
+        add("standard-triple-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+    for values in sampled_combinations(values_by_post, 4, 20, seed):
+        add("standard-quadruple-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+
+    for prefix in sampled_values(autocomplete_prefixes(normalized_terms), 75, seed + 1):
+        add("standard-suggest-prefix", "suggest", query=prefix, selected=[])
+    for normalized in sampled_values(normalized_terms, 50, seed + 2):
+        add("standard-suggest-selected", "suggest", query="", selected=[labels[normalized]])
+
+    category_slugs = [
+        str(row[0])
+        for row in conn.execute("SELECT slug FROM categories ORDER BY name COLLATE NOCASE").fetchall()
+    ]
+    for slug in sampled_values(category_slugs, 20, seed + 3):
+        add("standard-category-search", "search", terms=[], sort="ranked", scope={"type": "category", "slug": slug})
+        add("standard-category-suggest", "suggest", query="", selected=[], categorySlug=slug)
+
+    topic_slugs = [
+        str(row[0])
+        for row in conn.execute(
+            "SELECT slug FROM topics WHERE display_in_browser = 1 ORDER BY name COLLATE NOCASE"
+        ).fetchall()
+    ]
+    for slug in sampled_values(topic_slugs, 12, seed + 4):
+        add("standard-topic-search", "search", terms=[], sort="ranked", scope={"type": "topic", "slug": slug})
+        add("standard-topic-suggest", "suggest", query="", selected=[], topicSlug=slug)
+
+    cases.extend(additional_cases)
+    if len(cases) != STANDARD_CASE_COUNT:
+        raise RuntimeError(f"Standard profile generated {len(cases)} cases instead of {STANDARD_CASE_COUNT}")
     return cases
 
 
@@ -276,6 +337,8 @@ def generate_command(args: argparse.Namespace) -> int:
     try:
         if args.profile == "smoke":
             cases = smoke_cases(conn)
+        elif args.profile == "standard":
+            cases = standard_cases(conn, args.seed)
         else:
             cases = full_cases(
                 conn,
@@ -293,7 +356,14 @@ def generate_command(args: argparse.Namespace) -> int:
     return 0
 
 
-def remote_batch(base_url: str, token: str, cases: list[dict[str, Any]], timeout: int) -> dict[str, Any]:
+def remote_batch(
+    base_url: str,
+    token: str,
+    cases: list[dict[str, Any]],
+    timeout: int,
+    retries: int,
+    retry_delay: float,
+) -> dict[str, Any]:
     url = base_url.rstrip("/") + "/api/parity/batch"
     payload = json.dumps({"schemaVersion": 1, "cases": cases}, ensure_ascii=False).encode("utf-8")
     request = Request(
@@ -305,14 +375,22 @@ def remote_batch(base_url: str, token: str, cases: list[dict[str, Any]], timeout
             "X-Ehrman-Parity-Token": token,
         },
     )
-    try:
-        with urlopen(request, timeout=timeout) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except HTTPError as exc:
-        detail = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"Parity endpoint returned HTTP {exc.code}: {detail}") from exc
-    except URLError as exc:
-        raise RuntimeError(f"Unable to reach parity endpoint: {exc}") from exc
+    for attempt in range(retries + 1):
+        try:
+            with urlopen(request, timeout=timeout) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")[:500]
+            if exc.code in {429, 500, 502, 503, 504} and attempt < retries:
+                time.sleep(retry_delay * (2**attempt))
+                continue
+            raise RuntimeError(f"Parity endpoint returned HTTP {exc.code}: {detail}") from exc
+        except URLError as exc:
+            if attempt < retries:
+                time.sleep(retry_delay * (2**attempt))
+                continue
+            raise RuntimeError(f"Unable to reach parity endpoint: {exc}") from exc
+    raise RuntimeError("Parity endpoint retry loop ended unexpectedly")
 
 
 def comparable_manifest(response: dict[str, Any]) -> dict[str, Any]:
@@ -337,6 +415,21 @@ def digest_record(result: dict[str, Any]) -> dict[str, Any]:
     return summary
 
 
+def capture_progress(path: Path, expected_record_type: str) -> tuple[dict[str, Any] | None, int]:
+    if not path.exists():
+        return None, 0
+    records = read_json_lines(path)
+    manifest_record = next(records, None)
+    if manifest_record is None or manifest_record.get("recordType") != "manifest":
+        raise RuntimeError(f"Cannot resume {path}: manifest is missing")
+    completed = 0
+    for record in records:
+        if record.get("recordType") != expected_record_type:
+            raise RuntimeError(f"Cannot resume {path}: unexpected record type")
+        completed += 1
+    return manifest_record, completed
+
+
 def capture_command(args: argparse.Namespace) -> int:
     token = ""
     if args.base_url:
@@ -345,16 +438,35 @@ def capture_command(args: argparse.Namespace) -> int:
             raise RuntimeError(f"Set {args.token_env} before capturing a remote baseline")
 
     first_manifest: dict[str, Any] | None = None
-    total = 0
-    case_records: Iterable[dict[str, Any]] = read_json_lines(args.cases)
-    if args.offset or args.limit is not None:
-        stop = None if args.limit is None else args.offset + args.limit
-        case_records = itertools.islice(case_records, args.offset, stop)
+    completed = 0
+    append = False
+    if args.resume:
+        first_manifest, completed = capture_progress(args.output, "result")
+        digest_manifest, digest_completed = capture_progress(args.digests, "digest")
+        if completed != digest_completed:
+            raise RuntimeError("Cannot resume: baseline and digest progress differ")
+        if (first_manifest is None) != (digest_manifest is None):
+            raise RuntimeError("Cannot resume: baseline and digest manifests differ")
+        append = first_manifest is not None
 
-    with text_writer(args.output) as output, text_writer(args.digests) as digests:
+    if args.limit is not None and completed > args.limit:
+        raise RuntimeError("Cannot resume: completed results exceed --limit")
+    remaining = None if args.limit is None else args.limit - completed
+    if remaining == 0:
+        print(f"Capture already contains all {completed:,} requested parity results at {args.output}")
+        return 0
+
+    total = completed
+    case_records: Iterable[dict[str, Any]] = read_json_lines(args.cases)
+    start = args.offset + completed
+    stop = None if remaining is None else start + remaining
+    if start or stop is not None:
+        case_records = itertools.islice(case_records, start, stop)
+
+    with text_writer(args.output, append=append) as output, text_writer(args.digests, append=append) as digests:
         for batch in chunks(case_records, args.batch_size):
             response = (
-                remote_batch(args.base_url, token, batch, args.timeout)
+                remote_batch(args.base_url, token, batch, args.timeout, args.retries, args.retry_delay)
                 if args.base_url
                 else run_batch(batch)
             )
@@ -466,7 +578,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     generate = subparsers.add_parser("generate", help="Generate deterministic parity cases")
-    generate.add_argument("--profile", choices=("smoke", "full"), default="smoke")
+    generate.add_argument("--profile", choices=("smoke", "standard", "full"), default="smoke")
     generate.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     generate.add_argument("--output", type=Path, default=DEFAULT_CASES_PATH)
     generate.add_argument("--seed", type=int, default=DEFAULT_SEED)
@@ -485,6 +597,9 @@ def build_parser() -> argparse.ArgumentParser:
     capture.add_argument("--offset", type=int, default=0)
     capture.add_argument("--limit", type=int)
     capture.add_argument("--timeout", type=int, default=120)
+    capture.add_argument("--retries", type=int, default=4)
+    capture.add_argument("--retry-delay", type=float, default=2.0)
+    capture.add_argument("--resume", action="store_true")
     capture.set_defaults(func=capture_command)
 
     compare = subparsers.add_parser("compare", help="Compare two captured parity files")
@@ -495,12 +610,19 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main() -> int:
-    args = build_parser().parse_args()
+def validate_args(args: argparse.Namespace) -> None:
     if getattr(args, "batch_size", 1) < 1 or getattr(args, "batch_size", 1) > MAX_BATCH_CASES:
         raise SystemExit(f"--batch-size must be between 1 and {MAX_BATCH_CASES}")
-    if getattr(args, "offset", 0) < 0 or getattr(args, "limit", 0) is not None and args.limit < 1:
+    limit = getattr(args, "limit", None)
+    if getattr(args, "offset", 0) < 0 or limit is not None and limit < 1:
         raise SystemExit("--offset must be non-negative and --limit must be positive")
+    if getattr(args, "retries", 0) < 0 or getattr(args, "retry_delay", 0) < 0:
+        raise SystemExit("--retries and --retry-delay must be non-negative")
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+    validate_args(args)
     try:
         return int(args.func(args))
     except (OSError, ValueError, RuntimeError, sqlite3.Error) as exc:

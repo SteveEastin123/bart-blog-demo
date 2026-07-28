@@ -42,3 +42,21 @@ Run the full archive:
 ```powershell
 python -B scripts\ehrman_http_indexer.py --reset
 ```
+
+## Search Parity
+
+Generate the routine 500-case Python/PHP comparison suite:
+
+```powershell
+python -B scripts\search_parity.py generate --profile standard
+```
+
+Use `--profile smoke` for a quick deployment check. The much larger
+`--profile full` suite is retained only for optional stress testing.
+
+Remote captures can use smaller batches plus retry and resume support:
+
+```powershell
+python -B scripts\search_parity.py capture --base-url https://example.onrender.com `
+  --batch-size 25 --retries 5 --resume
+```

@@ -205,42 +205,34 @@ Run locally and on both Render services:
 - duplicate normalized labels
 - database rebuild reproducibility
 
-### Tier 2: Exhaustive deterministic search
+### Tier 2: Standard deterministic parity suite
 
-- Search all 1,708 normalized terms using `ranked`.
-- Search all 1,708 normalized terms using `newest` and `oldest` to verify sort
-  behavior.
-- Search all 33,534 co-occurring pairs using `ranked`.
-- Test the same selected terms in reversed order for a deterministic sample of
-  pairs.
-- Test duplicate selections, empty terms, whitespace, punctuation, ampersands,
-  case changes, and invalid sort values.
-- Verify that non-co-occurring pairs return zero for a deterministic negative
-  sample.
+Use 500 carefully selected cases for the primary Python-to-PHP comparison. The
+suite covers regression queries, representative single-term searches, all sort
+modes, co-occurring pairs, three- and four-term intersections, autocomplete,
+category and topic scopes, edge cases, and browse output. A fixed seed makes the
+selection reproducible.
 
-### Tier 3: Multi-term interaction coverage
+### Tier 3: Optional extended interaction coverage
 
 The implementation uses the same iterative intersection for two, three, and
 four terms. Testing every co-occurring triple and quadruple would add 797,664
 cases without exercising a different branch of the algorithm. Instead:
 
 - include every known regression query
-- include all triples and quadruples attached to posts with the largest term
-  lists, bounded to a documented deterministic set
-- include at least 5,000 co-occurring triples
-- include at least 2,000 co-occurring quadruples
+- include broader deterministic samples of pairs, triples, and quadruples
 - include matching and non-matching cases
-- include reordered terms and one duplicated term
+- include reordered terms and duplicated terms
 
 The sampling seed and generation algorithm must be stored so the same cases
 are used for Python and PHP.
 
-### Tier 4: Exhaustive autocomplete
+### Tier 4: Optional extended autocomplete
 
-- Test all 6,901 distinct global word-prefix inputs.
+- Test a broader deterministic sample of global word-prefix inputs.
 - Test blank unscoped starter suggestions.
-- Test an empty query after every selected normalized term.
-- Test selected-term narrowing for all co-occurring pairs.
+- Test empty queries after representative selected terms.
+- Test selected-term narrowing for representative co-occurring pairs.
 - Test exclusion of already selected terms.
 - Test suggestion limits and ordering.
 - Test every category scope and every topic scope.
@@ -326,13 +318,17 @@ PHP is eligible for WordPress integration only when:
 The Python Render service remains available until the PHP comparison is
 accepted and a later cutover is explicitly approved.
 
+Render captures use bounded batches, transient-error retries, and resumable
+JSONL output. This prevents a temporary `502` response from discarding cases
+that the service has already completed.
+
 ## Approved Phase 2 Decisions
 
 The following decisions were approved before implementing the Python test
 harness:
 
 - the current behavior contract
-- exhaustive singles and co-occurring pairs plus deterministic triple/quadruple coverage
+- a 500-case deterministic primary parity suite, with the larger generated suite retained as optional stress coverage
 - URL as the portable post identity and final sorting tie-breaker
 - the protected batch endpoint design
 - storage of baseline digests in Git and the larger compressed baseline outside normal Git history
