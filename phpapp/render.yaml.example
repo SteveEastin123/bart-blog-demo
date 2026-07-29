@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: bart-blog-demo-php
+    runtime: docker
+    plan: free
+    dockerfilePath: ./phpapp/Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    envVars:
+      - key: EHRMAN_PARITY_TEST_TOKEN
+        sync: false

@@ -1,0 +1,15 @@
+.git
+.codex_deps
+.tools
+.tmp
+__pycache__
+*.pyc
+*.pyo
+*.db
+*.db-*
+*.log
+data/raw
+docs
+tests/parity/artifacts
+*.docx
+*.pptx

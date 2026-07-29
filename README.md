@@ -60,3 +60,11 @@ Remote captures can use smaller batches plus retry and resume support:
 python -B scripts\search_parity.py capture --base-url https://example.onrender.com `
   --batch-size 25 --retries 5 --resume
 ```
+
+## PHP comparison application
+
+The independent PHP 8.4 implementation is in `phpapp/`. It uses the same
+SQLite schema and browser assets as the Python demo while preserving the
+existing Python Render service as the reference application. See
+`phpapp/README.md` for local startup, Docker deployment, and the 500-case
+Python-to-PHP comparison workflow.
