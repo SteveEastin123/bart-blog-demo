@@ -22,6 +22,11 @@ RUN apt-get update \
 WORKDIR /var/www/app
 
 COPY phpapp /var/www/app/phpapp
+COPY data/index/ehrman_post_categories.json /var/www/app/data/index/ehrman_post_categories.json
+COPY data/index/ehrman_post_search_index.json /var/www/app/data/index/ehrman_post_search_index.json
+COPY data/index/ehrman_post_subject_areas.json /var/www/app/data/index/ehrman_post_subject_areas.json
+COPY data/index/ehrman_post_subject_areas_2.json /var/www/app/data/index/ehrman_post_subject_areas_2.json
+COPY data/index/ehrman_post_topics.json /var/www/app/data/index/ehrman_post_topics.json
 COPY webapp/static /var/www/app/webapp/static
 COPY --from=database-builder /opt/ehrman/webapp/data/ehrman_search.db /var/www/app/webapp/data/ehrman_search.db
 COPY phpapp/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
