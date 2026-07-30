@@ -213,6 +213,21 @@ def build_demo_data(
     payload["categories"] = demo_categories
     payload["subjectAreas"] = build_subject_area_records(subject_areas)
     payload["subjectAreas2"] = build_subject_area_records(subject_areas_2)
+    payload["featuredTopics"] = [
+        name
+        for _, name in sorted(
+            (
+                (topic.get("featuredOrder"), clean_string(topic.get("name")))
+                for topic in topics
+                if topic.get("displayInBrowser", True) is not False
+                and isinstance(topic.get("featuredOrder"), int)
+                and not isinstance(topic.get("featuredOrder"), bool)
+                and topic.get("featuredOrder") > 0
+                and clean_string(topic.get("name"))
+            ),
+            key=lambda item: (item[0], item[1].casefold()),
+        )
+    ]
     payload["topicDescriptions"] = topic_descriptions
     payload["articlesByTopic"] = posts_by_topic
     return payload

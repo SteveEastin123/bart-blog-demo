@@ -228,6 +228,7 @@
     },
     {
       "name": "Biblical Contradictions",
+      "featuredOrder": 4,
       "description": "Posts on contradictions in biblical texts, including the Gospels, the Hebrew Bible, and broader questions of interpretation and scriptural authority.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation"
@@ -300,6 +301,7 @@
     },
     {
       "name": "Canon Formation",
+      "featuredOrder": 11,
       "description": "Posts on how writings became scripture, including early canon lists, disputed books, books included or excluded, and the formation of the New Testament and Hebrew Bible canons.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation"
@@ -378,6 +380,7 @@
     },
     {
       "name": "Conversion",
+      "featuredOrder": 9,
       "description": "Covers why people converted to Christianity, including miracles, fear of hell, social appeal, martyrdom, missions, and ancient accounts of conversion.",
       "categories": [
         "Christian Origins and Expansion"
@@ -499,6 +502,7 @@
     },
     {
       "name": "Early Christian Diversity",
+      "featuredOrder": 23,
       "description": "Covers competing forms of early Christianity, including alternative beliefs, rival groups, unorthodox texts, and the question of which Christianity became dominant.",
       "categories": [
         "Christian Origins and Expansion"
@@ -531,6 +535,7 @@
     },
     {
       "name": "Christology (General)",
+      "featuredOrder": 24,
       "description": "Covers broad questions about Jesus' identity, divine status, relationship to God, and the Jewish or ancient background for later Christian claims about Christ.",
       "categories": [
         "Christology"
@@ -604,6 +609,7 @@
     },
     {
       "name": "Eyewitness Reliability",
+      "featuredOrder": 17,
       "description": "Covers the reliability and limits of eyewitness testimony, including memory distortion, expertise, oral cultures, and whether eyewitnesses preserve historical events accurately.",
       "categories": [
         "Memory, Oral Tradition, and Eyewitnesses"
@@ -628,6 +634,7 @@
     },
     {
       "name": "Forgery (General)",
+      "featuredOrder": 7,
       "description": "Covers ancient literary forgery, pseudepigraphy, deception, motives for false attribution, and general debates about whether forged writings were meant to mislead readers.",
       "categories": [
         "Forgery"
@@ -700,6 +707,7 @@
     },
     {
       "name": "Gospel Authorship",
+      "featuredOrder": 16,
       "description": "Posts on who wrote the canonical Gospels, why they are anonymous, how titles and traditions developed, and how early Christians connected them with apostolic figures.",
       "categories": [
         "Authorship",
@@ -725,6 +733,7 @@
     },
     {
       "name": "Gospel Historical Reliability",
+      "featuredOrder": 19,
       "description": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "categories": [
         "Canonical Gospels and Acts"
@@ -823,6 +832,7 @@
     },
     {
       "name": "Heaven and Hell Beliefs",
+      "featuredOrder": 6,
       "description": "Covers ancient and Christian ideas about heaven and hell, including reward, punishment, moral reversal, and connections with Jesus, Paul, Revelation, Jewish traditions, Greek traditions, and Roman traditions.",
       "categories": [
         "Afterlife"
@@ -858,6 +868,7 @@
     },
     {
       "name": "Historical Jesus (General)",
+      "featuredOrder": 22,
       "description": "Posts offering broad overviews of the historical Jesus, including what can be known about his life, how scholars reconstruct it, and major debates about his significance.",
       "categories": [
         "The Historical Jesus"
@@ -1021,6 +1032,7 @@
     },
     {
       "name": "Jesus' Teachings",
+      "featuredOrder": 14,
       "description": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categories": [
         "Jesus' Teachings and Social World"
@@ -1208,6 +1220,7 @@
     },
     {
       "name": "Memory and Jesus Traditions",
+      "featuredOrder": 18,
       "description": "Covers memory, false memory, group memory, distortion, and how remembered traditions about Jesus may have changed over time.",
       "categories": [
         "Memory, Oral Tradition, and Eyewitnesses"
@@ -1298,6 +1311,7 @@
     },
     {
       "name": "Mythicism",
+      "featuredOrder": 12,
       "description": "Posts on arguments that Jesus did not exist, Bart's responses to mythicists, evidence for Jesus' existence, and related debates about Nazareth or Jesus' family.",
       "categories": [
         "The Historical Jesus"
@@ -1330,6 +1344,7 @@
     },
     {
       "name": "Non-Canonical Gospel Traditions",
+      "featuredOrder": 10,
       "description": "Covers non-canonical gospel traditions outside the New Testament when no more specific topic is used, including lost, fragmentary, legendary, infancy, Pilate, and other gospel-like traditions.",
       "categories": [
         "Non-Canonical Christian Texts"
@@ -1381,6 +1396,7 @@
     },
     {
       "name": "Oral Tradition",
+      "featuredOrder": 8,
       "description": "Covers oral transmission of stories about Jesus, including storytelling, oral cultures, Papias, Gospel traditions before writing, and how traditions changed before becoming texts.",
       "categories": [
         "Memory, Oral Tradition, and Eyewitnesses"
@@ -1504,6 +1520,7 @@
     },
     {
       "name": "Paul's Knowledge of Jesus",
+      "featuredOrder": 21,
       "description": "Covers what Paul appears to know about Jesus, including Jesus' teachings, death, disciples, family, and traditions cited in Paul's letters.",
       "categories": [
         "Paul's Life, Mission, and Communities"
@@ -1520,6 +1537,7 @@
     },
     {
       "name": "Pauline Authorship",
+      "featuredOrder": 25,
       "description": "Posts on which letters Paul wrote, which letters are disputed, and how scholars use style, theology, historical setting, and comparison with undisputed letters to assess authorship.",
       "categories": [
         "Authorship",
@@ -1680,6 +1698,7 @@
     },
     {
       "name": "Problem of Evil and Suffering",
+      "featuredOrder": 15,
       "description": "Covers suffering as a challenge to belief in a loving and all-powerful God, including debates, proposed answers, apologetic arguments, biblical responses, and personal reflections.",
       "categories": [
         "Suffering and Evil"
@@ -1752,6 +1771,7 @@
     },
     {
       "name": "Resurrection of Jesus",
+      "featuredOrder": 20,
       "description": "Covers Jesus' resurrection broadly, including historical reconstruction, early Christian belief, miracle claims, tomb traditions, and how the resurrection was understood.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
@@ -1776,6 +1796,7 @@
     },
     {
       "name": "Book of Revelation",
+      "featuredOrder": 5,
       "description": "Covers the book of Revelation as an ancient apocalypse, including authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "categories": [
         "Revelation and End-Time Interpretation"
@@ -1793,6 +1814,7 @@
     },
     {
       "name": "Rise of Christianity",
+      "featuredOrder": 13,
       "description": "Covers how Christianity spread and became successful in the Roman world, including social, religious, political, and cultural explanations.",
       "categories": [
         "Christian Origins and Expansion"
@@ -1843,6 +1865,7 @@
     },
     {
       "name": "Scribal Changes",
+      "featuredOrder": 2,
       "description": "Posts on how scribes altered manuscripts, including accidental mistakes, intentional changes, theological edits, harmonizations, and the historical significance of copying.",
       "categories": [
         "Textual Criticism"
@@ -1958,6 +1981,7 @@
     },
     {
       "name": "Textual Variants",
+      "featuredOrder": 3,
       "description": "Posts on differences among manuscript copies, why variants matter, and how changed wording can affect interpretation of biblical texts.",
       "categories": [
         "Textual Criticism"
@@ -1974,6 +1998,7 @@
     },
     {
       "name": "Translation Issues",
+      "featuredOrder": 1,
       "description": "Covers difficult translation decisions, ancient languages, textual bases, inclusive language, misleading translations, and how translation affects interpretation.",
       "categories": [
         "Bible Translations and Versions"

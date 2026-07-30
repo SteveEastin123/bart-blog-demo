@@ -4,27 +4,6 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/bootstrap.php';
 
-const EHRMAN_STARTER_TOPICS = [
-    'Gospel of Luke',
-    'Gospel of Mark',
-    'Gospel of Matthew',
-    'Gospel of John',
-    "Jesus' Teachings",
-    'Historical Jesus (General)',
-    'Pauline Letters',
-    'Textual Variants',
-    'Scribal Changes',
-    'Original Text Questions',
-    'Biblical Contradictions',
-    'Canon',
-    'Revelation',
-    'Birth Narrative',
-    'Resurrection of Jesus',
-    'Heaven/Hell',
-    'Literary Forgery (General)',
-    'Early Christianity (General)',
-];
-
 function ehrman_find_post_ids_for_term(PDO $db, string $term): array
 {
     $normalized = ehrman_normalize_keyword($term);
@@ -193,25 +172,21 @@ function ehrman_starter_suggestions(PDO $db): array
 {
     $rows = ehrman_fetch_all(
         $db,
-        'SELECT label, normalized, COUNT(DISTINCT post_id) AS post_count '
-        . 'FROM post_search_terms WHERE kind = \'topic\' AND label IN ('
-        . ehrman_placeholders(count(EHRMAN_STARTER_TOPICS))
-        . ') GROUP BY label, normalized',
-        EHRMAN_STARTER_TOPICS,
+        <<<'SQL'
+        SELECT t.name AS label, t.featured_order, COUNT(DISTINCT pt.post_id) AS post_count
+        FROM topics t
+        JOIN post_topics pt ON pt.topic_id = t.id
+        WHERE t.featured_order IS NOT NULL AND t.display_in_browser = 1
+        GROUP BY t.id, t.name, t.featured_order
+        ORDER BY t.featured_order
+        SQL,
     );
-    $byLabel = [];
-    foreach ($rows as $row) {
-        $byLabel[(string) $row['label']] = $row;
-    }
     $suggestions = [];
-    foreach (EHRMAN_STARTER_TOPICS as $label) {
-        if (!isset($byLabel[$label])) {
-            continue;
-        }
-        $row = $byLabel[$label];
+    foreach ($rows as $row) {
+        $label = (string) $row['label'];
         $suggestions[] = [
-            'label' => (string) $row['label'],
-            'normalized' => (string) $row['normalized'],
+            'label' => $label,
+            'normalized' => ehrman_normalize_keyword($label),
             'postCount' => (int) $row['post_count'],
             'isTopic' => true,
         ];

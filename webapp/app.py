@@ -26,27 +26,6 @@ STATIC_DIR = Path(__file__).resolve().parent / "static"
 DB_PATH = Path(os.environ.get("EHRMAN_DB_PATH", DEFAULT_DB_PATH))
 MAX_PARITY_REQUEST_BYTES = 2_000_000
 
-STARTER_TOPIC_LABELS = (
-    "Gospel of Luke",
-    "Gospel of Mark",
-    "Gospel of Matthew",
-    "Gospel of John",
-    "Jesus' Teachings",
-    "Historical Jesus (General)",
-    "Pauline Letters",
-    "Textual Variants",
-    "Scribal Changes",
-    "Original Text Questions",
-    "Biblical Contradictions",
-    "Canon",
-    "Revelation",
-    "Birth Narrative",
-    "Resurrection of Jesus",
-    "Heaven/Hell",
-    "Literary Forgery (General)",
-    "Early Christianity (General)",
-)
-
 
 def ensure_database() -> None:
     if not DB_PATH.exists():
@@ -1098,26 +1077,24 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
 
 
 def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, object]]:
-    placeholders = ",".join("?" for _ in STARTER_TOPIC_LABELS)
     rows = conn.execute(
-        f"""
-        SELECT label, normalized, COUNT(DISTINCT post_id) AS post_count
-        FROM post_search_terms
-        WHERE kind = 'topic' AND label IN ({placeholders})
-        GROUP BY label, normalized
+        """
+        SELECT t.name AS label, t.featured_order, COUNT(DISTINCT pt.post_id) AS post_count
+        FROM topics t
+        JOIN post_topics pt ON pt.topic_id = t.id
+        WHERE t.featured_order IS NOT NULL AND t.display_in_browser = 1
+        GROUP BY t.id, t.name, t.featured_order
+        ORDER BY t.featured_order
         """,
-        STARTER_TOPIC_LABELS,
     ).fetchall()
-    by_label = {row["label"]: row for row in rows}
     return [
         {
             "label": row["label"],
-            "normalized": row["normalized"],
+            "normalized": normalize_keyword(row["label"]),
             "postCount": row["post_count"],
             "isTopic": True,
         }
-        for label in STARTER_TOPIC_LABELS
-        if (row := by_label.get(label)) is not None
+        for row in rows
     ]
 
 

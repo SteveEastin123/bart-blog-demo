@@ -47,7 +47,8 @@ CREATE TABLE topics (
     name TEXT NOT NULL UNIQUE,
     slug TEXT NOT NULL UNIQUE,
     description TEXT NOT NULL DEFAULT '',
-    display_in_browser INTEGER NOT NULL DEFAULT 1
+    display_in_browser INTEGER NOT NULL DEFAULT 1,
+    featured_order INTEGER
 );
 
 CREATE TABLE posts (
@@ -117,6 +118,7 @@ CREATE INDEX idx_subject_areas_2_name ON subject_areas_2(name COLLATE NOCASE);
 CREATE INDEX idx_subject_areas_2_slug ON subject_areas_2(slug);
 CREATE INDEX idx_topics_name ON topics(name COLLATE NOCASE);
 CREATE INDEX idx_topics_slug ON topics(slug);
+CREATE UNIQUE INDEX idx_topics_featured_order ON topics(featured_order) WHERE featured_order IS NOT NULL;
 CREATE INDEX idx_posts_date ON posts(date_iso DESC, id DESC);
 CREATE INDEX idx_posts_title ON posts(title COLLATE NOCASE);
 CREATE INDEX idx_keywords_normalized ON keywords(normalized);
@@ -298,16 +300,24 @@ def build_database(
             name = clean_string(topic.get("name"))
             if not name:
                 continue
+            featured_order = topic.get("featuredOrder")
+            if featured_order is not None and (
+                isinstance(featured_order, bool)
+                or not isinstance(featured_order, int)
+                or featured_order < 1
+            ):
+                raise ValueError(f"Invalid featuredOrder for topic {name!r}: {featured_order!r}")
             conn.execute(
                 """
-                INSERT INTO topics(name, slug, description, display_in_browser)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO topics(name, slug, description, display_in_browser, featured_order)
+                VALUES (?, ?, ?, ?, ?)
                 """,
                 (
                     name,
                     unique_slug(name, used_topic_slugs),
                     clean_string(topic.get("description")),
                     0 if topic.get("displayInBrowser") is False else 1,
+                    featured_order,
                 ),
             )
 

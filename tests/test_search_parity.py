@@ -94,6 +94,39 @@ class SearchParityTests(unittest.TestCase):
         self.assertGreater(response["results"][1]["resultCount"], 0)
         self.assertGreater(response["results"][2]["suggestionCount"], 0)
 
+    def test_featured_topics_come_from_topic_metadata(self) -> None:
+        expected = [
+            "Translation Issues",
+            "Scribal Changes",
+            "Textual Variants",
+            "Biblical Contradictions",
+            "Book of Revelation",
+            "Heaven and Hell Beliefs",
+            "Forgery (General)",
+            "Oral Tradition",
+            "Conversion",
+            "Non-Canonical Gospel Traditions",
+            "Canon Formation",
+            "Mythicism",
+            "Rise of Christianity",
+            "Jesus' Teachings",
+            "Problem of Evil and Suffering",
+            "Gospel Authorship",
+            "Eyewitness Reliability",
+            "Memory and Jesus Traditions",
+            "Gospel Historical Reliability",
+            "Resurrection of Jesus",
+            "Paul's Knowledge of Jesus",
+            "Historical Jesus (General)",
+            "Early Christian Diversity",
+            "Christology (General)",
+            "Pauline Authorship",
+        ]
+        with app.get_conn() as conn:
+            suggestions = app.starter_keyword_suggestions(conn)
+        self.assertEqual([suggestion["label"] for suggestion in suggestions], expected)
+        self.assertTrue(all(suggestion["postCount"] > 0 for suggestion in suggestions))
+
     def test_browse_snapshot_contains_both_structures(self) -> None:
         result = run_batch([{"id": "browse", "operation": "browse"}])["results"][0]
         self.assertTrue(result["ok"])

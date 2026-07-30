@@ -2109,6 +2109,33 @@ const DATA = {
                   ]
             }
       ],
+      "featuredTopics": [
+            "Translation Issues",
+            "Scribal Changes",
+            "Textual Variants",
+            "Biblical Contradictions",
+            "Book of Revelation",
+            "Heaven and Hell Beliefs",
+            "Forgery (General)",
+            "Oral Tradition",
+            "Conversion",
+            "Non-Canonical Gospel Traditions",
+            "Canon Formation",
+            "Mythicism",
+            "Rise of Christianity",
+            "Jesus' Teachings",
+            "Problem of Evil and Suffering",
+            "Gospel Authorship",
+            "Eyewitness Reliability",
+            "Memory and Jesus Traditions",
+            "Gospel Historical Reliability",
+            "Resurrection of Jesus",
+            "Paul's Knowledge of Jesus",
+            "Historical Jesus (General)",
+            "Early Christian Diversity",
+            "Christology (General)",
+            "Pauline Authorship"
+      ],
       "topicDescriptions": {
             "2 Thessalonians": "Posts on 2 Thessalonians, including authorship, forgery, apocalyptic expectation, further reading, and later interpretation.",
             "Academic Careers and University Life": "Covers graduate study, teaching, dissertations, university life, scholarly careers, and what academic biblical scholars actually do.",
@@ -31632,26 +31659,6 @@ const DATA = {
 
 
     const MAX_KEYWORD_SUGGESTIONS = 48;
-    const STARTER_TOPIC_LABELS = [
-      'Gospel of Luke',
-      'Gospel of Mark',
-      'Gospel of Matthew',
-      'Gospel of John',
-      "Jesus' Teachings",
-      'Historical Jesus (General)',
-      'Pauline Letters',
-      'Textual Variants',
-      'Scribal Changes',
-      'Original Text',
-      'Biblical Contradictions',
-      'Canon',
-      'Revelation',
-      'Birth Narrative',
-      'Resurrection of Jesus',
-      'Heaven/Hell',
-      'Forgery (General)',
-      'Early Christianity (General)'
-    ];
     const MAX_SELECTED_KEYWORDS = 4;
     const VALID_SORTS = ['best', 'newest', 'oldest'];
 
@@ -32171,7 +32178,7 @@ const DATA = {
     }
 
     function starterTopicSuggestions() {
-      return STARTER_TOPIC_LABELS
+      return DATA.featuredTopics
         .map(label => [label, topicCount(label), normalizeKeywordSearchValue(label), true])
         .filter(([, count]) => count > 0);
     }
