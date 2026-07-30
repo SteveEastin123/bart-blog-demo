@@ -25,6 +25,7 @@
   function resetKeywordSuggestionList(list) {
     if (!list) return;
     list.hidden = true;
+    list.removeAttribute("aria-label");
     list.classList.remove("open-above");
     list.style.left = "";
     list.style.maxHeight = "";
@@ -85,6 +86,20 @@
     if (!suggestions.length) {
       resetKeywordSuggestionList(list);
       return;
+    }
+    const showFeaturedHeading = input.value.trim() === ""
+      && selectedValues(form, input).length === 0
+      && !form.dataset.categorySlug
+      && !form.dataset.topicSlug;
+    if (showFeaturedHeading) {
+      const heading = document.createElement("li");
+      heading.className = "keyword-suggestion-heading";
+      heading.setAttribute("role", "presentation");
+      heading.textContent = "Featured Topics";
+      list.appendChild(heading);
+      list.setAttribute("aria-label", "Featured Topics");
+    } else {
+      list.removeAttribute("aria-label");
     }
     suggestions.forEach((suggestion) => {
       const item = document.createElement("li");

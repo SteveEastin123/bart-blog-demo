@@ -779,6 +779,15 @@ a:hover {
   display: none;
 }
 
+.keyword-suggestion-heading {
+  background: #f8f4ec;
+  border-bottom: 1px solid var(--line);
+  color: var(--maroon);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 11px 7px;
+}
+
 .keyword-suggestion-list button {
   align-items: center;
   background: transparent;

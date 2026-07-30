@@ -785,6 +785,15 @@
       display: none;
     }
 
+    .keyword-suggestion-heading {
+      background: #f8f4ec;
+      border-bottom: 1px solid var(--line);
+      color: var(--maroon);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 11px 7px;
+    }
+
     .keyword-search-panel .keyword-suggestion-list button {
       align-items: center;
       background: transparent;
@@ -32266,6 +32275,7 @@ const DATA = {
       }
       list.hidden = true;
       list.innerHTML = '';
+      list.removeAttribute('aria-label');
       list.classList.remove('open-above');
       list.style.left = '';
       list.style.maxHeight = '';
@@ -32419,7 +32429,7 @@ const DATA = {
       ].join('');
     }
 
-    function renderKeywordSuggestions(input, matches, activeIndex = -1) {
+    function renderKeywordSuggestions(input, matches, activeIndex = -1, showFeaturedHeading = false) {
       const list = keywordSuggestionList(input);
       if (!list) {
         return;
@@ -32430,7 +32440,10 @@ const DATA = {
         closeKeywordSuggestions(input);
         return;
       }
-      list.innerHTML = matches.map(([label, count, , isTopic], index) => {
+      const headingMarkup = showFeaturedHeading
+        ? '<li class="keyword-suggestion-heading" role="presentation">Featured Topics</li>'
+        : '';
+      list.innerHTML = headingMarkup + matches.map(([label, count, , isTopic], index) => {
         const activeClass = index === activeIndex ? ' class="is-active"' : '';
         const optionId = `${list.id}-option-${index}`;
         const typeClass = isTopic ? 'is-topic' : 'is-keyword';
@@ -32448,6 +32461,11 @@ const DATA = {
           </li>
         `;
       }).join('');
+      if (showFeaturedHeading) {
+        list.setAttribute('aria-label', 'Featured Topics');
+      } else {
+        list.removeAttribute('aria-label');
+      }
       list.hidden = false;
       positionKeywordSuggestionList(input);
       input.setAttribute('aria-expanded', 'true');
@@ -32468,7 +32486,11 @@ const DATA = {
     function updateKeywordSuggestions(input, activeIndex = -1, inputs = [], options = {}) {
       closeAllKeywordSuggestions(input);
       const matches = keywordSuggestionMatches(input.value, input, inputs, options);
-      renderKeywordSuggestions(input, matches, activeIndex);
+      const showFeaturedHeading = !normalizeKeywordSearchValue(input.value)
+        && Number(input.dataset.keywordIndex) === 1
+        && keywordContextTerms(input, inputs).length === 0
+        && !options.scopeArticleIndexes;
+      renderKeywordSuggestions(input, matches, activeIndex, showFeaturedHeading);
     }
 
     function setupDescriptionToggle() {
