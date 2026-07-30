@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import hmac
+import hashlib
 import json
 import mimetypes
 import os
@@ -157,13 +158,15 @@ def header(active: str = "") -> str:
 
 def render_page(title: str, body: str, active: str = "") -> bytes:
     full_title = f"{title} | Bart Blog Demo" if title else "Bart Blog Demo"
+    styles_url = static_asset_url("styles.css")
+    script_url = static_asset_url("site.js")
     html_doc = f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{esc(full_title)}</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="{esc(styles_url)}">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -171,10 +174,18 @@ def render_page(title: str, body: str, active: str = "") -> bytes:
   <main id="main-content" class="page-shell" tabindex="-1">
     {body}
   </main>
-  <script src="/static/site.js"></script>
+  <script src="{esc(script_url)}"></script>
 </body>
 </html>"""
     return html_doc.encode("utf-8")
+
+
+def static_asset_url(filename: str) -> str:
+    path = STATIC_DIR / filename
+    if not path.is_file():
+        return f"/static/{filename}"
+    version = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+    return f"/static/{filename}?v={version}"
 
 
 def description_toggle(checked: bool = False, scope: str = "browse") -> str:

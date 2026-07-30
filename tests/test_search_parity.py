@@ -127,6 +127,11 @@ class SearchParityTests(unittest.TestCase):
         self.assertEqual([suggestion["label"] for suggestion in suggestions], expected)
         self.assertTrue(all(suggestion["postCount"] > 0 for suggestion in suggestions))
 
+    def test_rendered_pages_cache_bust_static_assets(self) -> None:
+        page = app.render_page("Test", "").decode("utf-8")
+        self.assertIn('/static/styles.css?v=', page)
+        self.assertIn('/static/site.js?v=', page)
+
     def test_browse_snapshot_contains_both_structures(self) -> None:
         result = run_batch([{"id": "browse", "operation": "browse"}])["results"][0]
         self.assertTrue(result["ok"])

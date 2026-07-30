@@ -84,13 +84,27 @@ function ehrman_header(string $active = ''): string
 function ehrman_render_page(string $title, string $body, string $active = ''): string
 {
     $fullTitle = $title !== '' ? $title . ' | Bart Blog Demo' : 'Bart Blog Demo';
+    $stylesUrl = ehrman_static_asset_url('styles.css');
+    $scriptUrl = ehrman_static_asset_url('site.js');
     return '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         . '<meta name="viewport" content="width=device-width, initial-scale=1">'
-        . '<title>' . ehrman_html($fullTitle) . '</title><link rel="stylesheet" href="/static/styles.css">'
+        . '<title>' . ehrman_html($fullTitle) . '</title><link rel="stylesheet" href="' . ehrman_html($stylesUrl) . '">'
         . '</head><body><a class="skip-link" href="#main-content">Skip to content</a>'
         . ehrman_header($active)
         . '<main id="main-content" class="page-shell" tabindex="-1">' . $body . '</main>'
-        . '<script src="/static/site.js"></script></body></html>';
+        . '<script src="' . ehrman_html($scriptUrl) . '"></script></body></html>';
+}
+
+function ehrman_static_asset_url(string $filename): string
+{
+    static $versions = [];
+    $url = '/static/' . rawurlencode($filename);
+    if (!array_key_exists($filename, $versions)) {
+        $path = dirname(__DIR__, 2) . '/webapp/static/' . $filename;
+        $hash = is_file($path) ? hash_file('sha256', $path) : false;
+        $versions[$filename] = $hash === false ? '' : substr($hash, 0, 12);
+    }
+    return $versions[$filename] === '' ? $url : $url . '?v=' . $versions[$filename];
 }
 
 function ehrman_description_toggle(bool $checked = false, string $scope = 'browse'): string
