@@ -780,12 +780,13 @@ a:hover {
 }
 
 .keyword-suggestion-heading {
-  background: #f8f4ec;
-  border-bottom: 1px solid var(--line);
+  background: #f3e4dd;
+  border-bottom: 1px solid #d8b8ad;
+  border-left: 4px solid var(--maroon);
   color: var(--maroon);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 8px 11px 7px;
+  padding: 9px 12px 8px;
 }
 
 .keyword-suggestion-list button {
