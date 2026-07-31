@@ -645,11 +645,11 @@ def keyword_filter_categories() -> list[sqlite3.Row]:
     with get_conn() as conn:
         return conn.execute(
             """
-            SELECT c.name, c.slug, c.description, COUNT(DISTINCT pt.post_id) AS post_count
+            SELECT c.name, c.slug, COUNT(DISTINCT pt.post_id) AS post_count
             FROM categories c
             LEFT JOIN topic_categories tc ON tc.category_id = c.id
             LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
-            GROUP BY c.id, c.name, c.slug, c.description
+            GROUP BY c.id, c.name, c.slug
             ORDER BY c.name COLLATE NOCASE
             """
         ).fetchall()
@@ -719,8 +719,7 @@ def keyword_panel(
     )
     scope_markup = (
         f"""
-        <div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">
-          <h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>
+        <div class="keyword-filter-section" aria-label="Search scope">
           <div class="keyword-scope-row">
             <span class="keyword-scope"><strong>Category:</strong> {esc(scope_label)}</span>
           </div>
@@ -732,30 +731,19 @@ def keyword_panel(
     category_filter_markup = ""
     if category_options is not None:
         options_markup = ['<option value="">All categories</option>']
-        selected_category_description = ""
         for category in category_options:
             selected = " selected" if category["slug"] == selected_category_slug else ""
-            if selected:
-                selected_category_description = category["description"] or ""
             options_markup.append(
                 f'<option value="{esc(category["slug"])}"{selected}>'
                 f'{esc(category["name"])}</option>'
             )
-        category_description_markup = (
-            f'<p class="keyword-category-description">{esc(selected_category_description)}</p>'
-            if selected_category_description
-            else ""
-        )
         category_filter_markup = f"""
-        <div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">
-          <h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>
-          <p class="keyword-section-help">Optionally limit results to one category.</p>
+        <div class="keyword-filter-section" aria-label="Search scope">
           <div class="keyword-category-filter">
             <label for="keyword-category-filter">Category <span>(optional)</span></label>
             <select id="keyword-category-filter" name="category" data-category-filter>
               {"".join(options_markup)}
             </select>
-            {category_description_markup}
           </div>
         </div>
         """
@@ -764,8 +752,7 @@ def keyword_panel(
       {scope_markup}
       {category_filter_markup}
       <div class="keyword-terms-section">
-        <h2 class="keyword-section-title">Search terms</h2>
-        <p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. Keywords identify significant people, texts, places, or supporting ideas discussed in the post. Combine either type to narrow your results.</p>
+        <p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects; keywords identify important people, texts, places, or supporting ideas. Use either or both to narrow results.</p>
         <div class="keyword-grid">
           <div class="keyword-slot-grid" data-keyword-chip-list>
             {chips}

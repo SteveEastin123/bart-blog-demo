@@ -397,10 +397,10 @@ function ehrman_keyword_filter_categories(): array
 {
     return ehrman_fetch_all(
         ehrman_db(),
-        'SELECT c.name, c.slug, c.description, COUNT(DISTINCT pt.post_id) AS post_count '
+        'SELECT c.name, c.slug, COUNT(DISTINCT pt.post_id) AS post_count '
         . 'FROM categories c LEFT JOIN topic_categories tc ON tc.category_id = c.id '
         . 'LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id '
-        . 'GROUP BY c.id, c.name, c.slug, c.description ORDER BY c.name COLLATE NOCASE',
+        . 'GROUP BY c.id, c.name, c.slug ORDER BY c.name COLLATE NOCASE',
     );
 }
 
@@ -448,38 +448,28 @@ function ehrman_keyword_panel(
         ? ' data-category-slug="' . ehrman_html($activeCategorySlug) . '"'
         : '';
     $attributes .= $scopeTopicSlug !== '' ? ' data-topic-slug="' . ehrman_html($scopeTopicSlug) . '"' : '';
-    $scopeMarkup = $scopeLabel === '' ? '' : '<div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">'
-        . '<h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>'
+    $scopeMarkup = $scopeLabel === '' ? '' : '<div class="keyword-filter-section" aria-label="Search scope">'
         . '<div class="keyword-scope-row"><span class="keyword-scope"><strong>Category:</strong> '
         . ehrman_html($scopeLabel) . '</span></div></div>';
     $categoryFilterMarkup = '';
     if ($categoryOptions !== null) {
         $categorySelectOptions = ['<option value="">All categories</option>'];
-        $selectedCategoryDescription = '';
         foreach ($categoryOptions as $category) {
             $selected = (string) $category['slug'] === $selectedCategorySlug ? ' selected' : '';
-            if ($selected !== '') {
-                $selectedCategoryDescription = (string) ($category['description'] ?? '');
-            }
             $categorySelectOptions[] = '<option value="' . ehrman_html($category['slug']) . '"' . $selected . '>'
                 . ehrman_html($category['name']) . '</option>';
         }
-        $categoryDescriptionMarkup = $selectedCategoryDescription === '' ? ''
-            : '<p class="keyword-category-description">' . ehrman_html($selectedCategoryDescription) . '</p>';
-        $categoryFilterMarkup = '<div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">'
-            . '<h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>'
-            . '<p class="keyword-section-help">Optionally limit results to one category.</p>'
+        $categoryFilterMarkup = '<div class="keyword-filter-section" aria-label="Search scope">'
             . '<div class="keyword-category-filter"><label for="keyword-category-filter">Category <span>(optional)</span></label>'
             . '<select id="keyword-category-filter" name="category" data-category-filter>'
-            . implode('', $categorySelectOptions) . '</select>' . $categoryDescriptionMarkup . '</div></div>';
+            . implode('', $categorySelectOptions) . '</select></div></div>';
     }
     return '<form class="keyword-search-panel" action="' . ehrman_html($formAction)
         . '" method="get" data-keyword-form' . $attributes . '>'
         . $scopeMarkup . $categoryFilterMarkup . '<div class="keyword-terms-section">'
-        . '<h2 class="keyword-section-title">Search terms</h2>'
-        . '<p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. '
-        . 'Keywords identify significant people, texts, places, or supporting ideas discussed in the post. '
-        . 'Combine either type to narrow your results.</p><div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
+        . '<p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects; '
+        . 'keywords identify important people, texts, places, or supporting ideas. '
+        . 'Use either or both to narrow results.</p><div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
         . implode('', $chips) . $entry . implode('', $emptySlots) . '</div></div>'
         . '<div class="sort-row"><span class="sort-label">Sort by</span>' . implode('', $sortOptions) . '</div>'
         . '<div class="keyword-action-row"><button type="submit">Search</button>'

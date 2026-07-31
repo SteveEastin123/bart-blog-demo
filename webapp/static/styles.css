@@ -599,28 +599,10 @@ a:hover {
   padding: 0 0 20px;
 }
 
-.keyword-section-title {
-  color: var(--maroon);
-  font: 700 18px/25px "Open Sans", Arial, Helvetica, sans-serif;
-  margin: 0 0 6px;
-}
-
-.keyword-section-help,
 .keyword-instructions {
   color: #000000;
   font: 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
   margin: 0 0 12px;
-  max-width: 75ch;
-}
-
-.keyword-section-help {
-  color: var(--muted);
-}
-
-.keyword-category-description {
-  color: var(--maroon);
-  font: 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
-  margin: 9px 0 0;
   max-width: 75ch;
 }
 

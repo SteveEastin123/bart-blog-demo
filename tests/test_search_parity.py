@@ -143,9 +143,10 @@ class SearchParityTests(unittest.TestCase):
         self.assertIn('id="keyword-category-filter"', page)
         self.assertIn(f'value="{category["slug"]}" selected', page)
         self.assertIn(f'Category: {category["name"]}', page)
-        self.assertIn('Search scope', page)
-        self.assertIn('Search terms', page)
-        self.assertIn(category["description"], page)
+        self.assertIn('aria-label="Search scope"', page)
+        self.assertNotIn('class="keyword-section-title"', page)
+        self.assertNotIn('Optionally limit results to one category.', page)
+        self.assertNotIn('keyword-category-description', page)
 
     def test_keyword_search_page_lists_each_category_once(self) -> None:
         page = app.keyword_search_page().decode("utf-8")

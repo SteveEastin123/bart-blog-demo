@@ -728,35 +728,12 @@
       padding: 0 0 20px;
     }
 
-    .keyword-section-title {
-      color: var(--maroon);
-      font-family: "Open Sans", Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 25px;
-      margin: 0 0 6px;
-    }
-
-    .keyword-section-help,
     .keyword-instructions {
       color: #000000;
       font-family: "Open Sans", Arial, Helvetica, sans-serif;
       font-size: 16px;
       line-height: 24px;
       margin: 0 0 12px;
-      max-width: 75ch;
-    }
-
-    .keyword-section-help {
-      color: var(--muted);
-    }
-
-    .keyword-category-description {
-      color: var(--maroon);
-      font-family: "Open Sans", Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 24px;
-      margin: 9px 0 0;
       max-width: 75ch;
     }
 
@@ -32663,17 +32640,14 @@ const DATA = {
       ` : '';
       const descriptionTogglePanel = includeDescriptionToggle ? descriptionToggleMarkup(descriptionsChecked, 'posts') : '';
       const scopeMarkup = scopeLabel ? `
-        <div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">
-          <h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>
+        <div class="keyword-filter-section" aria-label="Search scope">
           <div class="keyword-scope-row">
             <span class="keyword-scope"><strong>Category:</strong> ${escapeHtml(scopeLabel)}</span>
           </div>
         </div>
       ` : '';
       const categoryFilterMarkup = includeCategoryFilter ? `
-        <div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">
-          <h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>
-          <p class="keyword-section-help">Optionally limit results to one category.</p>
+        <div class="keyword-filter-section" aria-label="Search scope">
           <div class="keyword-category-filter">
             <label for="keyword-category-filter">Category <span>(optional)</span></label>
             <select id="keyword-category-filter" data-category-filter>
@@ -32684,9 +32658,6 @@ const DATA = {
                 .map(({ category, index }) => `<option value="${index}"${index === selectedCategoryIndex ? ' selected' : ''}>${escapeHtml(category.name)}</option>`)
                 .join('')}
             </select>
-            ${Number.isInteger(selectedCategoryIndex)
-              ? `<p class="keyword-category-description">${escapeHtml(DATA.categories[selectedCategoryIndex].description || '')}</p>`
-              : ''}
           </div>
         </div>
       ` : '';
@@ -32695,8 +32666,7 @@ const DATA = {
           ${scopeMarkup}
           ${categoryFilterMarkup}
           <div class="keyword-terms-section">
-            <h2 class="keyword-section-title">Search terms</h2>
-            <p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. Keywords identify significant people, texts, places, or supporting ideas discussed in the post. Combine either type to narrow your results.</p>
+            <p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects; keywords identify important people, texts, places, or supporting ideas. Use either or both to narrow results.</p>
             <div class="keyword-search-controls">
               <div class="keyword-slot-grid" data-keyword-chip-list>
                 ${cleanValues.map(keywordChipMarkup).join('')}
