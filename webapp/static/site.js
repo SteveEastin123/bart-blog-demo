@@ -91,6 +91,13 @@
     list.style.top = "";
     list.style.width = "";
     list.style.removeProperty("--keyword-suggestion-width");
+    const input = list.parentElement?.querySelector(".keyword-input");
+    if (input) {
+      input.keywordSuggestionMatches = [];
+      input.keywordSuggestionIndex = -1;
+      input.setAttribute("aria-expanded", "false");
+      input.removeAttribute("aria-activedescendant");
+    }
   }
 
   function positionKeywordSuggestionList(input) {
@@ -126,6 +133,23 @@
     container.append(strong, document.createTextNode(text.slice(matchIndex + match.length)));
   }
 
+  function setActiveKeywordSuggestion(input, index) {
+    const list = input.parentElement.querySelector(".keyword-suggestion-list");
+    const suggestions = input.keywordSuggestionMatches || [];
+    const buttons = list ? Array.from(list.querySelectorAll("button[data-suggestion-index]")) : [];
+    if (!list || list.hidden || !suggestions.length || !buttons.length) return;
+    const nextIndex = (index + suggestions.length) % suggestions.length;
+    input.keywordSuggestionIndex = nextIndex;
+    buttons.forEach((button, buttonIndex) => {
+      const active = buttonIndex === nextIndex;
+      button.classList.toggle("is-active", active);
+      button.closest("li")?.setAttribute("aria-selected", String(active));
+    });
+    const activeButton = buttons[nextIndex];
+    input.setAttribute("aria-activedescendant", activeButton.closest("li")?.id || "");
+    activeButton.scrollIntoView({ block: "nearest" });
+  }
+
   async function fetchSuggestions(input) {
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
@@ -143,6 +167,8 @@
     const response = await fetch("/api/keywords?" + params.toString());
     const suggestions = await response.json();
     list.innerHTML = "";
+    input.keywordSuggestionMatches = suggestions;
+    input.keywordSuggestionIndex = -1;
     if (!suggestions.length) {
       resetKeywordSuggestionList(list);
       return;
@@ -161,7 +187,7 @@
     } else {
       list.removeAttribute("aria-label");
     }
-    suggestions.forEach((suggestion) => {
+    suggestions.forEach((suggestion, index) => {
       const item = document.createElement("li");
       const button = document.createElement("button");
       const main = document.createElement("span");
@@ -169,6 +195,10 @@
       const type = document.createElement("span");
       const count = document.createElement("span");
       button.type = "button";
+      button.dataset.suggestionIndex = String(index);
+      item.id = `${list.id}-option-${index}`;
+      item.setAttribute("role", "option");
+      item.setAttribute("aria-selected", "false");
       main.className = "suggestion-main";
       label.className = "suggestion-label";
       appendHighlightedSuggestionText(label, suggestion.label, input.value);
@@ -187,14 +217,19 @@
       }
       button.addEventListener("mousedown", (event) => {
         event.preventDefault();
-        addKeywordChip(form, input, suggestion.label);
+      });
+      button.addEventListener("click", () => {
+        const added = addKeywordChip(form, input, suggestion.label);
         resetKeywordSuggestionList(list);
-        input.focus({ preventScroll: true });
+        if (added) {
+          window.location.href = keywordSearchUrl(form, input);
+        }
       });
       item.appendChild(button);
       list.appendChild(item);
     });
     list.hidden = false;
+    input.setAttribute("aria-expanded", "true");
     positionKeywordSuggestionList(input);
   }
 
@@ -268,20 +303,20 @@
 
   function addKeywordChip(form, input, value) {
     const cleanValue = value.trim();
-    if (!cleanValue) return;
+    if (!cleanValue) return false;
     const currentValues = selectedValues(form, input);
     if (currentValues.some((currentValue) => currentValue.toLowerCase() === cleanValue.toLowerCase())) {
       input.value = "";
       updateKeywordEntryState(form);
-      return;
+      return false;
     }
     if (currentValues.length >= MAX_KEYWORDS) {
       input.value = "";
       updateKeywordEntryState(form);
-      return;
+      return false;
     }
     const chipList = keywordChipList(form);
-    if (!chipList) return;
+    if (!chipList) return false;
     const chip = document.createElement("span");
     chip.className = "keyword-slot keyword-chip";
     const hidden = document.createElement("input");
@@ -301,6 +336,7 @@
     chipList.insertBefore(chip, wrap || chipList.querySelector(".keyword-empty-slot"));
     input.value = "";
     updateKeywordEntryState(form);
+    return true;
   }
 
   document.querySelectorAll("[data-keyword-form]").forEach((form) => {
@@ -395,8 +431,40 @@
     input.addEventListener("focus", showSuggestions);
     input.addEventListener("click", showSuggestions);
     input.addEventListener("keydown", (event) => {
+      const list = input.parentElement.querySelector(".keyword-suggestion-list");
+      const suggestions = input.keywordSuggestionMatches || [];
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const direction = event.key === "ArrowDown" ? 1 : -1;
+        if (list?.hidden || !suggestions.length) {
+          fetchSuggestions(input).then(() => {
+            const startIndex = direction > 0
+              ? 0
+              : (input.keywordSuggestionMatches || []).length - 1;
+            setActiveKeywordSuggestion(input, startIndex);
+          });
+        } else {
+          setActiveKeywordSuggestion(input, (input.keywordSuggestionIndex ?? -1) + direction);
+        }
+        return;
+      }
+      if (event.key === "Enter") {
+        event.preventDefault();
+        if (suggestions.length && input.keywordSuggestionIndex >= 0) {
+          const form = input.closest("[data-keyword-form]");
+          const added = addKeywordChip(form, input, suggestions[input.keywordSuggestionIndex].label);
+          resetKeywordSuggestionList(list);
+          if (added) {
+            window.location.href = keywordSearchUrl(form, input);
+          }
+        }
+        return;
+      }
       if (event.key === "Tab") {
-        const list = input.parentElement.querySelector(".keyword-suggestion-list");
+        resetKeywordSuggestionList(list);
+        return;
+      }
+      if (event.key === "Escape") {
         resetKeywordSuggestionList(list);
       }
     });

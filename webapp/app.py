@@ -698,8 +698,8 @@ def keyword_panel(
     next_index = len(values) + 1
     entry = f"""
         <div class="keyword-slot keyword-input-wrap"{" hidden" if len(values) >= 4 else ""}>
-          <input class="keyword-input" name="keyword" value="" placeholder="Keyword {min(next_index, 4)}" autocomplete="off" {"autofocus" if not values else ""}{" disabled" if len(values) >= 4 else ""}>
-          <ul class="keyword-suggestion-list" hidden></ul>
+          <input id="keyword-search-input" class="keyword-input" name="keyword" value="" placeholder="Keyword {min(next_index, 4)}" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="keyword-suggestions" {"autofocus" if not values else ""}{" disabled" if len(values) >= 4 else ""}>
+          <ul id="keyword-suggestions" class="keyword-suggestion-list" role="listbox" hidden></ul>
         </div>
     """
     empty_slots = "".join(
@@ -752,7 +752,7 @@ def keyword_panel(
       {scope_markup}
       {category_filter_markup}
       <div class="keyword-terms-section">
-        <p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects; keywords identify important people, texts, places, or supporting ideas. Use either or both to narrow results.</p>
+        <p class="keyword-instructions"><strong>Select up to four search terms.</strong> Topics identify major subjects; keywords identify important people, texts, places, or supporting ideas. Use either or both to narrow results.</p>
         <div class="keyword-grid">
           <div class="keyword-slot-grid" data-keyword-chip-list>
             {chips}
@@ -765,7 +765,6 @@ def keyword_panel(
           {sort_options}
         </div>
         <div class="keyword-action-row">
-          <button type="submit">Search</button>
           <button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button>
         </div>
       </div>

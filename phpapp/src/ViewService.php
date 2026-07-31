@@ -433,9 +433,10 @@ function ehrman_keyword_panel(
     }
     $nextIndex = count($values) + 1;
     $entry = '<div class="keyword-slot keyword-input-wrap"' . (count($values) >= 4 ? ' hidden' : '') . '>'
-        . '<input class="keyword-input" name="keyword" value="" placeholder="Keyword ' . min($nextIndex, 4)
-        . '" autocomplete="off"' . ($values === [] ? ' autofocus' : '')
-        . (count($values) >= 4 ? ' disabled' : '') . '><ul class="keyword-suggestion-list" hidden></ul></div>';
+        . '<input id="keyword-search-input" class="keyword-input" name="keyword" value="" placeholder="Keyword ' . min($nextIndex, 4)
+        . '" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="keyword-suggestions"'
+        . ($values === [] ? ' autofocus' : '') . (count($values) >= 4 ? ' disabled' : '')
+        . '><ul id="keyword-suggestions" class="keyword-suggestion-list" role="listbox" hidden></ul></div>';
     $emptySlots = [];
     $firstEmpty = $nextIndex + (count($values) >= 4 ? 0 : 1);
     for ($index = $firstEmpty; $index <= 4; $index++) {
@@ -467,12 +468,12 @@ function ehrman_keyword_panel(
     return '<form class="keyword-search-panel" action="' . ehrman_html($formAction)
         . '" method="get" data-keyword-form' . $attributes . '>'
         . $scopeMarkup . $categoryFilterMarkup . '<div class="keyword-terms-section">'
-        . '<p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects; '
+        . '<p class="keyword-instructions"><strong>Select up to four search terms.</strong> Topics identify major subjects; '
         . 'keywords identify important people, texts, places, or supporting ideas. '
         . 'Use either or both to narrow results.</p><div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
         . implode('', $chips) . $entry . implode('', $emptySlots) . '</div></div>'
         . '<div class="sort-row"><span class="sort-label">Sort by</span>' . implode('', $sortOptions) . '</div>'
-        . '<div class="keyword-action-row"><button type="submit">Search</button>'
+        . '<div class="keyword-action-row">'
         . '<button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button></div></div></form>'
         . '<div class="search-description-toggle">'
         . ehrman_description_toggle($descriptionsChecked, 'posts') . '</div>';
