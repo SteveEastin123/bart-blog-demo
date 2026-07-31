@@ -132,6 +132,26 @@ class SearchParityTests(unittest.TestCase):
         self.assertIn('/static/styles.css?v=', page)
         self.assertIn('/static/site.js?v=', page)
 
+    def test_keyword_search_category_filter_scopes_results(self) -> None:
+        categories = app.keyword_filter_categories()
+        category = next(row for row in categories if row["post_count"] > 0)
+        posts, clean_terms = app.search_posts([], "ranked", category["slug"])
+        self.assertEqual(clean_terms, [])
+        self.assertEqual(len(posts), category["post_count"])
+
+        page = app.keyword_results_page({"category": [category["slug"]]}).decode("utf-8")
+        self.assertIn('id="keyword-category-filter"', page)
+        self.assertIn(f'value="{category["slug"]}" selected', page)
+        self.assertIn(f'Category: {category["name"]}', page)
+        self.assertIn('Search scope', page)
+        self.assertIn('Search terms', page)
+        self.assertIn(category["description"], page)
+
+    def test_keyword_search_page_lists_each_category_once(self) -> None:
+        page = app.keyword_search_page().decode("utf-8")
+        self.assertEqual(page.count('data-category-filter'), 1)
+        self.assertEqual(page.count('<option value="'), len(app.keyword_filter_categories()) + 1)
+
     def test_browse_snapshot_contains_both_structures(self) -> None:
         result = run_batch([{"id": "browse", "operation": "browse"}])["results"][0]
         self.assertTrue(result["ok"])

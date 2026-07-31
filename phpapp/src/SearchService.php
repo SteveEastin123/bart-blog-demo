@@ -69,14 +69,22 @@ function ehrman_sort_posts(array $posts, string $sort, array $rankingTerms, ?arr
     return $posts;
 }
 
-function ehrman_search_posts(array $terms, string $sort): array
+function ehrman_search_posts(array $terms, string $sort, string $categorySlug = ''): array
 {
     $sort = in_array($sort, ['ranked', 'newest', 'oldest'], true) ? $sort : 'ranked';
     $cleanTerms = ehrman_unique_terms($terms);
-    if ($cleanTerms === []) {
+    $categorySlug = trim($categorySlug);
+    if ($cleanTerms === [] && $categorySlug === '') {
         return [[], []];
     }
     $db = ehrman_db();
+    if ($categorySlug !== '') {
+        $category = ehrman_fetch_one($db, 'SELECT * FROM categories WHERE slug = ?', [$categorySlug]);
+        if ($category === null) {
+            return [[], $cleanTerms];
+        }
+        return ehrman_search_category_posts($db, $category, $cleanTerms, $sort);
+    }
     $matches = null;
     foreach ($cleanTerms as $term) {
         $matches = ehrman_intersect_scores($matches, ehrman_find_post_ids_for_term($db, $term));

@@ -22,6 +22,15 @@
     );
   }
 
+  function categoryFilter(form) {
+    return form ? form.querySelector("[data-category-filter]") : null;
+  }
+
+  function activeCategorySlug(form) {
+    const filter = categoryFilter(form);
+    return filter ? filter.value.trim() : (form?.dataset.categorySlug || "");
+  }
+
   let topicTooltipElement = null;
 
   function topicTooltip() {
@@ -124,8 +133,9 @@
     const params = new URLSearchParams();
     params.set("q", input.value.trim());
     selectedValues(form, input).forEach((value) => params.append("selected", value));
-    if (form.dataset.categorySlug) {
-      params.set("category", form.dataset.categorySlug);
+    const categorySlug = activeCategorySlug(form);
+    if (categorySlug) {
+      params.set("category", categorySlug);
     }
     if (form.dataset.topicSlug) {
       params.set("topic", form.dataset.topicSlug);
@@ -139,7 +149,7 @@
     }
     const showFeaturedHeading = input.value.trim() === ""
       && selectedValues(form, input).length === 0
-      && !form.dataset.categorySlug
+      && !categorySlug
       && !form.dataset.topicSlug;
     if (showFeaturedHeading) {
       const heading = document.createElement("li");
@@ -203,13 +213,15 @@
     const values = selectedValues(form, input);
     input.placeholder = `Keyword ${Math.min(values.length + 1, MAX_KEYWORDS)}`;
     input.disabled = values.length >= MAX_KEYWORDS;
+    const filter = categoryFilter(form);
+    const hasCategory = Boolean(filter?.value.trim());
     const clearButton = form.querySelector("[data-clear-keywords]");
     if (clearButton) {
-      clearButton.disabled = values.length === 0 && !input.value.trim();
+      clearButton.disabled = values.length === 0 && !input.value.trim() && !hasCategory;
     }
     const submitButton = form.querySelector('button[type="submit"]');
     if (submitButton) {
-      submitButton.disabled = values.length === 0;
+      submitButton.disabled = values.length === 0 && !hasCategory;
     }
     const wrap = keywordEntryWrap(form);
     if (wrap) {
@@ -235,6 +247,7 @@
     const params = target.searchParams;
     params.delete("keyword");
     params.delete("sort");
+    params.delete("category");
     uniqueKeywordValues([...selectedValues(form, input), input.value]).forEach((value) =>
       params.append("keyword", value)
     );
@@ -242,7 +255,11 @@
     if (selectedSort && selectedSort.value && selectedSort.value !== "ranked") {
       params.set("sort", selectedSort.value);
     }
-    if (!params.has("keyword") && target.pathname === "/keyword-results") {
+    const selectedCategory = categoryFilter(form)?.value.trim() || "";
+    if (selectedCategory) {
+      params.set("category", selectedCategory);
+    }
+    if (!params.has("keyword") && !selectedCategory && target.pathname === "/keyword-results") {
       return "/keyword-search";
     }
     const queryString = params.toString();
@@ -292,10 +309,24 @@
       const input = form.querySelector(".keyword-input");
       if (!input) return;
       event.preventDefault();
-      if (!selectedValues(form, input).length) return;
+      if (!selectedValues(form, input).length && !categoryFilter(form)?.value.trim()) return;
       window.location.href = keywordSearchUrl(form, input);
     });
     form.addEventListener("change", (event) => {
+      const categorySelect = event.target.closest("[data-category-filter]");
+      if (categorySelect && form.contains(categorySelect)) {
+        const input = form.querySelector(".keyword-input");
+        if (!input) return;
+        if (categorySelect.value) {
+          form.dataset.categorySlug = categorySelect.value;
+        } else {
+          delete form.dataset.categorySlug;
+        }
+        updateKeywordEntryState(form);
+        document.querySelectorAll(".keyword-suggestion-list").forEach(resetKeywordSuggestionList);
+        window.location.href = keywordSearchUrl(form, input);
+        return;
+      }
       const sortInput = event.target.closest('input[name="sort"]');
       if (!sortInput || !form.contains(sortInput)) return;
       const input = form.querySelector(".keyword-input");
@@ -319,6 +350,11 @@
       if (clearButton && form.contains(clearButton)) {
         event.preventDefault();
         keywordChipList(form)?.querySelectorAll(".keyword-chip").forEach((chip) => chip.remove());
+        const filter = categoryFilter(form);
+        if (filter) {
+          filter.value = "";
+          delete form.dataset.categorySlug;
+        }
         const input = form.querySelector(".keyword-input");
         if (!input) return;
         input.value = "";

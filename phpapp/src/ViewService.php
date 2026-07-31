@@ -393,6 +393,17 @@ function ehrman_category_page(string $slug, array $query): ?string
     return ehrman_render_page((string) $category['name'], $body, $active);
 }
 
+function ehrman_keyword_filter_categories(): array
+{
+    return ehrman_fetch_all(
+        ehrman_db(),
+        'SELECT c.name, c.slug, c.description, COUNT(DISTINCT pt.post_id) AS post_count '
+        . 'FROM categories c LEFT JOIN topic_categories tc ON tc.category_id = c.id '
+        . 'LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id '
+        . 'GROUP BY c.id, c.name, c.slug, c.description ORDER BY c.name COLLATE NOCASE',
+    );
+}
+
 function ehrman_keyword_panel(
     array $prefill = [],
     string $sort = 'ranked',
@@ -403,6 +414,8 @@ function ehrman_keyword_panel(
     string $scopeLabel = '',
     string $scopeSlug = '',
     string $scopeTopicSlug = '',
+    ?array $categoryOptions = null,
+    string $selectedCategorySlug = '',
 ): string {
     $values = array_slice(ehrman_unique_terms($prefill), 0, 4);
     $sort = in_array($sort, ['ranked', 'newest', 'oldest'], true) ? $sort : 'ranked';
@@ -430,20 +443,47 @@ function ehrman_keyword_panel(
     }
     $attributes = $refreshOnRemove ? ' data-refresh-on-remove="true"' : '';
     $attributes .= $sortCurrentPage ? ' data-sort-current-page="true"' : '';
-    $attributes .= $scopeSlug !== '' ? ' data-category-slug="' . ehrman_html($scopeSlug) . '"' : '';
+    $activeCategorySlug = $scopeSlug !== '' ? $scopeSlug : $selectedCategorySlug;
+    $attributes .= $activeCategorySlug !== ''
+        ? ' data-category-slug="' . ehrman_html($activeCategorySlug) . '"'
+        : '';
     $attributes .= $scopeTopicSlug !== '' ? ' data-topic-slug="' . ehrman_html($scopeTopicSlug) . '"' : '';
-    $scopeMarkup = $scopeLabel === '' ? '' : '<div class="keyword-scope-row" aria-label="Search scope">'
-        . '<span class="keyword-scope"><strong>Category:</strong> ' . ehrman_html($scopeLabel) . '</span></div>';
+    $scopeMarkup = $scopeLabel === '' ? '' : '<div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">'
+        . '<h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>'
+        . '<div class="keyword-scope-row"><span class="keyword-scope"><strong>Category:</strong> '
+        . ehrman_html($scopeLabel) . '</span></div></div>';
+    $categoryFilterMarkup = '';
+    if ($categoryOptions !== null) {
+        $categorySelectOptions = ['<option value="">All categories</option>'];
+        $selectedCategoryDescription = '';
+        foreach ($categoryOptions as $category) {
+            $selected = (string) $category['slug'] === $selectedCategorySlug ? ' selected' : '';
+            if ($selected !== '') {
+                $selectedCategoryDescription = (string) ($category['description'] ?? '');
+            }
+            $categorySelectOptions[] = '<option value="' . ehrman_html($category['slug']) . '"' . $selected . '>'
+                . ehrman_html($category['name']) . '</option>';
+        }
+        $categoryDescriptionMarkup = $selectedCategoryDescription === '' ? ''
+            : '<p class="keyword-category-description">' . ehrman_html($selectedCategoryDescription) . '</p>';
+        $categoryFilterMarkup = '<div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">'
+            . '<h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>'
+            . '<p class="keyword-section-help">Optionally limit results to one category.</p>'
+            . '<div class="keyword-category-filter"><label for="keyword-category-filter">Category <span>(optional)</span></label>'
+            . '<select id="keyword-category-filter" name="category" data-category-filter>'
+            . implode('', $categorySelectOptions) . '</select>' . $categoryDescriptionMarkup . '</div></div>';
+    }
     return '<form class="keyword-search-panel" action="' . ehrman_html($formAction)
         . '" method="get" data-keyword-form' . $attributes . '>'
-        . '<label><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. '
+        . $scopeMarkup . $categoryFilterMarkup . '<div class="keyword-terms-section">'
+        . '<h2 class="keyword-section-title">Search terms</h2>'
+        . '<p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. '
         . 'Keywords identify significant people, texts, places, or supporting ideas discussed in the post. '
-        . 'Combine either type to narrow your results.</label>' . $scopeMarkup
-        . '<div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
+        . 'Combine either type to narrow your results.</p><div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
         . implode('', $chips) . $entry . implode('', $emptySlots) . '</div></div>'
         . '<div class="sort-row"><span class="sort-label">Sort by</span>' . implode('', $sortOptions) . '</div>'
         . '<div class="keyword-action-row"><button type="submit">Search</button>'
-        . '<button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button></div></form>'
+        . '<button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button></div></div></form>'
         . '<div class="search-description-toggle">'
         . ehrman_description_toggle($descriptionsChecked, 'posts') . '</div>';
 }
@@ -452,6 +492,11 @@ function ehrman_results_summary(int $postCount, array $terms, string $scopeLabel
 {
     $cleanTerms = ehrman_unique_terms($terms);
     if ($cleanTerms === []) {
+        if ($scopeLabel !== '') {
+            return '<p class="results-summary" aria-live="polite"><strong>'
+                . ehrman_html(ehrman_pluralize($postCount, 'post')) . '</strong> in <strong>'
+                . ehrman_html($scopeLabel) . '</strong>.</p>';
+        }
         return '';
     }
     $verb = $postCount === 1 ? 'matches' : 'match';
@@ -509,7 +554,10 @@ function ehrman_keyword_search_page(): string
     $body = ehrman_content_page(
         'Keyword Search',
         'Search posts by keyword',
-        inner: ehrman_keyword_panel(descriptionsChecked: true),
+        inner: ehrman_keyword_panel(
+            descriptionsChecked: true,
+            categoryOptions: ehrman_keyword_filter_categories(),
+        ),
     );
     return ehrman_render_page('Keyword Search', $body, 'keyword-search');
 }
@@ -518,12 +566,35 @@ function ehrman_keyword_results_page(array $query): string
 {
     $terms = $query['keyword'] ?? [];
     $sort = ehrman_query_first($query, 'sort', 'ranked');
-    [$posts, $cleanTerms] = ehrman_search_posts($terms, $sort);
-    $title = $cleanTerms === [] ? 'Keyword Search' : 'Keywords: ' . implode(' + ', $cleanTerms);
-    $inner = ehrman_keyword_panel($cleanTerms, $sort, true, true)
-        . ehrman_results_summary(count($posts), $cleanTerms)
-        . ehrman_post_list($posts, 'Keyword Search');
-    $body = ehrman_content_page($title, ehrman_pluralize(count($posts), 'post'), inner: $inner);
+    $requestedCategorySlug = ehrman_query_first($query, 'category');
+    $categories = ehrman_keyword_filter_categories();
+    $category = null;
+    foreach ($categories as $candidate) {
+        if ((string) $candidate['slug'] === $requestedCategorySlug) {
+            $category = $candidate;
+            break;
+        }
+    }
+    $categorySlug = $category === null ? '' : (string) $category['slug'];
+    $categoryName = $category === null ? '' : (string) $category['name'];
+    [$posts, $cleanTerms] = ehrman_search_posts($terms, $sort, $categorySlug);
+    $title = $cleanTerms !== []
+        ? 'Keywords: ' . implode(' + ', $cleanTerms)
+        : ($categoryName !== '' ? 'Category: ' . $categoryName : 'Keyword Search');
+    $inner = ehrman_keyword_panel(
+        $cleanTerms,
+        $sort,
+        true,
+        true,
+        categoryOptions: $categories,
+        selectedCategorySlug: $categorySlug,
+    ) . ehrman_results_summary(count($posts), $cleanTerms, $categoryName)
+        . ehrman_post_list($posts, $categoryName !== '' ? $categoryName : 'Keyword Search');
+    $subtitle = ehrman_pluralize(count($posts), 'post');
+    if ($categoryName !== '') {
+        $subtitle .= ' | Category: ' . $categoryName;
+    }
+    $body = ehrman_content_page($title, $subtitle, inner: $inner);
     return ehrman_render_page($title, $body, 'keyword-search');
 }
 

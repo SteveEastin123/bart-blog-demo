@@ -641,6 +641,20 @@ def category_page(slug: str, query: dict[str, list[str]]) -> bytes:
     return render_page(category["name"], body, active=active_key)
 
 
+def keyword_filter_categories() -> list[sqlite3.Row]:
+    with get_conn() as conn:
+        return conn.execute(
+            """
+            SELECT c.name, c.slug, c.description, COUNT(DISTINCT pt.post_id) AS post_count
+            FROM categories c
+            LEFT JOIN topic_categories tc ON tc.category_id = c.id
+            LEFT JOIN post_topics pt ON pt.topic_id = tc.topic_id
+            GROUP BY c.id, c.name, c.slug, c.description
+            ORDER BY c.name COLLATE NOCASE
+            """
+        ).fetchall()
+
+
 def keyword_panel(
     prefill: list[str] | None = None,
     sort: str = "ranked",
@@ -651,6 +665,8 @@ def keyword_panel(
     scope_label: str = "",
     scope_slug: str = "",
     scope_topic_slug: str = "",
+    category_options: list[sqlite3.Row] | None = None,
+    selected_category_slug: str = "",
 ) -> str:
     values = unique_terms(prefill)[:4]
     options = (
@@ -692,37 +708,79 @@ def keyword_panel(
     )
     refresh_attr = ' data-refresh-on-remove="true"' if refresh_on_remove else ""
     sort_attr = ' data-sort-current-page="true"' if sort_current_page else ""
-    scope_attr = f' data-category-slug="{esc(scope_slug)}"' if scope_slug else ""
+    active_category_slug = scope_slug or selected_category_slug
+    scope_attr = (
+        f' data-category-slug="{esc(active_category_slug)}"'
+        if active_category_slug
+        else ""
+    )
     topic_scope_attr = (
         f' data-topic-slug="{esc(scope_topic_slug)}"' if scope_topic_slug else ""
     )
     scope_markup = (
         f"""
-        <div class="keyword-scope-row" aria-label="Search scope">
-          <span class="keyword-scope"><strong>Category:</strong> {esc(scope_label)}</span>
+        <div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">
+          <h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>
+          <div class="keyword-scope-row">
+            <span class="keyword-scope"><strong>Category:</strong> {esc(scope_label)}</span>
+          </div>
         </div>
         """
         if scope_label
         else ""
     )
+    category_filter_markup = ""
+    if category_options is not None:
+        options_markup = ['<option value="">All categories</option>']
+        selected_category_description = ""
+        for category in category_options:
+            selected = " selected" if category["slug"] == selected_category_slug else ""
+            if selected:
+                selected_category_description = category["description"] or ""
+            options_markup.append(
+                f'<option value="{esc(category["slug"])}"{selected}>'
+                f'{esc(category["name"])}</option>'
+            )
+        category_description_markup = (
+            f'<p class="keyword-category-description">{esc(selected_category_description)}</p>'
+            if selected_category_description
+            else ""
+        )
+        category_filter_markup = f"""
+        <div class="keyword-filter-section" aria-labelledby="keyword-scope-heading">
+          <h2 class="keyword-section-title" id="keyword-scope-heading">Search scope</h2>
+          <p class="keyword-section-help">Optionally limit results to one category.</p>
+          <div class="keyword-category-filter">
+            <label for="keyword-category-filter">Category <span>(optional)</span></label>
+            <select id="keyword-category-filter" name="category" data-category-filter>
+              {"".join(options_markup)}
+            </select>
+            {category_description_markup}
+          </div>
+        </div>
+        """
     return f"""
     <form class="keyword-search-panel" action="{esc(form_action)}" method="get" data-keyword-form{refresh_attr}{sort_attr}{scope_attr}{topic_scope_attr}>
-      <label><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. Keywords identify significant people, texts, places, or supporting ideas discussed in the post. Combine either type to narrow your results.</label>
       {scope_markup}
-      <div class="keyword-grid">
-        <div class="keyword-slot-grid" data-keyword-chip-list>
-          {chips}
-          {entry}
-          {empty_slots}
+      {category_filter_markup}
+      <div class="keyword-terms-section">
+        <h2 class="keyword-section-title">Search terms</h2>
+        <p class="keyword-instructions"><strong>Enter up to four search terms.</strong> Topics identify major subjects covered in a post. Keywords identify significant people, texts, places, or supporting ideas discussed in the post. Combine either type to narrow your results.</p>
+        <div class="keyword-grid">
+          <div class="keyword-slot-grid" data-keyword-chip-list>
+            {chips}
+            {entry}
+            {empty_slots}
+          </div>
         </div>
-      </div>
-      <div class="sort-row">
-        <span class="sort-label">Sort by</span>
-        {sort_options}
-      </div>
-      <div class="keyword-action-row">
-        <button type="submit">Search</button>
-        <button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button>
+        <div class="sort-row">
+          <span class="sort-label">Sort by</span>
+          {sort_options}
+        </div>
+        <div class="keyword-action-row">
+          <button type="submit">Search</button>
+          <button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button>
+        </div>
       </div>
     </form>
     <div class="search-description-toggle">
@@ -734,6 +792,12 @@ def keyword_panel(
 def results_summary(post_count: int, terms: list[str], scope_label: str = "") -> str:
     clean_terms = unique_terms(terms)
     if not clean_terms:
+        if scope_label:
+            return (
+                f'<p class="results-summary" aria-live="polite">'
+                f'<strong>{esc(pluralize(post_count, "post"))}</strong> in '
+                f'<strong>{esc(scope_label)}</strong>.</p>'
+            )
         return ""
     count_label = pluralize(post_count, "post")
     verb = "matches" if post_count == 1 else "match"
@@ -1025,13 +1089,25 @@ def sort_scoped_posts(
     return sorted(posts, key=sort_key, reverse=sort != "oldest")
 
 
-def search_posts(terms: list[str], sort: str) -> tuple[list[sqlite3.Row], list[str]]:
+def search_posts(
+    terms: list[str],
+    sort: str,
+    category_slug: str = "",
+) -> tuple[list[sqlite3.Row], list[str]]:
     if sort not in {"ranked", "newest", "oldest"}:
         sort = "ranked"
     clean_terms = unique_terms(terms)
-    if not clean_terms:
+    if not clean_terms and not category_slug:
         return [], []
     with get_conn() as conn:
+        if category_slug:
+            category = conn.execute(
+                "SELECT * FROM categories WHERE slug = ?",
+                (category_slug,),
+            ).fetchone()
+            if not category:
+                return [], clean_terms
+            return search_category_posts(conn, category, clean_terms, sort)
         matches: dict[int, int] | None = None
         for term in clean_terms:
             term_matches = find_post_ids_for_term(conn, term)
@@ -1071,7 +1147,10 @@ def keyword_search_page() -> bytes:
     body = content_page(
         "Keyword Search",
         "Search posts by keyword",
-        inner=keyword_panel(descriptions_checked=True),
+        inner=keyword_panel(
+            descriptions_checked=True,
+            category_options=keyword_filter_categories(),
+        ),
     )
     return render_page("Keyword Search", body, active="keyword-search")
 
@@ -1079,11 +1158,37 @@ def keyword_search_page() -> bytes:
 def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     terms = query.get("keyword", [])
     sort = query.get("sort", ["ranked"])[0]
-    posts, clean_terms = search_posts(terms, sort)
-    title = "Keywords: " + " + ".join(clean_terms) if clean_terms else "Keyword Search"
-    panel = keyword_panel(clean_terms, sort, descriptions_checked=True, refresh_on_remove=True)
-    inner = panel + results_summary(len(posts), clean_terms) + post_list(posts, "Keyword Search")
-    body = content_page(title, pluralize(len(posts), "post"), inner=inner)
+    requested_category_slug = query.get("category", [""])[0].strip()
+    categories = keyword_filter_categories()
+    category = next(
+        (row for row in categories if row["slug"] == requested_category_slug),
+        None,
+    )
+    category_slug = category["slug"] if category else ""
+    category_name = category["name"] if category else ""
+    posts, clean_terms = search_posts(terms, sort, category_slug)
+    title = (
+        "Keywords: " + " + ".join(clean_terms)
+        if clean_terms
+        else (f"Category: {category_name}" if category_name else "Keyword Search")
+    )
+    panel = keyword_panel(
+        clean_terms,
+        sort,
+        descriptions_checked=True,
+        refresh_on_remove=True,
+        category_options=categories,
+        selected_category_slug=category_slug,
+    )
+    inner = (
+        panel
+        + results_summary(len(posts), clean_terms, category_name)
+        + post_list(posts, category_name or "Keyword Search")
+    )
+    subtitle = pluralize(len(posts), "post")
+    if category_name:
+        subtitle += f" \u2022 Category: {category_name}"
+    body = content_page(title, subtitle, inner=inner)
     return render_page(title, body, active="keyword-search")
 
 

@@ -592,6 +592,42 @@ a:hover {
   max-width: 75ch;
 }
 
+.keyword-filter-section {
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 20px;
+  max-width: 75ch;
+  padding: 0 0 20px;
+}
+
+.keyword-section-title {
+  color: var(--maroon);
+  font: 700 18px/25px "Open Sans", Arial, Helvetica, sans-serif;
+  margin: 0 0 6px;
+}
+
+.keyword-section-help,
+.keyword-instructions {
+  color: #000000;
+  font: 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
+  margin: 0 0 12px;
+  max-width: 75ch;
+}
+
+.keyword-section-help {
+  color: var(--muted);
+}
+
+.keyword-category-description {
+  color: var(--maroon);
+  font: 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
+  margin: 9px 0 0;
+  max-width: 75ch;
+}
+
+.keyword-terms-section {
+  max-width: 75ch;
+}
+
 .keyword-scope-row {
   margin: 0 0 12px;
 }
@@ -611,6 +647,42 @@ a:hover {
 .keyword-scope strong {
   color: var(--maroon);
   font-weight: 700;
+}
+
+.keyword-category-filter {
+  margin: 0;
+  max-width: 620px;
+}
+
+.keyword-search-panel .keyword-category-filter label {
+  color: var(--maroon);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  margin: 0 0 5px;
+}
+
+.keyword-search-panel .keyword-category-filter label span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.keyword-category-filter select {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: #000000;
+  cursor: pointer;
+  font: 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
+  min-height: 44px;
+  padding: 9px 36px 9px 11px;
+  width: 100%;
+}
+
+.keyword-category-filter select:focus-visible {
+  border-color: var(--link);
+  outline: 2px solid rgba(27, 101, 148, 0.2);
+  outline-offset: 1px;
 }
 
 .keyword-grid {
@@ -1160,6 +1232,7 @@ a:hover {
   }
 
   .keyword-grid,
+  .keyword-category-filter,
   .keyword-input-wrap,
   .keyword-slot-grid {
     max-width: none;
