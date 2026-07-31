@@ -22,8 +22,58 @@
     );
   }
 
+  let topicTooltipElement = null;
+
+  function topicTooltip() {
+    if (!topicTooltipElement) {
+      topicTooltipElement = document.createElement("div");
+      topicTooltipElement.id = "keyword-topic-description-tooltip";
+      topicTooltipElement.className = "topic-suggestion-tooltip";
+      topicTooltipElement.setAttribute("role", "tooltip");
+      topicTooltipElement.hidden = true;
+      document.body.appendChild(topicTooltipElement);
+    }
+    return topicTooltipElement;
+  }
+
+  function hideTopicTooltip() {
+    if (!topicTooltipElement) return;
+    topicTooltipElement.hidden = true;
+    topicTooltipElement.textContent = "";
+  }
+
+  function showTopicTooltip(button, description) {
+    if (!button || !description) {
+      hideTopicTooltip();
+      return;
+    }
+    const tooltip = topicTooltip();
+    tooltip.textContent = description;
+    tooltip.hidden = false;
+
+    const buttonRect = button.getBoundingClientRect();
+    const padding = 16;
+    const gap = 10;
+    const tooltipWidth = tooltip.offsetWidth;
+    const tooltipHeight = tooltip.offsetHeight;
+    let left = buttonRect.right + gap;
+    if (left + tooltipWidth > window.innerWidth - padding) {
+      left = buttonRect.left - tooltipWidth - gap;
+    }
+    if (left < padding) {
+      left = Math.max(padding, Math.min(buttonRect.left, window.innerWidth - tooltipWidth - padding));
+    }
+    const top = Math.max(
+      padding,
+      Math.min(buttonRect.top, window.innerHeight - tooltipHeight - padding)
+    );
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
+  }
+
   function resetKeywordSuggestionList(list) {
     if (!list) return;
+    hideTopicTooltip();
     list.hidden = true;
     list.removeAttribute("aria-label");
     list.classList.remove("open-above");
@@ -118,6 +168,13 @@
       count.textContent = `${suggestion.postCount} ${suggestion.postCount === 1 ? "post" : "posts"}`;
       main.append(label, type);
       button.append(main, count);
+      if (suggestion.isTopic && suggestion.description) {
+        button.setAttribute("aria-describedby", "keyword-topic-description-tooltip");
+        button.addEventListener("mouseenter", () => showTopicTooltip(button, suggestion.description));
+        button.addEventListener("mouseleave", hideTopicTooltip);
+        button.addEventListener("focus", () => showTopicTooltip(button, suggestion.description));
+        button.addEventListener("blur", hideTopicTooltip);
+      }
       button.addEventListener("mousedown", (event) => {
         event.preventDefault();
         addKeywordChip(form, input, suggestion.label);
@@ -318,6 +375,7 @@
   });
 
   function repositionOpenKeywordLists() {
+    hideTopicTooltip();
     document.querySelectorAll(".keyword-input").forEach(positionKeywordSuggestionList);
   }
 

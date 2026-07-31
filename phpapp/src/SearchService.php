@@ -173,11 +173,11 @@ function ehrman_starter_suggestions(PDO $db): array
     $rows = ehrman_fetch_all(
         $db,
         <<<'SQL'
-        SELECT t.name AS label, t.featured_order, COUNT(DISTINCT pt.post_id) AS post_count
+        SELECT t.name AS label, t.description, t.featured_order, COUNT(DISTINCT pt.post_id) AS post_count
         FROM topics t
         JOIN post_topics pt ON pt.topic_id = t.id
         WHERE t.featured_order IS NOT NULL AND t.display_in_browser = 1
-        GROUP BY t.id, t.name, t.featured_order
+        GROUP BY t.id, t.name, t.description, t.featured_order
         ORDER BY t.featured_order
         SQL,
     );
@@ -189,6 +189,7 @@ function ehrman_starter_suggestions(PDO $db): array
             'normalized' => ehrman_normalize_keyword($label),
             'postCount' => (int) $row['post_count'],
             'isTopic' => true,
+            'description' => (string) ($row['description'] ?? ''),
         ];
     }
     return $suggestions;
@@ -312,7 +313,7 @@ function ehrman_keyword_suggestions(
         . 'CASE WHEN normalized = ? THEN 3 WHEN normalized LIKE ? THEN 2 '
         . 'WHEN normalized LIKE ? THEN 1 ELSE 1 END AS match_quality '
         . "FROM post_search_terms WHERE {$where} GROUP BY normalized "
-        . 'ORDER BY match_quality DESC, is_topic DESC, post_count DESC, label COLLATE NOCASE LIMIT 48',
+        . 'ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE LIMIT 48',
         [$q, $prefixLike, $wordPrefixLike, ...$params],
     );
 
@@ -344,6 +345,14 @@ function ehrman_keyword_suggestions(
         }
     }
 
+    $topicDescriptions = [];
+    foreach (
+        ehrman_fetch_all($db, 'SELECT name, description FROM topics WHERE display_in_browser = 1')
+        as $topicRow
+    ) {
+        $topicDescriptions[ehrman_normalize_keyword((string) $topicRow['name'])] =
+            (string) ($topicRow['description'] ?? '');
+    }
     $suggestions = [];
     foreach ($rows as $row) {
         $normalized = (string) $row['normalized'];
@@ -357,10 +366,11 @@ function ehrman_keyword_suggestions(
             'postCount' => $postCount,
             'isTopic' => (bool) $row['is_topic'],
             'matchQuality' => (int) $row['match_quality'],
+            'description' => (bool) $row['is_topic'] ? ($topicDescriptions[$normalized] ?? '') : '',
         ];
     }
     usort($suggestions, static function (array $left, array $right): int {
-        foreach (['matchQuality', 'isTopic', 'postCount'] as $field) {
+        foreach (['matchQuality', 'postCount', 'isTopic'] as $field) {
             $comparison = (int) $right[$field] <=> (int) $left[$field];
             if ($comparison !== 0) {
                 return $comparison;
@@ -373,5 +383,6 @@ function ehrman_keyword_suggestions(
         'normalized' => $suggestion['normalized'],
         'postCount' => $suggestion['postCount'],
         'isTopic' => $suggestion['isTopic'],
+        'description' => $suggestion['description'],
     ], $suggestions);
 }

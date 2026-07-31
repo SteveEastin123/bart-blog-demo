@@ -1090,11 +1090,11 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
 def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, object]]:
     rows = conn.execute(
         """
-        SELECT t.name AS label, t.featured_order, COUNT(DISTINCT pt.post_id) AS post_count
+        SELECT t.name AS label, t.description, t.featured_order, COUNT(DISTINCT pt.post_id) AS post_count
         FROM topics t
         JOIN post_topics pt ON pt.topic_id = t.id
         WHERE t.featured_order IS NOT NULL AND t.display_in_browser = 1
-        GROUP BY t.id, t.name, t.featured_order
+        GROUP BY t.id, t.name, t.description, t.featured_order
         ORDER BY t.featured_order
         """,
     ).fetchall()
@@ -1104,6 +1104,7 @@ def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, obje
             "normalized": normalize_keyword(row["label"]),
             "postCount": row["post_count"],
             "isTopic": True,
+            "description": row["description"] or "",
         }
         for row in rows
     ]
@@ -1201,7 +1202,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY match_quality DESC, is_topic DESC, post_count DESC, label COLLATE NOCASE
+            ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE
             LIMIT {limit}
             """,
             (q, prefix_like, word_prefix_like, *params),
@@ -1230,6 +1231,13 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 if indexed_value == candidate or f" {candidate} " in padded_indexed_value:
                     matching_posts[candidate].add(post_id)
 
+        topic_description_rows = conn.execute(
+            "SELECT name, description FROM topics WHERE display_in_browser = 1",
+        ).fetchall()
+        topic_descriptions = {
+            normalize_keyword(row["name"]): row["description"] or ""
+            for row in topic_description_rows
+        }
         suggestions = []
         for row in rows:
             post_count = len(matching_posts[row["normalized"]])
@@ -1242,13 +1250,18 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                     "postCount": post_count,
                     "isTopic": bool(row["is_topic"]),
                     "matchQuality": int(row["match_quality"]),
+                    "description": (
+                        topic_descriptions.get(row["normalized"], "")
+                        if row["is_topic"]
+                        else ""
+                    ),
                 }
             )
     suggestions.sort(
         key=lambda suggestion: (
             -suggestion["matchQuality"],
-            -int(suggestion["isTopic"]),
             -suggestion["postCount"],
+            -int(suggestion["isTopic"]),
             suggestion["label"].casefold(),
         )
     )
@@ -1259,6 +1272,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 "normalized": suggestion["normalized"],
                 "postCount": suggestion["postCount"],
                 "isTopic": suggestion["isTopic"],
+                "description": suggestion["description"],
             }
             for suggestion in suggestions
         ],

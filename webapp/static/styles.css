@@ -868,6 +868,27 @@ a:hover {
   white-space: nowrap;
 }
 
+.topic-suggestion-tooltip {
+  background: #fffaf6;
+  border: 1px solid #cfa89e;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(59, 39, 34, 0.16);
+  color: var(--maroon);
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 420px;
+  padding: 12px 14px;
+  pointer-events: none;
+  position: fixed;
+  width: min(420px, calc(100vw - 32px));
+  z-index: 1100;
+}
+
+.topic-suggestion-tooltip[hidden] {
+  display: none;
+}
+
 .hover-help {
   align-items: flex-start;
   color: var(--maroon);
