@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1360" viewBox="0 0 1800 1360" role="img" aria-labelledby="title description">
+  <title id="title">Ways to find posts on the Bart Ehrman Blog</title>
+  <desc id="description">A symmetrical comparison of Keyword Search and Browse Topics. Keyword Search combines topics and secondary keywords into search terms and results. Browse Topics moves from subject areas to categories and topics. Both paths end with posts.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7d201a"/>
+    </marker>
+    <style>
+      .page { fill: #fbf8ef; }
+      .panel { fill: #fffdf8; stroke: #d7c9a5; stroke-width: 3; }
+      .box { stroke-width: 3; }
+      .process { fill: #f7f3e8; stroke: #b4a27a; }
+      .topic { fill: #e8f3fa; stroke: #2c7fa9; }
+      .keyword { fill: #f1ecf5; stroke: #80678e; }
+      .subject { fill: #fae7ad; stroke: #b98720; }
+      .category { fill: #fff3c9; stroke: #c09330; }
+      .post { fill: #e8f3e5; stroke: #4f944f; }
+      .heading { font: 700 48px Arial, Helvetica, sans-serif; fill: #111; }
+      .subheading { font: 400 25px Arial, Helvetica, sans-serif; fill: #333; }
+      .label { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .label-small { font: 700 25px Arial, Helvetica, sans-serif; fill: #111; }
+      .count { font: 400 23px Arial, Helvetica, sans-serif; fill: #424242; }
+      .note { font: 600 22px Arial, Helvetica, sans-serif; fill: #7d201a; }
+      .definition { font: 400 23px Arial, Helvetica, sans-serif; fill: #333; }
+      .definition-title { font-weight: 700; fill: #111; }
+      .arrow { fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="page" width="100%" height="100%"/>
+
+  <rect class="panel" x="55" y="55" width="810" height="890" rx="30"/>
+  <rect class="panel" x="935" y="55" width="810" height="890" rx="30"/>
+
+  <text class="heading" x="105" y="135">Keyword Search</text>
+  <text class="subheading" x="105" y="185">Combine up to four topics or secondary keywords</text>
+  <text class="subheading" x="105" y="218">to find posts.</text>
+
+  <text class="heading" x="985" y="135">Browse Topics</text>
+  <text class="subheading" x="985" y="185">Explore posts through one of two subject-area</text>
+  <text class="subheading" x="985" y="218">structures.</text>
+
+  <rect class="box topic" x="145" y="270" width="315" height="135" rx="20"/>
+  <rect class="box keyword" x="460" y="270" width="315" height="135" rx="20"/>
+  <text class="label" x="302" y="322" text-anchor="middle">Topics</text>
+  <text class="count" x="302" y="362" text-anchor="middle">(270 topics)</text>
+  <text class="label-small" x="617" y="314" text-anchor="middle">Secondary Keywords</text>
+  <text class="count" x="617" y="362" text-anchor="middle">(1,036 keywords)</text>
+
+  <rect class="box subject" x="1025" y="270" width="315" height="135" rx="20"/>
+  <rect class="box subject" x="1340" y="270" width="315" height="135" rx="20"/>
+  <text class="label-small" x="1182" y="322" text-anchor="middle">Browse Topics 1</text>
+  <text class="count" x="1182" y="362" text-anchor="middle">(10 subject areas)</text>
+  <text class="label-small" x="1497" y="322" text-anchor="middle">Browse Topics 2</text>
+  <text class="count" x="1497" y="362" text-anchor="middle">(9 subject areas)</text>
+
+  <path class="arrow" d="M460 405 L460 475"/>
+  <path class="arrow" d="M1340 405 L1340 475"/>
+
+  <rect class="box process" x="145" y="475" width="630" height="110" rx="20"/>
+  <text class="label" x="460" y="520" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="460" y="558" text-anchor="middle">Topics, secondary keywords, or both</text>
+
+  <rect class="box category" x="1025" y="475" width="630" height="110" rx="20"/>
+  <text class="label" x="1340" y="520" text-anchor="middle">Categories</text>
+  <text class="count" x="1340" y="558" text-anchor="middle">(41 categories)</text>
+
+  <path class="arrow" d="M460 585 L460 655"/>
+  <path class="arrow" d="M1340 585 L1340 655"/>
+
+  <rect class="box process" x="145" y="655" width="630" height="110" rx="20"/>
+  <text class="label" x="460" y="700" text-anchor="middle">Search Results</text>
+  <text class="count" x="460" y="738" text-anchor="middle">Ranked, newest first, or oldest first</text>
+
+  <rect class="box topic" x="1025" y="655" width="630" height="110" rx="20"/>
+  <text class="label" x="1340" y="700" text-anchor="middle">Topics</text>
+  <text class="count" x="1340" y="738" text-anchor="middle">(270 topics)</text>
+
+  <path class="arrow" d="M460 765 L460 835"/>
+  <path class="arrow" d="M1340 765 L1340 835"/>
+
+  <rect class="box post" x="145" y="835" width="630" height="80" rx="20"/>
+  <rect class="box post" x="1025" y="835" width="630" height="80" rx="20"/>
+  <text class="label" x="460" y="887" text-anchor="middle">Posts (4,385)</text>
+  <text class="label" x="1340" y="887" text-anchor="middle">Posts (4,385)</text>
+
+  <text class="note" x="900" y="1005" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
+
+  <rect class="panel" x="55" y="1045" width="1690" height="255" rx="24"/>
+  <text class="definition" x="100" y="1105"><tspan class="definition-title">Subject Areas:</tspan><tspan> Broad entry points that organize related categories.</tspan></text>
+  <text class="definition" x="100" y="1160"><tspan class="definition-title">Categories:</tspan><tspan> Focused groupings of related topics.</tspan></text>
+  <text class="definition" x="100" y="1215"><tspan class="definition-title">Topics:</tspan><tspan> Major subjects covered in posts and used to group related posts.</tspan></text>
+  <text class="definition" x="100" y="1270"><tspan class="definition-title">Secondary Keywords:</tspan><tspan> Significant people, texts, places, or supporting ideas discussed in posts.</tspan></text>
+
+</svg>

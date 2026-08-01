@@ -22,6 +22,7 @@ from ehrman_demo_data import (
     load_posts,
     load_topics,
 )
+from build_search_methods_diagram import build_search_methods_diagrams_from_paths
 
 
 DATA_START = "const DATA ="
@@ -30,7 +31,10 @@ KEYWORD_SUGGESTIONS_START = "    const KEYWORD_SUGGESTIONS ="
 MAX_SUGGESTIONS_START = "    const MAX_KEYWORD_SUGGESTIONS"
 SEARCH_METHODS_IMAGE_START = "<!-- SEARCH_METHODS_IMAGE_START -->"
 SEARCH_METHODS_IMAGE_END = "<!-- SEARCH_METHODS_IMAGE_END -->"
-DEFAULT_SEARCH_METHODS_IMAGE = Path(__file__).resolve().parents[1] / "webapp" / "static" / "ehrman-search-methods.png"
+DEFAULT_SEARCH_METHODS_IMAGE = Path(__file__).resolve().parents[1] / ".tmp" / "ehrman-search-methods-standalone.svg"
+DEFAULT_SEARCH_METHODS_MOBILE_IMAGE = (
+    Path(__file__).resolve().parents[1] / ".tmp" / "ehrman-search-methods-standalone-mobile.svg"
+)
 DATE_RANGE_PATTERN = re.compile(r'(<p class="site-demo-date-range">).*?(</p>)')
 
 
@@ -71,6 +75,7 @@ def build_demo_html(
     topics_path: Path,
     search_index_path: Path,
     search_methods_image_path: Path,
+    search_methods_mobile_image_path: Path,
 ) -> tuple[str, dict[str, int]]:
     categories = load_categories(categories_path)
     subject_areas = load_subject_areas(subject_areas_path)
@@ -116,10 +121,16 @@ def build_demo_html(
         html = html.replace(SEARCH_METHODS_IMAGE_END + SEARCH_METHODS_IMAGE_END, SEARCH_METHODS_IMAGE_END)
     image_mime = mimetypes.guess_type(search_methods_image_path.name)[0] or "image/png"
     image_data = base64.b64encode(search_methods_image_path.read_bytes()).decode("ascii")
+    mobile_image_mime = mimetypes.guess_type(search_methods_mobile_image_path.name)[0] or "image/png"
+    mobile_image_data = base64.b64encode(search_methods_mobile_image_path.read_bytes()).decode("ascii")
     image_markup = (
         f'{SEARCH_METHODS_IMAGE_START}'
+        '<picture class="search-methods-picture">'
+        f'<source media="(max-width: 700px)" srcset="data:{mobile_image_mime};base64,{mobile_image_data}">'
         f'<img class="search-methods-image" src="data:{image_mime};base64,{image_data}" '
-        'alt="Diagram comparing topic browsing with keyword search">'
+        'alt="Diagram comparing keyword search using topics and secondary keywords with topic browsing through '
+        'subject areas, categories, topics, and posts">'
+        '</picture>'
     )
     html = replace_block(html, SEARCH_METHODS_IMAGE_START, SEARCH_METHODS_IMAGE_END, image_markup)
 
@@ -149,6 +160,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--search-methods-image", type=Path, default=DEFAULT_SEARCH_METHODS_IMAGE)
+    parser.add_argument("--search-methods-mobile-image", type=Path, default=DEFAULT_SEARCH_METHODS_MOBILE_IMAGE)
     parser.add_argument("--template", type=Path, default=DEFAULT_DEMO_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_DEMO_PATH)
     return parser.parse_args()
@@ -156,6 +168,19 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    if (
+        args.search_methods_image == DEFAULT_SEARCH_METHODS_IMAGE
+        and args.search_methods_mobile_image == DEFAULT_SEARCH_METHODS_MOBILE_IMAGE
+    ):
+        build_search_methods_diagrams_from_paths(
+            search_index=args.search_index,
+            topics=args.topics,
+            categories=args.categories,
+            subject_areas=args.subject_areas,
+            subject_areas_2=args.subject_areas_2,
+            desktop_output=args.search_methods_image,
+            mobile_output=args.search_methods_mobile_image,
+        )
     template_html = args.template.read_text(encoding="utf-8")
     output_html, stats = build_demo_html(
         template_html,
@@ -165,6 +190,7 @@ def main() -> int:
         args.topics,
         args.search_index,
         args.search_methods_image,
+        args.search_methods_mobile_image,
     )
     args.output.write_text(output_html, encoding="utf-8", newline="\n")
     size_bytes = args.output.stat().st_size

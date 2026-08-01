@@ -40,13 +40,69 @@ class SearchParityTests(unittest.TestCase):
 
     def test_url_is_the_stable_sort_tiebreaker(self) -> None:
         rows = [
-            {"id": 1, "title": "", "date_iso": "2020-01-01", "url": "https://example.test/a"},
-            {"id": 2, "title": "", "date_iso": "2020-01-01", "url": "https://example.test/b"},
+            {"id": 1, "title": "", "description": "", "date_iso": "2020-01-01", "url": "https://example.test/a"},
+            {"id": 2, "title": "", "description": "", "date_iso": "2020-01-01", "url": "https://example.test/b"},
         ]
         ranked = app.sort_scoped_posts(rows, "ranked", [])
         oldest = app.sort_scoped_posts(rows, "oldest", [])
         self.assertEqual([row["url"] for row in ranked], ["https://example.test/b", "https://example.test/a"])
         self.assertEqual([row["url"] for row in oldest], ["https://example.test/a", "https://example.test/b"])
+
+    def test_best_match_uses_title_and_description_boosts(self) -> None:
+        rows = [
+            {
+                "id": 1,
+                "title": "A General Post",
+                "description": "Explains Paul's understanding of resurrection.",
+                "date_iso": "2020-01-01",
+                "url": "https://example.test/description",
+            },
+            {
+                "id": 2,
+                "title": "A General Post",
+                "description": "Explains an unrelated subject.",
+                "date_iso": "2021-01-01",
+                "url": "https://example.test/no-description-match",
+            },
+        ]
+        ranked = app.sort_scoped_posts(rows, "ranked", ["Paul"], {1: 5, 2: 5})
+        self.assertEqual(ranked[0]["id"], 1)
+        self.assertEqual(app.title_match_boost("Paul and the Apostles", "Paul"), 2)
+        self.assertEqual(app.description_match_boost("A post about Paul.", "Paul"), 3)
+        self.assertEqual(app.description_match_boost("A nutshell overview.", "hell"), 0)
+
+    def test_general_topic_qualifier_is_ignored_for_text_boosts(self) -> None:
+        rows = [
+            {
+                "id": 1,
+                "title": "Why Gospels Matter Even Where They Are Not Historical",
+                "description": "Explains why Gospel stories matter.",
+                "date_iso": "2026-04-14",
+                "url": "https://example.test/newer",
+            },
+            {
+                "id": 2,
+                "title": "Four More Intriguing Topics on the Historical Jesus",
+                "description": "Summarizes lectures on the historical Jesus.",
+                "date_iso": "2025-10-12",
+                "url": "https://example.test/older",
+            },
+        ]
+        term = "Historical Jesus (General)"
+        ranked = app.sort_scoped_posts(rows, "ranked", [term], {1: 8, 2: 8})
+        self.assertEqual(ranked[0]["id"], 2)
+        self.assertEqual(app.title_match_boost(rows[1]["title"], term), 2)
+        self.assertEqual(app.description_match_boost(rows[1]["description"], term), 3)
+
+    def test_database_uses_refined_topic_and_keyword_weights(self) -> None:
+        with app.get_conn() as conn:
+            weights = {
+                row["kind"]: row["weight"]
+                for row in conn.execute(
+                    "SELECT kind, MAX(weight) AS weight FROM post_search_terms GROUP BY kind"
+                ).fetchall()
+            }
+        self.assertEqual(weights, {"secondary": 3, "topic": 6})
 
     def test_search_batch_returns_ordered_urls(self) -> None:
         response = run_batch(

@@ -420,9 +420,15 @@ Example ranking model:
 
 | Match type | Suggested score |
 | --- | ---: |
-| Topic match | 5 |
-| Secondary keyword match | 2 |
-| Title match, if added later | 1 |
+| Exact topic match | 8 |
+| Topic containing the search term | 6 |
+| Exact secondary keyword match | 5 |
+| Secondary keyword containing the search term | 3 |
+| Search term in the title | +2 |
+| Search term in the curated post description | +3 |
+
+Title and description matches should affect ranking only. A post should still be included only when every selected search term matches one of its topics or secondary keywords.
+For title and description boosts, ignore a trailing parenthetical qualifier such as `(General)` while retaining the full topic name for inclusion and topic-match scoring.
 
 ## Suggested WordPress Architecture
 

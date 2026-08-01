@@ -249,11 +249,14 @@ function ehrman_home_page(): string
     $body = '<section class="site-home"><section class="site-hero" aria-label="Bart Ehrman lecturing"></section>'
         . '<section class="site-demo-note" aria-label="Demo description">'
         . "<p>This demo offers two ways to discover posts on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>.</p>"
-        . '<p><strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can combine up to four topics or keywords to narrow the results.</p>'
-        . '<p><strong>Browse Topics</strong> supports exploration by guiding readers from subject areas to categories, topics, and related posts. '
-        . '<strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; both are included for evaluation, but only one will appear in the final version.</p>'
-        . '<figure class="search-methods-figure"><img class="search-methods-image" src="/static/ehrman-search-methods.png" '
-        . 'alt="Diagram comparing topic browsing with keyword search"></figure>'
+        . '<p><strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can optionally select a category and combine up to four topics or secondary keywords.</p>'
+        . '<p><strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. Categories can also display all connected posts, and category or topic post lists can be narrowed with additional search terms. '
+        . '<strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.</p>'
+        . '<figure class="search-methods-figure"><picture class="search-methods-picture">'
+        . '<source media="(max-width: 700px)" srcset="/static/ehrman-search-methods-mobile.svg">'
+        . '<img class="search-methods-image" src="/static/ehrman-search-methods.svg" '
+        . 'alt="Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts">'
+        . '</picture></figure>'
         . '<p class="site-demo-date-range">' . ehrman_html($dateRange) . '</p>'
         . '<p class="site-demo-version">Version 2.0</p></section></section>';
     return ehrman_render_page('Home', $body);

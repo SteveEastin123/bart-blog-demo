@@ -12,6 +12,7 @@ if (str_starts_with($path, '/static/')) {
             'js' => 'application/javascript; charset=utf-8',
             'jpg', 'jpeg' => 'image/jpeg',
             'png' => 'image/png',
+            'svg' => 'image/svg+xml; charset=utf-8',
             default => 'application/octet-stream',
         };
         header('Content-Type: ' . $mime);

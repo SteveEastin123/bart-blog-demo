@@ -323,6 +323,10 @@ def validate_html(
         errors.append("Embedded KEYWORD_INDEX in the HTML is stale; run scripts/build_ehrman_search_demo.py")
     if embedded_keyword_suggestions != expected_keyword_suggestions:
         errors.append("Embedded KEYWORD_SUGGESTIONS in the HTML is stale; run scripts/build_ehrman_search_demo.py")
+    if "normalizeKeyword(value)" in html:
+        errors.append(
+            "Standalone search uses undefined normalizeKeyword(); use normalizeKeywordSearchValue()"
+        )
 
 
 def parse_args() -> argparse.Namespace:

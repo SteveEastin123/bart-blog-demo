@@ -27,10 +27,19 @@ function ehrman_find_post_ids_for_term(PDO $db, string $term): array
     return $matches;
 }
 
+function ehrman_ranking_text_match_term(string $term): string
+{
+    $normalizedTerm = ehrman_normalize_keyword($term);
+    if (str_ends_with($normalizedTerm, ' general')) {
+        return rtrim(substr($normalizedTerm, 0, -strlen(' general')));
+    }
+    return $normalizedTerm;
+}
+
 function ehrman_title_match_boost(string $title, string $term): int
 {
     $normalizedTitle = ehrman_normalize_keyword($title);
-    $normalizedTerm = ehrman_normalize_keyword($term);
+    $normalizedTerm = ehrman_ranking_text_match_term($term);
     if ($normalizedTitle === '' || $normalizedTerm === '') {
         return 0;
     }
@@ -43,17 +52,35 @@ function ehrman_title_match_boost(string $title, string $term): int
     return 0;
 }
 
+function ehrman_description_match_boost(string $description, string $term): int
+{
+    $normalizedDescription = ehrman_normalize_keyword($description);
+    $normalizedTerm = ehrman_ranking_text_match_term($term);
+    if ($normalizedDescription === '' || $normalizedTerm === '') {
+        return 0;
+    }
+    return str_contains(" {$normalizedDescription} ", " {$normalizedTerm} ") ? 3 : 0;
+}
+
 function ehrman_sort_posts(array $posts, string $sort, array $rankingTerms, ?array $scores = null): array
 {
     $sort = in_array($sort, ['ranked', 'newest', 'oldest'], true) ? $sort : 'ranked';
-    usort($posts, static function (array $left, array $right) use ($sort, $rankingTerms, $scores): int {
-        if ($sort === 'ranked') {
-            $leftScore = (int) ($scores[(int) $left['id']] ?? 0);
-            $rightScore = (int) ($scores[(int) $right['id']] ?? 0);
+    $rankedScores = $scores ?? [];
+    if ($sort === 'ranked') {
+        foreach ($posts as $post) {
+            $postId = (int) $post['id'];
+            $score = (int) ($rankedScores[$postId] ?? 0);
             foreach ($rankingTerms as $term) {
-                $leftScore += ehrman_title_match_boost((string) $left['title'], $term);
-                $rightScore += ehrman_title_match_boost((string) $right['title'], $term);
+                $score += ehrman_title_match_boost((string) $post['title'], $term);
+                $score += ehrman_description_match_boost((string) ($post['description'] ?? ''), $term);
             }
+            $rankedScores[$postId] = $score;
+        }
+    }
+    usort($posts, static function (array $left, array $right) use ($sort, $rankedScores): int {
+        if ($sort === 'ranked') {
+            $leftScore = (int) ($rankedScores[(int) $left['id']] ?? 0);
+            $rightScore = (int) ($rankedScores[(int) $right['id']] ?? 0);
             if ($leftScore !== $rightScore) {
                 return $rightScore <=> $leftScore;
             }
@@ -99,13 +126,7 @@ function ehrman_search_posts(array $terms, string $sort, string $categorySlug = 
         'SELECT p.* FROM posts p WHERE p.id IN (' . ehrman_placeholders(count($postIds)) . ')',
         $postIds,
     );
-    foreach ($posts as $post) {
-        $postId = (int) $post['id'];
-        foreach ($cleanTerms as $term) {
-            $matches[$postId] += ehrman_title_match_boost((string) $post['title'], $term);
-        }
-    }
-    return [ehrman_sort_posts($posts, $sort, [], $matches), $cleanTerms];
+    return [ehrman_sort_posts($posts, $sort, $cleanTerms, $matches), $cleanTerms];
 }
 
 function ehrman_search_topic_posts(PDO $db, array $topic, array $terms, string $sort): array

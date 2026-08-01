@@ -416,10 +416,13 @@ def home_page() -> bytes:
       <section class="site-hero" aria-label="Bart Ehrman lecturing"></section>
       <section class="site-demo-note" aria-label="Demo description">
         <p>This demo offers two ways to discover posts on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>.</p>
-        <p><strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can combine up to four topics or keywords to narrow the results.</p>
-        <p><strong>Browse Topics</strong> supports exploration by guiding readers from subject areas to categories, topics, and related posts. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; both are included for evaluation, but only one will appear in the final version.</p>
+        <p><strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can optionally select a category and combine up to four topics or secondary keywords.</p>
+        <p><strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. Categories can also display all connected posts, and category or topic post lists can be narrowed with additional search terms. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.</p>
         <figure class="search-methods-figure">
-          <img class="search-methods-image" src="/static/ehrman-search-methods.png" alt="Diagram comparing topic browsing with keyword search">
+          <picture class="search-methods-picture">
+            <source media="(max-width: 700px)" srcset="/static/ehrman-search-methods-mobile.svg">
+            <img class="search-methods-image" src="/static/ehrman-search-methods.svg" alt="Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts">
+          </picture>
         </figure>
         <p class="site-demo-date-range">{esc(date_range)}</p>
         <p class="site-demo-version">Version 2.0</p>
@@ -1042,9 +1045,16 @@ def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int
     return {int(row["post_id"]): int(row["score"]) for row in rows}
 
 
+def ranking_text_match_term(term: str) -> str:
+    normalized_term = normalize_keyword(term)
+    if normalized_term.endswith(" general"):
+        return normalized_term[: -len(" general")].rstrip()
+    return normalized_term
+
+
 def title_match_boost(title: str, term: str) -> int:
     normalized_title = normalize_keyword(title)
-    normalized_term = normalize_keyword(term)
+    normalized_term = ranking_text_match_term(term)
     if not normalized_title or not normalized_term:
         return 0
     padded_title = f" {normalized_title} "
@@ -1053,6 +1063,16 @@ def title_match_boost(title: str, term: str) -> int:
         return 2
     if " " not in normalized_term and any(normalized_term == word for word in normalized_title.split()):
         return 1
+    return 0
+
+
+def description_match_boost(description: str, term: str) -> int:
+    normalized_description = normalize_keyword(description)
+    normalized_term = ranking_text_match_term(term)
+    if not normalized_description or not normalized_term:
+        return 0
+    if f" {normalized_term} " in f" {normalized_description} ":
+        return 3
     return 0
 
 
@@ -1069,6 +1089,8 @@ def sort_scoped_posts(
         if sort == "ranked":
             relevance = (relevance_scores or {}).get(int(row["id"]), 0)
             relevance += sum(title_match_boost(row["title"], term) for term in ranking_terms)
+            description = row["description"] if "description" in row.keys() else ""
+            relevance += sum(description_match_boost(description, term) for term in ranking_terms)
             return (relevance, row["date_iso"], row["url"].casefold())
         return (row["date_iso"], row["url"].casefold())
 
@@ -1114,19 +1136,7 @@ def search_posts(
             f"SELECT p.* FROM posts p WHERE p.id IN ({placeholders})",
             tuple(post_ids),
         ).fetchall()
-        for row in rows:
-            post_id = int(row["id"])
-            matches[post_id] += sum(title_match_boost(row["title"], term) for term in clean_terms)
-
-    def sort_key(row: sqlite3.Row) -> tuple[object, ...]:
-        if sort == "newest":
-            return (row["date_iso"], row["url"].casefold())
-        if sort == "oldest":
-            return (row["date_iso"], row["url"].casefold())
-        return (matches[int(row["id"])], row["date_iso"], row["url"].casefold())
-
-    reverse = sort in {"ranked", "newest"}
-    return sorted(rows, key=sort_key, reverse=reverse), clean_terms
+    return sort_scoped_posts(rows, sort, clean_terms, matches), clean_terms
 
 
 def keyword_search_page() -> bytes:

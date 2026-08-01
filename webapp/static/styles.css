@@ -303,6 +303,10 @@ a:hover {
   margin: 26px 0 0;
 }
 
+.search-methods-picture {
+  display: block;
+}
+
 .search-methods-image {
   border: 1px solid var(--line);
   border-radius: 6px;

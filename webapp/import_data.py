@@ -453,7 +453,7 @@ def build_database(
                 conn.execute(
                     """
                     INSERT OR IGNORE INTO post_search_terms(post_id, label, normalized, kind, weight)
-                    VALUES (?, ?, ?, 'topic', 5)
+                    VALUES (?, ?, ?, 'topic', 6)
                     """,
                     (post_id, topic_name, normalized),
                 )
