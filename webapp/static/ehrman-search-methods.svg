@@ -1,94 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1360" viewBox="0 0 1800 1360" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1280" viewBox="0 0 1800 1280" role="img" aria-labelledby="title description">
   <title id="title">Ways to find posts on the Bart Ehrman Blog</title>
   <desc id="description">A symmetrical comparison of Keyword Search and Browse Topics. Keyword Search combines topics and secondary keywords into search terms and results. Browse Topics moves from subject areas to categories and topics. Both paths end with posts.</desc>
   <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,4 L0,8 z" fill="#7d201a"/>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#392d20" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#7d201a"/>
     </marker>
     <style>
-      .page { fill: #fbf8ef; }
-      .panel { fill: #fffdf8; stroke: #d7c9a5; stroke-width: 3; }
-      .box { stroke-width: 3; }
-      .process { fill: #f7f3e8; stroke: #b4a27a; }
-      .topic { fill: #e8f3fa; stroke: #2c7fa9; }
-      .keyword { fill: #f1ecf5; stroke: #80678e; }
-      .subject { fill: #fae7ad; stroke: #b98720; }
-      .category { fill: #fff3c9; stroke: #c09330; }
-      .post { fill: #e8f3e5; stroke: #4f944f; }
-      .heading { font: 700 48px Arial, Helvetica, sans-serif; fill: #111; }
-      .subheading { font: 400 25px Arial, Helvetica, sans-serif; fill: #333; }
-      .label { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
-      .label-small { font: 700 25px Arial, Helvetica, sans-serif; fill: #111; }
-      .count { font: 400 23px Arial, Helvetica, sans-serif; fill: #424242; }
-      .note { font: 600 22px Arial, Helvetica, sans-serif; fill: #7d201a; }
-      .definition { font: 400 23px Arial, Helvetica, sans-serif; fill: #333; }
-      .definition-title { font-weight: 700; fill: #111; }
+      .page { fill: #f6f3ed; }
+      .panel { fill: #fffefa; stroke: #d8cfbe; stroke-width: 2; filter: url(#shadow); }
+      .box { stroke-width: 2; }
+      .process { fill: #fffefa; stroke: #bcae91; }
+      .topic { fill: #edf6fb; stroke: #3982a5; }
+      .keyword { fill: #f5f0f7; stroke: #876f93; }
+      .subject { fill: #fff3cf; stroke: #bb8b29; }
+      .category { fill: #fff9e9; stroke: #c39a42; }
+      .post { fill: #edf7eb; stroke: #559657; }
+      .heading { font: 700 44px Arial, Helvetica, sans-serif; fill: #6f1d18; }
+      .subheading { font: 400 24px Arial, Helvetica, sans-serif; fill: #45413c; }
+      .stage { font: 700 15px Arial, Helvetica, sans-serif; letter-spacing: 1.5px; fill: #766c5f; }
+      .label { font: 700 29px Arial, Helvetica, sans-serif; fill: #171512; }
+      .label-small { font: 700 24px Arial, Helvetica, sans-serif; fill: #171512; }
+      .count { font: 400 22px Arial, Helvetica, sans-serif; fill: #57514a; }
+      .note { font: 600 21px Arial, Helvetica, sans-serif; fill: #7d201a; }
+      .definition-title { font: 700 22px Arial, Helvetica, sans-serif; fill: #6f1d18; }
+      .definition { font: 400 19px Arial, Helvetica, sans-serif; fill: #45413c; }
       .arrow { fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }
+      .accent { stroke: #7d201a; stroke-width: 5; stroke-linecap: round; }
+      .divider { stroke: #ddd4c4; stroke-width: 1.5; }
     </style>
   </defs>
   <rect class="page" width="100%" height="100%"/>
 
-  <rect class="panel" x="55" y="55" width="810" height="890" rx="30"/>
-  <rect class="panel" x="935" y="55" width="810" height="890" rx="30"/>
+  <rect class="panel" x="60" y="45" width="800" height="865" rx="16"/>
+  <rect class="panel" x="940" y="45" width="800" height="865" rx="16"/>
 
-  <text class="heading" x="105" y="135">Keyword Search</text>
+  <text class="heading" x="105" y="115">Keyword Search</text>
+  <line class="accent" x1="105" y1="143" x2="205" y2="143"/>
   <text class="subheading" x="105" y="185">Combine up to four topics or secondary keywords</text>
-  <text class="subheading" x="105" y="218">to find posts.</text>
+  <text class="subheading" x="105" y="217">to find relevant posts.</text>
 
-  <text class="heading" x="985" y="135">Browse Topics</text>
+  <text class="heading" x="985" y="115">Browse Topics</text>
+  <line class="accent" x1="985" y1="143" x2="1085" y2="143"/>
   <text class="subheading" x="985" y="185">Explore posts through one of two subject-area</text>
-  <text class="subheading" x="985" y="218">structures.</text>
+  <text class="subheading" x="985" y="217">structures.</text>
 
-  <rect class="box topic" x="145" y="270" width="315" height="135" rx="20"/>
-  <rect class="box keyword" x="460" y="270" width="315" height="135" rx="20"/>
-  <text class="label" x="302" y="322" text-anchor="middle">Topics</text>
-  <text class="count" x="302" y="362" text-anchor="middle">(270 topics)</text>
-  <text class="label-small" x="617" y="314" text-anchor="middle">Secondary Keywords</text>
-  <text class="count" x="617" y="362" text-anchor="middle">(1,036 keywords)</text>
+  <text class="stage" x="145" y="258">START WITH</text>
+  <text class="stage" x="1025" y="258">START WITH</text>
 
-  <rect class="box subject" x="1025" y="270" width="315" height="135" rx="20"/>
-  <rect class="box subject" x="1340" y="270" width="315" height="135" rx="20"/>
-  <text class="label-small" x="1182" y="322" text-anchor="middle">Browse Topics 1</text>
-  <text class="count" x="1182" y="362" text-anchor="middle">(10 subject areas)</text>
-  <text class="label-small" x="1497" y="322" text-anchor="middle">Browse Topics 2</text>
-  <text class="count" x="1497" y="362" text-anchor="middle">(9 subject areas)</text>
+  <rect class="box topic" x="145" y="275" width="315" height="120" rx="12"/>
+  <rect class="box keyword" x="460" y="275" width="315" height="120" rx="12"/>
+  <text class="label" x="302" y="323" text-anchor="middle">Topics</text>
+  <text class="count" x="302" y="361" text-anchor="middle">270 topics</text>
+  <text class="label-small" x="617" y="320" text-anchor="middle">Secondary Keywords</text>
+  <text class="count" x="617" y="361" text-anchor="middle">1,036 keywords</text>
 
-  <path class="arrow" d="M460 405 L460 475"/>
-  <path class="arrow" d="M1340 405 L1340 475"/>
+  <rect class="box subject" x="1025" y="275" width="315" height="120" rx="12"/>
+  <rect class="box subject" x="1340" y="275" width="315" height="120" rx="12"/>
+  <text class="label-small" x="1182" y="323" text-anchor="middle">Browse Topics 1</text>
+  <text class="count" x="1182" y="361" text-anchor="middle">10 subject areas</text>
+  <text class="label-small" x="1497" y="323" text-anchor="middle">Browse Topics 2</text>
+  <text class="count" x="1497" y="361" text-anchor="middle">9 subject areas</text>
 
-  <rect class="box process" x="145" y="475" width="630" height="110" rx="20"/>
-  <text class="label" x="460" y="520" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="460" y="558" text-anchor="middle">Topics, secondary keywords, or both</text>
+  <path class="arrow" d="M460 395 L460 448"/>
+  <path class="arrow" d="M1340 395 L1340 448"/>
 
-  <rect class="box category" x="1025" y="475" width="630" height="110" rx="20"/>
-  <text class="label" x="1340" y="520" text-anchor="middle">Categories</text>
-  <text class="count" x="1340" y="558" text-anchor="middle">(41 categories)</text>
+  <rect class="box process" x="145" y="448" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="490" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="460" y="527" text-anchor="middle">Topics, secondary keywords, or both</text>
 
-  <path class="arrow" d="M460 585 L460 655"/>
-  <path class="arrow" d="M1340 585 L1340 655"/>
+  <rect class="box category" x="1025" y="448" width="630" height="105" rx="12"/>
+  <text class="label" x="1340" y="490" text-anchor="middle">Categories</text>
+  <text class="count" x="1340" y="527" text-anchor="middle">41 categories</text>
 
-  <rect class="box process" x="145" y="655" width="630" height="110" rx="20"/>
-  <text class="label" x="460" y="700" text-anchor="middle">Search Results</text>
-  <text class="count" x="460" y="738" text-anchor="middle">Ranked, newest first, or oldest first</text>
+  <path class="arrow" d="M460 553 L460 610"/>
+  <path class="arrow" d="M1340 553 L1340 610"/>
 
-  <rect class="box topic" x="1025" y="655" width="630" height="110" rx="20"/>
-  <text class="label" x="1340" y="700" text-anchor="middle">Topics</text>
-  <text class="count" x="1340" y="738" text-anchor="middle">(270 topics)</text>
+  <rect class="box process" x="145" y="610" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="652" text-anchor="middle">Search Results</text>
+  <text class="count" x="460" y="689" text-anchor="middle">Best match, newest first, or oldest first</text>
 
-  <path class="arrow" d="M460 765 L460 835"/>
-  <path class="arrow" d="M1340 765 L1340 835"/>
+  <rect class="box topic" x="1025" y="610" width="630" height="105" rx="12"/>
+  <text class="label" x="1340" y="652" text-anchor="middle">Topics</text>
+  <text class="count" x="1340" y="689" text-anchor="middle">270 topics</text>
 
-  <rect class="box post" x="145" y="835" width="630" height="80" rx="20"/>
-  <rect class="box post" x="1025" y="835" width="630" height="80" rx="20"/>
-  <text class="label" x="460" y="887" text-anchor="middle">Posts (4,385)</text>
-  <text class="label" x="1340" y="887" text-anchor="middle">Posts (4,385)</text>
+  <path class="arrow" d="M460 715 L460 772"/>
+  <path class="arrow" d="M1340 715 L1340 772"/>
 
-  <text class="note" x="900" y="1005" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
+  <rect class="box post" x="145" y="772" width="630" height="88" rx="12"/>
+  <rect class="box post" x="1025" y="772" width="630" height="88" rx="12"/>
+  <text class="label" x="460" y="826" text-anchor="middle">Posts (4,385)</text>
+  <text class="label" x="1340" y="826" text-anchor="middle">Posts (4,385)</text>
 
-  <rect class="panel" x="55" y="1045" width="1690" height="255" rx="24"/>
-  <text class="definition" x="100" y="1105"><tspan class="definition-title">Subject Areas:</tspan><tspan> Broad entry points that organize related categories.</tspan></text>
-  <text class="definition" x="100" y="1160"><tspan class="definition-title">Categories:</tspan><tspan> Focused groupings of related topics.</tspan></text>
-  <text class="definition" x="100" y="1215"><tspan class="definition-title">Topics:</tspan><tspan> Major subjects covered in posts and used to group related posts.</tspan></text>
-  <text class="definition" x="100" y="1270"><tspan class="definition-title">Secondary Keywords:</tspan><tspan> Significant people, texts, places, or supporting ideas discussed in posts.</tspan></text>
+  <text class="note" x="900" y="970" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
+
+  <rect class="panel" x="60" y="1015" width="1680" height="205" rx="16"/>
+  <line class="divider" x1="480" y1="1050" x2="480" y2="1185"/>
+  <line class="divider" x1="900" y1="1050" x2="900" y2="1185"/>
+  <line class="divider" x1="1320" y1="1050" x2="1320" y2="1185"/>
+
+  <text class="definition-title" x="100" y="1070">Subject Areas</text>
+  <text class="definition" x="100" y="1110">Broad entry points that organize</text>
+  <text class="definition" x="100" y="1137">related categories.</text>
+
+  <text class="definition-title" x="520" y="1070">Categories</text>
+  <text class="definition" x="520" y="1110">Focused groupings of related</text>
+  <text class="definition" x="520" y="1137">topics.</text>
+
+  <text class="definition-title" x="940" y="1070">Topics</text>
+  <text class="definition" x="940" y="1110">Major subjects covered in posts</text>
+  <text class="definition" x="940" y="1137">and used to group related posts.</text>
+
+  <text class="definition-title" x="1360" y="1070">Secondary Keywords</text>
+  <text class="definition" x="1360" y="1110">Important people, texts, places,</text>
+  <text class="definition" x="1360" y="1137">or supporting ideas discussed</text>
+  <text class="definition" x="1360" y="1164">in posts.</text>
 
 </svg>

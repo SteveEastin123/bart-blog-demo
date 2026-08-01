@@ -471,9 +471,9 @@ function ehrman_keyword_panel(
     return '<form class="keyword-search-panel" action="' . ehrman_html($formAction)
         . '" method="get" data-keyword-form' . $attributes . '>'
         . $scopeMarkup . $categoryFilterMarkup . '<div class="keyword-terms-section">'
-        . '<p class="keyword-instructions"><strong>Select up to four search terms.</strong> Topics identify major subjects; '
-        . 'keywords identify important people, texts, places, or supporting ideas. '
-        . 'Use either or both to narrow results.</p><div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
+        . '<p class="keyword-instructions"><strong>Select up to four search terms.</strong> You can enter topics, keywords, or both. '
+        . "Topics identify a post's main subjects, while keywords identify important people, texts, places, and related ideas. "
+        . 'Combine multiple terms to narrow your results.</p><div class="keyword-grid"><div class="keyword-slot-grid" data-keyword-chip-list>'
         . implode('', $chips) . $entry . implode('', $emptySlots) . '</div></div>'
         . '<div class="sort-row"><span class="sort-label">Sort by</span>' . implode('', $sortOptions) . '</div>'
         . '<div class="keyword-action-row">'

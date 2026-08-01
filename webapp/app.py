@@ -755,7 +755,7 @@ def keyword_panel(
       {scope_markup}
       {category_filter_markup}
       <div class="keyword-terms-section">
-        <p class="keyword-instructions"><strong>Select up to four search terms.</strong> Topics identify major subjects; keywords identify important people, texts, places, or supporting ideas. Use either or both to narrow results.</p>
+        <p class="keyword-instructions"><strong>Select up to four search terms.</strong> You can enter topics, keywords, or both. Topics identify a post's main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.</p>
         <div class="keyword-grid">
           <div class="keyword-slot-grid" data-keyword-chip-list>
             {chips}
