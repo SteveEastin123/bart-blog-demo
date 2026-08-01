@@ -266,7 +266,6 @@
     "topics": [
       "Apostolic Fathers",
       "Christian Interpretation of Jewish Scripture",
-      "Early Christian Writings",
       "In a Nutshell Series"
     ],
     "secondaryKeywords": [
@@ -783,7 +782,6 @@
     "description": "Answers reader questions about proving the resurrection, eyewitness claims, composite Pauline letters, miracles, and John the Baptist.",
     "topics": [
       "Eyewitness Reliability",
-      "John the Baptist",
       "Resurrection Arguments and Apologetics"
     ],
     "secondaryKeywords": [
@@ -2594,7 +2592,6 @@
     "author": "BDEhrman",
     "description": "Discusses the irony of a forged Christian text warning readers against forged writings.",
     "topics": [
-      "Early Christian Writings",
       "Forgery (General)"
     ],
     "secondaryKeywords": [
@@ -2620,7 +2617,6 @@
     "author": "BDEhrman",
     "description": "Examines an early Christian example of a forger warning against deception while using deception.",
     "topics": [
-      "Early Christian Writings",
       "Forgery (General)"
     ],
     "secondaryKeywords": [
@@ -2963,8 +2959,7 @@
     "author": "BDEhrman",
     "description": "Explains why early Christians, already using Jewish Scripture, came to want a distinct collection of authoritative Christian writings.",
     "topics": [
-      "Canon Formation",
-      "Christian Interpretation of Jewish Scripture"
+      "Canon Formation"
     ],
     "secondaryKeywords": [
       "1 Timothy",
@@ -3095,7 +3090,7 @@
     "author": "BDEhrman",
     "description": "Explains when chapter and verse divisions entered biblical manuscripts and printed Bibles.",
     "topics": [
-      "Textual Criticism Methods"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Canon Formation",
@@ -3135,7 +3130,6 @@
     "author": "BDEhrman",
     "description": "Introduces the textual history of the Hebrew Bible and the difficulties of knowing the exact words of its earliest authors.",
     "topics": [
-      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts"
     ],
     "secondaryKeywords": [
@@ -3863,7 +3857,6 @@
     "description": "Explains how scholars date ancient writings, using the Letter of Barnabas as the main example.",
     "topics": [
       "Dating Ancient Texts",
-      "Early Christian Writings",
       "Letter of Barnabas"
     ],
     "secondaryKeywords": [
@@ -4006,7 +3999,6 @@
     "description": "Shows how 1 Clement uses cosmic order and the phoenix to argue for restoring proper church leadership in Corinth.",
     "topics": [
       "Apostolic Fathers",
-      "Early Christian Writings",
       "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
@@ -4230,8 +4222,7 @@
     "description": "Responds to questions about Jesus as God, resurrection belief, early Christian secretaries, and the King James Version.",
     "topics": [
       "Ancient Secretaries and Authorship",
-      "King James Version",
-      "Resurrection of Jesus"
+      "King James Version"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -4456,7 +4447,8 @@
     "author": "BDEhrman",
     "description": "Summarizes four conference lectures on historical Jesus research, including lost sources, Pilate, miracles, and Barabbas.",
     "topics": [
-      "Historical Study of Miracles"
+      "Historical Study of Miracles",
+      "Historical Jesus (General)"
     ],
     "secondaryKeywords": [
       "Barabbas",
@@ -4522,7 +4514,6 @@
     "author": "BDEhrman",
     "description": "Argues that Jude attacks extreme post-Pauline claims about grace, morality, and angelic beings.",
     "topics": [
-      "Divine Beings in the Hebrew Bible",
       "Non-Pauline Epistle Authorship",
       "Letter of Jude"
     ],
@@ -4642,7 +4633,6 @@
     "description": "Presents reasons scholars regard Jude as pseudepigraphic, including its late setting, language, and appeal to earlier apostolic authority.",
     "topics": [
       "Ancient Literacy",
-      "James the Brother of Jesus",
       "Non-Pauline Epistle Forgeries",
       "Non-Pauline Epistle Authorship",
       "Letter of Jude"
@@ -4747,7 +4737,6 @@
     "description": "Responds to questions about forged Pauline letters, historical errors in the Passion narratives, and textual alterations.",
     "topics": [
       "Gospel Historical Reliability",
-      "Church Fathers as Textual Evidence",
       "Pauline Forgeries"
     ],
     "secondaryKeywords": [
@@ -4800,7 +4789,8 @@
       "Pauline Authorship",
       "Pauline Forgeries",
       "Ephesians",
-      "Colossians"
+      "Colossians",
+      "2 Thessalonians"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -5031,8 +5021,7 @@
     "description": "Responds to questions about Paul's reference to burial, comparisons between Jesus and pagan gods, and messianic expectation.",
     "topics": [
       "Burial of Jesus",
-      "Messiah",
-      "Resurrection of Jesus"
+      "Messiah"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -5085,7 +5074,8 @@
     "author": "BDEhrman",
     "description": "Describes writing assignments for a course on early Christian history and literature after the New Testament.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Early Christian Writings"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -5279,8 +5269,7 @@
     "topics": [
       "2 Thessalonians",
       "Bible Translations (General)",
-      "Dead Sea Scrolls and Essenes",
-      "John the Baptist"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -5828,8 +5817,7 @@
     "topics": [
       "2 Thessalonians",
       "Bible Translations (General)",
-      "Dead Sea Scrolls and Essenes",
-      "John the Baptist"
+      "Dead Sea Scrolls and Essenes"
     ],
     "secondaryKeywords": [
       "Galatians",
@@ -5861,7 +5849,8 @@
     "topics": [
       "Rise of Christianity",
       "Social Class in Antiquity",
-      "Roman World"
+      "Roman World",
+      "Triumph of Christianity"
     ],
     "secondaryKeywords": [
       "Canon Formation",
@@ -6380,7 +6369,6 @@
     "description": "Introduces the Pastoral Epistles and summarizes 1 Timothy's concerns about false teachers and church organization.",
     "topics": [
       "In a Nutshell Series",
-      "Pauline Authorship",
       "Pastoral Epistles"
     ],
     "secondaryKeywords": [
@@ -8008,7 +7996,8 @@
     "author": "BDEhrman",
     "description": "Examines Acts as the second volume of Luke and argues against identifying its author as Paul's traveling companion.",
     "topics": [
-      "Luke-Acts Authorship"
+      "Luke-Acts Authorship",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -9399,7 +9388,8 @@
     "author": "BDEhrman",
     "description": "Examines allegations of manuscript fraud involving Hobby Lobby, the Museum of the Bible, and New Testament fragments.",
     "topics": [
-      "Modern Forgery Claims"
+      "Modern Forgery Claims",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -9453,7 +9443,8 @@
     "author": "BDEhrman",
     "description": "Presents an expert papyrologist's critique of claims about mummy masks and newly discovered New Testament papyri.",
     "topics": [
-      "Manuscript Dating"
+      "Manuscript Dating",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Craig Evans",
@@ -9485,7 +9476,8 @@
     "description": "Presents Craig Evans's defense of using mummy masks to recover papyrus fragments and the ethical questions involved.",
     "topics": [
       "Manuscript Discoveries and Controversies",
-      "New Testament Manuscripts"
+      "New Testament Manuscripts",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Craig Evans",
@@ -9685,7 +9677,6 @@
     "description": "Responds to reader questions about worship language for Jesus in Paul and other New Testament issues.",
     "topics": [
       "Christology (General)",
-      "Philippians 2 Christ Poem",
       "Jesus' Ethics"
     ],
     "secondaryKeywords": [
@@ -10634,7 +10625,8 @@
     "description": "Explains how early Christian writings circulated and why some eventually became Scripture while others did not.",
     "topics": [
       "Athanasius of Alexandria",
-      "Canon Formation"
+      "Canon Formation",
+      "Early Christian Writings"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -11461,7 +11453,6 @@
     "author": "BDEhrman",
     "description": "Introduces an edited academic volume on New Testament textual criticism and its major scholarly essays.",
     "topics": [
-      "Church Fathers as Textual Evidence",
       "Scribal Changes",
       "Textual Criticism Overview"
     ],
@@ -12385,7 +12376,6 @@
     "description": "Responds to the claim that textual variants are unimportant because no central Christian doctrine is overturned.",
     "topics": [
       "Original Text Questions",
-      "Church Fathers as Textual Evidence",
       "Textual Variants"
     ],
     "secondaryKeywords": [
@@ -12635,7 +12625,6 @@
     "description": "Uses the Didache to illustrate how early Christian writings could be compiled from multiple sources.",
     "topics": [
       "Didache",
-      "Early Christian Writings",
       "Source Criticism"
     ],
     "secondaryKeywords": [
@@ -15734,7 +15723,8 @@
     "author": "BDEhrman",
     "description": "Explains traditions that made Thomas, or Judas Thomas, the twin brother of Jesus.",
     "topics": [
-      "Apocryphal Acts"
+      "Apocryphal Acts",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -16175,7 +16165,8 @@
     "topics": [
       "Apocryphal Acts",
       "James the Brother of Jesus",
-      "Mythicism"
+      "Mythicism",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -16232,7 +16223,8 @@
     "author": "BDEhrman",
     "description": "Explains how the Proto-Gospel of James reimagines Jesus' brothers and Mary's family.",
     "topics": [
-      "Proto-Gospel of James"
+      "Proto-Gospel of James",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Gospel of Pseudo-Matthew",
@@ -16929,7 +16921,9 @@
     "author": "BDEhrman",
     "description": "Shares a doctoral seminar syllabus for studying early Christian apocrypha.",
     "topics": [
-      "Apocryphal Acts"
+      "Apocryphal Acts",
+      "Courses and Teaching",
+      "Early Christian Writings"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -18883,7 +18877,6 @@
     "author": "BDEhrman",
     "description": "Continues the case that Morton Smith may have forged the Secret Gospel of Mark letter attributed to Clement.",
     "topics": [
-      "Early Christian Writings",
       "Modern Forgery Claims"
     ],
     "secondaryKeywords": [
@@ -19656,7 +19649,6 @@
     "author": "BDEhrman",
     "description": "Recounts Morton Smith's reported discovery of the letter describing the Secret Gospel of Mark.",
     "topics": [
-      "Early Christian Writings",
       "Modern Forgery Claims"
     ],
     "secondaryKeywords": [
@@ -19705,7 +19697,7 @@
     "author": "BDEhrman",
     "description": "Discusses the Secret Gospel of Mark, the naked young man in Mark, and questions raised about Jesus traditions.",
     "topics": [
-      "Early Christian Writings"
+      "Modern Forgery Claims"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -19809,7 +19801,6 @@
     "author": "BDEhrman",
     "description": "Introduces the Secret Gospel of Mark controversy as either a major manuscript discovery or a modern forgery.",
     "topics": [
-      "Early Christian Writings",
       "Modern Forgery Claims"
     ],
     "secondaryKeywords": [
@@ -20996,7 +20987,8 @@
     "author": "BDEhrman",
     "description": "Shows how New Testament manuscripts can reveal later theological disputes as well as earlier textual forms.",
     "topics": [
-      "Theologically Significant Variants"
+      "Theologically Significant Variants",
+      "New Testament Manuscripts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -22751,8 +22743,7 @@
     "author": "BDEhrman",
     "description": "Introduces Greek manuscripts as central witnesses for reconstructing the wording of the New Testament.",
     "topics": [
-      "New Testament Manuscripts",
-      "Church Fathers as Textual Evidence"
+      "New Testament Manuscripts"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -23645,7 +23636,7 @@
     "author": "BDEhrman",
     "description": "Responds to the claim that only guidance from the Holy Spirit makes correct biblical interpretation possible.",
     "topics": [
-      "Christian Interpretation of Jewish Scripture"
+      "Critical Biblical Scholarship"
     ],
     "secondaryKeywords": [
       "Biblical Interpretation",
@@ -26174,8 +26165,7 @@
     "author": "Diane",
     "description": "Compares Paul and Jesus on major issues in early Christianity.",
     "topics": [
-      "Jesus' Teachings",
-      "Paul's Knowledge of Jesus"
+      "Jesus' Teachings"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -27245,7 +27235,8 @@
     "description": "Continues summarizing lectures from a course on myth, legend, and history in Genesis.",
     "topics": [
       "Genesis",
-      "Hebrew Bible Composition and Sources"
+      "Hebrew Bible Composition and Sources",
+      "Pentateuch"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -27531,7 +27522,7 @@
     "author": "BDEhrman",
     "description": "Compares Jesus' proclamation of God's kingdom with Paul's preaching about Jesus' death and resurrection.",
     "topics": [
-      "Paul's Knowledge of Jesus"
+      "Jesus' Teachings"
     ],
     "secondaryKeywords": [
       "Jewish Law",
@@ -27550,8 +27541,7 @@
     "author": "BDEhrman",
     "description": "Asks whether Jesus and Paul taught the same message or fundamentally different ones.",
     "topics": [
-      "Jesus' Teachings",
-      "Paul's Knowledge of Jesus"
+      "Jesus' Teachings"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -30134,7 +30124,6 @@
     "author": "BDEhrman",
     "description": "Critiques common ways religious readers handle the Bible without reading it carefully.",
     "topics": [
-      "Christian Interpretation of Jewish Scripture",
       "Critical Biblical Scholarship"
     ],
     "secondaryKeywords": [
@@ -32083,7 +32072,8 @@
     "description": "Asks who wrote the Pentateuch if Moses did not.",
     "topics": [
       "Hebrew Bible Composition and Sources",
-      "Moses"
+      "Moses",
+      "Pentateuch"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -34685,7 +34675,6 @@
     "author": "BDEhrman",
     "description": "Introduces Pseudo-Matthew's expanded account of Joseph, Mary, and Jesus' birth.",
     "topics": [
-      "Early Christian Writings",
       "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
@@ -34962,7 +34951,6 @@
     "author": "BDEhrman",
     "description": "Asks whether oral reading and transmission affected changes in Christian texts.",
     "topics": [
-      "Didymus the Blind",
       "Church Fathers as Textual Evidence"
     ],
     "secondaryKeywords": [
@@ -35742,7 +35730,8 @@
     "description": "Responds to questions about traditions that Thomas was Jesus' twin brother.",
     "topics": [
       "Apocryphal Acts",
-      "Gospel of Thomas"
+      "Gospel of Thomas",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -36597,7 +36586,7 @@
     "author": "BDEhrman",
     "description": "Responds to a reader question about why many New Testament textual critics are evangelical Christians.",
     "topics": [
-      "Textual Criticism Methods"
+      "Critical Biblical Scholarship"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -37460,7 +37449,8 @@
     "author": "BDEhrman",
     "description": "Describes allegations of academic fraud involving manuscript claims, the Museum of the Bible, and evangelical interests.",
     "topics": [
-      "Modern Forgery Claims"
+      "Modern Forgery Claims",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Forgery",
@@ -37713,7 +37703,6 @@
     "author": "BDEhrman",
     "description": "Presents Hugo Mendez's argument about whether Gospels and letters were written for specific Christian communities.",
     "topics": [
-      "Gospel Eyewitness Claims",
       "Gospel of John",
       "Canonical Gospels (General)"
     ],
@@ -38717,7 +38706,6 @@
     "author": "BDEhrman",
     "description": "Evaluates whether Paul viewed Jesus as a new Adam rather than as a divine being.",
     "topics": [
-      "Divine Beings in the Hebrew Bible",
       "Philippians 2 Christ Poem"
     ],
     "secondaryKeywords": [
@@ -39344,8 +39332,7 @@
     "author": "BDEhrman",
     "description": "Offers brief reflections on divine unknowability and scholarly misconduct.",
     "topics": [
-      "Agnosticism",
-      "First-Century Mark Fragment"
+      "Agnosticism"
     ],
     "secondaryKeywords": [
       "First-Century Mark",
@@ -39478,7 +39465,8 @@
     "topics": [
       "Gospel of Luke",
       "Luke-Acts Authorship",
-      "Gospel Authorship"
+      "Gospel Authorship",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -40535,7 +40523,6 @@
     "author": "BDEhrman",
     "description": "Explores why the Gospels portray some disciples as doubting the resurrection.",
     "topics": [
-      "Empty Tomb Traditions",
       "Jesus' Resurrection Appearances"
     ],
     "secondaryKeywords": [
@@ -41080,7 +41067,7 @@
     "author": "BDEhrman",
     "description": "Explains where biblical chapters and verses came from.",
     "topics": [
-      "Early Christian Writings"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Paul",
@@ -41176,7 +41163,6 @@
     "author": "BDEhrman",
     "description": "Explains why patristic quotations cannot reconstruct the whole New Testament.",
     "topics": [
-      "Didymus the Blind",
       "Church Fathers as Textual Evidence",
       "Textual Criticism Methods"
     ],
@@ -41971,7 +41957,6 @@
     "author": "BDEhrman",
     "description": "Introduces Jennifer Knust's investigation into stolen manuscripts and the modern manuscript trade.",
     "topics": [
-      "First-Century Mark Fragment",
       "Manuscript Discoveries and Controversies"
     ],
     "secondaryKeywords": [
@@ -43311,7 +43296,6 @@
     "author": "BDEhrman",
     "description": "Explains why Papias's fragmentary context is difficult to reconstruct.",
     "topics": [
-      "Early Christian Writings",
       "Gospel of Mark",
       "Papias"
     ],
@@ -45474,7 +45458,8 @@
     "author": "BDEhrman",
     "description": "Explains miraculous conversions in Acts as evidence of early Christian claims about divine power.",
     "topics": [
-      "Conversion"
+      "Conversion",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -46370,7 +46355,8 @@
     "author": "BDEhrman",
     "description": "Explores early Christian traditions claiming Jesus had a twin brother.",
     "topics": [
-      "Apocryphal Acts"
+      "Apocryphal Acts",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -47313,8 +47299,7 @@
     "description": "Explains why Luke-Acts may contain internal tensions created by the author's sources.",
     "topics": [
       "Biblical Contradictions",
-      "Gospel of Luke",
-      "Resurrection of Jesus"
+      "Gospel of Luke"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -47402,7 +47387,8 @@
     "author": "BDEhrman",
     "description": "Evaluates whether Acts accurately portrays Paul's teachings.",
     "topics": [
-      "Paul in Acts"
+      "Paul in Acts",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -47891,8 +47877,7 @@
     "description": "Shares a radio interview about religious autobiography and The Triumph of Christianity.",
     "topics": [
       "Autobiographical Posts",
-      "Media Interviews and Videos",
-      "Triumph of Christianity"
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": []
   },
@@ -47999,7 +47984,6 @@
     "author": "BDEhrman",
     "description": "Explains when Christianity became the official religion of the Roman Empire.",
     "topics": [
-      "Constantine",
       "Early Church Developments",
       "Roman World"
     ],
@@ -48036,7 +48020,6 @@
     "author": "BDEhrman",
     "description": "Describes the fourth-century decline of paganism as Christianity gained imperial power.",
     "topics": [
-      "Constantine",
       "Early Church Developments",
       "Greco-Roman Religious Culture"
     ],
@@ -48703,7 +48686,6 @@
     "description": "Explains the Golden Rule in the Didache and its relation to Jesus traditions.",
     "topics": [
       "Didache",
-      "Early Christian Writings",
       "Jesus' Ethics",
       "Jesus' Teachings"
     ],
@@ -48722,8 +48704,7 @@
     "author": "BDEhrman",
     "description": "Introduces the Didache and its form of the Golden Rule.",
     "topics": [
-      "Didache",
-      "Early Christian Writings"
+      "Didache"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -49287,7 +49268,6 @@
     "author": "BDEhrman",
     "description": "Compares the teachings of Jesus and Paul.",
     "topics": [
-      "Paul's Knowledge of Jesus",
       "Jesus' Teachings"
     ],
     "secondaryKeywords": [
@@ -49325,8 +49305,7 @@
     "author": "BDEhrman",
     "description": "Asks whether Jesus and Paul represented the same religious message.",
     "topics": [
-      "Jesus' Teachings",
-      "Paul's Knowledge of Jesus"
+      "Jesus' Teachings"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -50325,7 +50304,8 @@
     "author": "BDEhrman",
     "description": "Discusses the Proto-Gospel of James on Mary's age and Jesus' family.",
     "topics": [
-      "Proto-Gospel of James"
+      "Proto-Gospel of James",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Gospel of Pseudo-Matthew",
@@ -50536,7 +50516,6 @@
     "author": "BDEhrman",
     "description": "Explains whether major scribal changes were already made by 300 CE.",
     "topics": [
-      "Didymus the Blind",
       "Scribal Changes"
     ],
     "secondaryKeywords": [
@@ -51191,7 +51170,8 @@
     "author": "BDEhrman",
     "description": "Examines whether Acts underplays the saving significance of Jesus' death.",
     "topics": [
-      "Atonement in Luke-Acts"
+      "Atonement in Luke-Acts",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -51644,7 +51624,6 @@
     "description": "Explains how later manuscript discoveries can support conjectures about interpolations.",
     "topics": [
       "Manuscript Discoveries and Controversies",
-      "Church Fathers as Textual Evidence",
       "Textual Variants"
     ],
     "secondaryKeywords": [
@@ -51665,7 +51644,8 @@
     "author": "BDEhrman",
     "description": "Explores whether all surviving New Testament manuscripts can preserve a wrong reading.",
     "topics": [
-      "Textual Variants"
+      "Textual Variants",
+      "New Testament Manuscripts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -52474,7 +52454,6 @@
     "description": "Discusses editing a major scholarly volume honoring Bruce Metzger.",
     "topics": [
       "Bruce Metzger",
-      "Church Fathers as Textual Evidence",
       "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
@@ -53087,7 +53066,9 @@
     "topics": [
       "Biblical Contradictions",
       "Biblical Inerrancy",
-      "Hebrew Bible Composition and Sources"
+      "Hebrew Bible Composition and Sources",
+      "Pentateuch",
+      "Genesis"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -53715,7 +53696,8 @@
     "description": "Reposts a discussion of manuscript discoveries, including the Gospel of Jesus' Wife and Mark claims.",
     "topics": [
       "Gospel of Jesus' Wife Fragment",
-      "Manuscript Discoveries and Controversies"
+      "Manuscript Discoveries and Controversies",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Dan Wallace",
@@ -54054,8 +54036,8 @@
     "author": "BDEhrman",
     "description": "Explains why afterlife beliefs matter for broader issues in religion and history.",
     "topics": [
-      "Scholarly Research and Publishing",
-      "Heaven and Hell"
+      "Heaven and Hell",
+      "Writing and Publishing Process"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -54404,7 +54386,6 @@
     "author": "BDEhrman",
     "description": "Explains John Mill's edition and the controversy over New Testament textual variants.",
     "topics": [
-      "Comparative Ancient Evidence",
       "Original Text Questions",
       "Textual Variants"
     ],
@@ -55001,8 +54982,7 @@
     "author": "BDEhrman",
     "description": "Summarizes modern scholarship on the formation of the Hebrew Bible canon.",
     "topics": [
-      "Canon Formation",
-      "Dead Sea Scrolls and Essenes"
+      "Canon Formation"
     ],
     "secondaryKeywords": [
       "Canonization",
@@ -55111,7 +55091,6 @@
     "author": "BDEhrman",
     "description": "Introduces Hebrew Bible manuscripts and their importance for translation.",
     "topics": [
-      "Dead Sea Scrolls and Essenes",
       "Hebrew Bible Manuscripts",
       "Translation Issues"
     ],
@@ -58384,7 +58363,8 @@
     "description": "Answers questions about Paul in a nutshell and New Testament views of Jesus' crucifixion.",
     "topics": [
       "In a Nutshell Series",
-      "Paul on Jesus' Crucifixion"
+      "Paul on Jesus' Crucifixion",
+      "Crucifixion of Jesus"
     ],
     "secondaryKeywords": [
       "Atonement",
@@ -59285,8 +59265,7 @@
     "author": "BDEhrman",
     "description": "Introduces a classroom debate on whether Paul and Jesus represented fundamentally different religions.",
     "topics": [
-      "Jesus' Teachings",
-      "Paul's Knowledge of Jesus"
+      "Jesus' Teachings"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -61905,7 +61884,6 @@
     "description": "Explains how research on Didymus the Blind led into work on orthodox textual corruptions.",
     "topics": [
       "Bruce Metzger",
-      "Didymus the Blind",
       "Scribal Changes",
       "Textual Variants"
     ],
@@ -62393,7 +62371,7 @@
     "author": "BDEhrman",
     "description": "Uses an anecdote to illustrate the state of textual criticism in the early 1980s.",
     "topics": [
-      "Textual Criticism Methods"
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Memory",
@@ -62816,7 +62794,6 @@
     "author": "BDEhrman",
     "description": "Explains versional evidence and how translations help textual critics reconstruct ancient texts.",
     "topics": [
-      "Church Fathers as Textual Evidence",
       "Translation Issues"
     ],
     "secondaryKeywords": [
@@ -62868,8 +62845,7 @@
     "author": "BDEhrman",
     "description": "Surveys the manuscript evidence for the New Testament as background for textual criticism.",
     "topics": [
-      "New Testament Manuscripts",
-      "Church Fathers as Textual Evidence"
+      "New Testament Manuscripts"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -65216,7 +65192,8 @@
     "author": "BDEhrman",
     "description": "Shares Brent Nongbri's explanation of how manuscripts are dated.",
     "topics": [
-      "Manuscript Dating"
+      "Manuscript Dating",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Archaeology and Material Evidence",
@@ -65311,7 +65288,6 @@
     "author": "BDEhrman",
     "description": "Answers questions about the accuracy of the earliest New Testament manuscripts.",
     "topics": [
-      "Didymus the Blind",
       "New Testament Manuscripts",
       "Scribal Changes",
       "Textual Variants"
@@ -65349,7 +65325,8 @@
     "author": "BDEhrman",
     "description": "Shares expert concerns about mummy masks, papyri, and manuscript claims.",
     "topics": [
-      "Manuscript Dating"
+      "Manuscript Dating",
+      "First-Century Mark Fragment"
     ],
     "secondaryKeywords": [
       "Craig Evans",
@@ -66669,8 +66646,7 @@
     "author": "BDEhrman",
     "description": "Shares a Diane Rehm interview about Misquoting Jesus and textual changes in the Bible.",
     "topics": [
-      "Misquoting Jesus",
-      "Theologically Significant Variants"
+      "Misquoting Jesus"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -69276,7 +69252,8 @@
     "author": "BDEhrman",
     "description": "Continues discussion of Jesus' teachings known to Paul.",
     "topics": [
-      "Jesus' Teachings"
+      "Jesus' Teachings",
+      "Paul's Knowledge of Jesus"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -69372,7 +69349,6 @@
     "author": "BDEhrman",
     "description": "Compares Jesus and Paul on the kingdom of God, salvation, and resurrection.",
     "topics": [
-      "Paul's Knowledge of Jesus",
       "Jesus' Teachings"
     ],
     "secondaryKeywords": [
@@ -69393,8 +69369,7 @@
     "author": "BDEhrman",
     "description": "Compares Paul's gospel with Jesus' teaching about God and the coming kingdom.",
     "topics": [
-      "Jesus' Teachings",
-      "Paul's Knowledge of Jesus"
+      "Jesus' Teachings"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -71843,7 +71818,7 @@
     "author": "BDEhrman",
     "description": "Presents a third early Christian view of Jesus' resurrected body.",
     "topics": [
-      "Apocalypse of Peter"
+      "Resurrection of Jesus"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -72410,7 +72385,8 @@
     "topics": [
       "Apocryphal Acts",
       "James the Brother of Jesus",
-      "Mythicism"
+      "Mythicism",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -73717,7 +73693,7 @@
     "author": "BDEhrman",
     "description": "Answers a question about church fathers who quote New Testament writings.",
     "topics": [
-      "Didymus the Blind"
+      "Church Fathers as Textual Evidence"
     ],
     "secondaryKeywords": [
       "Bruce Metzger",
@@ -78242,8 +78218,7 @@
     "author": "BDEhrman",
     "description": "Explains why resurrection research is central to How Jesus Became God.",
     "topics": [
-      "How Jesus Became God",
-      "Resurrection of Jesus"
+      "How Jesus Became God"
     ],
     "secondaryKeywords": [
       "Resurrection",
@@ -80206,7 +80181,6 @@
     "author": "BDEhrman",
     "description": "Clarifies Constantine's importance while focusing on Christian growth before the fourth century.",
     "topics": [
-      "Constantine",
       "Early Church Developments",
       "Rise of Christianity"
     ],
@@ -80260,8 +80234,7 @@
     "author": "BDEhrman",
     "description": "Recommends balanced scholarly books on the New Testament and early Christianity.",
     "topics": [
-      "Critical Biblical Scholarship",
-      "Early Christian Writings"
+      "Critical Biblical Scholarship"
     ],
     "secondaryKeywords": [
       "Dale Martin",
