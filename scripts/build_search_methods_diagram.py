@@ -84,8 +84,8 @@ def svg_document(width: int, height: int, body: str) -> str:
       .label-small {{ font: 700 24px Arial, Helvetica, sans-serif; fill: #171512; }}
       .count {{ font: 400 22px Arial, Helvetica, sans-serif; fill: #57514a; }}
       .note {{ font: 600 21px Arial, Helvetica, sans-serif; fill: #7d201a; }}
-      .definition-title {{ font: 700 22px Arial, Helvetica, sans-serif; fill: #6f1d18; }}
-      .definition {{ font: 400 19px Arial, Helvetica, sans-serif; fill: #45413c; }}
+      .definition-title {{ font: 700 26px Arial, Helvetica, sans-serif; fill: #6f1d18; }}
+      .definition {{ font: 400 22px Arial, Helvetica, sans-serif; fill: #45413c; }}
       .arrow {{ fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }}
       .accent {{ stroke: #7d201a; stroke-width: 5; stroke-linecap: round; }}
       .divider {{ stroke: #ddd4c4; stroke-width: 1.5; }}
@@ -167,29 +167,36 @@ def desktop_svg(counts: dict[str, int]) -> str:
 
   <text class="note" x="900" y="970" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
 
-  <rect class="panel" x="60" y="1015" width="1680" height="205" rx="16"/>
-  <line class="divider" x1="480" y1="1050" x2="480" y2="1185"/>
-  <line class="divider" x1="900" y1="1050" x2="900" y2="1185"/>
-  <line class="divider" x1="1320" y1="1050" x2="1320" y2="1185"/>
+  <rect class="panel" x="60" y="1015" width="1680" height="245" rx="16"/>
+  <line class="divider" x1="396" y1="1050" x2="396" y2="1225"/>
+  <line class="divider" x1="732" y1="1050" x2="732" y2="1225"/>
+  <line class="divider" x1="1068" y1="1050" x2="1068" y2="1225"/>
+  <line class="divider" x1="1404" y1="1050" x2="1404" y2="1225"/>
 
-  <text class="definition-title" x="100" y="1070">Subject Areas</text>
-  <text class="definition" x="100" y="1110">Broad entry points that organize</text>
-  <text class="definition" x="100" y="1137">related categories.</text>
+  <text class="definition-title" x="90" y="1075">Subject Areas:</text>
+  <text class="definition" x="90" y="1120">Broad entry points that</text>
+  <text class="definition" x="90" y="1152">organize related categories.</text>
 
-  <text class="definition-title" x="520" y="1070">Categories</text>
-  <text class="definition" x="520" y="1110">Focused groupings of related</text>
-  <text class="definition" x="520" y="1137">topics.</text>
+  <text class="definition-title" x="426" y="1075">Categories:</text>
+  <text class="definition" x="426" y="1120">Focused groupings of</text>
+  <text class="definition" x="426" y="1152">related topics.</text>
 
-  <text class="definition-title" x="940" y="1070">Topics</text>
-  <text class="definition" x="940" y="1110">Major subjects covered in posts</text>
-  <text class="definition" x="940" y="1137">and used to group related posts.</text>
+  <text class="definition-title" x="762" y="1075">Topics:</text>
+  <text class="definition" x="762" y="1120">Major subjects covered</text>
+  <text class="definition" x="762" y="1152">in posts and used to group</text>
+  <text class="definition" x="762" y="1184">related posts.</text>
 
-  <text class="definition-title" x="1360" y="1070">Secondary Keywords</text>
-  <text class="definition" x="1360" y="1110">Important people, texts, places,</text>
-  <text class="definition" x="1360" y="1137">or supporting ideas discussed</text>
-  <text class="definition" x="1360" y="1164">in posts.</text>
+  <text class="definition-title" x="1098" y="1075">Secondary Keywords:</text>
+  <text class="definition" x="1098" y="1120">Important people, texts,</text>
+  <text class="definition" x="1098" y="1152">places, or supporting ideas</text>
+  <text class="definition" x="1098" y="1184">discussed in posts.</text>
+
+  <text class="definition-title" x="1434" y="1075">Posts:</text>
+  <text class="definition" x="1434" y="1120">Individual blog entries</text>
+  <text class="definition" x="1434" y="1152">found through browsing</text>
+  <text class="definition" x="1434" y="1184">or keyword search.</text>
 '''
-    return svg_document(1800, 1280, body)
+    return svg_document(1800, 1320, body)
 
 
 def mobile_svg(counts: dict[str, int]) -> str:
@@ -208,8 +215,8 @@ def mobile_svg(counts: dict[str, int]) -> str:
     .label-small {{ font-size: 17px; }}
     .count {{ font-size: 16px; }}
     .note {{ font-size: 15px; }}
-    .definition {{ font-size: 15px; }}
-    .definition-title {{ font-size: 17px; }}
+    .definition {{ font-size: 18px; }}
+    .definition-title {{ font-size: 20px; }}
     .accent {{ stroke-width: 4; }}
   </style>
   <rect class="panel" x="15" y="15" width="350" height="700" rx="12"/>
@@ -264,20 +271,23 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <text class="note" x="190" y="1500" text-anchor="middle">Post lists and search results can be</text>
   <text class="note" x="190" y="1522" text-anchor="middle">narrowed with additional search terms.</text>
 
-  <rect class="panel" x="15" y="1570" width="350" height="400" rx="12"/>
-  <text class="definition" x="35" y="1615"><tspan class="definition-title">Subject Areas:</tspan></text>
-  <text class="definition" x="35" y="1638">Broad entry points that organize</text>
-  <text class="definition" x="35" y="1660">related categories.</text>
+  <rect class="panel" x="15" y="1570" width="350" height="610" rx="12"/>
+  <text class="definition" x="35" y="1610"><tspan class="definition-title">Subject Areas:</tspan></text>
+  <text class="definition" x="35" y="1640">Broad entry points that organize</text>
+  <text class="definition" x="35" y="1665">related categories.</text>
   <text class="definition" x="35" y="1715"><tspan class="definition-title">Categories:</tspan></text>
-  <text class="definition" x="35" y="1738">Focused groupings of related topics.</text>
-  <text class="definition" x="35" y="1793"><tspan class="definition-title">Topics:</tspan></text>
-  <text class="definition" x="35" y="1816">Major subjects covered in posts and used</text>
-  <text class="definition" x="35" y="1838">to group related posts.</text>
-  <text class="definition" x="35" y="1893"><tspan class="definition-title">Secondary Keywords:</tspan></text>
-  <text class="definition" x="35" y="1916">Important people, texts, places, or</text>
-  <text class="definition" x="35" y="1938">supporting ideas discussed in posts.</text>
+  <text class="definition" x="35" y="1745">Focused groupings of related topics.</text>
+  <text class="definition" x="35" y="1820"><tspan class="definition-title">Topics:</tspan></text>
+  <text class="definition" x="35" y="1850">Major subjects covered in posts and</text>
+  <text class="definition" x="35" y="1875">used to group related posts.</text>
+  <text class="definition" x="35" y="1950"><tspan class="definition-title">Secondary Keywords:</tspan></text>
+  <text class="definition" x="35" y="1980">Important people, texts, places, or</text>
+  <text class="definition" x="35" y="2005">supporting ideas discussed in posts.</text>
+  <text class="definition" x="35" y="2080"><tspan class="definition-title">Posts:</tspan></text>
+  <text class="definition" x="35" y="2110">Individual blog entries found through</text>
+  <text class="definition" x="35" y="2135">browsing or keyword search.</text>
 '''
-    return svg_document(380, 2000, body)
+    return svg_document(380, 2200, body)
 
 
 def parse_args() -> argparse.Namespace:

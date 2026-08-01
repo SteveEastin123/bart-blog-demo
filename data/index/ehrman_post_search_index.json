@@ -1011,8 +1011,7 @@
     "description": "Explains how miracle stories could promote conversion even if the miracles themselves did not happen.",
     "topics": [
       "Conversion",
-      "Rise of Christianity",
-      "Roman World"
+      "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Miracles",
@@ -1153,7 +1152,8 @@
     "topics": [
       "Conversion",
       "Rise of Christianity",
-      "Greco-Roman Religious Culture"
+      "Greco-Roman Religious Culture",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Exclusivity",
@@ -1221,7 +1221,8 @@
     "description": "Explores why Christianity became a missionary religion and why that feature mattered for its spread in the Roman world.",
     "topics": [
       "Conversion",
-      "Rise of Christianity"
+      "Rise of Christianity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Martin Goodman",
@@ -1837,7 +1838,8 @@
     "description": "Explains how imperial involvement made Christian persecution more organized and dangerous in the Roman world.",
     "topics": [
       "Greco-Roman Religious Culture",
-      "Roman Persecution of Christians"
+      "Roman Persecution of Christians",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Constantine",
@@ -1958,7 +1960,8 @@
       "Canonical Gospels (General)",
       "Gospel Eyewitness Claims",
       "Non-Canonical Gospel Traditions",
-      "Q Source"
+      "Q Source",
+      "Gospel Historical Reliability"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -2684,9 +2687,7 @@
     "dateText": "February 8, 2026",
     "author": "BDEhrman",
     "description": "Explains how Yeats's The Second Coming depends on Christian imagery and religious literacy.",
-    "topics": [
-      "Modern End-Times Interpretation"
-    ],
+    "topics": [],
     "secondaryKeywords": []
   },
   {
@@ -3539,7 +3540,8 @@
     "description": "Responds to Gospel questions about John's incarnation theology, virgin birth traditions, and related passages.",
     "topics": [
       "Incarnation Christology",
-      "Gospel of John"
+      "Gospel of John",
+      "Virgin Birth"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -4227,7 +4229,6 @@
     "author": "BDEhrman",
     "description": "Responds to questions about Jesus as God, resurrection belief, early Christian secretaries, and the King James Version.",
     "topics": [
-      "Ancient Literacy",
       "Ancient Secretaries and Authorship",
       "King James Version",
       "Resurrection of Jesus"
@@ -4356,7 +4357,8 @@
     "author": "BDEhrman",
     "description": "Explains Revelation's likely historical setting under Nero and Domitian and its critique of Rome during Christian suffering.",
     "topics": [
-      "Book of Revelation"
+      "Book of Revelation",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "John",
@@ -4729,9 +4731,7 @@
     "dateText": "September 24, 2025",
     "author": "BDEhrman",
     "description": "Responds to reader questions about the Paraclete in John, virgin birth claims, and professional scribes in antiquity.",
-    "topics": [
-      "Virgin Birth"
-    ],
+    "topics": [],
     "secondaryKeywords": [
       "Bruce Metzger",
       "Gospel of John",
@@ -5280,8 +5280,7 @@
       "2 Thessalonians",
       "Bible Translations (General)",
       "Dead Sea Scrolls and Essenes",
-      "John the Baptist",
-      "Pauline Forgeries"
+      "John the Baptist"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -5861,7 +5860,8 @@
     "description": "Explains the cultural significance of Christianity's rise and its transformation of the Roman world and Western history.",
     "topics": [
       "Rise of Christianity",
-      "Social Class in Antiquity"
+      "Social Class in Antiquity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Canon Formation",
@@ -6531,7 +6531,8 @@
     "description": "Explains why 1 Thessalonians 4 does not teach the modern evangelical doctrine of the rapture.",
     "topics": [
       "Pauline End-Time Expectations",
-      "1 Thessalonians"
+      "1 Thessalonians",
+      "Modern End-Times Interpretation"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -7106,7 +7107,8 @@
     "description": "Explains how Galatians 4:14 shaped an argument that Paul understood Christ as a preexistent angelic being.",
     "topics": [
       "Angelic Christology",
-      "Galatians"
+      "Galatians",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -7494,7 +7496,8 @@
     "topics": [
       "In a Nutshell Series",
       "Paul's Churches and Communities",
-      "1 Corinthians"
+      "1 Corinthians",
+      "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
       "Apollos",
@@ -8764,8 +8767,7 @@
     "description": "Examines Matthew's anonymous authorship, later attribution, sources, date, and purpose.",
     "topics": [
       "Gospel of Matthew",
-      "Jewish Law and Torah",
-      "Papias"
+      "Jewish Law and Torah"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -9206,7 +9208,8 @@
     "topics": [
       "Jesus' Birth Narratives",
       "Translation Issues",
-      "Gospel of Matthew"
+      "Gospel of Matthew",
+      "Virgin Birth"
     ],
     "secondaryKeywords": [
       "Gabriel",
@@ -9514,7 +9517,8 @@
     "author": "BDEhrman",
     "description": "Responds to reader questions about Psalm 110, messiahship, and crucifixion traditions in the Gospels.",
     "topics": [
-      "Crucifixion of Jesus"
+      "Crucifixion of Jesus",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Crucifixion",
@@ -9892,7 +9896,8 @@
     "author": "admin",
     "description": "Uses Albert Schweitzer and Jewish apocalypticism to frame Jesus' messianic self-understanding.",
     "topics": [
-      "Apocalyptic Jesus"
+      "Apocalyptic Jesus",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Albert Schweitzer",
@@ -9969,7 +9974,8 @@
     "author": "BDEhrman",
     "description": "Addresses whether the Gospels can preserve reliable evidence about what Jesus said regarding messiahship.",
     "topics": [
-      "Messiah"
+      "Messiah",
+      "Gospel Historical Reliability"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -11047,8 +11053,7 @@
     "author": "BDEhrman",
     "description": "Uses Keith Hopkins's work to estimate early Christian communities and the volume of Christian letters.",
     "topics": [
-      "Rise of Christianity",
-      "Roman World"
+      "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Christian Letters",
@@ -11229,7 +11234,8 @@
     "topics": [
       "Constantine",
       "Early Church Developments",
-      "Rise of Christianity"
+      "Rise of Christianity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -11827,7 +11833,6 @@
     "author": "BDEhrman",
     "description": "Discusses writings left out of the New Testament and the later process of canon formation.",
     "topics": [
-      "Nag Hammadi",
       "Canon Formation"
     ],
     "secondaryKeywords": [
@@ -12415,8 +12420,7 @@
     "description": "Explores practical problems that arise after Paul's letters were copied, circulated, and possibly edited.",
     "topics": [
       "Pauline Textual Issues",
-      "Philippians",
-      "Roman World"
+      "Philippians"
     ],
     "secondaryKeywords": [
       "Original Text",
@@ -13468,7 +13472,6 @@
     "author": "BDEhrman",
     "description": "Presents sayings from the Gospel of the Egyptians about women, childbirth, and death.",
     "topics": [
-      "Nag Hammadi",
       "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
@@ -13943,7 +13946,8 @@
     "author": "BDEhrman",
     "description": "Introduces non-canonical Pauline forgeries connected with Marcion and later disputes over Paul.",
     "topics": [
-      "Marcion"
+      "Marcion",
+      "Pauline Forgeries"
     ],
     "secondaryKeywords": [
       "2 Thessalonians",
@@ -15180,7 +15184,8 @@
     "description": "Examines whether Luke originally portrayed Jesus as adopted as God's son at baptism.",
     "topics": [
       "Virgin Birth",
-      "Adoptionist Christology"
+      "Adoptionist Christology",
+      "Marcion"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -15828,8 +15833,7 @@
     "author": "BDEhrman",
     "description": "Surveys Thomasine and other Gnostic groups connected with Didymus Judas Thomas.",
     "topics": [
-      "Gospel of Thomas",
-      "Nag Hammadi"
+      "Gospel of Thomas"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -15978,7 +15982,6 @@
     "description": "Introduces the Gospel of Judas as a recently published Sethian Gnostic Gospel.",
     "topics": [
       "Gospel of Judas",
-      "Nag Hammadi",
       "Sethian Gnostics"
     ],
     "secondaryKeywords": [
@@ -16265,7 +16268,6 @@
     "author": "BDEhrman",
     "description": "Examines the Proto-Gospel of James scene where time stops at Jesus' birth.",
     "topics": [
-      "Christology in the Gospels",
       "Proto-Gospel of James"
     ],
     "secondaryKeywords": [
@@ -16619,8 +16621,7 @@
     "author": "BDEhrman",
     "description": "Continues James Tabor's discussion of Pantera, mamzer status, and traditions about Jesus' father.",
     "topics": [
-      "Jesus' Family Traditions",
-      "Virgin Birth"
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Deuteronomy",
@@ -17370,7 +17371,8 @@
       "Crucified Messiah",
       "Crucifixion of Jesus",
       "Pontius Pilate",
-      "Trial of Jesus"
+      "Trial of Jesus",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Burial",
@@ -17942,9 +17944,7 @@
     "dateText": "July 18, 2023",
     "author": "BDEhrman",
     "description": "Explores why classical Athenian culture idealized pederastic relationships between men and adolescent boys.",
-    "topics": [
-      "Roman World"
-    ],
+    "topics": [],
     "secondaryKeywords": [
       "Greek Pederasty"
     ]
@@ -18546,7 +18546,8 @@
     "topics": [
       "Gospel Historical Reliability",
       "Jesus' Passion Narratives",
-      "Memory and Jesus Traditions"
+      "Memory and Jesus Traditions",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "David",
@@ -19139,7 +19140,8 @@
     "topics": [
       "Messianic Secret",
       "Oral Tradition",
-      "Gospel of Mark"
+      "Gospel of Mark",
+      "Jesus Before the Gospels"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -20179,7 +20181,8 @@
     "author": "BDEhrman",
     "description": "Explains why many Christians think the rapture is taught in the New Testament and where the idea comes from.",
     "topics": [
-      "Pauline End-Time Expectations"
+      "Pauline End-Time Expectations",
+      "Modern End-Times Interpretation"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -20675,8 +20678,7 @@
     "description": "Announces a lecture on archaeological discoveries and synagogue mosaics from Huqoq in Galilee.",
     "topics": [
       "Archaeology and Material Evidence",
-      "Early Judaism (General)",
-      "Roman World"
+      "Early Judaism (General)"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -21774,7 +21776,8 @@
     "description": "Shares an interview with Kevin Grant about whether Jesus believed in hell.",
     "topics": [
       "Heaven and Hell Beliefs",
-      "Media Interviews and Videos"
+      "Media Interviews and Videos",
+      "Eternal Punishment"
     ],
     "secondaryKeywords": []
   },
@@ -23558,7 +23561,8 @@
     "description": "Introduces Julian as the last non-Christian emperor and places that question after Constantine's conversion.",
     "topics": [
       "Early Church Developments",
-      "Greco-Roman Religious Culture"
+      "Greco-Roman Religious Culture",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Constantine",
@@ -23801,7 +23805,8 @@
     "author": "BDEhrman",
     "description": "Asks whether Jesus supported armed resistance against Rome or was executed as an insurrectionist.",
     "topics": [
-      "Zealot Hypothesis"
+      "Zealot Hypothesis",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Gethsemane",
@@ -24022,7 +24027,8 @@
     "author": "Diane",
     "description": "Presents James McGrath's guest argument about John the Baptist, messiahship, and birth traditions.",
     "topics": [
-      "John the Baptist"
+      "John the Baptist",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -25899,7 +25905,9 @@
       "Matthew's Use of Scripture",
       "Septuagint",
       "Book of Isaiah",
-      "Gospel of Matthew"
+      "Gospel of Matthew",
+      "Messiah",
+      "Virgin Birth"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -26014,8 +26022,7 @@
     "topics": [
       "Gospel Authorship",
       "Gospel of Mark",
-      "Luke-Acts Authorship",
-      "Papias"
+      "Luke-Acts Authorship"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -26039,8 +26046,7 @@
     "author": "BDEhrman",
     "description": "Presents a guest argument that John's chronology of Jesus' ministry may be historically plausible.",
     "topics": [
-      "Gospel of John",
-      "Jesus' Miracle Stories"
+      "Gospel of John"
     ],
     "secondaryKeywords": [
       "Elijah",
@@ -30951,7 +30957,8 @@
     "description": "Argues that Revelation should be read in its Roman imperial setting rather than as twenty-first-century warfare.",
     "topics": [
       "Modern End-Times Interpretation",
-      "Book of Revelation"
+      "Book of Revelation",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Early Christian Writings",
@@ -31585,7 +31592,6 @@
     "author": "BDEhrman",
     "description": "Uses John's Farewell Discourse to connect the Holy Spirit with later Trinitarian theology.",
     "topics": [
-      "Christology in the Gospels",
       "Gospel of John",
       "Development of the Trinity"
     ],
@@ -33053,7 +33059,8 @@
     "author": "BDEhrman",
     "description": "Explains early Christian views that made Christ fully divine but not genuinely human.",
     "topics": [
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "1 John",
@@ -34797,8 +34804,7 @@
     "description": "Explains how Paul's dictation of letters complicates the search for an original text.",
     "topics": [
       "Original Text Questions",
-      "Pauline Textual Issues",
-      "Roman World"
+      "Pauline Textual Issues"
     ],
     "secondaryKeywords": [
       "Memory",
@@ -34817,8 +34823,7 @@
     "topics": [
       "Original Text Questions",
       "Pauline Textual Issues",
-      "Philippians",
-      "Roman World"
+      "Philippians"
     ],
     "secondaryKeywords": [
       "Paul"
@@ -34867,7 +34872,6 @@
     "description": "Announces a fundraising webinar on what can be known about Jesus' birth.",
     "topics": [
       "Jesus' Birth Narratives",
-      "Virgin Birth",
       "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
@@ -35284,7 +35288,8 @@
     "author": "BDEhrman",
     "description": "Announces a remote lecture series on Heaven and Hell.",
     "topics": [
-      "Ignore"
+      "Ignore",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": []
   },
@@ -36495,7 +36500,8 @@
     "description": "Defines Gnosticism as background for understanding the Gospel of Judas and related early Christian texts.",
     "topics": [
       "Gnostic and Orthodox Conflicts",
-      "Gnosticism (General)"
+      "Gnosticism (General)",
+      "Nag Hammadi"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -36740,7 +36746,6 @@
       "Forgery (General)",
       "Forgery and Counterforgery",
       "Gnostic and Orthodox Conflicts",
-      "Nag Hammadi",
       "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
@@ -37966,7 +37971,8 @@
     "author": "BDEhrman",
     "description": "Announces an Oxford University Press webinar on Heaven and Hell.",
     "topics": [
-      "Ignore"
+      "Ignore",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": []
   },
@@ -37998,7 +38004,8 @@
     "description": "Shares publisher Q&A about Heaven and Hell and the history of afterlife beliefs.",
     "topics": [
       "Heaven and Hell",
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Eternal Punishment"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -38066,7 +38073,8 @@
     "description": "Applies socio-historical method to divergent Christological views in John's Gospel.",
     "topics": [
       "Gospel of John",
-      "Historical Methods (General)"
+      "Historical Methods (General)",
+      "Christology in the Gospels"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -38804,7 +38812,8 @@
     "author": "BDEhrman",
     "description": "Announces a pre-order deal connected with Heaven and Hell and Great Courses material.",
     "topics": [
-      "Ignore"
+      "Ignore",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": []
   },
@@ -38945,7 +38954,8 @@
     "author": "BDEhrman",
     "description": "Announces winners of a raffle for advance copies of Heaven and Hell.",
     "topics": [
-      "Ignore"
+      "Ignore",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": []
   },
@@ -39321,7 +39331,8 @@
     "author": "BDEhrman",
     "description": "Follows up with readers who bid to see an advance copy of Heaven and Hell.",
     "topics": [
-      "Ignore"
+      "Ignore",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": []
   },
@@ -39410,7 +39421,8 @@
     "author": "BDEhrman",
     "description": "Offers readers a chance to bid for early access to Heaven and Hell.",
     "topics": [
-      "Ignore"
+      "Ignore",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": []
   },
@@ -40137,8 +40149,7 @@
     "author": "BDEhrman",
     "description": "Compares the Gospel of Thomas with the canonical Gospels and other early Jesus traditions.",
     "topics": [
-      "Gospel of Thomas",
-      "Nag Hammadi"
+      "Gospel of Thomas"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -40345,9 +40356,7 @@
     "dateText": "October 29, 2019",
     "author": "BDEhrman",
     "description": "Explores ancient arguments for women's subordination and their relevance to modern biblical interpretation.",
-    "topics": [
-      "Roman World"
-    ],
+    "topics": [],
     "secondaryKeywords": [
       "Adam",
       "Genesis",
@@ -42499,7 +42508,8 @@
     "description": "Shares an interview about The Triumph of Christianity and the Christianization of the Roman Empire.",
     "topics": [
       "Media Interviews and Videos",
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Mitch Jeserich",
@@ -43263,7 +43273,6 @@
     "description": "Presents a Smithsonian lecture on Paul as Christianity's most important convert.",
     "topics": [
       "Conversion",
-      "Roman World",
       "Triumph of Christianity"
     ],
     "secondaryKeywords": [
@@ -43914,7 +43923,6 @@
     "author": "BDEhrman",
     "description": "Evaluates whether it is plausible that Jesus kept the messianic identity secret throughout the ministry.",
     "topics": [
-      "Jesus' Miracle Stories",
       "Messianic Secret"
     ],
     "secondaryKeywords": [
@@ -44430,7 +44438,8 @@
     "description": "Explains early Christian universalism and the claim that no one remains in hell forever.",
     "topics": [
       "Heaven and Hell Beliefs",
-      "Salvation (General)"
+      "Salvation (General)",
+      "Eternal Punishment"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -44611,7 +44620,8 @@
     "topics": [
       "Christology in the Gospels",
       "Gospel of John",
-      "Incarnation Christology"
+      "Incarnation Christology",
+      "Virgin Birth"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -45502,7 +45512,8 @@
     "author": "BDEhrman",
     "description": "Summarizes Jesus' teaching on hell for a New Testament textbook box.",
     "topics": [
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Eternal Punishment"
     ],
     "secondaryKeywords": [
       "Matthew",
@@ -46018,7 +46029,8 @@
     "author": "BDEhrman",
     "description": "Interprets the Whore of Babylon as part of Revelation's symbolic critique of Rome.",
     "topics": [
-      "Book of Revelation"
+      "Book of Revelation",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Hell",
@@ -46440,8 +46452,7 @@
     "author": "BDEhrman",
     "description": "Provides an overview of the Gospel of Thomas and Thomasine Christianity.",
     "topics": [
-      "Gospel of Thomas",
-      "Nag Hammadi"
+      "Gospel of Thomas"
     ],
     "secondaryKeywords": [
       "Early Christian Writings",
@@ -46461,8 +46472,7 @@
     "author": "BDEhrman",
     "description": "Places Thomasine Christians alongside other post-New Testament Christian groups.",
     "topics": [
-      "Gospel of Thomas",
-      "Nag Hammadi"
+      "Gospel of Thomas"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -47511,7 +47521,8 @@
     "author": "BDEhrman",
     "description": "Compares two strange later accounts of Judas's death.",
     "topics": [
-      "Papias"
+      "Papias",
+      "Judas Iscariot"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -47989,7 +48000,8 @@
     "description": "Explains when Christianity became the official religion of the Roman Empire.",
     "topics": [
       "Constantine",
-      "Early Church Developments"
+      "Early Church Developments",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Conversion",
@@ -48006,7 +48018,8 @@
     "description": "Explains Julian's attempt to restore pagan religion after Constantine.",
     "topics": [
       "Early Church Developments",
-      "Greco-Roman Religious Culture"
+      "Greco-Roman Religious Culture",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Constantine",
@@ -50225,7 +50238,6 @@
     "author": "BDEhrman",
     "description": "Explains how Mark's death and resurrection narrative reveals Jesus' identity.",
     "topics": [
-      "Messiah",
       "Meaning of Jesus' Resurrection"
     ],
     "secondaryKeywords": [
@@ -50359,8 +50371,7 @@
     "author": "BDEhrman",
     "description": "Explains Mark's story of Jesus being rejected by the people of Nazareth.",
     "topics": [
-      "Gospel of Mark",
-      "Jesus' Miracle Stories"
+      "Gospel of Mark"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -54098,7 +54109,8 @@
     "author": "BDEhrman",
     "description": "Reflects on childhood and later thoughts about hell.",
     "topics": [
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Eternal Punishment"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -55606,7 +55618,8 @@
       "Judas Iscariot",
       "Jesus' Passion Narratives",
       "Pontius Pilate",
-      "Trial of Jesus"
+      "Trial of Jesus",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Crucifixion",
@@ -56273,7 +56286,8 @@
     "description": "Explains later Christian developments in heaven and hell after apocalyptic resurrection expectation.",
     "topics": [
       "Eternal Punishment",
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
       "2 Peter",
@@ -57860,7 +57874,6 @@
     "author": "BDEhrman",
     "description": "Offers readers a chance to support the blog while discussing work on The Triumph of Christianity.",
     "topics": [
-      "Roman World",
       "Triumph of Christianity",
       "Blog Updates and Fundraising"
     ],
@@ -58289,7 +58302,8 @@
     "author": "BDEhrman",
     "description": "Considers how significant Christianity was within the Roman world before Constantine.",
     "topics": [
-      "Rise of Christianity"
+      "Rise of Christianity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Constantine",
@@ -58542,7 +58556,8 @@
     "topics": [
       "Conversion",
       "Greco-Roman Religious Culture",
-      "Rise of Christianity"
+      "Rise of Christianity",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Judaism",
@@ -58705,7 +58720,8 @@
     "topics": [
       "Rise of Christianity",
       "Triumph of Christianity",
-      "Greco-Roman Religious Culture"
+      "Greco-Roman Religious Culture",
+      "Roman World"
     ],
     "secondaryKeywords": [
       "Mission",
@@ -58775,7 +58791,8 @@
     "description": "Answers questions about archaeological discoveries and historical claims in Jesus Before the Gospels.",
     "topics": [
       "Ancient Literacy",
-      "Archaeology and Material Evidence"
+      "Archaeology and Material Evidence",
+      "Jesus Before the Gospels"
     ],
     "secondaryKeywords": [
       "Archaeology",
@@ -59776,7 +59793,8 @@
     "author": "BDEhrman",
     "description": "Lists upcoming book readings and speaking engagements for 2016.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Jesus Before the Gospels"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -60200,7 +60218,8 @@
     "description": "Contrasts popular Christian prophecy interpretation with critical biblical scholarship.",
     "topics": [
       "Christian Interpretation of Jewish Scripture",
-      "Hebrew Bible Prophets"
+      "Hebrew Bible Prophets",
+      "Modern End-Times Interpretation"
     ],
     "secondaryKeywords": [
       "Amos",
@@ -60387,7 +60406,8 @@
     "topics": [
       "Apocalyptic Jesus",
       "Problem of Evil and Suffering",
-      "Meaning of Jesus' Resurrection"
+      "Meaning of Jesus' Resurrection",
+      "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
       "Apocalypticism",
@@ -60449,7 +60469,8 @@
     "author": "BDEhrman",
     "description": "Answers a question about whether Jesus' messiahship during life explains later claims about Jesus.",
     "topics": [
-      "Christology (General)"
+      "Christology (General)",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -60733,7 +60754,8 @@
     "author": "BDEhrman",
     "description": "Explains how resurrection belief reversed the apparent collapse of Jesus' messianic hopes.",
     "topics": [
-      "Meaning of Jesus' Resurrection"
+      "Meaning of Jesus' Resurrection",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -60845,7 +60867,8 @@
     "description": "Connects Judas, secrecy, and Jesus' messianic claims before the crucifixion.",
     "topics": [
       "Judas Iscariot",
-      "Messianic Secret"
+      "Messianic Secret",
+      "Messiah"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -60982,9 +61005,7 @@
     "dateText": "November 20, 2015",
     "author": "BDEhrman",
     "description": "Answers questions about unresolved historical Jesus problems and Mark's possible use of Paul's letters.",
-    "topics": [
-      "Ancient Literacy"
-    ],
+    "topics": [],
     "secondaryKeywords": [
       "Early Christianity",
       "Gospel of Mark",
@@ -62543,7 +62564,8 @@
     "description": "Explains Paul's language about Jesus' return in 1 Thessalonians and its later connection to rapture belief.",
     "topics": [
       "Pauline End-Time Expectations",
-      "1 Thessalonians"
+      "1 Thessalonians",
+      "Modern End-Times Interpretation"
     ],
     "secondaryKeywords": [
       "Heaven",
@@ -64565,7 +64587,6 @@
     "description": "Compares Q with the Gospel of Thomas as collections of Jesus' sayings.",
     "topics": [
       "Gospel of Thomas",
-      "Nag Hammadi",
       "Q Source"
     ],
     "secondaryKeywords": [
@@ -65737,7 +65758,8 @@
       "Jesus' Birth Narratives",
       "Gospel of Luke",
       "Gospel of Matthew",
-      "Translation Issues"
+      "Translation Issues",
+      "Virgin Birth"
     ],
     "secondaryKeywords": [
       "Gabriel",
@@ -68971,8 +68993,7 @@
     "author": "BDEhrman",
     "description": "Discusses Thomasine Christians and other groups sometimes connected with Gnosticism.",
     "topics": [
-      "Gospel of Thomas",
-      "Nag Hammadi"
+      "Gospel of Thomas"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -69031,7 +69052,8 @@
     "description": "Introduces a revised discussion of Gnosticism in After the New Testament.",
     "topics": [
       "Gnostic and Orthodox Conflicts",
-      "Gnosticism (General)"
+      "Gnosticism (General)",
+      "Nag Hammadi"
     ],
     "secondaryKeywords": [
       "Gnosticism",
@@ -73534,7 +73556,8 @@
     "topics": [
       "Jesus' Birth Narratives",
       "Gospel of Luke",
-      "Genealogies of Jesus"
+      "Genealogies of Jesus",
+      "Marcion"
     ],
     "secondaryKeywords": [
       "Adam",
@@ -74134,9 +74157,7 @@
     "dateText": "July 9, 2013",
     "author": "BDEhrman",
     "description": "Introduces early Christianity in Egypt after work on How Jesus Became God.",
-    "topics": [
-      "Nag Hammadi"
-    ],
+    "topics": [],
     "secondaryKeywords": [
       "Church Fathers",
       "Early Christianity",
@@ -74549,7 +74570,8 @@
     "description": "Continues a critique of John Shelby Spong's treatment of the Gospel of John.",
     "topics": [
       "Christology in the Gospels",
-      "Gospel of John"
+      "Gospel of John",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -74732,7 +74754,6 @@
     "description": "Continues explaining why Mark probably did not write Peter's recollections.",
     "topics": [
       "Gospel of Mark",
-      "Papias",
       "Peter the Apostle"
     ],
     "secondaryKeywords": [
@@ -76317,7 +76338,6 @@
     "author": "BDEhrman",
     "description": "Explains exaltation Christology in the speeches in Acts.",
     "topics": [
-      "Christology in the Gospels",
       "Exaltation Christology"
     ],
     "secondaryKeywords": [
@@ -77498,8 +77518,7 @@
     "author": "BDEhrman",
     "description": "Reviews Pope Benedict's book on Jesus' infancy narratives.",
     "topics": [
-      "Jesus' Birth Narratives",
-      "Virgin Birth"
+      "Jesus' Birth Narratives"
     ],
     "secondaryKeywords": [
       "Dionysius",
@@ -77617,8 +77636,7 @@
     "author": "BDEhrman",
     "description": "Discusses the Gospel of Thomas in relation to other Gospels.",
     "topics": [
-      "Gospel of Thomas",
-      "Nag Hammadi"
+      "Gospel of Thomas"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -78495,7 +78513,8 @@
     "topics": [
       "Historical Methods (General)",
       "Hebrew Bible Prophets",
-      "Book of Isaiah"
+      "Book of Isaiah",
+      "Virgin Birth"
     ],
     "secondaryKeywords": [
       "Biblical Interpretation",
@@ -78978,8 +78997,7 @@
     "description": "Compares problems in popular Bible translations such as the KJV and NIV.",
     "topics": [
       "Bible Translations (General)",
-      "King James Version",
-      "New Revised Standard Version (NRSV)"
+      "King James Version"
     ],
     "secondaryKeywords": [
       "Biblical Translation",

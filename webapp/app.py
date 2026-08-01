@@ -1060,7 +1060,7 @@ def title_match_boost(title: str, term: str) -> int:
     padded_title = f" {normalized_title} "
     padded_term = f" {normalized_term} "
     if padded_term in padded_title:
-        return 2
+        return 4
     if " " not in normalized_term and any(normalized_term == word for word in normalized_title.split()):
         return 1
     return 0
@@ -1072,7 +1072,7 @@ def description_match_boost(description: str, term: str) -> int:
     if not normalized_description or not normalized_term:
         return 0
     if f" {normalized_term} " in f" {normalized_description} ":
-        return 3
+        return 2
     return 0
 
 

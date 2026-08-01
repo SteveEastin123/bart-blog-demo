@@ -67,8 +67,8 @@ class SearchParityTests(unittest.TestCase):
         ]
         ranked = app.sort_scoped_posts(rows, "ranked", ["Paul"], {1: 5, 2: 5})
         self.assertEqual(ranked[0]["id"], 1)
-        self.assertEqual(app.title_match_boost("Paul and the Apostles", "Paul"), 2)
-        self.assertEqual(app.description_match_boost("A post about Paul.", "Paul"), 3)
+        self.assertEqual(app.title_match_boost("Paul and the Apostles", "Paul"), 4)
+        self.assertEqual(app.description_match_boost("A post about Paul.", "Paul"), 2)
         self.assertEqual(app.description_match_boost("A nutshell overview.", "hell"), 0)
 
     def test_general_topic_qualifier_is_ignored_for_text_boosts(self) -> None:
@@ -91,8 +91,8 @@ class SearchParityTests(unittest.TestCase):
         term = "Historical Jesus (General)"
         ranked = app.sort_scoped_posts(rows, "ranked", [term], {1: 8, 2: 8})
         self.assertEqual(ranked[0]["id"], 2)
-        self.assertEqual(app.title_match_boost(rows[1]["title"], term), 2)
-        self.assertEqual(app.description_match_boost(rows[1]["description"], term), 3)
+        self.assertEqual(app.title_match_boost(rows[1]["title"], term), 4)
+        self.assertEqual(app.description_match_boost(rows[1]["description"], term), 2)
 
     def test_database_uses_refined_topic_and_keyword_weights(self) -> None:
         with app.get_conn() as conn:

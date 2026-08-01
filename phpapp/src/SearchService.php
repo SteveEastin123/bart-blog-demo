@@ -44,7 +44,7 @@ function ehrman_title_match_boost(string $title, string $term): int
         return 0;
     }
     if (str_contains(" {$normalizedTitle} ", " {$normalizedTerm} ")) {
-        return 2;
+        return 4;
     }
     if (!str_contains($normalizedTerm, ' ') && in_array($normalizedTerm, explode(' ', $normalizedTitle), true)) {
         return 1;
@@ -59,7 +59,7 @@ function ehrman_description_match_boost(string $description, string $term): int
     if ($normalizedDescription === '' || $normalizedTerm === '') {
         return 0;
     }
-    return str_contains(" {$normalizedDescription} ", " {$normalizedTerm} ") ? 3 : 0;
+    return str_contains(" {$normalizedDescription} ", " {$normalizedTerm} ") ? 2 : 0;
 }
 
 function ehrman_sort_posts(array $posts, string $sort, array $rankingTerms, ?array $scores = null): array
