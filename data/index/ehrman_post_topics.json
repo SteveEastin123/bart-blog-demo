@@ -115,7 +115,15 @@
     },
     {
       "name": "Apocryphal Acts",
-      "description": "Covers apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, Thomas, and other apostles.",
+      "description": "Covers apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, and other apostles.",
+      "categories": [
+        "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Acts of Thomas",
+      "description": "Covers the Acts of Thomas, including Thomas's mission to India, identification as Jesus' twin, ascetic teachings, views of wealth, and journeys to the afterlife.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -196,7 +204,7 @@
     },
     {
       "name": "Augustine of Hippo",
-      "description": "Covers Augustine's writings, theology, conversion, views of miracles, ethics, and influence on later Christianity.",
+      "description": "Covers substantive discussions of Augustine's views on miracles, lying, sexuality, war, and eternal punishment.",
       "categories": [
         "Church Fathers"
       ],
@@ -278,6 +286,14 @@
     {
       "name": "Bloody Sweat Textual Variant",
       "description": "Posts on the textual variant in Luke where Jesus sweats blood, including manuscript evidence, scribal motives, NRSV translation issues, and Luke's portrayal of Jesus before death.",
+      "categories": [
+        "Textual Criticism"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Woman Caught in Adultery",
+      "description": "Covers the story of the woman caught in adultery, including its narrative, manuscript history, absence from the original Gospel of John, possible historicity, and treatment in Bible translations.",
       "categories": [
         "Textual Criticism"
       ],
@@ -1245,7 +1261,7 @@
     },
     {
       "name": "Miracle Claims and Apologetics",
-      "description": "Covers miracle claims used in apologetic arguments, including eyewitness claims, signs from God, Augustine's miracles, resurrection arguments, and modern defenses of supernatural events.",
+      "description": "Covers arguments for and against miracle claims, including eyewitness testimony, signs from God, historical presuppositions, resurrection arguments, and apologetic defenses.",
       "categories": [
         "Miracles and Supernatural Claims"
       ],
