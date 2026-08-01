@@ -41827,431 +41827,4265 @@
     {
       "topic": "Philippians",
       "auditSequence": 126,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": null,
+      "postCountAfter": 22,
       "descriptionBefore": "Posts on Philippians, including authorship, composition, textual problems, further reading, and the letter's place among Paul's writings.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Posts on Philippians, including authorship, composition, textual problems, further reading, and the letter's place among Paul's writings.",
       "categoriesBefore": [
         "Pauline Epistles"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47001",
+          "title": "Paul’s Letters to the Philippians and to Philemon, “At a Glance” and with Questions for Reflection",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47202",
+          "title": "Philippians: For Further Reading",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47197",
+          "title": "Philippians: Who Wrote It, When, and Why?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47196",
+          "title": "Philippians in a Nutshell",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39723",
+          "title": "Serious Hypothetical (And Realistically Possible) Problems With Copies of Paul’s Letters",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39718",
+          "title": "Even More Snarly Problems If Paul Dictated His Letters",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39714",
+          "title": "If Paul Dictated His Letters, How Can We Know What He Said?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39652",
+          "title": "Is There Even Such a Thing as the “Original” Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39648",
+          "title": "Is Paul’s Letter to the Philippians Actually Two Letters Cut and Spliced Together?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39646",
+          "title": "Do We Have the Original Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22322",
+          "title": "Why Finding an “Original” Text is So Unexpectedly Complicated",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22294",
+          "title": "What Does It Even Mean to Have an “Original” of An Ancient Writing?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22288",
+          "title": "Could Paul’s Letter to the Philippians be TWO Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22271",
+          "title": "Do We Have Paul’s Original Letter to the Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14690",
+          "title": "More Cutting and Pasting?  Paul’s Letter to the Philippians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14685",
+          "title": "My Long Favorite Pauline Letter: Philippians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7461",
+          "title": "Hypothetical Problems with Copies of Philippians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7459",
+          "title": "Dictation of Letters: More Complications for Knowing an “Original” Text",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7457",
+          "title": "Complications with Finding an “Original” Text",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7454",
+          "title": "What Would Be the “Original” Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7451",
+          "title": "Are There Two Letters to the Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7449",
+          "title": "Do We Have the Original Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Philippians as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Women in Pauline Traditions",
       "auditSequence": 127,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": null,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers women in Pauline traditions, including Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers women in Pauline traditions, including Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
       "categoriesBefore": [
         "Pauline Thought and Practice",
         "Women, Gender, and Sexuality"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47276",
+          "title": "Paul and His Most Famous Woman Disciple",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47268",
+          "title": "My Least Favorite Passage of the Pastorals:  Those Silent and Submissive Women….",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47231",
+          "title": "Interesting Questions from Readers (5/27/2025)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47189",
+          "title": "Some Important Questions From Blog Readers",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47137",
+          "title": "Paul and Women Apostles",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39548",
+          "title": "The Silencing of Women: 1 Cor. 14:34-35 as an Interpolation",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39555",
+          "title": "Knowing Paul’s Views of Women…",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39286",
+          "title": "Did Paul Favor Gender Equality?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39264",
+          "title": "Was Paul a Misogynist?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25202",
+          "title": "Did Paul the Pharisee Learn about Christianity from his Relative, the Apostle Junia?  Guest Post by James McGrath",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17776",
+          "title": "Paul the Misogynist?  The Alternative Perspective",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17773",
+          "title": "Paul the Feminist?  The Thecla Legends",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17769",
+          "title": "Paul and the Status of Women",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14958",
+          "title": "The Surprising Understanding of Gender in the Ancient World",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14860",
+          "title": "Was Paul a Misogynist?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14858",
+          "title": "Paul and His Female Disciple Thecla",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14822",
+          "title": "Paul’s Views of Women",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10321",
+          "title": "Were Paul’s Views of Women Oppressive?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4618",
+          "title": "The Non-Pauline Oppression of Women",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4613",
+          "title": "Paul, the Pastorals, and Women",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4607",
+          "title": "Paul’s View of Women in the Church",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4591",
+          "title": "Women in the Churches of Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Women in Pauline Traditions as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Afterlife Journeys",
       "auditSequence": 128,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "categoriesBefore": [
         "Afterlife"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "46916",
+          "title": "The Transformation of Paul’s Teaching:  The Apocalypse of Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31624",
+          "title": "Digging Deep into Afterlife Journeys",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31221",
+          "title": "An Interesting Interview on Journeys to Heaven and Hell",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "30969",
+          "title": "A Christian NDE and the Problem with Being Filthy Rich",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "30695",
+          "title": "A Lively Interview on my New Book “Journeys”",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21163",
+          "title": "Paul’s Ascent to Paradise.  Guest Post by James Tabor",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17320",
+          "title": "Update on My Next Book: The Joys of Academic Writing",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16467",
+          "title": "Who Has The Answer For a Happy Afterlife?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16105",
+          "title": "Death and the Meaning of Life",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16038",
+          "title": "Enoch’s Vision of the Realms of the Dead",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15998",
+          "title": "A Roman Vision of Heaven and Hell",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15933",
+          "title": "An Early Otherworldly Journey",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15912",
+          "title": "The Passion for Origins",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15905",
+          "title": "The Original Obsession with Trips to the Afterlife",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12898",
+          "title": "Life in Hades",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12895",
+          "title": "The Body and Soul in Hades",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12890",
+          "title": "The First Recorded Visit to the Realm of the Dead (in Western literature)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12885",
+          "title": "Journeys to Heaven and Hell: A Sketch of My Project",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12442",
+          "title": "Eternal Life and Damnation",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12428",
+          "title": "Another Gory Account of the Afterlife: The Apocalypse of Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12425",
+          "title": "Touring Hell: The Apocalypse of Peter",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Afterlife Journeys as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Bloody Sweat Textual Variant",
       "auditSequence": 129,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Posts on the textual variant in Luke where Jesus sweats blood, including manuscript evidence, scribal motives, NRSV translation issues, and Luke's portrayal of Jesus before death.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Posts on the textual variant in Luke where Jesus sweats blood, including manuscript evidence, scribal motives, NRSV translation issues, and Luke's portrayal of Jesus before death.",
       "categoriesBefore": [
         "Textual Criticism"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "27793",
+          "title": "Why Would Later Scribes Be Interested In Having Jesus “Sweat Blood”?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27714",
+          "title": "Was Jesus in Agony Before His Arrest?  The Unexpected Answer in Luke.",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27695",
+          "title": "An Unexpected Argument Against Jesus’ “Sweating Blood”",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27674",
+          "title": "Jesus in the Face of Death?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27664",
+          "title": "Did Jesus Sweat Blood?  Another Problem with the NRSV",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17754",
+          "title": "Jesus “Sweating Blood”: Which Text Would *Scribes* Have Preferred?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17741",
+          "title": "Did Jesus Sweat Blood?  “Intrinsic” Evidence for Textual Variants",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9194",
+          "title": "Are Their Any Completely Anti-Heretical Manuscripts?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9144",
+          "title": "On Falsification and Forgery",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9070",
+          "title": "Did Scribes Add the Passage of the Bloody Sweat?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9068",
+          "title": "The Bloody Sweat and the Scribes Who Changed It",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9063",
+          "title": "Jesus’ Lack of Agony",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9061",
+          "title": "When I First Realized the Importance of Textual Criticism: The Bloody Sweat",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8085",
+          "title": "The Bloody Sweat and Historical Plausibility",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8065",
+          "title": "Jesus Sweating Blood: Transcriptional Probabilities",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8063",
+          "title": "Jesus’ Sweating Blood and “intrinsic” evidence",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2759",
+          "title": "Why Did Scribes Add the Bloody Sweat?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2740",
+          "title": "Jesus Going to His Death in Luke",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2727",
+          "title": "More on The Bloody Sweat",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2721",
+          "title": "Problems with the NRSV (Part 5)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2699",
+          "title": "Problems with the NRSV (Part 4)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Bloody Sweat Textual Variant as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Book of Job",
       "auditSequence": 130,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers Job, including suffering, divine justice, Job's friends, the book's different perspectives, and biblical responses to pain.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers Job, including suffering, divine justice, Job's friends, the book's different perspectives, and biblical responses to pain.",
       "categoriesBefore": [
         "Hebrew Bible Texts and Traditions",
         "Suffering and Evil"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "35702",
+          "title": "(Part 2) A Discussion on the Issue of Suffering and the Moral in Job’s Story. A Platinum Post From Omar Robb",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34664",
+          "title": "You Have No Right To Question Why You Suffer. What???",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34660",
+          "title": "Does God Punish Those Who Do *Right*?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34656",
+          "title": "Job and His “Friends.”  With Friends Like These…",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34586",
+          "title": "Is the God of Job Worthy of Worship?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34580",
+          "title": "The Story of the Righteous Job and His Righteous God",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34575",
+          "title": "Suffering in the Two Books of Job.  Two Books?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12752",
+          "title": "The Variety of Views of Suffering in the Bible",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12503",
+          "title": "Job and the God Who Refuses To Answer",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12501",
+          "title": "Was Job Really Innocent?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12489",
+          "title": "Job’s So-called Friends (With Friends Like These….)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12486",
+          "title": "Why I Find the Story of Job is Disturbing",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12484",
+          "title": "Understanding the Story of Job",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12482",
+          "title": "The Two Books of Job: A Blast from the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4585",
+          "title": "Evaluation of Job’s View of Suffering",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4576",
+          "title": "Suffering in the Poetic Section of Job",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4567",
+          "title": "Key Passages in Job’s Back and Forth",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4563",
+          "title": "The Poetic Section of Job",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4560",
+          "title": "Evaluation of Job’s Short Story",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4543",
+          "title": "The Prose Story of Job",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4537",
+          "title": "The Two Books of Job",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Book of Job as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Early Christian Orthodoxy and Heresy",
       "auditSequence": 131,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers debates over orthodoxy and heresy in early Christianity, including early Christian diversity, Bauer's thesis, Eusebius, Marcion, adoptionist views, Jewish-Christian texts, and the rise of proto-orthodox Christianity.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers debates over orthodoxy and heresy in early Christianity, including early Christian diversity, Bauer's thesis, Eusebius, Marcion, adoptionist views, Jewish-Christian texts, and the rise of proto-orthodox Christianity.",
       "categoriesBefore": [
         "Gnosticism, Orthodoxy, and Heresy"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49417",
+          "title": "Early Christian Reactions to “Heresies” in a Nutshell",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37572",
+          "title": "How Paul’s Own Writings Show the Earliest Church Was Split Over “Orthodoxy” and “Heresy”",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37497",
+          "title": "Wasn’t Early Christianity Basically Unified?  Why Fret About Occasional Diversity?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37491",
+          "title": "The Revolutionary Understanding of Orthodoxy and Heresy: An Evaluation of Bauer’s Views",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37485",
+          "title": "The Most Significant Study of Christian “Heresy” in Modern Times",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37479",
+          "title": "A Fundamental Issue: Heresy and Orthodoxy in Early Christianity",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24388",
+          "title": "Was Christ Human But Not Divine?  Another Early Christian View",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24312",
+          "title": "Christ as “Not God” in the Second Century: Early Jewish Adoptionists",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12916",
+          "title": "Fun with the Jewish Christian Gospels: A Blast from the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12731",
+          "title": "Why Was Marcion Declared a Heretic?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8950",
+          "title": "Orthodoxy and Proto-Orthodoxy",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8944",
+          "title": "Orthodoxy and Heresy in the New Testament Itself",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8930",
+          "title": "Doesn’t the New Testament Show that Christianity Was Originally Unified?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8928",
+          "title": "How Diverse Was Early Christianity?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8926",
+          "title": "Evaluating the Views of Walter Bauer",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8924",
+          "title": "A Radically Different View of Orthodoxy and Heresy",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8922",
+          "title": "What Are Orthodoxy and Heresy?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8919",
+          "title": "What is An Orthodox Corruption of Scripture?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3228",
+          "title": "Lost Gospels That Are Still Lost 2: The Gospel of Basilides",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2316",
+          "title": "Why Did “Orthodox” Christianity Win: Part 2",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2311",
+          "title": "Why Did “Orthodox” Christianity Win?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Early Christian Orthodoxy and Heresy as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Hebrew Bible Prophets",
       "auditSequence": 132,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
       "categoriesBefore": [
         "Hebrew Bible Texts and Traditions"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "48332",
+          "title": "A Heart-Rending Story and Stunning Condemnation: The Prophet Hosea",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48263",
+          "title": "A Gold Nugget Often Overlooked: The Book of Zechariah",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47265",
+          "title": "Who Was the Suffering Servant of Isaiah 53?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34100",
+          "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28663",
+          "title": "The Prophets of Scripture: A Brief Summary of their Message and Mission",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28655",
+          "title": "The Message of First Isaiah",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28646",
+          "title": "Is the Book of Isaiah the Books of Three “Isaiahs”?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28591",
+          "title": "How Can We Understand the Prophets of the Hebrew Bible?  Isaiah as a Case Study",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28520",
+          "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28517",
+          "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28337",
+          "title": "The Bible’s Best Known Short Story: Jonah",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27131",
+          "title": "Does God Really Care How He Is Worshiped?  The Book of Hosea.",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26915",
+          "title": "The God of Wrath According to the Prophet Amos",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26782",
+          "title": "Prophecies and Saints in the Book of Daniel.  Platinum Guest Post by Daniel Kohanski",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16534",
+          "title": "Does Isaiah 53 Predict Jesus’ Suffering and Death or Has Isaiah 53 Been Debunked?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9477",
+          "title": "Are the Prophecies Being Fulfilled?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9473",
+          "title": "Amos as a Representative Prophet",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9468",
+          "title": "The Prophet Amos",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9464",
+          "title": "The Prophetic Background of Jewish Apocalyptic Thought",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2857",
+          "title": "Faith, History, and Isaiah 7",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2429",
+          "title": "The Suffering Servant of Isaiah",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Modern Forgery Claims",
       "auditSequence": 133,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": null,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers modern forgery claims and disputed discoveries, including the Gospel of Jesus' Wife, Secret Gospel of Mark, Museum of the Bible controversies, and other recent authenticity debates.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers modern forgery claims and disputed discoveries, including the Gospel of Jesus' Wife, Secret Gospel of Mark, Museum of the Bible controversies, and other recent authenticity debates.",
       "categoriesBefore": [
         "Forgery"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "41678",
+          "title": "The Hobby Lobby, the Museum of the Bible, and Incredible Academic Fraud",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38254",
+          "title": "Gospel Thrillers Part III by Andrew Jacobs",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35549",
+          "title": "More on Secret Mark as a Forgery (by Morton Smith?)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35545",
+          "title": "Did Morton Smith Forge the Secret Gospel of Mark?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34961",
+          "title": "A Scandalous Discovery of a Scandalous Gospel?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35034",
+          "title": "Could the Mysterious “Secret Gospel of Mark” Be Authentic?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34967",
+          "title": "How Do You Prove an Ancient Manuscript is Ancient?  The Secret Gospel of Mark",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35041",
+          "title": "The Naked Man of Mark 14:51-52, the Secret Gospel, and a Pressing Question: Did Jesus Engage in Homoerotic Behavior?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34953",
+          "title": "The Discovery of a Lifetime: A Secret Gospel of Mark?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34949",
+          "title": "Do Scholars Ever Forge Gospels?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4505",
+          "title": "Teeth Will Be Provided",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "29181",
+          "title": "Young Jesus with the Brahmins in India!",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "29175",
+          "title": "A Humorous Modern Gospel Forgery",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20540",
+          "title": "Academic Fraud at the Highest Levels",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16143",
+          "title": "An Eyewitness to the Crucifixion?  Another Modern Forgery",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16133",
+          "title": "Did Jesus Go to India?  A Modern Gospel Forgery.",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12943",
+          "title": "My Favorite Anecdote about Jesus and the Afterlife: Teeth Will Be Provided!",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9109",
+          "title": "Back to the Forgery of the Gospel of Jesus’ Wife",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7389",
+          "title": "More on Jesus’ Wife!",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3059",
+          "title": "The Gospel of Jesus’ Wife: Another New Development",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2826",
+          "title": "Is the New Gospel Fragment a Modern Forgery?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2816",
+          "title": "The Gospel of Jesus’s Wife",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Modern Forgery Claims as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Paul and His Opponents",
       "auditSequence": 134,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
       "categoriesBefore": [
         "Paul's Life, Mission, and Communities"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47177",
+          "title": "Key Questions about Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47176",
+          "title": "Is Paul One of Matthew’s Enemies?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41050",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38840",
+          "title": "Among Paul’s Enemies….",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38802",
+          "title": "What Did Paul’s Christian Enemies Write About Him?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35878",
+          "title": "Did Paul Get Along with the Other Apostles?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "32394",
+          "title": "A Letter from Peter to James … Against Paul!",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27490",
+          "title": "Did Paul Want to Please the Jerusalem Apostles?  Guest post by Richard Fellows",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27182",
+          "title": "Was Paul Really at Odds with Peter and James?  Guest Post by Richard Fellows",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27012",
+          "title": "Finally: Cephas and Peter.  What Do I Really Think?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26839",
+          "title": "Cephas and Peter: Final Arguments, Summary, and Implications",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26835",
+          "title": "More Hints that Cephas Was Not Peter",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26811",
+          "title": "Some Evidence that Cephas and Peter WERE Two Different People",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25517",
+          "title": "Was Paul Peter’s Enemy?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16388",
+          "title": "The Close Connections of James and Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16385",
+          "title": "Is James Responding to Paul?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12120",
+          "title": "Was Cephas Peter?  The Rest of the Argument",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12118",
+          "title": "Cephas and Peter in the Writings of Paul (Who Knew Them)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11773",
+          "title": "My Work as a Historian and Paul in Conflict with the Jerusalem Church: Readers’ Mailbag August 20, 2016",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8605",
+          "title": "Paul’s Christian Enemies:  Galatians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8599",
+          "title": "Lost Letters of Paul’s Opponents",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul and His Opponents as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Paul in Acts",
       "auditSequence": 135,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": null,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
       "categoriesBefore": [
         "Paul's Life, Mission, and Communities"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47178",
+          "title": "How Do We Know the Chronology of Paul’s Life and Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41062",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 4 by Angus Nisbet",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41058",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41054",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 2 by Angus Nisbet",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41050",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40436",
+          "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 1). Guest Post by James Tabor",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38930",
+          "title": "Is the Paul of Acts at Odds with the Paul of His Own Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38926",
+          "title": "Is the Message of Paul in Acts the Same as the Message of Paul According to Paul?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38564",
+          "title": "Facts Hidden Among the Legends of the Apostle Paul?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35878",
+          "title": "Did Paul Get Along with the Other Apostles?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35872",
+          "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35865",
+          "title": "Was Paul Authorized to Persecute Christians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17518",
+          "title": "Does the Book of Acts Accurately Record Paul’s Teachings?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15254",
+          "title": "Does the Book of Acts Portray the *Teachings* of Paul Accurately?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15251",
+          "title": "Does the Book of Acts Accurately Portray the Life and Teachings of Paul?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11558",
+          "title": "The Conversion of Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11332",
+          "title": "The Death of Paul in Acts and Unrelated Topics:  Readers’ Mailbag April 29, 2016",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4519",
+          "title": "Paul’s Chronology",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2512",
+          "title": "Paul in Acts: Part 3",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2492",
+          "title": "Paul in Acts: Part 2",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2483",
+          "title": "Paul the Persecutor and the Historical Jesus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "1 Peter",
       "auditSequence": 136,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 28,
       "descriptionBefore": "Covers 1 Peter, including its authorship, ancient literacy, possible use of secretaries, relationship to Pauline traditions, and teachings about persecution and suffering.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers 1 Peter, including its authorship, ancient literacy, possible use of secretaries, relationship to Pauline traditions, and teachings about persecution and suffering.",
       "categoriesBefore": [
         "Non-Pauline Epistles"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47958",
+          "title": "1 and 2 Peter and Jude “At a Glance,” and Questions for Reflection",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46985",
+          "title": "Couldn’t 1 and 2 Peter Have Been Written By Peter’s Secretaries?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46983",
+          "title": "For Further Reading on James, 1 Peter, and 2 Peter",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46975",
+          "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46974",
+          "title": "Is 1 Peter More Like 1 Paul?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46973",
+          "title": "Why Does the Author of 1 Peter Sound Like Paul Instead of Peter?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46969",
+          "title": "Did The Apostle Peter Write 1 Peter?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46968",
+          "title": "1 Peter: Who Wrote It, When, and Why?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46967",
+          "title": "1 Peter in a Nutshell",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "32404",
+          "title": "You Don’t Think Peter Wrote 1 and 2 Peter?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15666",
+          "title": "Could Peter Have “Written” 1 and 2 Peter Some Other Way?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15657",
+          "title": "Seriously.  How Many People in Antiquity Could Write?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15654",
+          "title": "Who Wrote 1 Peter?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15649",
+          "title": "The Situation Behind the (“Forged”) Book of 1 Peter",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15647",
+          "title": "The So-Called First Letter of Peter",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15352",
+          "title": "Did Peter Use a Secretary for his Writings?  A Blast from the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2579",
+          "title": "Peter as Literate?  Part 2",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2573",
+          "title": "Peter as Literate?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2561",
+          "title": "Ancient Secretaries (Part 1)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2528",
+          "title": "Silvanus as Peter’s Secretary?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats 1 Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46991",
+          "title": "So Did Secretaries Write the Apostles’ Letters for Them?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates whether secretaries could account for the authorship of 1 Peter."
+        },
+        {
+          "wpId": "32665",
+          "title": "Did the Apostles Use Secretaries to Write their Books?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly applies ancient secretarial practice to the authorship problem of 1 Peter."
+        },
+        {
+          "wpId": "11738",
+          "title": "Did Ancient Secretaries Actually Compose Writings?  A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates whether ancient secretaries composed works such as 1 Peter for their named authors."
+        },
+        {
+          "wpId": "11729",
+          "title": "How Did Ancient Writers Use Secretaries?  A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines ancient secretarial practice as evidence bearing directly on 1 Peter's authorship."
+        },
+        {
+          "wpId": "2568",
+          "title": "Ancient Secretaries (Part 2)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses ancient secretarial practice to evaluate whether Peter could be responsible for 1 Peter."
+        },
+        {
+          "wpId": "32660",
+          "title": "How Many People Were Literate in Antiquity?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses ancient literacy evidence to evaluate whether Peter could have written 1 Peter."
+        },
+        {
+          "wpId": "11723",
+          "title": "Who Could Read and Write?  A Blast from the Past.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines literacy in antiquity as a central part of the authorship question for 1 Peter."
+        },
+        {
+          "wpId": "15660",
+          "title": "Were First-Century Jewish Boys Taught to Read and Write?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates whether Peter's education could support his authorship of 1 Peter."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Did Jesus Exist?",
       "auditSequence": 137,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 20,
       "descriptionBefore": "Posts on Bart's book Did Jesus Exist?, including announcements, interviews, video presentations, reader questions, and responses to mythicist criticism.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Posts on Bart's book Did Jesus Exist?, including announcements, interviews, video presentations, reader questions, and responses to mythicist criticism.",
       "categoriesBefore": [
         "Bart's Books"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49520",
+          "title": "Anniversary Post #3:  My Response to an Ill-Tempered Richard Carrier",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47288",
+          "title": "Did Jesus Exist?  Why I Don’t Enjoy Reading the Mythicists",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40618",
+          "title": "More About My Book “Did Jesus Exist”",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40614",
+          "title": "My Book “Did Jesus Exist” (an answer to the mythicists)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26101",
+          "title": "Why I Wrote my book Did Jesus Exist?  Interview with Evangelical Scholar Ben Witherington",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11974",
+          "title": "Did Jesus Exist?  My Debate with Robert Price",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8369",
+          "title": "Did Jesus Exist? Interview by Guy Raz",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6442",
+          "title": "Did Jesus Exist?  Video Presentation",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2348",
+          "title": "Q & A with Ben Witherington: Part 9",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2322",
+          "title": "Q & A with Ben Witherington: Part 8",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2304",
+          "title": "Q & A with Ben Witherington: Part 7",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2234",
+          "title": "Q & A with Ben Witherington: Part 2",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2218",
+          "title": "Q&A With Ben Witherington: Part 1",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2066",
+          "title": "Did Jesus Exist?  The Birth of a Divine Man",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2043",
+          "title": "Did Jesus Exist as Part One",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "1995",
+          "title": "A Recent Interview",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "1961",
+          "title": "Response to Carrier",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "1932",
+          "title": "Richard Carrier on The Huffington Post Article (1)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "1921",
+          "title": "Do My Research Assistants Do All My Work For Me?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        },
+        {
+          "wpId": "894",
+          "title": "Latest HarperOne Book: Did Jesus Exist?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Did Jesus Exist? as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Free Will and Predestination",
       "auditSequence": 138,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 16,
       "descriptionBefore": "Covers free will and predestination, including divine sovereignty, human choice, salvation, suffering, and whether people can lose salvation.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers free will and predestination, including divine sovereignty, human choice, salvation, suffering, and whether people can lose salvation.",
       "categoriesBefore": [
         "Salvation, Atonement, and Judgment"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49859",
+          "title": "Did the Doctrine of Predestination Lead to Capitalism?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49854",
+          "title": "Predestination!  What do you think?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46992",
+          "title": "The Bible and Suffering:  My NEW Course at UNC This Term",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46966",
+          "title": "Am I?  AI?  What do you think?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46936",
+          "title": "Will Everyone be Saved? (Everyone??)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46935",
+          "title": "Can You “Lose Your Salvation”?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41185",
+          "title": "Doesn’t “Free Will” Explain Suffering?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35698",
+          "title": "(Part I) A Discussion on Spirit, Death, Afterlife, Consciousness, and Free Will. A Platinum Post From Omar Robb",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34368",
+          "title": "Do We Suffer Because We Have “Free Will”?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34343",
+          "title": "Seeing the Problem of Suffering as a PROBLEM",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33529",
+          "title": "The Mind-Body Problem As My Personal Dilemma.  What Do YOU Think?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28489",
+          "title": "My Pet Peeve: Simplistic Answers to Explain Suffering",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Free will appears only as a brief aside in a post centered on simplistic explanations of suffering."
+        },
+        {
+          "wpId": "23213",
+          "title": "My Materialist View of the World",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22472",
+          "title": "How Then Can We Believe?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Free will receives one brief paragraph in a broader discussion of suffering and belief."
+        },
+        {
+          "wpId": "22355",
+          "title": "My Struggle With Why There Is Suffering",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Free will is only one item in a list of proposed explanations for suffering."
+        },
+        {
+          "wpId": "20014",
+          "title": "Do We NEED to Suffer?  The Argument from Tectonic Plates",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15752",
+          "title": "Did We Exist Before We Were Born?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12756",
+          "title": "Apocalypticism in a Modern Idiom",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Free will is mentioned briefly as a contrast to the post's central apocalyptic explanation of suffering."
+        },
+        {
+          "wpId": "12737",
+          "title": "Is Suffering Our Fault?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        },
+        {
+          "wpId": "1945",
+          "title": "What Do Tectonic Plates Have To Do With Suffering?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Free Will and Predestination as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Gospel of Thomas",
       "auditSequence": 139,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 18,
       "descriptionBefore": "Covers the Gospel of Thomas, including its sayings, possible relation to Q, use of canonical Gospels, Thomasine Christianity, and debates over its date and meaning.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers the Gospel of Thomas, including its sayings, possible relation to Q, use of canonical Gospels, Thomasine Christianity, and debates over its date and meaning.",
       "categoriesBefore": [
         "Non-Canonical Christian Texts"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49674",
+          "title": "May 2026 Platinum Webinar Announcement",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37428",
+          "title": "Could the Gospel of Thomas Be Q?  Could it Be Older Than the NT Gospels?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37422",
+          "title": "What Is the Gospel of Thomas All About?  And Did the Author Use the New Testament Gospels?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37415",
+          "title": "The Most Famous Non-Canonical Gospel: The Gospel of Thomas",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37411",
+          "title": "Thomasine Gnostic Christians, and Sundry Others",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21300",
+          "title": "Jesus’ Twin Brother?  Really?  Readers’ Mailbag",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post centers on the Acts of Thomas and the twin tradition rather than the Gospel of Thomas."
+        },
+        {
+          "wpId": "21281",
+          "title": "The Secret Message of the Gospel of Thomas",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21274",
+          "title": "The Gospel of Thomas: Some Basic Information",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21260",
+          "title": "Our Most Important Gospel from Outside the NT: The Gospel of Thomas",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17140",
+          "title": "The Gospel of Thomas and the Other Gospels",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15451",
+          "title": "Thomas, the Synoptic Gospels, and Q",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15448",
+          "title": "Thomas: The Most Important Gospel Outside the New Testament",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15446",
+          "title": "The Gospel of Thomas: An Overview",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15444",
+          "title": "Thomasine Christians and Others, From After the New Testament",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15417",
+          "title": "What Was Discovered in the Nag Hammadi Library?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post surveys the Nag Hammadi library, with the Gospel of Thomas serving only as one example and a transition."
+        },
+        {
+          "wpId": "15415",
+          "title": "How the Gospel of Thomas Was Discovered",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8664",
+          "title": "BBC Clip on “The Lost Gospels”",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8580",
+          "title": "Q and The Gospel of Thomas",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7411",
+          "title": "Thomasine “Gnostics” and Others",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3289",
+          "title": "Thomas and the Other Gospels",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Thomas as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "King James Version",
       "auditSequence": 140,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 20,
       "descriptionBefore": "Covers the King James Version, including translation choices, textual basis, famous typos, relation to Tyndale, and passages such as the ending of Mark.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers the King James Version, including translation choices, textual basis, famous typos, relation to Tyndale, and passages such as the ending of Mark.",
       "categoriesBefore": [
         "Bible Translations and Versions"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47869",
+          "title": "Questions on Jesus as God, the Belief in the Resurrection, Secretaries in Early Christianity, and the KJV!",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33787",
+          "title": "Problems with the King James Version: What Were the Translators Translating?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33705",
+          "title": "Infamous Typos in the King James Bible",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33693",
+          "title": "The King James Bible: Some Intriguing Word Choices",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3627",
+          "title": "Is the King James Bible Actually the William Tyndale Version?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33641",
+          "title": "If the King James Was Good Enough for Paul, It’s Good Enough for Me",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12900",
+          "title": "Problems with Some Bible Translations, including the King James: A Blast from the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12319",
+          "title": "The Ending of Mark in the King James Bible",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12317",
+          "title": "The Woman Taken in Adultery in the King James Version",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12314",
+          "title": "The Trinity in the King James Bible",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12291",
+          "title": "Printing Errors in the King James Version",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12289",
+          "title": "Does It Mean What It Says?  More Problems with the King James",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12287",
+          "title": "Problems with the Language of the King James Version",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12280",
+          "title": "Leading up to the King James Translation",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12277",
+          "title": "Where Did the King James Bible Come From?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3872",
+          "title": "What Kind of a Text is the King James Bible?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3641",
+          "title": "Textual Problems with the King James: The Trinity",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3631",
+          "title": "More King James Curiosities",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3622",
+          "title": "Misleading Translations in the King James",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2663",
+          "title": "Problems with Other Translations",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats King James Version as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Pauline Textual Issues",
       "auditSequence": 141,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 20,
       "descriptionBefore": "Posts on textual issues in Paul's letters, including variants, interpolations, scribal changes, manuscript evidence, dictation, and questions about the original text.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Posts on textual issues in Paul's letters, including variants, interpolations, scribal changes, manuscript evidence, dictation, and questions about the original text.",
       "categoriesBefore": [
         "Pauline Epistles",
         "Textual Criticism"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "39723",
+          "title": "Serious Hypothetical (And Realistically Possible) Problems With Copies of Paul’s Letters",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39718",
+          "title": "Even More Snarly Problems If Paul Dictated His Letters",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39714",
+          "title": "If Paul Dictated His Letters, How Can We Know What He Said?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39652",
+          "title": "Is There Even Such a Thing as the “Original” Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39646",
+          "title": "Do We Have the Original Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39548",
+          "title": "The Silencing of Women: 1 Cor. 14:34-35 as an Interpolation",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33344",
+          "title": "How Changing a Single Letter of a Single Word Can Change the Meaning of a Passage",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "32946",
+          "title": "How Useful Are Our Earliest New Testament Manuscripts?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22325",
+          "title": "Paul Dictated His Letters: How Does *That* Complicate Finding an Original?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22322",
+          "title": "Why Finding an “Original” Text is So Unexpectedly Complicated",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22294",
+          "title": "What Does It Even Mean to Have an “Original” of An Ancient Writing?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11493",
+          "title": "The Accuracy of Paul’s Letter to the Galatians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9041",
+          "title": "Gentle as a Nurse in 1 Thessalonians 2:7",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9039",
+          "title": "More Intriguing Problems with 1 Thessalonians 2:7",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9037",
+          "title": "The Textual Problem of 1 Thessalonians 2:7",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7461",
+          "title": "Hypothetical Problems with Copies of Philippians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7459",
+          "title": "Dictation of Letters: More Complications for Knowing an “Original” Text",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7457",
+          "title": "Complications with Finding an “Original” Text",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7454",
+          "title": "What Would Be the “Original” Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7449",
+          "title": "Do We Have the Original Text of Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Pauline Textual Issues as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Source Criticism",
       "auditSequence": 142,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 20,
-      "postCountAfter": null,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers source criticism, including how scholars identify written sources, composite texts, Gospel relationships, and possible spliced or edited writings.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers source criticism, including how scholars identify written sources, composite texts, Gospel relationships, and possible spliced or edited writings.",
       "categoriesBefore": [
         "Historical and Critical Methods"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "47197",
+          "title": "Philippians: Who Wrote It, When, and Why?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47163",
+          "title": "Taking 2 Corinthians to Pieces….",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47164",
+          "title": "2 Corinthians: Who Wrote It, When, and Why?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47070",
+          "title": "Why Assume the Synoptic Gospels Were COPYING One Another (and Other Sources)?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39648",
+          "title": "Is Paul’s Letter to the Philippians Actually Two Letters Cut and Spliced Together?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39593",
+          "title": "Is Paul’s Second Letter to the Corinthians Actually FIVE Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39578",
+          "title": "Is Paul’s Second Letter to the Corinthians Actually TWO Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39582",
+          "title": "Three Early Christian Writings Spliced Together Into One: The Didache",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33874",
+          "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25897",
+          "title": "Are There Actually Five Letters in 2 Corinthians (so that it is 2, 3, 4, 5, and 6 Corinthians?)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22288",
+          "title": "Could Paul’s Letter to the Philippians be TWO Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14712",
+          "title": "Were Cut and Paste Jobs Common in Antiquity?  Guest Post by Brent Nongbri",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14690",
+          "title": "More Cutting and Pasting?  Paul’s Letter to the Philippians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14685",
+          "title": "My Long Favorite Pauline Letter: Philippians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14674",
+          "title": "Is 2 Corinthians *FIVE* Letters?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14403",
+          "title": "Are There Cut-and-Paste Jobs in the New Testament?  The Case of 2 Corinthians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14251",
+          "title": "Is the Didache One Document or Three?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8576",
+          "title": "Evidence that the Synoptics Are Copying (one another? other sources?)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7451",
+          "title": "Are There Two Letters to the Philippians?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7071",
+          "title": "More on John from a Redactional Perspective",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Source Criticism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7076",
+          "title": "Sources of the Fourth Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly examines proposed written sources behind the Gospel of John."
+        },
+        {
+          "wpId": "17830",
+          "title": "The Most Intriguing Evidence that John Used Sources",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post presents evidence that the Gospel of John incorporated earlier sources."
+        },
+        {
+          "wpId": "17839",
+          "title": "So What Sources for Jesus’ Life *Were* Used in the Fourth Gospel?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post identifies and evaluates proposed sources used by the Gospel of John."
+        },
+        {
+          "wpId": "8814",
+          "title": "Some Evidence for a Signs Source in John",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly presents evidence for a signs source used in the Gospel of John."
+        },
+        {
+          "wpId": "8816",
+          "title": "The Nature of John’s Signs Source",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post reconstructs the character of John's proposed signs source."
+        },
+        {
+          "wpId": "47084",
+          "title": "Other Sources for Matthew and Luke:  M and L!  And Who CARES?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly explains the proposed M and L sources behind Matthew and Luke."
+        },
+        {
+          "wpId": "8556",
+          "title": "A Source for the Birth Narratives in Matthew and Luke?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates whether Matthew and Luke used sources for their birth narratives."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Adoptionist Christology",
       "auditSequence": 143,
-      "status": "pending",
-      "postCountBefore": 19,
-      "postCountAfter": null,
+      "status": "completed",
+      "postCountBefore": 20,
+      "postCountAfter": 24,
       "descriptionBefore": "Posts on adoptionist Christology, especially views that Jesus was adopted, appointed, or declared God's Son at baptism, resurrection, or another point.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Posts on adoptionist Christology, especially views that Jesus was adopted, appointed, or declared God's Son at baptism, resurrection, or another point.",
       "categoriesBefore": [
         "Christology"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "37854",
+          "title": "Interpreting a Text to Make It Seem Orthodox: Luke and Its View of Jesus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37845",
+          "title": "Why Would an Editor ADD the Virgin Birth to Luke?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37841",
+          "title": "No Virgin Birth? Was Jesus ADOPTED by God to be His Son?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37091",
+          "title": "Is Christ *Merely* the “Adopted” Son of God?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37087",
+          "title": "If Luke Didn’t Originally Have a Birth Story — Then What?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24388",
+          "title": "Was Christ Human But Not Divine?  Another Early Christian View",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24312",
+          "title": "Christ as “Not God” in the Second Century: Early Jewish Adoptionists",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15726",
+          "title": "The Gospel of Luke without a Birth Story",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12373",
+          "title": "Christians Who Thought Jesus Was Adopted by God: A Blast From the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10276",
+          "title": "Did the Earliest Christians Believe Jesus *Became* God?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10270",
+          "title": "Christ as the Adopted Son of God",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9211",
+          "title": "Scribes Who Changed the Voice at Jesus Baptism?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9202",
+          "title": "Was Christ God?  The View of Jewish-Christian Ebionites",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9197",
+          "title": "Adoptionistic Christologies",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7155",
+          "title": "Jesus as the Adopted Son of God",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4683",
+          "title": "A Final Post (!) on Luke 3:22",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4678",
+          "title": "Luke 3:22 — More on What Luke Would Have Written",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4672",
+          "title": "Luke 3:22 — What Luke Himself Would Have Written",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3821",
+          "title": "An Important and Relevant Textual Variant in Luke 2",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3519",
+          "title": "Luke’s First Edition",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Adoptionist Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4667",
+          "title": "More Arguments over Luke 3:22",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates Luke 3:22 and the adoptionist interpretation supported by one textual form."
+        },
+        {
+          "wpId": "4660",
+          "title": "Church Fathers and the Voice at Jesus’ Baptism",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explains the adoptionist reading of the voice at Jesus' baptism."
+        },
+        {
+          "wpId": "3853",
+          "title": "An Ancient Accusation of Textual Tampering",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "A substantial part of the post explains Theodotian adoptionism and its connection with alleged textual alteration."
+        },
+        {
+          "wpId": "16028",
+          "title": "Jesus “Only” Adopted to be the Son of God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly examines the claim that Jesus was adopted as God's Son."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Atonement in Luke-Acts",
       "auditSequence": 144,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 19,
-      "postCountAfter": null,
+      "postCountAfter": 19,
       "descriptionBefore": "Covers whether Luke and Acts present Jesus' death as atoning, salvific, or significant in a different way, including Luke's Last Supper textual problem.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers whether Luke and Acts present Jesus' death as atoning, salvific, or significant in a different way, including Luke's Last Supper textual problem.",
       "categoriesBefore": [
         "Salvation, Atonement, and Judgment"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49622",
+          "title": "Different Words, VERY Different Theologies, and Understanding Which Words They Were. Readers’ Questions",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48986",
+          "title": "If It Wasn’t “For Your Sins” Why Did Jesus Die (according to Luke)?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48982",
+          "title": "Has Luke Gotten Rid of the Idea That Jesus Died for Your Sins?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48977",
+          "title": "The Controversy Over Jesus’ Last Supper in Luke (Did He Speak of Dying “For you”?)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48970",
+          "title": "Should You Say It Like You Mean It?  Those Inoffensive Critical Scholars…",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31774",
+          "title": "Does Luke Have Contradictory Views of the Atonement?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31770",
+          "title": "If Jesus’ Death Was Not an Atonement: Why Did He Die??",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31763",
+          "title": "Does Luke Get Rid of the Atonement?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31760",
+          "title": "How Do You Decide What an Author Actually Wrote?  The Last Supper",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31755",
+          "title": "What Did Jesus Say at the Last Supper?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14988",
+          "title": "Scribes Who Injected the Idea of Atonement into Luke’s Gospel",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14986",
+          "title": "What Happened at the Last Supper?  A Textual Problem in Luke",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13137",
+          "title": "Did Luke Have a Doctrine of the Atonement?  Mailbag September 24, 2017",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13072",
+          "title": "Does the Book of Acts Underplay the Significance of Jesus’ Death?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9190",
+          "title": "Luke’s Last Supper and Orthodox Corruptions of Scripture",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9187",
+          "title": "The Striking Conclusion: Jesus’ Last Supper in Luke",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9184",
+          "title": "Luke’s Understanding of Jesus’ Death",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9165",
+          "title": "Why Would a Scribe Change Luke’s Account of the Last Supper?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9159",
+          "title": "The Last Supper in Luke: An Important Textual Problem",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atonement in Luke-Acts as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Historical Study of Miracles",
       "auditSequence": 145,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 19,
-      "postCountAfter": null,
+      "postCountAfter": 24,
       "descriptionBefore": "Covers how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
       "categoriesBefore": [
         "Historical and Critical Methods",
         "Miracles and Supernatural Claims"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49926",
+          "title": "How To Figure Out If a Miracle Happened…  Questions from Readers",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49237",
+          "title": "Eyewitness Accounts of Miracles",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47735",
+          "title": "Four Intriguing Topics in the Study of the Historical Jesus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40554",
+          "title": "Can We Get Rid of Our Presuppositions?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38524",
+          "title": "How Much Fact, How Much Fiction? The Life of Peter",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34033",
+          "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "26387",
+          "title": "How Do We Know If Jesus Did Something?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post centers on general historical criteria; its only apparent miracle reference is the name of a proposed signs source."
+        },
+        {
+          "wpId": "17528",
+          "title": "Jesus, the Supernatural, and the Historian: Guest Post 2 by James Tabor",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17525",
+          "title": "Guest Post by James Tabor: The Historian and the Supernatural",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17480",
+          "title": "Once More on the Credibility of Miracles: Guest post by Darren Slade",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17436",
+          "title": "The Case Against Miracles:  Guest Post by John Loftus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17387",
+          "title": "More on the Case Against Miracles: Michael Shermer Guest Post",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17376",
+          "title": "The Case Against Miracles",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15366",
+          "title": "More on the Historical Problem of Miracles",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15363",
+          "title": "History is not the Past!  Proving Jesus’ Resurrection and Other Miracles",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12601",
+          "title": "The Gospels as Supernatural Histories",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11999",
+          "title": "What Can We Do About Presuppositions?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6211",
+          "title": "Why Historians Can Talk “About” the Resurrection",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6194",
+          "title": "Historians and the Problem of Miracle",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Historical Study of Miracles as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49842",
+          "title": "Was Augustine Telling the Truth About Miracles He’d Seen?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates the historical credibility of Augustine's reported miracles."
+        },
+        {
+          "wpId": "49838",
+          "title": "Biographical Accounts of Early Christian Miracles (Based on Eyewitnesses!)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines biographical and eyewitness evidence offered for early Christian miracles."
+        },
+        {
+          "wpId": "49818",
+          "title": "How Could Christian Miracles Convert the Empire if Miracles Don’t Happen?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly asks how historians should understand miracle claims used to explain Christian conversion."
+        },
+        {
+          "wpId": "37661",
+          "title": "So: Did Anyone Think of Jesus as a Miracle-Worker Before His Crucifixion?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses historical evidence to ask whether Jesus was regarded as a miracle worker before his death."
+        },
+        {
+          "wpId": "37649",
+          "title": "Was Jesus Considered a Miracle Worker During His *Lifetime*?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post historically evaluates whether Jesus was considered a miracle worker during his lifetime."
+        },
+        {
+          "wpId": "15386",
+          "title": "Was Jesus Thought To Be a Miracle Worker in His Own Lifetime?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post historically evaluates whether Jesus was regarded as a miracle worker during his lifetime."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Paul on Jewish Law",
       "auditSequence": 146,
-      "status": "pending",
-      "postCountBefore": 19,
-      "postCountAfter": null,
+      "status": "completed",
+      "postCountBefore": 20,
+      "postCountAfter": 20,
       "descriptionBefore": "Covers Paul's views of Jewish law, including Galatians, Gentile believers, salvation, love, and debates over law observance.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers Paul's views of Jewish law, including Galatians, Gentile believers, salvation, love, and debates over law observance.",
       "categoriesBefore": [
         "Pauline Thought and Practice"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49968",
+          "title": "Did Paul Have an Exalted View of Himself?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "46994",
+          "title": "Paul’s Letter to the Galatians “At a Glance” and Questions for Reflection",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47177",
+          "title": "Key Questions about Paul",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47176",
+          "title": "Is Paul One of Matthew’s Enemies?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47169",
+          "title": "Galatians:  Who, When, and Why?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "47168",
+          "title": "Galatians in a Nutshell",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40165",
+          "title": "Does Paul Have Contradictory Views of the Law, Love, and Salvation?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40161",
+          "title": "Salvation, Love, and the Jewish Law in Paul.  Are His Views Internally Coherent?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38840",
+          "title": "Among Paul’s Enemies….",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27743",
+          "title": "A Solution to a Major Anomaly in the Study of Paul: Guest Post by Richard Fellows",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27490",
+          "title": "Did Paul Want to Please the Jerusalem Apostles?  Guest post by Richard Fellows",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27182",
+          "title": "Was Paul Really at Odds with Peter and James?  Guest Post by Richard Fellows",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20873",
+          "title": "Do Matthew and Paul Agree on the Matter Most Important to them Both?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15309",
+          "title": "Are Matthew and Paul at Odds on the Most Important Issue?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11564",
+          "title": "What Paul’s Conversion Meant",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11533",
+          "title": "Paul’s Own (and Only) Gospel",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8610",
+          "title": "Is Paul at Odds with Matthew?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8605",
+          "title": "Paul’s Christian Enemies:  Galatians",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4508",
+          "title": "Would Matthew and Paul Have Seen Eye-to-Eye",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4500",
+          "title": "Gentile Judaizers",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Paul on Jewish Law as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Trial of Jesus",
       "auditSequence": 147,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 19,
-      "postCountAfter": null,
+      "postCountAfter": 26,
       "descriptionBefore": "Covers Jesus' trial before Jewish leaders or Pilate, including the charge against him, Gospel portrayals, anti-Judaism, Pilate traditions, and later non-canonical expansions.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers Jesus' trial before Jewish leaders or Pilate, including the charge against him, Gospel portrayals, anti-Judaism, Pilate traditions, and later non-canonical expansions.",
       "categoriesBefore": [
         "Jesus' Death, Burial, and Resurrection"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "50098",
+          "title": "Exonerating Pilate to Implicate the Jews",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50033",
+          "title": "The Execution of Pontius Pilate for Killing Jesus (!)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50022",
+          "title": "Did Pontius Pilate Write a Letter Explaining Why He Crucified Jesus?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36979",
+          "title": "The Gospel according to Mel (Gibson)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36533",
+          "title": "Was “King of the Jews” Really the Charge Against Jesus, Leading to his Crucifixion?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35653",
+          "title": "Jesus’ Trial Before Pilate: What Can We Actually Know?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35346",
+          "title": "“You Have Heard His Blasphemy!” But Did They? A Platinum post by Daniel Kohanski",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "32682",
+          "title": "Did the Romans Stage Jesus’ Crucifixion?  Platinum Guest Post by Ryan Fleming",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "29094",
+          "title": "Sting and Pilate.  Guest Post by Evyatar Marienberg",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22244",
+          "title": "What Really Happened at Jesus’ Trial Before Pilate?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21355",
+          "title": "A Gospel of Nicodemus?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16167",
+          "title": "An Official Copy of Jesus’ Death Sentence:  Another Forgery?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14935",
+          "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14926",
+          "title": "The Increasing Innocence of Pilate in the Death of Jesus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12074",
+          "title": "Jesus’ Private Teachings about the King of the Jews",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9337",
+          "title": "Jesus Death as King of the Jews",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "5008",
+          "title": "The Gospel according to Mel",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3101",
+          "title": "Pilate and Barabbas",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2618",
+          "title": "Questions on Jesus’ Language and on the Crucifixion",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Trial of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21862",
+          "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates the historical credibility of the Barabbas episode in Jesus' trial."
+        },
+        {
+          "wpId": "36539",
+          "title": "Does Jesus Call Himself God in His Trial Before the Sanhedrin and the High Priest Caiaphas?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly interprets Jesus' statements during his trial before the Sanhedrin and high priest."
+        },
+        {
+          "wpId": "35760",
+          "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates the Barabbas episode at Jesus' trial before Pilate."
+        },
+        {
+          "wpId": "35658",
+          "title": "Jesus’ Trial Before Pilate: Some of the Distorted Memories of the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines Gospel memories and distortions concerning Jesus' trial before Pilate."
+        },
+        {
+          "wpId": "15929",
+          "title": "Pilate Released Barabbas.  Really??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates the historical plausibility of Pilate releasing Barabbas during Jesus' trial."
+        },
+        {
+          "wpId": "20741",
+          "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly asks whether the Gospel writers invented the Barabbas episode in Jesus' trial."
+        },
+        {
+          "wpId": "14928",
+          "title": "The Ironies of Jesus’ Trial",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets the literary ironies in John's account of Jesus' trial."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Athanasius of Alexandria",
       "auditSequence": 148,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": null,
+      "postCountAfter": 4,
       "descriptionBefore": "Covers Athanasius, especially his role in canon formation, Nicene Christianity, and fourth-century theological debates.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers Athanasius's 367 CE canon list and its comparison with Didymus the Blind's wider canon in fourth-century Alexandria.",
       "categoriesBefore": [
         "Church Fathers"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "48800",
+          "title": "How and When Did Christians Decide What Should Be in the New Testament Canon?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one later milestone in a broader discussion of canon formation."
+        },
+        {
+          "wpId": "47005",
+          "title": "My First Scholarly Encounter with the Canon of the New Testament",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Athanasius of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40665",
+          "title": "Was the New Testament Canon Really Closed in 367 CE?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Athanasius of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40657",
+          "title": "Why Were Some of the Earliest Christian Books Left OUT of the NT?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is supporting context in a post centered on why early Christian books were excluded from the canon."
+        },
+        {
+          "wpId": "37235",
+          "title": "What Is Actually In the Nag Hammadi Library?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is incidental to the post's survey of the Nag Hammadi library."
+        },
+        {
+          "wpId": "32505",
+          "title": "How Did They Decide Which Books to Include in the New Testament Canon?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one reference in a broader explanation of how the New Testament canon developed."
+        },
+        {
+          "wpId": "27493",
+          "title": "Why and When Did We Get This Canon of the New Testament?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one chronological point in a broader history of canon formation."
+        },
+        {
+          "wpId": "25282",
+          "title": "You Call *This* a Heresy?  The Views of Arius, In His Own Words",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post centers on Arius's views; Athanasius supplies opposing context rather than a major subject."
+        },
+        {
+          "wpId": "17169",
+          "title": "How Did We Get The 27 Books of the New Testament?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one witness in a broader account of how the twenty-seven-book canon developed."
+        },
+        {
+          "wpId": "16787",
+          "title": "How Did We Get *These* 27 Books in the New Testament?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one witness in a broader account of why these twenty-seven books entered the canon."
+        },
+        {
+          "wpId": "15643",
+          "title": "Deciding on Which Books Should Be in the New Testament",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is only one stage in a broad discussion of decisions about the New Testament canon."
+        },
+        {
+          "wpId": "12518",
+          "title": "How We Got Our 27-Book New Testament: The Case of Didymus",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Athanasius of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12255",
+          "title": "Did the Council of Nicaea Take Away Reincarnation and Give us the Bible?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post centers on false claims about Nicaea, reincarnation, and the canon rather than Athanasius."
+        },
+        {
+          "wpId": "12253",
+          "title": "How We Got the New Testament (and not some other books!)",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one later figure in a broad history of the New Testament canon."
+        },
+        {
+          "wpId": "10049",
+          "title": "The Son of God, the Council of Nicea, and the Da Vinci Code",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post centers on Nicaea, Constantine, and claims from The Da Vinci Code rather than Athanasius."
+        },
+        {
+          "wpId": "8887",
+          "title": "The Contents of the Nag Hammadi Library",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is incidental to the post's description of the Nag Hammadi collection."
+        },
+        {
+          "wpId": "2435",
+          "title": "Autobiographical: Metzger and Me.  The Seminar on the Canon",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Athanasius of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2108",
+          "title": "Question on How We Got the Canon of the New Testament",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Athanasius is one example in a general answer about the formation of the New Testament canon."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Atheism",
       "auditSequence": 149,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": null,
+      "postCountAfter": 19,
       "descriptionBefore": "Covers atheism, including why people do or do not believe in God, atheist engagement with Jesus and the Bible, and relationships between believers and nonbelievers.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers atheism, including why people do or do not believe in God, atheist engagement with Jesus and the Bible, and relationships between believers and nonbelievers.",
       "categoriesBefore": [
         "Faith, Doubt, and Nonbelief"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "49944",
+          "title": "Why Not Believe in a God Who is *Not* Active in the World?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39832",
+          "title": "Can You Disprove the Existence of God?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35332",
+          "title": "Dr. Bart D. Ehrman, Apostle to the Atheists. A Platinum Post by Robert Droney",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34669",
+          "title": "Why Would an Atheist Be Obsessed with Jesus?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "29851",
+          "title": "A Revelatory Moment about God: Most-Commented Blog Post: #3",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25910",
+          "title": "On Being an Agnostic Atheist",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21376",
+          "title": "Why Believe in God?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20966",
+          "title": "Why Would An Atheist Teach the Bible?  Readers’ Mailbag",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17733",
+          "title": "Intimate Relationships: Nonbelievers and Believers",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17327",
+          "title": "Why Would an Agnostic-Atheist Be A Bible Scholar??",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17247",
+          "title": "Why Don’t You Just Believe?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15229",
+          "title": "Why Would I Call Myself Both an Agnostic and an Atheist?  A Blast from the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12733",
+          "title": "Why Would I Call Myself Both an Agnostic or an Atheist?  A Blast From the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11753",
+          "title": "Speaking in Churches as an Agnostic; and Jewish Beliefs about Afterlife.  Readers Mailbag August 13, 2016",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9386",
+          "title": "Readers’ Mailbag December 11, 2015",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7637",
+          "title": "I’m Openly Secular Documentary",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4291",
+          "title": "Agnostic or Atheist?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2180",
+          "title": "Am I an Agnostic or an Atheist?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Atheism as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3927",
+          "title": "Maintaining Your Moral Compass – Morally Agnostic",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially distinguishes atheism from agnosticism and discusses morality without belief in God."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Disasters and Human Suffering",
       "auditSequence": 150,
-      "status": "pending",
+      "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": null,
+      "postCountAfter": 18,
       "descriptionBefore": "Covers natural disasters, large-scale suffering, and attempts to explain tragedy through theology, apocalypticism, or divine action.",
-      "descriptionRecommendation": null,
+      "descriptionRecommendation": "Covers natural disasters, large-scale suffering, and attempts to explain tragedy through theology, apocalypticism, or divine action.",
       "categoriesBefore": [
         "Suffering and Evil"
       ],
-      "categoryRecommendation": null,
-      "startedAt": null,
-      "completedAt": null,
-      "decisions": [],
-      "notes": []
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-01",
+      "completedAt": "2026-08-01",
+      "decisions": [
+        {
+          "wpId": "46992",
+          "title": "The Bible and Suffering:  My NEW Course at UNC This Term",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41192",
+          "title": "Suffering. Is It Really Worth Talking About? Doesn’t the Bible Give the Right Answer?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41146",
+          "title": "Hurricanes, Suffering, And My Loss of Faith",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34368",
+          "title": "Do We Suffer Because We Have “Free Will”?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33619",
+          "title": "Christmas Reflections 2022 (from ten years on)",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "27097",
+          "title": "Sin and Divine Punishment As a Dominant Theme of Scripture",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22398",
+          "title": "Human Suffering and the Christian Faith",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20660",
+          "title": "Views of Suffering Among Those Who Suffer",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20014",
+          "title": "Do We NEED to Suffer?  The Argument from Tectonic Plates",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12756",
+          "title": "Apocalypticism in a Modern Idiom",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12744",
+          "title": "The Origins of Apocalypticism",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12749",
+          "title": "Explaining a Columbian Mudslide",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12712",
+          "title": "The Kind of Suffering that is a Problem",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12149",
+          "title": "A Reflection on Christmas: Blast from the Past",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8644",
+          "title": "Bart Ehrman on Problem of Suffering – UCB",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3528",
+          "title": "Christmas Longings",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "2199",
+          "title": "My Views on Suffering Are Not Held by Those Who Suffer",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        },
+        {
+          "wpId": "1945",
+          "title": "What Do Tectonic Plates Have To Do With Suffering?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The full post treats Disasters and Human Suffering as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Full-text audit completed; approved decisions applied."
+      ]
     },
     {
       "topic": "Jewish Apocalypticism",
