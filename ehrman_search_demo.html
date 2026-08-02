@@ -33421,15 +33421,40 @@ const DATA = {
       return 0;
     }
 
-    function textMatchBoost(value, term, boost) {
-      const normalizedValue = normalizeKeywordSearchValue(value);
-      const rankingTerm = term.endsWith(' general')
+    const RANKING_ANCHOR_STOPWORDS = new Set([
+      'a', 'an', 'and', 'as', 'at', 'belief', 'beliefs', 'by', 'for', 'from',
+      'general', 'in', 'into', 'issue', 'issues', 'of', 'on', 'or', 'overview',
+      'question', 'questions', 'the', 'to', 'tradition', 'traditions', 'with'
+    ]);
+
+    function rankingTextMatchTerm(term) {
+      return term.endsWith(' general')
         ? term.slice(0, -' general'.length).trim()
         : term;
+    }
+
+    function rankingAnchorToken(term) {
+      const rankingTerm = rankingTextMatchTerm(term);
+      if (!rankingTerm.includes(' ')) {
+        return '';
+      }
+      const tokens = rankingTerm
+        .split(' ')
+        .filter(token => token.length >= 4 && !RANKING_ANCHOR_STOPWORDS.has(token));
+      return tokens.length ? tokens[tokens.length - 1] : '';
+    }
+
+    function textMatchBoost(value, term, exactBoost, anchorBoost) {
+      const normalizedValue = normalizeKeywordSearchValue(value);
+      const rankingTerm = rankingTextMatchTerm(term);
       if (!normalizedValue || !rankingTerm) {
         return 0;
       }
-      return ` ${normalizedValue} `.includes(` ${rankingTerm} `) ? boost : 0;
+      if (` ${normalizedValue} `.includes(` ${rankingTerm} `)) {
+        return exactBoost;
+      }
+      const anchor = rankingAnchorToken(term);
+      return anchor && normalizedValue.split(' ').includes(anchor) ? anchorBoost : 0;
     }
 
     function keywordRowMatchesTerms(topicKeywords, secondaryKeywords, terms) {
@@ -33454,8 +33479,8 @@ const DATA = {
               .map(([, normalized]) => keywordTermScore(normalized, term, 6)));
             const bestSecondaryScore = Math.max(0, ...secondaryKeywords
               .map(([, normalized]) => keywordTermScore(normalized, term, 3)));
-            const titleBoost = textMatchBoost(title, term, 4);
-            const descriptionBoost = textMatchBoost(description, term, 2);
+            const titleBoost = textMatchBoost(title, term, 4, 2);
+            const descriptionBoost = textMatchBoost(description, term, 2, 1);
             return total + Math.max(bestTopicScore, bestSecondaryScore) + titleBoost + descriptionBoost;
           }, 0);
           return {

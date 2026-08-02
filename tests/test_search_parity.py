@@ -94,6 +94,33 @@ class SearchParityTests(unittest.TestCase):
         self.assertEqual(app.title_match_boost(rows[1]["title"], term), 4)
         self.assertEqual(app.description_match_boost(rows[1]["description"], term), 2)
 
+    def test_multiword_terms_use_a_modest_anchor_word_boost(self) -> None:
+        term = "Non-Pauline Epistle Authorship"
+        self.assertEqual(app.ranking_anchor_token(term), "authorship")
+        self.assertEqual(app.ranking_anchor_token("Translation Issues"), "translation")
+        self.assertEqual(app.ranking_anchor_token("Paul"), "")
+        self.assertEqual(app.title_match_boost("Questions of Authorship", term), 2)
+        self.assertEqual(app.description_match_boost("Examines the authorship of Jude.", term), 1)
+        self.assertEqual(app.description_match_boost("Discusses post-Pauline theology.", term), 0)
+        rows = [
+            {
+                "id": 1,
+                "title": "A Newer Post",
+                "description": "Discusses post-Pauline theology.",
+                "date_iso": "2025-10-07",
+                "url": "https://example.test/newer",
+            },
+            {
+                "id": 2,
+                "title": "An Older Post",
+                "description": "Examines the authorship of Jude.",
+                "date_iso": "2025-09-27",
+                "url": "https://example.test/older",
+            },
+        ]
+        ranked = app.sort_scoped_posts(rows, "ranked", [term], {1: 8, 2: 8})
+        self.assertEqual(ranked[0]["id"], 2)
+
     def test_database_uses_refined_topic_and_keyword_weights(self) -> None:
         with app.get_conn() as conn:
             weights = {

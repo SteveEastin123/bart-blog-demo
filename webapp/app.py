@@ -1052,6 +1052,48 @@ def ranking_text_match_term(term: str) -> str:
     return normalized_term
 
 
+RANKING_ANCHOR_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "as",
+    "at",
+    "belief",
+    "beliefs",
+    "by",
+    "for",
+    "from",
+    "general",
+    "in",
+    "into",
+    "issue",
+    "issues",
+    "of",
+    "on",
+    "or",
+    "overview",
+    "question",
+    "questions",
+    "the",
+    "to",
+    "tradition",
+    "traditions",
+    "with",
+}
+
+
+def ranking_anchor_token(term: str) -> str:
+    normalized_term = ranking_text_match_term(term)
+    if " " not in normalized_term:
+        return ""
+    tokens = [
+        token
+        for token in normalized_term.split()
+        if len(token) >= 4 and token not in RANKING_ANCHOR_STOPWORDS
+    ]
+    return tokens[-1] if tokens else ""
+
+
 def title_match_boost(title: str, term: str) -> int:
     normalized_title = normalize_keyword(title)
     normalized_term = ranking_text_match_term(term)
@@ -1063,6 +1105,9 @@ def title_match_boost(title: str, term: str) -> int:
         return 4
     if " " not in normalized_term and any(normalized_term == word for word in normalized_title.split()):
         return 1
+    anchor = ranking_anchor_token(term)
+    if anchor and anchor in normalized_title.split():
+        return 2
     return 0
 
 
@@ -1073,6 +1118,9 @@ def description_match_boost(description: str, term: str) -> int:
         return 0
     if f" {normalized_term} " in f" {normalized_description} ":
         return 2
+    anchor = ranking_anchor_token(term)
+    if anchor and anchor in normalized_description.split():
+        return 1
     return 0
 
 

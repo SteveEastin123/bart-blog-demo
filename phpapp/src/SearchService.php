@@ -36,6 +36,47 @@ function ehrman_ranking_text_match_term(string $term): string
     return $normalizedTerm;
 }
 
+function ehrman_ranking_anchor_token(string $term): string
+{
+    static $stopwords = [
+        'a' => true,
+        'an' => true,
+        'and' => true,
+        'as' => true,
+        'at' => true,
+        'belief' => true,
+        'beliefs' => true,
+        'by' => true,
+        'for' => true,
+        'from' => true,
+        'general' => true,
+        'in' => true,
+        'into' => true,
+        'issue' => true,
+        'issues' => true,
+        'of' => true,
+        'on' => true,
+        'or' => true,
+        'overview' => true,
+        'question' => true,
+        'questions' => true,
+        'the' => true,
+        'to' => true,
+        'tradition' => true,
+        'traditions' => true,
+        'with' => true,
+    ];
+    $normalizedTerm = ehrman_ranking_text_match_term($term);
+    if (!str_contains($normalizedTerm, ' ')) {
+        return '';
+    }
+    $tokens = array_values(array_filter(
+        explode(' ', $normalizedTerm),
+        static fn (string $token): bool => strlen($token) >= 4 && !isset($stopwords[$token]),
+    ));
+    return $tokens !== [] ? (string) end($tokens) : '';
+}
+
 function ehrman_title_match_boost(string $title, string $term): int
 {
     $normalizedTitle = ehrman_normalize_keyword($title);
@@ -49,6 +90,10 @@ function ehrman_title_match_boost(string $title, string $term): int
     if (!str_contains($normalizedTerm, ' ') && in_array($normalizedTerm, explode(' ', $normalizedTitle), true)) {
         return 1;
     }
+    $anchor = ehrman_ranking_anchor_token($term);
+    if ($anchor !== '' && in_array($anchor, explode(' ', $normalizedTitle), true)) {
+        return 2;
+    }
     return 0;
 }
 
@@ -59,7 +104,14 @@ function ehrman_description_match_boost(string $description, string $term): int
     if ($normalizedDescription === '' || $normalizedTerm === '') {
         return 0;
     }
-    return str_contains(" {$normalizedDescription} ", " {$normalizedTerm} ") ? 2 : 0;
+    if (str_contains(" {$normalizedDescription} ", " {$normalizedTerm} ")) {
+        return 2;
+    }
+    $anchor = ehrman_ranking_anchor_token($term);
+    if ($anchor !== '' && in_array($anchor, explode(' ', $normalizedDescription), true)) {
+        return 1;
+    }
+    return 0;
 }
 
 function ehrman_sort_posts(array $posts, string $sort, array $rankingTerms, ?array $scores = null): array
