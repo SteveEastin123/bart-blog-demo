@@ -833,6 +833,12 @@ a:hover {
   margin: 0;
 }
 
+.keyword-suggestion-list.use-page-scroll {
+  max-height: none;
+  overflow-y: visible;
+  position: absolute;
+}
+
 .keyword-suggestion-list[hidden] {
   display: none;
 }

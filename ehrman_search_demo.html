@@ -843,6 +843,12 @@
       margin: 0;
     }
 
+    .keyword-suggestion-list.use-page-scroll {
+      max-height: none;
+      overflow-y: visible;
+      position: absolute;
+    }
+
     .keyword-suggestion-list[hidden] {
       display: none;
     }
@@ -33766,7 +33772,10 @@ const DATA = {
       list.hidden = true;
       list.innerHTML = '';
       list.removeAttribute('aria-label');
-      list.classList.remove('open-above');
+      list.classList.remove('open-above', 'use-page-scroll');
+      if (list.parentElement) {
+        list.parentElement.style.marginBottom = '';
+      }
       list.style.left = '';
       list.style.maxHeight = '';
       list.style.top = '';
@@ -33804,10 +33813,22 @@ const DATA = {
       }
       list.classList.remove('open-above');
       const rect = input.getBoundingClientRect();
-      const below = window.innerHeight - rect.bottom - 16;
-      const available = Math.max(120, Math.min(below, window.innerHeight - 32, 720));
       const preferredWidth = window.innerWidth > 700 ? Math.max(rect.width, 540) : rect.width;
       const width = Math.min(preferredWidth, window.innerWidth - 32);
+      const usePageScroll = list.getAttribute('aria-label') === 'Featured Topics';
+      list.classList.toggle('use-page-scroll', usePageScroll);
+      input.parentElement.style.marginBottom = '';
+      if (usePageScroll) {
+        list.style.left = '0px';
+        list.style.maxHeight = 'none';
+        list.style.top = `${input.offsetHeight + 4}px`;
+        list.style.width = `${width}px`;
+        list.style.setProperty('--keyword-suggestion-width', `${width}px`);
+        input.parentElement.style.marginBottom = `${list.scrollHeight + 8}px`;
+        return;
+      }
+      const below = window.innerHeight - rect.bottom - 16;
+      const available = Math.max(120, Math.min(below, window.innerHeight - 32, 720));
       const left = Math.max(16, Math.min(rect.left, window.innerWidth - width - 16));
       const top = Math.min(window.innerHeight - 16, rect.bottom + 4);
       list.style.left = `${left}px`;
