@@ -38,7 +38,7 @@
     },
     {
       "name": "Authorship",
-      "description": "Examines who wrote biblical and early Christian texts, how anonymous writings received names, how sources were composed, and how ancient secretaries affect authorship claims.",
+      "description": "Examines who wrote biblical and early Christian texts, how anonymous or disputed writings received names, how texts were composed and attributed, and how ancient secretaries affect authorship claims.",
       "topicOrder": [
         "Gospel Authorship",
         "Luke-Acts Authorship",
@@ -124,7 +124,7 @@
     },
     {
       "name": "Christian Origins and Expansion",
-      "description": "Covers the beginnings, diversity, and growth of early Christianity, including conversion, community formation, and explanations for Christianity's spread in the Roman world.",
+      "description": "Covers the beginnings, diversity, conversion, and expansion of early Christianity, including explanations for its growth and the possible role of Christian care for the sick.",
       "topicOrder": [
         "Early Christianity (General)",
         "Early Christian Diversity",
@@ -149,7 +149,7 @@
     },
     {
       "name": "Church Fathers",
-      "description": "Covers the Apostolic Fathers and later early church writers, including Papias, Polycarp traditions, Eusebius, Athanasius, Didymus the Blind, Augustine, and writings or traditions associated with them.",
+      "description": "Covers the Apostolic Fathers and later church writers, including their works, attributed writings, historical testimony, theological views, and later traditions.",
       "topicOrder": [
         "Apostolic Fathers",
         "Apostolic Fathers Attribution",
@@ -163,7 +163,7 @@
     },
     {
       "name": "Early Church History",
-      "description": "Covers post-New-Testament church history, including early Christian writings, institutional developments, Constantine, and the development of the Trinity.",
+      "description": "Covers developments in church history after the New Testament period, including early Christian writings, institutional growth, Constantine, and the development of the Trinity.",
       "topicOrder": [
         "Early Church Developments",
         "Early Christian Writings",
@@ -375,7 +375,7 @@
     },
     {
       "name": "New Testament Figures",
-      "description": "Covers named figures in and around the New Testament narratives, including Jesus' family, followers, opponents, and Roman authorities.",
+      "description": "Covers prominent people in and around the New Testament narratives, including members of Jesus' family, followers, associates, opponents, and Roman authorities.",
       "topicOrder": [
         "John the Baptist",
         "Peter the Apostle",
@@ -508,7 +508,7 @@
     },
     {
       "name": "Teaching, General Books, and Media",
-      "description": "Covers teaching, courses, textbooks, general-audience books, writing and publishing, media appearances, media coverage, and public-facing scholarship.",
+      "description": "Covers courses, teaching materials, books for general readers, the writing and publishing process, interviews, videos, reviews, media coverage, and other public-facing scholarship.",
       "topicOrder": [
         "Courses and Teaching",
         "Textbooks and Teaching Materials",
@@ -536,7 +536,7 @@
     },
     {
       "name": "Wealth, Poverty, and Charity",
-      "description": "Covers posts on charity, altruism, care for the poor, ancient and Christian views of wealth, and moral obligations toward people in need.",
+      "description": "Covers charity, altruism, care for people in need, and ancient, biblical, and early Christian approaches to wealth, poverty, giving, and care for the sick.",
       "topicOrder": [
         "Charity and Altruism",
         "Jesus on Wealth and Poverty",
@@ -547,7 +547,7 @@
     },
     {
       "name": "Women, Gender, and Sexuality",
-      "description": "Covers women in Jesus, Pauline, and early Christian traditions, along with biblical debates about gender, sexuality, same-sex relations, and reproductive ethics.",
+      "description": "Covers women in traditions about Jesus, Paul, and early Christianity, along with biblical debates about gender, sexuality, same-sex relations, and reproductive ethics.",
       "topicOrder": [
         "Women in Early Christianity",
         "Jesus and Women",

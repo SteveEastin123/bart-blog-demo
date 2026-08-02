@@ -2,7 +2,7 @@
   "subjectAreas": [
     {
       "name": "New Testament Writings",
-      "description": "Covers the canonical Gospels, Acts, Pauline letters, non-Pauline epistles, and Revelation, including their authorship, sources, dating, historical reliability, textual issues, transmission, and interpretation.",
+      "description": "Covers the canonical Gospels, Acts, Pauline letters, non-Pauline epistles, and Revelation, including their authorship, sources, dating, historical reliability, textual transmission, interpretation, and later interpretations of Revelation.",
       "categories": [
         "Canonical Gospels and Acts",
         "Pauline Epistles",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Theology, Faith, and Nonbelief",
-      "description": "Covers Christology, salvation, orthodoxy and heresy, suffering and evil, faith, doubt, and nonbelief.",
+      "description": "Covers Christology, salvation, Gnosticism, orthodoxy and heresy, suffering and evil, faith, doubt, and nonbelief.",
       "categories": [
         "Christology",
         "Salvation, Atonement, and Judgment",
@@ -88,7 +88,7 @@
     },
     {
       "name": "Books, Scholarship, and the Blog",
-      "description": "Covers Bart's books, teaching, media appearances, academic life, public debates, recurring blog features, and personal posts.",
+      "description": "Covers Bart's books, teaching, writing and publishing, media appearances and coverage, academic life, public debates, recurring blog features, and personal posts.",
       "categories": [
         "Bart's Books",
         "Teaching, General Books, and Media",
