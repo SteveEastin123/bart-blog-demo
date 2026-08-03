@@ -145,7 +145,7 @@ This file defines the broad subject areas shown at the start of Browse by Topic 
       "name": "Jesus, the Gospels, and Acts",
       "description": "Covers the canonical Gospels, Acts, major New Testament figures, and traditions about Jesus' life, teachings, death, burial, and resurrection.",
       "categories": [
-        "The Historical Jesus",
+        "Historical Jesus",
         "Canonical Gospels and Acts"
       ]
     }
