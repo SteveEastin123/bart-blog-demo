@@ -410,6 +410,8 @@ def content_page(
 def home_page() -> bytes:
     with get_conn() as conn:
         date_range = format_date_range(conn)
+    desktop_diagram_url = static_asset_url("ehrman-search-methods.svg")
+    mobile_diagram_url = static_asset_url("ehrman-search-methods-mobile.svg")
 
     body = f"""
     <section class="site-home">
@@ -420,8 +422,8 @@ def home_page() -> bytes:
         <p><strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. Categories can also display all connected posts, and category or topic post lists can be narrowed with additional search terms. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.</p>
         <figure class="search-methods-figure">
           <picture class="search-methods-picture">
-            <source media="(max-width: 700px)" srcset="/static/ehrman-search-methods-mobile.svg">
-            <img class="search-methods-image" src="/static/ehrman-search-methods.svg" alt="Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts">
+            <source media="(max-width: 700px)" srcset="{esc(mobile_diagram_url)}">
+            <img class="search-methods-image" src="{esc(desktop_diagram_url)}" alt="Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts">
           </picture>
         </figure>
         <p class="site-demo-date-range">{esc(date_range)}</p>

@@ -246,6 +246,8 @@ function ehrman_home_page(): string
         . "(SELECT date_text FROM posts WHERE date_iso <> '' ORDER BY date_iso DESC LIMIT 1) AS last_date",
     );
     $dateRange = 'Posts from ' . $dates['first_date'] . ' - ' . $dates['last_date'];
+    $desktopDiagramUrl = ehrman_static_asset_url('ehrman-search-methods.svg');
+    $mobileDiagramUrl = ehrman_static_asset_url('ehrman-search-methods-mobile.svg');
     $body = '<section class="site-home"><section class="site-hero" aria-label="Bart Ehrman lecturing"></section>'
         . '<section class="site-demo-note" aria-label="Demo description">'
         . "<p>This demo offers two ways to discover posts on Bart's blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>.</p>"
@@ -253,8 +255,8 @@ function ehrman_home_page(): string
         . '<p><strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. Categories can also display all connected posts, and category or topic post lists can be narrowed with additional search terms. '
         . '<strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.</p>'
         . '<figure class="search-methods-figure"><picture class="search-methods-picture">'
-        . '<source media="(max-width: 700px)" srcset="/static/ehrman-search-methods-mobile.svg">'
-        . '<img class="search-methods-image" src="/static/ehrman-search-methods.svg" '
+        . '<source media="(max-width: 700px)" srcset="' . ehrman_html($mobileDiagramUrl) . '">'
+        . '<img class="search-methods-image" src="' . ehrman_html($desktopDiagramUrl) . '" '
         . 'alt="Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts">'
         . '</picture></figure>'
         . '<p class="site-demo-date-range">' . ehrman_html($dateRange) . '</p>'
