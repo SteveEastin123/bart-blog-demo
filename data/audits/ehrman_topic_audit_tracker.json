@@ -231,7 +231,7 @@
       "auditSequence": null,
       "status": "excluded",
       "postCountBefore": 437,
-      "postCountAfter": 424,
+      "postCountAfter": 428,
       "descriptionBefore": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [],
@@ -244,7 +244,8 @@
         "Post-by-post topic-link audit for posts 1-100 updated this assignment.",
         "Post-by-post topic-link audit for posts 101-200 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -4796,7 +4797,7 @@
       "auditSequence": 7,
       "status": "completed",
       "postCountBefore": 88,
-      "postCountAfter": 98,
+      "postCountAfter": 103,
       "descriptionBefore": "Posts on whether the original wording of New Testament writings can be identified, including lost originals, authorial drafts, copied texts, and arguments for reconstruction.",
       "descriptionRecommendation": "Posts on whether the original wording of New Testament writings can be identified, including lost originals, authorial drafts, copied texts, and arguments for reconstruction.",
       "categoriesBefore": [
@@ -5491,6 +5492,41 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post asks which textual form translators should translate and explains how uncertainty about an original text affects translation."
+        },
+        {
+          "wpId": "17796",
+          "title": "Did Paul Really Have *That* Exalted a View of Jesus?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially evaluates whether the Philippians 2 poem was part of Paul's original letter or a later insertion."
+        },
+        {
+          "wpId": "17769",
+          "title": "Paul and the Status of Women",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "A substantial part of the post examines whether 1 Corinthians 14:34-35 is an interpolation and how that can be determined."
+        },
+        {
+          "wpId": "17737",
+          "title": "How Manuscripts Matter for Knowing What an Author Wrote",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centrally distinguishes textual variants from the question whether material belonged to an author's original work."
+        },
+        {
+          "wpId": "17185",
+          "title": "Introduction to the Manuscripts of the New Testament",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "A substantial part asks whether surviving manuscripts allow scholars to recover the original wording of New Testament books."
+        },
+        {
+          "wpId": "16851",
+          "title": "Crazy Things Textual Scholars Say",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The critique of claims to 99-percent certainty centers on whether scholars can know the original New Testament wording without the originals."
         }
       ],
       "notes": [
@@ -5502,7 +5538,8 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -6169,7 +6206,7 @@
       "auditSequence": 9,
       "status": "completed",
       "postCountBefore": 78,
-      "postCountAfter": 87,
+      "postCountAfter": 88,
       "descriptionBefore": "Posts focused on the Gospel of John, including its authorship, distinctive theology, historical reliability, signs, symbolism, and portrayal of Jesus.",
       "descriptionRecommendation": "Posts examine the Gospel of John, including its authorship, sources, manuscript tradition, historical reliability, community setting, distinctive theology, signs, and portrayal of Jesus.",
       "categoriesBefore": [
@@ -6745,6 +6782,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Most of the post analyzes John's distinctive speeches, Christology, signs, and Farewell Discourse as the setting for the Spirit's arrival."
+        },
+        {
+          "wpId": "20284",
+          "title": "WAS there a Community behind the Gospel and Letters of John?  Guest Post by Hugo Mendez",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The guest post substantially evaluates the proposed community behind both the Gospel and letters of John."
         }
       ],
       "notes": [
@@ -6756,7 +6800,8 @@
         "Demo and SQLite outputs were not rebuilt.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -8440,7 +8485,7 @@
       "auditSequence": 13,
       "status": "completed",
       "postCountBefore": 70,
-      "postCountAfter": 78,
+      "postCountAfter": 82,
       "descriptionBefore": "Posts on contradictions in biblical texts, including the Gospels, the Hebrew Bible, and broader questions of interpretation and scriptural authority.",
       "descriptionRecommendation": "Posts on contradictions in biblical texts, including the Gospels, the Hebrew Bible, and broader questions of interpretation and scriptural authority.",
       "categoriesBefore": [
@@ -8981,6 +9026,34 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The nativity argument depends on Luke's account and its conflicts with Matthew's birth narrative."
+        },
+        {
+          "wpId": "20717",
+          "title": "But How Did Judas Die?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on the irreconcilable differences between Matthew's and Acts' accounts of Judas's death."
+        },
+        {
+          "wpId": "17662",
+          "title": "Interview with Buddhists on the New Testament",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The interview repeatedly addresses contradictions, inerrancy, and how critical study changed Bart's view of the Bible."
+        },
+        {
+          "wpId": "17310",
+          "title": "Why Are Their Differences in the Gospels?  Does it Affect Their Inspiration?  Guest Post by Mike Licona",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The guest post explains Gospel differences through ancient compositional practices while defending inspiration and inerrancy."
+        },
+        {
+          "wpId": "16915",
+          "title": "Modern Evangelical Christian Apologetics",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's sustained subject is how modern evangelical apologists explain Gospel contradictions while retaining inerrancy."
         }
       ],
       "notes": [
@@ -8991,7 +9064,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -8999,7 +9073,7 @@
       "auditSequence": 14,
       "status": "completed",
       "postCountBefore": 70,
-      "postCountAfter": 91,
+      "postCountAfter": 92,
       "descriptionBefore": "Posts about blog anniversaries, year-in-review updates, fundraising appeals, charity campaigns, stewardship, and support for charitable work.",
       "descriptionRecommendation": "Posts about blog anniversaries, year-in-review updates, fundraising appeals, charity campaigns, stewardship, and support for charitable work.",
       "categoriesBefore": [
@@ -9512,6 +9586,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The lecture-series notice is also explicitly a blog fundraiser, making fundraising a major purpose of the post."
+        },
+        {
+          "wpId": "17561",
+          "title": "Want A Korean Version of My Last Book?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post offers donated Korean copies to readers and does not discuss the book's historical subject."
         }
       ],
       "notes": [
@@ -9522,7 +9603,8 @@
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -14911,7 +14993,7 @@
       "auditSequence": 26,
       "status": "completed",
       "postCountBefore": 59,
-      "postCountAfter": 68,
+      "postCountAfter": 69,
       "descriptionBefore": "Covers critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
       "descriptionRecommendation": "Covers critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
       "categoriesBefore": [
@@ -15361,6 +15443,13 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "This is a link and announcement for a webinar recording rather than a substantive discussion of biblical scholarship."
+        },
+        {
+          "wpId": "17327",
+          "title": "Why Would an Agnostic-Atheist Be A Bible Scholar??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centrally explains why a nonbeliever can study the Bible as a historically and culturally important academic subject."
         }
       ],
       "notes": [
@@ -15372,7 +15461,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -18727,7 +18817,7 @@
       "auditSequence": 35,
       "status": "completed",
       "postCountBefore": 51,
-      "postCountAfter": 73,
+      "postCountAfter": 72,
       "descriptionBefore": "Covers graduate study, teaching, dissertations, university life, scholarly careers, and what academic biblical scholars actually do.",
       "descriptionRecommendation": "Covers graduate study, teaching, dissertations, university life, scholarly careers, and what academic biblical scholars actually do.",
       "categoriesBefore": [
@@ -18866,13 +18956,6 @@
         {
           "wpId": "21126",
           "title": "The Flukes of Life and My Teaching Career",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Academic Careers and University Life as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
-          "wpId": "20836",
-          "title": "Do You Have Advanced Training In any of the Blog’s Fields?",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Academic Careers and University Life as a primary or major sustained subject, rather than as an incidental reference."
@@ -19093,6 +19176,13 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Academic Careers and University Life as a primary or major sustained subject, rather than as an incidental reference."
+        },
+        {
+          "wpId": "20836",
+          "title": "Do You Have Advanced Training In any of the Blog’s Fields?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is a short administrative invitation for qualified readers to contact Bart, not a substantive discussion of academic careers."
         }
       ],
       "notes": [
@@ -19100,7 +19190,8 @@
         "Checked unlinked posts conservatively for strong omissions.",
         "Recommended additions: 33028: What’s It Like to Teach PhD Seminars? | 4792: My PhD Seminar: Early Christian Apocrypha | 27119: Bruce Metzger and Me: Reminiscences on my Dissertation | 39894: Finishing and Publishing My Dissertation | 2601: Autobiographical.  Me and Metzger: More on the Dissertation | 2611: Autobiographical.  Metzger and Me.  The Dissertation Defense | 2422: Autobiographical.  Metzger and Me: Beginning the PhD Program | 2605: Autobiographical.  Metzger and Me: Finishing the Dissertation | 27266: Bruce Metzger and My Strange Dissertation Defense | 15411: Finishing my Dissertation | 15407: The Core of My Dissertation on The Gospel Quotations of Didymus the Blind | 8042: A Text-Critical Dissertation | 2585: Autobiographical.  Metzger and Me: The Dissertation | 21145: My Early Christian Apocrypha Seminar | 2445: Autobiographical.  Metzger and Me:  My Dissertation Proposal | 2435: Autobiographical: Metzger and Me.  The Seminar on the Canon | 15403: Bruce Metzger and Me: Finding a Dissertation | 26744: Bruce Metzger and the “Favor” He Did Me On My PhD Exams | 39881: My First Book!  A Dissertation on Textual Criticism of the New Testament | 2259: Personal Reflections: My Apocrypha Seminar at the National Humanities Center | 2059: The Work of a Professional Scholar 5: Graduate Seminars | 8476: My UNC Seminar Tomorrow",
         "Recommendations have not been applied to live topic assignments.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -23682,7 +23773,7 @@
       "auditSequence": 47,
       "status": "completed",
       "postCountBefore": 43,
-      "postCountAfter": 59,
+      "postCountAfter": 60,
       "descriptionBefore": "Covers fundamentalist Christianity, including biblical inerrancy, evangelical apologetics, Bart's early religious background, and critiques of fundamentalist approaches to the Bible.",
       "descriptionRecommendation": "Covers fundamentalist Christianity, including biblical inerrancy, evangelical apologetics, Bart's early religious background, and critiques of fundamentalist approaches to the Bible.",
       "categoriesBefore": [
@@ -24104,6 +24195,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The guest post substantially reflects on rethinking beliefs inherited from a fundamentalist Christian setting."
+        },
+        {
+          "wpId": "20997",
+          "title": "Why Do Are So Many Textual Critics Evangelicals?   Readers’ Mailbag.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explains textual criticism as a field and gives sustained attention to why conservative and fundamentalist commitments draw scholars to it."
         }
       ],
       "notes": [
@@ -24113,7 +24211,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -24684,7 +24783,7 @@
       "auditSequence": 49,
       "status": "completed",
       "postCountBefore": 42,
-      "postCountAfter": 60,
+      "postCountAfter": 63,
       "descriptionBefore": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "descriptionRecommendation": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categoriesBefore": [
@@ -25113,6 +25212,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The interpretation of the unforgivable sin depends substantially on Jesus' apocalyptic meaning of the present age and the age to come."
+        },
+        {
+          "wpId": "21093",
+          "title": "Did Jesus Think He Would Be the Judge of the Earth?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on Jesus' expectation that the Son of Man would judge the earth and situates that expectation within his apocalyptic message."
+        },
+        {
+          "wpId": "17591",
+          "title": "Jesus as Single: An Actual Argument!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The historical argument for Jesus' celibacy depends substantially on his apocalyptic ethic and expectation of the coming kingdom."
+        },
+        {
+          "wpId": "17237",
+          "title": "Who Was Jesus?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The historical overview repeatedly identifies Jesus' apocalyptic proclamation of God's imminent kingdom as the heart of his message."
         }
       ],
       "notes": [
@@ -25123,7 +25243,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -28119,7 +28240,7 @@
       "auditSequence": 59,
       "status": "completed",
       "postCountBefore": 36,
-      "postCountAfter": 42,
+      "postCountAfter": 33,
       "descriptionBefore": "Posts about Bart's book on the development of Christian afterlife beliefs, including excerpts, interviews, reader responses, and related discussions.",
       "descriptionRecommendation": "Posts about Bart's book on the development of Christian afterlife beliefs, including its development, excerpts, interviews, events, promotions, reader responses, and related discussions.",
       "categoriesBefore": [
@@ -28207,13 +28328,6 @@
           "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
         },
         {
-          "wpId": "20266",
-          "title": "Live Event on Wednesday Evening, May 6!",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
           "wpId": "19939",
           "title": "The Not Old Better Show – Heaven and Hell Book Interview",
           "decision": "retain",
@@ -28223,13 +28337,6 @@
         {
           "wpId": "19933",
           "title": "Q&A on Heaven and Hell",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
-          "wpId": "17833",
-          "title": "Is The End Today???",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
@@ -28249,20 +28356,6 @@
           "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
         },
         {
-          "wpId": "17780",
-          "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
-          "wpId": "17749",
-          "title": "Smithsonian",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
           "wpId": "17650",
           "title": "Brief Video Promotion of Heaven and Hell",
           "decision": "retain",
@@ -28272,13 +28365,6 @@
         {
           "wpId": "17619",
           "title": "Heaven and Hell: Press Release!!",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
-          "wpId": "17564",
-          "title": "A Raffle!!  Would You Like a Pre-publication Copy of My  Book on Heaven and Hell?",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Heaven and Hell as a primary or major sustained subject, rather than as an incidental reference."
@@ -28389,45 +28475,81 @@
           "reason": "The post announces a lecture series explicitly based on Bart's book Heaven and Hell."
         },
         {
-          "wpId": "19958",
-          "title": "Interested in a Webinar on My Book?",
-          "decision": "add",
-          "confidence": "high",
-          "reason": "The post announces and describes a webinar devoted to Bart's Heaven and Hell book."
-        },
-        {
-          "wpId": "17665",
-          "title": "Great Deal on My New Book!!",
-          "decision": "add",
-          "confidence": "high",
-          "reason": "The post promotes a pre-order offer for Heaven and Hell."
-        },
-        {
-          "wpId": "17600",
-          "title": "Raffle Winners!",
-          "decision": "add",
-          "confidence": "high",
-          "reason": "The post announces winners of a raffle for advance copies of Heaven and Hell."
-        },
-        {
-          "wpId": "17507",
-          "title": "Bidding to See My New Book",
-          "decision": "add",
-          "confidence": "high",
-          "reason": "The post follows up on an auction for early access to Heaven and Hell."
-        },
-        {
           "wpId": "17491",
           "title": "Would You Like to Read My New Book NOW Instead of When It Gets Published???",
           "decision": "add",
           "confidence": "high",
           "reason": "The post offers early access to the galley proofs of Heaven and Hell."
+        },
+        {
+          "wpId": "20266",
+          "title": "Live Event on Wednesday Evening, May 6!",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is an event announcement; the book appears only as the subject of the advertised discussion."
+        },
+        {
+          "wpId": "19958",
+          "title": "Interested in a Webinar on My Book?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Most of the post introduces and explains Bart's three Oxford textbooks; the webinar and Heaven and Hell supply the occasion rather than the sustained subject."
+        },
+        {
+          "wpId": "17833",
+          "title": "Is The End Today???",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is a brief humorous publication-day anecdote rather than a substantive discussion of the book."
+        },
+        {
+          "wpId": "17780",
+          "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is a preorder and discount promotion without substantive discussion of the book's subject."
+        },
+        {
+          "wpId": "17749",
+          "title": "Smithsonian",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This one-sentence post merely announces a canceled Smithsonian event."
+        },
+        {
+          "wpId": "17665",
+          "title": "Great Deal on My New Book!!",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is solely a discount promotion for the book; the existing Ignore topic is sufficient."
+        },
+        {
+          "wpId": "17600",
+          "title": "Raffle Winners!",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is only a raffle-winner notice; the existing Ignore topic is sufficient."
+        },
+        {
+          "wpId": "17564",
+          "title": "A Raffle!!  Would You Like a Pre-publication Copy of My  Book on Heaven and Hell?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post is a fundraising raffle announcement and does not discuss the book's contents."
+        },
+        {
+          "wpId": "17507",
+          "title": "Bidding to See My New Book",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This is an auction update without substantive discussion of the book; the existing Ignore topic is sufficient."
         }
       ],
       "notes": [
         "Reviewed all 36 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -29071,7 +29193,7 @@
       "auditSequence": 62,
       "status": "completed",
       "postCountBefore": 35,
-      "postCountAfter": 39,
+      "postCountAfter": 40,
       "descriptionBefore": "Posts on incarnation Christology, especially views that Christ was a preexistent divine or heavenly being who became human.",
       "descriptionRecommendation": "Posts on incarnation Christology, especially views that Christ was a preexistent divine or heavenly being who became human.",
       "categoriesBefore": [
@@ -29353,13 +29475,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally tests the doctrine that Jesus was fully human and fully divine against the biological implications of a virgin birth."
+        },
+        {
+          "wpId": "17688",
+          "title": "Did Paul Think Jesus Was a New Adam, Not a Divine Being?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post rejects an Adam-only reading of Philippians 2 in favor of a preexistent divine or angelic being who became human."
         }
       ],
       "notes": [
         "Reviewed all 35 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -31071,7 +31201,7 @@
       "auditSequence": 69,
       "status": "completed",
       "postCountBefore": 32,
-      "postCountAfter": 33,
+      "postCountAfter": 32,
       "descriptionBefore": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "descriptionRecommendation": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "categoriesBefore": [
@@ -31161,13 +31291,6 @@
         {
           "wpId": "25034",
           "title": "Was Marcion a Gnostic?",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Gnostic and Orthodox Conflicts as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
-          "wpId": "21031",
-          "title": "What Is Gnosticism?",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Gnostic and Orthodox Conflicts as a primary or major sustained subject, rather than as an incidental reference."
@@ -31318,6 +31441,13 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post uses discoveries of Gnostic texts as evidence for early Christian diversity, but it does not centrally examine conflicts between Gnostic and orthodox groups."
+        },
+        {
+          "wpId": "21031",
+          "title": "What Is Gnosticism?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post defines Gnosticism and discusses Gnostic writings but does not focus on conflict with orthodox Christians."
         }
       ],
       "notes": [
@@ -31325,7 +31455,8 @@
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -31861,7 +31992,7 @@
       "auditSequence": 72,
       "status": "completed",
       "postCountBefore": 32,
-      "postCountAfter": 32,
+      "postCountAfter": 31,
       "descriptionBefore": "Posts about Bart's book The Triumph of Christianity, including writing updates, interviews, lectures, reviews, and discussions of how Christianity spread in the Roman world.",
       "descriptionRecommendation": "Posts about Bart's book The Triumph of Christianity, including writing updates, interviews, lectures, reviews, and discussions of how Christianity spread in the Roman world.",
       "categoriesBefore": [
@@ -31881,13 +32012,6 @@
         {
           "wpId": "28076",
           "title": "My New Great Courses Offering, Just Out!",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Triumph of Christianity as a primary or major sustained subject."
-        },
-        {
-          "wpId": "17561",
-          "title": "Want A Korean Version of My Last Book?",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Triumph of Christianity as a primary or major sustained subject."
@@ -32101,12 +32225,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post directly explains the thesis of The Triumph of Christianity."
+        },
+        {
+          "wpId": "17561",
+          "title": "Want A Korean Version of My Last Book?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post offers donated Korean copies to readers and does not discuss the book's historical subject."
         }
       ],
       "notes": [
         "Reviewed all 32 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -33876,7 +34008,7 @@
       "auditSequence": 80,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 35,
+      "postCountAfter": 36,
       "descriptionBefore": "Covers the claimed first-century fragment of Mark, including mummy masks, discovery claims, scholarly controversy, and whether such a fragment would change what we know.",
       "descriptionRecommendation": "Covers the claimed first-century fragment of Mark, including mummy masks, discovery claims, scholarly controversy, and whether such a fragment would change what we know.",
       "categoriesBefore": [
@@ -33955,13 +34087,6 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats First-Century Mark Fragment as a primary or major sustained subject."
-        },
-        {
-          "wpId": "17505",
-          "title": "Two Brief Comments on intriguing topics: the unknowability of God and scholarly subterfuge!",
-          "decision": "remove",
-          "confidence": "high",
-          "reason": "The post merely recommends an outside article about the controversy."
         },
         {
           "wpId": "16884",
@@ -34144,12 +34269,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is a central installment in the First-Century Mark claim, mummy-mask, or manuscript-fraud controversy."
+        },
+        {
+          "wpId": "17505",
+          "title": "Two Brief Comments on intriguing topics: the unknowability of God and scholarly subterfuge!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Half of the post comments directly on the First-Century Mark controversy and directs readers to the evidence about it."
         }
       ],
       "notes": [
         "Reviewed all 30 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -34877,7 +35010,7 @@
       "auditSequence": 84,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 30,
+      "postCountAfter": 31,
       "descriptionBefore": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "descriptionRecommendation": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "categoriesBefore": [
@@ -35103,11 +35236,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is organized around a theologically significant variant in 1 John 4:3 and explains it through conflict between separationist Gnostics and emerging orthodox Christianity."
+        },
+        {
+          "wpId": "17191",
+          "title": "Do Textual Variants Actually *Matter* For Much??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's main argument is that some textual variants materially affect the interpretation and theology of New Testament books."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 201-300 updated this assignment."
+        "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -37217,7 +37358,7 @@
       "auditSequence": 94,
       "status": "completed",
       "postCountBefore": 27,
-      "postCountAfter": 29,
+      "postCountAfter": 32,
       "descriptionBefore": "Posts on claims that the Bible is without error, including fundamentalism, contradictions, personal deconversion, and debates over biblical authority.",
       "descriptionRecommendation": "Posts on claims that the Bible is without error, including fundamentalism, contradictions, personal deconversion, and debates over biblical authority.",
       "categoriesBefore": [
@@ -37429,12 +37570,34 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post's personal reflection focuses on leaving a form of fundamentalism defined by biblical inerrancy."
+        },
+        {
+          "wpId": "17662",
+          "title": "Interview with Buddhists on the New Testament",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The interview repeatedly addresses contradictions, inerrancy, and how critical study changed Bart's view of the Bible."
+        },
+        {
+          "wpId": "17310",
+          "title": "Why Are Their Differences in the Gospels?  Does it Affect Their Inspiration?  Guest Post by Mike Licona",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The guest post explains Gospel differences through ancient compositional practices while defending inspiration and inerrancy."
+        },
+        {
+          "wpId": "16915",
+          "title": "Modern Evangelical Christian Apologetics",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's sustained subject is how modern evangelical apologists explain Gospel contradictions while retaining inerrancy."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -37651,7 +37814,7 @@
       "auditSequence": 96,
       "status": "completed",
       "postCountBefore": 27,
-      "postCountAfter": 27,
+      "postCountAfter": 28,
       "descriptionBefore": "Covers arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
       "descriptionRecommendation": "Covers arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
       "categoriesBefore": [
@@ -37849,10 +38012,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Resurrection Arguments and Apologetics as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16931",
+          "title": "Who Would Invent the Story of Women at the Tomb??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates and rejects the apologetic claim that no one would invent women as witnesses to the empty tomb."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -37860,7 +38031,7 @@
       "auditSequence": 97,
       "status": "completed",
       "postCountBefore": 27,
-      "postCountAfter": 25,
+      "postCountAfter": 23,
       "descriptionBefore": "Covers who is saved, how salvation happens, whether salvation can be lost, and how Jesus, Paul, or later Christians understood eternal life.",
       "descriptionRecommendation": "Covers who is saved, how salvation happens, whether salvation can be lost, and how Jesus, Paul, or later Christians understood eternal life.",
       "categoriesBefore": [
@@ -37943,20 +38114,6 @@
         {
           "wpId": "27343",
           "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Salvation (General) as a primary or major sustained subject."
-        },
-        {
-          "wpId": "21054",
-          "title": "Will “All Israel” Be Saved? Really?  Guest Post by Jason Staples",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Salvation (General) as a primary or major sustained subject."
-        },
-        {
-          "wpId": "20990",
-          "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Salvation (General) as a primary or major sustained subject."
@@ -38058,11 +38215,26 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post specifically explains why Paul connected faith, salvation, and freedom from the Jewish law; the Pauline topics are more precise."
+        },
+        {
+          "wpId": "21054",
+          "title": "Will “All Israel” Be Saved? Really?  Guest Post by Jason Staples",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post closely analyzes Romans 9-11 and Paul's account of Israel's salvation, making the Pauline topics more precise than general salvation."
+        },
+        {
+          "wpId": "20990",
+          "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post is a sustained analysis of Romans 9-11 and Paul's model for the salvation of Israel, not salvation in general."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -39380,7 +39552,7 @@
       "auditSequence": 104,
       "status": "completed",
       "postCountBefore": 26,
-      "postCountAfter": 26,
+      "postCountAfter": 28,
       "descriptionBefore": "Covers textbooks and introductory teaching materials, including how they are written, revised, illustrated, and used to teach biblical studies.",
       "descriptionRecommendation": "Covers textbooks and introductory teaching materials, including how they are written, revised, illustrated, and used to teach biblical studies.",
       "categoriesBefore": [
@@ -39571,10 +39743,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Textbooks and Teaching Materials as a primary or major sustained subject."
+        },
+        {
+          "wpId": "19958",
+          "title": "Interested in a Webinar on My Book?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Most of the post introduces and explains Bart's three Oxford textbooks; the webinar and Heaven and Hell supply the occasion rather than the sustained subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -41506,7 +41686,7 @@
       "auditSequence": 114,
       "status": "completed",
       "postCountBefore": 24,
-      "postCountAfter": 23,
+      "postCountAfter": 24,
       "descriptionBefore": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "descriptionRecommendation": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "categoriesBefore": [
@@ -41683,10 +41863,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Scholarly Research and Publishing as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17217",
+          "title": "The Annual Meeting of Biblical Scholars, and ALL Those Books!!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post reflects at length on academic book production, publishing incentives, and the glut of scholarly literature."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -43259,7 +43447,7 @@
       "auditSequence": 123,
       "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": 23,
+      "postCountAfter": 24,
       "descriptionBefore": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "descriptionRecommendation": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "categoriesBefore": [
@@ -43429,10 +43617,18 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post's sustained examples and source analysis center on the two creation accounts in Genesis."
+        },
+        {
+          "wpId": "16994",
+          "title": "Why Women Are To Be Subservient to Men",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The currently untagged post is a sustained interpretation of Genesis 2 as a biblical rationale for women's subordination."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -44210,7 +44406,7 @@
       "auditSequence": 128,
       "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": 25,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "descriptionRecommendation": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "categoriesBefore": [
@@ -44394,12 +44590,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The satire's treatment of wealth is inseparable from its sustained underworld journey and postmortem reversal."
+        },
+        {
+          "wpId": "17368",
+          "title": "Guided Tours of Heaven and Hell in a Christian Mode",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The entire post compares Christian texts that narrate guided journeys through realms of the dead."
+        },
+        {
+          "wpId": "17360",
+          "title": "Guided Tours of Heaven and Hell:  My Scholarly Book",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces a scholarly book project specifically devoted to ancient otherworldly journeys."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -49355,7 +49566,7 @@
       "auditSequence": 157,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 21,
+      "postCountAfter": 22,
       "descriptionBefore": "Posts on claims that Jesus supported armed resistance to Rome, including the temple incident, zealot interpretations, Roman rule, and Bart's critique of the hypothesis.",
       "descriptionRecommendation": "Posts on claims that Jesus supported armed resistance to Rome, including the temple incident, zealot interpretations, Roman rule, and Bart's critique of the hypothesis.",
       "categoriesBefore": [
@@ -49511,11 +49722,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post evaluates the Gospel arrest story and whether armed resistance implies that Jesus promoted violent rebellion."
+        },
+        {
+          "wpId": "20782",
+          "title": "Weren’t Jesus’ Followers Armed and Eager to Fight in the Garden of Gethsemane?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates whether armed disciples support a militant or zealot interpretation of Jesus and his movement."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 901-1100 updated this assignment."
+        "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -51671,7 +51890,7 @@
       "auditSequence": 172,
       "status": "completed",
       "postCountBefore": 15,
-      "postCountAfter": 19,
+      "postCountAfter": 20,
       "descriptionBefore": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
       "descriptionRecommendation": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
       "categoriesBefore": [
@@ -51827,11 +52046,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Two substantial responses discuss Jesus as a human exalted to heaven and whether Revelation's John was claiming apostolic identity."
+        },
+        {
+          "wpId": "17699",
+          "title": "A Fuller Exposition of the Christ Poem in Philippians",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The exposition combines Jesus' preexistent angelic status with his later exaltation after death."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 201-300 updated this assignment."
+        "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -54778,7 +55005,7 @@
       "auditSequence": 196,
       "status": "completed",
       "postCountBefore": 12,
-      "postCountAfter": 12,
+      "postCountAfter": 15,
       "descriptionBefore": "Posts on angelic Christology, especially whether early Christians, including Paul, understood Christ as an angelic or preexistent heavenly being.",
       "descriptionRecommendation": "Posts on angelic Christology, especially whether early Christians, including Paul, understood Christ as an angelic or preexistent heavenly being.",
       "categoriesBefore": [
@@ -54871,10 +55098,32 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Angelic Christology as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17708",
+          "title": "Paul’s Incredibly High Christology",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post argues that Philippians 2 presents Jesus as a preexistent angelic or Wisdom figure who became human."
+        },
+        {
+          "wpId": "17699",
+          "title": "A Fuller Exposition of the Christ Poem in Philippians",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The exposition combines Jesus' preexistent angelic status with his later exaltation after death."
+        },
+        {
+          "wpId": "17688",
+          "title": "Did Paul Think Jesus Was a New Adam, Not a Divine Being?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post rejects an Adam-only reading of Philippians 2 in favor of a preexistent divine or angelic being who became human."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -55393,7 +55642,7 @@
       "auditSequence": 201,
       "status": "completed",
       "postCountBefore": 12,
-      "postCountAfter": 13,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers the Gospel of Jesus' Wife fragment, including discovery claims, forgery debates, media coverage, and questions about whether Jesus was married.",
       "descriptionRecommendation": "Covers the Gospel of Jesus' Wife fragment, including discovery claims, forgery debates, media coverage, and questions about whether Jesus was married.",
       "categoriesBefore": [
@@ -55406,13 +55655,6 @@
         {
           "wpId": "38254",
           "title": "Gospel Thrillers Part III by Andrew Jacobs",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Gospel of Jesus' Wife Fragment as a primary or major sustained subject."
-        },
-        {
-          "wpId": "17574",
-          "title": "So… WAS Jesus Married?",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Gospel of Jesus' Wife Fragment as a primary or major sustained subject."
@@ -55493,11 +55735,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The two principal non-canonical texts discussed are the Gospel of Jesus' Wife fragment and the Proto-Gospel of James, whose infancy traditions receive sustained treatment."
+        },
+        {
+          "wpId": "17574",
+          "title": "So… WAS Jesus Married?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post evaluates whether the historical Jesus was married; the fragment appears only as background to the panel discussion."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 301-500 updated this assignment."
+        "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -55610,7 +55860,7 @@
       "auditSequence": 203,
       "status": "completed",
       "postCountBefore": 12,
-      "postCountAfter": 13,
+      "postCountAfter": 14,
       "descriptionBefore": "Posts on women's roles, leadership, silence, gender hierarchy, and social status in early Christian texts and communities.",
       "descriptionRecommendation": "Posts on women's roles, leadership, silence, gender hierarchy, and social status in early Christian texts and communities.",
       "categoriesBefore": [
@@ -55710,11 +55960,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A major sustained section centers on Paul's teachings about women and modern efforts to reinterpret them."
+        },
+        {
+          "wpId": "17005",
+          "title": "Women Are To Be Silent and Submissive!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on 1 Timothy's use of Genesis to require women's silence and submission in Christian communities."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -57630,7 +57888,7 @@
       "auditSequence": 223,
       "status": "completed",
       "postCountBefore": 10,
-      "postCountAfter": 16,
+      "postCountAfter": 18,
       "descriptionBefore": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "descriptionRecommendation": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "categoriesBefore": [
@@ -57759,12 +58017,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post specifically explains why Paul connected faith, salvation, and freedom from the Jewish law; the Pauline topics are more precise."
+        },
+        {
+          "wpId": "21054",
+          "title": "Will “All Israel” Be Saved? Really?  Guest Post by Jason Staples",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely analyzes Romans 9-11 and Paul's account of Israel's salvation, making the Pauline topics more precise than general salvation."
+        },
+        {
+          "wpId": "20990",
+          "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is a sustained analysis of Romans 9-11 and Paul's model for the salvation of Israel, not salvation in general."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -57772,7 +58045,7 @@
       "auditSequence": 224,
       "status": "completed",
       "postCountBefore": 13,
-      "postCountAfter": 21,
+      "postCountAfter": 22,
       "descriptionBefore": "Posts introducing textual criticism as a field, including why textual variants matter, how textual scholars work, and common questions about the reliability of the New Testament text.",
       "descriptionRecommendation": "Posts introducing textual criticism as a field, including why textual variants matter, how textual scholars work, and common questions about the reliability of the New Testament text.",
       "categoriesBefore": [
@@ -57935,12 +58208,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The central argument explains why manuscript numbers alone cannot establish the reconstruction or reliability of the New Testament text."
+        },
+        {
+          "wpId": "20997",
+          "title": "Why Do Are So Many Textual Critics Evangelicals?   Readers’ Mailbag.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explains textual criticism as a field and gives sustained attention to why conservative and fundamentalist commitments draw scholars to it."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -57948,7 +58229,7 @@
       "auditSequence": 225,
       "status": "completed",
       "postCountBefore": 10,
-      "postCountAfter": 11,
+      "postCountAfter": 13,
       "descriptionBefore": "Covers visions, group visions, hallucinations, resurrection appearances, and questions about whether visionary experiences can be shared or historically evaluated.",
       "descriptionRecommendation": "Covers visions, group visions, hallucinations, resurrection appearances, and questions about whether visionary experiences can be shared or historically evaluated.",
       "categoriesBefore": [
@@ -58041,11 +58322,26 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The historical reconstruction centers on Peter's and Paul's psychologically induced visions and their role in producing resurrection belief."
+        },
+        {
+          "wpId": "16892",
+          "title": "But the Women Who Did *NOT* Doubt the Resurrection",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post develops the proposal that visions experienced by Peter, Paul, and Mary explain early resurrection belief."
+        },
+        {
+          "wpId": "16873",
+          "title": "Why Would Jesus’ Disciples Doubt the Resurrection?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses visionary experiences to explain why some disciples believed Jesus was raised while others doubted."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -58256,7 +58552,7 @@
       "auditSequence": 228,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 12,
+      "postCountAfter": 11,
       "descriptionBefore": "Covers Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
       "descriptionRecommendation": "Covers Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
       "categoriesBefore": [
@@ -58302,13 +58598,6 @@
           "reason": "The full post treats Mary Magdalene in Gnostic Traditions as a primary or major sustained subject."
         },
         {
-          "wpId": "17569",
-          "title": "A “Newly Discovered” “Gospel”: Was Jesus Married with Children?",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Mary Magdalene in Gnostic Traditions as a primary or major sustained subject."
-        },
-        {
           "wpId": "14899",
           "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
           "decision": "retain",
@@ -58349,11 +58638,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The Greater Questions of Mary and its portrayal of Mary Magdalene are examined at length, making the broad noncanonical-Gospel label redundant."
+        },
+        {
+          "wpId": "17569",
+          "title": "A “Newly Discovered” “Gospel”: Was Jesus Married with Children?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post critiques a modern allegorical reading of Joseph and Aseneth; Gnostic traditions about Mary are only contextual background."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -58445,7 +58742,7 @@
       "auditSequence": 230,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 14,
+      "postCountAfter": 15,
       "descriptionBefore": "Covers ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
       "descriptionRecommendation": "Covers ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
       "categoriesBefore": [
@@ -58553,6 +58850,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally confronts the moral problem of divinely commanded destruction in the Jericho narrative."
+        },
+        {
+          "wpId": "20711",
+          "title": "Two Ancient Jesuses and the Current Crises",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses two portrayals of Jesus to reflect centrally on troubling biblical ethics in relation to current crises."
         }
       ],
       "notes": [
@@ -58560,7 +58864,8 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -58568,7 +58873,7 @@
       "auditSequence": 231,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 10,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
       "descriptionRecommendation": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
       "categoriesBefore": [
@@ -58647,10 +58952,25 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post directly compares Paul's views with teachings about women in the Pastoral Epistles."
+        },
+        {
+          "wpId": "17776",
+          "title": "Paul the Misogynist?  The Alternative Perspective",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post gives sustained attention to the Pastoral Epistles' authorship and restrictions on women."
+        },
+        {
+          "wpId": "17005",
+          "title": "Women Are To Be Silent and Submissive!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on 1 Timothy's use of Genesis to require women's silence and submission in Christian communities."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -59532,7 +59852,7 @@
       "auditSequence": 243,
       "status": "completed",
       "postCountBefore": 8,
-      "postCountAfter": 10,
+      "postCountAfter": 13,
       "descriptionBefore": "Covers Paul's Letter to the Romans, including its purpose, mission setting, salvation models, Christology, and women apostles.",
       "descriptionRecommendation": "Covers Paul's Letter to the Romans, including its purpose, mission setting, salvation models, Christology, and women apostles.",
       "categoriesBefore": [
@@ -59611,12 +59931,34 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post interprets Romans 9 at length, focusing on divine election, sovereignty, human response, and judgment."
+        },
+        {
+          "wpId": "21054",
+          "title": "Will “All Israel” Be Saved? Really?  Guest Post by Jason Staples",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely analyzes Romans 9-11 and Paul's account of Israel's salvation, making the Pauline topics more precise than general salvation."
+        },
+        {
+          "wpId": "21009",
+          "title": "When Paul Says “Israel” Does He Mean “The Jews”?  Guest Post by Jason Staples",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's central question about Paul's use of Israel is developed through Romans 9-11."
+        },
+        {
+          "wpId": "20990",
+          "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is a sustained analysis of Romans 9-11 and Paul's model for the salvation of Israel, not salvation in general."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1-100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
@@ -59624,7 +59966,7 @@
       "auditSequence": 244,
       "status": "completed",
       "postCountBefore": 8,
-      "postCountAfter": 10,
+      "postCountAfter": 12,
       "descriptionBefore": "Posts on the Son of Man sayings, including what the phrase meant, whether Jesus used it for himself, and its role in apocalyptic traditions.",
       "descriptionRecommendation": "Posts on the Son of Man sayings, including what the phrase meant, whether Jesus used it for himself, and its role in apocalyptic traditions.",
       "categoriesBefore": [
@@ -59703,11 +60045,26 @@
           "decision": "add",
           "confidence": "high",
           "reason": "In addition to atonement, the post gives substantial responses on Jesus' Son of Man sayings and the translation of 'Sabbaths' in the resurrection narratives."
+        },
+        {
+          "wpId": "21093",
+          "title": "Did Jesus Think He Would Be the Judge of the Earth?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on Jesus' expectation that the Son of Man would judge the earth and situates that expectation within his apocalyptic message."
+        },
+        {
+          "wpId": "21086",
+          "title": "How Do You Know If Jesus Said That?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses Jesus' Son of Man sayings as its sustained case study for deciding what Jesus historically said."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 301-500 updated this assignment."
+        "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
       ]
     },
     {
