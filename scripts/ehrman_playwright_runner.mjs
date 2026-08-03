@@ -24,18 +24,23 @@ function outputPaths(root) {
 }
 
 function loadCredentials() {
-  const values = {};
-  for (const line of fs.readFileSync(CREDENTIALS_PATH, "utf8").split(/\r?\n/)) {
-    if (!line.includes("=") || line.trimStart().startsWith("#")) continue;
-    const [key, ...rest] = line.split("=");
-    let value = rest.join("=").trim();
-    if (value.length >= 2 && value[0] === value.at(-1) && ["'", '"'].includes(value[0])) {
-      value = value.slice(1, -1);
+  const values = {
+    EHRMAN_USERNAME: process.env.EHRMAN_USERNAME || "",
+    EHRMAN_PASSWORD: process.env.EHRMAN_PASSWORD || "",
+  };
+  if ((!values.EHRMAN_USERNAME || !values.EHRMAN_PASSWORD) && fs.existsSync(CREDENTIALS_PATH)) {
+    for (const line of fs.readFileSync(CREDENTIALS_PATH, "utf8").split(/\r?\n/)) {
+      if (!line.includes("=") || line.trimStart().startsWith("#")) continue;
+      const [key, ...rest] = line.split("=");
+      let value = rest.join("=").trim();
+      if (value.length >= 2 && value[0] === value.at(-1) && ["'", '"'].includes(value[0])) {
+        value = value.slice(1, -1);
+      }
+      values[key.trim()] = value;
     }
-    values[key.trim()] = value;
   }
   if (!values.EHRMAN_USERNAME || !values.EHRMAN_PASSWORD) {
-    throw new Error(`Missing EHRMAN_USERNAME or EHRMAN_PASSWORD in ${CREDENTIALS_PATH}`);
+    throw new Error("Missing EHRMAN_USERNAME or EHRMAN_PASSWORD.");
   }
   return values;
 }

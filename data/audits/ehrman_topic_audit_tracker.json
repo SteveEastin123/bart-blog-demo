@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-02",
+  "updatedAt": "2026-08-03",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -245,7 +245,8 @@
         "Post-by-post topic-link audit for posts 101-200 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -253,7 +254,7 @@
       "auditSequence": 1,
       "status": "completed",
       "postCountBefore": 114,
-      "postCountAfter": 109,
+      "postCountAfter": 110,
       "descriptionBefore": "Covers difficult translation decisions, ancient languages, textual bases, inclusive language, misleading translations, and how translation affects interpretation.",
       "descriptionRecommendation": "Examines how biblical and early Christian texts are translated, including word choice, inclusive language, source texts, ancient versions, and misleading or disputed renderings.",
       "categoriesBefore": [
@@ -1109,6 +1110,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The evaluation of the NRSV gives sustained attention to the choices and problems involved in producing a translation."
+        },
+        {
+          "wpId": "15604",
+          "title": "Today You Will Be With Me in Paradise?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines the punctuation and translation of Luke 23:43 as evidence for Luke's view that believers enter paradise immediately at death."
         }
       ],
       "notes": [
@@ -1119,7 +1127,8 @@
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
         "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -1127,7 +1136,7 @@
       "auditSequence": 2,
       "status": "completed",
       "postCountBefore": 100,
-      "postCountAfter": 103,
+      "postCountAfter": 109,
       "descriptionBefore": "Posts focused on the Gospel of Luke, including Luke-Acts, birth narratives, parables, atonement, historical reliability, and Luke's distinctive portrayal of Jesus.",
       "descriptionRecommendation": "Examines the Gospel of Luke's authorship, composition, distinctive narratives, theology, textual history, and relationship to Acts and the other Gospels.",
       "categoriesBefore": [
@@ -1899,6 +1908,48 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The nativity argument depends on Luke's account and its conflicts with Matthew's birth narrative."
+        },
+        {
+          "wpId": "15787",
+          "title": "Readers’ Mailbag 1/20/2019: The Only Story of Jesus as a Boy in the New Testament",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explains Luke's boyhood story as a feature of Greco-Roman biography that anticipates Jesus' adult identity and mission."
+        },
+        {
+          "wpId": "15604",
+          "title": "Today You Will Be With Me in Paradise?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines the punctuation and translation of Luke 23:43 as evidence for Luke's view that believers enter paradise immediately at death."
+        },
+        {
+          "wpId": "15543",
+          "title": "What’s the Story of Lazarus and the Rich Man All About?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets Luke's Lazarus parable as Jesus' teaching about wealth, poverty, care for the poor, and postmortem judgment."
+        },
+        {
+          "wpId": "15541",
+          "title": "The Fate of the Rich and the Poor: Another Story",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares Luke's rich-man-and-Lazarus parable with an Egyptian tale of reversed wealth and poverty in the afterlife."
+        },
+        {
+          "wpId": "15324",
+          "title": "A Key Contradiction in the Birth Narratives of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Luke's birth account and its direct conflict with Matthew occupy roughly half of the post and are indispensable to its central argument."
+        },
+        {
+          "wpId": "14986",
+          "title": "What Happened at the Last Supper?  A Textual Problem in Luke",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is a detailed textual-critical analysis of the shorter and longer forms of Luke's Last Supper account and the atonement theology affected by the variant."
         }
       ],
       "notes": [
@@ -1910,7 +1961,9 @@
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -2664,7 +2717,7 @@
       "auditSequence": 4,
       "status": "completed",
       "postCountBefore": 98,
-      "postCountAfter": 76,
+      "postCountAfter": 77,
       "descriptionBefore": "Posts on how scribes altered manuscripts, including accidental mistakes, intentional changes, theological edits, harmonizations, and the historical significance of copying.",
       "descriptionRecommendation": "Posts on how scribes altered manuscripts, including accidental mistakes, intentional changes, theological edits, harmonizations, and the historical significance of copying.",
       "categoriesBefore": [
@@ -3359,6 +3412,13 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post substantially examines copying errors, intentional alterations, scribal motives or tendencies, or the historical consequences of changes made in transmission."
+        },
+        {
+          "wpId": "13404",
+          "title": "666 and Scribal  Changes of the Text",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly examines scribal alteration behind the competing numbers 666 and 616 in Revelation."
         }
       ],
       "notes": [
@@ -3367,7 +3427,8 @@
         "Added the existing Autobiographical Posts topic to wpId 9043 when removing Scribal Changes.",
         "Approved recommendations were applied to live topic assignments.",
         "The topic description and Textual Criticism category placement were retained unchanged.",
-        "Demo and SQLite outputs were not rebuilt."
+        "Demo and SQLite outputs were not rebuilt.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -3375,7 +3436,7 @@
       "auditSequence": 5,
       "status": "completed",
       "postCountBefore": 95,
-      "postCountAfter": 97,
+      "postCountAfter": 99,
       "descriptionBefore": "Covers teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
       "descriptionRecommendation": "Covers teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
       "categoriesBefore": [
@@ -4077,6 +4138,20 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "This is a logistical reminder for an upcoming lecture and does not itself provide substantive treatment of Revelation or teaching."
+        },
+        {
+          "wpId": "15285",
+          "title": "The Strangest Moment of My Teaching Career",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The autobiographical story is wholly centered on a grading incident from an undergraduate New Testament course and the responsibilities of teaching."
+        },
+        {
+          "wpId": "14734",
+          "title": "My Greek New Testament Course",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post presents the objectives, requirements, readings, assignments, and schedule of a Greek New Testament university course."
         }
       ],
       "notes": [
@@ -4089,7 +4164,8 @@
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
         "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -4097,7 +4173,7 @@
       "auditSequence": 6,
       "status": "completed",
       "postCountBefore": 89,
-      "postCountAfter": 93,
+      "postCountAfter": 95,
       "descriptionBefore": "Posts on differences among manuscript copies, why variants matter, and how changed wording can affect interpretation of biblical texts.",
       "descriptionRecommendation": "Posts on differences among manuscript copies, why variants matter, and how changed wording can affect interpretation of biblical texts.",
       "categoriesBefore": [
@@ -4778,6 +4854,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post examines a variant in 1 Thessalonians 2:7 and weighs the internal criteria used to decide between its readings."
+        },
+        {
+          "wpId": "14986",
+          "title": "What Happened at the Last Supper?  A Textual Problem in Luke",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is a detailed textual-critical analysis of the shorter and longer forms of Luke's Last Supper account and the atonement theology affected by the variant."
+        },
+        {
+          "wpId": "13419",
+          "title": "Why Do Translators Include Passages They Know Are Not Original?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The entire answer concerns how translators present major passages that textual critics judge to be later additions."
         }
       ],
       "notes": [
@@ -4789,7 +4879,8 @@
         "Demo and SQLite outputs were not rebuilt.",
         "Post-by-post topic-link audit for posts 101-200 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment."
+        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -4797,7 +4888,7 @@
       "auditSequence": 7,
       "status": "completed",
       "postCountBefore": 88,
-      "postCountAfter": 103,
+      "postCountAfter": 105,
       "descriptionBefore": "Posts on whether the original wording of New Testament writings can be identified, including lost originals, authorial drafts, copied texts, and arguments for reconstruction.",
       "descriptionRecommendation": "Posts on whether the original wording of New Testament writings can be identified, including lost originals, authorial drafts, copied texts, and arguments for reconstruction.",
       "categoriesBefore": [
@@ -5527,6 +5618,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The critique of claims to 99-percent certainty centers on whether scholars can know the original New Testament wording without the originals."
+        },
+        {
+          "wpId": "16288",
+          "title": "Is There a Way to Know if a Manuscript is the “Original”?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post asks whether scholars could ever identify a New Testament manuscript as an author's original copy."
+        },
+        {
+          "wpId": "15801",
+          "title": "How Do We Know What Was Originally in the Apocalypse of Peter?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's central question is which surviving form best represents the Apocalypse of Peter as originally written."
         }
       ],
       "notes": [
@@ -5539,7 +5644,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -5547,7 +5653,7 @@
       "auditSequence": 8,
       "status": "completed",
       "postCountBefore": 83,
-      "postCountAfter": 88,
+      "postCountAfter": 92,
       "descriptionBefore": "Posts focused on the Gospel of Mark, including Markan priority, the Messianic Secret, textual issues, the portrayal of Jesus, and distinctive narrative features.",
       "descriptionRecommendation": "Posts focused on the Gospel of Mark, including Markan priority, the Messianic Secret, textual issues, the portrayal of Jesus, and distinctive narrative features.",
       "categoriesBefore": [
@@ -5833,13 +5939,6 @@
         {
           "wpId": "15829",
           "title": "How Do We Explain the Messianic Secret?",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The Gospel of Mark is a primary or major sustained subject through its authorship, date, sources, textual form, narrative, theology, portrayal of Jesus, or comparison with another Gospel."
-        },
-        {
-          "wpId": "15809",
-          "title": "Don’t Trust What You Read!",
           "decision": "retain",
           "confidence": "high",
           "reason": "The Gospel of Mark is a primary or major sustained subject through its authorship, date, sources, textual form, narrative, theology, portrayal of Jesus, or comparison with another Gospel."
@@ -6186,6 +6285,48 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The guest argument is built from sustained close reading of Mark's two Marys and two figures named James."
+        },
+        {
+          "wpId": "15841",
+          "title": "Mark: The First Gospel in 19th Century Research",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The entire post explains the evidence that Mark was the earliest Gospel and a source for Matthew and Luke."
+        },
+        {
+          "wpId": "15837",
+          "title": "Mark’s Central Focus on Jesus’ Death",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely analyzes Mark's presentation of Jesus' suffering, Passion, and death as the Gospel's organizing focus."
+        },
+        {
+          "wpId": "15809",
+          "title": "Don’t Trust What You Read!",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "This brief correction retracts a prior claim about Mark 7 rather than offering a sustained treatment of Mark's Gospel."
+        },
+        {
+          "wpId": "14923",
+          "title": "Why Discrepancies Matter for Interpretation",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's interpretation depends on a sustained comparison of Mark's and Luke's distinct portrayals of Jesus' suffering and death."
+        },
+        {
+          "wpId": "14920",
+          "title": "Why Differences and Discrepancies Matter Theologically/Religiously",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Most of the post compares Mark's and Luke's Passion narratives to show how their discrepancies preserve different theological messages."
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely interprets Mark's Passion, empty-tomb ending, and presentation of Jesus as the suffering and vindicated Son of God."
         }
       ],
       "notes": [
@@ -6198,7 +6339,9 @@
         "Demo and SQLite outputs were not rebuilt.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -6206,7 +6349,7 @@
       "auditSequence": 9,
       "status": "completed",
       "postCountBefore": 78,
-      "postCountAfter": 88,
+      "postCountAfter": 91,
       "descriptionBefore": "Posts focused on the Gospel of John, including its authorship, distinctive theology, historical reliability, signs, symbolism, and portrayal of Jesus.",
       "descriptionRecommendation": "Posts examine the Gospel of John, including its authorship, sources, manuscript tradition, historical reliability, community setting, distinctive theology, signs, and portrayal of Jesus.",
       "categoriesBefore": [
@@ -6789,6 +6932,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The guest post substantially evaluates the proposed community behind both the Gospel and letters of John."
+        },
+        {
+          "wpId": "15795",
+          "title": "If Jesus Wasn’t God, Was He Necessarily Either a Calloused Liar or a Raving Lunatic?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares John's divine claims for Jesus with the Synoptic Gospels and argues that those claims do not derive from the historical Jesus."
+        },
+        {
+          "wpId": "15577",
+          "title": "Did Jesus Call Himself God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares the Synoptic Gospels with John's distinctive portrayal of Jesus explicitly claiming divinity."
+        },
+        {
+          "wpId": "12862",
+          "title": "Was John the Son of Zebedee Capable of Writing a  Gospel?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates whether John son of Zebedee could have composed the Greek Gospel attributed to him."
         }
       ],
       "notes": [
@@ -6801,7 +6965,9 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -9612,7 +9778,7 @@
       "auditSequence": 15,
       "status": "completed",
       "postCountBefore": 70,
-      "postCountAfter": 73,
+      "postCountAfter": 74,
       "descriptionBefore": "Covers the book of Revelation as an ancient apocalypse, including authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "descriptionRecommendation": "Covers the book of Revelation as an ancient apocalypse, including authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
       "categoriesBefore": [
@@ -10139,6 +10305,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The distinction between apocalypse and apocalypticism is developed specifically to situate and interpret the book of Revelation."
+        },
+        {
+          "wpId": "15532",
+          "title": "Who Wrote the Book of Revelation?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is wholly devoted to Revelation's authorship, writing style, eschatology, and canonical reception."
         }
       ],
       "notes": [
@@ -10149,7 +10322,8 @@
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -12643,7 +12817,7 @@
       "auditSequence": 21,
       "status": "completed",
       "postCountBefore": 65,
-      "postCountAfter": 66,
+      "postCountAfter": 65,
       "descriptionBefore": "Covers ancient and Christian ideas about heaven and hell, including reward, punishment, moral reversal, and connections with Jesus, Paul, Revelation, Jewish traditions, Greek traditions, and Roman traditions.",
       "descriptionRecommendation": "Covers ancient and Christian ideas about heaven and hell, including reward, punishment, moral reversal, and connections with Jesus, Paul, Revelation, Jewish traditions, Greek traditions, and Roman traditions.",
       "categoriesBefore": [
@@ -12866,13 +13040,6 @@
         {
           "wpId": "15905",
           "title": "The Original Obsession with Trips to the Afterlife",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Heaven and Hell Beliefs as a primary or major sustained subject, rather than as an incidental reference."
-        },
-        {
-          "wpId": "15902",
-          "title": "My Next Scholarly Book: Visits to Heaven and Hell",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Heaven and Hell Beliefs as a primary or major sustained subject, rather than as an incidental reference."
@@ -13114,6 +13281,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post examines Christ's descent to Hades, who was believed to be saved there, and early Christian views of the underworld."
+        },
+        {
+          "wpId": "15902",
+          "title": "My Next Scholarly Book: Visits to Heaven and Hell",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post introduces a scholarly book project on ancient otherworldly journeys and discusses its research, title, audience, and publication rather than surveying heaven-and-hell beliefs."
         }
       ],
       "notes": [
@@ -13122,7 +13296,8 @@
         "The linked posts consistently treat heaven, hell, reward, punishment, judgment, or closely related beliefs as major subjects; no assignment changes are recommended.",
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment."
+        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -13587,7 +13762,7 @@
       "auditSequence": 23,
       "status": "completed",
       "postCountBefore": 62,
-      "postCountAfter": 82,
+      "postCountAfter": 83,
       "descriptionBefore": "Posts about Bart's life, education, career, family memories, retirement, and personal experiences.",
       "descriptionRecommendation": "Posts about Bart's life, education, career, family memories, retirement, and personal experiences.",
       "categoriesBefore": [
@@ -14037,6 +14212,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Most of the post recounts Bart's religious upbringing, conversion, Moody years, and path into textual criticism."
+        },
+        {
+          "wpId": "13240",
+          "title": "Was My Weird Background a Help or a Hindrance: Mailbag October 22, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is a sustained personal reflection on how a fundamentalist background shaped and complicated a later scholarly career."
         }
       ],
       "notes": [
@@ -14045,7 +14227,8 @@
         "Recommended additions: 29294: Explanations for Why I Left the Faith | 40220: How Scholarship Changed My Life | 36143: Announcing a NEW (Free!) Course:  Why I Am Not A Christian | 12762: Was There a “Moment” When I Left the Faith? | 33021: How Serendipity Changed My Life: The Apostolic Fathers | 4071: Moving from the Faith | 2764: Autobiographical: Back to Metzger and Me | 2611: Autobiographical.  Metzger and Me.  The Dissertation Defense | 2476: Autobiographical.  Metzger and Me:  Metzger’s Faith | 2771: Autobiographical.  Metzger and My Loss of Faith | 2629: Autobiographical.  Metzger and Me.  The NRSV Bible Translation Committee | 2500: Autobiographical.  Metzger and Me: The Squirrel Story, Part 2 | 2418: Autobiographical: Metzger and Me.  My First Work on the Text | 2445: Autobiographical.  Metzger and Me:  My Dissertation Proposal | 2422: Autobiographical.  Metzger and Me: Beginning the PhD Program | 2605: Autobiographical.  Metzger and Me: Finishing the Dissertation | 2647: Autobiographical.  Metzger and Me: More on the NRSV | 2459: Autobiographical.  Metzger and Me: Serving as his Teaching Assistant | 2585: Autobiographical.  Metzger and Me: The Dissertation | 2435: Autobiographical: Metzger and Me.  The Seminar on the Canon",
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 501-700 updated this assignment."
+        "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -14993,7 +15176,7 @@
       "auditSequence": 26,
       "status": "completed",
       "postCountBefore": 59,
-      "postCountAfter": 69,
+      "postCountAfter": 70,
       "descriptionBefore": "Covers critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
       "descriptionRecommendation": "Covers critical biblical scholarship, scholarly consensus, seminary training, and how academic study differs from devotional or fundamentalist approaches.",
       "categoriesBefore": [
@@ -15450,6 +15633,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally explains why a nonbeliever can study the Bible as a historically and culturally important academic subject."
+        },
+        {
+          "wpId": "15919",
+          "title": "The Protestant Obsession with Origins",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "This substantive post traces how Protestant theology shaped critical scholarship's concern with recovering religious origins."
         }
       ],
       "notes": [
@@ -15462,7 +15652,8 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -15470,7 +15661,7 @@
       "auditSequence": 27,
       "status": "completed",
       "postCountBefore": 58,
-      "postCountAfter": 47,
+      "postCountAfter": 48,
       "descriptionBefore": "Covers why people converted to Christianity, including miracles, fear of hell, social appeal, martyrdom, missions, and ancient accounts of conversion.",
       "descriptionRecommendation": "Covers why people converted to Christianity, including miracles, fear of hell, social appeal, martyrdom, missions, and ancient accounts of conversion.",
       "categoriesBefore": [
@@ -15899,6 +16090,13 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The title's 'conversions' are historical transformations of Christianity, not conversions of people to the faith; the post instead centers on Christian diversity, historiography, persecution, and imperial change."
+        },
+        {
+          "wpId": "15989",
+          "title": "Constantine and the Christian Faith: My Fourth Smithsonian Lecture",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Constantine's conversion and its historical significance are the lecture's central focus."
         }
       ],
       "notes": [
@@ -15907,7 +16105,8 @@
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
         "Two substantive guest-post versions were added after the Celsus cleanup left them without topics.",
-        "Post-by-post topic-link audit for posts 301-500 updated this assignment."
+        "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -16749,7 +16948,7 @@
       "auditSequence": 30,
       "status": "completed",
       "postCountBefore": 54,
-      "postCountAfter": 40,
+      "postCountAfter": 43,
       "descriptionBefore": "Covers non-canonical gospel traditions outside the New Testament when no more specific topic is used, including lost, fragmentary, legendary, infancy, Pilate, and other gospel-like traditions.",
       "descriptionRecommendation": "Covers non-canonical gospel traditions outside the New Testament when no more specific topic is used, including lost, fragmentary, legendary, infancy, Pilate, and other gospel-like traditions.",
       "categoriesBefore": [
@@ -17136,6 +17335,27 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "This is a logistical fundraising-lecture announcement and does not itself develop the noncanonical infancy traditions it advertises."
+        },
+        {
+          "wpId": "15676",
+          "title": "An Intriguingly Legendary Account of Jesus’ Death",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post translates a non-canonical Passion account whose sustained narrative concerns Jesus' trial, betrayal, and crucifixion."
+        },
+        {
+          "wpId": "15674",
+          "title": "Did Jesus Write a Letter to Joseph of Arimathea",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces and translates the late Narrative of Joseph of Arimathea, including its legendary Passion traditions and a letter written by Jesus from the cross."
+        },
+        {
+          "wpId": "14935",
+          "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces and translates the non-canonical Report of Pilate as a legendary expansion of Jesus' trial, death, and resurrection."
         }
       ],
       "notes": [
@@ -17151,7 +17371,9 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -18003,7 +18225,7 @@
       "auditSequence": 33,
       "status": "completed",
       "postCountBefore": 52,
-      "postCountAfter": 64,
+      "postCountAfter": 65,
       "descriptionBefore": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "descriptionRecommendation": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "categoriesBefore": [
@@ -18411,6 +18633,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally distinguishes literary interpretation from historical reconstruction and explains why the two require different methods."
+        },
+        {
+          "wpId": "12830",
+          "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Half of the post explains the linguistic and historical grounds for dating Daniel to the Maccabean period and distinguishes critical historical reasoning from anti-supernatural bias."
         }
       ],
       "notes": [
@@ -18421,7 +18650,8 @@
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -20807,7 +21037,7 @@
       "auditSequence": 40,
       "status": "completed",
       "postCountBefore": 49,
-      "postCountAfter": 72,
+      "postCountAfter": 74,
       "descriptionBefore": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "descriptionRecommendation": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categoriesBefore": [
@@ -21180,6 +21410,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post repeatedly contrasts Revelation's vision of vengeance and domination with Jesus' teachings on service, love, humility, and care for others."
+        },
+        {
+          "wpId": "15543",
+          "title": "What’s the Story of Lazarus and the Rich Man All About?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets Luke's Lazarus parable as Jesus' teaching about wealth, poverty, care for the poor, and postmortem judgment."
+        },
+        {
+          "wpId": "13323",
+          "title": "The Sheep and the Goats",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets the sheep-and-goats saying as Jesus' apocalyptic teaching about the Son of Man's final judgment, reward, and punishment."
         }
       ],
       "notes": [
@@ -21188,7 +21432,9 @@
         "Recommended additions: 30223: The Plausibility of the Fourth Gospel: The Sayings of Jesus. Guest Post by Dennis Folds | 8839: A Fantastic Saying of Jesus in Papias | 13203: Is This the Same Teacher?  Jesus in John and the Synoptics. | 21317: A Very Odd Saying of Jesus | 27340: The Horrible Fate of Sinners: Jesus’ Teaching on Gehenna | 32817: Is It Even Possible to Follow Jesus’ Teaching to “Love Your Neighbor as Yourself” | 31173: Lazarus and the Rich Man: What To Do with Wealth | 32062: Softening Jesus’ Message on Giving up (Literally) Everything | 49472: The Distinctively Jewish Roots of Jesus’ Ethics | 38137: The Fate of Jesus’ Ethics after His Death | 6541: The Later De-apocalypticizing of Jesus | 15539: Heaven, Hell, and the Parable of Lazarus and the Rich Man | 38155: How’s the Christian World Doin’ These Days with the Ethics of Jesus? | 38938: Other “Unknown” Sayings of Jesus | 31849: Did Jesus Insist on Voluntary Poverty? | 7315: Jesus and Paul Compared and Contrasted | 14882: Jesus and Paul: Similarities and Differences | 35324: Did Jesus Believe The End Would Come Within His Lifetime? Platinum Post by Rizwan Ahmed | 36569: Did Jesus Believe the End Would Come Within his Lifetime? Maybe Not!  Platinum Post by Rizwan Ahmed | 32068: Christians Who Reversed Jesus’ Teachings:  Wealth is GOOD!",
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -23391,7 +23637,7 @@
       "auditSequence": 46,
       "status": "completed",
       "postCountBefore": 44,
-      "postCountAfter": 51,
+      "postCountAfter": 52,
       "descriptionBefore": "Posts on who wrote the canonical Gospels, why they are anonymous, how titles and traditions developed, and how early Christians connected them with apostolic figures.",
       "descriptionRecommendation": "Posts on who wrote the canonical Gospels, why they are anonymous, how titles and traditions developed, and how early Christians connected them with apostolic figures.",
       "categoriesBefore": [
@@ -23758,6 +24004,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A major part of the post examines Matthew's anonymity, later attribution, literacy, and why the disciple probably did not write the Gospel."
+        },
+        {
+          "wpId": "12862",
+          "title": "Was John the Son of Zebedee Capable of Writing a  Gospel?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly evaluates whether John son of Zebedee could have composed the Greek Gospel attributed to him."
         }
       ],
       "notes": [
@@ -23765,7 +24018,8 @@
         "Checked unlinked posts conservatively for strong omissions.",
         "Recommended additions: 47100: The Gospel of John:  Who Wrote It, When, and Why? | 17515: Did *Any* Companion of Paul Write Luke and Acts? | 17477: Did “Luke” Really Write Luke?  And the book of Acts? | 8236: Our Anonymous Gospels, Starting with Luke | 4768: Who Wrote Luke and Acts?",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 301-500 updated this assignment."
+        "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -24783,7 +25037,7 @@
       "auditSequence": 49,
       "status": "completed",
       "postCountBefore": 42,
-      "postCountAfter": 63,
+      "postCountAfter": 65,
       "descriptionBefore": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "descriptionRecommendation": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categoriesBefore": [
@@ -25233,6 +25487,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The historical overview repeatedly identifies Jesus' apocalyptic proclamation of God's imminent kingdom as the heart of his message."
+        },
+        {
+          "wpId": "15466",
+          "title": "Looking for Feedback on My Views about Jesus and the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post presents a book argument that Jesus' apocalyptic teaching envisioned the annihilation of sinners rather than eternal torment, making the specific topics more useful than general life after death."
+        },
+        {
+          "wpId": "13323",
+          "title": "The Sheep and the Goats",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets the sheep-and-goats saying as Jesus' apocalyptic teaching about the Son of Man's final judgment, reward, and punishment."
         }
       ],
       "notes": [
@@ -25244,7 +25512,9 @@
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -27951,7 +28221,7 @@
       "auditSequence": 58,
       "status": "completed",
       "postCountBefore": 36,
-      "postCountAfter": 35,
+      "postCountAfter": 37,
       "descriptionBefore": "Covers how Gospel texts portray Jesus' identity, sonship, divinity, messiahship, and relationship to God.",
       "descriptionRecommendation": "Covers how canonical and non-canonical Gospels portray Jesus' identity, sonship, divinity, messiahship, humanity, and relationship to God.",
       "categoriesBefore": [
@@ -28226,13 +28496,29 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post explains that miracle stories identify Jesus as God's powerful Son and present his deeds as signs of the approaching Kingdom."
+        },
+        {
+          "wpId": "15577",
+          "title": "Did Jesus Call Himself God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares the Synoptic Gospels with John's distinctive portrayal of Jesus explicitly claiming divinity."
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely interprets Mark's Passion, empty-tomb ending, and presentation of Jesus as the suffering and vindicated Son of God."
         }
       ],
       "notes": [
         "Reviewed all 36 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -28240,7 +28526,7 @@
       "auditSequence": 59,
       "status": "completed",
       "postCountBefore": 36,
-      "postCountAfter": 33,
+      "postCountAfter": 34,
       "descriptionBefore": "Posts about Bart's book on the development of Christian afterlife beliefs, including excerpts, interviews, reader responses, and related discussions.",
       "descriptionRecommendation": "Posts about Bart's book on the development of Christian afterlife beliefs, including its development, excerpts, interviews, events, promotions, reader responses, and related discussions.",
       "categoriesBefore": [
@@ -28543,13 +28829,21 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "This is an auction update without substantive discussion of the book; the existing Ignore topic is sufficient."
+        },
+        {
+          "wpId": "15466",
+          "title": "Looking for Feedback on My Views about Jesus and the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post presents a book argument that Jesus' apocalyptic teaching envisioned the annihilation of sinners rather than eternal torment, making the specific topics more useful than general life after death."
         }
       ],
       "notes": [
         "Reviewed all 36 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -28889,7 +29183,7 @@
       "auditSequence": 61,
       "status": "completed",
       "postCountBefore": 35,
-      "postCountAfter": 39,
+      "postCountAfter": 40,
       "descriptionBefore": "Covers hell, Gehenna, eternal torment, annihilation, the unforgivable sin, degrees of punishment, and Christian debates about divine justice.",
       "descriptionRecommendation": "Covers hell, Gehenna, eternal torment, annihilation, the unforgivable sin, degrees of punishment, and Christian debates about divine justice.",
       "categoriesBefore": [
@@ -29179,13 +29473,21 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post's central personal argument is that the author cannot follow Jesus because he rejects Jesus' apocalyptic location of ultimate meaning beyond this world; eternal punishment is only one element in the background explanation."
+        },
+        {
+          "wpId": "15466",
+          "title": "Looking for Feedback on My Views about Jesus and the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post presents a book argument that Jesus' apocalyptic teaching envisioned the annihilation of sinners rather than eternal torment, making the specific topics more useful than general life after death."
         }
       ],
       "notes": [
         "Reviewed all 35 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -29497,7 +29799,7 @@
       "auditSequence": 63,
       "status": "completed",
       "postCountBefore": 34,
-      "postCountAfter": 40,
+      "postCountAfter": 41,
       "descriptionBefore": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "descriptionRecommendation": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "categoriesBefore": [
@@ -29786,6 +30088,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post compares John's chronology with the Synoptics to argue that John's account may be more historically credible."
+        },
+        {
+          "wpId": "15795",
+          "title": "If Jesus Wasn’t God, Was He Necessarily Either a Calloused Liar or a Raving Lunatic?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares John's divine claims for Jesus with the Synoptic Gospels and argues that those claims do not derive from the historical Jesus."
         }
       ],
       "notes": [
@@ -29793,7 +30102,8 @@
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -30357,7 +30667,7 @@
       "auditSequence": 66,
       "status": "completed",
       "postCountBefore": 34,
-      "postCountAfter": 39,
+      "postCountAfter": 40,
       "descriptionBefore": "Covers modern end-times interpretation, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
       "descriptionRecommendation": "Covers modern end-times interpretation, including the rapture, Armageddon, Israel, Waco, American politics, and readings of biblical prophecy as predictions of current events.",
       "categoriesBefore": [
@@ -30646,13 +30956,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The proposed Revelation book is framed around modern readings of the book as a prediction of events in the reader's own time."
+        },
+        {
+          "wpId": "15740",
+          "title": "My Research Goals for 2019",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Two of the post's four major research goals are a scholarly study of otherworldly journeys and a trade book on modern readings of Revelation as end-times prediction."
         }
       ],
       "notes": [
         "Reviewed all 34 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -30927,7 +31245,7 @@
       "auditSequence": 68,
       "status": "completed",
       "postCountBefore": 33,
-      "postCountAfter": 36,
+      "postCountAfter": 37,
       "descriptionBefore": "Posts on future bodily resurrection, including Jewish origins, Daniel, Maccabean martyrdom, Paul, physical embodiment, personal identity, and resurrection as afterlife hope.",
       "descriptionRecommendation": "Posts on future bodily resurrection, including Jewish origins, Daniel, Maccabean martyrdom, Paul, physical embodiment, personal identity, and resurrection as afterlife hope.",
       "categoriesBefore": [
@@ -31188,12 +31506,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally explains how delayed expectation of the resurrection of the dead was transformed into belief in the soul's immediate ascent to heaven or hell."
+        },
+        {
+          "wpId": "12797",
+          "title": "The Books of 1 and 2 Maccabees",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The stated purpose and concluding emphasis of the survey are 2 Maccabees' teaching that faithful martyrs will be raised and rewarded."
         }
       ],
       "notes": [
         "Reviewed all 33 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -32724,7 +33050,7 @@
       "auditSequence": 75,
       "status": "completed",
       "postCountBefore": 31,
-      "postCountAfter": 34,
+      "postCountAfter": 36,
       "descriptionBefore": "Covers Jesus' crucifixion as a historical event, including how it is reconstructed, disputed, interpreted, or compared with later religious claims.",
       "descriptionRecommendation": "Covers Jesus' crucifixion as a historical event, including how it is reconstructed, disputed, interpreted, or compared with later religious claims.",
       "categoriesBefore": [
@@ -32971,6 +33297,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The proposed Roman-collaboration theory is developed through alleged Roman staging of Jesus' miracles, crucifixion, and appearances after death."
+        },
+        {
+          "wpId": "15837",
+          "title": "Mark’s Central Focus on Jesus’ Death",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely analyzes Mark's presentation of Jesus' suffering, Passion, and death as the Gospel's organizing focus."
+        },
+        {
+          "wpId": "15676",
+          "title": "An Intriguingly Legendary Account of Jesus’ Death",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post translates a non-canonical Passion account whose sustained narrative concerns Jesus' trial, betrayal, and crucifixion."
         }
       ],
       "notes": [
@@ -32978,7 +33318,8 @@
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -33500,7 +33841,7 @@
       "auditSequence": 78,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 36,
+      "postCountAfter": 40,
       "descriptionBefore": "Posts on the book of Acts, including its literary features, historical reliability, major topics, theology, and account of early Christianity's spread.",
       "descriptionRecommendation": "Posts on the book of Acts, including its literary features, historical reliability, major topics, theology, and account of early Christianity's spread.",
       "categoriesBefore": [
@@ -33761,13 +34102,42 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The proposed solution is built from the relationship between Acts and Galatians in reconstructing Paul's dispute over Jewish law; the Pauline law topic already covers that aspect more precisely."
+        },
+        {
+          "wpId": "15268",
+          "title": "Why Does Luke Appear to Contradict Himself?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post examines an internal chronological tension between Luke's Gospel and Acts concerning Jesus' ascension."
+        },
+        {
+          "wpId": "15261",
+          "title": "Does Luke Flat Out Contradict Himself?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The alleged contradiction is specifically between Luke's Gospel and Acts over when Jesus ascended."
+        },
+        {
+          "wpId": "13183",
+          "title": "Paul on Trial for the Resurrection",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post narrates and critically evaluates Acts' portrayal of Paul's Sanhedrin trial as evidence for Jewish disputes about resurrection."
+        },
+        {
+          "wpId": "13137",
+          "title": "Did Luke Have a Doctrine of the Atonement?  Mailbag September 24, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The argument surveys Luke and Acts and relies centrally on a scribal addition whose atonement language changes Luke's theology."
         }
       ],
       "notes": [
         "Reviewed all 30 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -34290,7 +34660,7 @@
       "auditSequence": 81,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 32,
+      "postCountAfter": 34,
       "descriptionBefore": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "descriptionRecommendation": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "categoriesBefore": [
@@ -34523,11 +34893,26 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post surveys the historically secure outline and disputed details of Jesus' final week and the Passion accounts."
+        },
+        {
+          "wpId": "14920",
+          "title": "Why Differences and Discrepancies Matter Theologically/Religiously",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Most of the post compares Mark's and Luke's Passion narratives to show how their discrepancies preserve different theological messages."
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely interprets Mark's Passion, empty-tomb ending, and presentation of Jesus as the suffering and vindicated Son of God."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 901-1100 updated this assignment."
+        "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -34535,7 +34920,7 @@
       "auditSequence": 82,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 30,
+      "postCountAfter": 32,
       "descriptionBefore": "Covers manuscript discoveries and controversies, including mummy masks, Quran fragments, the Didache, new finds, acquisition ethics, and scholarly issues around ancient manuscripts.",
       "descriptionRecommendation": "Covers manuscript discoveries and controversies, including mummy masks, Quran fragments, the Didache, new finds, acquisition ethics, and scholarly issues around ancient manuscripts.",
       "categoriesBefore": [
@@ -34754,10 +35139,25 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Manuscript Discoveries and Controversies as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16322",
+          "title": "The Legality, Morality, and Scandal of Acquiring Ancient Manuscripts: Guest Post by Jennifer Knust",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post focuses on provenance, possible Nazi looting, acquisition ethics, and restitution questions involving ancient manuscripts."
+        },
+        {
+          "wpId": "16318",
+          "title": "Christian Manuscripts and Nazi Loot: Guest Post by Jennifer Knust",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The provenance and possible Nazi-era looting of Christian manuscripts are the post's central subjects."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -35010,7 +35410,7 @@
       "auditSequence": 84,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 31,
+      "postCountAfter": 33,
       "descriptionBefore": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "descriptionRecommendation": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "categoriesBefore": [
@@ -35243,12 +35643,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post's main argument is that some textual variants materially affect the interpretation and theology of New Testament books."
+        },
+        {
+          "wpId": "14986",
+          "title": "What Happened at the Last Supper?  A Textual Problem in Luke",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is a detailed textual-critical analysis of the shorter and longer forms of Luke's Last Supper account and the atonement theology affected by the variant."
+        },
+        {
+          "wpId": "13137",
+          "title": "Did Luke Have a Doctrine of the Atonement?  Mailbag September 24, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The argument surveys Luke and Acts and relies centrally on a scribal addition whose atonement language changes Luke's theology."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -35973,7 +36388,7 @@
       "auditSequence": 88,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 28,
+      "postCountAfter": 30,
       "descriptionBefore": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "descriptionRecommendation": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "categoriesBefore": [
@@ -36185,11 +36600,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post compares Vespasian's reported healings with closely similar Gospel miracle stories about Jesus."
+        },
+        {
+          "wpId": "15541",
+          "title": "The Fate of the Rich and the Poor: Another Story",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares Luke's rich-man-and-Lazarus parable with an Egyptian tale of reversed wealth and poverty in the afterlife."
+        },
+        {
+          "wpId": "12898",
+          "title": "Life in Hades",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses Homer, the Epic of Gilgamesh, and the Hebrew Bible to compare ancient conceptions of an undifferentiated afterlife."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -37112,7 +37543,7 @@
       "auditSequence": 93,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 29,
+      "postCountAfter": 33,
       "descriptionBefore": "Posts on how textual critics evaluate readings, weigh evidence, identify variants, reconstruct texts, and debate the aims and limits of the discipline.",
       "descriptionRecommendation": "Posts on how textual critics evaluate readings, weigh evidence, identify variants, reconstruct texts, and debate the aims and limits of the discipline.",
       "categoriesBefore": [
@@ -37345,12 +37776,42 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post examines a variant in 1 Thessalonians 2:7 and weighs the internal criteria used to decide between its readings."
+        },
+        {
+          "wpId": "16159",
+          "title": "Were Miracle Stories Originally in the Gospels?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The answer uses independent manuscripts, ancient versions, and patristic quotations to reconstruct whether miracle stories belonged to the Gospels from the start."
+        },
+        {
+          "wpId": "15765",
+          "title": "What *Greek* Version of the New Testament Do I Use?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explains how the UBS and Nestle-Aland critical Greek texts were reconstructed from manuscripts, versions, and patristic evidence for use by translators."
+        },
+        {
+          "wpId": "15407",
+          "title": "The Core of My Dissertation on The Gospel Quotations of Didymus the Blind",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The core of the post is the use of Didymus's Gospel quotations and a statistical textual-critical method to reconstruct the transmission of the Gospel text in Alexandria."
+        },
+        {
+          "wpId": "15370",
+          "title": "Did the Original Gospels Describe Jesus’ Miracles?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The answer reconstructs the Gospels' earlier form by comparing independent Greek manuscripts, ancient translations, and patristic quotations."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment."
+        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -37605,7 +38066,7 @@
       "auditSequence": 95,
       "status": "completed",
       "postCountBefore": 27,
-      "postCountAfter": 26,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers James, the brother of Jesus, including his role in early Christianity, traditions about Jesus' family, mythicist arguments, and authorship questions involving James and Jude.",
       "descriptionRecommendation": "Covers James, the brother of Jesus, including his role in early Christianity, traditions about Jesus' family, mythicist arguments, and authorship questions involving James and Jude.",
       "categoriesBefore": [
@@ -37803,10 +38264,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats James the Brother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16377",
+          "title": "Does James (the Book)  Have the Same Concerns as James (the Man)?  Part 2",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's sustained argument is that James the brother of Jesus did not write the letter and that it was forged in his name."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -37814,7 +38283,7 @@
       "auditSequence": 96,
       "status": "completed",
       "postCountBefore": 27,
-      "postCountAfter": 28,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
       "descriptionRecommendation": "Covers arguments for or against proving Jesus' resurrection, including debate claims, legal arguments, miracle reasoning, eyewitness claims, and apologetic defenses.",
       "categoriesBefore": [
@@ -38019,11 +38488,34 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post directly evaluates and rejects the apologetic claim that no one would invent women as witnesses to the empty tomb."
+        },
+        {
+          "wpId": "15477",
+          "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates the apologetic claim that the disciples died for resurrection belief and the historical evidence for apostolic martyrdom; apocryphal Acts are only cited as unreliable sources."
+        },
+        {
+          "wpId": "14939",
+          "title": "The Legend of Peter’s Martyrdom",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The historical discussion of Peter's martyrdom is framed throughout as an evaluation of the apologetic claim that apostolic deaths prove Jesus' resurrection."
+        },
+        {
+          "wpId": "13225",
+          "title": "Were the Disciples Martyred for Believing the Resurrection? A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates an apologetic argument based on apostolic martyrdom; apocryphal Acts are cited only as unreliable evidence for how some apostles died."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -38452,7 +38944,7 @@
       "auditSequence": 99,
       "status": "completed",
       "postCountBefore": 27,
-      "postCountAfter": 21,
+      "postCountAfter": 22,
       "descriptionBefore": "Posts on using quotations in early Christian writers to reconstruct the New Testament text, including the limits, dating, location, and reliability of this evidence.",
       "descriptionRecommendation": "Posts on using quotations in early Christian writers to reconstruct the New Testament text, including the limits, dating, location, and reliability of this evidence.",
       "categoriesBefore": [
@@ -38657,12 +39149,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The central example reconstructs Didymus's Gospel text from patristic quotations and explains why that evidence matters."
+        },
+        {
+          "wpId": "15407",
+          "title": "The Core of My Dissertation on The Gospel Quotations of Didymus the Blind",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The core of the post is the use of Didymus's Gospel quotations and a statistical textual-critical method to reconstruct the transmission of the Gospel text in Alexandria."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 501-700 updated this assignment."
+        "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -38670,7 +39170,7 @@
       "auditSequence": 100,
       "status": "completed",
       "postCountBefore": 26,
-      "postCountAfter": 24,
+      "postCountAfter": 25,
       "descriptionBefore": "Covers angels, divine figures, heavenly beings, monsters, monotheism, personified Wisdom, and how ancient Israelites and Jews understood God and other powers.",
       "descriptionRecommendation": "Covers angels, divine figures, heavenly beings, monsters, monotheism, personified Wisdom, and how ancient Israelites and Jews understood God and other powers.",
       "categoriesBefore": [
@@ -38861,10 +39361,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Divine Beings in the Hebrew Bible as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13227",
+          "title": "Are Jews and Christians Monotheists?  Mailbag October 15, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "A major portion of the post traces Israelite henotheism, later Jewish monotheism, angels, Moses, and other divine beings in Jewish tradition."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -40212,7 +40720,7 @@
       "auditSequence": 107,
       "status": "completed",
       "postCountBefore": 25,
-      "postCountAfter": 25,
+      "postCountAfter": 23,
       "descriptionBefore": "Covers broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing afterlife beliefs.",
       "descriptionRecommendation": "Covers broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing afterlife beliefs.",
       "categoriesBefore": [
@@ -40328,22 +40836,8 @@
           "reason": "The full post treats Life After Death (General) as a primary or major sustained subject."
         },
         {
-          "wpId": "15466",
-          "title": "Looking for Feedback on My Views about Jesus and the Afterlife",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Life After Death (General) as a primary or major sustained subject."
-        },
-        {
           "wpId": "15082",
           "title": "Why Should Faith and the Afterlife Matter?  Readers’ Mailbag April 15, 2018",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Life After Death (General) as a primary or major sustained subject."
-        },
-        {
-          "wpId": "13186",
-          "title": "Jesus’ Teaching About the Kingdom of God",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Life After Death (General) as a primary or major sustained subject."
@@ -40403,12 +40897,28 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post specifically traces the Jewish development of postmortem judgment and afterlife belief rather than surveying the afterlife generally."
+        },
+        {
+          "wpId": "15466",
+          "title": "Looking for Feedback on My Views about Jesus and the Afterlife",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post presents a book argument that Jesus' apocalyptic teaching envisioned the annihilation of sinners rather than eternal torment, making the specific topics more useful than general life after death."
+        },
+        {
+          "wpId": "13186",
+          "title": "Jesus’ Teaching About the Kingdom of God",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post explicitly distinguishes Jesus' earthly kingdom proclamation from what happens to souls after death; its sustained subjects are already covered by Apocalyptic Jesus and Jesus' Teachings."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment."
+        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -40612,7 +41122,7 @@
       "auditSequence": 109,
       "status": "completed",
       "postCountBefore": 25,
-      "postCountAfter": 28,
+      "postCountAfter": 30,
       "descriptionBefore": "Covers Greek New Testament manuscripts, early papyri, manuscript evidence, amulets, copying, and what manuscripts can or cannot show about original texts.",
       "descriptionRecommendation": "Covers Greek New Testament manuscripts, early papyri, manuscript evidence, amulets, copying, and what manuscripts can or cannot show about original texts.",
       "categoriesBefore": [
@@ -40817,11 +41327,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post's argument depends throughout on early papyri, versions, manuscript relationships, and patristic witnesses to Gospel miracle stories."
+        },
+        {
+          "wpId": "16159",
+          "title": "Were Miracle Stories Originally in the Gospels?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The answer uses independent manuscripts, ancient versions, and patristic quotations to reconstruct whether miracle stories belonged to the Gospels from the start."
+        },
+        {
+          "wpId": "15370",
+          "title": "Did the Original Gospels Describe Jesus’ Miracles?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The answer reconstructs the Gospels' earlier form by comparing independent Greek manuscripts, ancient translations, and patristic quotations."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -41236,7 +41762,7 @@
       "auditSequence": 112,
       "status": "completed",
       "postCountBefore": 24,
-      "postCountAfter": 14,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, Thomas, and other apostles.",
       "descriptionRecommendation": "Covers apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, and other apostles.",
       "categoriesBefore": [
@@ -41338,13 +41864,6 @@
           "reason": "The post is now classified under the more specific Acts of Thomas topic."
         },
         {
-          "wpId": "15477",
-          "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Apocryphal Acts as a primary or major sustained subject."
-        },
-        {
           "wpId": "15459",
           "title": "Thomas and His Identical Twin Jesus, in the Acts of Thomas",
           "decision": "remove",
@@ -41368,13 +41887,6 @@
         {
           "wpId": "14858",
           "title": "Paul and His Female Disciple Thecla",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Apocryphal Acts as a primary or major sustained subject."
-        },
-        {
-          "wpId": "13225",
-          "title": "Were the Disciples Martyred for Believing the Resurrection? A Blast From the Past",
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Apocryphal Acts as a primary or major sustained subject."
@@ -41413,12 +41925,28 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The syllabus surveys apocryphal gospels, epistles, acts, and apocalypses; Apocryphal Acts is only one segment, while the broader existing topics fit."
+        },
+        {
+          "wpId": "15477",
+          "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post evaluates the apologetic claim that the disciples died for resurrection belief and the historical evidence for apostolic martyrdom; apocryphal Acts are only cited as unreliable sources."
+        },
+        {
+          "wpId": "13225",
+          "title": "Were the Disciples Martyred for Believing the Resurrection? A Blast From the Past",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post evaluates an apologetic argument based on apostolic martyrdom; apocryphal Acts are cited only as unreliable evidence for how some apostles died."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Nine Thomas-specific posts were moved to the dedicated Acts of Thomas topic.",
-        "Post-by-post topic-link audit for posts 901-1100 updated this assignment."
+        "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -41686,7 +42214,7 @@
       "auditSequence": 114,
       "status": "completed",
       "postCountBefore": 24,
-      "postCountAfter": 24,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "descriptionRecommendation": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "categoriesBefore": [
@@ -41870,11 +42398,34 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post reflects at length on academic book production, publishing incentives, and the glut of scholarly literature."
+        },
+        {
+          "wpId": "15902",
+          "title": "My Next Scholarly Book: Visits to Heaven and Hell",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces a scholarly book project on ancient otherworldly journeys and discusses its research, title, audience, and publication rather than surveying heaven-and-hell beliefs."
+        },
+        {
+          "wpId": "14971",
+          "title": "My Scholarly Project on the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post reproduces and explains a scholarly research proposal devoted to early Christian guided tours of heaven and hell."
+        },
+        {
+          "wpId": "12873",
+          "title": "My New Scholarly Project",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces a planned scholarly monograph on early Christian descents to hell and ascents to heaven and explains the research proposal behind it."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -41882,7 +42433,7 @@
       "auditSequence": 115,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 25,
+      "postCountAfter": 27,
       "descriptionBefore": "Posts on archaeological evidence and material remains relevant to Jesus, early Judaism, and early Christianity, including Nazareth, Capernaum, crucifixion nails, artifacts, and the limits of archaeological claims.",
       "descriptionRecommendation": "Posts on archaeological evidence and material remains relevant to Jesus, early Judaism, and early Christianity, including Nazareth, Capernaum, crucifixion nails, artifacts, and the limits of archaeological claims.",
       "categoriesBefore": [
@@ -42066,11 +42617,26 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A major part evaluates archaeological evidence for first-century Nazareth as a direct test of a mythicist claim."
+        },
+        {
+          "wpId": "16757",
+          "title": "If the Old Testament is Not Accurate — Where Did Israel Come From?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates four models for Israel's emergence in Canaan largely by comparing them with the archaeological record."
+        },
+        {
+          "wpId": "16749",
+          "title": "Did The Israelites Really Conquer Canaan?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Archaeological evidence for Canaanite cities and their destruction is a major part of the post's assessment of Joshua's conquest narrative."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -42448,7 +43014,7 @@
       "auditSequence": 118,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 28,
+      "postCountAfter": 30,
       "descriptionBefore": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "descriptionRecommendation": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "categoriesBefore": [
@@ -42653,13 +43219,29 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally contrasts the historical Jesus with the divine Christ and explains the motivation and argument behind How Jesus Became God."
+        },
+        {
+          "wpId": "15876",
+          "title": "Non-Christian Sources for Jesus: An Interview with History.com",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The interview evaluates Josephus, Tacitus, archaeology, and other non-Christian evidence for Jesus as a historical figure."
+        },
+        {
+          "wpId": "15248",
+          "title": "Why I Am Obsessed with Jesus: A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post repeatedly contrasts the apocalyptic historical Jesus with the divine Christ proclaimed by later Christians and explains why that historical disparity matters."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment."
+        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -42667,7 +43249,7 @@
       "auditSequence": 119,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 25,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "descriptionRecommendation": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "categoriesBefore": [
@@ -42852,12 +43434,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Most of the post interprets the rich man and Lazarus and related teachings of Jesus about wealth, poverty, and salvation."
+        },
+        {
+          "wpId": "15543",
+          "title": "What’s the Story of Lazarus and the Rich Man All About?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets Luke's Lazarus parable as Jesus' teaching about wealth, poverty, care for the poor, and postmortem judgment."
+        },
+        {
+          "wpId": "15539",
+          "title": "Heaven, Hell, and the Parable of Lazarus and the Rich Man",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post emphasizes the parable's reversal of the rich man and poor Lazarus and its implications for the use of wealth."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -42865,7 +43462,7 @@
       "auditSequence": 120,
       "status": "completed",
       "postCountBefore": 26,
-      "postCountAfter": 28,
+      "postCountAfter": 29,
       "descriptionBefore": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "descriptionRecommendation": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "categoriesBefore": [
@@ -43071,12 +43668,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post evaluates literary, non-Christian, archaeological, and later evidence for Jesus using explicit historical-source criteria."
+        },
+        {
+          "wpId": "15839",
+          "title": "The Beginning of the Quest of the Historical Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post traces the beginning of the historical Jesus quest and explains how scholars critically used Gospel sources to reconstruct Jesus' life."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -44406,7 +45011,7 @@
       "auditSequence": 128,
       "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": 27,
+      "postCountAfter": 39,
       "descriptionBefore": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "descriptionRecommendation": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "categoriesBefore": [
@@ -44604,13 +45209,99 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post introduces a scholarly book project specifically devoted to ancient otherworldly journeys."
+        },
+        {
+          "wpId": "16473",
+          "title": "How Views of the Afterlife Changed",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares tours of heaven and hell in the Acts of Thomas, Apocalypse of Peter, and Apocalypse of Paul."
+        },
+        {
+          "wpId": "16425",
+          "title": "Some Very Strange Journeys to Heaven and Hell",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to two guided journeys through heaven and hell in the Acts of Thomas."
+        },
+        {
+          "wpId": "16381",
+          "title": "My Current Research Projects, 7/2019",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Ancient otherworldly journeys are both the subject of the featured conference paper and the post's principal long-term research project."
+        },
+        {
+          "wpId": "16098",
+          "title": "Paul in Hell.   The Apocryphal Apocalypse of Paul.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post summarizes Paul's guided tour of the blessed and damned in the Apocalypse of Paul."
+        },
+        {
+          "wpId": "15995",
+          "title": "Did Ancient Greeks Invent Heaven and Hell?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Plato's story of Er returning from a journey through postmortem rewards and punishments supplies the post's principal evidence."
+        },
+        {
+          "wpId": "15902",
+          "title": "My Next Scholarly Book: Visits to Heaven and Hell",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces a scholarly book project on ancient otherworldly journeys and discusses its research, title, audience, and publication rather than surveying heaven-and-hell beliefs."
+        },
+        {
+          "wpId": "15740",
+          "title": "My Research Goals for 2019",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Two of the post's four major research goals are a scholarly study of otherworldly journeys and a trade book on modern readings of Revelation as end-times prediction."
+        },
+        {
+          "wpId": "14971",
+          "title": "My Scholarly Project on the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post reproduces and explains a scholarly research proposal devoted to early Christian guided tours of heaven and hell."
+        },
+        {
+          "wpId": "12924",
+          "title": "Too Much Money and the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares Lucian with an Acts of Thomas story in which a dead man tours heaven and returns to describe a heavenly palace."
+        },
+        {
+          "wpId": "12914",
+          "title": "A Satirical Lesson about the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Lucian's Voyage to the Underworld and the moral purpose of journeys among the dead are the post's explicit subject."
+        },
+        {
+          "wpId": "12910",
+          "title": "Looking at Hell",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post defines otherworldly journeys and gives a detailed account of a woman's tour of hell in the Acts of Thomas."
+        },
+        {
+          "wpId": "12873",
+          "title": "My New Scholarly Project",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces a planned scholarly monograph on early Christian descents to hell and ascents to heaven and explains the research proposal behind it."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 301-500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -45303,7 +45994,7 @@
       "auditSequence": 133,
       "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": 23,
+      "postCountAfter": 24,
       "descriptionBefore": "Covers modern forgery claims and disputed discoveries, including the Gospel of Jesus' Wife, Secret Gospel of Mark, Museum of the Bible controversies, and other recent authenticity debates.",
       "descriptionRecommendation": "Covers modern forgery claims and disputed discoveries, including the Gospel of Jesus' Wife, Secret Gospel of Mark, Museum of the Bible controversies, and other recent authenticity debates.",
       "categoriesBefore": [
@@ -45473,11 +46164,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post exposes a modern fabrication presented as an ancient eyewitness account of Jesus' crucifixion."
+        },
+        {
+          "wpId": "16167",
+          "title": "An Official Copy of Jesus’ Death Sentence:  Another Forgery?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post exposes a nineteenth-century document claiming to preserve Pilate's official death sentence for Jesus as a modern forgery."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -45691,7 +46390,7 @@
       "auditSequence": 135,
       "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": 21,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
       "descriptionRecommendation": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
       "categoriesBefore": [
@@ -45847,10 +46546,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Paul in Acts as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13183",
+          "title": "Paul on Trial for the Resurrection",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post narrates and critically evaluates Acts' portrayal of Paul's Sanhedrin trial as evidence for Jewish disputes about resurrection."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -49048,7 +49755,7 @@
       "auditSequence": 154,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 18,
+      "postCountAfter": 19,
       "descriptionBefore": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "descriptionRecommendation": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "categoriesBefore": [
@@ -49183,10 +49890,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Nazareth as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13605",
+          "title": "Jesus Rejected by His Own Townspeople in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to Mark's story of Jesus' rejection by the people of his hometown, explicitly identified as Nazareth."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -49194,7 +49909,7 @@
       "auditSequence": 155,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 27,
+      "postCountAfter": 28,
       "descriptionBefore": "Posts on authorship questions in Hebrews, Jude, 1 Peter, the Johannine letters, and other New Testament epistles not attributed to Paul.",
       "descriptionRecommendation": "Posts on authorship questions in Hebrews, Jude, 1 Peter, the Johannine letters, and other New Testament epistles not attributed to Paul.",
       "categoriesBefore": [
@@ -49393,11 +50108,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally asks whether James the brother of Jesus wrote the letter and introduces the case that the work was forged in his name."
+        },
+        {
+          "wpId": "16377",
+          "title": "Does James (the Book)  Have the Same Concerns as James (the Man)?  Part 2",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's sustained argument is that James the brother of Jesus did not write the letter and that it was forged in his name."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 201-300 updated this assignment."
+        "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -49742,7 +50465,7 @@
       "auditSequence": 158,
       "status": "completed",
       "postCountBefore": 17,
-      "postCountAfter": 17,
+      "postCountAfter": 18,
       "descriptionBefore": "Covers God's judgment, punishment, wrath, destruction, justice, and biblical claims about accountability before God.",
       "descriptionRecommendation": "Covers God's judgment, punishment, wrath, destruction, justice, and biblical claims about accountability before God.",
       "categoriesBefore": [
@@ -49870,10 +50593,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Divine Judgment as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13323",
+          "title": "The Sheep and the Goats",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post interprets the sheep-and-goats saying as Jesus' apocalyptic teaching about the Son of Man's final judgment, reward, and punishment."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -50657,7 +51388,7 @@
       "auditSequence": 164,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 20,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers general discussions of Gnosticism, including definitions, introductory summaries, classification problems, Nag Hammadi evidence, and examples of Gnostic or Gnostic-adjacent groups.",
       "descriptionRecommendation": "Covers general discussions of Gnosticism, including definitions, introductory summaries, classification problems, Nag Hammadi evidence, and examples of Gnostic or Gnostic-adjacent groups.",
       "categoriesBefore": [
@@ -50806,13 +51537,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally explains separationist and docetic Gnostic understandings of Christ through the Coptic Apocalypse of Peter."
+        },
+        {
+          "wpId": "15444",
+          "title": "Thomasine Christians and Others, From After the New Testament",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post gives a sustained account of Thomasine Christianity and a second substantial discussion of Gnostic texts that do not fit the major named schools."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -51394,7 +52133,7 @@
       "auditSequence": 169,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 20,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, authorship, and other texts falsely or questionably connected with Peter.",
       "descriptionRecommendation": "Covers writings attributed to Peter, including debates over 1 Peter, 2 Peter, secretaries, literacy, authorship, and other texts falsely or questionably connected with Peter.",
       "categoriesBefore": [
@@ -51544,11 +52283,26 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post examines a forged letter attributed to Peter whose central dispute concerns Paul and whether the law of Moses remains binding."
+        },
+        {
+          "wpId": "15711",
+          "title": "How Would an Early Christian “Know” Which Books Peter Wrote?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares ancient judgments about the authorship of 1 Peter, the Gospel of Peter, and other writings attributed to Peter."
+        },
+        {
+          "wpId": "15626",
+          "title": "Introducing the Book of 2 Peter",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The introduction argues that 2 Peter is a late pseudonymous work falsely attributed to the apostle."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -51890,7 +52644,7 @@
       "auditSequence": 172,
       "status": "completed",
       "postCountBefore": 15,
-      "postCountAfter": 20,
+      "postCountAfter": 21,
       "descriptionBefore": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
       "descriptionRecommendation": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
       "categoriesBefore": [
@@ -52053,12 +52807,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The exposition combines Jesus' preexistent angelic status with his later exaltation after death."
+        },
+        {
+          "wpId": "14950",
+          "title": "Early Christology: How I Changed My Mind",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explicitly compares exaltation and incarnation Christologies and explains how the Philippians poem combines the two streams."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
@@ -53273,7 +54035,7 @@
       "auditSequence": 182,
       "status": "completed",
       "postCountBefore": 14,
-      "postCountAfter": 14,
+      "postCountAfter": 13,
       "descriptionBefore": "Covers broad questions about Bible translations, including choosing translations, comparing versions, the Apocrypha, and how translations relate to manuscripts and interpretation.",
       "descriptionRecommendation": "Covers broad questions about Bible translations, including choosing translations, comparing versions, the Apocrypha, and how translations relate to manuscripts and interpretation.",
       "categoriesBefore": [
@@ -53333,13 +54095,6 @@
           "reason": "The full post treats Bible Translations (General) as a primary or major sustained subject."
         },
         {
-          "wpId": "15564",
-          "title": "The Digital Bible (by Jeff Siker)",
-          "decision": "retain",
-          "confidence": "high",
-          "reason": "The full post treats Bible Translations (General) as a primary or major sustained subject."
-        },
-        {
           "wpId": "15555",
           "title": "What Is the Apocrypha (of the Old Testament)?",
           "decision": "retain",
@@ -53380,10 +54135,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Bible Translations (General) as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15564",
+          "title": "The Digital Bible (by Jeff Siker)",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post concerns how digital media changes access to and reading of the Bible; translation comparison is only one supporting feature, and no existing topic precisely represents the main subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -54491,7 +55254,7 @@
       "auditSequence": 192,
       "status": "completed",
       "postCountBefore": 13,
-      "postCountAfter": 15,
+      "postCountAfter": 16,
       "descriptionBefore": "Covers forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
       "descriptionRecommendation": "Covers forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
       "categoriesBefore": [
@@ -54606,11 +55369,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally asks whether James the brother of Jesus wrote the letter and introduces the case that the work was forged in his name."
+        },
+        {
+          "wpId": "16377",
+          "title": "Does James (the Book)  Have the Same Concerns as James (the Man)?  Part 2",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post's sustained argument is that James the brother of Jesus did not write the letter and that it was forged in his name."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 201-300 updated this assignment."
+        "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -55755,7 +56526,7 @@
       "auditSequence": 202,
       "status": "completed",
       "postCountBefore": 12,
-      "postCountAfter": 9,
+      "postCountAfter": 10,
       "descriptionBefore": "Covers ancient views of wealth, poverty, charity, contentment, Cynic poverty, and moral arguments about possessions.",
       "descriptionRecommendation": "Covers ancient views of wealth, poverty, charity, contentment, Cynic poverty, and moral arguments about possessions.",
       "categoriesBefore": [
@@ -55849,10 +56620,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Wealth and Poverty in Antiquity as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15541",
+          "title": "The Fate of the Rich and the Poor: Another Story",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post compares Luke's rich-man-and-Lazarus parable with an Egyptian tale of reversed wealth and poverty in the afterlife."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -56077,7 +56856,7 @@
       "auditSequence": 205,
       "status": "completed",
       "postCountBefore": 11,
-      "postCountAfter": 11,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers traditions about the deaths of Peter, Paul, and other apostles, including martyrdom claims and how those stories are used in later arguments.",
       "descriptionRecommendation": "Covers traditions about the deaths of Peter, Paul, and other apostles, including martyrdom claims and how those stories are used in later arguments.",
       "categoriesBefore": [
@@ -56163,10 +56942,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Apostolic Death Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15477",
+          "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post evaluates the apologetic claim that the disciples died for resurrection belief and the historical evidence for apostolic martyrdom; apocryphal Acts are only cited as unreliable sources."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2251-2550 updated this assignment."
       ]
     },
     {
@@ -60072,7 +60859,7 @@
       "auditSequence": 245,
       "status": "completed",
       "postCountBefore": 7,
-      "postCountAfter": 7,
+      "postCountAfter": 8,
       "descriptionBefore": "Covers Daniel's court stories, apocalyptic visions, resurrection teaching, prophecies, and additions to the book.",
       "descriptionRecommendation": "Covers Daniel's court stories, apocalyptic visions, resurrection teaching, prophecies, and additions to the book.",
       "categoriesBefore": [
@@ -60130,10 +60917,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Book of Daniel as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12830",
+          "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Half of the post explains the linguistic and historical grounds for dating Daniel to the Maccabean period and distinguishes critical historical reasoning from anti-supernatural bias."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
       ]
     },
     {
