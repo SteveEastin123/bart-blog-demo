@@ -11,3 +11,4 @@ webapp/data/*.db
 webapp/data/*.db-*
 webapp/data/*.log
 tests/parity/artifacts/
+.tmp/

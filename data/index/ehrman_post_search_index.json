@@ -2797,7 +2797,9 @@
     "dateText": "February 8, 2026",
     "author": "BDEhrman",
     "description": "Explains how Yeats's The Second Coming depends on Christian imagery and religious literacy.",
-    "topics": [],
+    "topics": [
+      "Personal Reflections"
+    ],
     "secondaryKeywords": []
   },
   {
@@ -3201,7 +3203,10 @@
     "dateText": "January 13, 2026",
     "author": "BDEhrman",
     "description": "Explains when chapter and verse divisions entered biblical manuscripts and printed Bibles.",
-    "topics": [],
+    "topics": [
+      "Hebrew Bible Manuscripts",
+      "New Testament Manuscripts"
+    ],
     "secondaryKeywords": [
       "Canon Formation",
       "Hebrew Bible",
@@ -32209,7 +32214,7 @@
     "author": "FreedomBen",
     "description": "Presents a guest overview of contemporary American religious beliefs about the afterlife.",
     "topics": [
-      "Life After Death (General)"
+      "Heaven and Hell Beliefs"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -32282,7 +32287,8 @@
     "author": "BDEhrman",
     "description": "Announces a three-part lecture series on Jesus according to early Christians.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -32311,7 +32317,9 @@
     "author": "BDEhrman",
     "description": "Explains Paul's message to Corinthian converts and how it has often been misunderstood.",
     "topics": [
-      "Paul's Churches and Communities"
+      "Paul's Churches and Communities",
+      "1 Corinthians",
+      "Pauline Salvation Models"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -32329,7 +32337,8 @@
     "description": "Reconstructs how Paul started the church in Corinth.",
     "topics": [
       "Social Class in Antiquity",
-      "Paul's Churches and Communities"
+      "Paul's Churches and Communities",
+      "1 Corinthians"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -32347,7 +32356,8 @@
     "author": "BDEhrman",
     "description": "Introduces the Corinthian church as a key source for understanding early Christian community and the Spirit.",
     "topics": [
-      "Paul's Churches and Communities"
+      "Paul's Churches and Communities",
+      "1 Corinthians"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -32388,7 +32398,8 @@
     "description": "Explains how the delay of Jesus' return affected Pauline communities.",
     "topics": [
       "Pauline End-Time Expectations",
-      "Paul's Churches and Communities"
+      "Paul's Churches and Communities",
+      "1 Thessalonians"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -32405,7 +32416,9 @@
     "author": "BDEhrman",
     "description": "Explains why the Holy Spirit mattered to the earliest Christians.",
     "topics": [
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Pauline End-Time Expectations",
+      "Paul on Resurrection"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -32545,7 +32558,9 @@
     "description": "Presents James McGrath's guest discussion of women and demons in the life of Jesus.",
     "topics": [
       "Jesus and Women",
-      "Jesus' Miracle Stories"
+      "Jesus' Miracle Stories",
+      "Mary Magdalene",
+      "Historical Study of Miracles"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -32583,7 +32598,9 @@
     "author": "BDEhrman",
     "description": "Introduces the Holy Spirit's role in the development of the doctrine of the Trinity.",
     "topics": [
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Genesis",
+      "Translation Issues"
     ],
     "secondaryKeywords": [
       "Debates",
@@ -32600,7 +32617,9 @@
     "author": "BDEhrman",
     "description": "Asks whether Paul and Peter should be understood as opponents in early Christianity.",
     "topics": [
-      "Paul and His Opponents"
+      "Paul and His Opponents",
+      "Petrine Authorship and Forgeries",
+      "Jewish Law and Torah"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -32676,7 +32695,8 @@
     "author": "BDEhrman",
     "description": "Continues the apocryphal story about a letter Jesus supposedly wrote from the cross.",
     "topics": [
-      "Jesus' Passion Narratives"
+      "Jesus' Passion Narratives",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -32727,7 +32747,8 @@
     "author": "BDEhrman",
     "description": "Introduces a later apocryphal story in which Jesus writes a letter from the cross.",
     "topics": [
-      "Jesus' Passion Narratives"
+      "Jesus' Passion Narratives",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Abgar",
@@ -32897,7 +32918,8 @@
     "author": "BDEhrman",
     "description": "Asks whether Jesus could read in light of ancient literacy and Gospel evidence.",
     "topics": [
-      "Ancient Literacy"
+      "Ancient Literacy",
+      "Historical Jesus (General)"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -33001,7 +33023,7 @@
     "author": "BDEhrman",
     "description": "Announces two live Zoom lectures for a New Testament course.",
     "topics": [
-      "Christian Anti-Judaism"
+      "Ignore"
     ],
     "secondaryKeywords": [
       "Lectures",
@@ -33039,7 +33061,6 @@
     "description": "Explains why Marcion is usually not best classified as a Gnostic.",
     "topics": [
       "Early Christian Diversity",
-      "Gnostic and Orthodox Conflicts",
       "Gnosticism (General)",
       "Marcion"
     ],
@@ -33156,7 +33177,8 @@
     "author": "BDEhrman",
     "description": "Explains why visions of Jesus probably led the disciples to believe in the resurrection.",
     "topics": [
-      "Jesus' Resurrection Appearances"
+      "Jesus' Resurrection Appearances",
+      "Visionary Experiences"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -33177,7 +33199,9 @@
     "author": "BDEhrman",
     "description": "Contrasts Jesus' own afterlife expectations with later Christian beliefs about Jesus after death.",
     "topics": [
-      "Life After Death (General)"
+      "Life After Death (General)",
+      "Heaven and Hell Beliefs",
+      "Resurrection of the Dead"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -33250,7 +33274,7 @@
     "author": "BDEhrman",
     "description": "Announces a live lecture on the ethics of Paul.",
     "topics": [
-      "Moral Philosophy"
+      "Ignore"
     ],
     "secondaryKeywords": [
       "Lectures",
@@ -33267,7 +33291,8 @@
     "description": "Raises historical doubts about the triumphal entry into Jerusalem.",
     "topics": [
       "Gospel Historical Reliability",
-      "Memory and Jesus Traditions"
+      "Memory and Jesus Traditions",
+      "Christian Anti-Judaism"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -33405,7 +33430,8 @@
     "author": "BDEhrman",
     "description": "Lists lost early Christian writings that would be especially valuable to discover.",
     "topics": [
-      "Early Christian Writings"
+      "Early Christian Writings",
+      "Pauline Epistles (General)"
     ],
     "secondaryKeywords": [
       "2 Corinthians",
@@ -33475,10 +33501,8 @@
     "author": "BDEhrman",
     "description": "Announces live lectures on the death of Jesus and the life of Paul.",
     "topics": [
-      "Crucifixion of Jesus",
-      "Paul's Life and Career",
-      "Resurrection of Jesus",
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
       "Crucified Messiah",
@@ -33496,7 +33520,7 @@
     "description": "Explains early Christian views that made Christ fully divine but not genuinely human.",
     "topics": [
       "Development of the Trinity",
-      "Incarnation Christology"
+      "Apostolic Fathers"
     ],
     "secondaryKeywords": [
       "1 John",
@@ -33538,7 +33562,8 @@
     "author": "BDEhrman",
     "description": "Presents Kristin Swenson's approach to making sense of strange features in the Bible.",
     "topics": [
-      "Critical Biblical Scholarship"
+      "Critical Biblical Scholarship",
+      "Genesis"
     ],
     "secondaryKeywords": [
       "Genesis",
@@ -33627,7 +33652,8 @@
     "author": "BDEhrman",
     "description": "Presents a guest proposal about possible Buddhist influence on Matthew.",
     "topics": [
-      "Gospel of Matthew"
+      "Gospel of Matthew",
+      "Comparative Ancient Evidence"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -33691,8 +33717,7 @@
     "author": "BDEhrman",
     "description": "Explores Hebrew Bible passages where God appears in apparently human form.",
     "topics": [
-      "Divine Beings in the Hebrew Bible",
-      "Christology (General)"
+      "Divine Beings in the Hebrew Bible"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -33779,7 +33804,8 @@
     "author": "BDEhrman",
     "description": "Explains a changed view of whether Matthew, Mark, and Luke portray Jesus as God.",
     "topics": [
-      "Christology in the Gospels"
+      "Christology in the Gospels",
+      "Exaltation Christology"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -33802,9 +33828,9 @@
     "author": "BDEhrman",
     "description": "Explains what ancient people could mean when calling a human or heavenly being God.",
     "topics": [
-      "Divine Beings in the Hebrew Bible",
       "Incarnation Christology",
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Exaltation Christology"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -33836,8 +33862,8 @@
     "author": "BDEhrman",
     "description": "Announces live lectures on the Gospel of John and early Christian Gnosticism.",
     "topics": [
-      "Gnosticism (General)",
-      "Gospel of John"
+      "Blog Updates and Fundraising",
+      "Courses and Teaching"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -33856,7 +33882,8 @@
     "author": "BDEhrman",
     "description": "Presents Kristin Swenson's book on the strangeness of the Bible.",
     "topics": [
-      "Critical Biblical Scholarship"
+      "Critical Biblical Scholarship",
+      "General-Audience Books"
     ],
     "secondaryKeywords": [
       "Kristin Swenson",
@@ -33872,7 +33899,8 @@
     "author": "BDEhrman",
     "description": "Presents a guest proposal about Buddhist scriptures and the Gospel of Luke.",
     "topics": [
-      "Gospel of Luke"
+      "Gospel of Luke",
+      "Comparative Ancient Evidence"
     ],
     "secondaryKeywords": [
       "Luke",
@@ -33899,7 +33927,8 @@
     "author": "BDEhrman",
     "description": "Compares John's Logos with Jewish traditions about divine Wisdom.",
     "topics": [
-      "Gospel of John"
+      "Gospel of John",
+      "Christian Interpretation of Jewish Scripture"
     ],
     "secondaryKeywords": [
       "John",
@@ -33916,7 +33945,9 @@
     "author": "BDEhrman",
     "description": "Presents a guest argument distinguishing being Christian from being a disciple.",
     "topics": [
-      "Jesus' Teachings"
+      "Jesus' Teachings",
+      "Charity and Altruism",
+      "Jesus on Wealth and Poverty"
     ],
     "secondaryKeywords": [
       "Heaven",
@@ -33952,7 +33983,8 @@
     "topics": [
       "Biblical Contradictions",
       "Christology in the Gospels",
-      "Exaltation Christology"
+      "Exaltation Christology",
+      "Theologically Significant Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -33976,8 +34008,8 @@
     "author": "BDEhrman",
     "description": "Announces live lectures on the distinctive messages of Luke and John.",
     "topics": [
-      "Gospel of John",
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -34107,7 +34139,8 @@
     "topics": [
       "Life After Death (General)",
       "Heaven and Hell",
-      "Media Interviews and Videos"
+      "Media Interviews and Videos",
+      "Writing and Publishing Process"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -34127,10 +34160,8 @@
     "author": "BDEhrman",
     "description": "Announces a live lecture on Matthew and whether Christians need to be Jews.",
     "topics": [
-      "Early Judaism (General)",
-      "Gospel of Matthew",
-      "Jewish Law and Torah",
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
       "Early Judaism",
@@ -34228,7 +34259,8 @@
     "description": "Uses a Greek manuscript of Luke to discuss one of the oldest views of Christ.",
     "topics": [
       "Gospel of Luke",
-      "Exaltation Christology"
+      "Exaltation Christology",
+      "Theologically Significant Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -34263,7 +34295,9 @@
     "author": "BDEhrman",
     "description": "Asks when Jesus came to be regarded as divine in early Christianity.",
     "topics": [
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Exaltation Christology",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -34288,7 +34322,6 @@
     "author": "BDEhrman",
     "description": "Presents a guest reflection on suffering, miracles, and the cross.",
     "topics": [
-      "Miracle Traditions (General)",
       "Problem of Evil and Suffering"
     ],
     "secondaryKeywords": [
@@ -34308,8 +34341,8 @@
     "author": "BDEhrman",
     "description": "Announces additional live lectures on the Gospels.",
     "topics": [
-      "Canonical Gospels (General)",
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
       "Gospel of Mark",
@@ -34373,8 +34406,8 @@
     "author": "BDEhrman",
     "description": "Announces additional live lectures on the Gospels.",
     "topics": [
-      "Canonical Gospels (General)",
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": [
       "Gospel Writers as Interpreters",
@@ -34391,7 +34424,8 @@
     "author": "BDEhrman",
     "description": "Explains how scholars can infer Christian views about Jesus before the New Testament writings.",
     "topics": [
-      "Exaltation Christology"
+      "Exaltation Christology",
+      "Source Criticism"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -34448,7 +34482,8 @@
     "author": "BDEhrman",
     "description": "Explains a materialist view of the world and its implications for mind and free will.",
     "topics": [
-      "Free Will and Predestination"
+      "Free Will and Predestination",
+      "Atheism"
     ],
     "secondaryKeywords": [
       "Hell",
@@ -34463,8 +34498,7 @@
     "author": "BDEhrman",
     "description": "Explores whether Israelite kings or other figures could be called God.",
     "topics": [
-      "Divine Beings in the Hebrew Bible",
-      "Christology (General)"
+      "Divine Beings in the Hebrew Bible"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -34541,7 +34575,8 @@
     "author": "BDEhrman",
     "description": "Presents a guest argument distinguishing Christians from disciples.",
     "topics": [
-      "Jesus' Teachings"
+      "Jesus' Teachings",
+      "Jesus on Wealth and Poverty"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -34617,7 +34652,8 @@
     "author": "BDEhrman",
     "description": "Explains how ancient ideas of humans becoming divine help frame early claims about Jesus.",
     "topics": [
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Greco-Roman Religious Culture"
     ],
     "secondaryKeywords": [
       "Heaven",
@@ -34667,7 +34703,8 @@
     "author": "BDEhrman",
     "description": "Presents a guest proposal about Buddhist influence on the Gospel of Luke.",
     "topics": [
-      "Gospel of Luke"
+      "Gospel of Luke",
+      "Comparative Ancient Evidence"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -34684,7 +34721,8 @@
     "description": "Introduces the problem of how Christians could call Jesus God while maintaining belief in one God.",
     "topics": [
       "Christology (General)",
-      "Development of the Trinity"
+      "Development of the Trinity",
+      "Greco-Roman Religious Culture"
     ],
     "secondaryKeywords": [
       "How Jesus Became God",
@@ -34741,7 +34779,9 @@
     "description": "Continues the story of how a later Trinitarian formula entered the text of 1 John.",
     "topics": [
       "Development of the Trinity",
-      "Johannine Epistles"
+      "Johannine Epistles",
+      "Textual Variants",
+      "King James Version"
     ],
     "secondaryKeywords": [
       "Misquoting Jesus",
@@ -34757,7 +34797,9 @@
     "description": "Explains how the clearest biblical-sounding statement of the Trinity entered later manuscript tradition.",
     "topics": [
       "Development of the Trinity",
-      "Johannine Epistles"
+      "Johannine Epistles",
+      "Textual Variants",
+      "New Testament Manuscripts"
     ],
     "secondaryKeywords": [
       "Heaven",
@@ -34942,7 +34984,9 @@
     "author": "BDEhrman",
     "description": "Reflects on Christmas during the unusual and difficult year of 2020.",
     "topics": [
-      "Personal Reflections"
+      "Personal Reflections",
+      "Jesus' Ethics",
+      "Jesus on Wealth and Poverty"
     ],
     "secondaryKeywords": [
       "Memory",
@@ -34957,7 +35001,8 @@
     "author": "BDEhrman",
     "description": "Explains Luke's account of why Jesus was born in Bethlehem despite being from Nazareth.",
     "topics": [
-      "Jesus' Birth Narratives"
+      "Jesus' Birth Narratives",
+      "Biblical Contradictions"
     ],
     "secondaryKeywords": [
       "David",
@@ -34983,7 +35028,8 @@
     "description": "Explains Matthew's account of why Jesus was born in Bethlehem despite being from Nazareth.",
     "topics": [
       "Jesus' Birth Narratives",
-      "Gospel of Matthew"
+      "Gospel of Matthew",
+      "Biblical Contradictions"
     ],
     "secondaryKeywords": [
       "Herod",
@@ -35003,7 +35049,8 @@
     "author": "BDEhrman",
     "description": "Asks whether Christian faith requires belief in the virgin birth.",
     "topics": [
-      "Virgin Birth"
+      "Virgin Birth",
+      "Fundamentalism"
     ],
     "secondaryKeywords": [
       "Gabriel",
@@ -35025,7 +35072,8 @@
     "description": "Shares the second part of a Newsweek article on Christmas and the birth stories.",
     "topics": [
       "Jesus' Birth Narratives",
-      "Public-Facing Scholarship"
+      "Public-Facing Scholarship",
+      "Biblical Contradictions"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -35046,7 +35094,8 @@
     "author": "BDEhrman",
     "description": "Shares a Newsweek article on Christmas and historical questions about Jesus' birth.",
     "topics": [
-      "Jesus' Birth Narratives"
+      "Jesus' Birth Narratives",
+      "Proto-Gospel of James"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -35090,7 +35139,7 @@
     "author": "BDEhrman",
     "description": "Makes a holiday-season request connected with giving and support.",
     "topics": [
-      "Ignore"
+      "Blog Updates and Fundraising"
     ],
     "secondaryKeywords": []
   },
@@ -35122,7 +35171,8 @@
     "author": "BDEhrman",
     "description": "Introduces Pseudo-Matthew's expanded account of Joseph, Mary, and Jesus' birth.",
     "topics": [
-      "Non-Canonical Gospel Traditions"
+      "Non-Canonical Gospel Traditions",
+      "Jesus' Birth Narratives"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -35396,7 +35446,7 @@
     "author": "BDEhrman",
     "description": "Asks whether oral reading and transmission affected changes in Christian texts.",
     "topics": [
-      "Church Fathers as Textual Evidence"
+      "Ancient Literacy"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -35443,7 +35493,8 @@
     "topics": [
       "Mary Magdalene",
       "Non-Canonical Gospel Traditions",
-      "Peter the Apostle"
+      "Peter the Apostle",
+      "Jesus' Resurrection Appearances"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -35582,7 +35633,9 @@
     "description": "Compares Matthew's and Luke's genealogies of Jesus and their contradictions.",
     "topics": [
       "Genealogies of Jesus",
-      "Gospel of Matthew"
+      "Gospel of Matthew",
+      "Gospel of Luke",
+      "Biblical Contradictions"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -35722,8 +35775,7 @@
     "author": "BDEhrman",
     "description": "Announces a remote lecture series on Heaven and Hell.",
     "topics": [
-      "Ignore",
-      "Heaven and Hell"
+      "Ignore"
     ],
     "secondaryKeywords": []
   },
@@ -35737,7 +35789,8 @@
     "topics": [
       "Pontius Pilate",
       "Memory and Jesus Traditions",
-      "Trial of Jesus"
+      "Trial of Jesus",
+      "Christian Anti-Judaism"
     ],
     "secondaryKeywords": [
       "Barabbas",
@@ -35865,7 +35918,8 @@
     "topics": [
       "Misquoting Jesus",
       "Original Text Questions",
-      "Textual Variants"
+      "Textual Variants",
+      "Theologically Significant Variants"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -35895,7 +35949,8 @@
     "author": "BDEhrman",
     "description": "Uses apocryphal Acts traditions to revisit the claim that no one would die for a lie.",
     "topics": [
-      "Apocryphal Acts"
+      "Apostolic Death Traditions",
+      "Resurrection Arguments and Apologetics"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -35914,7 +35969,8 @@
     "author": "BDEhrman",
     "description": "Responds to a question about teaching religious studies when course material conflicts with personal beliefs.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Fundamentalism"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -35970,8 +36026,8 @@
     "description": "Challenges the apologetic claim that women discovering the empty tomb could not have been invented.",
     "topics": [
       "Empty Tomb Traditions",
-      "Canonical Gospels (General)",
-      "Women in Early Christianity"
+      "Women in Early Christianity",
+      "Resurrection Arguments and Apologetics"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -35987,9 +36043,10 @@
     "url": "https://ehrmanblog.org/a-celebratory-moment-for-the-blog/",
     "dateText": "October 5, 2020",
     "author": "BDEhrman",
-    "description": "Marks a personal and blog-related celebratory moment.",
+    "description": "Reflects on Bart's sixty-fifth birthday while celebrating the blog's having raised one million dollars for charity.",
     "topics": [
-      "Ignore"
+      "Blog Updates and Fundraising",
+      "Personal Reflections"
     ],
     "secondaryKeywords": []
   },
@@ -36002,7 +36059,9 @@
     "description": "Evaluates an argument that Acts was written by an eyewitness because of its narrative details.",
     "topics": [
       "Acts",
-      "Eyewitness Reliability"
+      "Eyewitness Reliability",
+      "Archaeology and Material Evidence",
+      "Luke-Acts Authorship"
     ],
     "secondaryKeywords": [
       "Eyewitness",
@@ -36017,7 +36076,6 @@
     "author": "BDEhrman",
     "description": "Reflects on reasons people give for believing in God.",
     "topics": [
-      "Agnosticism",
       "Atheism"
     ],
     "secondaryKeywords": [
@@ -36032,7 +36090,9 @@
     "author": "BDEhrman",
     "description": "Shares the Gospel of Nicodemus scene in which Roman standards bow to Jesus.",
     "topics": [
-      "Pontius Pilate"
+      "Pontius Pilate",
+      "Non-Canonical Gospel Traditions",
+      "Trial of Jesus"
     ],
     "secondaryKeywords": [
       "Annas",
@@ -36053,7 +36113,8 @@
     "description": "Introduces the Gospel of Nicodemus and its expanded passion and resurrection traditions.",
     "topics": [
       "Pontius Pilate",
-      "Trial of Jesus"
+      "Trial of Jesus",
+      "Non-Canonical Gospel Traditions"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -36113,7 +36174,8 @@
     "author": "BDEhrman",
     "description": "Shares selections from the Gospel of Peter.",
     "topics": [
-      "Gospel of Peter"
+      "Gospel of Peter",
+      "Christian Anti-Judaism"
     ],
     "secondaryKeywords": [
       "Burial",
@@ -36138,7 +36200,8 @@
     "topics": [
       "Apostolic Fathers",
       "Gospel of Peter",
-      "Jesus' Teachings"
+      "Jesus' Teachings",
+      "Manuscript Discoveries and Controversies"
     ],
     "secondaryKeywords": [
       "Historical Jesus",
@@ -36156,7 +36219,8 @@
     "author": "BDEhrman",
     "description": "Introduces the Gospel of Peter as a major non-canonical passion and resurrection Gospel.",
     "topics": [
-      "Gospel of Peter"
+      "Gospel of Peter",
+      "Christian Anti-Judaism"
     ],
     "secondaryKeywords": [
       "Apocalypse of Peter",
@@ -36178,7 +36242,8 @@
     "description": "Responds to questions about traditions that Thomas was Jesus' twin brother.",
     "topics": [
       "Jesus' Family Traditions",
-      "Acts of Thomas"
+      "Acts of Thomas",
+      "Comparative Ancient Evidence"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -36299,7 +36364,10 @@
     "author": "BDEhrman",
     "description": "Uses a class quiz to raise questions and problems about canonical and non-canonical Gospels.",
     "topics": [
-      "Non-Canonical Gospel Traditions"
+      "Non-Canonical Gospel Traditions",
+      "Courses and Teaching",
+      "Canonical Gospels (General)",
+      "Biblical Contradictions"
     ],
     "secondaryKeywords": [
       "Gospel of Peter",
@@ -36341,7 +36409,8 @@
     "description": "Compares Mark and Luke on Jesus' death and why their portrayals differ.",
     "topics": [
       "Gospel of Luke",
-      "Gospel of Mark"
+      "Gospel of Mark",
+      "Atonement in Luke-Acts"
     ],
     "secondaryKeywords": [
       "Atonement",
@@ -36380,7 +36449,9 @@
     "author": "BDEhrman",
     "description": "Contrasts portrayals of Jesus as calm or distressed in passion traditions.",
     "topics": [
-      "Jesus' Passion Narratives"
+      "Jesus' Passion Narratives",
+      "Gospel of Mark",
+      "Gospel of Luke"
     ],
     "secondaryKeywords": [
       "Crucifixion",
@@ -36403,7 +36474,8 @@
     "description": "Explains critical problems raised by the Infancy Gospel of Thomas.",
     "topics": [
       "Infancy Gospel of Thomas",
-      "Miracle Stories in Non-Canonical Texts"
+      "Miracle Stories in Non-Canonical Texts",
+      "Dating Ancient Texts"
     ],
     "secondaryKeywords": [
       "Gospel of Thomas",
@@ -36420,7 +36492,8 @@
     "author": "BDEhrman",
     "description": "Introduces the Infancy Gospel of Thomas and its stories about Jesus as a child.",
     "topics": [
-      "Infancy Gospel of Thomas"
+      "Infancy Gospel of Thomas",
+      "Miracle Stories in Non-Canonical Texts"
     ],
     "secondaryKeywords": [
       "Annas",
@@ -36458,7 +36531,8 @@
     "author": "BDEhrman",
     "description": "Continues explaining answers to a New Testament pop quiz.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Gospel Authorship"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -36512,7 +36586,6 @@
     "author": "BDEhrman",
     "description": "Presents James Tabor's guest post on Paul's ascent to paradise and its relation to ancient Jewish heavenly journeys.",
     "topics": [
-      "Heaven and Hell Beliefs",
       "Afterlife Journeys"
     ],
     "secondaryKeywords": [
@@ -36526,10 +36599,10 @@
     "url": "https://ehrmanblog.org/what-is-the-unforgivable-sin-readers-mailbag/",
     "dateText": "August 27, 2020",
     "author": "BDEhrman",
-    "description": "Explains the unforgivable sin and how the idea raises questions about forgiveness, judgment, and eternal punishment.",
+    "description": "Explains the unforgivable sin in Matthew, why the passage does not teach purgatory, and how Jesus' apocalyptic expectation clarifies the saying.",
     "topics": [
-      "Eternal Punishment",
-      "Purgatory"
+      "Purgatory",
+      "Apocalyptic Jesus"
     ],
     "secondaryKeywords": [
       "Atonement",
@@ -36568,8 +36641,7 @@
     "description": "Introduces a PhD seminar on early Christian apocrypha and the kinds of non-canonical texts it covers.",
     "topics": [
       "Courses and Teaching",
-      "Early Christian Writings",
-      "Academic Careers and University Life"
+      "Early Christian Writings"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -36601,7 +36673,8 @@
     "author": "BDEhrman",
     "description": "Explains Jesus' use of the Son of Man in relation to future judgment and his own role.",
     "topics": [
-      "Son of Man"
+      "Son of Man",
+      "Apocalyptic Jesus"
     ],
     "secondaryKeywords": [
       "Elijah",
@@ -36625,7 +36698,8 @@
     "author": "BDEhrman",
     "description": "Shares a lecture on the history of heaven and hell.",
     "topics": [
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -46235,7 +46309,9 @@
     "dateText": "October 21, 2018",
     "author": "BDEhrman",
     "description": "Introduces Jeff Siker's reflection on digital Bible resources.",
-    "topics": [],
+    "topics": [
+      "Bible Translations (General)"
+    ],
     "secondaryKeywords": []
   },
   {
@@ -52744,7 +52820,8 @@
     "author": "BDEhrman",
     "description": "Recasts apocalyptic thought in modern terms while discussing suffering and divine justice.",
     "topics": [
-      "Disasters and Human Suffering"
+      "Disasters and Human Suffering",
+      "Jewish Apocalypticism"
     ],
     "secondaryKeywords": [
       "Apocalypticism",
@@ -53060,7 +53137,8 @@
     "description": "Discusses editing a major scholarly volume honoring Bruce Metzger.",
     "topics": [
       "Bruce Metzger",
-      "Textual Criticism Overview"
+      "Textual Criticism Overview",
+      "Scholarly Research and Publishing"
     ],
     "secondaryKeywords": [
       "Apostolic Fathers",
@@ -53150,11 +53228,13 @@
     "url": "https://ehrmanblog.org/how-did-judas-iscariot-die-readers-mailbag-june-18-2017/",
     "dateText": "June 18, 2017",
     "author": "BDEhrman",
-    "description": "Compares traditions about Judas's death, including Papias's account.",
+    "description": "Compares accounts of Judas's death in Matthew, Acts, and Papias, then explains how evangelicals approach New Testament textual variants.",
     "topics": [
       "Gospel of Matthew",
       "Judas Iscariot",
-      "Papias"
+      "Papias",
+      "Acts",
+      "Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -53174,7 +53254,10 @@
     "author": "BDEhrman",
     "description": "Compares Gospel portrayals of Jesus' death, especially in Mark and Luke.",
     "topics": [
-      "Jesus' Passion Narratives"
+      "Jesus' Passion Narratives",
+      "Gospel of Mark",
+      "Gospel of Luke",
+      "Biblical Contradictions"
     ],
     "secondaryKeywords": [
       "Gospel of Luke",
@@ -53291,7 +53374,9 @@
     "author": "BDEhrman",
     "description": "Updates publication plans for The Triumph of Christianity and the afterlife book.",
     "topics": [
-      "Triumph of Christianity"
+      "Triumph of Christianity",
+      "Heaven and Hell",
+      "Writing and Publishing Process"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -53594,7 +53679,8 @@
     "author": "BDEhrman",
     "description": "Describes becoming a non-fundamentalist Christian after recognizing biblical mistakes.",
     "topics": [
-      "Fundamentalism"
+      "Fundamentalism",
+      "Biblical Inerrancy"
     ],
     "secondaryKeywords": [
       "Eve",
@@ -53647,7 +53733,10 @@
     "description": "Describes further Old Testament problems encountered during graduate study.",
     "topics": [
       "Biblical Contradictions",
-      "Biblical Inerrancy"
+      "Biblical Inerrancy",
+      "Genesis",
+      "Pentateuch",
+      "Hebrew Bible Composition and Sources"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -54350,10 +54439,9 @@
     "url": "https://ehrmanblog.org/the-afterlife-in-the-hebrew-bible-sheol/",
     "dateText": "March 29, 2017",
     "author": "BDEhrman",
-    "description": "Introduces Sheol as the Hebrew Bible starting point for later heaven and hell ideas.",
+    "description": "Explains Sheol as the Hebrew Bible's realm of the dead, not a place of reward or eternal punishment.",
     "topics": [
       "Ancient Jewish Afterlife Beliefs",
-      "Eternal Punishment",
       "Heaven and Hell Beliefs"
     ],
     "secondaryKeywords": [
@@ -54425,7 +54513,8 @@
     "description": "Answers questions about Jesus' resurrection and personal spiritual experiences.",
     "topics": [
       "Deconversion",
-      "Resurrection of Jesus"
+      "Resurrection of Jesus",
+      "Jesus' Resurrection Appearances"
     ],
     "secondaryKeywords": [
       "Historical Jesus",
@@ -54508,7 +54597,8 @@
     "author": "BDEhrman",
     "description": "Answers questions about Jesus' divine identity in Mark and past evangelical ministry.",
     "topics": [
-      "Gospel of Mark"
+      "Gospel of Mark",
+      "Christology in the Gospels"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -54624,7 +54714,8 @@
     "author": "BDEhrman",
     "description": "Explains preliminary thinking for a book on the afterlife.",
     "topics": [
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -54714,7 +54805,8 @@
     "author": "BDEhrman",
     "description": "Introduces a research interest in different views of the afterlife.",
     "topics": [
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -55010,7 +55102,8 @@
     "author": "BDEhrman",
     "description": "Explains the development of better Greek New Testament editions after the Textus Receptus.",
     "topics": [
-      "Translation Issues"
+      "Translation Issues",
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "John",
@@ -55058,7 +55151,9 @@
     "author": "BDEhrman",
     "description": "Responds to conservative critiques of Misquoting Jesus and scribal changes.",
     "topics": [
-      "Misquoting Jesus"
+      "Misquoting Jesus",
+      "Scribal Changes",
+      "Textual Variants"
     ],
     "secondaryKeywords": [
       "Manuscripts",
@@ -55517,7 +55612,8 @@
     "description": "Corrects myths about Nicaea, reincarnation, and the biblical canon.",
     "topics": [
       "Constantine",
-      "Early Church Developments"
+      "Early Church Developments",
+      "Canon Formation"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -55752,9 +55848,11 @@
     "url": "https://ehrmanblog.org/a-reflection-on-christmas-blast-from-the-past/",
     "dateText": "December 24, 2016",
     "author": "BDEhrman",
-    "description": "Reposts a personal Christmas reflection on incarnation and suffering.",
+    "description": "Reflects on suffering, estrangement from Christian faith, and the ethical values still found meaningful in the Christmas story.",
     "topics": [
-      "Disasters and Human Suffering"
+      "Disasters and Human Suffering",
+      "Personal Reflections",
+      "Problem of Evil and Suffering"
     ],
     "secondaryKeywords": [
       "Agnosticism"
@@ -55994,7 +56092,8 @@
     "author": "BDEhrman",
     "description": "Reposts a discussion of the child Jesus in the Infancy Gospel of Thomas.",
     "topics": [
-      "Infancy Gospel of Thomas"
+      "Infancy Gospel of Thomas",
+      "Miracle Stories in Non-Canonical Texts"
     ],
     "secondaryKeywords": [
       "Gospel of Peter",
@@ -56511,7 +56610,10 @@
     "description": "Uses Paul's acquaintances with Peter and James as evidence for the historical Jesus.",
     "topics": [
       "James the Brother of Jesus",
-      "Jesus' Family Traditions"
+      "Jesus' Family Traditions",
+      "Peter the Apostle",
+      "Mythicism",
+      "Paul's Knowledge of Jesus"
     ],
     "secondaryKeywords": [
       "Galatians",
@@ -56533,7 +56635,8 @@
     "author": "BDEhrman",
     "description": "Explains what Paul can tell historians about Jesus as a real person.",
     "topics": [
-      "Paul's Knowledge of Jesus"
+      "Paul's Knowledge of Jesus",
+      "Mythicism"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -56594,7 +56697,8 @@
     "description": "Presents Gospel evidence for Jesus' existence.",
     "topics": [
       "Gospel Historical Reliability",
-      "Canonical Gospels (General)"
+      "Canonical Gospels (General)",
+      "Mythicism"
     ],
     "secondaryKeywords": [
       "Aramaic",
@@ -56621,7 +56725,8 @@
     "author": "BDEhrman",
     "description": "Explains how Gospel traditions contribute to the case that Jesus existed.",
     "topics": [
-      "Mythicism"
+      "Mythicism",
+      "Gospel Historical Reliability"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -56684,9 +56789,10 @@
     "url": "https://ehrmanblog.org/the-best-manuscripts-and-social-justice-readers-mailbag-october-23-2016/",
     "dateText": "October 23, 2016",
     "author": "BDEhrman",
-    "description": "Explains what textual critics mean by the best manuscripts.",
+    "description": "Explains how textual critics identify the best manuscripts and argues that social justice was central to Jesus' message.",
     "topics": [
-      "New Testament Manuscripts"
+      "New Testament Manuscripts",
+      "Jesus' Ethics"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -56939,7 +57045,8 @@
     "description": "Requests reader input for a possible book on the invention of the afterlife.",
     "topics": [
       "Eternal Punishment",
-      "Heaven and Hell Beliefs"
+      "Heaven and Hell Beliefs",
+      "Heaven and Hell"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -56980,7 +57087,9 @@
     "author": "BDEhrman",
     "description": "Reposts a discussion of Gerd Luedemann's view of resurrection visions.",
     "topics": [
-      "Resurrection Arguments and Apologetics"
+      "Resurrection Arguments and Apologetics",
+      "Visionary Experiences",
+      "Jesus' Resurrection Appearances"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -57005,7 +57114,9 @@
     "author": "BDEhrman",
     "description": "Answers questions about biblical inerrancy and disciples doubting the resurrection.",
     "topics": [
-      "Biblical Inerrancy"
+      "Biblical Inerrancy",
+      "Jesus' Resurrection Appearances",
+      "Visionary Experiences"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -57081,7 +57192,8 @@
     "author": "BDEhrman",
     "description": "Reposts a reflection on the relationship between faith and historical study.",
     "topics": [
-      "Personal Reflections"
+      "Personal Reflections",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -57369,7 +57481,9 @@
     "author": "BDEhrman",
     "description": "Recounts becoming a textual critic and responding to conservative claims about that field.",
     "topics": [
-      "Bruce Metzger"
+      "Bruce Metzger",
+      "Textual Criticism Overview",
+      "Autobiographical Posts"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -57557,7 +57671,8 @@
     "author": "BDEhrman",
     "description": "Explains different scholarly ways of describing the theology of the New Testament.",
     "topics": [
-      "Critical Biblical Scholarship"
+      "Critical Biblical Scholarship",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "1 Peter",
@@ -57646,7 +57761,8 @@
     "author": "BDEhrman",
     "description": "Discusses graduate training in New Testament theology and why scholars are often not trained for general audiences.",
     "topics": [
-      "Critical Biblical Scholarship"
+      "Critical Biblical Scholarship",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "New Testament Theology",
@@ -57783,7 +57899,9 @@
     "author": "BDEhrman",
     "description": "Answers questions about the Holy Spirit in biblical interpretation and the historical accuracy of John's Gospel.",
     "topics": [
-      "Gospel of John"
+      "Gospel of John",
+      "Gospel Historical Reliability",
+      "Textual Criticism Overview"
     ],
     "secondaryKeywords": [
       "Biblical Interpretation",
@@ -57946,7 +58064,7 @@
     "url": "https://ehrmanblog.org/bart-ehrman-discusses-the-apocalypticist/",
     "dateText": "July 27, 2016",
     "author": "BDEhrman",
-    "description": "Shares an unusual video related to apocalypticism and the book of Revelation.",
+    "description": "Shares an unusual video explaining apocalypticism, briefly touching on Jesus and modern end-time prediction.",
     "topics": [
       "Jewish Apocalypticism",
       "Media Interviews and Videos"
@@ -58069,7 +58187,8 @@
     "description": "Explains the Battle at the Milvian Bridge as background to Constantine's rise and conversion.",
     "topics": [
       "Constantine",
-      "Early Church Developments"
+      "Early Church Developments",
+      "Conversion"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -58191,7 +58310,8 @@
     "description": "Answers questions about Matthew in Hebrew, the Lord's Supper, and Josephus on James.",
     "topics": [
       "Gospel of Matthew",
-      "James the Brother of Jesus"
+      "James the Brother of Jesus",
+      "Atonement (General)"
     ],
     "secondaryKeywords": [
       "Authorship",
@@ -58236,7 +58356,8 @@
     "author": "BDEhrman",
     "description": "Discusses ancient Near Eastern flood myths and their relation to the biblical flood story.",
     "topics": [
-      "Genesis"
+      "Genesis",
+      "Comparative Ancient Evidence"
     ],
     "secondaryKeywords": [
       "Atrahasis",
@@ -58338,7 +58459,9 @@
     "author": "BDEhrman",
     "description": "Uses Philistines and Beersheba as examples of biblical anachronisms in the Pentateuch.",
     "topics": [
-      "Archaeology and Material Evidence"
+      "Archaeology and Material Evidence",
+      "Pentateuch",
+      "Hebrew Bible Historical Reliability"
     ],
     "secondaryKeywords": [
       "Archaeology",
@@ -58356,7 +58479,9 @@
     "author": "BDEhrman",
     "description": "Explains literary tensions in Genesis's creation accounts as evidence for multiple sources.",
     "topics": [
-      "Genesis"
+      "Genesis",
+      "Pentateuch",
+      "Hebrew Bible Composition and Sources"
     ],
     "secondaryKeywords": [
       "Adam",
@@ -58439,7 +58564,8 @@
     "author": "BDEhrman",
     "description": "Returns to early Christian growth and how many people converted.",
     "topics": [
-      "Conversion"
+      "Conversion",
+      "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -58583,10 +58709,11 @@
     "url": "https://ehrmanblog.org/some-comments-on-the-gospel-of-john-based-on-john-spongs-book-a-blast-from-the-past/",
     "dateText": "June 12, 2016",
     "author": "BDEhrman",
-    "description": "Comments on the Gospel of John in connection with John Shelby Spong's interpretation.",
+    "description": "Evaluates John Shelby Spong's claims about the authorship, sayings, signs, and historical characters of the Gospel of John.",
     "topics": [
       "Gospel of John",
-      "Signs in the Gospel of John"
+      "Signs in the Gospel of John",
+      "Gospel Historical Reliability"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -58696,9 +58823,10 @@
     "url": "https://ehrmanblog.org/were-jesus-followers-crazy-was-he-mailbag-june-4-2016/",
     "dateText": "June 4, 2016",
     "author": "BDEhrman",
-    "description": "Answers questions about psychology, apocalyptic expectation, and early Christian belief.",
+    "description": "Explains early Christianity's persistence through cognitive dissonance and considers whether Jesus' apocalyptic outlook indicates mental illness.",
     "topics": [
-      "Apocalyptic Jesus"
+      "Apocalyptic Jesus",
+      "Rise of Christianity"
     ],
     "secondaryKeywords": [
       "Apocalypse",
@@ -59293,7 +59421,8 @@
     "author": "BDEhrman",
     "description": "Answers questions about fear of hell, public debates, and the name of God.",
     "topics": [
-      "Eternal Punishment"
+      "Eternal Punishment",
+      "Public Debates"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -61599,7 +61728,10 @@
     "dateText": "November 20, 2015",
     "author": "BDEhrman",
     "description": "Answers questions about unresolved historical Jesus problems and Mark's possible use of Paul's letters.",
-    "topics": [],
+    "topics": [
+      "Historical Jesus (General)",
+      "Gospel of Mark"
+    ],
     "secondaryKeywords": [
       "Early Christianity",
       "Gospel of Mark",
@@ -62005,7 +62137,8 @@
     "description": "Asks whether Luke-Acts presents a consistent Christology.",
     "topics": [
       "Christology in the Gospels",
-      "Gospel of Luke"
+      "Gospel of Luke",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -62620,7 +62753,8 @@
       "Original Text Questions",
       "Scribal Changes",
       "Textual Criticism Methods",
-      "Textual Variants"
+      "Textual Variants",
+      "Christology (General)"
     ],
     "secondaryKeywords": [
       "Canon Formation",
@@ -63430,7 +63564,8 @@
     "description": "Shares a Google Cambridge lecture on Forged and ancient literary forgery.",
     "topics": [
       "Forged",
-      "Forgery (General)"
+      "Forgery (General)",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -64007,7 +64142,8 @@
     "author": "BDEhrman",
     "description": "Shares a lecture on the historical problems involved in studying Jesus from the Gospels.",
     "topics": [
-      "Historical Methods (General)"
+      "Historical Methods (General)",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -64393,9 +64529,10 @@
     "url": "https://ehrmanblog.org/the-threat-of-judgment/",
     "dateText": "May 14, 2015",
     "author": "BDEhrman",
-    "description": "Discusses threats of judgment received from former Moody classmates.",
+    "description": "Examines evangelical claims about final judgment and eternal punishment in response to former Moody classmates.",
     "topics": [
-      "Divine Judgment"
+      "Divine Judgment",
+      "Eternal Punishment"
     ],
     "secondaryKeywords": [
       "Final Judgment",
@@ -67025,7 +67162,6 @@
     "author": "BDEhrman",
     "description": "Asks when the Gospels became known as Matthew, Mark, Luke, and John.",
     "topics": [
-      "Apostolic Fathers",
       "Gospel Authorship"
     ],
     "secondaryKeywords": [
@@ -67269,7 +67405,8 @@
     "author": "BDEhrman",
     "description": "Shares a Diane Rehm interview about Misquoting Jesus and textual changes in the Bible.",
     "topics": [
-      "Misquoting Jesus"
+      "Misquoting Jesus",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Christmas",
@@ -67858,7 +67995,9 @@
     "author": "BDEhrman",
     "description": "Shares a Shaffer lecture on anti-Judaism in textual variants and apocryphal texts.",
     "topics": [
-      "Christian Anti-Judaism"
+      "Christian Anti-Judaism",
+      "Media Interviews and Videos",
+      "Textual Variants"
     ],
     "secondaryKeywords": [
       "Apocrypha",
@@ -68050,7 +68189,8 @@
     "author": "BDEhrman",
     "description": "Shares a Shaffer lecture on Christ as a divine man in early Christian tradition.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Apocrypha",
@@ -68146,7 +68286,8 @@
     "author": "BDEhrman",
     "description": "Shares a Shaffer lecture on Christ come in the flesh and disputed early Christian texts.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Apocrypha",
@@ -68385,7 +68526,8 @@
     "author": "BDEhrman",
     "description": "Shares a lecture on being an agnostic who writes about religion.",
     "topics": [
-      "Agnosticism"
+      "Agnosticism",
+      "Media Interviews and Videos"
     ],
     "secondaryKeywords": [
       "Freedom From Religion",
@@ -68457,7 +68599,8 @@
     "author": "BDEhrman",
     "description": "Presents a seminar syllabus on the Apostolic Fathers.",
     "topics": [
-      "Apostolic Fathers"
+      "Apostolic Fathers",
+      "Courses and Teaching"
     ],
     "secondaryKeywords": [
       "Anti-Judaism",
@@ -68510,7 +68653,8 @@
     "author": "BDEhrman",
     "description": "Presents material on early Christian methods of biblical interpretation.",
     "topics": [
-      "Gnostic and Orthodox Conflicts"
+      "Gnostic and Orthodox Conflicts",
+      "Christian Interpretation of Jewish Scripture"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -68719,7 +68863,8 @@
     "author": "BDEhrman",
     "description": "Announces a Teaching Company course while pausing a thread on Jesus' burial.",
     "topics": [
-      "How Jesus Became God"
+      "How Jesus Became God",
+      "Courses and Teaching"
     ],
     "secondaryKeywords": [
       "Burial",
@@ -69591,7 +69736,8 @@
     "author": "BDEhrman",
     "description": "Discusses Thomasine Christians and other groups sometimes connected with Gnosticism.",
     "topics": [
-      "Gospel of Thomas"
+      "Gospel of Thomas",
+      "Gnosticism (General)"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -70629,9 +70775,10 @@
     "url": "https://ehrmanblog.org/why-sell-books/",
     "dateText": "March 27, 2014",
     "author": "BDEhrman",
-    "description": "Explains why media attention matters for selling trade books.",
+    "description": "Explains why scholars write and sell books for general readers as a way to disseminate knowledge.",
     "topics": [
-      "Media Coverage and Reviews"
+      "General-Audience Books",
+      "Public-Facing Scholarship"
     ],
     "secondaryKeywords": [
       "Early Christianity",
@@ -70986,7 +71133,8 @@
     "author": "BDEhrman",
     "description": "Applies the comparative method to the Gospel of Luke.",
     "topics": [
-      "Gospel of Luke"
+      "Gospel of Luke",
+      "Historical Methods (General)"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -71142,7 +71290,9 @@
     "author": "BDEhrman",
     "description": "Discusses snake-handling and the longer ending of Mark.",
     "topics": [
-      "Gospel of Mark"
+      "Gospel of Mark",
+      "Scribal Changes",
+      "Textual Variants"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -71318,7 +71468,8 @@
     "description": "Answers whether Jesus could have been inserted into Paul's letters by later scribes.",
     "topics": [
       "Scribal Changes",
-      "Textual Variants"
+      "Textual Variants",
+      "Pauline Textual Issues"
     ],
     "secondaryKeywords": [
       "1 Thessalonians",
@@ -71508,7 +71659,8 @@
     "author": "BDEhrman",
     "description": "Evaluates an argument that Jesus may have been married.",
     "topics": [
-      "Jesus and Women"
+      "Apocalyptic Jesus",
+      "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
       "Essenes",
@@ -71550,7 +71702,6 @@
     "author": "BDEhrman",
     "description": "Asks whether Jesus was married and whether that question would matter.",
     "topics": [
-      "Gospel of Jesus' Wife Fragment",
       "Jesus' Family Traditions"
     ],
     "secondaryKeywords": [
@@ -71942,7 +72093,8 @@
     "author": "BDEhrman",
     "description": "Presents additional evidence for understanding Jesus as a Jewish apocalypticist.",
     "topics": [
-      "John the Baptist"
+      "John the Baptist",
+      "Apocalyptic Jesus"
     ],
     "secondaryKeywords": [
       "Abraham",
@@ -72465,7 +72617,8 @@
     "author": "BDEhrman",
     "description": "Explains a Gnostic view of Jesus' resurrection.",
     "topics": [
-      "Apocalypse of Peter"
+      "Apocalypse of Peter",
+      "Resurrection of Jesus"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -72511,7 +72664,8 @@
     "author": "BDEhrman",
     "description": "Discusses whether history is possible in light of social memory studies.",
     "topics": [
-      "Memory and Jesus Traditions"
+      "Memory and Jesus Traditions",
+      "Historical Methods (General)"
     ],
     "secondaryKeywords": [
       "Gospels",
@@ -72747,7 +72901,8 @@
     "author": "BDEhrman",
     "description": "Compares multiple attestation for Jesus' existence with claims about the resurrection.",
     "topics": [
-      "Resurrection of Jesus"
+      "Resurrection of Jesus",
+      "Methods for Studying the Historical Jesus"
     ],
     "secondaryKeywords": [
       "Historical Criticism",
@@ -72837,7 +72992,8 @@
     "description": "Introduces a newly identified hermeneia manuscript of the Gospel of John.",
     "topics": [
       "Gospel of John",
-      "Manuscript Discoveries and Controversies"
+      "Manuscript Discoveries and Controversies",
+      "New Testament Manuscripts"
     ],
     "secondaryKeywords": [
       "Brice Jones",
@@ -72924,7 +73080,8 @@
     "author": "BDEhrman",
     "description": "Answers whether Paul may have contemplated suicide in Philippians.",
     "topics": [
-      "Comparative Ancient Evidence"
+      "Comparative Ancient Evidence",
+      "Philippians"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -73354,7 +73511,8 @@
     "author": "BDEhrman",
     "description": "Critiques the opening claims and method of Bill O'Reilly's Killing Jesus.",
     "topics": [
-      "Public-Facing Scholarship"
+      "Public-Facing Scholarship",
+      "Media Coverage and Reviews"
     ],
     "secondaryKeywords": [
       "Bill Oreilly",
@@ -73377,7 +73535,8 @@
     "author": "BDEhrman",
     "description": "Introduces plans to review Bill O'Reilly's Killing Jesus.",
     "topics": [
-      "Public-Facing Scholarship"
+      "Public-Facing Scholarship",
+      "Media Coverage and Reviews"
     ],
     "secondaryKeywords": [
       "Biblical Scholarship",
@@ -73683,7 +73842,8 @@
     "author": "BDEhrman",
     "description": "Explains a Gospel of the Ebionites passage about John the Baptist's food.",
     "topics": [
-      "John the Baptist"
+      "John the Baptist",
+      "Jewish Christian Gospels"
     ],
     "secondaryKeywords": [
       "Gospel of the Ebionites",
@@ -73746,7 +73906,8 @@
     "description": "Presents a PhD seminar syllabus on early Christian apocrypha.",
     "topics": [
       "Apocryphal Acts",
-      "Academic Careers and University Life"
+      "Academic Careers and University Life",
+      "Courses and Teaching"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -74521,7 +74682,8 @@
     "description": "Introduces women in Paul's churches and the broader topic of women in early Christianity.",
     "topics": [
       "Women in Pauline Traditions",
-      "Paul's Churches and Communities"
+      "Paul's Churches and Communities",
+      "Women in Early Christianity"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -74760,8 +74922,11 @@
     "url": "https://ehrmanblog.org/early-christianity-in-egypt/",
     "dateText": "July 9, 2013",
     "author": "BDEhrman",
-    "description": "Introduces early Christianity in Egypt after work on How Jesus Became God.",
-    "topics": [],
+    "description": "Examines whether early Egyptian Christianity was initially orthodox or represented by Gnostic and other competing forms.",
+    "topics": [
+      "Early Christian Diversity",
+      "Gnostic and Orthodox Conflicts"
+    ],
     "secondaryKeywords": [
       "Church Fathers",
       "Early Christianity",
@@ -75436,7 +75601,8 @@
     "author": "BDEhrman",
     "description": "Answers whether Christians can accept an apocalyptic Jesus whose expected end did not arrive.",
     "topics": [
-      "Apocalyptic Jesus"
+      "Apocalyptic Jesus",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Apocalypticism",
@@ -75452,7 +75618,8 @@
     "author": "BDEhrman",
     "description": "Announces the discovery of an old Hebrew Bible scroll containing the Pentateuch.",
     "topics": [
-      "Hebrew Bible Manuscripts"
+      "Hebrew Bible Manuscripts",
+      "Pentateuch"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -75783,7 +75950,8 @@
     "author": "BDEhrman",
     "description": "Describes visiting Caesarea Maritima during an Israel trip.",
     "topics": [
-      "Roman World"
+      "Roman World",
+      "Archaeology and Material Evidence"
     ],
     "secondaryKeywords": [
       "Caesarea Maritima",
@@ -75813,7 +75981,8 @@
     "author": "BDEhrman",
     "description": "Explains anti-Jewish implications in later claims about Christ as God.",
     "topics": [
-      "How Jesus Became God"
+      "How Jesus Became God",
+      "Christian Anti-Judaism"
     ],
     "secondaryKeywords": [
       "Anti-Judaism",
@@ -75893,7 +76062,8 @@
     "author": "BDEhrman",
     "description": "Explains differences among colleges, universities, and teaching settings.",
     "topics": [
-      "Courses and Teaching"
+      "Courses and Teaching",
+      "Academic Careers and University Life"
     ],
     "secondaryKeywords": [
       "Teaching"
@@ -76305,7 +76475,8 @@
     "author": "BDEhrman",
     "description": "Discusses modern visions of Jesus as background for resurrection appearances.",
     "topics": [
-      "How Jesus Became God"
+      "How Jesus Became God",
+      "Visionary Experiences"
     ],
     "secondaryKeywords": [
       "Mission",
@@ -76546,7 +76717,8 @@
     "topics": [
       "Agnosticism",
       "Problem of Evil and Suffering",
-      "Atheism"
+      "Atheism",
+      "Moral Philosophy"
     ],
     "secondaryKeywords": [
       "Afterlife",
@@ -76643,7 +76815,9 @@
     "description": "Explains a change of mind about early Christology and incarnation.",
     "topics": [
       "Incarnation Christology",
-      "Philippians 2 Christ Poem"
+      "Philippians 2 Christ Poem",
+      "Exaltation Christology",
+      "How Jesus Became God"
     ],
     "secondaryKeywords": [
       "Christology",
@@ -76726,7 +76900,8 @@
     "author": "BDEhrman",
     "description": "Connects John's Logos with Jewish traditions about Wisdom.",
     "topics": [
-      "Gospel of John"
+      "Gospel of John",
+      "Incarnation Christology"
     ],
     "secondaryKeywords": [
       "John",
@@ -76899,7 +77074,9 @@
       "Gospel of Luke",
       "Theologically Significant Variants",
       "Adoptionist Christology",
-      "Exaltation Christology"
+      "Exaltation Christology",
+      "Scribal Changes",
+      "Textual Variants"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -76947,7 +77124,8 @@
     "author": "BDEhrman",
     "description": "Explains exaltation Christology in the speeches in Acts.",
     "topics": [
-      "Exaltation Christology"
+      "Exaltation Christology",
+      "Acts"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -77215,7 +77393,8 @@
     "author": "BDEhrman",
     "description": "Introduces Jeff Siker's guest post on remaining Christian as a New Testament scholar.",
     "topics": [
-      "Critical Biblical Scholarship"
+      "Critical Biblical Scholarship",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -77264,7 +77443,8 @@
     "author": "BDEhrman",
     "description": "Responds to objections about demythologizing Jesus' ethics.",
     "topics": [
-      "Demythologizing the New Testament"
+      "Demythologizing the New Testament",
+      "Jesus' Ethics"
     ],
     "secondaryKeywords": [
       "Jesus' Ethics"
@@ -77531,7 +77711,8 @@
     "author": "BDEhrman",
     "description": "Connects failed end-time expectations with the Letter of Barnabas.",
     "topics": [
-      "Letter of Barnabas"
+      "Letter of Barnabas",
+      "Modern End-Times Interpretation"
     ],
     "secondaryKeywords": [
       "Barnabas",
@@ -78021,7 +78202,9 @@
     "author": "BDEhrman",
     "description": "Introduces an agnostic reflection on Christmas and ancient Gospel birth stories.",
     "topics": [
-      "Agnosticism"
+      "Agnosticism",
+      "Jesus' Birth Narratives",
+      "Personal Reflections"
     ],
     "secondaryKeywords": [
       "Gospel of Pseudo-Matthew",
@@ -78125,7 +78308,8 @@
     "author": "BDEhrman",
     "description": "Reviews Pope Benedict's book on Jesus' infancy narratives.",
     "topics": [
-      "Jesus' Birth Narratives"
+      "Jesus' Birth Narratives",
+      "Media Coverage and Reviews"
     ],
     "secondaryKeywords": [
       "Dionysius",
@@ -78847,9 +79031,10 @@
     "url": "https://ehrmanblog.org/books-and-icebergs/",
     "dateText": "October 14, 2012",
     "author": "BDEhrman",
-    "description": "Explains why resurrection research is central to How Jesus Became God.",
+    "description": "Explains why strong books require extensive background research, using resurrection research and a planned textbook as examples.",
     "topics": [
-      "How Jesus Became God"
+      "How Jesus Became God",
+      "Writing and Publishing Process"
     ],
     "secondaryKeywords": [
       "Resurrection",
@@ -78946,7 +79131,7 @@
     "topics": [
       "Empty Tomb Traditions",
       "Canonical Gospels (General)",
-      "Women in Early Christianity"
+      "Jesus and Women"
     ],
     "secondaryKeywords": [
       "Gerd Ludemann",
@@ -79004,7 +79189,9 @@
     "author": "BDEhrman",
     "description": "Discusses Gerd Ludemann's historical argument about resurrection belief and visions.",
     "topics": [
-      "Resurrection Arguments and Apologetics"
+      "Resurrection Arguments and Apologetics",
+      "Resurrection of Jesus",
+      "Visionary Experiences"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -79137,7 +79324,8 @@
     "author": "BDEhrman",
     "description": "Responds to reader comments about separating faith and history in biblical interpretation.",
     "topics": [
-      "Personal Reflections"
+      "Personal Reflections",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Gospel of John",
@@ -79278,7 +79466,8 @@
     "author": "BDEhrman",
     "description": "Explores whether loss of faith affected New Testament scholarship and academic conclusions.",
     "topics": [
-      "Deconversion"
+      "Deconversion",
+      "Historical Study and Theology"
     ],
     "secondaryKeywords": [
       "Agnosticism",
@@ -79308,7 +79497,8 @@
     "author": "BDEhrman",
     "description": "Introduces ancient afterlife options to explain Paul's expectation of bodily resurrection.",
     "topics": [
-      "Resurrection of the Dead"
+      "Resurrection of the Dead",
+      "Life After Death (General)"
     ],
     "secondaryKeywords": [
       "1 Corinthians",
@@ -79326,7 +79516,9 @@
     "author": "BDEhrman",
     "description": "Presents textbook material stressing the need for historical and cultural context before studying the New Testament.",
     "topics": [
-      "Textbooks and Teaching Materials"
+      "Textbooks and Teaching Materials",
+      "Comparative Ancient Evidence",
+      "Historical Methods (General)"
     ],
     "secondaryKeywords": [
       "Apollonius of Tyana",
@@ -79401,7 +79593,8 @@
     "description": "Compares Mark and Luke on the meaning of Jesus' death.",
     "topics": [
       "Gospel of Luke",
-      "Gospel of Mark"
+      "Gospel of Mark",
+      "Atonement in Luke-Acts"
     ],
     "secondaryKeywords": [
       "Atonement",
@@ -79479,7 +79672,8 @@
     "topics": [
       "Bloody Sweat Textual Variant",
       "Gospel of Luke",
-      "New Revised Standard Version (NRSV)"
+      "New Revised Standard Version (NRSV)",
+      "Redaction Criticism"
     ],
     "secondaryKeywords": [
       "Bloody Sweat",
@@ -79515,12 +79709,13 @@
     "url": "https://ehrmanblog.org/problems-with-the-nrsv-part-3/",
     "dateText": "September 3, 2012",
     "author": "BDEhrman",
-    "description": "Discusses the difficulty of translation and textual decisions behind the NRSV.",
+    "description": "Explains how a disputed Last Supper passage affects whether Luke presents Jesus' death as an atoning sacrifice.",
     "topics": [
       "Gospel of Luke",
       "New Revised Standard Version (NRSV)",
       "Original Text Questions",
-      "Scribal Changes"
+      "Scribal Changes",
+      "Atonement in Luke-Acts"
     ],
     "secondaryKeywords": [
       "Apostolic Fathers",
@@ -80061,7 +80256,8 @@
     "author": "BDEhrman",
     "description": "Opens Forgery and Counterforgery with an anecdote about deceivers deceived by forgeries.",
     "topics": [
-      "Forgery (General)"
+      "Forgery (General)",
+      "Forgery and Counterforgery"
     ],
     "secondaryKeywords": [
       "Dionysius",
@@ -80078,7 +80274,8 @@
     "author": "BDEhrman",
     "description": "Describes publication tasks that interrupted planned writing on a Bible textbook.",
     "topics": [
-      "Forgery and Counterforgery"
+      "Forgery and Counterforgery",
+      "Writing and Publishing Process"
     ],
     "secondaryKeywords": [
       "Bruce Metzger",
@@ -80155,10 +80352,11 @@
     "url": "https://ehrmanblog.org/paul-in-acts-part-3/",
     "dateText": "July 24, 2012",
     "author": "BDEhrman",
-    "description": "Compares Paul's letters and Acts on Paul's conversion, mission, and communities.",
+    "description": "Contrasts Acts' portrayal of harmony between Paul and the Jerusalem apostles with Paul's account of conflict involving Peter and James's associates.",
     "topics": [
       "Paul in Acts",
-      "Paul's Churches and Communities"
+      "Paul's Churches and Communities",
+      "Paul and His Opponents"
     ],
     "secondaryKeywords": [
       "Acts",
@@ -80387,7 +80585,8 @@
       "Gospel of Matthew",
       "Translation Issues",
       "Virgin Birth",
-      "Book of Isaiah"
+      "Book of Isaiah",
+      "Christian Interpretation of Jewish Scripture"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -80432,7 +80631,8 @@
     "description": "Explains the Suffering Servant in Second Isaiah and its later importance for Christian interpretation.",
     "topics": [
       "Christian Interpretation of Jewish Scripture",
-      "Hebrew Bible Prophets"
+      "Hebrew Bible Prophets",
+      "Book of Isaiah"
     ],
     "secondaryKeywords": [
       "Hebrew Bible",
@@ -80530,7 +80730,8 @@
     "author": "BDEhrman",
     "description": "Answers a question about income from scholarly books, textbooks, and trade books.",
     "topics": [
-      "Textbooks and Teaching Materials"
+      "Textbooks and Teaching Materials",
+      "Writing and Publishing Process"
     ],
     "secondaryKeywords": [
       "Misquoting Jesus",
@@ -80603,7 +80804,8 @@
     "description": "Distinguishes Jewish resurrection belief from pagan fertility and death-and-return motifs.",
     "topics": [
       "Resurrection of Jesus",
-      "Resurrection of the Dead"
+      "Resurrection of the Dead",
+      "Did Jesus Exist?"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -80621,7 +80823,8 @@
     "description": "Introduces the final Witherington Q&A section on resurrection in Jewish apocalyptic context.",
     "topics": [
       "Resurrection of Jesus",
-      "Resurrection of the Dead"
+      "Resurrection of the Dead",
+      "Did Jesus Exist?"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -80775,7 +80978,8 @@
     "topics": [
       "Eusebius of Caesarea",
       "Gnostic and Orthodox Conflicts",
-      "Early Christian Orthodoxy and Heresy"
+      "Early Christian Orthodoxy and Heresy",
+      "Early Christian Diversity"
     ],
     "secondaryKeywords": [
       "Church Fathers",
@@ -80852,7 +81056,8 @@
     "topics": [
       "Mythicism",
       "Nazareth",
-      "Textual Variants"
+      "Textual Variants",
+      "Did Jesus Exist?"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -80887,7 +81092,8 @@
     "description": "Answers Witherington's questions about Paul, Gospel sources, and evidence for the historical Jesus.",
     "topics": [
       "Methods for Studying the Historical Jesus",
-      "Woman Caught in Adultery"
+      "Woman Caught in Adultery",
+      "Did Jesus Exist?"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -80914,7 +81120,6 @@
     "author": "BDEhrman",
     "description": "Describes a National Humanities Center seminar on non-canonical Gospels, Acts, epistles, and apocalypses.",
     "topics": [
-      "Canon Formation",
       "Early Christian Writings"
     ],
     "secondaryKeywords": [
@@ -80945,7 +81150,8 @@
     "description": "Continues the Witherington Q&A on oral tradition, multiple attestation, and evidence for Jesus.",
     "topics": [
       "Methods for Studying the Historical Jesus",
-      "Mythicism"
+      "Mythicism",
+      "Did Jesus Exist?"
     ],
     "secondaryKeywords": [
       "Ben Witherington",
@@ -81357,7 +81563,8 @@
     "author": "BDEhrman",
     "description": "Answers whether the earliest Gospel manuscripts preserve miracle stories.",
     "topics": [
-      "Jesus' Miracle Stories"
+      "Jesus' Miracle Stories",
+      "Original Text Questions"
     ],
     "secondaryKeywords": [
       "Gospel of Luke",
@@ -81398,7 +81605,8 @@
     "author": "BDEhrman",
     "description": "Examines why the historical Jesus went to Jerusalem before the crucifixion.",
     "topics": [
-      "Crucifixion of Jesus"
+      "Crucifixion of Jesus",
+      "Apocalyptic Jesus"
     ],
     "secondaryKeywords": [
       "Crucifixion",
@@ -81822,7 +82030,6 @@
     "description": "Challenges free-will explanations for natural suffering such as earthquakes.",
     "topics": [
       "Disasters and Human Suffering",
-      "Free Will and Predestination",
       "Free Will Explanations of Suffering",
       "Problem of Evil and Suffering"
     ],
@@ -82005,7 +82212,9 @@
     "topics": [
       "Original Text Questions",
       "Textual Variants",
-      "Fundamentalism"
+      "Fundamentalism",
+      "Misquoting Jesus",
+      "Theologically Significant Variants"
     ],
     "secondaryKeywords": [
       "2 Timothy",
@@ -82029,7 +82238,8 @@
     "description": "Presents James Tabor's argument that Revelation may revise an earlier non-Christian apocalypse.",
     "topics": [
       "Book of Revelation",
-      "Jewish Apocalypticism"
+      "Jewish Apocalypticism",
+      "Source Criticism"
     ],
     "secondaryKeywords": [
       "Apocalyptic Jesus",
