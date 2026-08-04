@@ -135,29 +135,24 @@ def desktop_svg(counts: dict[str, int]) -> str:
   <text class="label-small" x="1497" y="323" text-anchor="middle">Browse Topics 2</text>
   <text class="count" x="1497" y="361" text-anchor="middle">{areas_2} subject areas</text>
 
-  <path class="arrow" d="M460 395 L460 448"/>
+  <path class="arrow" d="M460 395 L460 529"/>
   <path class="arrow" d="M1340 395 L1340 448"/>
 
-  <rect class="box process" x="145" y="448" width="630" height="105" rx="12"/>
-  <text class="label" x="460" y="490" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="460" y="527" text-anchor="middle">Topics, secondary keywords, or both</text>
+  <rect class="box process" x="145" y="529" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="571" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="460" y="608" text-anchor="middle">Topics, secondary keywords, or both</text>
 
   <rect class="box category" x="1025" y="448" width="630" height="105" rx="12"/>
   <text class="label" x="1340" y="490" text-anchor="middle">Categories</text>
   <text class="count" x="1340" y="527" text-anchor="middle">{categories} categories</text>
 
-  <path class="arrow" d="M460 553 L460 610"/>
   <path class="arrow" d="M1340 553 L1340 610"/>
-
-  <rect class="box process" x="145" y="610" width="630" height="105" rx="12"/>
-  <text class="label" x="460" y="652" text-anchor="middle">Search Results</text>
-  <text class="count" x="460" y="689" text-anchor="middle">Best match, newest first, or oldest first</text>
 
   <rect class="box topic" x="1025" y="610" width="630" height="105" rx="12"/>
   <text class="label" x="1340" y="652" text-anchor="middle">Topics</text>
   <text class="count" x="1340" y="689" text-anchor="middle">{topics} topics</text>
 
-  <path class="arrow" d="M460 715 L460 772"/>
+  <path class="arrow" d="M460 634 L460 772"/>
   <path class="arrow" d="M1340 715 L1340 772"/>
 
   <rect class="box post" x="145" y="772" width="630" height="88" rx="12"/>
@@ -168,33 +163,27 @@ def desktop_svg(counts: dict[str, int]) -> str:
   <text class="note" x="900" y="970" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
 
   <rect class="panel" x="60" y="1015" width="1680" height="245" rx="16"/>
-  <line class="divider" x1="396" y1="1050" x2="396" y2="1225"/>
-  <line class="divider" x1="732" y1="1050" x2="732" y2="1225"/>
-  <line class="divider" x1="1068" y1="1050" x2="1068" y2="1225"/>
-  <line class="divider" x1="1404" y1="1050" x2="1404" y2="1225"/>
+  <line class="divider" x1="480" y1="1050" x2="480" y2="1225"/>
+  <line class="divider" x1="900" y1="1050" x2="900" y2="1225"/>
+  <line class="divider" x1="1320" y1="1050" x2="1320" y2="1225"/>
 
   <text class="definition-title" x="90" y="1075">Subject Areas:</text>
   <text class="definition" x="90" y="1120">Broad entry points that</text>
   <text class="definition" x="90" y="1152">organize related categories.</text>
 
-  <text class="definition-title" x="426" y="1075">Categories:</text>
-  <text class="definition" x="426" y="1120">Focused groupings of</text>
-  <text class="definition" x="426" y="1152">related topics.</text>
+  <text class="definition-title" x="510" y="1075">Categories:</text>
+  <text class="definition" x="510" y="1120">Focused groupings of</text>
+  <text class="definition" x="510" y="1152">related topics.</text>
 
-  <text class="definition-title" x="762" y="1075">Topics:</text>
-  <text class="definition" x="762" y="1120">Major subjects covered</text>
-  <text class="definition" x="762" y="1152">in posts and used to group</text>
-  <text class="definition" x="762" y="1184">related posts.</text>
+  <text class="definition-title" x="930" y="1075">Topics:</text>
+  <text class="definition" x="930" y="1120">Major subjects covered</text>
+  <text class="definition" x="930" y="1152">in posts and used to group</text>
+  <text class="definition" x="930" y="1184">related posts.</text>
 
-  <text class="definition-title" x="1098" y="1075">Secondary Keywords:</text>
-  <text class="definition" x="1098" y="1120">Important people, texts,</text>
-  <text class="definition" x="1098" y="1152">places, or supporting ideas</text>
-  <text class="definition" x="1098" y="1184">discussed in posts.</text>
-
-  <text class="definition-title" x="1434" y="1075">Posts:</text>
-  <text class="definition" x="1434" y="1120">Individual blog entries</text>
-  <text class="definition" x="1434" y="1152">found through browsing</text>
-  <text class="definition" x="1434" y="1184">or keyword search.</text>
+  <text class="definition-title" x="1350" y="1075">Secondary Keywords:</text>
+  <text class="definition" x="1350" y="1120">Important people, texts,</text>
+  <text class="definition" x="1350" y="1152">places, or supporting ideas</text>
+  <text class="definition" x="1350" y="1184">discussed in posts.</text>
 '''
     return svg_document(1800, 1320, body)
 
@@ -232,15 +221,11 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <text class="label-small" x="267" y="190" text-anchor="middle">Secondary</text>
   <text class="label-small" x="267" y="212" text-anchor="middle">Keywords</text>
   <text class="count" x="267" y="238" text-anchor="middle">{keywords} keywords</text>
-  <path class="arrow" d="M190 255 L190 305"/>
-  <rect class="box process" x="45" y="305" width="290" height="75" rx="12"/>
-  <text class="label-small" x="190" y="336" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="190" y="363" text-anchor="middle">Topics, keywords, or both</text>
-  <path class="arrow" d="M190 380 L190 430"/>
-  <rect class="box process" x="45" y="430" width="290" height="75" rx="12"/>
-  <text class="label" x="190" y="461" text-anchor="middle">Search Results</text>
-  <text class="count" x="190" y="489" text-anchor="middle">Best match or publication date</text>
-  <path class="arrow" d="M190 505 L190 555"/>
+  <path class="arrow" d="M190 255 L190 350"/>
+  <rect class="box process" x="45" y="350" width="290" height="75" rx="12"/>
+  <text class="label-small" x="190" y="381" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="190" y="408" text-anchor="middle">Topics, keywords, or both</text>
+  <path class="arrow" d="M190 425 L190 555"/>
   <rect class="box post" x="45" y="555" width="290" height="75" rx="12"/>
   <text class="label" x="190" y="602" text-anchor="middle">Posts ({posts})</text>
 
@@ -271,7 +256,7 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <text class="note" x="190" y="1500" text-anchor="middle">Post lists and search results can be</text>
   <text class="note" x="190" y="1522" text-anchor="middle">narrowed with additional search terms.</text>
 
-  <rect class="panel" x="15" y="1570" width="350" height="610" rx="12"/>
+  <rect class="panel" x="15" y="1570" width="350" height="465" rx="12"/>
   <text class="definition" x="35" y="1610"><tspan class="definition-title">Subject Areas:</tspan></text>
   <text class="definition" x="35" y="1640">Broad entry points that organize</text>
   <text class="definition" x="35" y="1665">related categories.</text>
@@ -283,11 +268,8 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <text class="definition" x="35" y="1950"><tspan class="definition-title">Secondary Keywords:</tspan></text>
   <text class="definition" x="35" y="1980">Important people, texts, places, or</text>
   <text class="definition" x="35" y="2005">supporting ideas discussed in posts.</text>
-  <text class="definition" x="35" y="2080"><tspan class="definition-title">Posts:</tspan></text>
-  <text class="definition" x="35" y="2110">Individual blog entries found through</text>
-  <text class="definition" x="35" y="2135">browsing or keyword search.</text>
 '''
-    return svg_document(380, 2200, body)
+    return svg_document(380, 2055, body)
 
 
 def parse_args() -> argparse.Namespace:

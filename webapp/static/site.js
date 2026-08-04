@@ -148,6 +148,27 @@
     container.append(strong, document.createTextNode(text.slice(matchIndex + match.length)));
   }
 
+  function exactKeywordSuggestion(input, suggestions) {
+    const query = input.value.trim().toLocaleLowerCase();
+    if (!query) return null;
+    return suggestions
+      .filter((suggestion) => suggestion.label.trim().toLocaleLowerCase() === query)
+      .sort((left, right) => Number(right.isTopic) - Number(left.isTopic))[0] || null;
+  }
+
+  function chooseKeywordSuggestion(input, suggestion) {
+    if (!suggestion) return false;
+    const form = input.closest("[data-keyword-form]");
+    const list = input.parentElement.querySelector(".keyword-suggestion-list");
+    if (!form) return false;
+    const added = addKeywordChip(form, input, suggestion.label);
+    resetKeywordSuggestionList(list);
+    if (added) {
+      window.location.href = keywordSearchUrl(form, input);
+    }
+    return added;
+  }
+
   function setActiveKeywordSuggestion(input, index) {
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
     const suggestions = input.keywordSuggestionMatches || [];
@@ -234,11 +255,7 @@
         event.preventDefault();
       });
       button.addEventListener("click", () => {
-        const added = addKeywordChip(form, input, suggestion.label);
-        resetKeywordSuggestionList(list);
-        if (added) {
-          window.location.href = keywordSearchUrl(form, input);
-        }
+        chooseKeywordSuggestion(input, suggestion);
       });
       item.appendChild(button);
       list.appendChild(item);
@@ -466,12 +483,23 @@
       if (event.key === "Enter") {
         event.preventDefault();
         if (suggestions.length && input.keywordSuggestionIndex >= 0) {
-          const form = input.closest("[data-keyword-form]");
-          const added = addKeywordChip(form, input, suggestions[input.keywordSuggestionIndex].label);
-          resetKeywordSuggestionList(list);
-          if (added) {
-            window.location.href = keywordSearchUrl(form, input);
-          }
+          chooseKeywordSuggestion(input, suggestions[input.keywordSuggestionIndex]);
+          return;
+        }
+        const exactSuggestion = exactKeywordSuggestion(input, suggestions);
+        if (exactSuggestion) {
+          chooseKeywordSuggestion(input, exactSuggestion);
+          return;
+        }
+        if (input.value.trim()) {
+          const enteredValue = input.value;
+          fetchSuggestions(input).then(() => {
+            if (input.value !== enteredValue) return;
+            chooseKeywordSuggestion(
+              input,
+              exactKeywordSuggestion(input, input.keywordSuggestionMatches || [])
+            );
+          });
         }
         return;
       }

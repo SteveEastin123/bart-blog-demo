@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="2200" viewBox="0 0 380 2200" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="2055" viewBox="0 0 380 2055" role="img" aria-labelledby="title description">
   <title id="title">Ways to find posts on the Bart Ehrman Blog</title>
   <desc id="description">A symmetrical comparison of Keyword Search and Browse Topics. Keyword Search combines topics and secondary keywords into search terms and results. Browse Topics moves from subject areas to categories and topics. Both paths end with posts.</desc>
   <defs>
@@ -59,15 +59,11 @@
   <text class="label-small" x="267" y="190" text-anchor="middle">Secondary</text>
   <text class="label-small" x="267" y="212" text-anchor="middle">Keywords</text>
   <text class="count" x="267" y="238" text-anchor="middle">1,051 keywords</text>
-  <path class="arrow" d="M190 255 L190 305"/>
-  <rect class="box process" x="45" y="305" width="290" height="75" rx="12"/>
-  <text class="label-small" x="190" y="336" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="190" y="363" text-anchor="middle">Topics, keywords, or both</text>
-  <path class="arrow" d="M190 380 L190 430"/>
-  <rect class="box process" x="45" y="430" width="290" height="75" rx="12"/>
-  <text class="label" x="190" y="461" text-anchor="middle">Search Results</text>
-  <text class="count" x="190" y="489" text-anchor="middle">Best match or publication date</text>
-  <path class="arrow" d="M190 505 L190 555"/>
+  <path class="arrow" d="M190 255 L190 350"/>
+  <rect class="box process" x="45" y="350" width="290" height="75" rx="12"/>
+  <text class="label-small" x="190" y="381" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="190" y="408" text-anchor="middle">Topics, keywords, or both</text>
+  <path class="arrow" d="M190 425 L190 555"/>
   <rect class="box post" x="45" y="555" width="290" height="75" rx="12"/>
   <text class="label" x="190" y="602" text-anchor="middle">Posts (4,390)</text>
 
@@ -98,7 +94,7 @@
   <text class="note" x="190" y="1500" text-anchor="middle">Post lists and search results can be</text>
   <text class="note" x="190" y="1522" text-anchor="middle">narrowed with additional search terms.</text>
 
-  <rect class="panel" x="15" y="1570" width="350" height="610" rx="12"/>
+  <rect class="panel" x="15" y="1570" width="350" height="465" rx="12"/>
   <text class="definition" x="35" y="1610"><tspan class="definition-title">Subject Areas:</tspan></text>
   <text class="definition" x="35" y="1640">Broad entry points that organize</text>
   <text class="definition" x="35" y="1665">related categories.</text>
@@ -110,8 +106,5 @@
   <text class="definition" x="35" y="1950"><tspan class="definition-title">Secondary Keywords:</tspan></text>
   <text class="definition" x="35" y="1980">Important people, texts, places, or</text>
   <text class="definition" x="35" y="2005">supporting ideas discussed in posts.</text>
-  <text class="definition" x="35" y="2080"><tspan class="definition-title">Posts:</tspan></text>
-  <text class="definition" x="35" y="2110">Individual blog entries found through</text>
-  <text class="definition" x="35" y="2135">browsing or keyword search.</text>
 
 </svg>
