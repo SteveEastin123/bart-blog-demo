@@ -36612,12 +36612,14 @@ const DATA = {
 
     function updateKeywordSuggestions(input, activeIndex = -1, inputs = [], options = {}) {
       closeAllKeywordSuggestions(input);
+      if (!normalizeKeywordSearchValue(input.value) && keywordContextTerms(input, inputs).length === 0) {
+        input.keywordSuggestionMatches = [];
+        input.keywordSuggestionIndex = -1;
+        closeKeywordSuggestions(input);
+        return;
+      }
       const matches = keywordSuggestionMatches(input.value, input, inputs, options);
-      const showFeaturedHeading = !normalizeKeywordSearchValue(input.value)
-        && Number(input.dataset.keywordIndex) === 1
-        && keywordContextTerms(input, inputs).length === 0
-        && !options.scopeArticleIndexes;
-      renderKeywordSuggestions(input, matches, activeIndex, showFeaturedHeading);
+      renderKeywordSuggestions(input, matches, activeIndex, false);
     }
 
     function setupDescriptionToggle() {

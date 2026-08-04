@@ -190,8 +190,15 @@
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
     if (!form || !list) return;
+    const query = input.value.trim();
+    if (!query && selectedValues(form, input).length === 0) {
+      input.keywordSuggestionMatches = [];
+      input.keywordSuggestionIndex = -1;
+      resetKeywordSuggestionList(list);
+      return;
+    }
     const params = new URLSearchParams();
-    params.set("q", input.value.trim());
+    params.set("q", query);
     selectedValues(form, input).forEach((value) => params.append("selected", value));
     const categorySlug = activeCategorySlug(form);
     if (categorySlug) {
@@ -209,20 +216,7 @@
       resetKeywordSuggestionList(list);
       return;
     }
-    const showFeaturedHeading = input.value.trim() === ""
-      && selectedValues(form, input).length === 0
-      && !categorySlug
-      && !form.dataset.topicSlug;
-    if (showFeaturedHeading) {
-      const heading = document.createElement("li");
-      heading.className = "keyword-suggestion-heading";
-      heading.setAttribute("role", "presentation");
-      heading.textContent = "Featured Topics";
-      list.appendChild(heading);
-      list.setAttribute("aria-label", "Featured Topics");
-    } else {
-      list.removeAttribute("aria-label");
-    }
+    list.removeAttribute("aria-label");
     suggestions.forEach((suggestion, index) => {
       const item = document.createElement("li");
       const button = document.createElement("button");
