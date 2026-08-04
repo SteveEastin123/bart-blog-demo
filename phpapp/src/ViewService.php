@@ -459,16 +459,49 @@ function ehrman_keyword_panel(
         . ehrman_html($scopeLabel) . '</span></div></div>';
     $categoryFilterMarkup = '';
     if ($categoryOptions !== null) {
-        $categorySelectOptions = ['<option value="">All categories</option>'];
+        $selectedCategory = null;
         foreach ($categoryOptions as $category) {
-            $selected = (string) $category['slug'] === $selectedCategorySlug ? ' selected' : '';
-            $categorySelectOptions[] = '<option value="' . ehrman_html($category['slug']) . '"' . $selected . '>'
-                . ehrman_html($category['name']) . '</option>';
+            if ((string) $category['slug'] === $selectedCategorySlug) {
+                $selectedCategory = $category;
+                break;
+            }
+        }
+        $currentName = $selectedCategory === null ? 'All categories' : (string) $selectedCategory['name'];
+        $currentCount = $selectedCategory === null
+            ? ''
+            : ehrman_pluralize((int) $selectedCategory['post_count'], 'post');
+        $categorySelectOptions = [
+            '<li role="presentation"><button type="button" class="category-combobox-option" role="option" '
+            . 'aria-selected="' . ($selectedCategory === null ? 'true' : 'false') . '" data-category-option '
+            . 'data-value="" data-label="All categories" data-count=""><span class="category-combobox-option-name">'
+            . 'All categories</span><span class="category-combobox-option-count"></span></button></li>',
+        ];
+        foreach ($categoryOptions as $category) {
+            $selected = (string) $category['slug'] === $selectedCategorySlug;
+            $countLabel = ehrman_pluralize((int) $category['post_count'], 'post');
+            $categorySelectOptions[] = '<li role="presentation"><button type="button" '
+                . 'class="category-combobox-option" role="option" aria-selected="'
+                . ($selected ? 'true' : 'false') . '" data-category-option data-value="'
+                . ehrman_html($category['slug']) . '" data-label="' . ehrman_html($category['name'])
+                . '" data-count="' . ehrman_html($countLabel) . '"><span class="category-combobox-option-name">'
+                . ehrman_html($category['name']) . '</span><span class="category-combobox-option-count">'
+                . ehrman_html($countLabel) . '</span></button></li>';
         }
         $categoryFilterMarkup = '<div class="keyword-filter-section" aria-label="Search scope">'
-            . '<div class="keyword-category-filter"><label for="keyword-category-filter">Category <span>(optional)</span></label>'
-            . '<select id="keyword-category-filter" name="category" data-category-filter>'
-            . implode('', $categorySelectOptions) . '</select></div></div>';
+            . '<div class="keyword-category-filter"><label id="keyword-category-label">Category <span>(recommended)</span></label>'
+            . '<div class="category-combobox" data-category-combobox>'
+            . '<input type="hidden" id="keyword-category-filter" name="category" value="'
+            . ehrman_html($selectedCategorySlug) . '" data-category-filter>'
+            . '<button type="button" class="category-combobox-toggle" data-category-toggle aria-haspopup="listbox" '
+            . 'aria-expanded="false" aria-controls="keyword-category-options" aria-labelledby="keyword-category-label '
+            . 'keyword-category-current-name keyword-category-current-count"><span id="keyword-category-current-name" '
+            . 'class="category-combobox-current-name" data-category-current-name>' . ehrman_html($currentName)
+            . '</span><span id="keyword-category-current-count" class="category-combobox-current-count" '
+            . 'data-category-current-count>' . ehrman_html($currentCount) . '</span>'
+            . '<span class="category-combobox-chevron" aria-hidden="true">&#9662;</span></button>'
+            . '<ul id="keyword-category-options" class="category-combobox-options" role="listbox" '
+            . 'aria-labelledby="keyword-category-label" data-category-options hidden>'
+            . implode('', $categorySelectOptions) . '</ul></div></div></div>';
     }
     return '<form class="keyword-search-panel" action="' . ehrman_html($formAction)
         . '" method="get" data-keyword-form' . $attributes . '>'

@@ -313,6 +313,9 @@ function ehrman_keyword_suggestions(
     sort($selectedNormalized, SORT_STRING);
     $categorySlug = trim($categorySlug);
     $topicSlug = trim($topicSlug);
+    $limitClause = $categorySlug !== '' && $q === '' && $selectedNormalized === [] && $topicSlug === ''
+        ? ''
+        : 'LIMIT 48';
 
     if ($q === '' && $selectedNormalized === [] && $categorySlug === '' && $topicSlug === '') {
         return ehrman_starter_suggestions($db);
@@ -394,7 +397,7 @@ function ehrman_keyword_suggestions(
         . 'CASE WHEN normalized = ? THEN 3 WHEN normalized LIKE ? THEN 2 '
         . 'WHEN normalized LIKE ? THEN 1 ELSE 1 END AS match_quality '
         . "FROM post_search_terms WHERE {$where} GROUP BY normalized "
-        . 'ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE LIMIT 48',
+        . 'ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE ' . $limitClause,
         [$q, $prefixLike, $wordPrefixLike, ...$params],
     );
 

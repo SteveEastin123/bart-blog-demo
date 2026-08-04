@@ -224,7 +224,14 @@ class SearchParityTests(unittest.TestCase):
 
         page = app.keyword_results_page({"category": [category["slug"]]}).decode("utf-8")
         self.assertIn('id="keyword-category-filter"', page)
-        self.assertIn(f'value="{category["slug"]}" selected', page)
+        self.assertIn(
+            f'value="{category["slug"]}" data-category-filter',
+            page,
+        )
+        self.assertIn(
+            f'aria-selected="true" data-category-option data-value="{category["slug"]}"',
+            page,
+        )
         self.assertIn(f'Category: {category["name"]}', page)
         self.assertIn('aria-label="Search scope"', page)
         self.assertNotIn('class="keyword-section-title"', page)
@@ -233,8 +240,18 @@ class SearchParityTests(unittest.TestCase):
 
     def test_keyword_search_page_lists_each_category_once(self) -> None:
         page = app.keyword_search_page().decode("utf-8")
+        category = app.keyword_filter_categories()[0]
         self.assertEqual(page.count('data-category-filter'), 1)
-        self.assertEqual(page.count('<option value="'), len(app.keyword_filter_categories()) + 1)
+        self.assertEqual(
+            page.count(' data-category-option data-value='),
+            len(app.keyword_filter_categories()) + 1,
+        )
+        self.assertIn(
+            f'data-label="{category["name"]}" '
+            f'data-count="{app.pluralize(category["post_count"], "post")}"',
+            page,
+        )
+        self.assertIn('class="category-combobox-option-count"', page)
 
     def test_browse_snapshot_contains_both_structures(self) -> None:
         result = run_batch([{"id": "browse", "operation": "browse"}])["results"][0]

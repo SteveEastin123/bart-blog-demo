@@ -31,6 +31,114 @@
     return filter ? filter.value.trim() : (form?.dataset.categorySlug || "");
   }
 
+  function categoryCombobox(form) {
+    return form ? form.querySelector("[data-category-combobox]") : null;
+  }
+
+  function closeCategoryCombobox(combobox, restoreFocus = false) {
+    if (!combobox) return;
+    const toggle = combobox.querySelector("[data-category-toggle]");
+    const options = combobox.querySelector("[data-category-options]");
+    if (options) options.hidden = true;
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+      if (restoreFocus) toggle.focus({ preventScroll: true });
+    }
+  }
+
+  function syncCategoryCombobox(form) {
+    const filter = categoryFilter(form);
+    const combobox = categoryCombobox(form);
+    if (!filter || !combobox) return;
+    const optionButtons = Array.from(combobox.querySelectorAll("[data-category-option]"));
+    const selected = optionButtons.find((option) => option.dataset.value === filter.value)
+      || optionButtons[0];
+    optionButtons.forEach((option) => {
+      option.setAttribute("aria-selected", String(option === selected));
+    });
+    const name = combobox.querySelector("[data-category-current-name]");
+    const count = combobox.querySelector("[data-category-current-count]");
+    if (name) name.textContent = selected?.dataset.label || "All categories";
+    if (count) count.textContent = selected?.dataset.count || "";
+  }
+
+  function openCategoryCombobox(combobox, focusDirection = 0) {
+    if (!combobox) return;
+    document.querySelectorAll(".keyword-suggestion-list").forEach(resetKeywordSuggestionList);
+    document.querySelectorAll("[data-category-combobox]").forEach((other) => {
+      if (other !== combobox) closeCategoryCombobox(other);
+    });
+    const toggle = combobox.querySelector("[data-category-toggle]");
+    const options = combobox.querySelector("[data-category-options]");
+    if (!toggle || !options) return;
+    options.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+    if (!focusDirection) return;
+    const optionButtons = Array.from(options.querySelectorAll("[data-category-option]"));
+    const selectedIndex = optionButtons.findIndex((option) => option.getAttribute("aria-selected") === "true");
+    const targetIndex = focusDirection < 0
+      ? optionButtons.length - 1
+      : Math.max(0, selectedIndex);
+    optionButtons[targetIndex]?.focus({ preventScroll: true });
+  }
+
+  function setupCategoryCombobox(form) {
+    const filter = categoryFilter(form);
+    const combobox = categoryCombobox(form);
+    if (!filter || !combobox) return;
+    const toggle = combobox.querySelector("[data-category-toggle]");
+    const options = combobox.querySelector("[data-category-options]");
+    if (!toggle || !options) return;
+    syncCategoryCombobox(form);
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (options.hidden) openCategoryCombobox(combobox);
+      else closeCategoryCombobox(combobox);
+    });
+    toggle.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        openCategoryCombobox(combobox, event.key === "ArrowUp" ? -1 : 1);
+        return;
+      }
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeCategoryCombobox(combobox);
+      }
+    });
+    options.addEventListener("click", (event) => {
+      const option = event.target.closest("[data-category-option]");
+      if (!option || !options.contains(option)) return;
+      filter.value = option.dataset.value || "";
+      syncCategoryCombobox(form);
+      closeCategoryCombobox(combobox, true);
+      filter.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    options.addEventListener("keydown", (event) => {
+      const option = event.target.closest("[data-category-option]");
+      if (!option) return;
+      const optionButtons = Array.from(options.querySelectorAll("[data-category-option]"));
+      const index = optionButtons.indexOf(option);
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const direction = event.key === "ArrowDown" ? 1 : -1;
+        optionButtons[(index + direction + optionButtons.length) % optionButtons.length]
+          ?.focus({ preventScroll: true });
+        return;
+      }
+      if (event.key === "Home" || event.key === "End") {
+        event.preventDefault();
+        optionButtons[event.key === "Home" ? 0 : optionButtons.length - 1]
+          ?.focus({ preventScroll: true });
+        return;
+      }
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeCategoryCombobox(combobox, true);
+      }
+    });
+  }
+
   let topicTooltipElement = null;
 
   function topicTooltip() {
@@ -191,7 +299,8 @@
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
     if (!form || !list) return;
     const query = input.value.trim();
-    if (!query && selectedValues(form, input).length === 0) {
+    const categorySlug = activeCategorySlug(form);
+    if (!query && selectedValues(form, input).length === 0 && !categorySlug) {
       input.keywordSuggestionMatches = [];
       input.keywordSuggestionIndex = -1;
       resetKeywordSuggestionList(list);
@@ -200,7 +309,6 @@
     const params = new URLSearchParams();
     params.set("q", query);
     selectedValues(form, input).forEach((value) => params.append("selected", value));
-    const categorySlug = activeCategorySlug(form);
     if (categorySlug) {
       params.set("category", categorySlug);
     }
@@ -366,6 +474,7 @@
   }
 
   document.querySelectorAll("[data-keyword-form]").forEach((form) => {
+    setupCategoryCombobox(form);
     updateKeywordEntryState(form);
     form.addEventListener("submit", (event) => {
       const input = form.querySelector(".keyword-input");
@@ -416,6 +525,7 @@
         if (filter) {
           filter.value = "";
           delete form.dataset.categorySlug;
+          syncCategoryCombobox(form);
         }
         const input = form.querySelector(".keyword-input");
         if (!input) return;
@@ -508,6 +618,11 @@
   });
 
   document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-category-combobox]")) {
+      document.querySelectorAll("[data-category-combobox]").forEach((combobox) => {
+        closeCategoryCombobox(combobox);
+      });
+    }
     if (!event.target.closest(".keyword-input-wrap")) {
       document.querySelectorAll(".keyword-suggestion-list").forEach((list) => {
         resetKeywordSuggestionList(list);

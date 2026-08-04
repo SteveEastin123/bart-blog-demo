@@ -735,20 +735,46 @@ def keyword_panel(
     )
     category_filter_markup = ""
     if category_options is not None:
-        options_markup = ['<option value="">All categories</option>']
+        selected_category = next(
+            (category for category in category_options if category["slug"] == selected_category_slug),
+            None,
+        )
+        current_name = selected_category["name"] if selected_category else "All categories"
+        current_count = (
+            pluralize(int(selected_category["post_count"]), "post") if selected_category else ""
+        )
+        options_markup = [
+            '<li role="presentation"><button type="button" class="category-combobox-option" '
+            'role="option" aria-selected="true" data-category-option data-value="" '
+            'data-label="All categories" data-count=""><span class="category-combobox-option-name">'
+            'All categories</span><span class="category-combobox-option-count"></span></button></li>'
+        ]
         for category in category_options:
-            selected = " selected" if category["slug"] == selected_category_slug else ""
+            count_label = pluralize(int(category["post_count"]), "post")
+            selected = category["slug"] == selected_category_slug
             options_markup.append(
-                f'<option value="{esc(category["slug"])}"{selected}>'
-                f'{esc(category["name"])}</option>'
+                '<li role="presentation"><button type="button" class="category-combobox-option" '
+                f'role="option" aria-selected="{str(selected).lower()}" data-category-option '
+                f'data-value="{esc(category["slug"])}" data-label="{esc(category["name"])}" '
+                f'data-count="{esc(count_label)}"><span class="category-combobox-option-name">'
+                f'{esc(category["name"])}</span><span class="category-combobox-option-count">'
+                f'{esc(count_label)}</span></button></li>'
             )
+        if selected_category is not None:
+            options_markup[0] = options_markup[0].replace('aria-selected="true"', 'aria-selected="false"')
         category_filter_markup = f"""
         <div class="keyword-filter-section" aria-label="Search scope">
           <div class="keyword-category-filter">
-            <label for="keyword-category-filter">Category <span>(optional)</span></label>
-            <select id="keyword-category-filter" name="category" data-category-filter>
-              {"".join(options_markup)}
-            </select>
+            <label id="keyword-category-label">Category <span>(recommended)</span></label>
+            <div class="category-combobox" data-category-combobox>
+              <input type="hidden" id="keyword-category-filter" name="category" value="{esc(selected_category_slug)}" data-category-filter>
+              <button type="button" class="category-combobox-toggle" data-category-toggle aria-haspopup="listbox" aria-expanded="false" aria-controls="keyword-category-options" aria-labelledby="keyword-category-label keyword-category-current-name keyword-category-current-count">
+                <span id="keyword-category-current-name" class="category-combobox-current-name" data-category-current-name>{esc(current_name)}</span>
+                <span id="keyword-category-current-count" class="category-combobox-current-count" data-category-current-count>{esc(current_count)}</span>
+                <span class="category-combobox-chevron" aria-hidden="true">&#9662;</span>
+              </button>
+              <ul id="keyword-category-options" class="category-combobox-options" role="listbox" aria-labelledby="keyword-category-label" data-category-options hidden>{"".join(options_markup)}</ul>
+            </div>
           </div>
         </div>
         """
@@ -1268,7 +1294,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
     topic_slug = query.get("topic", [""])[0].strip()
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
     allowed_category_topics: list[str] = []
-    limit = 48
+    limit_clause = "" if category_slug and not q and not selected_normalized and not topic_slug else "LIMIT 48"
     with get_conn() as conn:
         if not q and not selected_normalized and not category_slug and not topic_slug:
             return json.dumps(starter_keyword_suggestions(conn), ensure_ascii=False).encode("utf-8")
@@ -1354,7 +1380,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             WHERE {where}
             GROUP BY normalized
             ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE
-            LIMIT {limit}
+            {limit_clause}
             """,
             (q, prefix_like, word_prefix_like, *params),
         ).fetchall()
