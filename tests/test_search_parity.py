@@ -296,6 +296,39 @@ class SearchParityTests(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(completed, 2)
 
+    def test_compare_can_allow_an_explicit_known_variance(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            expected = root / "expected.jsonl"
+            actual = root / "actual.jsonl"
+            report = root / "report.html"
+            expected.write_text(
+                '{"recordType":"manifest","schemaVersion":1}\n'
+                '{"recordType":"result","id":"known","value":1}\n',
+                encoding="utf-8",
+            )
+            actual.write_text(
+                '{"recordType":"manifest","schemaVersion":1}\n'
+                '{"recordType":"result","id":"known","value":2}\n',
+                encoding="utf-8",
+            )
+            args = search_parity.build_parser().parse_args(
+                [
+                    "compare",
+                    str(expected),
+                    str(actual),
+                    "--allow-case",
+                    "known",
+                    "--report",
+                    str(report),
+                ]
+            )
+            result = search_parity.compare_command(args)
+            report_text = report.read_text(encoding="utf-8")
+
+        self.assertEqual(result, 0)
+        self.assertIn("1 approved variances", report_text)
+
     def test_endpoint_is_disabled_without_token_configuration(self) -> None:
         with patch.dict(os.environ, {}, clear=False):
             os.environ.pop("EHRMAN_PARITY_TEST_TOKEN", None)

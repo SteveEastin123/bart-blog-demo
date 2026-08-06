@@ -358,13 +358,14 @@ def generate_command(args: argparse.Namespace) -> int:
 
 def remote_batch(
     base_url: str,
+    endpoint_path: str,
     token: str,
     cases: list[dict[str, Any]],
     timeout: int,
     retries: int,
     retry_delay: float,
 ) -> dict[str, Any]:
-    url = base_url.rstrip("/") + "/api/parity/batch"
+    url = base_url.rstrip("/") + "/" + endpoint_path.strip("/")
     payload = json.dumps({"schemaVersion": 1, "cases": cases}, ensure_ascii=False).encode("utf-8")
     request = Request(
         url,
@@ -466,7 +467,15 @@ def capture_command(args: argparse.Namespace) -> int:
     with text_writer(args.output, append=append) as output, text_writer(args.digests, append=append) as digests:
         for batch in chunks(case_records, args.batch_size):
             response = (
-                remote_batch(args.base_url, token, batch, args.timeout, args.retries, args.retry_delay)
+                remote_batch(
+                    args.base_url,
+                    args.endpoint_path,
+                    token,
+                    batch,
+                    args.timeout,
+                    args.retries,
+                    args.retry_delay,
+                )
                 if args.base_url
                 else run_batch(batch)
             )
@@ -503,6 +512,7 @@ def comparison_html(
     actual_path: Path,
     compared: int,
     mismatches: list[dict[str, Any]],
+    approved: list[dict[str, Any]],
 ) -> str:
     status = "PASS" if not mismatches else "FAIL"
     rows = "".join(
@@ -512,6 +522,14 @@ def comparison_html(
         f"<td><pre>{html.escape(json.dumps(item.get('actual'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
         "</tr>"
         for item in mismatches[:100]
+    )
+    approved_rows = "".join(
+        "<tr>"
+        f"<td>{html.escape(str(item.get('id', '')))}</td>"
+        f"<td><pre>{html.escape(json.dumps(item.get('expected'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
+        f"<td><pre>{html.escape(json.dumps(item.get('actual'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
+        "</tr>"
+        for item in approved[:100]
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -530,10 +548,15 @@ def comparison_html(
   <h1>Search Parity Comparison: {status}</h1>
   <p>Expected: {html.escape(str(expected_path))}</p>
   <p>Actual: {html.escape(str(actual_path))}</p>
-  <p>Compared {compared:,} results; found {len(mismatches):,} differences.</p>
+  <p>Compared {compared:,} results; found {len(mismatches):,} unapproved differences and {len(approved):,} approved variances.</p>
   <table>
     <thead><tr><th>Case</th><th>Expected</th><th>Actual</th></tr></thead>
     <tbody>{rows}</tbody>
+  </table>
+  <h2>Approved variances</h2>
+  <table>
+    <thead><tr><th>Case</th><th>Expected</th><th>Actual</th></tr></thead>
+    <tbody>{approved_rows}</tbody>
   </table>
 </body>
 </html>
@@ -546,6 +569,8 @@ def compare_command(args: argparse.Namespace) -> int:
     expected_manifest = next(expected_records, None)
     actual_manifest = next(actual_records, None)
     mismatches: list[dict[str, Any]] = []
+    approved: list[dict[str, Any]] = []
+    approved_ids = set(args.allow_case)
 
     if expected_manifest is None or actual_manifest is None:
         raise RuntimeError("Both comparison files must contain a manifest")
@@ -556,25 +581,32 @@ def compare_command(args: argparse.Namespace) -> int:
     for expected, actual in zip_longest(expected_records, actual_records):
         compared += 1
         if expected != actual:
-            mismatches.append(
-                {
-                    "id": (expected or actual or {}).get("id", f"record-{compared}"),
-                    "expected": expected,
-                    "actual": actual,
-                }
-            )
+            difference = {
+                "id": (expected or actual or {}).get("id", f"record-{compared}"),
+                "expected": expected,
+                "actual": actual,
+            }
+            if difference["id"] in approved_ids:
+                approved.append(difference)
+            else:
+                mismatches.append(difference)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(
-        comparison_html(args.expected, args.actual, compared, mismatches),
+        comparison_html(args.expected, args.actual, compared, mismatches, approved),
         encoding="utf-8",
     )
-    print(f"Compared {compared:,} results; found {len(mismatches):,} differences")
+    print(
+        f"Compared {compared:,} results; found {len(mismatches):,} unapproved differences "
+        f"and {len(approved):,} approved variances"
+    )
     print(f"Wrote comparison report to {args.report}")
     return 1 if mismatches else 0
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Generate, capture, and compare Python/PHP search parity cases.")
+    parser = argparse.ArgumentParser(
+        description="Generate, capture, and compare search parity cases across implementations."
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     generate = subparsers.add_parser("generate", help="Generate deterministic parity cases")
@@ -592,6 +624,11 @@ def build_parser() -> argparse.ArgumentParser:
     capture.add_argument("--output", type=Path, default=DEFAULT_BASELINE_PATH)
     capture.add_argument("--digests", type=Path, default=DEFAULT_DIGEST_PATH)
     capture.add_argument("--base-url", default="", help="Remote base URL; omit to run locally")
+    capture.add_argument(
+        "--endpoint-path",
+        default="api/parity/batch",
+        help="Parity endpoint path beneath the remote base URL",
+    )
     capture.add_argument("--token-env", default="EHRMAN_PARITY_TEST_TOKEN")
     capture.add_argument("--batch-size", type=int, default=MAX_BATCH_CASES)
     capture.add_argument("--offset", type=int, default=0)
@@ -606,6 +643,12 @@ def build_parser() -> argparse.ArgumentParser:
     compare.add_argument("expected", type=Path)
     compare.add_argument("actual", type=Path)
     compare.add_argument("--report", type=Path, default=DEFAULT_REPORT_PATH)
+    compare.add_argument(
+        "--allow-case",
+        action="append",
+        default=[],
+        help="Case ID whose known semantic difference is explicitly approved",
+    )
     compare.set_defaults(func=compare_command)
     return parser
 

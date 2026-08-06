@@ -1,0 +1,26 @@
+<?php
+get_header();
+$post_range = ehrman_demo_post_range();
+?>
+<main id="main-content" class="ehrman-main">
+    <section class="ehrman-home">
+        <div class="ehrman-hero" role="img" aria-label="<?php esc_attr_e('Bart Ehrman lecturing', 'ehrman-discovery-demo'); ?>"></div>
+        <section class="ehrman-intro-band" aria-label="<?php esc_attr_e('Demo introduction', 'ehrman-discovery-demo'); ?>">
+            <div class="ehrman-intro-inner">
+                <p><?php echo wp_kses_post(__('This demo offers two ways to discover posts on Bart\'s blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>.', 'ehrman-discovery-demo')); ?></p>
+                <p><?php echo wp_kses_post(__('<strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can optionally select a category and combine up to four topics or secondary keywords.', 'ehrman-discovery-demo')); ?></p>
+                <p><?php echo wp_kses_post(__('<strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.', 'ehrman-discovery-demo')); ?></p>
+                <figure class="ehrman-methods-figure">
+                    <picture>
+                        <source media="(max-width: 700px)" srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/ehrman-search-methods-mobile.svg'); ?>">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/ehrman-search-methods.svg'); ?>" alt="<?php esc_attr_e('Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts', 'ehrman-discovery-demo'); ?>">
+                    </picture>
+                </figure>
+                <?php if ('' !== $post_range) : ?>
+                    <p class="ehrman-demo-meta"><?php echo esc_html($post_range); ?></p>
+                <?php endif; ?>
+            </div>
+        </section>
+    </section>
+</main>
+<?php get_footer(); ?>

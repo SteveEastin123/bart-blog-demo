@@ -1,0 +1,475 @@
+/*
+Theme Name: Ehrman Discovery Demo
+Theme URI: https://ehrmanblog.org/
+Author: Ehrman Blog Discovery Demo
+Description: A lightweight companion theme for demonstrating the Ehrman Blog discovery plugin.
+Version: 0.1.0
+Requires at least: 6.5
+Requires PHP: 8.1
+Text Domain: ehrman-discovery-demo
+*/
+
+:root {
+  --ehrman-bg: #f4f1ea;
+  --ehrman-panel: #ffffff;
+  --ehrman-paper: #efe7c7;
+  --ehrman-line: #d8c8a8;
+  --ehrman-ink: #242424;
+  --ehrman-muted: #5b5b5b;
+  --ehrman-link: #17689a;
+  --ehrman-link-dark: #0e527c;
+  --ehrman-maroon: #751f1b;
+  --ehrman-maroon-dark: #5f1714;
+  --ehrman-focus: #a6342a;
+  --ehrman-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ehrman-bg);
+  color: var(--ehrman-ink);
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--ehrman-link);
+}
+
+a:hover {
+  color: var(--ehrman-link-dark);
+}
+
+:focus-visible {
+  outline: 3px solid var(--ehrman-focus) !important;
+  outline-offset: 3px;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.screen-reader-text:focus {
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  width: auto;
+  height: auto;
+  clip: auto;
+  padding: 9px 14px;
+  border: 2px solid var(--ehrman-maroon);
+  background: #fff;
+  color: var(--ehrman-maroon);
+  font-weight: 700;
+}
+
+.ehrman-site-header {
+  border-bottom: 8px solid var(--ehrman-maroon);
+  background: var(--ehrman-maroon);
+}
+
+.ehrman-utility {
+  min-height: 34px;
+  background: var(--ehrman-maroon);
+  color: #fff;
+}
+
+.ehrman-utility-inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  max-width: 1760px;
+  min-height: 34px;
+  margin: 0 auto;
+  padding-left: clamp(20px, 5vw, 68px);
+}
+
+.ehrman-tagline {
+  display: flex;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.ehrman-utility-actions {
+  display: flex;
+  align-items: stretch;
+}
+
+.ehrman-site-search {
+  display: flex;
+  align-items: stretch;
+  margin-left: 18px;
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.ehrman-site-search input,
+.ehrman-site-search button,
+.ehrman-utility-item {
+  border: 0;
+  border-left: 1px solid rgb(255 255 255 / 22%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ehrman-site-search input {
+  width: 155px;
+  padding: 0 10px;
+  background: rgb(255 255 255 / 17%);
+  color: rgb(255 255 255 / 78%);
+}
+
+.ehrman-site-search input::placeholder {
+  color: rgb(255 255 255 / 74%);
+  opacity: 1;
+}
+
+.ehrman-site-search button {
+  padding: 0 11px;
+  background: rgb(0 0 0 / 12%);
+  color: rgb(255 255 255 / 74%);
+}
+
+.ehrman-utility-item {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: rgb(255 255 255 / 68%);
+  user-select: none;
+}
+
+.ehrman-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 116px;
+  padding: 14px clamp(22px, 5vw, 70px);
+  overflow: hidden;
+  border-top: 1px solid rgb(255 255 255 / 45%);
+  border-bottom: 1px solid rgb(117 31 27 / 36%);
+  background-color: var(--ehrman-paper);
+  background-image:
+    radial-gradient(circle at 12% 24%, rgb(255 255 255 / 44%) 0 1px, transparent 1px),
+    radial-gradient(circle at 68% 42%, rgb(90 64 34 / 16%) 0 1px, transparent 1px);
+  background-size: 42px 36px, 55px 48px;
+}
+
+.ehrman-brand {
+  display: flex;
+  flex: 0 1 455px;
+  align-items: center;
+  gap: 13px;
+  min-width: 300px;
+  color: var(--ehrman-maroon);
+  text-decoration: none;
+}
+
+.ehrman-brand:hover {
+  color: var(--ehrman-maroon-dark);
+  text-decoration: none;
+}
+
+.ehrman-brand-photo {
+  flex: 0 0 84px;
+  width: 84px;
+  height: 84px;
+  border: 4px solid var(--ehrman-maroon);
+  border-radius: 50%;
+  background-image: url("assets/images/bart-lecture.jpg");
+  background-position: 44% 28%;
+  background-size: 310%;
+  box-shadow: 0 0 0 2px rgb(255 255 255 / 82%), 0 1px 4px rgb(0 0 0 / 28%);
+}
+
+.ehrman-brand-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ehrman-brand-title {
+  color: var(--ehrman-maroon);
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 35px;
+}
+
+.ehrman-brand-subtitle {
+  color: #565656;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.ehrman-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px 21px;
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.ehrman-navigation a {
+  color: var(--ehrman-link);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ehrman-navigation a:hover,
+.ehrman-navigation a[aria-current="page"] {
+  color: var(--ehrman-link-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ehrman-navigation .is-disabled {
+  color: #6f6a64;
+  cursor: default;
+  font-weight: 600;
+  opacity: 0.62;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.ehrman-main {
+  min-height: 55vh;
+}
+
+.ehrman-home {
+  background: var(--ehrman-panel);
+}
+
+.ehrman-hero {
+  width: 100%;
+  min-height: clamp(300px, 38vw, 500px);
+  background-image: url("assets/images/bart-lecture.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.ehrman-intro-band {
+  padding: 34px 22px 44px;
+  background: #fff;
+}
+
+.ehrman-intro-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.ehrman-intro-inner p {
+  max-width: 78ch;
+  margin: 0 0 15px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.ehrman-intro-inner strong {
+  color: var(--ehrman-maroon);
+}
+
+.ehrman-methods-figure {
+  margin: 28px 0 0;
+}
+
+.ehrman-methods-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ehrman-line);
+  border-radius: 4px;
+}
+
+.ehrman-demo-meta {
+  margin-top: 24px !important;
+  color: var(--ehrman-muted);
+  font-size: 14px !important;
+}
+
+.ehrman-page-shell {
+  max-width: 1160px;
+  margin: 24px auto 48px;
+  padding: 0 18px;
+}
+
+.ehrman-content-page {
+  overflow: visible;
+  border: 1px solid var(--ehrman-line);
+  border-radius: 6px;
+  background: var(--ehrman-panel);
+  box-shadow: var(--ehrman-shadow);
+}
+
+.ehrman-page-title {
+  margin: 0;
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid var(--ehrman-line);
+  color: #111;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.ehrman-page-body {
+  padding: 26px 28px 34px;
+}
+
+.ehrman-page-body > :first-child {
+  margin-top: 0;
+}
+
+.ehrman-site-footer {
+  border-top: 8px solid var(--ehrman-maroon);
+  background: var(--ehrman-maroon-dark);
+  color: rgb(255 255 255 / 82%);
+}
+
+.ehrman-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 28px;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 22px;
+  font-size: 13px;
+}
+
+.ehrman-footer-inner p {
+  margin: 0;
+}
+
+@media (max-width: 940px) {
+  .ehrman-utility-actions {
+    display: none;
+  }
+
+  .ehrman-utility-inner {
+    padding: 0 18px;
+  }
+
+  .ehrman-brand-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px 18px 8px;
+  }
+
+  .ehrman-brand {
+    flex-basis: auto;
+  }
+
+  .ehrman-navigation {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 18px;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ehrman-navigation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ehrman-navigation a,
+  .ehrman-navigation .is-disabled {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ehrman-tagline {
+    font-size: 12px;
+  }
+
+  .ehrman-brand-row {
+    padding: 9px 12px 7px;
+  }
+
+  .ehrman-brand {
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .ehrman-brand-photo {
+    flex-basis: 50px;
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+  }
+
+  .ehrman-brand-title {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
+  .ehrman-brand-subtitle {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .ehrman-navigation {
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .ehrman-hero {
+    min-height: 235px;
+    background-position: 48% center;
+  }
+
+  .ehrman-intro-band {
+    padding: 25px 16px 34px;
+  }
+
+  .ehrman-page-shell {
+    margin: 14px auto 32px;
+    padding: 0 10px;
+  }
+
+  .ehrman-content-page {
+    border-radius: 4px;
+  }
+
+  .ehrman-page-title {
+    padding: 20px 16px 15px;
+    font-size: 28px;
+  }
+
+  .ehrman-page-body {
+    padding: 20px 16px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

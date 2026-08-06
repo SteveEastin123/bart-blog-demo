@@ -1,0 +1,73 @@
+name: ehrman-wordpress-demo
+
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ehrman_wordpress}
+      MYSQL_USER: ${MYSQL_USER:-ehrman}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ehrman-local-only}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ehrman-root-local-only}
+    volumes:
+      - ehrman_mysql_data:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping -h 127.0.0.1 -u root -p"$${MYSQL_ROOT_PASSWORD}" --silent
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "${WORDPRESS_PORT:-8085}:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-ehrman_wordpress}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-ehrman}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-ehrman-local-only}
+      WORDPRESS_DEBUG: "1"
+      EHRMAN_DISCOVERY_PARITY_TOKEN: ${EHRMAN_DISCOVERY_PARITY_TOKEN:-}
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_ENVIRONMENT_TYPE', 'local' );
+        define( 'WP_DEBUG_DISPLAY', false );
+        define( 'WP_DEBUG_LOG', true );
+    volumes:
+      - ehrman_wordpress_data:/var/www/html
+      - ../wordpress-plugin/ehrman-blog-discovery:/var/www/html/wp-content/plugins/ehrman-blog-discovery
+      - ../wordpress-theme/ehrman-discovery-demo:/var/www/html/wp-content/themes/ehrman-discovery-demo
+      - ../data/index:/var/www/html/wp-content/ehrman-import:ro
+
+  wpcli:
+    image: wordpress:cli
+    entrypoint:
+      - wp
+    profiles:
+      - tools
+    depends_on:
+      mysql:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-ehrman_wordpress}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-ehrman}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-ehrman-local-only}
+    user: "33:33"
+    volumes:
+      - ehrman_wordpress_data:/var/www/html
+      - ../wordpress-plugin/ehrman-blog-discovery:/var/www/html/wp-content/plugins/ehrman-blog-discovery
+      - ../wordpress-theme/ehrman-discovery-demo:/var/www/html/wp-content/themes/ehrman-discovery-demo
+      - ../data/index:/var/www/html/wp-content/ehrman-import:ro
+
+volumes:
+  ehrman_mysql_data:
+  ehrman_wordpress_data:

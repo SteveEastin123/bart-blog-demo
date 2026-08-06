@@ -68,3 +68,40 @@ SQLite schema and browser assets as the Python demo while preserving the
 existing Python Render service as the reference application. See
 `phpapp/README.md` for local startup, Docker deployment, and the 500-case
 Python-to-PHP comparison workflow.
+
+## WordPress/MySQL proof of concept
+
+The WordPress migration is being developed alongside the existing demos:
+
+- Architecture and schema: `docs/wordpress_mysql_migration_architecture.md`
+- Local Docker environment: `wordpress-demo/`
+- WordPress plugin source: `wordpress-plugin/ehrman-blog-discovery/`
+
+After Docker Desktop is installed and running, bootstrap the isolated local
+environment with:
+
+```powershell
+.\wordpress-demo\setup-wordpress.ps1
+```
+
+Then verify WordPress, MySQL, the plugin, and its REST status endpoint with:
+
+```powershell
+.\wordpress-demo\verify-wordpress.ps1
+```
+
+After importing, Phase 4 is available at:
+
+- `http://localhost:8085/keyword-search/`
+- `http://localhost:8085/browse-topics-1/`
+- `http://localhost:8085/browse-topics-2/`
+
+Import and strictly verify the authoritative discovery index with:
+
+```powershell
+docker compose -f .\wordpress-demo\compose.yaml run --rm wpcli ehrman-discovery import --force --path=/var/www/html
+.\wordpress-demo\verify-wordpress.ps1 -RequireImport
+```
+
+Phase 5 parity, security, accessibility, integrity, and MySQL performance
+results are documented in `docs/wordpress_phase5_validation_report.md`.
