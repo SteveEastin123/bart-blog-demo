@@ -5,6 +5,11 @@ document_root=/var/www/html
 plugin_target="$document_root/wp-content/plugins/ehrman-blog-discovery"
 theme_target="$document_root/wp-content/themes/ehrman-discovery-demo"
 
+if [[ -n "${PORT:-}" && "$PORT" != "80" ]]; then
+  sed -ri "s/^Listen 80$/Listen ${PORT}/" /etc/apache2/ports.conf
+  sed -ri "s/<VirtualHost \*:80>/<VirtualHost *:${PORT}>/" /etc/apache2/sites-available/000-default.conf
+fi
+
 mkdir -p "$document_root/wp-content/plugins" "$document_root/wp-content/themes"
 
 # Refresh image-managed code on every start. This avoids stale files when the

@@ -6,6 +6,7 @@ services:
     runtime: image
     image:
       url: docker.io/library/mysql:8.4
+    dockerCommand: mysqld --port=10000
     plan: starter
     region: virginia
     autoDeployTrigger: off
