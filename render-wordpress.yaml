@@ -1,0 +1,80 @@
+# Inactive staging Blueprint. The existing root render.yaml and deployed PHP
+# service remain unchanged until the WordPress staging deployment is approved.
+services:
+  - type: pserv
+    name: bart-blog-demo-wordpress-mysql
+    runtime: image
+    image:
+      url: docker.io/library/mysql:8.4
+    plan: starter
+    region: virginia
+    autoDeployTrigger: off
+    envVars:
+      - key: MYSQL_DATABASE
+        value: ehrman_wordpress
+      - key: MYSQL_USER
+        value: ehrman
+      - key: MYSQL_PASSWORD
+        generateValue: true
+      - key: MYSQL_ROOT_PASSWORD
+        generateValue: true
+    disk:
+      name: ehrman-wordpress-mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 10
+
+  - type: web
+    name: bart-blog-demo-wordpress
+    runtime: docker
+    plan: starter
+    region: virginia
+    dockerfilePath: ./wordpress-production/Dockerfile
+    dockerContext: .
+    autoDeployTrigger: off
+    healthCheckPath: /healthz
+    initialDeployHook: initialize-ehrman-wordpress
+    envVars:
+      - key: WORDPRESS_DB_HOST
+        fromService:
+          type: pserv
+          name: bart-blog-demo-wordpress-mysql
+          property: hostport
+      - key: WORDPRESS_DB_NAME
+        fromService:
+          type: pserv
+          name: bart-blog-demo-wordpress-mysql
+          envVarKey: MYSQL_DATABASE
+      - key: WORDPRESS_DB_USER
+        fromService:
+          type: pserv
+          name: bart-blog-demo-wordpress-mysql
+          envVarKey: MYSQL_USER
+      - key: WORDPRESS_DB_PASSWORD
+        fromService:
+          type: pserv
+          name: bart-blog-demo-wordpress-mysql
+          envVarKey: MYSQL_PASSWORD
+      - key: WORDPRESS_SITE_URL
+        fromService:
+          type: web
+          name: bart-blog-demo-wordpress
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: WORDPRESS_ADMIN_USER
+        value: ehrman-admin
+      - key: WORDPRESS_ADMIN_PASSWORD
+        generateValue: true
+      - key: WORDPRESS_ADMIN_EMAIL
+        sync: false
+      - key: WORDPRESS_CONFIG_EXTRA
+        value: |
+          define( 'WP_ENVIRONMENT_TYPE', 'staging' );
+          define( 'EHRMAN_DISCOVERY_IMPORT_DIR', '/opt/ehrman-import' );
+          define( 'DISALLOW_FILE_EDIT', true );
+          define( 'WP_DEBUG_DISPLAY', false );
+          if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && strpos( $_SERVER['HTTP_X_FORWARDED_PROTO'], 'https' ) !== false ) {
+              $_SERVER['HTTPS'] = 'on';
+          }
+    disk:
+      name: ehrman-wordpress-uploads
+      mountPath: /var/www/html/wp-content/uploads
+      sizeGB: 1

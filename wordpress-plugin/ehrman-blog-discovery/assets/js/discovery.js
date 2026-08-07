@@ -605,13 +605,7 @@
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
   document.querySelectorAll("[data-ebd-description-toggle]").forEach((toggle) => {
     const root = toggle.closest(".ebd-discovery") || document;
-    const key = `ehrman-discovery-descriptions-${toggle.dataset.scope || "default"}`;
-    try {
-      const stored = window.sessionStorage.getItem(key);
-      if (stored !== null) toggle.checked = stored === "true";
-    } catch (_error) {}
     toggle.addEventListener("change", () => {
-      try { window.sessionStorage.setItem(key, String(toggle.checked)); } catch (_error) {}
       applyDescriptionToggle(root);
     });
     applyDescriptionToggle(root);

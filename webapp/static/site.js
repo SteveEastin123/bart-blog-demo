@@ -644,19 +644,8 @@
 
   document.querySelectorAll("[data-description-toggle]").forEach((checkbox) => {
     const contentPage = checkbox.closest(".content-page") || document;
-    const preferenceKey = `ehrman-show-descriptions-${checkbox.dataset.descriptionScope || "default"}`;
     const descriptions = contentPage.querySelectorAll(".post-description, .item-description");
     const describedTitles = contentPage.querySelectorAll(".post-title, .item-title");
-    try {
-      const storedPreference = window.sessionStorage.getItem(preferenceKey);
-      if (storedPreference !== null) {
-        checkbox.checked = storedPreference === "true";
-      } else if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
-        checkbox.checked = true;
-      }
-    } catch (_error) {
-      // Keep the page default when browser storage is unavailable.
-    }
     const applyDescriptionState = () => {
       const show = checkbox.checked;
       descriptions.forEach((description) => {
@@ -671,11 +660,6 @@
       });
     };
     checkbox.addEventListener("change", () => {
-      try {
-        window.sessionStorage.setItem(preferenceKey, String(checkbox.checked));
-      } catch (_error) {
-        // The visibility change still works without browser storage.
-      }
       applyDescriptionState();
     });
     applyDescriptionState();

@@ -105,3 +105,18 @@ docker compose -f .\wordpress-demo\compose.yaml run --rm wpcli ehrman-discovery 
 
 Phase 5 parity, security, accessibility, integrity, and MySQL performance
 results are documented in `docs/wordpress_phase5_validation_report.md`.
+
+The production-equivalent Docker package is in `wordpress-production/`. It
+uses a separate port and separate volumes, bakes the plugin, theme, and import
+sources into the image, and leaves all existing demos unchanged:
+
+```powershell
+.\wordpress-production\setup-production-test.ps1
+.\wordpress-production\verify-production-test.ps1 -PythonExecutable <python.exe>
+```
+
+Local readiness evidence is in
+`docs/wordpress_local_production_readiness_report.md`. The Render staging and
+rollback procedure is in `docs/wordpress_render_deployment_runbook.md`. The
+inactive staging Blueprint is `render-wordpress.yaml`; the active root
+`render.yaml` has not been changed.

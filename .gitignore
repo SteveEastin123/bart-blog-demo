@@ -13,3 +13,5 @@ webapp/data/*.log
 tests/parity/artifacts/
 .tmp/
 wordpress-demo/.env
+wordpress-production/.env
+wordpress-production/backups/

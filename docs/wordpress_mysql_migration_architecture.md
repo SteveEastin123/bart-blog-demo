@@ -20,6 +20,14 @@ The WordPress implementation is being developed alongside these systems and
 will not replace them until it has passed parity testing and is explicitly
 approved.
 
+The production-equivalent local package now lives in
+`wordpress-production/`. It bakes the plugin, companion theme, and five
+authoritative JSON sources into an immutable Docker image and has passed the
+local acceptance gate documented in
+`docs/wordpress_local_production_readiness_report.md`. The inactive staging
+Blueprint is `render-wordpress.yaml`; the active root Render configuration is
+unchanged.
+
 ## Confirmed Product Boundaries
 
 The WordPress plugin will provide:
