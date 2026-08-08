@@ -231,7 +231,9 @@ final class Page_Controller {
 			. '</nav>';
 		$controls   = '<div class="ebd-review-controls"><button type="button" data-ebd-review-expand>'
 			. esc_html__( 'Expand all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-collapse>'
-			. esc_html__( 'Collapse all', 'ehrman-blog-discovery' ) . '</button>'
+			. esc_html__( 'Collapse all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-pdf>'
+			. esc_html__( 'Download PDF', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-csv>'
+			. esc_html__( 'Download CSV', 'ehrman-blog-discovery' ) . '</button>'
 			. $this->description_toggle( false, 'review' ) . '</div>';
 
 		return $this->shell(
@@ -576,13 +578,13 @@ final class Page_Controller {
 		}
 		return '<form class="ebd-search-panel" action="' . esc_url( $action ) . '" method="get" data-ebd-search-form '
 			. 'data-category="' . esc_attr( '' !== $category_scope ? $category_scope : $selected_category ) . '" '
-			. 'data-topic="' . esc_attr( $topic_scope ) . '">' . $scope . $category_filter
+			. 'data-topic="' . esc_attr( $topic_scope ) . '"><div class="ebd-search-controls">' . $scope . $category_filter
 			. '<p class="ebd-search-instructions"><strong>' . esc_html__( 'Select up to four search terms.', 'ehrman-blog-discovery' )
 			. '</strong> ' . esc_html__( 'You can enter topics, keywords, or both. Topics identify a post\'s main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.', 'ehrman-blog-discovery' )
 			. '</p><div class="ebd-keyword-grid" data-ebd-chip-list>' . implode( '', $chips ) . '</div>'
 			. '<div class="ebd-sort-row"><span>' . esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>'
 			. implode( '', $sort_options ) . '</div><button type="button" class="ebd-clear" data-ebd-clear>'
-			. esc_html__( 'Clear all', 'ehrman-blog-discovery' ) . '</button></form>'
+			. esc_html__( 'Clear all', 'ehrman-blog-discovery' ) . '</button></div></form>'
 			. '<div class="ebd-description-control">' . $this->description_toggle( $show_descriptions, 'posts' ) . '</div>';
 	}
 
