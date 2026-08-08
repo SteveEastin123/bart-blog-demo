@@ -100,11 +100,11 @@ if ([int]$search.count -le 0 -or @($search.terms).Count -ne 2) {
     throw 'The representative AND search failed.'
 }
 
-Write-Host 'Production Docker image: OK'
-Write-Host "Plugin PHP syntax: OK ($($phpFiles.Count) files)"
-Write-Host 'WordPress and MySQL connection: OK'
-Write-Host 'Authoritative imported counts: OK'
-Write-Host 'Landing, search, and browse pages: OK'
-Write-Host 'Private import and packaged runtime files: OK'
-Write-Host 'Parity route disabled: OK'
-Write-Host 'Representative AND search: OK'
+Write-Output 'Production Docker image: OK'
+Write-Output "Plugin PHP syntax: OK ($($phpFiles.Count) files)"
+Write-Output 'WordPress and MySQL connection: OK'
+Write-Output 'Authoritative imported counts: OK'
+Write-Output 'Landing, search, and browse pages: OK'
+Write-Output 'Private import and packaged runtime files: OK'
+Write-Output 'Parity route disabled: OK'
+Write-Output 'Representative AND search: OK'

@@ -1,43 +1,53 @@
 <?php
+/**
+ * Database schema and metadata services.
+ *
+ * @package EhrmanBlogDiscovery
+ */
 
 namespace EhrmanBlogDiscovery;
 
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-final class Database
-{
-    public static function tables(): array
-    {
-        global $wpdb;
+/** Manages the plugin's custom MySQL tables and schema version. */
+final class Database {
 
-        $base = $wpdb->prefix . 'ehrman_';
+	/**
+	 * Returns every custom table name keyed by its logical identifier.
+	 *
+	 * @return array<string,string> Custom table names.
+	 */
+	public static function tables(): array {
+		$wpdb = self::client();
 
-        return array(
-            'browse_paths' => $base . 'browse_paths',
-            'subject_areas' => $base . 'subject_areas',
-            'categories' => $base . 'categories',
-            'topics' => $base . 'topics',
-            'external_posts' => $base . 'external_posts',
-            'keywords' => $base . 'keywords',
-            'subject_area_categories' => $base . 'subject_area_categories',
-            'topic_categories' => $base . 'topic_categories',
-            'post_topics' => $base . 'post_topics',
-            'post_keywords' => $base . 'post_keywords',
-            'post_search_terms' => $base . 'post_search_terms',
-        );
-    }
+		$base = $wpdb->prefix . 'ehrman_';
 
-    public static function install(): void
-    {
-        global $wpdb;
+		return array(
+			'browse_paths'            => $base . 'browse_paths',
+			'subject_areas'           => $base . 'subject_areas',
+			'categories'              => $base . 'categories',
+			'topics'                  => $base . 'topics',
+			'external_posts'          => $base . 'external_posts',
+			'keywords'                => $base . 'keywords',
+			'subject_area_categories' => $base . 'subject_area_categories',
+			'topic_categories'        => $base . 'topic_categories',
+			'post_topics'             => $base . 'post_topics',
+			'post_keywords'           => $base . 'post_keywords',
+			'post_search_terms'       => $base . 'post_search_terms',
+		);
+	}
 
-        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+	/** Creates or updates the custom database schema. */
+	public static function install(): void {
+		$wpdb = self::client();
 
-        $tables = self::tables();
-        $collate = $wpdb->get_charset_collate();
-        $sql = "
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+
+		$tables  = self::tables();
+		$collate = $wpdb->get_charset_collate();
+		$sql     = "
 CREATE TABLE {$tables['browse_paths']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   name varchar(191) NOT NULL,
@@ -155,40 +165,154 @@ CREATE TABLE {$tables['post_search_terms']} (
 ) {$collate};
 ";
 
-        dbDelta($sql);
-        update_option('ehrman_discovery_schema_version', EBD_SCHEMA_VERSION, false);
-    }
+		dbDelta( $sql );
+		update_option( 'ehrman_discovery_schema_version', EHRMAN_DISCOVERY_SCHEMA_VERSION, false );
+	}
 
-    public static function maybe_upgrade(): void
-    {
-        $installed = (string) get_option('ehrman_discovery_schema_version', '0.0.0');
-        if (version_compare($installed, EBD_SCHEMA_VERSION, '<')) {
-            self::install();
-        }
-    }
+	/** Applies a schema upgrade when the installed version is out of date. */
+	public static function maybe_upgrade(): void {
+		$installed_option = get_option( 'ehrman_discovery_schema_version', '0.0.0' );
+		$installed        = is_scalar( $installed_option ) ? (string) $installed_option : '0.0.0';
+		if ( version_compare( $installed, EHRMAN_DISCOVERY_SCHEMA_VERSION, '<' ) ) {
+			self::install();
+		}
+	}
 
-    public static function counts(): array
-    {
-        global $wpdb;
+	/**
+	 * Counts the records in each available custom table.
+	 *
+	 * @return array<string,int> Record counts keyed by table identifier.
+	 */
+	public static function counts(): array {
+		$wpdb = self::client();
 
-        $counts = array();
-        foreach (self::tables() as $key => $table) {
-            if (!self::table_exists($table)) {
-                $counts[$key] = 0;
-                continue;
-            }
+		$counts = array();
+		foreach ( self::tables() as $key => $table ) {
+			if ( ! self::table_exists( $table ) ) {
+				$counts[ $key ] = 0;
+				continue;
+			}
 
-            $counts[$key] = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$table}");
-        }
+			$counts[ $key ] = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+		}
 
-        return $counts;
-    }
+		return $counts;
+	}
 
-    public static function table_exists(string $table): bool
-    {
-        global $wpdb;
+	/**
+	 * Determines whether a custom table exists.
+	 *
+	 * @param string $table Fully qualified table name.
+	 * @return bool Whether the table exists.
+	 */
+	public static function table_exists( string $table ): bool {
+		$wpdb = self::client();
 
-        $like = $wpdb->esc_like($table);
-        return $table === (string) $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $like));
-    }
+		$like = $wpdb->esc_like( $table );
+		return $table === (string) $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $like ) );
+	}
+
+	/**
+	 * Returns the initialized WordPress database client.
+	 *
+	 * @return \wpdb WordPress database client.
+	 * @throws \RuntimeException When WordPress has not initialized the client.
+	 */
+	public static function client(): \wpdb {
+		global $wpdb;
+
+		if ( ! $wpdb instanceof \wpdb ) {
+			throw new \RuntimeException( 'The WordPress database client is unavailable.' );
+		}
+
+		return $wpdb;
+	}
+
+	/**
+	 * Validates one associative database row.
+	 *
+	 * @param mixed $value Database result.
+	 * @return array<string,mixed>|null Associative row, or null.
+	 */
+	public static function associative_row( $value ): ?array {
+		if ( ! is_array( $value ) ) {
+			return null;
+		}
+
+		foreach ( array_keys( $value ) as $key ) {
+			if ( ! is_string( $key ) ) {
+				return null;
+			}
+		}
+
+		/**
+		 * Validated associative row.
+		 *
+		 * @var array<string,mixed> $value
+		 */
+		return $value;
+	}
+
+	/**
+	 * Validates a list of associative database rows.
+	 *
+	 * @param mixed $value Database result.
+	 * @return list<array<string,mixed>> Associative rows.
+	 */
+	public static function associative_rows( $value ): array {
+		if ( ! is_array( $value ) || ! array_is_list( $value ) ) {
+			return array();
+		}
+
+		$rows = array();
+		foreach ( $value as $value_row ) {
+			$row = self::associative_row( $value_row );
+			if ( null !== $row ) {
+				$rows[] = $row;
+			}
+		}
+
+		return $rows;
+	}
+
+	/**
+	 * Converts a numeric database value to an integer.
+	 *
+	 * @param mixed $value Database result.
+	 * @return int Numeric value or zero.
+	 */
+	public static function integer( $value ): int {
+		return is_numeric( $value ) ? (int) $value : 0;
+	}
+
+	/**
+	 * Converts a scalar database value to text.
+	 *
+	 * @param mixed $value Database result.
+	 * @return string Scalar text or an empty string.
+	 */
+	public static function text( $value ): string {
+		return is_scalar( $value ) ? (string) $value : '';
+	}
+
+	/**
+	 * Converts a database column result to text values.
+	 *
+	 * @param mixed $value Database result.
+	 * @return list<string> Scalar text values.
+	 */
+	public static function strings( $value ): array {
+		if ( ! is_array( $value ) || ! array_is_list( $value ) ) {
+			return array();
+		}
+
+		$strings = array();
+		foreach ( $value as $item ) {
+			if ( is_scalar( $item ) ) {
+				$strings[] = (string) $item;
+			}
+		}
+
+		return $strings;
+	}
 }

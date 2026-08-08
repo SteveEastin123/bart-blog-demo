@@ -1,0 +1,27 @@
+{
+    "name": "steveeastin/ehrman-blog-discovery",
+    "description": "Development tooling for the Ehrman Blog Discovery WordPress plugin.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpstan/phpstan": "^2.1",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "wp-coding-standards/wpcs": "^3.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --no-progress",
+        "check": [
+            "@lint",
+            "@analyse"
+        ],
+        "lint": "phpcs -p",
+        "lint:fix": "phpcbf -p"
+    }
+}

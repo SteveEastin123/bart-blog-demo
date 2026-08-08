@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ruleset name="Ehrman Blog Discovery">
+    <description>WordPress Coding Standards for the Ehrman Blog Discovery plugin.</description>
+
+    <file>.</file>
+    <exclude-pattern>vendor/*</exclude-pattern>
+
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="8"/>
+    <arg value="sp"/>
+
+    <config name="minimum_supported_wp_version" value="6.5"/>
+
+    <rule ref="WordPress"/>
+
+    <!--
+        The plugin owns dedicated custom tables and must query them directly.
+        Query results are request-scoped search data, so WordPress object-cache
+        integration would add invalidation complexity without durable benefit.
+    -->
+    <rule ref="WordPress.DB.DirectDatabaseQuery.DirectQuery">
+        <severity>0</severity>
+    </rule>
+    <rule ref="WordPress.DB.DirectDatabaseQuery.NoCaching">
+        <severity>0</severity>
+    </rule>
+
+    <!-- All interpolated SQL identifiers come from Database::tables(). -->
+    <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared">
+        <severity>0</severity>
+    </rule>
+
+    <!--
+        Exception messages are internal data and are sanitized or escaped at
+        their actual HTML, CLI, or REST output boundary. Escaping while
+        constructing exceptions would corrupt log and API representations.
+    -->
+    <rule ref="WordPress.Security.EscapeOutput.ExceptionNotEscaped">
+        <severity>0</severity>
+    </rule>
+
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="ehrman-blog-discovery"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="ehrman_discovery"/>
+                <element value="EHRMAN_DISCOVERY"/>
+                <element value="EhrmanBlogDiscovery"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>

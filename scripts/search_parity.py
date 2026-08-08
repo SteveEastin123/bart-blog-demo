@@ -11,13 +11,13 @@ import random
 import sqlite3
 import sys
 import time
+from collections.abc import Iterable, Iterator
 from contextlib import contextmanager
 from itertools import zip_longest
 from pathlib import Path
-from typing import Any, Iterable, Iterator, TextIO
+from typing import Any, TextIO
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
-
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -25,7 +25,6 @@ if str(ROOT) not in sys.path:
 
 from webapp.import_data import DEFAULT_DB_PATH, normalize_keyword  # noqa: E402
 from webapp.parity import MAX_BATCH_CASES, run_batch  # noqa: E402
-
 
 DEFAULT_SEED = 20260728
 STANDARD_CASE_COUNT = 500
@@ -90,11 +89,15 @@ def read_json_lines(path: Path) -> Iterator[dict[str, Any]]:
                 continue
             value = json.loads(line)
             if not isinstance(value, dict):
-                raise ValueError(f"{path}:{line_number} must contain a JSON object")
+                raise ValueError(  # noqa: TRY004 -- valid JSON has the wrong shape.
+                    f"{path}:{line_number} must contain a JSON object"
+                )
             yield value
 
 
-def chunks(values: Iterable[dict[str, Any]], size: int) -> Iterator[list[dict[str, Any]]]:
+def chunks(
+    values: Iterable[dict[str, Any]], size: int
+) -> Iterator[list[dict[str, Any]]]:
     batch: list[dict[str, Any]] = []
     for value in values:
         batch.append(value)
@@ -177,7 +180,9 @@ def case_builder() -> tuple[list[dict[str, Any]], Any]:
     def add(prefix: str, operation: str, **fields: Any) -> None:
         nonlocal counter
         counter += 1
-        cases.append({"id": f"{prefix}-{counter:06d}", "operation": operation, **fields})
+        cases.append(
+            {"id": f"{prefix}-{counter:06d}", "operation": operation, **fields}
+        )
 
     return cases, add
 
@@ -195,18 +200,33 @@ def smoke_cases(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     add("suggest-prefix", "suggest", query="wo", selected=[])
     add("suggest-selected", "suggest", query="at", selected=["Luke"])
 
-    category_rows = conn.execute("SELECT slug FROM categories ORDER BY name COLLATE NOCASE LIMIT 2").fetchall()
+    category_rows = conn.execute(
+        "SELECT slug FROM categories ORDER BY name COLLATE NOCASE LIMIT 2"
+    ).fetchall()
     for row in category_rows:
         slug = str(row[0])
-        add("category-search", "search", terms=[], sort="ranked", scope={"type": "category", "slug": slug})
+        add(
+            "category-search",
+            "search",
+            terms=[],
+            sort="ranked",
+            scope={"type": "category", "slug": slug},
+        )
         add("category-suggest", "suggest", query="", selected=[], categorySlug=slug)
 
     topic_rows = conn.execute(
-        "SELECT slug FROM topics WHERE display_in_browser = 1 ORDER BY name COLLATE NOCASE LIMIT 2"
+        "SELECT slug FROM topics WHERE display_in_browser = 1 "
+        "ORDER BY name COLLATE NOCASE LIMIT 2"
     ).fetchall()
     for row in topic_rows:
         slug = str(row[0])
-        add("topic-search", "search", terms=[], sort="ranked", scope={"type": "topic", "slug": slug})
+        add(
+            "topic-search",
+            "search",
+            terms=[],
+            sort="ranked",
+            scope={"type": "topic", "slug": slug},
+        )
         add("topic-suggest", "suggest", query="", selected=[], topicSlug=slug)
     add("browse", "browse")
     return cases
@@ -220,45 +240,94 @@ def standard_cases(conn: sqlite3.Connection, seed: int) -> list[dict[str, Any]]:
     sampled_terms = sampled_values(normalized_terms, 80, seed)
 
     for normalized in sampled_terms:
-        add("standard-single-ranked", "search", terms=[labels[normalized]], sort="ranked")
+        add(
+            "standard-single-ranked",
+            "search",
+            terms=[labels[normalized]],
+            sort="ranked",
+        )
     for normalized in sampled_terms[:10]:
         label = labels[normalized]
         add("standard-single-newest", "search", terms=[label], sort="newest")
         add("standard-single-oldest", "search", terms=[label], sort="oldest")
 
     for values in sampled_combinations(values_by_post, 2, 125, seed):
-        add("standard-pair-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+        add(
+            "standard-pair-ranked",
+            "search",
+            terms=[labels[value] for value in values],
+            sort="ranked",
+        )
     for values in sampled_combinations(values_by_post, 3, 40, seed):
-        add("standard-triple-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+        add(
+            "standard-triple-ranked",
+            "search",
+            terms=[labels[value] for value in values],
+            sort="ranked",
+        )
     for values in sampled_combinations(values_by_post, 4, 20, seed):
-        add("standard-quadruple-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+        add(
+            "standard-quadruple-ranked",
+            "search",
+            terms=[labels[value] for value in values],
+            sort="ranked",
+        )
 
     for prefix in sampled_values(autocomplete_prefixes(normalized_terms), 75, seed + 1):
         add("standard-suggest-prefix", "suggest", query=prefix, selected=[])
     for normalized in sampled_values(normalized_terms, 50, seed + 2):
-        add("standard-suggest-selected", "suggest", query="", selected=[labels[normalized]])
+        add(
+            "standard-suggest-selected",
+            "suggest",
+            query="",
+            selected=[labels[normalized]],
+        )
 
     category_slugs = [
         str(row[0])
-        for row in conn.execute("SELECT slug FROM categories ORDER BY name COLLATE NOCASE").fetchall()
+        for row in conn.execute(
+            "SELECT slug FROM categories ORDER BY name COLLATE NOCASE"
+        ).fetchall()
     ]
     for slug in sampled_values(category_slugs, 20, seed + 3):
-        add("standard-category-search", "search", terms=[], sort="ranked", scope={"type": "category", "slug": slug})
-        add("standard-category-suggest", "suggest", query="", selected=[], categorySlug=slug)
+        add(
+            "standard-category-search",
+            "search",
+            terms=[],
+            sort="ranked",
+            scope={"type": "category", "slug": slug},
+        )
+        add(
+            "standard-category-suggest",
+            "suggest",
+            query="",
+            selected=[],
+            categorySlug=slug,
+        )
 
     topic_slugs = [
         str(row[0])
         for row in conn.execute(
-            "SELECT slug FROM topics WHERE display_in_browser = 1 ORDER BY name COLLATE NOCASE"
+            "SELECT slug FROM topics WHERE display_in_browser = 1 "
+            "ORDER BY name COLLATE NOCASE"
         ).fetchall()
     ]
     for slug in sampled_values(topic_slugs, 12, seed + 4):
-        add("standard-topic-search", "search", terms=[], sort="ranked", scope={"type": "topic", "slug": slug})
+        add(
+            "standard-topic-search",
+            "search",
+            terms=[],
+            sort="ranked",
+            scope={"type": "topic", "slug": slug},
+        )
         add("standard-topic-suggest", "suggest", query="", selected=[], topicSlug=slug)
 
     cases.extend(additional_cases)
     if len(cases) != STANDARD_CASE_COUNT:
-        raise RuntimeError(f"Standard profile generated {len(cases)} cases instead of {STANDARD_CASE_COUNT}")
+        raise RuntimeError(
+            f"Standard profile generated {len(cases)} cases instead of "
+            f"{STANDARD_CASE_COUNT}"
+        )
     return cases
 
 
@@ -282,24 +351,51 @@ def full_cases(
     for values in values_by_post.values():
         cooccurring_pairs.update(itertools.combinations(sorted(values), 2))
     for first, second in sorted(cooccurring_pairs):
-        add("pair-ranked", "search", terms=[labels[first], labels[second]], sort="ranked")
+        add(
+            "pair-ranked",
+            "search",
+            terms=[labels[first], labels[second]],
+            sort="ranked",
+        )
 
     triples = sampled_combinations(values_by_post, 3, triple_sample, seed)
     for values in triples:
-        add("triple-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+        add(
+            "triple-ranked",
+            "search",
+            terms=[labels[value] for value in values],
+            sort="ranked",
+        )
 
     quadruples = sampled_combinations(values_by_post, 4, quadruple_sample, seed)
     for values in quadruples:
-        add("quadruple-ranked", "search", terms=[labels[value] for value in values], sort="ranked")
+        add(
+            "quadruple-ranked",
+            "search",
+            terms=[labels[value] for value in values],
+            sort="ranked",
+        )
 
     pair_population = list(itertools.combinations(normalized_terms, 2))
     sample_size = min(random_pair_sample, len(pair_population))
     for first, second in random.Random(seed).sample(pair_population, sample_size):
-        add("random-pair", "search", terms=[labels[first], labels[second]], sort="ranked")
+        add(
+            "random-pair",
+            "search",
+            terms=[labels[first], labels[second]],
+            sort="ranked",
+        )
 
-    reversed_pairs = sorted(cooccurring_pairs)[:: max(1, len(cooccurring_pairs) // 1000)]
+    reversed_pairs = sorted(cooccurring_pairs)[
+        :: max(1, len(cooccurring_pairs) // 1000)
+    ]
     for first, second in reversed_pairs[:1000]:
-        add("pair-reversed", "search", terms=[labels[second], labels[first]], sort="ranked")
+        add(
+            "pair-reversed",
+            "search",
+            terms=[labels[second], labels[first]],
+            sort="ranked",
+        )
 
     for terms in REGRESSION_SEARCHES:
         if all(normalize_keyword(term) in labels for term in terms):
@@ -308,24 +404,41 @@ def full_cases(
     for prefix in autocomplete_prefixes(normalized_terms):
         add("suggest-prefix", "suggest", query=prefix, selected=[])
     for normalized in normalized_terms:
-        add("suggest-selected-empty", "suggest", query="", selected=[labels[normalized]])
+        add(
+            "suggest-selected-empty", "suggest", query="", selected=[labels[normalized]]
+        )
     for first, second in sorted(cooccurring_pairs):
         add("suggest-pair", "suggest", query=labels[second], selected=[labels[first]])
 
-    category_rows = conn.execute("SELECT slug FROM categories ORDER BY name COLLATE NOCASE").fetchall()
+    category_rows = conn.execute(
+        "SELECT slug FROM categories ORDER BY name COLLATE NOCASE"
+    ).fetchall()
     for row in category_rows:
         slug = str(row[0])
         for sort in ("ranked", "newest", "oldest"):
-            add("category-search", "search", terms=[], sort=sort, scope={"type": "category", "slug": slug})
+            add(
+                "category-search",
+                "search",
+                terms=[],
+                sort=sort,
+                scope={"type": "category", "slug": slug},
+            )
         add("category-suggest", "suggest", query="", selected=[], categorySlug=slug)
 
     topic_rows = conn.execute(
-        "SELECT slug FROM topics WHERE display_in_browser = 1 ORDER BY name COLLATE NOCASE"
+        "SELECT slug FROM topics WHERE display_in_browser = 1 "
+        "ORDER BY name COLLATE NOCASE"
     ).fetchall()
     for row in topic_rows:
         slug = str(row[0])
         for sort in ("ranked", "newest", "oldest"):
-            add("topic-search", "search", terms=[], sort=sort, scope={"type": "topic", "slug": slug})
+            add(
+                "topic-search",
+                "search",
+                terms=[],
+                sort=sort,
+                scope={"type": "topic", "slug": slug},
+            )
         add("topic-suggest", "suggest", query="", selected=[], topicSlug=slug)
 
     add("browse", "browse")
@@ -366,7 +479,9 @@ def remote_batch(
     retry_delay: float,
 ) -> dict[str, Any]:
     url = base_url.rstrip("/") + "/" + endpoint_path.strip("/")
-    payload = json.dumps({"schemaVersion": 1, "cases": cases}, ensure_ascii=False).encode("utf-8")
+    payload = json.dumps(
+        {"schemaVersion": 1, "cases": cases}, ensure_ascii=False
+    ).encode("utf-8")
     request = Request(
         url,
         data=payload,
@@ -385,7 +500,9 @@ def remote_batch(
             if exc.code in {429, 500, 502, 503, 504} and attempt < retries:
                 time.sleep(retry_delay * (2**attempt))
                 continue
-            raise RuntimeError(f"Parity endpoint returned HTTP {exc.code}: {detail}") from exc
+            raise RuntimeError(
+                f"Parity endpoint returned HTTP {exc.code}: {detail}"
+            ) from exc
         except URLError as exc:
             if attempt < retries:
                 time.sleep(retry_delay * (2**attempt))
@@ -416,7 +533,9 @@ def digest_record(result: dict[str, Any]) -> dict[str, Any]:
     return summary
 
 
-def capture_progress(path: Path, expected_record_type: str) -> tuple[dict[str, Any] | None, int]:
+def capture_progress(
+    path: Path, expected_record_type: str
+) -> tuple[dict[str, Any] | None, int]:
     if not path.exists():
         return None, 0
     records = read_json_lines(path)
@@ -436,7 +555,9 @@ def capture_command(args: argparse.Namespace) -> int:
     if args.base_url:
         token = os.environ.get(args.token_env, "")
         if not token:
-            raise RuntimeError(f"Set {args.token_env} before capturing a remote baseline")
+            raise RuntimeError(
+                f"Set {args.token_env} before capturing a remote baseline"
+            )
 
     first_manifest: dict[str, Any] | None = None
     completed = 0
@@ -454,7 +575,10 @@ def capture_command(args: argparse.Namespace) -> int:
         raise RuntimeError("Cannot resume: completed results exceed --limit")
     remaining = None if args.limit is None else args.limit - completed
     if remaining == 0:
-        print(f"Capture already contains all {completed:,} requested parity results at {args.output}")
+        print(
+            f"Capture already contains all {completed:,} requested parity results at "
+            f"{args.output}"
+        )
         return 0
 
     total = completed
@@ -464,7 +588,10 @@ def capture_command(args: argparse.Namespace) -> int:
     if start or stop is not None:
         case_records = itertools.islice(case_records, start, stop)
 
-    with text_writer(args.output, append=append) as output, text_writer(args.digests, append=append) as digests:
+    with (
+        text_writer(args.output, append=append) as output,
+        text_writer(args.digests, append=append) as digests,
+    ):
         for batch in chunks(case_records, args.batch_size):
             response = (
                 remote_batch(
@@ -479,17 +606,23 @@ def capture_command(args: argparse.Namespace) -> int:
                 if args.base_url
                 else run_batch(batch)
             )
-            current_manifest = {key: value for key, value in response.items() if key != "results"}
+            current_manifest = {
+                key: value for key, value in response.items() if key != "results"
+            }
             if first_manifest is None:
                 first_manifest = current_manifest
                 write_json_line(output, {"recordType": "manifest", **current_manifest})
                 write_json_line(digests, {"recordType": "manifest", **current_manifest})
-            elif comparable_manifest(current_manifest) != comparable_manifest(first_manifest):
+            elif comparable_manifest(current_manifest) != comparable_manifest(
+                first_manifest
+            ):
                 raise RuntimeError("Manifest changed while capturing baseline")
 
             results = response.get("results")
             if not isinstance(results, list) or len(results) != len(batch):
-                raise RuntimeError("Parity endpoint returned an unexpected number of results")
+                raise RuntimeError(
+                    "Parity endpoint returned an unexpected number of results"
+                )
             for result in results:
                 write_json_line(output, {"recordType": "result", **result})
                 write_json_line(digests, digest_record(result))
@@ -507,6 +640,11 @@ def comparable_manifest_record(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def comparison_value(value: Any) -> str:
+    serialized = json.dumps(value, ensure_ascii=False, indent=2)[:4000]
+    return html.escape(serialized)
+
+
 def comparison_html(
     expected_path: Path,
     actual_path: Path,
@@ -518,18 +656,22 @@ def comparison_html(
     rows = "".join(
         "<tr>"
         f"<td>{html.escape(str(item.get('id', '')))}</td>"
-        f"<td><pre>{html.escape(json.dumps(item.get('expected'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
-        f"<td><pre>{html.escape(json.dumps(item.get('actual'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
+        f"<td><pre>{comparison_value(item.get('expected'))}</pre></td>"
+        f"<td><pre>{comparison_value(item.get('actual'))}</pre></td>"
         "</tr>"
         for item in mismatches[:100]
     )
     approved_rows = "".join(
         "<tr>"
         f"<td>{html.escape(str(item.get('id', '')))}</td>"
-        f"<td><pre>{html.escape(json.dumps(item.get('expected'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
-        f"<td><pre>{html.escape(json.dumps(item.get('actual'), ensure_ascii=False, indent=2)[:4000])}</pre></td>"
+        f"<td><pre>{comparison_value(item.get('expected'))}</pre></td>"
+        f"<td><pre>{comparison_value(item.get('actual'))}</pre></td>"
         "</tr>"
         for item in approved[:100]
+    )
+    summary = (
+        f"Compared {compared:,} results; found {len(mismatches):,} unapproved "
+        f"differences and {len(approved):,} approved variances."
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -548,7 +690,7 @@ def comparison_html(
   <h1>Search Parity Comparison: {status}</h1>
   <p>Expected: {html.escape(str(expected_path))}</p>
   <p>Actual: {html.escape(str(actual_path))}</p>
-  <p>Compared {compared:,} results; found {len(mismatches):,} unapproved differences and {len(approved):,} approved variances.</p>
+  <p>{summary}</p>
   <table>
     <thead><tr><th>Case</th><th>Expected</th><th>Actual</th></tr></thead>
     <tbody>{rows}</tbody>
@@ -574,8 +716,12 @@ def compare_command(args: argparse.Namespace) -> int:
 
     if expected_manifest is None or actual_manifest is None:
         raise RuntimeError("Both comparison files must contain a manifest")
-    if comparable_manifest_record(expected_manifest) != comparable_manifest_record(actual_manifest):
-        mismatches.append({"id": "manifest", "expected": expected_manifest, "actual": actual_manifest})
+    if comparable_manifest_record(expected_manifest) != comparable_manifest_record(
+        actual_manifest
+    ):
+        mismatches.append(
+            {"id": "manifest", "expected": expected_manifest, "actual": actual_manifest}
+        )
 
     compared = 0
     for expected, actual in zip_longest(expected_records, actual_records):
@@ -596,7 +742,8 @@ def compare_command(args: argparse.Namespace) -> int:
         encoding="utf-8",
     )
     print(
-        f"Compared {compared:,} results; found {len(mismatches):,} unapproved differences "
+        f"Compared {compared:,} results; found {len(mismatches):,} "
+        "unapproved differences "
         f"and {len(approved):,} approved variances"
     )
     print(f"Wrote comparison report to {args.report}")
@@ -605,12 +752,18 @@ def compare_command(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Generate, capture, and compare search parity cases across implementations."
+        description=(
+            "Generate, capture, and compare search parity cases across implementations."
+        )
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    generate = subparsers.add_parser("generate", help="Generate deterministic parity cases")
-    generate.add_argument("--profile", choices=("smoke", "standard", "full"), default="smoke")
+    generate = subparsers.add_parser(
+        "generate", help="Generate deterministic parity cases"
+    )
+    generate.add_argument(
+        "--profile", choices=("smoke", "standard", "full"), default="smoke"
+    )
     generate.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     generate.add_argument("--output", type=Path, default=DEFAULT_CASES_PATH)
     generate.add_argument("--seed", type=int, default=DEFAULT_SEED)
@@ -619,11 +772,15 @@ def build_parser() -> argparse.ArgumentParser:
     generate.add_argument("--random-pair-sample", type=int, default=5000)
     generate.set_defaults(func=generate_command)
 
-    capture = subparsers.add_parser("capture", help="Capture local or remote parity results")
+    capture = subparsers.add_parser(
+        "capture", help="Capture local or remote parity results"
+    )
     capture.add_argument("--cases", type=Path, default=DEFAULT_CASES_PATH)
     capture.add_argument("--output", type=Path, default=DEFAULT_BASELINE_PATH)
     capture.add_argument("--digests", type=Path, default=DEFAULT_DIGEST_PATH)
-    capture.add_argument("--base-url", default="", help="Remote base URL; omit to run locally")
+    capture.add_argument(
+        "--base-url", default="", help="Remote base URL; omit to run locally"
+    )
     capture.add_argument(
         "--endpoint-path",
         default="api/parity/batch",
@@ -654,10 +811,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def validate_args(args: argparse.Namespace) -> None:
-    if getattr(args, "batch_size", 1) < 1 or getattr(args, "batch_size", 1) > MAX_BATCH_CASES:
+    if (
+        getattr(args, "batch_size", 1) < 1
+        or getattr(args, "batch_size", 1) > MAX_BATCH_CASES
+    ):
         raise SystemExit(f"--batch-size must be between 1 and {MAX_BATCH_CASES}")
     limit = getattr(args, "limit", None)
-    if getattr(args, "offset", 0) < 0 or limit is not None and limit < 1:
+    if getattr(args, "offset", 0) < 0 or (limit is not None and limit < 1):
         raise SystemExit("--offset must be non-negative and --limit must be positive")
     if getattr(args, "retries", 0) < 0 or getattr(args, "retry_delay", 0) < 0:
         raise SystemExit("--retries and --retry-delay must be non-negative")

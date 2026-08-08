@@ -11,5 +11,12 @@ __pycache__
 data/raw
 docs
 tests/parity/artifacts
+wordpress-plugin/ehrman-blog-discovery/vendor
+wordpress-plugin/ehrman-blog-discovery/composer.json
+wordpress-plugin/ehrman-blog-discovery/composer.lock
+wordpress-plugin/ehrman-blog-discovery/phpcs.xml.dist
+wordpress-plugin/ehrman-blog-discovery/phpstan-bootstrap.php
+wordpress-plugin/ehrman-blog-discovery/phpstan.neon.dist
+wordpress-plugin/ehrman-blog-discovery/stubs
 *.docx
 *.pptx

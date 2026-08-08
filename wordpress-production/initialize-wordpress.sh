@@ -22,6 +22,8 @@ done
 cd /var/www/html
 
 for attempt in $(seq 1 60); do
+  # Keep the PHP snippet literal; database values are read through getenv().
+  # shellcheck disable=SC2016
   if php -r '
     $parts = explode(":", getenv("WORDPRESS_DB_HOST"), 2);
     $host = $parts[0];

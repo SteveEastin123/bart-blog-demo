@@ -1,0 +1,26 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: max
+    phpVersion: 80100
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    scanFiles:
+        - stubs/wp-cli.stub
+    paths:
+        - ehrman-blog-discovery.php
+        - uninstall.php
+        - includes
+    excludePaths:
+        analyse:
+            - vendor
+    ignoreErrors:
+        -
+            identifier: argument.type
+            message: '#^Parameter \#1 \$query of method wpdb::prepare\(\) expects literal-string, non-falsy-string given\.$#'
+            paths:
+                - includes/class-browse-service.php
+                - includes/class-importer.php
+                - includes/class-parity-service.php
+                - includes/class-search-service.php

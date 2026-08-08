@@ -23,6 +23,14 @@ two alternative topic-browsing paths.
 4. Use `[ehrman_keyword_search]` and `[ehrman_browse_topics path="1"]` or
    `[ehrman_browse_topics path="2"]` on WordPress pages.
 
+== Development ==
+
+Install the development dependencies with `composer install`. Run
+`composer lint` to check the plugin against the configured WordPress Coding
+Standards ruleset, or `composer lint:fix` to apply safe automatic formatting.
+Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
+`composer check` to run both standards and static-analysis checks.
+
 == Changelog ==
 
 = 0.4.0 =

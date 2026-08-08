@@ -1,52 +1,63 @@
 <?php
+/**
+ * Front-end asset registration.
+ *
+ * @package EhrmanBlogDiscovery
+ */
 
 namespace EhrmanBlogDiscovery;
 
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-final class Assets
-{
-    private static bool $localized = false;
+/** Loads the styles, scripts, endpoints, and translated strings used by discovery pages. */
+final class Assets {
 
-    public static function enqueue(): void
-    {
-        wp_enqueue_style(
-            'ehrman-blog-discovery',
-            EBD_PLUGIN_URL . 'assets/css/discovery.css',
-            array(),
-            EBD_VERSION
-        );
-        wp_enqueue_script(
-            'ehrman-blog-discovery',
-            EBD_PLUGIN_URL . 'assets/js/discovery.js',
-            array(),
-            EBD_VERSION,
-            true
-        );
+	/**
+	 * Tracks whether the JavaScript configuration has already been localized.
+	 *
+	 * @var bool
+	 */
+	private static bool $localized = false;
 
-        if (self::$localized) {
-            return;
-        }
-        self::$localized = true;
-        wp_localize_script(
-            'ehrman-blog-discovery',
-            'EhrmanDiscovery',
-            array(
-                'suggestionsUrl' => esc_url_raw(rest_url('ehrman-discovery/v1/suggestions')),
-                'searchUrl' => esc_url_raw(rest_url('ehrman-discovery/v1/search')),
-                'statusUrl' => esc_url_raw(rest_url('ehrman-discovery/v1/status')),
-                'strings' => array(
-                    'topic' => __('Topic', 'ehrman-blog-discovery'),
-                    'keyword' => __('Keyword', 'ehrman-blog-discovery'),
-                    'post' => __('post', 'ehrman-blog-discovery'),
-                    'posts' => __('posts', 'ehrman-blog-discovery'),
-                    'noResults' => __('No posts matched this request.', 'ehrman-blog-discovery'),
-                    'requestFailed' => __('The search could not be completed. Please try again.', 'ehrman-blog-discovery'),
-                    'unknownAuthor' => __('unknown author', 'ehrman-blog-discovery'),
-                ),
-            )
-        );
-    }
+	/** Enqueues and configures the discovery interface assets. */
+	public static function enqueue(): void {
+		wp_enqueue_style(
+			'ehrman-blog-discovery',
+			EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/css/discovery.css',
+			array(),
+			EHRMAN_DISCOVERY_VERSION
+		);
+		wp_enqueue_script(
+			'ehrman-blog-discovery',
+			EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/discovery.js',
+			array(),
+			EHRMAN_DISCOVERY_VERSION,
+			true
+		);
+
+		if ( self::$localized ) {
+			return;
+		}
+		self::$localized = true;
+		wp_localize_script(
+			'ehrman-blog-discovery',
+			'EhrmanDiscovery',
+			array(
+				'suggestionsUrl' => esc_url_raw( rest_url( 'ehrman-discovery/v1/suggestions' ) ),
+				'searchUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/search' ) ),
+				'statusUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/status' ) ),
+				'strings'        => array(
+					'topic'         => __( 'Topic', 'ehrman-blog-discovery' ),
+					'keyword'       => __( 'Keyword', 'ehrman-blog-discovery' ),
+					'post'          => __( 'post', 'ehrman-blog-discovery' ),
+					'posts'         => __( 'posts', 'ehrman-blog-discovery' ),
+					'noResults'     => __( 'No posts matched this request.', 'ehrman-blog-discovery' ),
+					'requestFailed' => __( 'The search could not be completed. Please try again.', 'ehrman-blog-discovery' ),
+					'unknownAuthor' => __( 'unknown author', 'ehrman-blog-discovery' ),
+				),
+			)
+		);
+	}
 }

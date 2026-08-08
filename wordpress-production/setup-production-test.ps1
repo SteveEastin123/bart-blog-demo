@@ -35,7 +35,7 @@ if ($LASTEXITCODE -ne 0) {
     throw 'WordPress initialization or data import failed.'
 }
 
-Write-Host "Production-equivalent WordPress: http://localhost:$Port"
-Write-Host "Keyword Search: http://localhost:$Port/keyword-search/"
-Write-Host "Browse Topics 1: http://localhost:$Port/browse-topics-1/"
-Write-Host "Browse Topics 2: http://localhost:$Port/browse-topics-2/"
+Write-Output "Production-equivalent WordPress: http://localhost:$Port"
+Write-Output "Keyword Search: http://localhost:$Port/keyword-search/"
+Write-Output "Browse Topics 1: http://localhost:$Port/browse-topics-1/"
+Write-Output "Browse Topics 2: http://localhost:$Port/browse-topics-2/"

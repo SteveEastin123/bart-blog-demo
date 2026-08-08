@@ -47,7 +47,7 @@ try {
     if ($parts.Count -ne 2 -or $parts[0] -ne $parts[1]) {
         throw "Restore verification failed: source=$($parts[0]), restored=$($parts[1])."
     }
-    Write-Host "Backup restore: OK ($($parts[1]) external posts)"
+    Write-Output "Backup restore: OK ($($parts[1]) external posts)"
 }
 finally {
     'DROP DATABASE IF EXISTS ehrman_restore_test;' |
