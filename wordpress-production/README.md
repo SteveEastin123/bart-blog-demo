@@ -13,6 +13,10 @@ The isolated production-equivalent stack runs on port `8086` by default:
 .\wordpress-production\setup-production-test.ps1
 ```
 
+The reviewer-only hierarchy outline is available at
+`http://localhost:8086/structure-review/`. It is linked from the landing page,
+excluded from the primary navigation, and marked `noindex, nofollow`.
+
 The script builds the exact WordPress image intended for staging, starts a
 fresh MySQL service, installs WordPress when necessary, activates the plugin
 and theme, configures permalinks, and imports the authoritative index.

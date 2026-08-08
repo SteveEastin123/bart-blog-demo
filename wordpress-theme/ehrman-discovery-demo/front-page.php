@@ -10,6 +10,11 @@ $post_range = ehrman_demo_post_range();
                 <p><?php echo wp_kses_post(__('This demo offers two ways to discover posts on Bart\'s blog: <strong>Keyword Search</strong> and <strong>Browse Topics</strong>.', 'ehrman-discovery-demo')); ?></p>
                 <p><?php echo wp_kses_post(__('<strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can optionally select a category and combine up to four topics or secondary keywords.', 'ehrman-discovery-demo')); ?></p>
                 <p><?php echo wp_kses_post(__('<strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.', 'ehrman-discovery-demo')); ?></p>
+                <aside class="ehrman-reviewer-tools" aria-labelledby="ehrman-reviewer-tools-title">
+                    <h2 id="ehrman-reviewer-tools-title"><?php esc_html_e('Reviewer Tools', 'ehrman-discovery-demo'); ?></h2>
+                    <p><?php esc_html_e('Use the structure review to evaluate how subject areas, categories, and topics are organized.', 'ehrman-discovery-demo'); ?></p>
+                    <a href="<?php echo esc_url(add_query_arg('ebd_path', '1', ehrman_demo_page_url('structure-review'))); ?>"><?php esc_html_e('Review subject areas, categories, and topics', 'ehrman-discovery-demo'); ?></a>
+                </aside>
                 <figure class="ehrman-methods-figure">
                     <picture>
                         <source media="(max-width: 700px)" srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/ehrman-search-methods-mobile.svg'); ?>">

@@ -83,6 +83,23 @@ final class Browse_Service {
 	}
 
 	/**
+	 * Returns every category alphabetically for the structure-review index.
+	 *
+	 * @return array<int,array<string,mixed>> Category records and counts.
+	 */
+	public function categories(): array {
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		$sql    = 'SELECT c.id,c.name,c.slug,c.description,COUNT(DISTINCT tc.topic_id) topic_count,'
+			. "COUNT(DISTINCT pt.post_id) post_count FROM {$tables['categories']} c "
+			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.category_id=c.id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id "
+			. 'GROUP BY c.id,c.name,c.slug,c.description ORDER BY c.name';
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only trusted table identifiers and no variable values.
+		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
+	}
+
+	/**
 	 * Returns aggregate counts for a subject area.
 	 *
 	 * @param int $subject_area_id Subject-area database identifier.

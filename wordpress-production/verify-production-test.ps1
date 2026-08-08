@@ -41,7 +41,7 @@ foreach ($property in $expected.PSObject.Properties) {
     }
 }
 
-$pages = @('/', '/keyword-search/', '/browse-topics-1/', '/browse-topics-2/')
+$pages = @('/', '/keyword-search/', '/browse-topics-1/', '/browse-topics-2/', '/structure-review/')
 foreach ($path in $pages) {
     $response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:$Port$path"
     if ($response.StatusCode -ne 200) {
@@ -104,7 +104,7 @@ Write-Output 'Production Docker image: OK'
 Write-Output "Plugin PHP syntax: OK ($($phpFiles.Count) files)"
 Write-Output 'WordPress and MySQL connection: OK'
 Write-Output 'Authoritative imported counts: OK'
-Write-Output 'Landing, search, and browse pages: OK'
+Write-Output 'Landing, search, browse, and structure-review pages: OK'
 Write-Output 'Private import and packaged runtime files: OK'
 Write-Output 'Parity route disabled: OK'
 Write-Output 'Representative AND search: OK'

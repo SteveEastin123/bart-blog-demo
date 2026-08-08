@@ -596,10 +596,25 @@
   function applyDescriptionToggle(root) {
     const toggle = root.querySelector("[data-ebd-description-toggle]");
     if (!toggle) return;
-    root.querySelectorAll(".ebd-item-description,.ebd-post-description").forEach((description) => {
+    root.querySelectorAll(".ebd-item-description,.ebd-post-description,.ebd-review-description").forEach((description) => {
       description.hidden = !toggle.checked;
     });
     if (toggle.checked) hideTooltip();
+  }
+
+  function setupStructureReview(root) {
+    const tree = root.querySelector("[data-ebd-review-tree]");
+    if (!tree) return;
+    root.querySelector("[data-ebd-review-expand]")?.addEventListener("click", () => {
+      tree.querySelectorAll("details").forEach((section) => {
+        section.open = true;
+      });
+    });
+    root.querySelector("[data-ebd-review-collapse]")?.addEventListener("click", () => {
+      tree.querySelectorAll("details").forEach((section) => {
+        section.open = false;
+      });
+    });
   }
 
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
@@ -610,6 +625,7 @@
     });
     applyDescriptionToggle(root);
   });
+  document.querySelectorAll(".ebd-view-structure-review").forEach(setupStructureReview);
   setupTitleTooltips(document);
 
   document.addEventListener("click", (event) => {

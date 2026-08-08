@@ -45,14 +45,17 @@ final class Page_Controller {
 	public function register(): void {
 		add_shortcode( 'ehrman_keyword_search', array( $this, 'keyword_search_shortcode' ) );
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
+		add_shortcode( 'ehrman_structure_review', array( $this, 'structure_review_shortcode' ) );
+		add_filter( 'wp_robots', array( $this, 'review_page_robots' ) );
 	}
 
 	/** Creates or reconnects the public discovery pages. */
 	public static function ensure_pages(): void {
 		$pages = array(
-			'keyword_search' => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'browse_1'       => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
-			'browse_2'       => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
+			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
+			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
+			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
+			'structure_review' => array( 'Structure Review', 'structure-review', '[ehrman_structure_review]' ),
 		);
 
 		foreach ( $pages as $key => [$title, $slug, $content] ) {
@@ -82,6 +85,21 @@ final class Page_Controller {
 			}
 		}
 		update_option( 'ehrman_discovery_pages_version', EHRMAN_DISCOVERY_VERSION, false );
+	}
+
+	/**
+	 * Excludes the reviewer-only structure page from search-engine indexing.
+	 *
+	 * @param array<string,bool|string> $robots Existing robot directives.
+	 * @return array<string,bool|string> Updated robot directives.
+	 */
+	public function review_page_robots( array $robots ): array {
+		$page_id = Database::integer( get_option( 'ehrman_discovery_page_structure_review', 0 ) );
+		if ( $page_id > 0 && is_page( $page_id ) ) {
+			$robots['noindex']  = true;
+			$robots['nofollow'] = true;
+		}
+		return $robots;
 	}
 
 	/**
@@ -165,6 +183,69 @@ final class Page_Controller {
 			return $this->render_subject_area( $path_number, $subject_slug );
 		}
 		return $this->render_subject_areas( $path_number );
+	}
+
+	/**
+	 * Renders the reviewer-only subject-area, category, and topic outline.
+	 *
+	 * @return string Structure-review markup.
+	 */
+	public function structure_review_shortcode(): string {
+		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
+			return $this->not_ready();
+		}
+		Assets::enqueue();
+		$path_number    = '2' === $this->request_value( 'ebd_path' ) ? 2 : 1;
+		$category_index = 'categories' === sanitize_key( $this->request_value( 'ebd_view' ) );
+		$areas          = $category_index ? array() : $this->browse->subject_areas( $path_number );
+		$sections       = array();
+
+		if ( $category_index ) {
+			$categories = $this->browse->categories();
+			$sections   = $this->structure_review_categories( $categories );
+			$meta       = $this->plural( count( $categories ), 'category', 'categories' );
+			$intro      = __( 'Expand a category to review its assigned topics and post counts.', 'ehrman-blog-discovery' );
+		} else {
+			foreach ( $areas as $area ) {
+				$categories        = $this->browse->subject_area_categories( Database::integer( $area['id'] ?? null ) );
+				$category_sections = $this->structure_review_categories( $categories );
+				$area_meta         = $this->plural( Database::integer( $area['category_count'] ?? null ), 'category', 'categories' ) . ' &bull; '
+					. $this->plural( Database::integer( $area['topic_count'] ?? null ), 'topic' ) . ' &bull; '
+					. $this->plural( Database::integer( $area['post_count'] ?? null ), 'post' );
+				$sections[]        = '<details class="ebd-review-area" open><summary><span class="ebd-review-name">'
+					. '<span class="ebd-review-badge is-subject">' . esc_html__( 'Subject Area', 'ehrman-blog-discovery' ) . '</span><span>'
+					. esc_html( Database::text( $area['name'] ?? null ) ) . '</span></span><span class="ebd-review-meta">'
+					. wp_kses_post( $area_meta ) . '</span></summary><p class="ebd-review-description" hidden>'
+					. esc_html( Database::text( $area['description'] ?? null ) ) . '</p><div class="ebd-review-categories">'
+					. implode( '', $category_sections ) . '</div></details>';
+			}
+			$meta  = $this->plural( count( $areas ), 'subject area' ) . ' &bull; '
+				. $this->plural( count( $this->browse->categories() ), 'category', 'categories' );
+			$intro = __( 'Expand a subject area and its categories to review where topics are currently assigned.', 'ehrman-blog-discovery' );
+		}
+
+		$path_links = '<nav class="ebd-review-paths" aria-label="' . esc_attr__( 'Browse Topics structure', 'ehrman-blog-discovery' ) . '">'
+			. $this->structure_review_path_link( 1, 1 === $path_number && ! $category_index )
+			. $this->structure_review_path_link( 2, 2 === $path_number && ! $category_index )
+			. $this->structure_review_category_link( $category_index )
+			. '</nav>';
+		$controls   = '<div class="ebd-review-controls"><button type="button" data-ebd-review-expand>'
+			. esc_html__( 'Expand all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-collapse>'
+			. esc_html__( 'Collapse all', 'ehrman-blog-discovery' ) . '</button>'
+			. $this->description_toggle( false, 'review' ) . '</div>';
+
+		return $this->shell(
+			$this->heading(
+				__( 'Category and Topic Review', 'ehrman-blog-discovery' ),
+				$meta
+			)
+			. '<p class="ebd-review-intro">'
+			. esc_html( $intro )
+			. '</p>' . $path_links . $controls . '<div class="ebd-review-tree'
+			. ( $category_index ? ' is-category-index' : '' ) . '" data-ebd-review-tree>'
+			. implode( '', $sections ) . '</div>',
+			'structure-review'
+		);
 	}
 
 	/**
@@ -822,6 +903,64 @@ final class Page_Controller {
 	private function browse_url( int $path_number, array $args = array() ): string {
 		$url = $this->page_url( 2 === $path_number ? 'browse_2' : 'browse_1' );
 		return empty( $args ) ? $url : add_query_arg( $args, $url );
+	}
+
+	/**
+	 * Builds one Browse Topics path selector for the structure-review page.
+	 *
+	 * @param int  $path_number Link path number.
+	 * @param bool $active      Whether this path is active.
+	 * @return string Path-selector link markup.
+	 */
+	private function structure_review_path_link( int $path_number, bool $active ): string {
+		$url = add_query_arg( 'ebd_path', $path_number, $this->page_url( 'structure_review' ) );
+		return '<a class="ebd-review-path' . ( $active ? ' is-active' : '' ) . '" href="' . esc_url( $url ) . '"'
+			. ( $active ? ' aria-current="page"' : '' ) . '>Browse Topics ' . $path_number . '</a>';
+	}
+
+	/**
+	 * Builds the all-categories selector for the structure-review page.
+	 *
+	 * @param bool $active Whether the category index is active.
+	 * @return string Category-index link markup.
+	 */
+	private function structure_review_category_link( bool $active ): string {
+		$url = add_query_arg( 'ebd_view', 'categories', $this->page_url( 'structure_review' ) );
+		return '<a class="ebd-review-path is-category-link' . ( $active ? ' is-active' : '' ) . '" href="'
+			. esc_url( $url ) . '"' . ( $active ? ' aria-current="page"' : '' ) . '>'
+			. esc_html__( 'All Categories', 'ehrman-blog-discovery' ) . '</a>';
+	}
+
+	/**
+	 * Builds expandable category sections and their topic rows.
+	 *
+	 * @param array<int,array<string,mixed>> $categories Category records and counts.
+	 * @return array<int,string> Category-section markup.
+	 */
+	private function structure_review_categories( array $categories ): array {
+		$sections = array();
+		foreach ( $categories as $category ) {
+			$topics      = $this->browse->category_topics( Database::integer( $category['id'] ?? null ) );
+			$topic_items = array();
+			foreach ( $topics as $topic ) {
+				$topic_items[] = '<li class="ebd-review-topic"><div class="ebd-review-topic-row"><span class="ebd-review-name ebd-review-topic-name">'
+					. '<span class="ebd-review-badge is-topic">' . esc_html__( 'Topic', 'ehrman-blog-discovery' ) . '</span><span>'
+					. esc_html( Database::text( $topic['name'] ?? null ) ) . '</span></span><span class="ebd-review-meta">'
+					. esc_html( $this->plural( Database::integer( $topic['post_count'] ?? null ), 'post' ) )
+					. '</span></div><p class="ebd-review-description" hidden>'
+					. esc_html( Database::text( $topic['description'] ?? null ) ) . '</p></li>';
+			}
+
+			$category_meta = $this->plural( Database::integer( $category['topic_count'] ?? null ), 'topic' ) . ' &bull; '
+				. $this->plural( Database::integer( $category['post_count'] ?? null ), 'post' );
+			$sections[]    = '<details class="ebd-review-category"><summary><span class="ebd-review-name">'
+				. '<span class="ebd-review-badge is-category">' . esc_html__( 'Category', 'ehrman-blog-discovery' ) . '</span><span>'
+				. esc_html( Database::text( $category['name'] ?? null ) ) . '</span></span><span class="ebd-review-meta">'
+				. wp_kses_post( $category_meta ) . '</span></summary><p class="ebd-review-description" hidden>'
+				. esc_html( Database::text( $category['description'] ?? null ) ) . '</p><ul class="ebd-review-topic-list">'
+				. implode( '', $topic_items ) . '</ul></details>';
+		}
+		return $sections;
 	}
 
 	/**
