@@ -592,6 +592,31 @@
       font-weight: 600;
     }
 
+    .back-to-top {
+      display: flex;
+      justify-content: flex-end;
+      margin: 8px 28px 0;
+    }
+
+    .back-to-top button {
+      background: transparent;
+      border: 0;
+      color: var(--link);
+      cursor: pointer;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      min-height: 44px;
+      padding: 7px 10px;
+    }
+
+    .back-to-top button:hover,
+    .back-to-top button:focus-visible {
+      color: var(--link-hover);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .post-entry {
       border-radius: 4px;
       margin: 0 -10px;
@@ -35941,6 +35966,7 @@ const DATA = {
 
     const MAX_KEYWORD_SUGGESTIONS = 48;
     const MAX_SELECTED_KEYWORDS = 4;
+    const BACK_TO_TOP_THRESHOLD = 10;
     const SEARCH_CONTROLS_SESSION_KEY = 'ehrmanDiscovery.searchControls';
     const DESCRIPTION_MODE_SESSION_KEY = 'ehrmanDiscovery.descriptionMode';
     let preserveExpandedSearchControlsOnce = false;
@@ -36848,6 +36874,10 @@ const DATA = {
     }
 
     document.addEventListener('click', event => {
+      if (event.target.closest('[data-back-to-top]')) {
+        scrollBackToTop();
+        return;
+      }
       if (!event.target.closest('[data-category-combobox]')) {
         document.querySelectorAll('[data-category-combobox]').forEach(combobox => {
           closeCategoryCombobox(combobox);
@@ -37803,6 +37833,12 @@ const DATA = {
       `;
     }
 
+    function backToTopMarkup(visiblePostCount) {
+      return visiblePostCount >= BACK_TO_TOP_THRESHOLD
+        ? '<p class="back-to-top"><button type="button" data-back-to-top><span aria-hidden="true">&uarr;</span> Back to top</button></p>'
+        : '';
+    }
+
     function resultsSummaryState(postCount, query, scopeLabel = '', pagination = null) {
       const terms = keywordInputValuesFromQuery(query);
       if (!terms.length) {
@@ -37839,7 +37875,7 @@ const DATA = {
         </li>
       `).join('');
       const paging = pagination && pageUrl ? paginationMarkup(pagination, pageUrl) : '';
-      return `<ul class="post-list">${articleItems}</ul>${paging}`;
+      return `<ul class="post-list">${articleItems}</ul>${backToTopMarkup(articles.length)}${paging}`;
     }
 
     function updateTopicArticleResults(
@@ -37994,7 +38030,7 @@ const DATA = {
         </li>
       `).join('');
       const articlesMarkup = allArticles.length
-        ? `<ul class="post-list">${articleItems}</ul>${paginationMarkup(
+        ? `<ul class="post-list">${articleItems}</ul>${backToTopMarkup(pagination.articles.length)}${paginationMarkup(
             pagination,
             nextPage => keywordResultsUrl(query, sort, categoryIndex, nextPage)
           )}`
@@ -38309,6 +38345,14 @@ const DATA = {
         return;
       }
       scroll();
+    }
+
+    function scrollBackToTop() {
+      if (typeof window.scrollTo !== 'function') {
+        return;
+      }
+      const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ left: 0, top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
     }
 
     function route() {

@@ -4,6 +4,7 @@
   const config = window.EhrmanDiscovery || {};
   const strings = config.strings || {};
   const MAX_TERMS = 4;
+  const BACK_TO_TOP_THRESHOLD = 10;
   const SEARCH_CONTROLS_KEY = "ehrmanDiscovery.searchControls";
   const DESCRIPTION_MODE_KEY = "ehrmanDiscovery.descriptionMode";
   let tooltip = null;
@@ -619,6 +620,19 @@
       list.append(item);
     });
     container.append(list);
+    if (result.posts.length >= BACK_TO_TOP_THRESHOLD) {
+      const wrapper = document.createElement("p");
+      const button = document.createElement("button");
+      const arrow = document.createElement("span");
+      wrapper.className = "ebd-back-to-top";
+      button.type = "button";
+      button.dataset.ebdBackToTop = "true";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "\u2191";
+      button.append(arrow, document.createTextNode(" Back to top"));
+      wrapper.append(button);
+      container.append(wrapper);
+    }
     renderPagination(container, result, form);
     applyDescriptionMode(container.closest(".ebd-discovery") || document);
     setupTitleTooltips(container);
@@ -1168,6 +1182,11 @@
   setupTitleTooltips(document);
 
   document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-ebd-back-to-top]")) {
+      const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? "auto" : "smooth" });
+      return;
+    }
     if (!event.target.closest(".ebd-keyword-input-wrap")) {
       document.querySelectorAll(".ebd-keyword-input").forEach(closeSuggestions);
     }

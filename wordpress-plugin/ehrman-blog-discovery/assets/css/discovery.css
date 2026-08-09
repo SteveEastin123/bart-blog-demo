@@ -989,6 +989,31 @@
   font-weight: 600;
 }
 
+.ebd-back-to-top {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0 0;
+}
+
+.ebd-back-to-top button {
+  min-height: 44px;
+  padding: 7px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--ebd-blue);
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ebd-back-to-top button:hover,
+.ebd-back-to-top button:focus-visible {
+  color: var(--ebd-blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .ebd-post-item {
   padding: 15px 2px;
 }

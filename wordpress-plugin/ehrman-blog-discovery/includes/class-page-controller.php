@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Builds the keyword-search and hierarchical browsing interfaces. */
 final class Page_Controller {
+	private const BACK_TO_TOP_THRESHOLD = 10;
 
 	/**
 	 * Hierarchical browsing data service.
@@ -701,8 +702,21 @@ final class Page_Controller {
 			$summary .= ' ' . esc_html( 1 === $count ? 'matches' : 'match' ) . ' <strong>'
 				. esc_html( implode( ' + ', $terms ) ) . '</strong>';
 		}
-		$summary .= '.</p>';
-		return $summary . $this->post_list( $result['posts'], $context ) . $this->pagination_markup( $result );
+		$summary    .= '.</p>';
+		$back_to_top = count( $result['posts'] ) >= self::BACK_TO_TOP_THRESHOLD
+			? $this->back_to_top_markup()
+			: '';
+		return $summary . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+	}
+
+	/**
+	 * Builds the control shown after long post-result lists.
+	 *
+	 * @return string Back-to-top markup.
+	 */
+	private function back_to_top_markup(): string {
+		return '<p class="ebd-back-to-top"><button type="button" data-ebd-back-to-top>'
+			. '<span aria-hidden="true">&uarr;</span> ' . esc_html__( 'Back to top', 'ehrman-blog-discovery' ) . '</button></p>';
 	}
 
 	/**
