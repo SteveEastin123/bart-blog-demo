@@ -114,6 +114,7 @@ final class Page_Controller {
 		Assets::enqueue();
 		$terms         = $this->request_terms();
 		$sort          = $this->request_value( 'ebd_sort', 'ranked' );
+		$page          = $this->request_page();
 		$category_slug = sanitize_title( $this->request_value( 'ebd_category' ) );
 		$categories    = $this->browse->category_options();
 		$category      = $this->find_by_slug( $categories, $category_slug );
@@ -122,12 +123,15 @@ final class Page_Controller {
 		}
 		$has_request = ! empty( $terms ) || '' !== $category_slug;
 		$result      = $has_request
-			? $this->search->search( $terms, $sort, $category_slug )
+			? $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE )
 			: array(
-				'posts' => array(),
-				'terms' => array(),
-				'sort'  => 'ranked',
-				'count' => 0,
+				'posts'       => array(),
+				'terms'       => array(),
+				'sort'        => 'ranked',
+				'count'       => 0,
+				'page'        => 1,
+				'per_page'    => Search_Service::POSTS_PER_PAGE,
+				'total_pages' => 0,
 			);
 		$context     = null === $category ? '' : Database::text( $category['name'] ?? null );
 
@@ -142,7 +146,7 @@ final class Page_Controller {
 				$categories,
 				$category_slug
 			)
-			. '<div class="ebd-results" data-ebd-results data-context="' . esc_attr( $context ) . '">'
+			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( $context ) . '">'
 			. ( $has_request ? $this->results_markup( $result, $context ) : '' )
 			. '</div>',
 			'keyword-search'
@@ -423,7 +427,8 @@ final class Page_Controller {
 			$terms = array( Database::text( $topic['name'] ?? null ) );
 		}
 		$sort        = $this->request_value( 'ebd_sort', 'ranked' );
-		$result      = $this->search->search( $terms, $sort, '', $topic_slug );
+		$page        = $this->request_page();
+		$result      = $this->search->search( $terms, $sort, '', $topic_slug, $page, Search_Service::POSTS_PER_PAGE );
 		$breadcrumbs = null === $category
 			? array()
 			: array_merge(
@@ -454,7 +459,7 @@ final class Page_Controller {
 				'',
 				$topic_slug
 			)
-			. '<div class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $topic['name'] ?? null ) ) . '">'
+			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $topic['name'] ?? null ) ) . '">'
 			. $this->results_markup( $result, Database::text( $topic['name'] ?? null ) ) . '</div>',
 			'posts'
 		);
@@ -476,7 +481,8 @@ final class Page_Controller {
 		$area        = $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
 		$terms       = $this->request_terms();
 		$sort        = $this->request_value( 'ebd_sort', 'ranked' );
-		$result      = $this->search->search( $terms, $sort, $category_slug );
+		$page        = $this->request_page();
+		$result      = $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE );
 		$breadcrumbs = array_merge(
 			$this->category_breadcrumbs( $path_number, $category, $area ),
 			array( array( __( 'Posts', 'ehrman-blog-discovery' ), '' ) )
@@ -497,7 +503,7 @@ final class Page_Controller {
 				$this->browse_url( $path_number, $form_args ),
 				$category_slug
 			)
-			. '<div class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $category['name'] ?? null ) ) . '">'
+			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $category['name'] ?? null ) ) . '">'
 			. $this->results_markup( $result, Database::text( $category['name'] ?? null ) ) . '</div>',
 			'posts'
 		);
@@ -647,15 +653,29 @@ final class Page_Controller {
 	/**
 	 * Builds a result summary and post list.
 	 *
-	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int} $result Search result payload.
-	 * @param string                                                                          $context Topic or category context.
+	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} $result Search result payload.
+	 * @param string                                                                                                                $context Topic or category context.
 	 * @return string Result markup.
 	 */
 	private function results_markup( array $result, string $context ): string {
-		$terms           = $result['terms'];
-		$count           = $result['count'];
+		$terms         = $result['terms'];
+		$count         = $result['count'];
+		$page          = max( 1, Database::integer( $result['page'] ) );
+		$per_page      = max( 0, Database::integer( $result['per_page'] ) );
+		$total_pages   = max( 0, Database::integer( $result['total_pages'] ) );
+		$range_start   = $count > 0 ? ( ( $page - 1 ) * $per_page ) + 1 : 0;
+		$range_end     = min( $count, $range_start + count( $result['posts'] ) - 1 );
+		$summary_label = $total_pages > 1
+			? sprintf(
+				/* translators: 1: first visible post, 2: last visible post, 3: total matching posts. */
+				__( 'Showing %1$d-%2$d of %3$d posts', 'ehrman-blog-discovery' ),
+				$range_start,
+				$range_end,
+				$count
+			)
+			: $this->plural( $count, 'post' );
 		$summary         = '<p class="ebd-results-summary" aria-live="polite"><strong>'
-			. esc_html( $this->plural( $count, 'post' ) ) . '</strong>';
+			. esc_html( $summary_label ) . '</strong>';
 		$context_is_term = false;
 		foreach ( $terms as $term ) {
 			if ( Search_Service::normalize( $term ) === Search_Service::normalize( $context ) ) {
@@ -671,7 +691,67 @@ final class Page_Controller {
 				. esc_html( implode( ' + ', $terms ) ) . '</strong>';
 		}
 		$summary .= '.</p>';
-		return $summary . $this->post_list( $result['posts'], $context );
+		return $summary . $this->post_list( $result['posts'], $context ) . $this->pagination_markup( $result );
+	}
+
+	/**
+	 * Builds accessible links for a paginated result set.
+	 *
+	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} $result Search result payload.
+	 * @return string Pagination navigation markup.
+	 */
+	private function pagination_markup( array $result ): string {
+		$current = max( 1, Database::integer( $result['page'] ) );
+		$total   = max( 0, Database::integer( $result['total_pages'] ) );
+		if ( $total <= 1 ) {
+			return '';
+		}
+
+		$previous = $current > 1
+			? '<a class="ebd-pagination-link ebd-pagination-previous" href="' . esc_url( $this->pagination_url( $current - 1 ) ) . '">' . esc_html__( 'Previous', 'ehrman-blog-discovery' ) . '</a>'
+			: '<span class="ebd-pagination-link ebd-pagination-previous is-disabled" aria-disabled="true">' . esc_html__( 'Previous', 'ehrman-blog-discovery' ) . '</span>';
+		$next     = $current < $total
+			? '<a class="ebd-pagination-link ebd-pagination-next" href="' . esc_url( $this->pagination_url( $current + 1 ) ) . '">' . esc_html__( 'Next', 'ehrman-blog-discovery' ) . '</a>'
+			: '<span class="ebd-pagination-link ebd-pagination-next is-disabled" aria-disabled="true">' . esc_html__( 'Next', 'ehrman-blog-discovery' ) . '</span>';
+
+		$candidates = array_unique( array( 1, $current - 1, $current, $current + 1, $total ) );
+		$candidates = array_values( array_filter( $candidates, static fn( int $page ): bool => $page >= 1 && $page <= $total ) );
+		sort( $candidates, SORT_NUMERIC );
+		$numbers       = array();
+		$previous_page = 0;
+		foreach ( $candidates as $page ) {
+			if ( $previous_page > 0 && $page > $previous_page + 1 ) {
+				$numbers[] = '<span class="ebd-pagination-ellipsis" aria-hidden="true">&hellip;</span>';
+			}
+			if ( $page === $current ) {
+				$numbers[] = '<span class="ebd-pagination-link is-current" aria-current="page">' . esc_html( (string) $page ) . '</span>';
+			} else {
+				/* translators: %d: results page number. */
+				$label     = sprintf( __( 'Page %d', 'ehrman-blog-discovery' ), $page );
+				$numbers[] = '<a class="ebd-pagination-link" href="' . esc_url( $this->pagination_url( $page ) ) . '" aria-label="' . esc_attr( $label ) . '">' . esc_html( (string) $page ) . '</a>';
+			}
+			$previous_page = $page;
+		}
+
+		/* translators: 1: current results page, 2: total results pages. */
+		$status = sprintf( __( 'Page %1$d of %2$d', 'ehrman-blog-discovery' ), $current, $total );
+		return '<nav class="ebd-pagination" aria-label="' . esc_attr__( 'Search results pages', 'ehrman-blog-discovery' ) . '">'
+			. $previous . '<span class="ebd-pagination-pages">' . implode( '', $numbers ) . '</span>'
+			. '<span class="ebd-pagination-status">' . esc_html( $status ) . '</span>' . $next . '</nav>';
+	}
+
+	/**
+	 * Builds a URL for one page of the current read-only search request.
+	 *
+	 * @param int $page Results page number.
+	 * @return string Pagination URL.
+	 */
+	private function pagination_url( int $page ): string {
+		$url = remove_query_arg( 'ebd_page' );
+		if ( $page > 1 ) {
+			$url = add_query_arg( 'ebd_page', $page, $url );
+		}
+		return $url . '#ebd-results';
 	}
 
 	/**
@@ -864,6 +944,15 @@ final class Page_Controller {
 		return Search_Service::unique_terms(
 			array_map( static fn( $value ): string => sanitize_text_field( Database::text( $value ) ), $raw )
 		);
+	}
+
+	/**
+	 * Reads the requested results page from the public query string.
+	 *
+	 * @return int Positive results page number.
+	 */
+	private function request_page(): int {
+		return max( 1, Database::integer( $this->request_value( 'ebd_page', '1' ) ) );
 	}
 
 	/**

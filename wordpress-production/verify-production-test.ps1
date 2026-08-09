@@ -100,6 +100,32 @@ if ([int]$search.count -le 0 -or @($search.terms).Count -ne 2) {
     throw 'The representative AND search failed.'
 }
 
+$pageOne = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/search?term%5B%5D=Textual%20Variants&sort=ranked&page=1"
+$pageTwo = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/search?term%5B%5D=Textual%20Variants&sort=ranked&page=2"
+if (
+    [int]$pageOne.count -le 25 -or
+    [int]$pageOne.page -ne 1 -or
+    [int]$pageTwo.page -ne 2 -or
+    [int]$pageOne.per_page -ne 25 -or
+    [int]$pageOne.total_pages -le 1 -or
+    @($pageOne.posts).Count -ne 25 -or
+    @($pageTwo.posts).Count -eq 0 -or
+    @($pageTwo.posts).Count -gt 25
+) {
+    throw 'The paginated REST search returned invalid paging metadata or page sizes.'
+}
+$pageOneIds = @($pageOne.posts | ForEach-Object { [int]$_.id })
+$pageTwoIds = @($pageTwo.posts | ForEach-Object { [int]$_.id })
+$overlap = @($pageOneIds | Where-Object { $pageTwoIds -contains $_ })
+if ($overlap.Count -ne 0 -or [int]$pageOne.count -ne [int]$pageTwo.count) {
+    throw 'Paginated REST search pages overlap or report inconsistent totals.'
+}
+
+$paginatedPage = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:$Port/keyword-search/?ebd_keyword%5B%5D=Textual%20Variants&ebd_page=2"
+if ($paginatedPage.Content -notmatch 'Showing 26-50 of' -or $paginatedPage.Content -notmatch 'ebd-pagination') {
+    throw 'The server-rendered search page does not include the expected pagination controls.'
+}
+
 Write-Output 'Production Docker image: OK'
 Write-Output "Plugin PHP syntax: OK ($($phpFiles.Count) files)"
 Write-Output 'WordPress and MySQL connection: OK'
@@ -108,3 +134,4 @@ Write-Output 'Landing, search, browse, and structure-review pages: OK'
 Write-Output 'Private import and packaged runtime files: OK'
 Write-Output 'Parity route disabled: OK'
 Write-Output 'Representative AND search: OK'
+Write-Output 'REST and server-rendered pagination: OK'

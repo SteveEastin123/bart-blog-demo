@@ -120,7 +120,9 @@ final class Rest_Controller {
 			$this->terms( $request->get_param( 'term' ) ),
 			sanitize_key( $this->scalar_text( $request->get_param( 'sort' ) ) ),
 			sanitize_title( $this->scalar_text( $request->get_param( 'category' ) ) ),
-			sanitize_title( $this->scalar_text( $request->get_param( 'topic' ) ) )
+			sanitize_title( $this->scalar_text( $request->get_param( 'topic' ) ) ),
+			max( 1, absint( $this->scalar_text( $request->get_param( 'page' ) ) ) ),
+			Search_Service::POSTS_PER_PAGE
 		);
 		$response = new WP_REST_Response( $result, 200 );
 		$response->header( 'Cache-Control', 'public, max-age=30' );

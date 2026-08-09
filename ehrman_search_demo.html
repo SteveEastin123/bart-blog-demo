@@ -521,6 +521,77 @@
       font-weight: 700;
     }
 
+    .post-pagination {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 12px 28px 28px;
+    }
+
+    .post-pagination-pages {
+      align-items: center;
+      display: flex;
+      gap: 5px;
+    }
+
+    .post-pagination-link {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #bdcdd7;
+      border-radius: 4px;
+      color: var(--link);
+      display: inline-flex;
+      font-size: 14px;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 7px 11px;
+      text-decoration: none;
+    }
+
+    .post-pagination-link:hover,
+    .post-pagination-link:focus-visible {
+      background: #edf5fa;
+      border-color: var(--link);
+      color: var(--link-hover);
+      text-decoration: none;
+    }
+
+    .post-pagination-link.is-current {
+      background: var(--maroon);
+      border-color: var(--maroon);
+      color: #ffffff;
+    }
+
+    .post-pagination-link.is-disabled {
+      background: #f7f5f1;
+      border-color: var(--border);
+      color: var(--muted);
+      cursor: default;
+      opacity: 0.65;
+    }
+
+    .post-pagination-previous,
+    .post-pagination-next {
+      min-width: 86px;
+    }
+
+    .post-pagination-ellipsis {
+      color: var(--muted);
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .post-pagination-status {
+      color: var(--muted);
+      display: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     .post-entry {
       border-radius: 4px;
       margin: 0 -10px;
@@ -1367,6 +1438,22 @@
       .post-list {
         padding-left: 16px;
         padding-right: 16px;
+      }
+
+      .post-pagination {
+        display: grid;
+        grid-template-columns: minmax(88px, auto) 1fr minmax(88px, auto);
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+
+      .post-pagination-pages {
+        display: none;
+      }
+
+      .post-pagination-status {
+        display: block;
+        text-align: center;
       }
 
       .content-header {
@@ -35715,6 +35802,7 @@ const DATA = {
 
     const MAX_KEYWORD_SUGGESTIONS = 48;
     const MAX_SELECTED_KEYWORDS = 4;
+    const POSTS_PER_PAGE = 25;
     const VALID_SORTS = ['best', 'newest', 'oldest'];
 
     function validSort(sort) {
@@ -35772,7 +35860,8 @@ const DATA = {
       return {
         query: parsed.query,
         sort: parsed.sort,
-        categoryIndex: params.has('category') ? Number(params.get('category')) : null
+        categoryIndex: params.has('category') ? Number(params.get('category')) : null,
+        page: Math.max(1, Number(params.get('page')) || 1)
       };
     }
 
@@ -35786,7 +35875,8 @@ const DATA = {
         sort: parsed.sort,
         source: params.get('source') || '',
         subjectAreaIndex: params.has('subject-area') ? Number(params.get('subject-area')) : null,
-        subjectAreaSet: params.get('subject-area-set') === '2' ? 2 : 1
+        subjectAreaSet: params.get('subject-area-set') === '2' ? 2 : 1,
+        page: Math.max(1, Number(params.get('page')) || 1)
       };
     }
 
@@ -35797,7 +35887,8 @@ const DATA = {
         categoryIndex: Number(indexValue),
         source: params.get('source') || '',
         subjectAreaIndex: params.has('subject-area') ? Number(params.get('subject-area')) : null,
-        subjectAreaSet: params.get('subject-area-set') === '2' ? 2 : 1
+        subjectAreaSet: params.get('subject-area-set') === '2' ? 2 : 1,
+        page: Math.max(1, Number(params.get('page')) || 1)
       };
     }
 
@@ -35828,7 +35919,7 @@ const DATA = {
       return `#category/${index}${queryString ? `?${queryString}` : ''}`;
     }
 
-    function categoryPostsUrl(index, query = '', sort = 'best', context = {}) {
+    function categoryPostsUrl(index, query = '', sort = 'best', context = {}, page = 1) {
       const params = new URLSearchParams();
       const normalizedSort = validSort(sort);
       addCategoryContextParams(params, context);
@@ -35838,11 +35929,14 @@ const DATA = {
       if (normalizedSort !== 'best') {
         params.set('sort', normalizedSort);
       }
+      if (page > 1) {
+        params.set('page', String(page));
+      }
       const queryString = params.toString();
       return `#category-posts/${index}${queryString ? `?${queryString}` : ''}`;
     }
 
-    function topicUrl(categoryIndex, topic, query = '', sort = 'best', context = {}) {
+    function topicUrl(categoryIndex, topic, query = '', sort = 'best', context = {}, page = 1) {
       const params = new URLSearchParams();
       const normalizedSort = validSort(sort);
       addCategoryContextParams(params, context);
@@ -35852,11 +35946,14 @@ const DATA = {
       if (normalizedSort !== 'best') {
         params.set('sort', normalizedSort);
       }
+      if (page > 1) {
+        params.set('page', String(page));
+      }
       const queryString = params.toString();
       return `#topic/${categoryIndex}/${encodeURIComponent(topic)}${queryString ? `?${queryString}` : ''}`;
     }
 
-    function keywordResultsUrl(query, sort = 'best', categoryIndex = null) {
+    function keywordResultsUrl(query, sort = 'best', categoryIndex = null, page = 1) {
       const params = new URLSearchParams();
       const normalizedSort = validSort(sort);
       if (Number.isInteger(categoryIndex) && DATA.categories[categoryIndex]) {
@@ -35864,6 +35961,9 @@ const DATA = {
       }
       if (normalizedSort !== 'best') {
         params.set('sort', normalizedSort);
+      }
+      if (page > 1) {
+        params.set('page', String(page));
       }
       const queryString = params.toString();
       return `#keyword-results/${encodeURIComponent(query)}${queryString ? `?${queryString}` : ''}`;
@@ -37333,7 +37433,68 @@ const DATA = {
         .map(({ article }) => article);
     }
 
-    function resultsSummaryState(postCount, query, scopeLabel = '') {
+    function paginateArticles(articles, requestedPage = 1) {
+      const total = articles.length;
+      const totalPages = total ? Math.ceil(total / POSTS_PER_PAGE) : 0;
+      const page = totalPages ? Math.min(Math.max(1, requestedPage), totalPages) : 1;
+      const startIndex = (page - 1) * POSTS_PER_PAGE;
+      return {
+        articles: articles.slice(startIndex, startIndex + POSTS_PER_PAGE),
+        page,
+        perPage: POSTS_PER_PAGE,
+        total,
+        totalPages,
+        rangeStart: total ? startIndex + 1 : 0,
+        rangeEnd: Math.min(total, startIndex + POSTS_PER_PAGE)
+      };
+    }
+
+    function paginationEntries(current, total) {
+      const pages = [...new Set([1, current - 1, current, current + 1, total])]
+        .filter(page => page >= 1 && page <= total)
+        .sort((left, right) => left - right);
+      const entries = [];
+      let previous = 0;
+      pages.forEach(page => {
+        if (previous && page > previous + 1) {
+          entries.push(null);
+        }
+        entries.push(page);
+        previous = page;
+      });
+      return entries;
+    }
+
+    function paginationMarkup(pagination, pageUrl) {
+      if (!pagination || pagination.totalPages <= 1) {
+        return '';
+      }
+      const previous = pagination.page > 1
+        ? `<a class="post-pagination-link post-pagination-previous" href="${escapeHtml(pageUrl(pagination.page - 1))}">Previous</a>`
+        : '<span class="post-pagination-link post-pagination-previous is-disabled" aria-disabled="true">Previous</span>';
+      const next = pagination.page < pagination.totalPages
+        ? `<a class="post-pagination-link post-pagination-next" href="${escapeHtml(pageUrl(pagination.page + 1))}">Next</a>`
+        : '<span class="post-pagination-link post-pagination-next is-disabled" aria-disabled="true">Next</span>';
+      const pages = paginationEntries(pagination.page, pagination.totalPages).map(page => {
+        if (page === null) {
+          return '<span class="post-pagination-ellipsis" aria-hidden="true">&hellip;</span>';
+        }
+        if (page === pagination.page) {
+          return `<span class="post-pagination-link is-current" aria-current="page">${page}</span>`;
+        }
+        return `<a class="post-pagination-link" href="${escapeHtml(pageUrl(page))}" aria-label="Page ${page}">${page}</a>`;
+      }).join('');
+      return `
+        <nav class="post-pagination" aria-label="Search results pages">
+          ${previous}
+          <span class="post-pagination-pages">${pages}</span>
+          <span class="post-pagination-status">Page ${pagination.page} of ${pagination.totalPages}</span>
+          ${next}
+        </nav>
+      `;
+    }
+
+    function resultsSummaryState(postCount, query, scopeLabel = '', pagination = null) {
       const terms = keywordInputValuesFromQuery(query);
       if (!terms.length) {
         if (scopeLabel) {
@@ -37341,7 +37502,9 @@ const DATA = {
         }
         return { hidden: true, text: '' };
       }
-      const countLabel = pluralize(postCount, 'post', 'posts');
+      const countLabel = pagination && pagination.totalPages > 1
+        ? `Showing ${pagination.rangeStart}-${pagination.rangeEnd} of ${pluralize(postCount, 'post', 'posts')}`
+        : pluralize(postCount, 'post', 'posts');
       const verb = postCount === 1 ? 'matches' : 'match';
       const scope = scopeLabel ? ` in ${scopeLabel}` : '';
       return {
@@ -37350,12 +37513,12 @@ const DATA = {
       };
     }
 
-    function resultsSummaryMarkup(postCount, query, scopeLabel = '') {
-      const summary = resultsSummaryState(postCount, query, scopeLabel);
+    function resultsSummaryMarkup(postCount, query, scopeLabel = '', pagination = null) {
+      const summary = resultsSummaryState(postCount, query, scopeLabel, pagination);
       return `<p id="post-results-summary" class="results-summary" aria-live="polite"${summary.hidden ? ' hidden' : ''}>${escapeHtml(summary.text)}</p>`;
     }
 
-    function topicArticleResultsMarkup(articles, emptyMessage, selectedTopic = '') {
+    function topicArticleResultsMarkup(articles, emptyMessage, selectedTopic = '', pagination = null, pageUrl = null) {
       if (!articles.length) {
         return `<p class="empty">${escapeHtml(emptyMessage)}</p>`;
       }
@@ -37366,7 +37529,8 @@ const DATA = {
           ${postDescriptionMarkup(article)}
         </li>
       `).join('');
-      return `<ul class="post-list">${articleItems}</ul>`;
+      const paging = pagination && pageUrl ? paginationMarkup(pagination, pageUrl) : '';
+      return `<ul class="post-list">${articleItems}</ul>${paging}`;
     }
 
     function updateTopicArticleResults(
@@ -37377,6 +37541,7 @@ const DATA = {
       emptyMessage = 'No posts match those keywords within this topic. Try fewer keywords or one of the autocomplete suggestions.'
     ) {
       const filteredArticles = sortTopicArticles(filterArticlesByKeywordQuery(allArticles, query), sort, query);
+      const pagination = paginateArticles(filteredArticles, 1);
       const countNode = document.getElementById('topic-article-count');
       const resultsNode = document.getElementById('topic-article-results');
       if (countNode) {
@@ -37384,13 +37549,13 @@ const DATA = {
       }
       const summaryNode = document.getElementById('post-results-summary');
       if (summaryNode) {
-        const summary = resultsSummaryState(filteredArticles.length, query);
+        const summary = resultsSummaryState(filteredArticles.length, query, '', pagination);
         summaryNode.textContent = summary.text;
         summaryNode.hidden = summary.hidden;
       }
       if (resultsNode) {
         resultsNode.innerHTML = topicArticleResultsMarkup(
-          filteredArticles,
+          pagination.articles,
           emptyMessage,
           selectedTopic
         );
@@ -37501,25 +37666,29 @@ const DATA = {
     }
 
     function renderKeywordResults(encodedQuery) {
-      const { query, sort, categoryIndex } = parseKeywordResultsPayload(encodedQuery);
+      const { query, sort, categoryIndex, page } = parseKeywordResultsPayload(encodedQuery);
       const categoryScope = keywordCategoryScope(categoryIndex);
       const category = categoryScope.category;
-      const articles = category
+      const allArticles = category
         ? sortTopicArticles(
             filterArticlesByKeywordQuery(categoryArticles(category), query),
             sort,
             query
           )
         : sortKeywordArticles(keywordMatches(query), sort);
-      const articleItems = articles.map(article => `
+      const pagination = paginateArticles(allArticles, page);
+      const articleItems = pagination.articles.map(article => `
         <li class="post-entry">
           <h2>${articleLink(article)}</h2>
           ${postMetaMarkup(article, category ? category.name : '')}
           ${postDescriptionMarkup(article)}
         </li>
       `).join('');
-      const articlesMarkup = articles.length
-        ? `<ul class="post-list">${articleItems}</ul>`
+      const articlesMarkup = allArticles.length
+        ? `<ul class="post-list">${articleItems}</ul>${paginationMarkup(
+            pagination,
+            nextPage => keywordResultsUrl(query, sort, categoryIndex, nextPage)
+          )}`
         : `<p class="empty">${category
             ? 'No posts match those keywords within this category. Try fewer keywords or one of the autocomplete suggestions.'
             : 'No posts match those keywords. Try fewer keywords, broader terms, or one of the autocomplete suggestions.'}</p>`;
@@ -37527,8 +37696,8 @@ const DATA = {
         ? `Keywords: ${query}`
         : (category ? `Category: ${category.name}` : 'Keyword Search');
       const countLine = category
-        ? `${pluralize(articles.length, 'post', 'posts')} &bull; Category: ${escapeHtml(category.name)}`
-        : pluralize(articles.length, 'post', 'posts');
+        ? `${pluralize(allArticles.length, 'post', 'posts')} &bull; Category: ${escapeHtml(category.name)}`
+        : pluralize(allArticles.length, 'post', 'posts');
 
       app.innerHTML = `
         <div class="site-home">
@@ -37538,8 +37707,8 @@ const DATA = {
               <h1>${escapeHtml(title)}</h1>
               <p class="meta">${countLine}</p>
             </header>
-            ${keywordSearchFormMarkup(keywordInputValuesFromQuery(query), { includeSort: true, sort, includeDescriptionToggle: articles.length > 0, descriptionsChecked: true, includeCategoryFilter: true, selectedCategoryIndex: category ? categoryIndex : null })}
-            ${resultsSummaryMarkup(articles.length, query, category ? category.name : '')}
+            ${keywordSearchFormMarkup(keywordInputValuesFromQuery(query), { includeSort: true, sort, includeDescriptionToggle: allArticles.length > 0, descriptionsChecked: true, includeCategoryFilter: true, selectedCategoryIndex: category ? categoryIndex : null })}
+            ${resultsSummaryMarkup(allArticles.length, query, category ? category.name : '', pagination)}
             ${articlesMarkup}
           </section>
         </div>
@@ -37689,7 +37858,7 @@ const DATA = {
     }
 
     function renderCategoryPosts(payload) {
-      const { categoryIndex, query: urlQuery, sort, source, subjectAreaIndex, subjectAreaSet } = parseCategoryPostsPayload(payload);
+      const { categoryIndex, query: urlQuery, sort, source, subjectAreaIndex, subjectAreaSet, page } = parseCategoryPostsPayload(payload);
       const context = { source, subjectAreaIndex, subjectAreaSet };
       const category = DATA.categories[categoryIndex];
       if (!category) {
@@ -37707,6 +37876,7 @@ const DATA = {
         });
       });
       const displayedArticles = sortTopicArticles(filterArticlesByKeywordQuery(articles, urlQuery), sort, urlQuery);
+      const pagination = paginateArticles(displayedArticles, page);
 
       app.innerHTML = `
         <div class="site-home">
@@ -37718,9 +37888,15 @@ const DATA = {
               <p id="topic-article-count" class="meta">${pluralize(displayedArticles.length, 'post', 'posts')}</p>
             </header>
             ${keywordSearchFormMarkup(keywordInputValuesFromQuery(urlQuery), { includeSort: true, sort, includeDescriptionToggle: displayedArticles.length > 0, descriptionsChecked: true, scopeLabel: category.name })}
-            ${resultsSummaryMarkup(displayedArticles.length, urlQuery)}
+            ${resultsSummaryMarkup(displayedArticles.length, urlQuery, '', pagination)}
             <div id="topic-article-results">
-              ${topicArticleResultsMarkup(displayedArticles, 'No posts are currently linked to this category.', category.name)}
+              ${topicArticleResultsMarkup(
+                pagination.articles,
+                'No posts are currently linked to this category.',
+                category.name,
+                pagination,
+                nextPage => categoryPostsUrl(categoryIndex, urlQuery, sort, context, nextPage)
+              )}
             </div>
           </section>
         </div>
@@ -37748,7 +37924,7 @@ const DATA = {
 
     function renderTopic(categoryIndex, topicPayload) {
       const category = DATA.categories[categoryIndex];
-      const { encodedTopic, query: urlQuery, sort, source, subjectAreaIndex, subjectAreaSet } = parseTopicPayload(topicPayload);
+      const { encodedTopic, query: urlQuery, sort, source, subjectAreaIndex, subjectAreaSet, page } = parseTopicPayload(topicPayload);
       const context = { source, subjectAreaIndex, subjectAreaSet };
       const topic = decodeURIComponent(encodedTopic || '');
       if (!category || !category.topics.includes(topic)) {
@@ -37760,6 +37936,7 @@ const DATA = {
       const scopeArticleIndexes = articleIndexesForArticleList(articles);
       const activeQuery = urlQuery || topic;
       const displayedArticles = sortTopicArticles(filterArticlesByKeywordQuery(articles, activeQuery), sort, activeQuery);
+      const pagination = paginateArticles(displayedArticles, page);
 
       app.innerHTML = `
         <div class="site-home">
@@ -37771,9 +37948,15 @@ const DATA = {
               <p id="topic-article-count" class="meta">${pluralize(displayedArticles.length, 'post', 'posts')}</p>
             </header>
             ${keywordSearchFormMarkup(keywordInputValuesFromQuery(activeQuery), { includeSort: true, sort, includeDescriptionToggle: displayedArticles.length > 0, descriptionsChecked: true })}
-            ${resultsSummaryMarkup(displayedArticles.length, activeQuery)}
+            ${resultsSummaryMarkup(displayedArticles.length, activeQuery, '', pagination)}
             <div id="topic-article-results">
-              ${topicArticleResultsMarkup(displayedArticles, 'No posts are currently linked to this topic.', topic)}
+              ${topicArticleResultsMarkup(
+                pagination.articles,
+                'No posts are currently linked to this topic.',
+                topic,
+                pagination,
+                nextPage => topicUrl(categoryIndex, topic, urlQuery, sort, context, nextPage)
+              )}
             </div>
           </section>
         </div>

@@ -309,7 +309,7 @@
     if (clear) clear.disabled = count === 0 && (!editableCategory || !editableCategory.value);
   }
 
-  function requestUrl(form) {
+  function requestUrl(form, page = 1) {
     const url = new URL(config.searchUrl, window.location.origin);
     values(form, searchInput(form)).forEach((value) => url.searchParams.append("term[]", value));
     const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
@@ -317,14 +317,16 @@
     const category = activeCategory(form);
     if (category) url.searchParams.set("category", category);
     if (form.dataset.topic) url.searchParams.set("topic", form.dataset.topic);
+    if (page > 1) url.searchParams.set("page", String(page));
     return url;
   }
 
-  function updateBrowserUrl(form) {
+  function browserUrl(form, page = 1) {
     const url = new URL(form.action, window.location.origin);
     url.searchParams.delete("ebd_keyword[]");
     url.searchParams.delete("ebd_keyword");
     url.searchParams.delete("ebd_sort");
+    url.searchParams.delete("ebd_page");
     values(form, searchInput(form)).forEach((value) => url.searchParams.append("ebd_keyword[]", value));
     const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
     if (sort !== "ranked") url.searchParams.set("ebd_sort", sort);
@@ -333,10 +335,19 @@
       url.searchParams.delete("ebd_category");
       if (categoryInput.value) url.searchParams.set("ebd_category", categoryInput.value);
     }
-    window.history.replaceState({}, "", `${url.pathname}${url.search}`);
+    if (page > 1) {
+      url.searchParams.set("ebd_page", String(page));
+      url.hash = "ebd-results";
+    }
+    return url;
   }
 
-  async function refreshSearch(form) {
+  function updateBrowserUrl(form, page = 1) {
+    const url = browserUrl(form, page);
+    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+  }
+
+  async function refreshSearch(form, page = 1) {
     const results = form.parentElement?.querySelector("[data-ebd-results]")
       || form.closest(".ebd-discovery")?.querySelector("[data-ebd-results]");
     if (!results || !config.searchUrl) return;
@@ -346,17 +357,17 @@
     form.classList.add("is-loading");
     results.setAttribute("aria-busy", "true");
     try {
-      const response = await fetch(requestUrl(form), { signal: controller.signal, headers: { Accept: "application/json" } });
+      const response = await fetch(requestUrl(form, page), { signal: controller.signal, headers: { Accept: "application/json" } });
       if (!response.ok) throw new Error("Search request failed");
       const result = await response.json();
       if (form.ebdSearchController !== controller) return;
-      renderResults(results, result);
+      renderResults(results, result, form);
       const headingCount = form.closest(".ebd-discovery")?.querySelector("[data-ebd-result-count]");
       if (headingCount) {
         const count = Number(result.count || 0);
         headingCount.textContent = `${count} ${postWord(count)}`;
       }
-      updateBrowserUrl(form);
+      updateBrowserUrl(form, Number(result.page || 1));
     } catch (error) {
       if (error.name !== "AbortError") {
         results.textContent = strings.requestFailed || "The search could not be completed. Please try again.";
@@ -369,7 +380,99 @@
     }
   }
 
-  function renderResults(container, result) {
+  function resultSummaryLabel(result) {
+    const count = Number(result.count || 0);
+    const page = Math.max(1, Number(result.page || 1));
+    const perPage = Math.max(0, Number(result.per_page || 0));
+    const totalPages = Math.max(0, Number(result.total_pages || 0));
+    const visible = Array.isArray(result.posts) ? result.posts.length : 0;
+    if (totalPages <= 1 || perPage <= 0) return `${count} ${postWord(count)}`;
+    const start = ((page - 1) * perPage) + 1;
+    const end = Math.min(count, start + visible - 1);
+    return `${strings.showing || "Showing"} ${start}-${end} ${strings.of || "of"} ${count} ${strings.posts || "posts"}`;
+  }
+
+  function paginationPages(current, total) {
+    const pages = [...new Set([1, current - 1, current, current + 1, total])]
+      .filter((page) => page >= 1 && page <= total)
+      .sort((left, right) => left - right);
+    const entries = [];
+    let previous = 0;
+    pages.forEach((page) => {
+      if (previous && page > previous + 1) entries.push(null);
+      entries.push(page);
+      previous = page;
+    });
+    return entries;
+  }
+
+  function paginationLink(form, page, label, className = "") {
+    const link = document.createElement("a");
+    link.className = `ebd-pagination-link ${className}`.trim();
+    link.href = browserUrl(form, page).href;
+    link.textContent = label;
+    return link;
+  }
+
+  function renderPagination(container, result, form) {
+    const current = Math.max(1, Number(result.page || 1));
+    const total = Math.max(0, Number(result.total_pages || 0));
+    if (!form || total <= 1) return;
+
+    const nav = document.createElement("nav");
+    nav.className = "ebd-pagination";
+    nav.setAttribute("aria-label", "Search results pages");
+    if (current > 1) {
+      nav.append(paginationLink(form, current - 1, strings.previous || "Previous", "ebd-pagination-previous"));
+    } else {
+      const previous = document.createElement("span");
+      previous.className = "ebd-pagination-link ebd-pagination-previous is-disabled";
+      previous.setAttribute("aria-disabled", "true");
+      previous.textContent = strings.previous || "Previous";
+      nav.append(previous);
+    }
+
+    const pages = document.createElement("span");
+    pages.className = "ebd-pagination-pages";
+    paginationPages(current, total).forEach((page) => {
+      if (page === null) {
+        const ellipsis = document.createElement("span");
+        ellipsis.className = "ebd-pagination-ellipsis";
+        ellipsis.setAttribute("aria-hidden", "true");
+        ellipsis.textContent = "...";
+        pages.append(ellipsis);
+      } else if (page === current) {
+        const selected = document.createElement("span");
+        selected.className = "ebd-pagination-link is-current";
+        selected.setAttribute("aria-current", "page");
+        selected.textContent = String(page);
+        pages.append(selected);
+      } else {
+        const link = paginationLink(form, page, String(page));
+        link.setAttribute("aria-label", `${strings.page || "Page"} ${page}`);
+        pages.append(link);
+      }
+    });
+    nav.append(pages);
+
+    const status = document.createElement("span");
+    status.className = "ebd-pagination-status";
+    status.textContent = `${strings.page || "Page"} ${current} ${strings.of || "of"} ${total}`;
+    nav.append(status);
+
+    if (current < total) {
+      nav.append(paginationLink(form, current + 1, strings.next || "Next", "ebd-pagination-next"));
+    } else {
+      const next = document.createElement("span");
+      next.className = "ebd-pagination-link ebd-pagination-next is-disabled";
+      next.setAttribute("aria-disabled", "true");
+      next.textContent = strings.next || "Next";
+      nav.append(next);
+    }
+    container.append(nav);
+  }
+
+  function renderResults(container, result, form) {
     container.innerHTML = "";
     const count = Number(result.count || 0);
     const terms = Array.isArray(result.terms) ? result.terms : [];
@@ -378,7 +481,7 @@
     summary.className = "ebd-results-summary";
     summary.setAttribute("aria-live", "polite");
     const countStrong = document.createElement("strong");
-    countStrong.textContent = `${count} ${postWord(count)}`;
+    countStrong.textContent = resultSummaryLabel(result);
     summary.append(countStrong);
     const contextIsTerm = terms.some((term) => normalized(term) === normalized(context));
     if (context && !contextIsTerm) {
@@ -425,6 +528,7 @@
       list.append(item);
     });
     container.append(list);
+    renderPagination(container, result, form);
     applyDescriptionToggle(container.closest(".ebd-discovery") || document);
     setupTitleTooltips(container);
   }

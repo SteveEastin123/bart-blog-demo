@@ -17,6 +17,9 @@ final class Search_Service {
 	/** Maximum number of terms accepted by a search. */
 	public const MAX_TERMS = 4;
 
+	/** Number of posts shown on each public results page. */
+	public const POSTS_PER_PAGE = 25;
+
 	/** Maximum stored and requested search-term length. */
 	public const MAX_TERM_LENGTH = 191;
 
@@ -27,13 +30,17 @@ final class Search_Service {
 	 * @param string            $sort          Sort mode.
 	 * @param string            $category_slug Optional category scope.
 	 * @param string            $topic_slug    Optional topic scope.
-	 * @return array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int} Search result payload.
+	 * @param int               $page          Requested results page.
+	 * @param int               $per_page      Page size, or zero to return every matching post.
+	 * @return array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} Search result payload.
 	 */
 	public function search(
 		array $terms,
 		string $sort = 'ranked',
 		string $category_slug = '',
-		string $topic_slug = ''
+		string $topic_slug = '',
+		int $page = 1,
+		int $per_page = 0
 	): array {
 		$terms         = self::unique_terms( $terms );
 		$sort          = self::clean_sort( $sort );
@@ -45,7 +52,7 @@ final class Search_Service {
 		if ( '' !== $category_slug ) {
 			$category = $this->record_by_slug( 'categories', $category_slug );
 			if ( null === $category ) {
-				return $this->search_result( array(), $terms, $sort );
+				return $this->search_result( array(), $terms, $sort, $page, $per_page );
 			}
 			$eligible = $this->category_post_ids( Database::integer( $category['id'] ?? null ) );
 		}
@@ -53,13 +60,13 @@ final class Search_Service {
 		if ( '' !== $topic_slug ) {
 			$topic = $this->record_by_slug( 'topics', $topic_slug );
 			if ( null === $topic ) {
-				return $this->search_result( array(), $terms, $sort );
+				return $this->search_result( array(), $terms, $sort, $page, $per_page );
 			}
 			$eligible = self::intersect_id_sets( $eligible, $this->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
 		}
 
 		if ( null === $eligible && empty( $terms ) ) {
-			return $this->search_result( array(), $terms, $sort );
+			return $this->search_result( array(), $terms, $sort, $page, $per_page );
 		}
 
 		$filter_terms = $terms;
@@ -82,13 +89,13 @@ final class Search_Service {
 			$scores = array();
 		}
 		if ( empty( $scores ) ) {
-			return $this->search_result( array(), $terms, $sort );
+			return $this->search_result( array(), $terms, $sort, $page, $per_page );
 		}
 
 		$posts = $this->posts_by_ids( array_keys( $scores ) );
 		$posts = $this->sort_posts( $posts, $sort, $terms, $scores );
 
-		return $this->search_result( $posts, $terms, $sort );
+		return $this->search_result( $posts, $terms, $sort, $page, $per_page );
 	}
 
 	/**
@@ -624,15 +631,33 @@ final class Search_Service {
 	 *
 	 * @param array<int,array<string,mixed>> $posts Result posts.
 	 * @param array<int,string>              $terms Search terms.
-	 * @param string                         $sort  Applied sort mode.
-	 * @return array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int} Search result payload.
+	 * @param string                         $sort     Applied sort mode.
+	 * @param int                            $page     Requested results page.
+	 * @param int                            $per_page Page size, or zero for every post.
+	 * @return array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} Search result payload.
 	 */
-	private function search_result( array $posts, array $terms, string $sort ): array {
+	private function search_result( array $posts, array $terms, string $sort, int $page, int $per_page ): array {
+		$count       = count( $posts );
+		$page        = max( 1, $page );
+		$per_page    = max( 0, $per_page );
+		$total_pages = $count > 0 ? 1 : 0;
+
+		if ( $per_page > 0 && $count > 0 ) {
+			$total_pages = (int) ceil( $count / $per_page );
+			$page        = min( $page, $total_pages );
+			$posts       = array_slice( $posts, ( $page - 1 ) * $per_page, $per_page );
+		} elseif ( 0 === $count ) {
+			$page = 1;
+		}
+
 		return array(
-			'posts' => array_values( $posts ),
-			'terms' => array_values( $terms ),
-			'sort'  => $sort,
-			'count' => count( $posts ),
+			'posts'       => array_values( $posts ),
+			'terms'       => array_values( $terms ),
+			'sort'        => $sort,
+			'count'       => $count,
+			'page'        => $page,
+			'per_page'    => $per_page,
+			'total_pages' => $total_pages,
 		);
 	}
 }
