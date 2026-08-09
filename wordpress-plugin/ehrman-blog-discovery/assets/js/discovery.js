@@ -4,6 +4,8 @@
   const config = window.EhrmanDiscovery || {};
   const strings = config.strings || {};
   const MAX_TERMS = 4;
+  const SEARCH_CONTROLS_KEY = "ehrmanDiscovery.searchControls";
+  const DESCRIPTION_MODE_KEY = "ehrmanDiscovery.descriptionMode";
   let tooltip = null;
 
   function normalized(value) {
@@ -34,6 +36,93 @@
   function activeCategory(form) {
     const filter = form.querySelector("[data-ebd-category]");
     return filter ? filter.value.trim() : (form.dataset.category || "");
+  }
+
+  function searchControlsPreference() {
+    try {
+      return window.sessionStorage.getItem(SEARCH_CONTROLS_KEY) || "";
+    } catch (_error) {
+      return "";
+    }
+  }
+
+  function rememberSearchControls(value) {
+    try {
+      window.sessionStorage.setItem(SEARCH_CONTROLS_KEY, value);
+    } catch (_error) {
+      // The control remains usable when browser storage is unavailable.
+    }
+  }
+
+  function searchHasState(form) {
+    return values(form, searchInput(form)).length > 0
+      || Boolean(activeCategory(form))
+      || Boolean(form.dataset.topic);
+  }
+
+  function searchCategorySummary(form) {
+    const fixed = form.querySelector(".ebd-fixed-scope");
+    if (fixed) return String(fixed.textContent || "").trim().replace(/\s+/g, " ");
+    const category = activeCategory(form);
+    const name = form.querySelector("[data-ebd-category-name]");
+    if (!category || !name) return "";
+    return `Category: ${String(name.textContent || "").trim()}`;
+  }
+
+  function searchSortSummary(form) {
+    const selected = form.querySelector('input[name="ebd_sort"]:checked');
+    return String(selected?.closest("label")?.textContent || "Best match").trim().replace(/\s+/g, " ");
+  }
+
+  function updateSearchControlsSummary(form) {
+    const summary = form.querySelector("[data-ebd-search-summary]");
+    const collapse = form.querySelector("[data-ebd-search-collapse]");
+    const parts = [];
+    const category = searchCategorySummary(form);
+    const terms = values(form, searchInput(form));
+    if (category) parts.push(category);
+    if (terms.length) parts.push(terms.join(" + "));
+    parts.push(searchSortSummary(form));
+    if (summary) summary.textContent = parts.join(" | ");
+    if (collapse) collapse.hidden = !searchHasState(form);
+  }
+
+  function setSearchControlsCollapsed(form, collapsed, remember = true) {
+    const controls = form.querySelector("[data-ebd-search-expanded]");
+    const compact = form.querySelector("[data-ebd-search-compact]");
+    const edit = form.querySelector("[data-ebd-search-edit]");
+    const resolved = Boolean(collapsed && searchHasState(form));
+    if (!controls || !compact) return;
+    controls.hidden = resolved;
+    compact.hidden = !resolved;
+    form.classList.toggle("is-collapsed", resolved);
+    edit?.setAttribute("aria-expanded", String(!resolved));
+    if (resolved) closeSuggestions(searchInput(form));
+    if (remember) rememberSearchControls(resolved ? "collapsed" : "expanded");
+  }
+
+  function setupSearchControls(form) {
+    const hasState = searchHasState(form);
+    const preference = searchControlsPreference();
+    const initialCollapse = form.dataset.ebdInitialCollapse === "true";
+    updateSearchControlsSummary(form);
+    setSearchControlsCollapsed(
+      form,
+      hasState && preference !== "expanded" && (preference === "collapsed" || initialCollapse),
+      false
+    );
+    form.querySelector("[data-ebd-search-collapse]")?.addEventListener("click", () => {
+      updateSearchControlsSummary(form);
+      setSearchControlsCollapsed(form, true);
+      form.querySelector("[data-ebd-search-edit]")?.focus({ preventScroll: true });
+    });
+    form.querySelector("[data-ebd-search-edit]")?.addEventListener("click", () => {
+      setSearchControlsCollapsed(form, false);
+      const target = searchInput(form)
+        || form.querySelector("[data-ebd-category-toggle]")
+        || form.querySelector('input[name="ebd_sort"]');
+      target?.focus({ preventScroll: true });
+    });
   }
 
   function searchInput(form) {
@@ -307,6 +396,7 @@
     const clear = form.querySelector("[data-ebd-clear]");
     const editableCategory = form.querySelector("[data-ebd-category]");
     if (clear) clear.disabled = count === 0 && (!editableCategory || !editableCategory.value);
+    updateSearchControlsSummary(form);
   }
 
   function requestUrl(form, page = 1) {
@@ -362,6 +452,7 @@
       const result = await response.json();
       if (form.ebdSearchController !== controller) return;
       renderResults(results, result, form);
+      updateSearchControlsSummary(form);
       const headingCount = form.closest(".ebd-discovery")?.querySelector("[data-ebd-result-count]");
       if (headingCount) {
         const count = Number(result.count || 0);
@@ -529,7 +620,7 @@
     });
     container.append(list);
     renderPagination(container, result, form);
-    applyDescriptionToggle(container.closest(".ebd-discovery") || document);
+    applyDescriptionMode(container.closest(".ebd-discovery") || document);
     setupTitleTooltips(container);
   }
 
@@ -601,6 +692,7 @@
     const input = searchInput(form);
     setupCategory(form);
     updateSlots(form);
+    setupSearchControls(form);
     form.addEventListener("submit", (event) => event.preventDefault());
     form.addEventListener("click", (event) => {
       const remove = event.target.closest("[data-ebd-remove]");
@@ -632,7 +724,10 @@
       }
     });
     form.querySelectorAll('input[name="ebd_sort"]').forEach((radio) => {
-      radio.addEventListener("change", () => refreshSearch(form));
+      radio.addEventListener("change", () => {
+        updateSearchControlsSummary(form);
+        refreshSearch(form);
+      });
     });
     if (!input) return;
     let timer = null;
@@ -685,25 +780,85 @@
         : title;
       const hoverTarget = anchor;
       hoverTarget.addEventListener("mouseenter", () => {
-        const toggle = title.closest(".ebd-discovery")?.querySelector("[data-ebd-description-toggle]");
-        if (!toggle?.checked) showTooltip(anchor, title.dataset.description || "", isNavigation ? "right" : "auto");
+        const pageRoot = title.closest(".ebd-discovery") || document;
+        if (descriptionMode(pageRoot) === "hover") {
+          showTooltip(anchor, title.dataset.description || "", isNavigation ? "right" : "auto");
+        }
       });
       hoverTarget.addEventListener("mouseleave", hideTooltip);
       title.addEventListener("focus", () => {
-        const toggle = title.closest(".ebd-discovery")?.querySelector("[data-ebd-description-toggle]");
-        if (!toggle?.checked) showTooltip(anchor, title.dataset.description || "", isNavigation ? "right" : "auto");
+        const pageRoot = title.closest(".ebd-discovery") || document;
+        if (descriptionMode(pageRoot) === "hover") {
+          showTooltip(anchor, title.dataset.description || "", isNavigation ? "right" : "auto");
+        }
       });
       title.addEventListener("blur", hideTooltip);
     });
+    root.querySelectorAll(".ebd-review-name").forEach((name) => {
+      if (name.dataset.ebdTooltipReady) return;
+      const section = name.closest(".ebd-review-area,.ebd-review-category,.ebd-review-topic");
+      const description = directChild(section, ".ebd-review-description");
+      if (!description?.textContent.trim()) return;
+      name.dataset.ebdTooltipReady = "true";
+      const show = () => {
+        const pageRoot = name.closest(".ebd-discovery") || document;
+        if (descriptionMode(pageRoot) === "hover") {
+          showTooltip(name, description.textContent.trim(), "right");
+        }
+      };
+      name.addEventListener("mouseenter", show);
+      name.addEventListener("mouseleave", hideTooltip);
+      name.addEventListener("focus", show);
+      name.addEventListener("blur", hideTooltip);
+    });
   }
 
-  function applyDescriptionToggle(root) {
-    const toggle = root.querySelector("[data-ebd-description-toggle]");
-    if (!toggle) return;
+  function descriptionMode(root) {
+    return root.querySelector("[data-ebd-description-mode] input:checked")?.value || "hidden";
+  }
+
+  function descriptionPreferenceScope(control) {
+    return control.dataset.scope === "posts" ? "posts" : "browse";
+  }
+
+  function savedDescriptionMode(control) {
+    try {
+      return window.sessionStorage.getItem(`${DESCRIPTION_MODE_KEY}.${descriptionPreferenceScope(control)}`) || "";
+    } catch (_error) {
+      return "";
+    }
+  }
+
+  function rememberDescriptionMode(control, mode) {
+    try {
+      window.sessionStorage.setItem(`${DESCRIPTION_MODE_KEY}.${descriptionPreferenceScope(control)}`, mode);
+    } catch (_error) {
+      // The display control remains usable when browser storage is unavailable.
+    }
+  }
+
+  function applyDescriptionMode(root) {
+    const mode = descriptionMode(root);
     root.querySelectorAll(".ebd-item-description,.ebd-post-description,.ebd-review-description").forEach((description) => {
-      description.hidden = !toggle.checked;
+      description.hidden = mode !== "always";
     });
-    if (toggle.checked) hideTooltip();
+    if (mode !== "hover") hideTooltip();
+  }
+
+  function setupDescriptionMode(control) {
+    const root = control.closest(".ebd-discovery") || document;
+    const preferred = savedDescriptionMode(control);
+    const mode = ["always", "hover", "hidden"].includes(preferred)
+      ? preferred
+      : (control.dataset.defaultMode || "hover");
+    const selected = control.querySelector(`input[value="${mode}"]`);
+    if (selected) selected.checked = true;
+    control.addEventListener("change", (event) => {
+      if (!event.target.matches('input[type="radio"]')) return;
+      rememberDescriptionMode(control, event.target.value);
+      applyDescriptionMode(root);
+    });
+    applyDescriptionMode(root);
   }
 
   function compactText(element) {
@@ -939,7 +1094,7 @@
 
   function buildReviewPdf(root, tree) {
     const view = reviewViewLabel(root);
-    const includeDescriptions = !!root.querySelector("[data-ebd-description-toggle]")?.checked;
+    const includeDescriptions = descriptionMode(root) === "always";
     const pages = reviewPdfPages(reviewPdfEntries(tree, includeDescriptions));
     const objects = [];
     objects[1] = "<< /Type /Catalog /Pages 2 0 R >>";
@@ -1008,13 +1163,7 @@
   }
 
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
-  document.querySelectorAll("[data-ebd-description-toggle]").forEach((toggle) => {
-    const root = toggle.closest(".ebd-discovery") || document;
-    toggle.addEventListener("change", () => {
-      applyDescriptionToggle(root);
-    });
-    applyDescriptionToggle(root);
-  });
+  document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);
   document.querySelectorAll(".ebd-view-structure-review").forEach(setupStructureReview);
   setupTitleTooltips(document);
 

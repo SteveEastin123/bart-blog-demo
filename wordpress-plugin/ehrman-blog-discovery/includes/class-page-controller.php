@@ -238,7 +238,7 @@ final class Page_Controller {
 			. esc_html__( 'Collapse all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-pdf>'
 			. esc_html__( 'Download PDF', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-csv>'
 			. esc_html__( 'Download CSV', 'ehrman-blog-discovery' ) . '</button>'
-			. $this->description_toggle( false, 'review' ) . '</div>';
+			. $this->description_control( 'hover', 'review' ) . '</div>';
 
 		return $this->shell(
 			$this->heading(
@@ -278,7 +278,7 @@ final class Page_Controller {
 		}
 		return $this->shell(
 			$this->heading( __( 'Choose a Subject Area', 'ehrman-blog-discovery' ), $this->plural( count( $areas ), 'subject area' ) )
-			. $this->description_toggle( false, 'browse' )
+			. $this->description_control( 'hover', 'browse' )
 			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
 			'browse'
 		);
@@ -327,7 +327,7 @@ final class Page_Controller {
 		);
 		return $this->shell(
 			$this->heading( Database::text( $area['name'] ?? null ), $meta, $breadcrumbs )
-			. $this->description_toggle( false, 'browse' )
+			. $this->description_control( 'hover', 'browse' )
 			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
 			'browse'
 		);
@@ -393,7 +393,7 @@ final class Page_Controller {
 				$breadcrumbs,
 				$actions
 			)
-			. $this->description_toggle( false, 'browse' )
+			. $this->description_control( 'hover', 'browse' )
 			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
 			'browse'
 		);
@@ -582,16 +582,27 @@ final class Page_Controller {
 			$sort_options[] = '<label class="ebd-sort-choice"><input type="radio" name="ebd_sort" value="'
 				. esc_attr( $value ) . '"' . checked( $sort, $value, false ) . '><span>' . esc_html( $label ) . '</span></label>';
 		}
+		$has_search_state = ! empty( $terms ) || '' !== $category_scope || '' !== $topic_scope || '' !== $selected_category;
+		$compact_summary  = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
+			. '<strong>' . esc_html__( 'Current search:', 'ehrman-blog-discovery' ) . '</strong> '
+			. '<span data-ebd-search-summary></span></p><button type="button" class="ebd-search-edit" '
+			. 'data-ebd-search-edit aria-controls="' . esc_attr( $id ) . '-controls">'
+			. esc_html__( 'Edit search', 'ehrman-blog-discovery' ) . '</button></div>';
 		return '<form class="ebd-search-panel" action="' . esc_url( $action ) . '" method="get" data-ebd-search-form '
 			. 'data-category="' . esc_attr( '' !== $category_scope ? $category_scope : $selected_category ) . '" '
-			. 'data-topic="' . esc_attr( $topic_scope ) . '"><div class="ebd-search-controls">' . $scope . $category_filter
+			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-initial-collapse="'
+			. ( $has_search_state ? 'true' : 'false' ) . '">' . $compact_summary
+			. '<div id="' . esc_attr( $id ) . '-controls" class="ebd-search-controls" data-ebd-search-expanded>' . $scope . $category_filter
 			. '<p class="ebd-search-instructions"><strong>' . esc_html__( 'Select up to four search terms.', 'ehrman-blog-discovery' )
 			. '</strong> ' . esc_html__( 'You can enter topics, keywords, or both. Topics identify a post\'s main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.', 'ehrman-blog-discovery' )
 			. '</p><div class="ebd-keyword-grid" data-ebd-chip-list>' . implode( '', $chips ) . '</div>'
 			. '<div class="ebd-sort-row"><span>' . esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>'
-			. implode( '', $sort_options ) . '</div><button type="button" class="ebd-clear" data-ebd-clear>'
-			. esc_html__( 'Clear all', 'ehrman-blog-discovery' ) . '</button></div></form>'
-			. '<div class="ebd-description-control">' . $this->description_toggle( $show_descriptions, 'posts' ) . '</div>';
+			. implode( '', $sort_options ) . '</div><div class="ebd-search-actions"><button type="button" class="ebd-clear" data-ebd-clear>'
+			. esc_html__( 'Clear all', 'ehrman-blog-discovery' ) . '</button><button type="button" class="ebd-search-collapse" '
+			. 'data-ebd-search-collapse aria-controls="' . esc_attr( $id ) . '-controls"'
+			. ( $has_search_state ? '' : ' hidden' ) . '>' . esc_html__( 'Hide search controls', 'ehrman-blog-discovery' )
+			. '</button></div></div></form>'
+			. '<div class="ebd-description-control">' . $this->description_control( $show_descriptions ? 'always' : 'hover', 'posts' ) . '</div>';
 	}
 
 	/**
@@ -886,19 +897,31 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Builds a description-visibility checkbox.
+	 * Builds the description display-mode control.
 	 *
-	 * @param bool   $checked Whether descriptions are initially visible.
-	 * @param string $scope   Description scope identifier.
-	 * @return string Toggle markup.
+	 * @param string $default_mode Initial display mode.
+	 * @param string $scope        Description scope identifier.
+	 * @return string Description-mode markup.
 	 */
-	private function description_toggle( bool $checked, string $scope ): string {
+	private function description_control( string $default_mode, string $scope ): string {
 		++$this->instance;
-		$id = 'ebd-descriptions-' . $this->instance;
-		return '<label class="ebd-description-toggle" for="' . esc_attr( $id ) . '"><input id="'
-			. esc_attr( $id ) . '" type="checkbox" data-ebd-description-toggle data-scope="' . esc_attr( $scope ) . '"'
-			. checked( $checked, true, false ) . '><span>' . esc_html__( 'Show descriptions', 'ehrman-blog-discovery' )
-			. '</span></label>';
+		$id           = 'ebd-descriptions-' . $this->instance;
+		$default_mode = in_array( $default_mode, array( 'always', 'hover', 'hidden' ), true ) ? $default_mode : 'hover';
+		$options      = array(
+			'always' => __( 'Always', 'ehrman-blog-discovery' ),
+			'hover'  => __( 'On hover', 'ehrman-blog-discovery' ),
+			'hidden' => __( 'Hidden', 'ehrman-blog-discovery' ),
+		);
+		$choices      = array();
+		foreach ( $options as $value => $label ) {
+			$choices[] = '<label class="ebd-description-choice"><input type="radio" name="' . esc_attr( $id )
+				. '" value="' . esc_attr( $value ) . '"' . checked( $default_mode, $value, false )
+				. '><span>' . esc_html( $label ) . '</span></label>';
+		}
+		return '<div class="ebd-description-mode" role="radiogroup" aria-labelledby="' . esc_attr( $id )
+			. '-label" data-ebd-description-mode data-scope="' . esc_attr( $scope ) . '" data-default-mode="'
+			. esc_attr( $default_mode ) . '"><span id="' . esc_attr( $id ) . '-label" class="ebd-description-mode-label">'
+			. esc_html__( 'Show descriptions:', 'ehrman-blog-discovery' ) . '</span>' . implode( '', $choices ) . '</div>';
 	}
 
 	/**

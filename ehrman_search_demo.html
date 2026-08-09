@@ -712,10 +712,10 @@
       z-index: 30;
     }
 
-    .article-tooltip:hover .article-tooltip-text,
-    .article-tooltip:focus-within .article-tooltip-text,
-    .description-tooltip:hover .description-tooltip-text,
-    .description-tooltip:focus-within .description-tooltip-text {
+    .content-page.hover-post-descriptions .article-tooltip:hover .article-tooltip-text,
+    .content-page.hover-post-descriptions .article-tooltip:focus-within .article-tooltip-text,
+    .content-page.hover-post-descriptions .description-tooltip:hover .description-tooltip-text,
+    .content-page.hover-post-descriptions .description-tooltip:focus-within .description-tooltip-text {
       opacity: 1;
       transform: translateY(0);
       visibility: visible;
@@ -783,7 +783,61 @@
     }
 
     .keyword-search-panel {
-      padding: 22px 28px 28px;
+      padding: 18px 28px 22px;
+    }
+
+    .keyword-search-compact {
+      align-items: center;
+      background: #f7eee9;
+      border-left: 4px solid var(--maroon);
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      margin: 0;
+      max-width: 820px;
+      min-height: 52px;
+      padding: 10px 12px;
+    }
+
+    .keyword-search-compact[hidden],
+    .keyword-search-expanded[hidden] {
+      display: none;
+    }
+
+    .keyword-search-compact-summary {
+      color: #000000;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 23px;
+      margin: 0;
+    }
+
+    .keyword-search-compact-summary strong {
+      color: var(--maroon);
+    }
+
+    .keyword-search-edit,
+    .keyword-search-collapse {
+      background: transparent;
+      border: 0;
+      color: var(--maroon);
+      cursor: pointer;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 22px;
+      min-height: 42px;
+      padding: 8px 0;
+      white-space: nowrap;
+    }
+
+    .keyword-search-edit:hover,
+    .keyword-search-edit:focus-visible,
+    .keyword-search-collapse:hover,
+    .keyword-search-collapse:focus-visible {
+      color: var(--link-hover);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .keyword-search-panel label {
@@ -798,9 +852,9 @@
 
     .keyword-filter-section {
       border-bottom: 1px solid var(--line);
-      margin: 0 0 20px;
+      margin: 0 0 14px;
       max-width: 75ch;
-      padding: 0 0 20px;
+      padding: 0 0 14px;
     }
 
     .keyword-instructions {
@@ -808,7 +862,7 @@
       font-family: "Open Sans", Arial, Helvetica, sans-serif;
       font-size: 16px;
       line-height: 24px;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       max-width: 75ch;
     }
 
@@ -840,24 +894,63 @@
     }
 
     .keyword-category-filter {
+      align-items: center;
+      background: #f7eee9;
+      border: 1px solid #dfc4bf;
+      border-left: 4px solid var(--maroon);
+      border-radius: 4px;
+      column-gap: 18px;
+      display: grid;
+      grid-template-columns: minmax(190px, 0.75fr) minmax(300px, 1.45fr);
+      grid-template-rows: auto auto;
       margin: 0;
-      max-width: 620px;
+      max-width: 820px;
+      padding: 10px 12px;
+    }
+
+    .keyword-filter-section.keyword-category-section {
+      border-bottom: 0;
+      max-width: 820px;
+      padding-bottom: 0;
     }
 
     .keyword-search-panel .keyword-category-filter label {
+      grid-column: 1;
+      grid-row: 1;
       color: var(--maroon);
       font-size: 18px;
       font-weight: 700;
       line-height: 24px;
-      margin: 0 0 5px;
+      margin: 0 0 2px;
     }
 
-    .keyword-search-panel .keyword-category-filter label span {
+    .keyword-search-panel .keyword-category-filter label .keyword-category-badge {
+      background: var(--maroon);
+      border-radius: 3px;
+      color: #ffffff;
+      display: inline-flex;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 16px;
+      margin-left: 5px;
+      padding: 2px 6px;
+      text-transform: uppercase;
+      vertical-align: 2px;
+    }
+
+    .keyword-category-help {
       color: var(--muted);
-      font-weight: 400;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      grid-column: 1;
+      grid-row: 2;
+      line-height: 20px;
+      margin: 0;
     }
 
     .category-combobox {
+      grid-column: 2;
+      grid-row: 1 / span 2;
       position: relative;
     }
 
@@ -1284,25 +1377,38 @@
 
     .description-toggle {
       align-items: center;
-      color: var(--maroon);
       display: flex;
+      flex-wrap: wrap;
       font-family: "Open Sans", Arial, Helvetica, sans-serif;
       font-size: 16px;
-      font-weight: 600;
-      gap: 8px;
+      gap: 8px 16px;
       grid-column: 1 / -1;
       line-height: 25px;
       margin: 2px 0 0;
     }
 
-    .description-toggle input {
+    .description-toggle-label {
+      color: var(--maroon);
+      font-weight: 600;
+    }
+
+    .description-toggle-choice {
+      align-items: center;
+      color: #000000;
+      cursor: pointer;
+      display: inline-flex;
+      font-weight: 400;
+      gap: 6px;
+    }
+
+    .description-toggle-choice input {
       accent-color: var(--link);
       border: 1px solid var(--line);
       flex: 0 0 auto;
-      height: 16px;
+      height: 17px;
       margin: 0;
       padding: 0;
-      width: 16px;
+      width: 17px;
     }
 
     @media (max-width: 1180px) {
@@ -1515,8 +1621,8 @@
       }
 
       .keyword-search-panel {
-        padding-top: 18px;
-        padding-bottom: 20px;
+        padding-top: 15px;
+        padding-bottom: 17px;
       }
 
       .keyword-search-controls,
@@ -1525,6 +1631,39 @@
       .keyword-slot-grid {
         max-width: none;
         width: 100%;
+      }
+
+      .keyword-category-filter {
+        gap: 2px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 9px 10px 11px;
+      }
+
+      .keyword-search-panel .keyword-category-filter label,
+      .keyword-category-help,
+      .keyword-category-filter .category-combobox {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .keyword-category-filter .category-combobox {
+        margin-top: 5px;
+      }
+
+      .keyword-search-compact {
+        align-items: flex-start;
+        display: grid;
+        gap: 4px;
+        grid-template-columns: 1fr;
+      }
+
+      .keyword-search-compact[hidden] {
+        display: none;
+      }
+
+      .keyword-search-edit {
+        justify-self: start;
       }
 
       .keyword-slot-grid {
@@ -35802,6 +35941,9 @@ const DATA = {
 
     const MAX_KEYWORD_SUGGESTIONS = 48;
     const MAX_SELECTED_KEYWORDS = 4;
+    const SEARCH_CONTROLS_SESSION_KEY = 'ehrmanDiscovery.searchControls';
+    const DESCRIPTION_MODE_SESSION_KEY = 'ehrmanDiscovery.descriptionMode';
+    let preserveExpandedSearchControlsOnce = false;
     const POSTS_PER_PAGE = 25;
     const VALID_SORTS = ['best', 'newest', 'oldest'];
 
@@ -36788,6 +36930,7 @@ const DATA = {
           chipList.appendChild(emptySlot);
         }
       }
+      updateStandaloneSearchSummary(form);
     }
 
     function addKeywordChip(form, input, value) {
@@ -36947,21 +37090,57 @@ const DATA = {
       renderKeywordSuggestions(input, matches, activeIndex, false);
     }
 
-    function setupDescriptionToggle() {
-      const descriptionToggle = document.getElementById('description-display-toggle');
-      if (!descriptionToggle) {
+    function descriptionPreferenceScope(control) {
+      return control.dataset.descriptionScope === 'posts' ? 'posts' : 'browse';
+    }
+
+    function savedDescriptionMode(control) {
+      try {
+        return window.sessionStorage.getItem(`${DESCRIPTION_MODE_SESSION_KEY}.${descriptionPreferenceScope(control)}`) || '';
+      } catch (_error) {
+        return '';
+      }
+    }
+
+    function rememberDescriptionMode(control, mode) {
+      try {
+        window.sessionStorage.setItem(`${DESCRIPTION_MODE_SESSION_KEY}.${descriptionPreferenceScope(control)}`, mode);
+      } catch (_error) {
+        // The display control remains usable when browser storage is unavailable.
+      }
+    }
+
+    function applyDescriptionMode(control) {
+      const contentPage = control.closest('.content-page');
+      const mode = control.querySelector('input:checked')?.value || 'hidden';
+      if (!contentPage) {
         return;
       }
-      const contentPage = descriptionToggle.closest('.content-page');
-      const toggleDescriptions = () => {
-        if (contentPage) {
-          contentPage.classList.toggle('show-post-descriptions', descriptionToggle.checked);
+      contentPage.classList.toggle('show-post-descriptions', mode === 'always');
+      contentPage.classList.toggle('hover-post-descriptions', mode === 'hover');
+    }
+
+    function setupDescriptionToggle() {
+      const control = document.querySelector('[data-description-mode]');
+      if (!control) {
+        return;
+      }
+      const preferred = savedDescriptionMode(control);
+      const mode = ['always', 'hover', 'hidden'].includes(preferred)
+        ? preferred
+        : (control.dataset.defaultMode || 'hover');
+      const selected = control.querySelector(`input[value="${mode}"]`);
+      if (selected) {
+        selected.checked = true;
+      }
+      control.addEventListener('change', event => {
+        if (!event.target.matches('input[type="radio"]')) {
+          return;
         }
-      };
-      descriptionToggle.addEventListener('change', () => {
-        toggleDescriptions();
+        rememberDescriptionMode(control, event.target.value);
+        applyDescriptionMode(control);
       });
-      toggleDescriptions();
+      applyDescriptionMode(control);
     }
 
     function setupKeywordAutocomplete(inputs, options = {}) {
@@ -37074,6 +37253,7 @@ const DATA = {
         : [];
       const selectedCategoryChoice = categoryChoices.find(({ index }) => index === selectedCategoryIndex) || null;
       const cleanValues = uniqueKeywordValues(values).slice(0, MAX_SELECTED_KEYWORDS);
+      const hasSearchState = cleanValues.length > 0 || Boolean(scopeLabel) || Boolean(selectedCategoryChoice);
       const nextKeywordIndex = cleanValues.length + 1;
       const keywordEntry = keywordInputMarkup(1, '').replace('Keyword 1', `Keyword ${Math.min(nextKeywordIndex, MAX_SELECTED_KEYWORDS)}`);
       const emptySlots = Array.from(
@@ -37105,12 +37285,13 @@ const DATA = {
         </div>
       ` : '';
       const categoryFilterMarkup = includeCategoryFilter ? `
-        <div class="keyword-filter-section" aria-label="Search scope">
+        <div class="keyword-filter-section keyword-category-section" aria-label="Search scope">
           <div class="keyword-category-filter">
-            <label id="keyword-category-label">Category <span>(recommended)</span></label>
+            <label id="keyword-category-label">Category <span class="keyword-category-badge">Recommended</span></label>
+            <p class="keyword-category-help" id="keyword-category-help">Choose a category to narrow your suggestions and improve your results.</p>
             <div class="category-combobox" data-category-combobox>
               <input type="hidden" id="keyword-category-filter" value="${Number.isInteger(selectedCategoryIndex) ? selectedCategoryIndex : ''}" data-category-filter>
-              <button type="button" class="category-combobox-toggle" data-category-toggle aria-haspopup="listbox" aria-expanded="false" aria-controls="keyword-category-options" aria-labelledby="keyword-category-label keyword-category-current-name keyword-category-current-count">
+              <button type="button" class="category-combobox-toggle" data-category-toggle aria-haspopup="listbox" aria-expanded="false" aria-controls="keyword-category-options" aria-labelledby="keyword-category-label keyword-category-current-name keyword-category-current-count" aria-describedby="keyword-category-help">
                 <span id="keyword-category-current-name" class="category-combobox-current-name" data-category-current-name>${escapeHtml(selectedCategoryChoice?.category.name || 'All categories')}</span>
                 <span id="keyword-category-current-count" class="category-combobox-current-count" data-category-current-count>${escapeHtml(selectedCategoryChoice?.countLabel || '')}</span>
                 <span class="category-combobox-chevron" aria-hidden="true">&#9662;</span>
@@ -37124,26 +37305,134 @@ const DATA = {
         </div>
       ` : '';
       return `
-        <form id="keyword-search-form" class="keyword-search-panel">
-          ${scopeMarkup}
-          ${categoryFilterMarkup}
-          <div class="keyword-terms-section">
-            <p class="keyword-instructions"><strong>Select up to four search terms.</strong> You can enter topics, keywords, or both. Topics identify a post's main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.</p>
-            <div class="keyword-search-controls">
-              <div class="keyword-slot-grid" data-keyword-chip-list>
-                ${cleanValues.map(keywordChipMarkup).join('')}
-                ${cleanValues.length >= MAX_SELECTED_KEYWORDS ? '' : keywordEntry}
-                ${emptySlots}
-              </div>
-              ${sortMarkup}
-              <div class="keyword-action-row">
-                <button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button>
+        <form id="keyword-search-form" class="keyword-search-panel" data-search-initial-collapse="${hasSearchState ? 'true' : 'false'}">
+          <div class="keyword-search-compact" data-keyword-search-compact hidden>
+            <p class="keyword-search-compact-summary"><strong>Current search:</strong> <span data-keyword-search-summary></span></p>
+            <button type="button" class="keyword-search-edit" data-keyword-search-edit aria-controls="keyword-search-expanded">Edit search</button>
+          </div>
+          <div id="keyword-search-expanded" class="keyword-search-expanded" data-keyword-search-expanded>
+            ${scopeMarkup}
+            ${categoryFilterMarkup}
+            <div class="keyword-terms-section">
+              <p class="keyword-instructions"><strong>Select up to four search terms.</strong> You can enter topics, keywords, or both. Topics identify a post's main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.</p>
+              <div class="keyword-search-controls">
+                <div class="keyword-slot-grid" data-keyword-chip-list>
+                  ${cleanValues.map(keywordChipMarkup).join('')}
+                  ${cleanValues.length >= MAX_SELECTED_KEYWORDS ? '' : keywordEntry}
+                  ${emptySlots}
+                </div>
+                ${sortMarkup}
+                <div class="keyword-action-row">
+                  <button type="button" class="keyword-clear-button" data-clear-keywords>Clear all</button>
+                  <button type="button" class="keyword-search-collapse" data-keyword-search-collapse aria-controls="keyword-search-expanded"${hasSearchState ? '' : ' hidden'}>Hide search controls</button>
+                </div>
               </div>
             </div>
           </div>
         </form>
         ${descriptionTogglePanel}
       `;
+    }
+
+    function standaloneSearchControlsPreference() {
+      try {
+        return window.sessionStorage.getItem(SEARCH_CONTROLS_SESSION_KEY) || '';
+      } catch (_error) {
+        return '';
+      }
+    }
+
+    function rememberStandaloneSearchControls(value) {
+      try {
+        window.sessionStorage.setItem(SEARCH_CONTROLS_SESSION_KEY, value);
+      } catch (_error) {
+        // The controls remain usable when browser storage is unavailable.
+      }
+    }
+
+    function standaloneSearchHasState(form) {
+      const input = form.querySelector('.keyword-search-input');
+      const category = form.querySelector('[data-category-filter]');
+      return selectedKeywordValues(form, input).length > 0
+        || Boolean(category && category.value !== '')
+        || Boolean(form.querySelector('.keyword-scope'));
+    }
+
+    function standaloneSearchSummary(form) {
+      const parts = [];
+      const fixedScope = form.querySelector('.keyword-scope');
+      const category = form.querySelector('[data-category-filter]');
+      const categoryName = form.querySelector('[data-category-current-name]');
+      const input = form.querySelector('.keyword-search-input');
+      const terms = selectedKeywordValues(form, input);
+      if (fixedScope) {
+        parts.push(String(fixedScope.textContent || '').trim().replace(/\s+/g, ' '));
+      } else if (category && category.value !== '' && categoryName) {
+        parts.push(`Category: ${String(categoryName.textContent || '').trim()}`);
+      }
+      if (terms.length) {
+        parts.push(terms.join(' + '));
+      }
+      const sort = form.querySelector('input[name="keyword-sort"]:checked');
+      parts.push(String(sort?.closest('label')?.textContent || 'Best match').trim().replace(/\s+/g, ' '));
+      return parts.join(' | ');
+    }
+
+    function updateStandaloneSearchSummary(form) {
+      const summary = form.querySelector('[data-keyword-search-summary]');
+      const collapse = form.querySelector('[data-keyword-search-collapse]');
+      if (summary) {
+        summary.textContent = standaloneSearchSummary(form);
+      }
+      if (collapse) {
+        collapse.hidden = !standaloneSearchHasState(form);
+      }
+    }
+
+    function setStandaloneSearchCollapsed(form, collapsed, remember = true) {
+      const expanded = form.querySelector('[data-keyword-search-expanded]');
+      const compact = form.querySelector('[data-keyword-search-compact]');
+      const resolved = Boolean(collapsed && standaloneSearchHasState(form));
+      if (!expanded || !compact) {
+        return;
+      }
+      expanded.hidden = resolved;
+      compact.hidden = !resolved;
+      form.classList.toggle('is-collapsed', resolved);
+      form.querySelector('[data-keyword-search-edit]')?.setAttribute('aria-expanded', String(!resolved));
+      if (resolved) {
+        closeAllKeywordSuggestions();
+      }
+      if (remember) {
+        rememberStandaloneSearchControls(resolved ? 'collapsed' : 'expanded');
+      }
+    }
+
+    function setupStandaloneSearchControls(form) {
+      const preference = standaloneSearchControlsPreference();
+      const preserveExpanded = preserveExpandedSearchControlsOnce;
+      preserveExpandedSearchControlsOnce = false;
+      updateStandaloneSearchSummary(form);
+      setStandaloneSearchCollapsed(
+        form,
+        standaloneSearchHasState(form)
+          && !preserveExpanded
+          && preference !== 'expanded'
+          && (preference === 'collapsed' || form.dataset.searchInitialCollapse === 'true'),
+        false
+      );
+      form.querySelector('[data-keyword-search-collapse]')?.addEventListener('click', () => {
+        updateStandaloneSearchSummary(form);
+        setStandaloneSearchCollapsed(form, true);
+        form.querySelector('[data-keyword-search-edit]')?.focus({ preventScroll: true });
+      });
+      form.querySelector('[data-keyword-search-edit]')?.addEventListener('click', () => {
+        setStandaloneSearchCollapsed(form, false);
+        const target = form.querySelector('.keyword-search-input')
+          || form.querySelector('[data-category-toggle]')
+          || form.querySelector('input[name="keyword-sort"]');
+        target?.focus({ preventScroll: true });
+      });
     }
 
     function setupKeywordSearchForm(defaultSort = 'best', options = {}) {
@@ -37183,13 +37472,20 @@ const DATA = {
       };
       const runCurrentSearch = () => {
         const query = currentQuery();
+        const previousHash = window.location.hash;
         if (typeof options.onSubmit === 'function') {
           options.onSubmit({ query, sort: currentSort(), inputs, categoryIndex: currentCategoryIndex() });
+          if (window.location.hash !== previousHash && !form.classList.contains('is-collapsed')) {
+            preserveExpandedSearchControlsOnce = true;
+          }
           return;
         }
         const categoryIndex = currentCategoryIndex();
         if (query || Number.isInteger(categoryIndex)) {
           window.location.hash = keywordResultsUrl(query, currentSort(), categoryIndex);
+          if (window.location.hash !== previousHash && !form.classList.contains('is-collapsed')) {
+            preserveExpandedSearchControlsOnce = true;
+          }
           return;
         }
         if (window.location.hash.startsWith('#keyword-results')) {
@@ -37206,6 +37502,7 @@ const DATA = {
       });
       sortInputs.forEach(sortInput => {
         sortInput.addEventListener('change', () => {
+          updateStandaloneSearchSummary(form);
           runCurrentSearch();
         });
       });
@@ -37256,6 +37553,7 @@ const DATA = {
       setupCategoryCombobox(form);
       applyCategoryScope();
       updateKeywordEntryState(form);
+      setupStandaloneSearchControls(form);
       setupKeywordAutocomplete(inputs, options);
       setupDescriptionToggle();
     }
@@ -37282,11 +37580,22 @@ const DATA = {
     }
 
     function descriptionToggleMarkup(checked = false, scope = 'browse') {
+      const defaultMode = checked ? 'always' : 'hover';
+      const options = [
+        ['always', 'Always'],
+        ['hover', 'On hover'],
+        ['hidden', 'Hidden']
+      ];
       return `
-        <label class="description-toggle description-toggle-panel" for="description-display-toggle">
-          <input id="description-display-toggle" type="checkbox" data-description-scope="${escapeHtml(scope)}"${checked ? ' checked' : ''}>
-          <span>Show descriptions</span>
-        </label>
+        <div class="description-toggle description-toggle-panel" role="radiogroup" aria-labelledby="description-display-label" data-description-mode data-description-scope="${escapeHtml(scope)}" data-default-mode="${defaultMode}">
+          <span id="description-display-label" class="description-toggle-label">Show descriptions:</span>
+          ${options.map(([value, label]) => `
+            <label class="description-toggle-choice">
+              <input type="radio" name="description-display-mode" value="${value}"${defaultMode === value ? ' checked' : ''}>
+              <span>${label}</span>
+            </label>
+          `).join('')}
+        </div>
       `;
     }
 
