@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-04",
+  "updatedAt": "2026-08-10",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -21676,7 +21676,7 @@
       "auditSequence": 40,
       "status": "completed",
       "postCountBefore": 49,
-      "postCountAfter": 74,
+      "postCountAfter": 77,
       "descriptionBefore": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "descriptionRecommendation": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categoriesBefore": [
@@ -22063,6 +22063,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post interprets the sheep-and-goats saying as Jesus' apocalyptic teaching about the Son of Man's final judgment, reward, and punishment."
+        },
+        {
+          "wpId": "50329",
+          "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -22073,7 +22080,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -25715,7 +25723,7 @@
       "auditSequence": 49,
       "status": "completed",
       "postCountBefore": 42,
-      "postCountAfter": 73,
+      "postCountAfter": 75,
       "descriptionBefore": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "descriptionRecommendation": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categoriesBefore": [
@@ -26214,6 +26222,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post concludes that Jesus went to Jerusalem to proclaim his apocalyptic message and that this proclamation led to his execution."
+        },
+        {
+          "wpId": "50329",
+          "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -26230,7 +26252,8 @@
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -27711,7 +27734,7 @@
       "auditSequence": 54,
       "status": "completed",
       "postCountBefore": 39,
-      "postCountAfter": 47,
+      "postCountAfter": 49,
       "descriptionBefore": "Posts on whether Jesus understood himself or was understood by others as Messiah, including Jewish messianic expectations, resurrection belief, and early Christian claims.",
       "descriptionRecommendation": "Posts on whether Jesus understood himself or was understood by others as Messiah, including Jewish messianic expectations, resurrection belief, and early Christian claims.",
       "categoriesBefore": [
@@ -28056,12 +28079,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses Judas and secrecy to examine whether Jesus understood himself as the future messiah."
+        },
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 39 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -30602,7 +30633,7 @@
       "auditSequence": 63,
       "status": "completed",
       "postCountBefore": 34,
-      "postCountAfter": 46,
+      "postCountAfter": 49,
       "descriptionBefore": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "descriptionRecommendation": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "categoriesBefore": [
@@ -30919,6 +30950,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A substantial section explicitly distinguishes reconstructing John's text from evaluating the Gospel's historical accuracy."
+        },
+        {
+          "wpId": "50347",
+          "title": "Gist and Exaggeration: Jesus and the Cleansing of the Temple",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50329",
+          "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -30929,7 +30981,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3151-3400 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -32369,7 +32422,7 @@
       "auditSequence": 69,
       "status": "completed",
       "postCountBefore": 32,
-      "postCountAfter": 32,
+      "postCountAfter": 33,
       "descriptionBefore": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "descriptionRecommendation": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "categoriesBefore": [
@@ -32623,6 +32676,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally evaluates whether Egyptian Christianity began with Gnostic or other non-orthodox forms before orthodox Christianity became dominant."
+        },
+        {
+          "wpId": "50331",
+          "title": "Was Jesus’s Crucifixion One Big Mistake?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -32633,7 +32693,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -33680,7 +33741,7 @@
       "auditSequence": 74,
       "status": "completed",
       "postCountBefore": 31,
-      "postCountAfter": 30,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers the Apocalypse of Peter, including its afterlife scenes, relationship to heaven and hell, canon debates, Christology, and why it was not included in the New Testament.",
       "descriptionRecommendation": "Covers two distinct works called the Apocalypse of Peter: the Greek/Ethiopic apocalypse with tours of heaven and hell and canon debates, and the Coptic/Gnostic apocalypse with its separationist view of Christ.",
       "categoriesBefore": [
@@ -33906,12 +33967,20 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Apocalypse of Peter as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50331",
+          "title": "Was Jesus’s Crucifixion One Big Mistake?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 31 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -33919,7 +33988,7 @@
       "auditSequence": 75,
       "status": "completed",
       "postCountBefore": 31,
-      "postCountAfter": 35,
+      "postCountAfter": 36,
       "descriptionBefore": "Covers Jesus' crucifixion as a historical event, including how it is reconstructed, disputed, interpreted, or compared with later religious claims.",
       "descriptionRecommendation": "Covers Jesus' crucifixion as a historical event, including how it is reconstructed, disputed, interpreted, or compared with later religious claims.",
       "categoriesBefore": [
@@ -34180,6 +34249,13 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post announces two lectures and raises funds for the blog; the removed topics occur only in short lecture descriptions."
+        },
+        {
+          "wpId": "50331",
+          "title": "Was Jesus’s Crucifixion One Big Mistake?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -34189,7 +34265,8 @@
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -35554,7 +35631,7 @@
       "auditSequence": 81,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 34,
+      "postCountAfter": 37,
       "descriptionBefore": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "descriptionRecommendation": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "categoriesBefore": [
@@ -35801,12 +35878,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post closely interprets Mark's Passion, empty-tomb ending, and presentation of Jesus as the suffering and vindicated Son of God."
+        },
+        {
+          "wpId": "50347",
+          "title": "Gist and Exaggeration: Jesus and the Cleansing of the Temple",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -37074,7 +37166,7 @@
       "auditSequence": 87,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 37,
+      "postCountAfter": 38,
       "descriptionBefore": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
       "descriptionRecommendation": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
       "categoriesBefore": [
@@ -37349,6 +37441,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post directly examines how belief in Jesus as God intensified Christian accusations that Jews had killed God."
+        },
+        {
+          "wpId": "50364",
+          "title": "Prophetic Condemnations of Jews Within Judaism Before Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -37357,7 +37456,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -37867,7 +37967,7 @@
       "auditSequence": 90,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 38,
+      "postCountAfter": 39,
       "descriptionBefore": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "descriptionRecommendation": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "categoriesBefore": [
@@ -38136,6 +38236,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is a sustained methodological reflection on interpreting Jesus' ethical teaching in ancient and modern contexts."
+        },
+        {
+          "wpId": "50364",
+          "title": "Prophetic Condemnations of Jews Within Judaism Before Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -38146,7 +38253,8 @@
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -47175,7 +47283,7 @@
       "auditSequence": 132,
       "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": 21,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
       "descriptionRecommendation": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
       "categoriesBefore": [
@@ -47331,10 +47439,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Hebrew Bible Prophets as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50364",
+          "title": "Prophetic Condemnations of Jews Within Judaism Before Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -52869,7 +52985,7 @@
       "auditSequence": 164,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 21,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers general discussions of Gnosticism, including definitions, introductory summaries, classification problems, Nag Hammadi evidence, and examples of Gnostic or Gnostic-adjacent groups.",
       "descriptionRecommendation": "Covers general discussions of Gnosticism, including definitions, introductory summaries, classification problems, Nag Hammadi evidence, and examples of Gnostic or Gnostic-adjacent groups.",
       "categoriesBefore": [
@@ -53032,6 +53148,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives sustained treatment to Thomasine, miscellaneous, and difficult-to-classify Gnostic traditions."
+        },
+        {
+          "wpId": "50331",
+          "title": "Was Jesus’s Crucifixion One Big Mistake?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -53041,7 +53164,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {

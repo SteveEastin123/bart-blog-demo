@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-08-04",
-  "auditScope": "All 4390 posts in the canonical search index",
+  "updatedAt": "2026-08-10",
+  "auditScope": "All 4395 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,8 +10,8 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4390,
-  "noChangeCount": 3763,
+  "reviewedPostCount": 4395,
+  "noChangeCount": 3768,
   "pendingApprovalCount": 0,
   "posts": [
     {
@@ -84560,6 +84560,113 @@
       "topicsRecommended": [
         "Book of Revelation",
         "Eyewitness Reliability"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4391,
+      "sourceIndex": 0,
+      "wpId": "50364",
+      "dateText": "August 9, 2026",
+      "title": "Prophetic Condemnations of Jews Within Judaism Before Jesus",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Christian Anti-Judaism",
+        "Hebrew Bible Prophets",
+        "Jesus' Ethics"
+      ],
+      "topicsRecommended": [
+        "Christian Anti-Judaism",
+        "Hebrew Bible Prophets",
+        "Jesus' Ethics"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4392,
+      "sourceIndex": 1,
+      "wpId": "50347",
+      "dateText": "August 8, 2026",
+      "title": "Gist and Exaggeration: Jesus and the Cleansing of the Temple",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives"
+      ],
+      "topicsRecommended": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4393,
+      "sourceIndex": 2,
+      "wpId": "50329",
+      "dateText": "August 6, 2026",
+      "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Apocalyptic Jesus",
+        "Gospel Historical Reliability",
+        "Jesus' Teachings"
+      ],
+      "topicsRecommended": [
+        "Apocalyptic Jesus",
+        "Gospel Historical Reliability",
+        "Jesus' Teachings"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4394,
+      "sourceIndex": 3,
+      "wpId": "50331",
+      "dateText": "August 5, 2026",
+      "title": "Was Jesus’s Crucifixion One Big Mistake?",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Apocalypse of Peter",
+        "Crucifixion of Jesus",
+        "Gnostic and Orthodox Conflicts",
+        "Gnosticism (General)"
+      ],
+      "topicsRecommended": [
+        "Apocalypse of Peter",
+        "Crucifixion of Jesus",
+        "Gnostic and Orthodox Conflicts",
+        "Gnosticism (General)"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4395,
+      "sourceIndex": 4,
+      "wpId": "50317",
+      "dateText": "August 4, 2026",
+      "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Apocalyptic Jesus",
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Messiah"
+      ],
+      "topicsRecommended": [
+        "Apocalyptic Jesus",
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Messiah"
       ],
       "topicsAdded": [],
       "topicsRemoved": [],
