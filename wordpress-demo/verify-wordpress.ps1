@@ -21,7 +21,7 @@ if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
 $pluginRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\wordpress-plugin\ehrman-blog-discovery') -ErrorAction Stop).Path
 $pluginPrefix = $pluginRoot.TrimEnd('\') + '\'
 $pluginBootstrap = Get-Content -LiteralPath (Join-Path $pluginRoot 'ehrman-blog-discovery.php') -Raw
-$versionMatch = [regex]::Match($pluginBootstrap, "define\('EBD_VERSION',\s*'([^']+)'\);")
+$versionMatch = [regex]::Match($pluginBootstrap, "define\(\s*'EHRMAN_DISCOVERY_VERSION',\s*'([^']+)'\s*\);")
 if (-not $versionMatch.Success) {
     throw "Could not determine the expected plugin version."
 }
@@ -37,7 +37,9 @@ try {
         throw "Docker Compose configuration validation failed."
     }
 
-    $phpFiles = Get-ChildItem -LiteralPath $pluginRoot -Recurse -File -Filter '*.php' -ErrorAction Stop
+    $vendorPrefix = (Join-Path $pluginRoot 'vendor').TrimEnd('\') + '\'
+    $phpFiles = Get-ChildItem -LiteralPath $pluginRoot -Recurse -File -Filter '*.php' -ErrorAction Stop |
+        Where-Object { -not $_.FullName.StartsWith($vendorPrefix, [System.StringComparison]::OrdinalIgnoreCase) }
     foreach ($file in $phpFiles) {
         $relativePath = $file.FullName.Substring($pluginPrefix.Length).Replace('\', '/')
         $containerPath = "/var/www/html/wp-content/plugins/ehrman-blog-discovery/$relativePath"

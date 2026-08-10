@@ -534,15 +534,23 @@ final class Page_Controller {
 		string $selected_category = ''
 	): string {
 		++$this->instance;
-		$id    = 'ebd-search-' . $this->instance;
-		$terms = Search_Service::unique_terms( $terms );
-		$sort  = in_array( $sort, array( 'ranked', 'newest', 'oldest' ), true ) ? $sort : 'ranked';
-		$chips = array();
+		$id         = 'ebd-search-' . $this->instance;
+		$terms      = Search_Service::unique_terms( $terms );
+		$sort       = in_array( $sort, array( 'ranked', 'newest', 'oldest' ), true ) ? $sort : 'ranked';
+		$chips      = array();
+		$term_types = $this->search->term_types( $terms );
 		foreach ( $terms as $term ) {
+			$type       = $term_types[ Search_Service::normalize( $term ) ] ?? 'keyword';
+			$type_label = 'topic' === $type ? __( 'Topic', 'ehrman-blog-discovery' ) : __( 'Keyword', 'ehrman-blog-discovery' );
 			/* translators: %s: selected search term. */
 			$remove_label = sprintf( __( 'Remove %s', 'ehrman-blog-discovery' ), $term );
-			$chips[]      = '<span class="ebd-keyword-slot ebd-keyword-chip"><input type="hidden" name="ebd_keyword[]" value="'
-				. esc_attr( $term ) . '"><span>' . esc_html( $term ) . '</span><button type="button" '
+			/* translators: %s: search term type, either Topic or Keyword. */
+			$type_accessible_label = sprintf( __( 'Term type: %s', 'ehrman-blog-discovery' ), $type_label );
+			$chips[]               = '<span class="ebd-keyword-slot ebd-keyword-chip"><input type="hidden" name="ebd_keyword[]" value="'
+				. esc_attr( $term ) . '"><span class="ebd-keyword-chip-content"><span class="ebd-keyword-chip-label">'
+				. esc_html( $term ) . '</span><span class="ebd-selected-term-badge is-' . esc_attr( $type )
+				. '" aria-label="' . esc_attr( $type_accessible_label ) . '">' . esc_html( $type_label )
+				. '</span></span><button type="button" '
 				. 'class="ebd-keyword-remove" data-ebd-remove aria-label="' . esc_attr( $remove_label )
 				. '">&times;</button></span>';
 		}
@@ -551,7 +559,7 @@ final class Page_Controller {
 		$chips[]      = '<div class="ebd-keyword-slot ebd-keyword-input-wrap"'
 			. ( $input_hidden ? ' hidden' : '' ) . '><input id="' . esc_attr( $id )
 			. '-input" class="ebd-keyword-input" type="text" placeholder="Keyword ' . min( $next, 4 )
-			. '" aria-label="Keyword ' . min( $next, 4 ) . '" autocomplete="off" aria-autocomplete="list" '
+			. '" role="combobox" aria-label="Keyword ' . min( $next, 4 ) . '" autocomplete="off" aria-autocomplete="list" '
 			. 'aria-expanded="false" aria-controls="'
 			. esc_attr( $id ) . '-suggestions"' . ( $input_hidden ? ' disabled' : '' ) . '><ul id="'
 			. esc_attr( $id ) . '-suggestions" class="ebd-suggestions" role="listbox" hidden></ul></div>';

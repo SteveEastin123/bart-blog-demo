@@ -339,14 +339,14 @@
   function selectSuggestion(input, suggestion) {
     const form = input.closest("[data-ebd-search-form]");
     if (!form || !suggestion) return;
-    if (addChip(form, suggestion.label)) {
+    if (addChip(form, suggestion.label, suggestion.isTopic)) {
       closeSuggestions(input);
       refreshSearch(form);
       searchInput(form)?.focus({ preventScroll: true });
     }
   }
 
-  function addChip(form, value) {
+  function addChip(form, value, isTopic = false) {
     const input = searchInput(form);
     const clean = value.trim();
     const current = values(form, input);
@@ -360,15 +360,24 @@
     hidden.type = "hidden";
     hidden.name = "ebd_keyword[]";
     hidden.value = clean;
+    const content = document.createElement("span");
+    content.className = "ebd-keyword-chip-content";
     const label = document.createElement("span");
+    label.className = "ebd-keyword-chip-label";
     label.textContent = clean;
+    const badge = document.createElement("span");
+    const typeLabel = isTopic ? "Topic" : "Keyword";
+    badge.className = `ebd-selected-term-badge ${isTopic ? "is-topic" : "is-keyword"}`;
+    badge.textContent = typeLabel;
+    badge.setAttribute("aria-label", `Term type: ${typeLabel}`);
+    content.append(label, badge);
     const remove = document.createElement("button");
     remove.type = "button";
     remove.className = "ebd-keyword-remove";
     remove.dataset.ebdRemove = "";
     remove.setAttribute("aria-label", `Remove ${clean}`);
     remove.innerHTML = "&times;";
-    chip.append(hidden, label, remove);
+    chip.append(hidden, content, remove);
     const wrap = form.querySelector(".ebd-keyword-input-wrap");
     form.querySelector("[data-ebd-chip-list]")?.insertBefore(chip, wrap);
     if (input) input.value = "";

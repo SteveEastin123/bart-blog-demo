@@ -99,6 +99,47 @@ final class Search_Service {
 	}
 
 	/**
+	 * Identifies selected terms as topics or secondary keywords.
+	 *
+	 * When the same normalized label exists in both groups, it is presented as a
+	 * topic to match autocomplete behavior.
+	 *
+	 * @param array<int,string> $terms Selected search terms.
+	 * @return array<string,string> Term types keyed by normalized term.
+	 */
+	public function term_types( array $terms ): array {
+		$normalized_terms = array_values(
+			array_unique(
+				array_filter(
+					array_map( array( self::class, 'normalize' ), self::unique_terms( $terms ) )
+				)
+			)
+		);
+		if ( empty( $normalized_terms ) ) {
+			return array();
+		}
+
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		$sql    = "SELECT normalized,MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) is_topic "
+			. "FROM {$tables['post_search_terms']} WHERE normalized IN ("
+			. implode( ',', array_fill( 0, count( $normalized_terms ), '%s' ) )
+			. ') GROUP BY normalized';
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Dynamic placeholders are generated internally and prepared here.
+		$rows = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( $sql, $normalized_terms ), ARRAY_A ) );
+
+		$types = array_fill_keys( $normalized_terms, 'keyword' );
+		foreach ( $rows as $row ) {
+			$normalized = Database::text( $row['normalized'] ?? null );
+			if ( isset( $types[ $normalized ] ) && 1 === Database::integer( $row['is_topic'] ?? null ) ) {
+				$types[ $normalized ] = 'topic';
+			}
+		}
+
+		return $types;
+	}
+
+	/**
 	 * Builds autocomplete suggestions from the currently eligible posts.
 	 *
 	 * @param string            $query         Partial user input.

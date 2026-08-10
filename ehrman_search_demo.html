@@ -1254,6 +1254,42 @@
       padding: 9px 10px 9px 12px;
     }
 
+    .keyword-chip-content {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .keyword-chip-label {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .selected-term-type {
+      align-items: center;
+      background: #f5e7e4;
+      border: 1px solid #d8aaa4;
+      border-radius: 3px;
+      color: var(--maroon);
+      display: inline-flex;
+      flex: 0 0 58px;
+      font-size: 10px;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 16px;
+      padding: 1px 4px;
+      text-transform: uppercase;
+      width: 58px;
+    }
+
+    .selected-term-type.is-keyword {
+      background: #e9f0f5;
+      border-color: #b8cbd8;
+      color: #3f5665;
+    }
+
     .keyword-empty-slot {
       align-items: center;
       border: 1px dashed #d7c9a5;
@@ -1758,7 +1794,7 @@
       .article-tooltip-text,
       .description-tooltip-text {
         max-width: calc(100vw - 32px);
-        width: calc(100vw - 32px);
+        width: calc(100vw - 88px);
       }
     }
 
@@ -36934,6 +36970,7 @@ const DATA = {
       const categorySelect = form.querySelector('[data-category-filter]');
       const hasCategory = Boolean(categorySelect && categorySelect.value !== '');
       input.placeholder = `Keyword ${Math.min(values.length + 1, MAX_SELECTED_KEYWORDS)}`;
+      input.setAttribute('aria-label', input.placeholder);
       input.disabled = values.length >= MAX_SELECTED_KEYWORDS;
       const clearButton = form.querySelector('[data-clear-keywords]');
       if (clearButton) {
@@ -36963,7 +37000,13 @@ const DATA = {
       updateStandaloneSearchSummary(form);
     }
 
-    function addKeywordChip(form, input, value) {
+    function keywordTermIsTopic(value) {
+      const normalizedValue = normalizeKeywordSearchValue(value);
+      const suggestion = KEYWORD_SUGGESTIONS.find(([, , normalized]) => normalized === normalizedValue);
+      return Boolean(suggestion?.[3]);
+    }
+
+    function addKeywordChip(form, input, value, isTopic = keywordTermIsTopic(value)) {
       const cleanValue = String(value || '').trim();
       if (!form || !input || !cleanValue) {
         return false;
@@ -36987,15 +37030,24 @@ const DATA = {
       hidden.type = 'hidden';
       hidden.name = 'keyword';
       hidden.value = cleanValue;
+      const content = document.createElement('span');
+      content.className = 'keyword-chip-content';
       const label = document.createElement('span');
+      label.className = 'keyword-chip-label';
       label.textContent = cleanValue;
+      const badge = document.createElement('span');
+      const typeLabel = isTopic ? 'Topic' : 'Keyword';
+      badge.className = `selected-term-type ${isTopic ? 'is-topic' : 'is-keyword'}`;
+      badge.textContent = typeLabel;
+      badge.setAttribute('aria-label', `Term type: ${typeLabel}`);
+      content.append(label, badge);
       const remove = document.createElement('button');
       remove.type = 'button';
       remove.className = 'keyword-chip-remove';
       remove.dataset.removeKeyword = '';
       remove.setAttribute('aria-label', `Remove ${cleanValue}`);
       remove.textContent = 'x';
-      chip.append(hidden, label, remove);
+      chip.append(hidden, content, remove);
       const wrap = keywordEntryWrap(form);
       chipList.insertBefore(chip, wrap || chipList.querySelector('.keyword-empty-slot'));
       input.value = '';
@@ -37018,7 +37070,7 @@ const DATA = {
         return false;
       }
       const form = input.closest('#keyword-search-form');
-      const added = addKeywordChip(form, input, suggestion[0]);
+      const added = addKeywordChip(form, input, suggestion[0], Boolean(suggestion[3]));
       closeKeywordSuggestions(input);
       if (added && typeof form.runCurrentSearch === 'function') {
         form.runCurrentSearch();
@@ -37245,17 +37297,22 @@ const DATA = {
     function keywordInputMarkup(index, value = '') {
       return `
         <div class="keyword-slot keyword-input-wrap">
-          <input id="keyword-search-input-${index}" class="keyword-search-input" data-keyword-index="${index}" name="keyword" type="text" autocomplete="off" placeholder="Keyword ${index}" value="${escapeHtml(value)}" aria-autocomplete="list" aria-expanded="false" aria-controls="keyword-suggestions-${index}">
+          <input id="keyword-search-input-${index}" class="keyword-search-input" data-keyword-index="${index}" name="keyword" type="text" autocomplete="off" placeholder="Keyword ${index}" value="${escapeHtml(value)}" role="combobox" aria-label="Keyword ${index}" aria-autocomplete="list" aria-expanded="false" aria-controls="keyword-suggestions-${index}">
           <ul id="keyword-suggestions-${index}" class="keyword-suggestion-list" role="listbox" hidden></ul>
         </div>
       `;
     }
 
     function keywordChipMarkup(value) {
+      const isTopic = keywordTermIsTopic(value);
+      const typeLabel = isTopic ? 'Topic' : 'Keyword';
       return `
         <span class="keyword-slot keyword-chip">
           <input type="hidden" name="keyword" value="${escapeHtml(value)}">
-          <span>${escapeHtml(value)}</span>
+          <span class="keyword-chip-content">
+            <span class="keyword-chip-label">${escapeHtml(value)}</span>
+            <span class="selected-term-type ${isTopic ? 'is-topic' : 'is-keyword'}" aria-label="Term type: ${typeLabel}">${typeLabel}</span>
+          </span>
           <button type="button" class="keyword-chip-remove" data-remove-keyword aria-label="Remove ${escapeHtml(value)}">x</button>
         </span>
       `;

@@ -3,7 +3,7 @@
  * Plugin Name: Ehrman Blog Discovery
  * Plugin URI:  https://github.com/SteveEastin123/bart-blog-demo
  * Description: WordPress foundation for browsing and searching the Ehrman Blog index.
- * Version:     0.4.26
+ * Version:     0.4.28
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author:      Steve Eastin
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EHRMAN_DISCOVERY_VERSION', '0.4.26' );
+define( 'EHRMAN_DISCOVERY_VERSION', '0.4.28' );
 define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.0.0' );
 define( 'EHRMAN_DISCOVERY_PLUGIN_FILE', __FILE__ );
 define( 'EHRMAN_DISCOVERY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

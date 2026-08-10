@@ -744,9 +744,41 @@
   font-weight: 600;
 }
 
-.ebd-keyword-chip > span {
+.ebd-keyword-chip-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ebd-keyword-chip-label {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.ebd-selected-term-badge {
+  display: inline-flex;
+  flex: 0 0 58px;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  min-height: 20px;
+  padding: 2px 4px;
+  border: 1px solid #d8a6a0;
+  border-radius: 3px;
+  background: var(--ebd-maroon-soft);
+  color: var(--ebd-maroon);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ebd-selected-term-badge.is-keyword {
+  border-color: #afc8d4;
+  background: var(--ebd-keyword-soft);
+  color: var(--ebd-keyword);
 }
 
 .ebd-keyword-remove {
@@ -790,7 +822,7 @@
   align-items: center;
   padding: 9px 12px;
   border: 1px dashed #d7c7ac;
-  color: #837b70;
+  color: #7a6f68;
 }
 
 .ebd-suggestions {
