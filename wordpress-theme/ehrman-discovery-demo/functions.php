@@ -14,7 +14,13 @@ add_action('after_setup_theme', 'ehrman_demo_setup');
 function ehrman_demo_assets(): void
 {
     $version = wp_get_theme()->get('Version');
-    wp_enqueue_style('ehrman-discovery-demo', get_stylesheet_uri(), array(), $version);
+    wp_enqueue_style(
+        'ehrman-discovery-demo-fonts',
+        'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500&family=Roboto+Condensed:wght@400;600;700&display=swap',
+        array(),
+        null
+    );
+    wp_enqueue_style('ehrman-discovery-demo', get_stylesheet_uri(), array('ehrman-discovery-demo-fonts'), $version);
 }
 add_action('wp_enqueue_scripts', 'ehrman_demo_assets');
 

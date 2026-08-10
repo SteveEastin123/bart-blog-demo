@@ -1,13 +1,15 @@
 :root {
-  --ebd-blue: #17689a;
-  --ebd-blue-dark: #0e527c;
-  --ebd-maroon: #7b1f1a;
-  --ebd-maroon-soft: #f7ece9;
-  --ebd-ink: #242424;
-  --ebd-muted: #5d6268;
-  --ebd-line: #ded4c3;
+  --ebd-body-font: var(--body_typography-font-family, "Open Sans", Arial, Helvetica, sans-serif);
+  --ebd-heading-font: var(--h1_typography-font-family, "Roboto Condensed", "Arial Narrow", Arial, sans-serif);
+  --ebd-blue: #6d201d;
+  --ebd-blue-dark: #4f1715;
+  --ebd-maroon: #6d201d;
+  --ebd-maroon-soft: #f7eeee;
+  --ebd-ink: #3c3c3c;
+  --ebd-muted: #747474;
+  --ebd-line: #e0dede;
   --ebd-panel: #fff;
-  --ebd-paper: #fbfaf7;
+  --ebd-paper: #fff;
   --ebd-keyword: #496577;
   --ebd-keyword-soft: #eef4f7;
 }
@@ -18,9 +20,9 @@
 .ebd-tooltip {
   box-sizing: border-box;
   color: var(--ebd-ink);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-family: var(--ebd-body-font);
+  font-size: 15px;
+  line-height: 24px;
 }
 
 .ebd-discovery *,
@@ -51,7 +53,7 @@
 .ebd-discovery a:focus-visible,
 .ebd-discovery button:focus-visible,
 .ebd-discovery input:focus-visible {
-  outline: 3px solid rgb(23 104 154 / 28%);
+  outline: 3px solid rgb(109 32 29 / 28%);
   outline-offset: 2px;
 }
 
@@ -62,11 +64,12 @@
 
 .ebd-content-header h2 {
   margin: 8px 0 4px;
-  color: var(--ebd-ink);
-  font-size: clamp(28px, 4vw, 30px);
+  color: var(--ebd-maroon);
+  font-family: var(--ebd-heading-font);
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 1.2;
+  line-height: 1.08;
 }
 
 .ebd-count-line,
@@ -192,10 +195,11 @@
 
 .ebd-item-title,
 .ebd-post-title {
-  font-size: 18px;
-  font-weight: 600;
+  font-family: var(--ebd-heading-font);
+  font-size: 22px;
+  font-weight: 700;
   letter-spacing: 0;
-  line-height: 1.35;
+  line-height: 27px;
 }
 
 .ebd-item-meta {
@@ -206,9 +210,16 @@
 .ebd-item-description,
 .ebd-post-description {
   margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.ebd-item-description {
   color: var(--ebd-maroon);
-  font-size: 16px;
-  line-height: 1.5;
+}
+
+.ebd-post-description {
+  color: var(--ebd-ink);
 }
 
 .ebd-description-mode {
@@ -417,6 +428,7 @@
   min-height: 58px;
   padding: 12px 16px;
   color: var(--ebd-blue-dark);
+  font-family: var(--ebd-heading-font);
   font-size: 20px;
   font-weight: 700;
 }
@@ -424,8 +436,9 @@
 .ebd-review-category > summary {
   min-height: 50px;
   padding: 9px 13px;
+  font-family: var(--ebd-heading-font);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .ebd-review-area > summary:hover,
@@ -483,7 +496,9 @@
 }
 
 .ebd-review-topic-name {
-  font-size: 17px;
+  font-family: var(--ebd-heading-font);
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .ebd-review-topic .ebd-review-description {
@@ -984,7 +999,7 @@
 .ebd-pagination-link:hover,
 .ebd-pagination-link:focus-visible {
   border-color: var(--ebd-blue);
-  background: #edf5fa;
+  background: var(--ebd-maroon-soft);
   color: var(--ebd-blue-dark);
   text-decoration: none;
 }
@@ -1067,12 +1082,13 @@
   z-index: 10000;
   max-width: 520px;
   padding: 13px 15px;
-  border: 1px solid #d6c5a8;
+  border: 1px solid var(--ebd-line);
   border-radius: 4px;
-  background: #fffdf9;
-  box-shadow: 0 6px 18px rgb(36 36 36 / 15%);
+  background: #fff;
+  box-shadow: 0 4px 14px rgb(60 60 60 / 13%);
   color: var(--ebd-maroon);
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 24px;
   pointer-events: none;
 }
 
@@ -1089,6 +1105,7 @@
 .ebd-status h2 {
   margin-top: 0;
   color: var(--ebd-maroon);
+  font-family: var(--ebd-heading-font);
   font-size: 28px;
   letter-spacing: 0;
 }

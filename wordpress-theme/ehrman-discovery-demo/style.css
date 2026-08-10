@@ -3,25 +3,25 @@ Theme Name: Ehrman Discovery Demo
 Theme URI: https://ehrmanblog.org/
 Author: Ehrman Blog Discovery Demo
 Description: A lightweight companion theme for demonstrating the Ehrman Blog discovery plugin.
-Version: 0.1.2
+Version: 0.1.3
 Requires at least: 6.5
 Requires PHP: 8.1
 Text Domain: ehrman-discovery-demo
 */
 
 :root {
-  --ehrman-bg: #f4f1ea;
+  --ehrman-bg: #ffffff;
   --ehrman-panel: #ffffff;
   --ehrman-paper: #efe7c7;
-  --ehrman-line: #d8c8a8;
-  --ehrman-ink: #242424;
-  --ehrman-muted: #5b5b5b;
-  --ehrman-link: #17689a;
-  --ehrman-link-dark: #0e527c;
-  --ehrman-maroon: #751f1b;
-  --ehrman-maroon-dark: #5f1714;
-  --ehrman-focus: #a6342a;
-  --ehrman-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+  --ehrman-line: #e0dede;
+  --ehrman-ink: #3c3c3c;
+  --ehrman-muted: #747474;
+  --ehrman-link: #6d201d;
+  --ehrman-link-dark: #4f1715;
+  --ehrman-maroon: #6d201d;
+  --ehrman-maroon-dark: #4f1715;
+  --ehrman-focus: #6d201d;
+  --ehrman-shadow: 0 1px 2px rgb(60 60 60 / 7%);
 }
 
 * {
@@ -37,8 +37,8 @@ body {
   background: var(--ehrman-bg);
   color: var(--ehrman-ink);
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 24px;
 }
 
 a {
@@ -128,7 +128,7 @@ a:hover {
 .ehrman-utility-item {
   border: 0;
   border-left: 1px solid rgb(255 255 255 / 22%);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 600;
 }
@@ -211,8 +211,9 @@ a:hover {
 
 .ehrman-brand-title {
   color: var(--ehrman-maroon);
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
   font-size: 31px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 35px;
 }
 
@@ -229,9 +230,10 @@ a:hover {
   align-items: center;
   justify-content: flex-end;
   gap: 10px 21px;
-  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
+  font-family: Oswald, "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 22px;
 }
 
 .ehrman-navigation a {
@@ -243,8 +245,7 @@ a:hover {
 .ehrman-navigation a:hover,
 .ehrman-navigation a[aria-current="page"] {
   color: var(--ehrman-link-dark);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .ehrman-navigation .is-disabled {
@@ -285,8 +286,8 @@ a:hover {
 .ehrman-intro-inner p {
   max-width: 78ch;
   margin: 0 0 15px;
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 24px;
 }
 
 .ehrman-intro-inner strong {
@@ -349,7 +350,7 @@ a:hover {
 .ehrman-content-page {
   overflow: visible;
   border: 1px solid var(--ehrman-line);
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--ehrman-panel);
   box-shadow: var(--ehrman-shadow);
 }
@@ -358,9 +359,11 @@ a:hover {
   margin: 0;
   padding: 24px 28px 18px;
   border-bottom: 1px solid var(--ehrman-line);
-  color: #111;
-  font-size: 30px;
-  line-height: 1.2;
+  color: var(--ehrman-maroon);
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 27px;
 }
 
 .ehrman-page-body {
