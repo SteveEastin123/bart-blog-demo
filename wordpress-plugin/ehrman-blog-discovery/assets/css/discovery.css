@@ -252,6 +252,12 @@
   accent-color: var(--ebd-maroon);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .ebd-description-choice-hover {
+    display: none;
+  }
+}
+
 .ebd-description-control {
   border-top: 1px solid var(--ebd-line);
 }

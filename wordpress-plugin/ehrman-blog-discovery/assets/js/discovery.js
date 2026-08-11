@@ -871,9 +871,12 @@
   function setupDescriptionMode(control) {
     const root = control.closest(".ebd-discovery") || document;
     const preferred = savedDescriptionMode(control);
-    const mode = ["always", "hover", "hidden"].includes(preferred)
+    let mode = ["always", "hover", "hidden"].includes(preferred)
       ? preferred
       : (control.dataset.defaultMode || "hover");
+    if (mode === "hover" && window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+      mode = "hidden";
+    }
     const selected = control.querySelector(`input[value="${mode}"]`);
     if (selected) selected.checked = true;
     control.addEventListener("change", (event) => {

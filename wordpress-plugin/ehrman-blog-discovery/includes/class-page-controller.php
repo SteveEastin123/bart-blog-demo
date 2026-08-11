@@ -936,7 +936,8 @@ final class Page_Controller {
 		);
 		$choices      = array();
 		foreach ( $options as $value => $label ) {
-			$choices[] = '<label class="ebd-description-choice"><input type="radio" name="' . esc_attr( $id )
+			$choice_class = 'ebd-description-choice' . ( 'hover' === $value ? ' ebd-description-choice-hover' : '' );
+			$choices[]    = '<label class="' . esc_attr( $choice_class ) . '"><input type="radio" name="' . esc_attr( $id )
 				. '" value="' . esc_attr( $value ) . '"' . checked( $default_mode, $value, false )
 				. '><span>' . esc_html( $label ) . '</span></label>';
 		}

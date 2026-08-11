@@ -1472,6 +1472,12 @@
       width: 17px;
     }
 
+    @media (hover: none) and (pointer: coarse) {
+      .description-toggle-choice-hover {
+        display: none;
+      }
+    }
+
     @media (max-width: 1180px) {
       .site-menu {
         gap: 8px 22px;
@@ -37272,9 +37278,12 @@ const DATA = {
         return;
       }
       const preferred = savedDescriptionMode(control);
-      const mode = ['always', 'hover', 'hidden'].includes(preferred)
+      let mode = ['always', 'hover', 'hidden'].includes(preferred)
         ? preferred
         : (control.dataset.defaultMode || 'hover');
+      if (mode === 'hover' && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        mode = 'hidden';
+      }
       const selected = control.querySelector(`input[value="${mode}"]`);
       if (selected) {
         selected.checked = true;
@@ -37741,7 +37750,7 @@ const DATA = {
         <div class="description-toggle description-toggle-panel" role="radiogroup" aria-labelledby="description-display-label" data-description-mode data-description-scope="${escapeHtml(scope)}" data-default-mode="${defaultMode}">
           <span id="description-display-label" class="description-toggle-label">Show descriptions:</span>
           ${options.map(([value, label]) => `
-            <label class="description-toggle-choice">
+            <label class="description-toggle-choice${value === 'hover' ? ' description-toggle-choice-hover' : ''}">
               <input type="radio" name="description-display-mode" value="${value}"${defaultMode === value ? ' checked' : ''}>
               <span>${label}</span>
             </label>
