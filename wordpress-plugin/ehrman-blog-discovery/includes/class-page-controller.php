@@ -592,6 +592,19 @@ final class Page_Controller {
 				. esc_attr( $value ) . '"' . checked( $sort, $value, false ) . '><span>' . esc_html( $label ) . '</span></label>';
 		}
 		$has_search_state = ! empty( $terms ) || '' !== $category_scope || '' !== $topic_scope || '' !== $selected_category;
+		$suggestion_order = '<div class="ebd-sort-row ebd-suggestion-order-row" role="radiogroup" aria-label="'
+			. esc_attr__( 'Order autocomplete suggestions', 'ehrman-blog-discovery' ) . '"><span>'
+			. esc_html__( 'Order suggestions', 'ehrman-blog-discovery' ) . '</span>';
+		foreach ( array(
+			'popular'        => 'Most posts',
+			'topics-first'   => 'Topics first',
+			'keywords-first' => 'Keywords first',
+		) as $value => $label ) {
+			$suggestion_order .= '<label class="ebd-sort-choice"><input type="radio" name="ebd_suggestion_order" value="'
+				. esc_attr( $value ) . '"' . checked( 'popular', $value, false ) . '><span>'
+				. esc_html( $label ) . '</span></label>';
+		}
+		$suggestion_order .= '</div>';
 		$compact_summary  = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
 			. '<strong>' . esc_html__( 'Current search:', 'ehrman-blog-discovery' ) . '</strong> '
 			. '<span data-ebd-search-summary></span></p><button type="button" class="ebd-search-edit" '
@@ -604,8 +617,8 @@ final class Page_Controller {
 			. '<div id="' . esc_attr( $id ) . '-controls" class="ebd-search-controls" data-ebd-search-expanded>' . $scope . $category_filter
 			. '<p class="ebd-search-instructions"><strong>' . esc_html__( 'Select up to four search terms.', 'ehrman-blog-discovery' )
 			. '</strong> ' . esc_html__( 'You can enter topics, keywords, or both. Topics identify a post\'s main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.', 'ehrman-blog-discovery' )
-			. '</p><div class="ebd-keyword-grid" data-ebd-chip-list>' . implode( '', $chips ) . '</div>'
-			. '<div class="ebd-sort-row"><span>' . esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>'
+			. '</p>' . $suggestion_order . '<div class="ebd-keyword-grid" data-ebd-chip-list>' . implode( '', $chips ) . '</div>'
+			. '<div class="ebd-sort-row ebd-post-sort-row"><span>' . esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>'
 			. implode( '', $sort_options ) . '</div><div class="ebd-search-actions"><button type="button" class="ebd-clear" data-ebd-clear>'
 			. esc_html__( 'Clear all', 'ehrman-blog-discovery' ) . '</button><button type="button" class="ebd-search-collapse" '
 			. 'data-ebd-search-collapse aria-controls="' . esc_attr( $id ) . '-controls"'

@@ -784,6 +784,12 @@ def keyword_panel(
       {category_filter_markup}
       <div class="keyword-terms-section">
         <p class="keyword-instructions"><strong>Select up to four search terms.</strong> You can enter topics, keywords, or both. Topics identify a post's main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.</p>
+        <div class="sort-row suggestion-order-row" role="radiogroup" aria-label="Order autocomplete suggestions">
+          <span class="sort-label">Order suggestions</span>
+          <label class="sort-choice"><input type="radio" name="suggestion_order" value="popular" checked><span>Most posts</span></label>
+          <label class="sort-choice"><input type="radio" name="suggestion_order" value="topics-first"><span>Topics first</span></label>
+          <label class="sort-choice"><input type="radio" name="suggestion_order" value="keywords-first"><span>Keywords first</span></label>
+        </div>
         <div class="keyword-grid">
           <div class="keyword-slot-grid" data-keyword-chip-list>
             {chips}
@@ -791,7 +797,7 @@ def keyword_panel(
             {empty_slots}
           </div>
         </div>
-        <div class="sort-row">
+        <div class="sort-row post-sort-row">
           <span class="sort-label">Sort by</span>
           {sort_options}
         </div>

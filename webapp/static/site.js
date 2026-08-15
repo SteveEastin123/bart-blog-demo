@@ -316,7 +316,7 @@
       params.set("topic", form.dataset.topicSlug);
     }
     const response = await fetch("/api/keywords?" + params.toString());
-    const suggestions = await response.json();
+    const suggestions = orderedSuggestions(input, await response.json());
     list.innerHTML = "";
     input.keywordSuggestionMatches = suggestions;
     input.keywordSuggestionIndex = -1;
@@ -365,6 +365,25 @@
     list.hidden = false;
     input.setAttribute("aria-expanded", "true");
     positionKeywordSuggestionList(input);
+  }
+
+  function orderedSuggestions(input, suggestions) {
+    const form = input.closest("[data-keyword-form]");
+    const mode = form?.querySelector('input[name="suggestion_order"]:checked')?.value || "popular";
+    return [...suggestions].sort((left, right) => {
+      if (mode === "topics-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
+        return Number(right.isTopic) - Number(left.isTopic);
+      }
+      if (mode === "keywords-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
+        return Number(left.isTopic) - Number(right.isTopic);
+      }
+      const countDifference = Number(right.postCount || 0) - Number(left.postCount || 0);
+      if (countDifference) return countDifference;
+      if (Boolean(left.isTopic) !== Boolean(right.isTopic)) {
+        return Number(right.isTopic) - Number(left.isTopic);
+      }
+      return String(left.label || "").localeCompare(String(right.label || ""));
+    });
   }
 
   function keywordChipList(form) {
@@ -617,13 +636,21 @@
     });
   });
 
+  document.querySelectorAll('input[name="suggestion_order"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      const form = radio.closest("[data-keyword-form]");
+      const input = form?.querySelector(".keyword-input");
+      if (input?.keywordSuggestionMatches?.length) fetchSuggestions(input);
+    });
+  });
+
   document.addEventListener("click", (event) => {
     if (!event.target.closest("[data-category-combobox]")) {
       document.querySelectorAll("[data-category-combobox]").forEach((combobox) => {
         closeCategoryCombobox(combobox);
       });
     }
-    if (!event.target.closest(".keyword-input-wrap")) {
+    if (!event.target.closest(".keyword-input-wrap,.suggestion-order-row")) {
       document.querySelectorAll(".keyword-suggestion-list").forEach((list) => {
         resetKeywordSuggestionList(list);
       });

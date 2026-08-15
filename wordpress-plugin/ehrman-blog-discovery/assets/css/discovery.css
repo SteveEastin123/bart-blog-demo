@@ -939,6 +939,16 @@
   margin-top: 12px;
 }
 
+.ebd-suggestion-order-row {
+  margin: 12px 0 14px;
+}
+
+.ebd-post-sort-row {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ebd-line);
+}
+
 .ebd-sort-row > span {
   color: var(--ebd-muted);
   font-size: 14px;

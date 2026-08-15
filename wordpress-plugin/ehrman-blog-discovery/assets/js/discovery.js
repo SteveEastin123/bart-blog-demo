@@ -227,6 +227,25 @@
     return count === 1 ? (strings.post || "post") : (strings.posts || "posts");
   }
 
+  function orderedSuggestions(input, suggestions) {
+    const form = input.closest("[data-ebd-search-form]");
+    const mode = form?.querySelector('input[name="ebd_suggestion_order"]:checked')?.value || "popular";
+    return [...suggestions].sort((left, right) => {
+      if (mode === "topics-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
+        return Number(right.isTopic) - Number(left.isTopic);
+      }
+      if (mode === "keywords-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
+        return Number(left.isTopic) - Number(right.isTopic);
+      }
+      const countDifference = Number(right.postCount || 0) - Number(left.postCount || 0);
+      if (countDifference) return countDifference;
+      if (Boolean(left.isTopic) !== Boolean(right.isTopic)) {
+        return Number(right.isTopic) - Number(left.isTopic);
+      }
+      return String(left.label || "").localeCompare(String(right.label || ""));
+    });
+  }
+
   async function loadSuggestions(input) {
     const form = input.closest("[data-ebd-search-form]");
     const list = suggestionList(input);
@@ -254,8 +273,9 @@
       if (!response.ok) throw new Error("Suggestion request failed");
       const suggestions = await response.json();
       if (input.ebdAbortController !== controller) return [];
-      renderSuggestions(input, Array.isArray(suggestions) ? suggestions : []);
-      return Array.isArray(suggestions) ? suggestions : [];
+      const ordered = orderedSuggestions(input, Array.isArray(suggestions) ? suggestions : []);
+      renderSuggestions(input, ordered);
+      return ordered;
     } catch (error) {
       if (error.name !== "AbortError") closeSuggestions(input);
       return [];
@@ -752,6 +772,15 @@
         refreshSearch(form);
       });
     });
+    form.querySelectorAll('input[name="ebd_suggestion_order"]').forEach((radio) => {
+      radio.addEventListener("change", () => {
+        const currentInput = searchInput(form);
+        const current = currentInput?.ebdSuggestions || [];
+        if (currentInput && current.length) {
+          renderSuggestions(currentInput, orderedSuggestions(currentInput, current));
+        }
+      });
+    });
     if (!input) return;
     let timer = null;
     input.addEventListener("input", () => {
@@ -1199,7 +1228,7 @@
       window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? "auto" : "smooth" });
       return;
     }
-    if (!event.target.closest(".ebd-keyword-input-wrap")) {
+    if (!event.target.closest(".ebd-keyword-input-wrap,.ebd-suggestion-order-row")) {
       document.querySelectorAll(".ebd-keyword-input").forEach(closeSuggestions);
     }
   });

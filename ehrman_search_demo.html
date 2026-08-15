@@ -1338,6 +1338,16 @@
       grid-column: 1 / -1;
     }
 
+    .keyword-suggestion-order {
+      margin: 12px 0 14px;
+    }
+
+    .keyword-post-sort {
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+      padding-top: 14px;
+    }
+
     .keyword-sort-wrap .sort-label {
       color: #000000;
       font-size: 15px;
@@ -36076,6 +36086,7 @@ const DATA = {
     const SEARCH_CONTROLS_SESSION_KEY = 'ehrmanDiscovery.searchControls';
     const DESCRIPTION_MODE_SESSION_KEY = 'ehrmanDiscovery.descriptionMode';
     let preserveExpandedSearchControlsOnce = false;
+    let keywordSuggestionOrder = 'popular';
     const POSTS_PER_PAGE = 25;
     const VALID_SORTS = ['best', 'newest', 'oldest'];
 
@@ -37162,6 +37173,29 @@ const DATA = {
       ].join('');
     }
 
+    function orderedKeywordSuggestions(input, matches) {
+      const form = input.closest('#keyword-search-form');
+      const mode = form?.querySelector('input[name="keyword-suggestion-order"]:checked')?.value || 'popular';
+      return [...matches].sort((left, right) => {
+        const leftIsTopic = Boolean(left[3]);
+        const rightIsTopic = Boolean(right[3]);
+        if (mode === 'topics-first' && leftIsTopic !== rightIsTopic) {
+          return Number(rightIsTopic) - Number(leftIsTopic);
+        }
+        if (mode === 'keywords-first' && leftIsTopic !== rightIsTopic) {
+          return Number(leftIsTopic) - Number(rightIsTopic);
+        }
+        const countDifference = Number(right[1] || 0) - Number(left[1] || 0);
+        if (countDifference) {
+          return countDifference;
+        }
+        if (leftIsTopic !== rightIsTopic) {
+          return Number(rightIsTopic) - Number(leftIsTopic);
+        }
+        return String(left[0] || '').localeCompare(String(right[0] || ''));
+      });
+    }
+
     function renderKeywordSuggestions(input, matches, activeIndex = -1, showFeaturedHeading = false) {
       const list = keywordSuggestionList(input);
       if (!list) {
@@ -37238,7 +37272,10 @@ const DATA = {
         closeKeywordSuggestions(input);
         return;
       }
-      const matches = keywordSuggestionMatches(input.value, input, inputs, options);
+      const matches = orderedKeywordSuggestions(
+        input,
+        keywordSuggestionMatches(input.value, input, inputs, options)
+      );
       renderKeywordSuggestions(input, matches, activeIndex, false);
     }
 
@@ -37355,7 +37392,12 @@ const DATA = {
           }
         });
         input.addEventListener('blur', () => {
-          window.setTimeout(() => closeKeywordSuggestions(input), 120);
+          window.setTimeout(() => {
+            const active = document.activeElement;
+            if (!active?.matches('input[name="keyword-suggestion-order"]')) {
+              closeKeywordSuggestions(input);
+            }
+          }, 120);
         });
       });
       window.addEventListener('resize', () => {
@@ -37426,7 +37468,7 @@ const DATA = {
         ['oldest', 'Oldest first']
       ];
       const sortMarkup = includeSort ? `
-        <div class="keyword-sort-wrap" role="radiogroup" aria-label="Sort posts">
+        <div class="keyword-sort-wrap keyword-post-sort" role="radiogroup" aria-label="Sort posts">
           <span class="sort-label">Sort by</span>
           ${sortChoices.map(([value, label]) => `
             <label class="sort-choice">
@@ -37436,6 +37478,14 @@ const DATA = {
           `).join('')}
         </div>
       ` : '';
+      const suggestionOrderMarkup = `
+        <div class="keyword-sort-wrap keyword-suggestion-order" role="radiogroup" aria-label="Order autocomplete suggestions">
+          <span class="sort-label">Order suggestions</span>
+          <label class="sort-choice"><input type="radio" name="keyword-suggestion-order" value="popular"${keywordSuggestionOrder === 'popular' ? ' checked' : ''}><span>Most posts</span></label>
+          <label class="sort-choice"><input type="radio" name="keyword-suggestion-order" value="topics-first"${keywordSuggestionOrder === 'topics-first' ? ' checked' : ''}><span>Topics first</span></label>
+          <label class="sort-choice"><input type="radio" name="keyword-suggestion-order" value="keywords-first"${keywordSuggestionOrder === 'keywords-first' ? ' checked' : ''}><span>Keywords first</span></label>
+        </div>
+      `;
       const descriptionTogglePanel = includeDescriptionToggle ? descriptionToggleMarkup(descriptionsChecked, 'posts') : '';
       const scopeMarkup = scopeLabel ? `
         <div class="keyword-filter-section" aria-label="Search scope">
@@ -37475,6 +37525,7 @@ const DATA = {
             ${categoryFilterMarkup}
             <div class="keyword-terms-section">
               <p class="keyword-instructions"><strong>Select up to four search terms.</strong> You can enter topics, keywords, or both. Topics identify a post's main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.</p>
+              ${suggestionOrderMarkup}
               <div class="keyword-search-controls">
                 <div class="keyword-slot-grid" data-keyword-chip-list>
                   ${cleanValues.map(keywordChipMarkup).join('')}
@@ -37664,6 +37715,16 @@ const DATA = {
         sortInput.addEventListener('change', () => {
           updateStandaloneSearchSummary(form);
           runCurrentSearch();
+        });
+      });
+      form.querySelectorAll('input[name="keyword-suggestion-order"]').forEach(orderInput => {
+        orderInput.addEventListener('change', () => {
+          keywordSuggestionOrder = orderInput.value;
+          const input = form.querySelector('.keyword-search-input');
+          const matches = input?.keywordSuggestionMatches || [];
+          if (input && matches.length) {
+            renderKeywordSuggestions(input, orderedKeywordSuggestions(input, matches));
+          }
         });
       });
       if (categorySelect) {

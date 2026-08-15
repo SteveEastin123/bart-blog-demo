@@ -266,6 +266,18 @@ def validate_posts(
             if not normalize_keyword(keyword):
                 errors.append(f"Post {title!r} has keyword that normalizes to an empty value: {keyword!r}")
 
+        topic_keys = {normalize_keyword(topic) for topic in topics}
+        redundant_keywords = [
+            keyword
+            for keyword in secondary_keywords
+            if normalize_keyword(keyword) in topic_keys
+        ]
+        if redundant_keywords:
+            errors.append(
+                f"Post {title!r} repeats topics as secondary keywords: "
+                f"{', '.join(redundant_keywords)}"
+            )
+
         for topic in topics:
             all_post_topics.add(topic)
             post_topic_counts[topic] = post_topic_counts.get(topic, 0) + 1

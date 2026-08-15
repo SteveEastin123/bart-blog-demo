@@ -829,6 +829,16 @@ a:hover {
   margin-bottom: 14px;
 }
 
+.suggestion-order-row {
+  margin: 12px 0 14px;
+}
+
+.post-sort-row {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 14px;
+}
+
 .sort-label {
   color: #000000;
   font-size: 15px;
