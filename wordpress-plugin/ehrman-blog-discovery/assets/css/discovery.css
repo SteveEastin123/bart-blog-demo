@@ -160,8 +160,13 @@
 .ebd-navigation-link:hover,
 .ebd-navigation-link:focus-visible {
   border-left-color: var(--ebd-maroon);
-  background: var(--ebd-maroon-soft);
+  background: #faf8f0;
   text-decoration: none;
+}
+
+.ebd-navigation-link:hover .ebd-navigation-name > span:last-child,
+.ebd-navigation-link:focus-visible .ebd-navigation-name > span:last-child {
+  text-decoration: underline;
 }
 
 .ebd-navigation-name {
@@ -174,7 +179,7 @@
 .ebd-navigation-chevron {
   flex: 0 0 auto;
   color: var(--ebd-blue);
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1;
 }
@@ -220,6 +225,34 @@
 
 .ebd-post-description {
   color: var(--ebd-ink);
+}
+
+.ebd-view-browse .ebd-content-header h2 {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.ebd-view-browse .ebd-navigation-link {
+  min-height: 48px;
+  padding-block: 9px;
+}
+
+.ebd-view-browse .ebd-item-title {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.ebd-view-browse .ebd-count-line,
+.ebd-view-browse .ebd-item-meta {
+  color: #555;
+}
+
+.ebd-view-browse .ebd-item-description {
+  color: var(--ebd-ink);
+}
+
+.ebd-view-browse .ebd-description-mode {
+  font-size: 15px;
 }
 
 .ebd-description-mode {
