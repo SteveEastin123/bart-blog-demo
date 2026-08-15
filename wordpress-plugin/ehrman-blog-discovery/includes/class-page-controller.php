@@ -907,8 +907,8 @@ final class Page_Controller {
 		if ( $navigation_row ) {
 			return '<li class="ebd-list-item ebd-navigation-item"><a class="ebd-item-title ebd-navigation-link" href="'
 				. esc_url( $url ) . '" data-description="' . esc_attr( $description ) . '"><span class="ebd-navigation-name">'
-				. '<span class="ebd-navigation-chevron" aria-hidden="true">&#8250;</span><span>' . esc_html( $title )
-				. '</span></span><span class="ebd-item-meta">' . wp_kses_post( $meta ) . '</span></a>'
+				. '<span>' . esc_html( $title ) . '</span><span class="ebd-navigation-arrow" aria-hidden="true">&#8594;</span>'
+				. '</span><span class="ebd-item-meta">' . wp_kses_post( $meta ) . '</span></a>'
 				. '<p class="ebd-item-description" hidden>' . esc_html( $description ) . '</p></li>';
 		}
 
