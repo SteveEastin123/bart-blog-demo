@@ -1,0 +1,5364 @@
+{
+  "summary": {
+    "normalized": {
+      "Letter to the Romans": 143,
+      "Hebrew Bible / Old Testament": 498,
+      "Acts of the Apostles": 285,
+      "Book of Revelation": 127
+    },
+    "removedEquivalentTopicOverlaps": {
+      "Acts of the Apostles": 0,
+      "Letter to the Romans": 0,
+      "Book of Revelation": 17
+    }
+  },
+  "normalizedPosts": {
+    "Letter to the Romans": [
+      {
+        "wpId": "49854",
+        "title": "Predestination!  What do you think?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "48712",
+        "title": "The New Testament in a Nutshell: The 50 Word Summaries of Each Book (All of them!)",
+        "from": "Romans"
+      },
+      {
+        "wpId": "48297",
+        "title": "Ignatius: Eager to be Eaten by the Wild Beasts",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47673",
+        "title": "Jude, The Denigration of Angels, and the Followers of Paul",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47002",
+        "title": "Questions: Did Paul state that Jesus was put in a tomb? Is Jesus like Pagan gods? Is the hope for a messiah like the belief in Santa?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "46936",
+        "title": "Will Everyone be Saved? (Everyone??)",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47270",
+        "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47223",
+        "title": "Interesting Questions from Readers",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47195",
+        "title": "Does a Different “Writing Style” Show (convincingly?) That Ephesians is a “Forgery”?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47186",
+        "title": "Ephesians: Who Wrote the Letter, When, and Why?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47169",
+        "title": "Galatians:  Who, When, and Why?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47164",
+        "title": "2 Corinthians: Who Wrote It, When, and Why?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47152",
+        "title": "1 Corinthians in a Nutshell",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47140",
+        "title": "Guest Post by Dr. Paula Fredriksen Part II: The Politics of Piety",
+        "from": "Romans"
+      },
+      {
+        "wpId": "47118",
+        "title": "The Significance and Letters of Paul, in a Nutshell",
+        "from": "Romans"
+      },
+      {
+        "wpId": "41598",
+        "title": "Judaism 200 Years Before Jesus:  The Maccabean Revolt",
+        "from": "Romans"
+      },
+      {
+        "wpId": "41375",
+        "title": "Another Reason for Thinking Jesus Called Himself the Messiah",
+        "from": "Romans"
+      },
+      {
+        "wpId": "41256",
+        "title": "Forged Books, Anonymous Books, and The Use of Secretaries as Authors in the NT",
+        "from": "Romans"
+      },
+      {
+        "wpId": "40165",
+        "title": "Does Paul Have Contradictory Views of the Law, Love, and Salvation?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "40161",
+        "title": "Salvation, Love, and the Jewish Law in Paul.  Are His Views Internally Coherent?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "39468",
+        "title": "Is There an Original Text Even of One of MY Books??",
+        "from": "Romans"
+      },
+      {
+        "wpId": "38758",
+        "title": "Is the Book of Acts Reliable?  The Affirmative REBUTTAL of the Negative Case",
+        "from": "Romans"
+      },
+      {
+        "wpId": "37257",
+        "title": "Interesting Questions About the Books From Nag Hammadi",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36715",
+        "title": "Does Archaeological Evidence Show that Jesus Was Buried on the Day He Died?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36709",
+        "title": "Josephus’ One Statement About the Burial of Crucified Victims in Judea",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36622",
+        "title": "How Relevant is Josephus for Knowing What Happened to the Body of Jesus?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36616",
+        "title": "Did Jews Always Bury Their Dead on the Day of their Death?  Was Jesus Buried Then?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36611",
+        "title": "The Evidence of Josephus for the Burial of Jesus",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36563",
+        "title": "Corpses Left on Roman Crosses?  Penalties for Removing them Early?  A Humorous Story (?!) from Antiquity",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36533",
+        "title": "Was “King of the Jews” Really the Charge Against Jesus, Leading to his Crucifixion?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36506",
+        "title": "Pontius Pilate, Intransigent Governor, Crucifier of Jesus",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36389",
+        "title": "Did Romans Show Clemency to Crucified Criminals?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36286",
+        "title": "Alleged “Proof” That Crucified Jews Were Allowed Decent Burials",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36224",
+        "title": "Did Romans Allow Decent Burials for Crucified Criminals?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36137",
+        "title": "Male Superiority in Antiquity",
+        "from": "Romans"
+      },
+      {
+        "wpId": "36026",
+        "title": "The Life of Brian and Jesus:  Was Jesus Really Buried on the Day of the Crucifixion?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "35694",
+        "title": "Was Jesus an Ascetic Street Preacher or a Man With a Plan? A Platinum Post From Omar Robb",
+        "from": "Romans"
+      },
+      {
+        "wpId": "35760",
+        "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "35715",
+        "title": "The Slippery Slope of Extreme DIAKRISIS (Discernment). A Platinum Post by Barry Haney",
+        "from": "Romans"
+      },
+      {
+        "wpId": "35346",
+        "title": "“You Have Heard His Blasphemy!” But Did They? A Platinum post by Daniel Kohanski",
+        "from": "Romans"
+      },
+      {
+        "wpId": "35238",
+        "title": "Is 2 Thessalonians a Forgery?  From 132 CE?  Platinum Guest Post by Omar Robb",
+        "from": "Romans"
+      },
+      {
+        "wpId": "34100",
+        "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+        "from": "Romans"
+      },
+      {
+        "wpId": "33874",
+        "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+        "from": "Romans"
+      },
+      {
+        "wpId": "33268",
+        "title": "Why Paul Was Persecuted (Or Claimed He Was).  Guest Post by Daniel Kohanski",
+        "from": "Romans"
+      },
+      {
+        "wpId": "33005",
+        "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+        "from": "Romans"
+      },
+      {
+        "wpId": "32682",
+        "title": "Did the Romans Stage Jesus’ Crucifixion?  Platinum Guest Post by Ryan Fleming",
+        "from": "Romans"
+      },
+      {
+        "wpId": "32589",
+        "title": "Did Jesus Believe in Armed Resistance to the Romans?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "32678",
+        "title": "Did Jesus Collaborate with the Romans to Produce His Movement?  Platinum Guest Post by Ryan Fleming",
+        "from": "Romans"
+      },
+      {
+        "wpId": "32674",
+        "title": "Did the Romans Help Create the Jesus’ Movement?  Platinum Guest Post by Ryan Fleming",
+        "from": "Romans"
+      },
+      {
+        "wpId": "30684",
+        "title": "Does Wealth Make You More … Virtuous?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7543",
+        "title": "Why Romans Crucified People and Who Was Crucifixion Reserved For?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15929",
+        "title": "Pilate Released Barabbas.  Really??",
+        "from": "Romans"
+      },
+      {
+        "wpId": "29846",
+        "title": "A Full Reply to Mythicist Richard Carrier.  Most-Commented Blog Post: #4",
+        "from": "Romans"
+      },
+      {
+        "wpId": "29833",
+        "title": "Could Jews Bury Crucified Victims?  Most-commented Blog Post: #7",
+        "from": "Romans"
+      },
+      {
+        "wpId": "29817",
+        "title": "Burials for the Crucified.  Most-commented Blog Post: #9",
+        "from": "Romans"
+      },
+      {
+        "wpId": "16907",
+        "title": "Why Was Jesus Crucified: Bart Ehrman Crucifixion Thoughts",
+        "from": "Romans"
+      },
+      {
+        "wpId": "29790",
+        "title": "Does Paul Know That Judas Iscariot Betrayed Jesus?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "29310",
+        "title": "When Did the Bible Get Chapters and Verses?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "28887",
+        "title": "Paul’s Models of Salvation: Contradictory or Complementary?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "28882",
+        "title": "Paul’s “Participationist” Model of Salvation.",
+        "from": "Romans"
+      },
+      {
+        "wpId": "28814",
+        "title": "How Did Paul Understand Salvation?  The “Judicial” Model",
+        "from": "Romans"
+      },
+      {
+        "wpId": "28670",
+        "title": "The Maccabean Revolt",
+        "from": "Romans"
+      },
+      {
+        "wpId": "28478",
+        "title": "Jewish Indifference to Jesus and the Problems it Caused: Guest Post by Dan Kohanski",
+        "from": "Romans"
+      },
+      {
+        "wpId": "28131",
+        "title": "What Paul Knows about Jesus’ Death, and What Led Up to It",
+        "from": "Romans"
+      },
+      {
+        "wpId": "27935",
+        "title": "Killing Jesus Is Killing Me……",
+        "from": "Romans"
+      },
+      {
+        "wpId": "27584",
+        "title": "Jewish Indifference to Jesus and the Problems It Caused: Platinum Guest Post by Dan Kohanski",
+        "from": "Romans"
+      },
+      {
+        "wpId": "27285",
+        "title": "Jesus’s Apocalyptic View of Destruction",
+        "from": "Romans"
+      },
+      {
+        "wpId": "25202",
+        "title": "Did Paul the Pharisee Learn about Christianity from his Relative, the Apostle Junia?  Guest Post by James McGrath",
+        "from": "Romans"
+      },
+      {
+        "wpId": "25709",
+        "title": "Paul’s Community at Corinth",
+        "from": "Romans"
+      },
+      {
+        "wpId": "21862",
+        "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "20741",
+        "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag",
+        "from": "Romans"
+      },
+      {
+        "wpId": "17708",
+        "title": "Paul’s Incredibly High Christology",
+        "from": "Romans"
+      },
+      {
+        "wpId": "17518",
+        "title": "Does the Book of Acts Accurately Record Paul’s Teachings?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "17064",
+        "title": "What Is the New Testament?  A Broad Overview",
+        "from": "Romans"
+      },
+      {
+        "wpId": "16656",
+        "title": "My Conference on Pseudepigraphy",
+        "from": "Romans"
+      },
+      {
+        "wpId": "16612",
+        "title": "How Did We Get Chapters and Verses?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "16254",
+        "title": "2 Thessalonians as a Forgery?  Does the Author “Write” Like Paul?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15998",
+        "title": "A Roman Vision of Heaven and Hell",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15898",
+        "title": "Homosexuality and the New Testament.  Guest Post by Jeff Siker.",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15896",
+        "title": "Homosexuality in the Bible (and the Christian Church)",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15839",
+        "title": "The Beginning of the Quest of the Historical Jesus",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15748",
+        "title": "Does Everyone Get Saved in the End?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15738",
+        "title": "Blog Year in Review, 2018",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15600",
+        "title": "Jews and Gentiles in Paul’s Churches",
+        "from": "Romans"
+      },
+      {
+        "wpId": "15254",
+        "title": "Does the Book of Acts Portray the *Teachings* of Paul Accurately?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "14870",
+        "title": "Pilate, Who Never “Learned His Lesson”",
+        "from": "Romans"
+      },
+      {
+        "wpId": "14865",
+        "title": "Pontius Pilate: A Sensitive Guy….",
+        "from": "Romans"
+      },
+      {
+        "wpId": "14862",
+        "title": "Illuminating Exercises: The Position Paper Assignments for My NT Greek Class",
+        "from": "Romans"
+      },
+      {
+        "wpId": "14734",
+        "title": "My Greek New Testament Course",
+        "from": "Romans"
+      },
+      {
+        "wpId": "13616",
+        "title": "Did Romans Allow Jews to Bury Crucified Victims?  Readers’ Mailbag January 1, 2018",
+        "from": "Romans"
+      },
+      {
+        "wpId": "13506",
+        "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+        "from": "Romans"
+      },
+      {
+        "wpId": "13238",
+        "title": "Decent Burials for Crucified Victims: A Blast From the Past",
+        "from": "Romans"
+      },
+      {
+        "wpId": "13207",
+        "title": "The Skeletal Remains of Yehohanan: Readers Mailbag October 8, 2017",
+        "from": "Romans"
+      },
+      {
+        "wpId": "12508",
+        "title": "Background to a Different View of the Afterlife: The Maccabean Revolt",
+        "from": "Romans"
+      },
+      {
+        "wpId": "12422",
+        "title": "The Burial of Jesus: A Blast from the Past",
+        "from": "Romans"
+      },
+      {
+        "wpId": "12074",
+        "title": "Jesus’ Private Teachings about the King of the Jews",
+        "from": "Romans"
+      },
+      {
+        "wpId": "12066",
+        "title": "Jesus’ Crucifixion as King of the Jews",
+        "from": "Romans"
+      },
+      {
+        "wpId": "11863",
+        "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016",
+        "from": "Romans"
+      },
+      {
+        "wpId": "10997",
+        "title": "Is Acts Historically Reliable?  The Affirmative Rebuttal",
+        "from": "Romans"
+      },
+      {
+        "wpId": "10872",
+        "title": "My Book Sales and the “Relatives” of Paul:  Weekly Reader’s Mailbag March 25, 2016",
+        "from": "Romans"
+      },
+      {
+        "wpId": "9479",
+        "title": "Background to Apocalypticism: The Maccabean Revolt",
+        "from": "Romans"
+      },
+      {
+        "wpId": "9337",
+        "title": "Jesus Death as King of the Jews",
+        "from": "Romans"
+      },
+      {
+        "wpId": "9086",
+        "title": "What Is the “Original” Text?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "9065",
+        "title": "How Textual Criticism Became Relevant",
+        "from": "Romans"
+      },
+      {
+        "wpId": "8485",
+        "title": "More on Greek Numerals",
+        "from": "Romans"
+      },
+      {
+        "wpId": "8353",
+        "title": "The Writing Style of 2 Thessalonians",
+        "from": "Romans"
+      },
+      {
+        "wpId": "8128",
+        "title": "New Boxes Related to Literary Forgery and the NT",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7609",
+        "title": "The Skeletal Remains of Yehohanan and Their Significance",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7601",
+        "title": "Josephus’s Clearest Claim about the Burial of Crucified Victims",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7597",
+        "title": "More on Josephus and Jewish Burial Practices",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7592",
+        "title": "Does Josephus Show that Jews Always Buried Their Dead?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7583",
+        "title": "Josephus and the Burial of Jesus",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7569",
+        "title": "Pilate the Intransigent",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7548",
+        "title": "Did Roman Authorities Show Clemency?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7545",
+        "title": "Did Romans Allow Decent Burials?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7522",
+        "title": "Violent Opposition to the Romans in the Days of Jesus (or Brian)?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7494",
+        "title": "Brian and the Apocalyptic Jesus Part 3",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7326",
+        "title": "More on Paul’s Knowledge of Jesus’ Life",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7291",
+        "title": "Comparison of Paul’s Two Principal Models of Salvation",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7285",
+        "title": "Paul’s “Participationist” Model of Salvation",
+        "from": "Romans"
+      },
+      {
+        "wpId": "7280",
+        "title": "Paul’s “Judicial” Model of Salvation",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6967",
+        "title": "Jesus’ Death and Resurrection in Mark",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6919",
+        "title": "Was Jesus Inserted Into Paul’s Letters?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6571",
+        "title": "Final Loose Threads on the Zealot Hypothesis",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6563",
+        "title": "Jesus’ Crucifixion as King of the Jews",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6541",
+        "title": "The Later De-apocalypticizing of Jesus",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6497",
+        "title": "Fundamental Problems with Aslan’s Thesis",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6459",
+        "title": "Aslan’s Zealot: Historical Mistakes",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6447",
+        "title": "Aslan’s Zealot: Some Positive Comments",
+        "from": "Romans"
+      },
+      {
+        "wpId": "6434",
+        "title": "Aslan’s Zealot: To Start With…",
+        "from": "Romans"
+      },
+      {
+        "wpId": "4943",
+        "title": "More Conspiracy Nonsense",
+        "from": "Romans"
+      },
+      {
+        "wpId": "4906",
+        "title": "Killing Jesus is Killing Me….",
+        "from": "Romans"
+      },
+      {
+        "wpId": "4777",
+        "title": "The Accuracy of Acts: Part 2",
+        "from": "Romans"
+      },
+      {
+        "wpId": "4234",
+        "title": "Jesus and the Dead Sea Scrolls",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3809",
+        "title": "Exaltation Christology in the Speeches in Acts",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3795",
+        "title": "Exaltation Christology in an Early Creed",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3472",
+        "title": "Genealogies of Matthew and Luke",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3101",
+        "title": "Pilate and Barabbas",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3094",
+        "title": "Decent Burials for Crucified Victims",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3073",
+        "title": "Why Was Jesus Killed?",
+        "from": "Romans"
+      },
+      {
+        "wpId": "3032",
+        "title": "Was Jesus Given a Decent Burial (By Joseph of Arimathea)",
+        "from": "Romans"
+      },
+      {
+        "wpId": "2618",
+        "title": "Questions on Jesus’ Language and on the Crucifixion",
+        "from": "Romans"
+      },
+      {
+        "wpId": "1738",
+        "title": "Q & A – Historical Events in Jesus Tradition",
+        "from": "Romans"
+      }
+    ],
+    "Hebrew Bible / Old Testament": [
+      {
+        "wpId": "49514",
+        "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "49514",
+        "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "49472",
+        "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "49362",
+        "title": "The Rise of Christian Anti-Judaism, in a Nutshell",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "49334",
+        "title": "Advance Preview–How I Begin My New Book: Love Thy Stranger",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "49317",
+        "title": "The Letter to Diognetus: An Unknown Gem among the Apostolic Fathers (in a Nutshell)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "49069",
+        "title": "Do the Synoptics Present an Early Character of the Jesus Movement?  –Platinum Post by Ryan Fleming",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48797",
+        "title": "Why Did Early Christians Want a New Canon of Scripture?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48797",
+        "title": "Why Did Early Christians Want a New Canon of Scripture?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48795",
+        "title": "Important Questions About Matthew and Paul",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48697",
+        "title": "When Did We Get Chapters and Verses? A Quick Answer",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48697",
+        "title": "When Did We Get Chapters and Verses? A Quick Answer",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48695",
+        "title": "Weren’t Jewish Scribes Fully Accurate to the Letter?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48693",
+        "title": "Do We Know if Our Copies of the Hebrew Bible (Old Testament) Are Accurate?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48693",
+        "title": "Do We Know if Our Copies of the Hebrew Bible (Old Testament) Are Accurate?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48691",
+        "title": "The Formation of the Hebrew Bible: The Common Scholarly View Today",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48691",
+        "title": "The Formation of the Hebrew Bible: The Common Scholarly View Today",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48689",
+        "title": "When Was the Hebrew Bible Canonized?  The Traditional View",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48689",
+        "title": "When Was the Hebrew Bible Canonized?  The Traditional View",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48687",
+        "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48687",
+        "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48685",
+        "title": "Getting the Hebrew Bible:  A Primer (What is the Old Testament…)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48685",
+        "title": "Getting the Hebrew Bible:  A Primer (What is the Old Testament…)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48384",
+        "title": "Why Do the Dead Sea Scrolls Matter for Understanding Jesus?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48263",
+        "title": "A Gold Nugget Often Overlooked: The Book of Zechariah",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "48263",
+        "title": "A Gold Nugget Often Overlooked: The Book of Zechariah",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48081",
+        "title": "Why Would Anyone Claim Barnabas Wrote “The Epistle of Barnabas”?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48079",
+        "title": "The Epistle of Barnabas in a Nutshell (Part 2)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48075",
+        "title": "The Epistle of Barnabas in a Nutshell (Part 1)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "48013",
+        "title": "1 Clement in a Nutshell",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "47640",
+        "title": "1 Enoch:  The Scripture Quoted by Jude",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "47593",
+        "title": "Jude as Pseudepigraphic (i.e., forged)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "47002",
+        "title": "Questions: Did Paul state that Jesus was put in a tomb? Is Jesus like Pagan gods? Is the hope for a messiah like the belief in Santa?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "46992",
+        "title": "The Bible and Suffering:  My NEW Course at UNC This Term",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "46933",
+        "title": "The Book of Hebrews:  Who Wrote It, When, and Why?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "46927",
+        "title": "The Letter to the Hebrews: In a Nutshell",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "47269",
+        "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "47266",
+        "title": "Another Puzzling Figure in the Hebrew Bible: Woman Wisdom?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "47265",
+        "title": "Who Was the Suffering Servant of Isaiah 53?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "47258",
+        "title": "Understanding the Hebrew Bible: The “Old” Testament in Modern Scholarship",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "47258",
+        "title": "Understanding the Hebrew Bible: The “Old” Testament in Modern Scholarship",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "47215",
+        "title": "Some Interesting Questions of the Week",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "47108",
+        "title": "The Gospel of Matthew.  Are You Interested in a More Extended Discussion?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "47049",
+        "title": "Was (the author of) Matthew Really a Jew?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "41904",
+        "title": "Twelve Days of Christmas Day 8: Why Was Jesus Born of a Virgin in Matthew and Luke?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "41667",
+        "title": "Final Reflections on Mummy Masks and Manuscripts",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "41598",
+        "title": "Judaism 200 Years Before Jesus:  The Maccabean Revolt",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "41046",
+        "title": "Could Moses Have Been Thutmose, the Overseer of Borderlands? Platinum Post by Serene",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40872",
+        "title": "And Yet Other Apocrypha: 2 Maccabees and Others, Including Psalm 151!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40872",
+        "title": "And Yet Other Apocrypha: 2 Maccabees and Others, Including Psalm 151!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40864",
+        "title": "Still More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40859",
+        "title": "Some More of the OT Apocrypha: the Letter of Jeremiah, Additions to Daniel, and 1 Maccabees",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40854",
+        "title": "Some of the Old Testament Apocrypha: Tobit, Judith, and Additions to Esther",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40854",
+        "title": "Some of the Old Testament Apocrypha: Tobit, Judith, and Additions to Esther",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40849",
+        "title": "Introducing the Old Testament Apocrypha",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40849",
+        "title": "Introducing the Old Testament Apocrypha",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40665",
+        "title": "Was the New Testament Canon Really Closed in 367 CE?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40552",
+        "title": "Jesus, the Law, and a New Covenant (Lecture)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40538",
+        "title": "Major Contradictions (and Other Problems) in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40498",
+        "title": "What Seminarians Learn About the Bible (Often to Their Surprise)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40302",
+        "title": "A (Modern-Discovered) Gospel That Shows Jesus Was Married With Children?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40220",
+        "title": "How Scholarship Changed My Life",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40060",
+        "title": "More on the Initial Debacle on First-Century Mark (in relation to the Dead Sea Scrolls)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "40021",
+        "title": "What If Another Christianity Had Won?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "40002",
+        "title": "Lost Scriptures",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "39827",
+        "title": "Why Textual Variants Matter Even for Those Who Do NOT Think the Bible is Infallible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "39498",
+        "title": "Two KINDS of Originals.  How Do We Know We Have Either?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38967",
+        "title": "“Lovemaking” in the Song of Songs – Platinum Post From Dan Kohanski",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "38983",
+        "title": "What About People Who Come Back From the Dead in the Hebrew Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "38983",
+        "title": "What About People Who Come Back From the Dead in the Hebrew Bible?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "39002",
+        "title": "More on Sheol: Was it an Actual Place?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "39002",
+        "title": "More on Sheol: Was it an Actual Place?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38977",
+        "title": "What Is Sheol in the Hebrew Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "38977",
+        "title": "What Is Sheol in the Hebrew Bible?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38785",
+        "title": "Making the Gospels Say What You WANT Them To Say",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38596",
+        "title": "Paul’s *THIRD* Letter to the Corinthians?  A Very Interesting Forgery",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38592",
+        "title": "The Two Gods of Marcion and the Forgeries in the Name of Paul",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38583",
+        "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38306",
+        "title": "How to Sugarcoat Scripture but Seem Sophisticated.  Final Guest Post by Jill Hicks-Keeton",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38178",
+        "title": "Thoughts on Cosmology, a Platinum Post From Charles Hawkins",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "38132",
+        "title": "The Origins of Altruism: My Next Book as It Stands Now",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "38074",
+        "title": "Putting Final Polish on a Bible Translation.  Ouch.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38016",
+        "title": "How Do We Fit in the Universe?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38008",
+        "title": "How to Botch a Bible Translation (because of inclusive language)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "38002",
+        "title": "A Sensible Approach to Inclusive Language in Bible Translation?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "37948",
+        "title": "Problems with Translating a Single Greek WORD",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "37944",
+        "title": "How Do You Translate the Bible? My Work for the New Revised Standard Version Committee",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "37944",
+        "title": "How Do You Translate the Bible? My Work for the New Revised Standard Version Committee",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "37909",
+        "title": "The Myth That Nazareth Was a Myth",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "37901",
+        "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "37889",
+        "title": "Biblical Monsters and Their Violent God!  Guest Post by Esther Hamori",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "37690",
+        "title": "When Modern Christians Came to Think “The End is Near”",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "37333",
+        "title": "Reminder: Interesting Lecture on Thursday Oct. 19: Creation Stories not in Genesis!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "37112",
+        "title": "The Creation Stories in the Hebrew Bible (outside of Genesis!).   A Lecture You May Be Interested In",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "35702",
+        "title": "(Part 2) A Discussion on the Issue of Suffering and the Moral in Job’s Story. A Platinum Post From Omar Robb",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "36737",
+        "title": "A Hugely Memorable Moment: When I Saw Codex Sinaiticus",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "36732",
+        "title": "My Trip to Saint Catherine’s Monastery on Mount Sinai: Discovery Site of Codex Sinaiticus",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "36724",
+        "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "36676",
+        "title": "Thoughts on Cosmology, a Platinum Post From Charles Hawkins",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "36539",
+        "title": "Does Jesus Call Himself God in His Trial Before the Sanhedrin and the High Priest Caiaphas?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "36264",
+        "title": "A Proposition That Ramesses-the-Sixth (Ramesses VI) Was the Pharaoh of the Exodus by Omar Robb",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "35858",
+        "title": "Can the Qur’an and Early Islam Be Studied Critically (Like the NT and Early Christianity?)  Guest Post by Stephen Shoemaker",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "35679",
+        "title": "The Radical Teachings of Jesus–And Why No One Follows Them",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "35354",
+        "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "35383",
+        "title": "Creation Stories of the Ancient World (Part 2): An Ancient Egyptian Account",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "34994",
+        "title": "Yahweh and Moses.  Platinum Guest Post by Omar Abur-Robb",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "34652",
+        "title": "Creation Stories of the Ancient World (Part 1): On Enuma Elish and Genesis 1  Guest Post by Joseph Lam",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "34660",
+        "title": "Does God Punish Those Who Do *Right*?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "34575",
+        "title": "Suffering in the Two Books of Job.  Two Books?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "34575",
+        "title": "Suffering in the Two Books of Job.  Two Books?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "34338",
+        "title": "Is Suffering a “Problem” for Believers?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "34088",
+        "title": "Recreational Drugs in the New Testament?  Platinum Guest Post by Douglas Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "33874",
+        "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "3627",
+        "title": "Is the King James Bible Actually the William Tyndale Version?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "33575",
+        "title": "Instead of “From Nazareth” was Jesus a “Nazarite”??",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33575",
+        "title": "Instead of “From Nazareth” was Jesus a “Nazarite”??",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "33434",
+        "title": "Is Judaism Legalistic?  Misunderstanding the Law of Moses",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33431",
+        "title": "Is The Exodus a Myth?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33426",
+        "title": "Are There Contradictions in the Pentateuch?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33426",
+        "title": "Are There Contradictions in the Pentateuch?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "33421",
+        "title": "Do We Have the Original Hebrew Bible (Old Testament)?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33421",
+        "title": "Do We Have the Original Hebrew Bible (Old Testament)?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "33028",
+        "title": "What’s It Like to Teach PhD Seminars?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33023",
+        "title": "A Major Forgery in the Hebrew Bible?  Guest Post by Platinum Member Dennis Folds",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "33023",
+        "title": "A Major Forgery in the Hebrew Bible?  Guest Post by Platinum Member Dennis Folds",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "32990",
+        "title": "The Problem: Not Enough Killing!  Platinum Guest Post by Douglas Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "32860",
+        "title": "My New Course: The Unknown Gospels (Matthew, Mark, Luke, and John)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "32825",
+        "title": "Did King David Actually Exist?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "32825",
+        "title": "Did King David Actually Exist?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "32502",
+        "title": "Writings of the Apostles in the Canon of the New Testament",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "32441",
+        "title": "Why Did Christians Even Need a Canon of Scripture?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "32546",
+        "title": "A Major Forgery in the Hebrew Bible?  Platinum Guest Post by Dennis Folds",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "32546",
+        "title": "A Major Forgery in the Hebrew Bible?  Platinum Guest Post by Dennis Folds",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "31890",
+        "title": "Reading Genesis—Are You Lost in Translation? Anniversary Guest Post by James Tabor",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "31840",
+        "title": "Early Christianity and War.  Guest Post by Dan Kohanski",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "31849",
+        "title": "Did Jesus Insist on Voluntary Poverty?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "31784",
+        "title": "What’s the Point?  Hey, *IS* There a Point?  The Book of Ecclesiastes",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "31779",
+        "title": "A Skeptical View of Life … From the Bible!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "31779",
+        "title": "A Skeptical View of Life … From the Bible!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "31314",
+        "title": "Why Not Just Believe in a *Different* Kind of God?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "30972",
+        "title": "You Mean Everyone (Except the Truly Destitute) Needs to Give? But How Much?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "31240",
+        "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "30857",
+        "title": "Concerns for the Poor in the Jewish Tradition",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "30070",
+        "title": "Early Christianity and War.  Platinum Guest Post by Daniel Kohanski",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "22643",
+        "title": "Was The Messiah Supposed to Be Born of a Virgin?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "29861",
+        "title": "Does Isaiah 53 Predict Jesus’ Death and Resurrection?  Most-Commented Blog Posts: #1",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "29812",
+        "title": "The Blog’s TENTH Year Anniversary!!   Most-commented Blog Post: #10: My View of Revelation!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "29744",
+        "title": "Understanding the Old Testament!  Joshua – 2 Kings as the Deuteronomistic History",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "29744",
+        "title": "Understanding the Old Testament!  Joshua – 2 Kings as the Deuteronomistic History",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8541",
+        "title": "Did Nazareth Exist?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "29103",
+        "title": "In the Beginning: Myth, Legend, and History in the Book of Genesis (Part 1)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "29032",
+        "title": "Must Jesus Divide Families?  Guest post by Douglas Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "28726",
+        "title": "Where Did the Apocalyptic Views of Jesus (and others) Come From?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28670",
+        "title": "The Maccabean Revolt",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28663",
+        "title": "The Prophets of Scripture: A Brief Summary of their Message and Mission",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28663",
+        "title": "The Prophets of Scripture: A Brief Summary of their Message and Mission",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "28655",
+        "title": "The Message of First Isaiah",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28591",
+        "title": "How Can We Understand the Prophets of the Hebrew Bible?  Isaiah as a Case Study",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28520",
+        "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28520",
+        "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "28517",
+        "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28517",
+        "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "28443",
+        "title": "The Famous Short Stories about Daniel",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28558",
+        "title": "On Misreading The Gospels: Platinum Guest Post by Joel Scheller",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "28337",
+        "title": "The Bible’s Best Known Short Story: Jonah",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28274",
+        "title": "Two Apocryphal Short Stories",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28269",
+        "title": "Another Fantastic Scriptural Short Story: Esther",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28269",
+        "title": "Another Fantastic Scriptural Short Story: Esther",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "28262",
+        "title": "A Suggestive Story in the Book of Ruth",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28257",
+        "title": "A Great Short Story in Scripture:  The Book of Ruth",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "28257",
+        "title": "A Great Short Story in Scripture:  The Book of Ruth",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27932",
+        "title": "Bill O’Reilly, Expert on the Historical Jesus!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27808",
+        "title": "Why I Prefer the NRSV",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27777",
+        "title": "How Yahweh of the Israelites Became God of All: Guest Post by Dan Kohanski",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27835",
+        "title": "Must Jesus Divide Families? Platinum Guest Post by Douglas Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27512",
+        "title": "Why these Caricatures of the Old Testament God? Guest post by Amy-Jill Levine",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27498",
+        "title": "Christian Stereotypes of “the God of the Old Testament.”  Marcion is Alive and Well and Well and What To Do About It.  Guest Post by Marc Zvi Brettler",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27498",
+        "title": "Christian Stereotypes of “the God of the Old Testament.”  Marcion is Alive and Well and Well and What To Do About It.  Guest Post by Marc Zvi Brettler",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27340",
+        "title": "The Horrible Fate of Sinners: Jesus’ Teaching on Gehenna",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27340",
+        "title": "The Horrible Fate of Sinners: Jesus’ Teaching on Gehenna",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27131",
+        "title": "Does God Really Care How He Is Worshiped?  The Book of Hosea.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27097",
+        "title": "Sin and Divine Punishment As a Dominant Theme of Scripture",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27097",
+        "title": "Sin and Divine Punishment As a Dominant Theme of Scripture",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27060",
+        "title": "Destroy More Others!  The Israelites’ Conquest of the City Ai",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "27056",
+        "title": "God’s Destruction of the “Other”: Joshua and the Battle of Jericho",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "27056",
+        "title": "God’s Destruction of the “Other”: Joshua and the Battle of Jericho",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "26986",
+        "title": "Is This a God You Want to Worship?  Some Horrors of Scripture.",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "26986",
+        "title": "Is This a God You Want to Worship?  Some Horrors of Scripture.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "26942",
+        "title": "Why God Had to Destroy the Outsiders…",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "26922",
+        "title": "God is Holy and You Better Worship Him!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "26922",
+        "title": "God is Holy and You Better Worship Him!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "26915",
+        "title": "The God of Wrath According to the Prophet Amos",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "26895",
+        "title": "The God of Wrath in Both Old and New Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "26903",
+        "title": "My New View of the Book of Revelation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "26782",
+        "title": "Prophecies and Saints in the Book of Daniel.  Platinum Guest Post by Daniel Kohanski",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "26782",
+        "title": "Prophecies and Saints in the Book of Daniel.  Platinum Guest Post by Daniel Kohanski",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "26011",
+        "title": "The Spirit in the Life of Jesus",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25886",
+        "title": "The Coming of the Spirit at the End of Time",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25886",
+        "title": "The Coming of the Spirit at the End of Time",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25705",
+        "title": "Why the Spirit Mattered for the Earliest Christians",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25705",
+        "title": "Why the Spirit Mattered for the Earliest Christians",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25687",
+        "title": "More Recent Scholarship on Who Wrote the Pentateuch",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25682",
+        "title": "Who Really Wrote the Pentateuch (if not Moses)?  The JEDP Hypothesis",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25682",
+        "title": "Who Really Wrote the Pentateuch (if not Moses)?  The JEDP Hypothesis",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25677",
+        "title": "More Inconsistencies in the Pentateuch",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25677",
+        "title": "More Inconsistencies in the Pentateuch",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25653",
+        "title": "Two (Contradictory?) Accounts of Creation in Genesis?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25647",
+        "title": "Who Wrote the Pentateuch Anyway?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25643",
+        "title": "The Spirit of God in the Old Testament",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25643",
+        "title": "The Spirit of God in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25638",
+        "title": "How Did the Holy Spirit Get Into the Trinity?  In the Beginning….",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25638",
+        "title": "How Did the Holy Spirit Get Into the Trinity?  In the Beginning….",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25472",
+        "title": "YHWH and Jehovah:  Same?  Different?  Where’s Jehovah Come From?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25472",
+        "title": "YHWH and Jehovah:  Same?  Different?  Where’s Jehovah Come From?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25712",
+        "title": "Other New Testament References to Books Outside the Hebrew Bible: Platinum Guest Post by Doug Wadeson",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25712",
+        "title": "Other New Testament References to Books Outside the Hebrew Bible: Platinum Guest Post by Doug Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25138",
+        "title": "Nope Jesus is Not Yahweh",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "25135",
+        "title": "Is Jesus Yahweh?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25459",
+        "title": "How Yahweh of the Israelites Became God of All: Platinum Guest Post by Dan Kohanski",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "25034",
+        "title": "Was Marcion a Gnostic?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24822",
+        "title": "Are God and Christ the SAME Person?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24957",
+        "title": "How The Afterlife Changed After Jesus’ Life",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24586",
+        "title": "Modern Christians Who Follow Marcion (Unawares)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24992",
+        "title": "Quotations of Non-Canonical Writings in the New Testament: Platinum Post by Douglas Wadeson",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "24992",
+        "title": "Quotations of Non-Canonical Writings in the New Testament: Platinum Post by Douglas Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24550",
+        "title": "More on Marcion’s Theology",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24525",
+        "title": "A Phantom Jesus: The Teachings of the Second-Century Marcion",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24315",
+        "title": "What Are the Sources of the Hebrew Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "24315",
+        "title": "What Are the Sources of the Hebrew Bible?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "24163",
+        "title": "God Showing Up a (Apparently) Human in the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "24163",
+        "title": "God Showing Up a (Apparently) Human in the Hebrew Bible",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23938",
+        "title": "A Christian Is Not Necessarily a Disciple (Monthly Platinum Post: Douglas Wadeson)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23289",
+        "title": "Interview about My Writing with the North Carolina Writers’ Network",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23498",
+        "title": "An Alternative Christology:  God Became Human",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23135",
+        "title": "Was the King of Israel Called God??",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "23135",
+        "title": "Was the King of Israel Called God??",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23142",
+        "title": "Could Jews Consider Someone Other than God To Be God?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "23078",
+        "title": "Did Humans Ever Become Divine in Judaism?  (Seems unlikely, no?)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "23078",
+        "title": "Did Humans Ever Become Divine in Judaism?  (Seems unlikely, no?)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23276",
+        "title": "A Christian is Not Necessarily a Disciple: Platinum Post by Douglas Wadeson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "23001",
+        "title": "Were Ancient Israelites Actually Monotheists?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "22355",
+        "title": "My Struggle With Why There Is Suffering",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "21924",
+        "title": "The Number 666 in the Context of the Book of Revelation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "21286",
+        "title": "Translating the Bible (and other ancient texts)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "21234",
+        "title": "All Day Seminar (Online) for the Smithsonian: This Saturday!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20977",
+        "title": "Christianizing the Old Testament and the Museum of the Bible: Guest Post by Jill Hicks-Keeton",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20977",
+        "title": "Christianizing the Old Testament and the Museum of the Bible: Guest Post by Jill Hicks-Keeton",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "20867",
+        "title": "How Accurate are our Copies of the Hebrew Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20851",
+        "title": "The Importance of the Dead Sea Scrolls for Understanding Jesus: Readers’ Mailbag",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20836",
+        "title": "Do You Have Advanced Training In any of the Blog’s Fields?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20711",
+        "title": "Two Ancient Jesuses and the Current Crises",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "20337",
+        "title": "Readers Mailbag:  Does Isaiah 53 Predict the Death and Resurrection of Jesus?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20008",
+        "title": "Is There Any Point To Life?  More on Ecclesiastes",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20003",
+        "title": "What Is The Meaning of Life?  The Book of Ecclesiastes",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "20003",
+        "title": "What Is The Meaning of Life?  The Book of Ecclesiastes",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "19945",
+        "title": "A Good Time for Wisdom!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "19945",
+        "title": "A Good Time for Wisdom!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "17699",
+        "title": "A Fuller Exposition of the Christ Poem in Philippians",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "17662",
+        "title": "Interview with Buddhists on the New Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "17569",
+        "title": "A “Newly Discovered” “Gospel”: Was Jesus Married with Children?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "17343",
+        "title": "Heaven and Hell in a Nutshell: Getting into the Kernel",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "17343",
+        "title": "Heaven and Hell in a Nutshell: Getting into the Kernel",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "17334",
+        "title": "Heaven and Hell in a Nutshell",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "17334",
+        "title": "Heaven and Hell in a Nutshell",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "17291",
+        "title": "Does the New Testament Condemn “Homosexuals”?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "17124",
+        "title": "Are Same-Sex Relations Condemned in the Old Testament?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16802",
+        "title": "Who Wrote the Pentateuch?  The JEDP Hypothesis",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16757",
+        "title": "If the Old Testament is Not Accurate — Where Did Israel Come From?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16749",
+        "title": "Did The Israelites Really Conquer Canaan?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16662",
+        "title": "A New and Important Book on the Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16649",
+        "title": "Did the Exodus Happen?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16639",
+        "title": "Now: Literary Inconsistencies in the Old Testament",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16639",
+        "title": "Now: Literary Inconsistencies in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16633",
+        "title": "What About the Original *Old* Testament?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16633",
+        "title": "What About the Original *Old* Testament?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16534",
+        "title": "Does Isaiah 53 Predict Jesus’ Suffering and Death or Has Isaiah 53 Been Debunked?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16519",
+        "title": "Does Your Soul Go To Heaven?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16512",
+        "title": "An Alternative View of Suffering and the Idea of Resurrection",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16311",
+        "title": "Heightened Opposition to Jews in Early Christianity",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16309",
+        "title": "When Christians Went on the Attack Against Jews",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16272",
+        "title": "Why Christians Needed an Old Testament: Pagan Attacks on the Faith",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16270",
+        "title": "The Jewish Bible in the Gentile Churches",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16245",
+        "title": "Should the Old Testament Even Be in the Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16245",
+        "title": "Should the Old Testament Even Be in the Bible?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16240",
+        "title": "When Were Matthew and Mark First Seen as Scripture: Guest Post on Papias by Stephen Carlson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16206",
+        "title": "Is the Old Testament a Christian Book?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16202",
+        "title": "Why Do Christians Have an Old Testament?  Another Trade Book.",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "16202",
+        "title": "Why Do Christians Have an Old Testament?  Another Trade Book.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16122",
+        "title": "What Kind of Book Was Papias Writing?  Guest Post by Stephen Carlson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16120",
+        "title": "Wine Flowing in the Kingdom: Guest Post on Papias by Stephen Carlson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16103",
+        "title": "Similarities and Differences: Which Matter the Most?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16096",
+        "title": "Papias and the Writers of the New Testament: Guest Post by Stephen Carlson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16082",
+        "title": "Why Are the Gospels Anonymous?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "16044",
+        "title": "A Papias Mystery: What Was the Book He Wrote?  Guest Post by Stephen Carlson",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15995",
+        "title": "Did Ancient Greeks Invent Heaven and Hell?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15900",
+        "title": "Heaven and Hell, Finally",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15898",
+        "title": "Homosexuality and the New Testament.  Guest Post by Jeff Siker.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15820",
+        "title": "Guest Post!  Joel Marcus on His New Book on the John the Baptist",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15818",
+        "title": "The Aberrant View of the Afterlife in the Apocalypse of Peter",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15809",
+        "title": "Don’t Trust What You Read!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15738",
+        "title": "Blog Year in Review, 2018",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15715",
+        "title": "The Virgin Birth in Matthew and Luke",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15654",
+        "title": "Who Wrote 1 Peter?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15569",
+        "title": "Yet Other Apocryphal Books",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15562",
+        "title": "More Apocrypha: A Letter of Jeremiah, (Fascinating) Additions to Daniel, and 1 Maccabees",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15559",
+        "title": "More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15557",
+        "title": "Some of the Apocrypha: Tobit, Judith, and Additions to Esther",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15557",
+        "title": "Some of the Apocrypha: Tobit, Judith, and Additions to Esther",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15555",
+        "title": "What Is the Apocrypha (of the Old Testament)?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15555",
+        "title": "What Is the Apocrypha (of the Old Testament)?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15494",
+        "title": "Writing a Historical-Critical Textbook that Isn’t *Critical*",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15479",
+        "title": "Opportunity Knocking:   A Chance to Read a Draft of My Book",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15471",
+        "title": "Gehenna:  Where You Do Not Want to Go",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15469",
+        "title": "Jesus on Gehenna",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15392",
+        "title": "The Letter of First Clement: An Overview",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15330",
+        "title": "What I Saw at St. Catherine’s Monastery at Mount Sinai",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15328",
+        "title": "Visiting the Monastery at Mount Sinai: A Blast From the Past",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15303",
+        "title": "The Historical Significance of Contradictions",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15283",
+        "title": "If the Bible is Contradictory, How Can it Be Authoritative?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15263",
+        "title": "Sources for the Hebrew Bible: A Blast from the Past",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "15263",
+        "title": "Sources for the Hebrew Bible: A Blast from the Past",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15172",
+        "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15065",
+        "title": "Who Invented the Idea of a Suffering Messiah?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "15019",
+        "title": "The Martyrdom of Perpetua",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "14948",
+        "title": "Futuristic Interpretations of the Book of Revelation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "13513",
+        "title": "Paul’s Exalted Self-Image: The Fulfillment of Ancient Prophecy",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "13316",
+        "title": "The Son of Man, Pericopes, and the Complexities of Biblical Scholarship",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12972",
+        "title": "Reviewing the Afterlife",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12972",
+        "title": "Reviewing the Afterlife",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12898",
+        "title": "Life in Hades",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12878",
+        "title": "Could Moses Write Hebrew & What Language Could Moses Speak",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12838",
+        "title": "Daniel and a New Doctrine of Resurrection From the Dead",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12830",
+        "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12826",
+        "title": "The Origins of Heaven and Hell",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12813",
+        "title": "The First Apocalypse: The Book of Daniel",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12801",
+        "title": "A New Genre in Jewish Antiquity: The Apocalypse",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12797",
+        "title": "The Books of 1 and 2 Maccabees",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12795",
+        "title": "Background to The Christian Afterlife: The Maccabean Revolt: A Blast from the (Recent) Past!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12795",
+        "title": "Background to The Christian Afterlife: The Maccabean Revolt: A Blast from the (Recent) Past!",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12744",
+        "title": "The Origins of Apocalypticism",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12752",
+        "title": "The Variety of Views of Suffering in the Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12739",
+        "title": "Teaching about How The Bible Explains Suffering",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12731",
+        "title": "Why Was Marcion Declared a Heretic?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12722",
+        "title": "Why Not Believe in a Different Kind of God?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12690",
+        "title": "Was Jesus Made Up?  A Blast from the Past.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12563",
+        "title": "Finding More Problems in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12560",
+        "title": "Finding Problems in the Old Testament",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12560",
+        "title": "Finding Problems in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12549",
+        "title": "My Resistance to Change at Princeton Seminary",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12518",
+        "title": "How We Got Our 27-Book New Testament: The Case of Didymus",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12508",
+        "title": "Background to a Different View of the Afterlife: The Maccabean Revolt",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12508",
+        "title": "Background to a Different View of the Afterlife: The Maccabean Revolt",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12501",
+        "title": "Was Job Really Innocent?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12494",
+        "title": "Did David Exist?  And When Did I Know I Lost My Faith?  Mailbag April 15, 2017",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12494",
+        "title": "Did David Exist?  And When Did I Know I Lost My Faith?  Mailbag April 15, 2017",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12486",
+        "title": "Why I Find the Story of Job is Disturbing",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12486",
+        "title": "Why I Find the Story of Job is Disturbing",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12484",
+        "title": "Understanding the Story of Job",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12482",
+        "title": "The Two Books of Job: A Blast from the Past",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12475",
+        "title": "The Afterlife (or not) in Ecclesiastes",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12467",
+        "title": "Ecclesiastes and the Meaning of Life",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12450",
+        "title": "Returning from the Dead in the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12450",
+        "title": "Returning from the Dead in the Hebrew Bible",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12447",
+        "title": "The Afterlife in the Hebrew Bible: Sheol",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12447",
+        "title": "The Afterlife in the Hebrew Bible: Sheol",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12397",
+        "title": "What I’m Thinking about the Afterlife",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12395",
+        "title": "Does the Afterlife Matter for Other Things?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12386",
+        "title": "Why Do Good People Suffer?  A Blast from the Past",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12264",
+        "title": "What Do Translators Translate?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12262",
+        "title": "What About the Apocrypha?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12262",
+        "title": "What About the Apocrypha?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12250",
+        "title": "Why Did We Get a New Testament?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12248",
+        "title": "How We Got the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12248",
+        "title": "How We Got the Hebrew Bible",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12244",
+        "title": "How We Got the Hebrew Bible: The Older View",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12244",
+        "title": "How We Got the Hebrew Bible: The Older View",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12239",
+        "title": "What is the Hebrew Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12239",
+        "title": "What is the Hebrew Bible?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12190",
+        "title": "The Copying of the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12186",
+        "title": "Manuscripts of the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12168",
+        "title": "Some Arduous Tasks for the New Revised Standard Version",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12143",
+        "title": "Problems with Inclusive Language Bible Translation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12138",
+        "title": "The Marvels of our Universe",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12131",
+        "title": "Problems with Inclusive Language Translations",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12126",
+        "title": "Lost in Translation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "12122",
+        "title": "My Work for the New Revised Standard Version Committee",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "12122",
+        "title": "My Work for the New Revised Standard Version Committee",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11971",
+        "title": "Jesus, the Law, and a “New” Covenant Lecture",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11985",
+        "title": "Mythicists and the Stories Told of Jesus",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11969",
+        "title": "Marcion as Alive and Well Among Us",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11967",
+        "title": "The Arch-Heretic Marcion’s Theology",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11964",
+        "title": "The “Arch-Heretic” Marcion, Jesus, and the Jewish Law",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11941",
+        "title": "Jesus and Paul on Heaven and Hell",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11935",
+        "title": "The Invention of the Afterlife: Request for Ideas!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11663",
+        "title": "Knowing the “Original” Text — of the NT or of Isaiah.  Weekly Readers’ Mailbag July 17, 2016",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11645",
+        "title": "Are the Hebrew Bible/Old Testament Manuscripts Reliable?  A Blast From the Past",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11645",
+        "title": "Are the Hebrew Bible/Old Testament Manuscripts Reliable?  A Blast From the Past",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11611",
+        "title": "Modern Views of the Authorship of the Pentateuch",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11602",
+        "title": "Did Moses Write the Pentateuch?  The JEDP Hypothesis.",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11602",
+        "title": "Did Moses Write the Pentateuch?  The JEDP Hypothesis.",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "11599",
+        "title": "Other Literary Tensions in the Pentateuch",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11589",
+        "title": "Literary Tensions in the Creation Account of Genesis",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11587",
+        "title": "Who Wrote the Pentateuch?  Early Questions of Authorship.",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11581",
+        "title": "The Name of Saul/Paul and the Sources of the Pentateuch: Weekly Mailbag June 26, 2016",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "11302",
+        "title": "The Fear of Hell, Good Debaters, and the Name of God: Mailbag April 22, 2016",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9530",
+        "title": "Did Jesus Urge People to Repent?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9530",
+        "title": "Did Jesus Urge People to Repent?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "9513",
+        "title": "What Is Repentance in the Bible?  Is there Repentance in the Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9497",
+        "title": "The Rise of Apocalypticism",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9479",
+        "title": "Background to Apocalypticism: The Maccabean Revolt",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9477",
+        "title": "Are the Prophecies Being Fulfilled?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9473",
+        "title": "Amos as a Representative Prophet",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9464",
+        "title": "The Prophetic Background of Jewish Apocalyptic Thought",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9456",
+        "title": "Heaven and Hell, Part One",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "9418",
+        "title": "Jesus the Suffering Messiah",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9315",
+        "title": "The SBL and the Blog",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "9276",
+        "title": "Jesus and the Messianic Prophecies – Did the Old Testament Point to Jesus?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "9266",
+        "title": "The Jewish Messiah",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8919",
+        "title": "What is An Orthodox Corruption of Scripture?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8876",
+        "title": "What I Saw at St. Catherine’s Monastery",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8874",
+        "title": "St. Catherine’s Monastery",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8864",
+        "title": "Tischendorf and the Discovery of Codex Sinaiticus",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8558",
+        "title": "Is “Jehovah” in the Bible?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8558",
+        "title": "Is “Jehovah” in the Bible?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8545",
+        "title": "More on the Name “Nazareth”",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8505",
+        "title": "Symbolism in the Book of Revelation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8457",
+        "title": "Another (Final!) Insight into that Mummy Mask and Papyrus",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8398",
+        "title": "Matthew’s Ancient Approach to Scripture",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8367",
+        "title": "Why Was Jesus Born of a Virgin in Matthew and Luke?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8269",
+        "title": "Why Are the Gospels Anonymous?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8232",
+        "title": "A Newly Discovered Gospel?  Was Jesus Married with Children???",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8220",
+        "title": "A Better Kind of Fundamentalist",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8079",
+        "title": "Introduction to My Introduction (to the NT)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8079",
+        "title": "Introduction to My Introduction (to the NT)",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "8018",
+        "title": "Where Does One Deal with Textual Criticism?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8003",
+        "title": "On Boring Textbooks",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "8003",
+        "title": "On Boring Textbooks",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "7845",
+        "title": "New Discovery of an Ancient Christian Amulet",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "7693",
+        "title": "Titles of Scholarly Books",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "7664",
+        "title": "My Future Books",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "7471",
+        "title": "Why Textual Variants Matter for the Rest of Us",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "7369",
+        "title": "My Next Books",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "7369",
+        "title": "My Next Books",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "7224",
+        "title": "More on the Very Reverend Robert Barron",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "6914",
+        "title": "Abraham and Jesus?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "6285",
+        "title": "Errant Texts and Historians",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4900",
+        "title": "Bill O’Reilly’s Jesus",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4821",
+        "title": "My Bible Introduction!",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4678",
+        "title": "Luke 3:22 — More on What Luke Would Have Written",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "4560",
+        "title": "Evaluation of Job’s Short Story",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4535",
+        "title": "Personal Response to Suffering?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4380",
+        "title": "Was Matthew a Jew?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "4346",
+        "title": "Where Did Israel Come From?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4343",
+        "title": "Historical Problems with the Hebrew Bible: The Conquest of Canaan",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4339",
+        "title": "Historical Problems with the Hebrew Bible: The Exodus Narrative",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4335",
+        "title": "Inconsistencies in the Hebrew Bible",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4329",
+        "title": "Problems with the Hebrew Bible Manuscripts",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4329",
+        "title": "Problems with the Hebrew Bible Manuscripts",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "4282",
+        "title": "Exciting Discovery of a Hebrew Bible Scroll",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4277",
+        "title": "More on Jews, Christians, and the Battle for Scripture",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4277",
+        "title": "More on Jews, Christians, and the Battle for Scripture",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "4273",
+        "title": "The Next Trade Book: Jews and Christians",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "4229",
+        "title": "The Dead Sea Scrolls and Christianity",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4117",
+        "title": "Humans Who Become Angels",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "4088",
+        "title": "Why The Gospels Are Anonymous",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "3997",
+        "title": "Divine Wisdom",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "3993",
+        "title": "Jesus as the Messiah",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "3976",
+        "title": "The Jewish King as God",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "3924",
+        "title": "Biblical Views of Suffering",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "3917",
+        "title": "“Human” Appearances of God in the Old Testament",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "3829",
+        "title": "Incarnation Christology, Angels, and Paul",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "3763",
+        "title": "How Jesus Became God: The “Original” Idea, Part 2",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "3547",
+        "title": "Why Was The Letter of Barnabas Attributed to Barnabas?",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "3472",
+        "title": "Genealogies of Matthew and Luke",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "3205",
+        "title": "A Stranger Problem with Lake’s Translation",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "3161",
+        "title": "Textual Problems in the Apostolic Fathers 1",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2822",
+        "title": "A Problem with My Textbook",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2776",
+        "title": "The Need for Context",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2659",
+        "title": "My Preferred Bible Translation",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2609",
+        "title": "Bible Intro: Nearing the finish line",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2579",
+        "title": "Peter as Literate?  Part 2",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2517",
+        "title": "Resurrection and Resuscitation",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2455",
+        "title": "Wisdom as God’s Consort in the Beginning",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2449",
+        "title": "Possibly of Some Interest",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2441",
+        "title": "A Virgin Birth?  The Importance of Context",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2429",
+        "title": "The Suffering Servant of Isaiah",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2374",
+        "title": "My Bible Introduction",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "2361",
+        "title": "My Next Book",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "2328",
+        "title": "The Hebrew Bible and Its Sources",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2328",
+        "title": "The Hebrew Bible and Its Sources",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "2304",
+        "title": "Q & A with Ben Witherington: Part 7",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "2228",
+        "title": "Was Jesus an Essene?",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "2059",
+        "title": "The Work of a Professional Scholar 5: Graduate Seminars",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "1981",
+        "title": "A Final (for now) Post on the Resurrection",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "1981",
+        "title": "A Final (for now) Post on the Resurrection",
+        "from": "Old Testament"
+      },
+      {
+        "wpId": "1932",
+        "title": "Richard Carrier on The Huffington Post Article (1)",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "1761",
+        "title": "First-Century Copy of Mark? – Part 1",
+        "from": "Hebrew Bible"
+      },
+      {
+        "wpId": "26631",
+        "title": "Is the Book of Revelation a Revised Version of a Non-Christian Apocalypse? Guest Post by James Tabor",
+        "from": "Hebrew Bible"
+      }
+    ],
+    "Acts of the Apostles": [
+      {
+        "wpId": "49854",
+        "title": "Predestination!  What do you think?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "49865",
+        "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+        "from": "Acts"
+      },
+      {
+        "wpId": "49814",
+        "title": "Why Christian Miracles Converted the Empire",
+        "from": "Acts"
+      },
+      {
+        "wpId": "49744",
+        "title": "Some Important Readers’ Questions on Some Gospel Head-Scratchers",
+        "from": "Acts"
+      },
+      {
+        "wpId": "49622",
+        "title": "Different Words, VERY Different Theologies, and Understanding Which Words They Were. Readers’ Questions",
+        "from": "Acts"
+      },
+      {
+        "wpId": "49317",
+        "title": "The Letter to Diognetus: An Unknown Gem among the Apostolic Fathers (in a Nutshell)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "49110",
+        "title": "How Important Actually Was Paul (When Alive and After)?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48986",
+        "title": "If It Wasn’t “For Your Sins” Why Did Jesus Die (according to Luke)?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48864",
+        "title": "From Eternal Torment to Styles of Greek to the Dating of Ignatius: Interesting Readers’ Questions",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48712",
+        "title": "The New Testament in a Nutshell: The 50 Word Summaries of Each Book (All of them!)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48614",
+        "title": "Rarely Asked Questions About Why THESE Letters of Paul Are in the Canon",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48120",
+        "title": "The Didache: An Important Early Christian Document in a Nutshell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48081",
+        "title": "Why Would Anyone Claim Barnabas Wrote “The Epistle of Barnabas”?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48075",
+        "title": "The Epistle of Barnabas in a Nutshell (Part 1)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48066",
+        "title": "Christ-killers; the date of Luke; and the literacy of Matthew: Questions and Responses",
+        "from": "Acts"
+      },
+      {
+        "wpId": "48021",
+        "title": "Was 1 Clement Written BEFORE Some of the New Testament?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47866",
+        "title": "Hebrews and James:  “At a Glance” and “Questions for Reflection”",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47590",
+        "title": "Book of Jude:  Who Wrote it?  When? And Why? (part 1)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47012",
+        "title": "1, 2, and 3 John: For Further Reading",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47000",
+        "title": "1 Thessalonians at a Glance, and Questions for Reflection",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46993",
+        "title": "The Birth of Christianity (My Other Class): Check Out the Writing Assignments!",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46983",
+        "title": "For Further Reading on James, 1 Peter, and 2 Peter",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46975",
+        "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46974",
+        "title": "Is 1 Peter More Like 1 Paul?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46973",
+        "title": "Why Does the Author of 1 Peter Sound Like Paul Instead of Peter?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46946",
+        "title": "Could James, the Brother of Jesus, Even Write?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46944",
+        "title": "James: Who, When, and Why?  Does It Claim to be by THAT James (the brother of Jesus)?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46927",
+        "title": "The Letter to the Hebrews: In a Nutshell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "46925",
+        "title": "The Death of Peter",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47283",
+        "title": "Paul’s Vision of Heaven and Hell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47276",
+        "title": "Paul and His Most Famous Woman Disciple",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47266",
+        "title": "Another Puzzling Figure in the Hebrew Bible: Woman Wisdom?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47270",
+        "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47234",
+        "title": "1 Thessalonians: Who, When, and Why",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47178",
+        "title": "How Do We Know the Chronology of Paul’s Life and Letters?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47155",
+        "title": "1 Corinthians:  Who, When, and Why?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47131",
+        "title": "The Letter to the Romans: Who, When, and Why?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47136",
+        "title": "New Course Announcement: The Other Doubting Thomases",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47121",
+        "title": "The Life of Paul in a Nutshell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47118",
+        "title": "The Significance and Letters of Paul, in a Nutshell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47113",
+        "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47100",
+        "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47064",
+        "title": "Is the Gospel of Luke Anti-Jewish?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47063",
+        "title": "The Gospel of Luke: For Further Reading",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47065",
+        "title": "The Gospel of Luke: Who Wrote It?  When?  And Why?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47062",
+        "title": "The Gospel of Luke in a Nutshell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47058",
+        "title": "Mark’s Messianic Secret",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47059",
+        "title": "The Gospel of Mark: Who, When, and Why",
+        "from": "Acts"
+      },
+      {
+        "wpId": "47043",
+        "title": "What Is The New Testament?  Can You Actually Say?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "41519",
+        "title": "Intriguing Questions and Attempted Answers!",
+        "from": "Acts"
+      },
+      {
+        "wpId": "41062",
+        "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 4 by Angus Nisbet",
+        "from": "Acts"
+      },
+      {
+        "wpId": "41058",
+        "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+        "from": "Acts"
+      },
+      {
+        "wpId": "41054",
+        "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 2 by Angus Nisbet",
+        "from": "Acts"
+      },
+      {
+        "wpId": "41050",
+        "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+        "from": "Acts"
+      },
+      {
+        "wpId": "40849",
+        "title": "Introducing the Old Testament Apocrypha",
+        "from": "Acts"
+      },
+      {
+        "wpId": "40440",
+        "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor",
+        "from": "Acts"
+      },
+      {
+        "wpId": "40436",
+        "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 1). Guest Post by James Tabor",
+        "from": "Acts"
+      },
+      {
+        "wpId": "40450",
+        "title": "Exaggerating the Numbers of Early Christians",
+        "from": "Acts"
+      },
+      {
+        "wpId": "40373",
+        "title": "How Fast Did Early Christianity Grow?  Doing the Math",
+        "from": "Acts"
+      },
+      {
+        "wpId": "40016",
+        "title": "More Lost Christianities",
+        "from": "Acts"
+      },
+      {
+        "wpId": "39264",
+        "title": "Was Paul a Misogynist?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "39078",
+        "title": "Major Ways to Compare and Contrast the Quran With the New Testament",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38930",
+        "title": "Is the Paul of Acts at Odds with the Paul of His Own Letters?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38926",
+        "title": "Is the Message of Paul in Acts the Same as the Message of Paul According to Paul?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38802",
+        "title": "What Did Paul’s Christian Enemies Write About Him?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38583",
+        "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38564",
+        "title": "Facts Hidden Among the Legends of the Apostle Paul?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38524",
+        "title": "How Much Fact, How Much Fiction? The Life of Peter",
+        "from": "Acts"
+      },
+      {
+        "wpId": "38520",
+        "title": "The Disciple Peter in History and Legend",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37845",
+        "title": "Why Would an Editor ADD the Virgin Birth to Luke?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37837",
+        "title": "Did Luke’s Gospel Originally Contain a Virgin Birth?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37565",
+        "title": "How the Canon Itself Tames the Diversity of the New Testament",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37435",
+        "title": "How Exactly Could the Virgin-Born Jesus Have a Twin Brother?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37411",
+        "title": "Thomasine Gnostic Christians, and Sundry Others",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37167",
+        "title": "Another Mythicist View of Jesus’ Brothers",
+        "from": "Acts"
+      },
+      {
+        "wpId": "37067",
+        "title": "Did Luke Originally Have the Birth Narrative (chapters 1-2)?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "36803",
+        "title": "Want to Study the Early Christian Apocrypha?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "36599",
+        "title": "How To Be a Consistently Critical Historian, In the Good Sense",
+        "from": "Acts"
+      },
+      {
+        "wpId": "36333",
+        "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+        "from": "Acts"
+      },
+      {
+        "wpId": "36219",
+        "title": "Literary Problems with the Gospel Accounts of Jesus’ Burial",
+        "from": "Acts"
+      },
+      {
+        "wpId": "36102",
+        "title": "Questions about Dating the Gospels",
+        "from": "Acts"
+      },
+      {
+        "wpId": "36118",
+        "title": "Vespasian Miracles. A Platinum Post by Ryan Fleming",
+        "from": "Acts"
+      },
+      {
+        "wpId": "35878",
+        "title": "Did Paul Get Along with the Other Apostles?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "35865",
+        "title": "Was Paul Authorized to Persecute Christians?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "35786",
+        "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+        "from": "Acts"
+      },
+      {
+        "wpId": "35557",
+        "title": "Who Was Spreading the Stories about Jesus Before the Gospels?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "35338",
+        "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+        "from": "Acts"
+      },
+      {
+        "wpId": "34597",
+        "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+        "from": "Acts"
+      },
+      {
+        "wpId": "34145",
+        "title": "An Intriguing Anti-Jewish Variant:  Did Jesus Pray “Father forgive them”?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "34121",
+        "title": "New Testament Manuscripts That Reveal Later Theological Controversies",
+        "from": "Acts"
+      },
+      {
+        "wpId": "33985",
+        "title": "Is the Martyrdom of Polycarp an Authentic Account?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "33974",
+        "title": "The First Christian Martyr Text?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "33402",
+        "title": "Forgeries in the Names of the Apostles: Some of the Most Interesting",
+        "from": "Acts"
+      },
+      {
+        "wpId": "33268",
+        "title": "Why Paul Was Persecuted (Or Claimed He Was).  Guest Post by Daniel Kohanski",
+        "from": "Acts"
+      },
+      {
+        "wpId": "33106",
+        "title": "Suffering, Evil, and the Range Effect  Platinum Guest Post by Dennis J. Folds, Ph.D.",
+        "from": "Acts"
+      },
+      {
+        "wpId": "32964",
+        "title": "What Serious Research Projects Can Undergraduates Do in Early Christianity?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "32879",
+        "title": "Understanding the Gospels: Suggested Readings!",
+        "from": "Acts"
+      },
+      {
+        "wpId": "33005",
+        "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+        "from": "Acts"
+      },
+      {
+        "wpId": "32739",
+        "title": "Is There Anything “Religious” about “Ethics”?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "32404",
+        "title": "You Don’t Think Peter Wrote 1 and 2 Peter?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "32065",
+        "title": "“Redemptive Gifts”: Can Giving to Charity Save Your Soul?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "31774",
+        "title": "Does Luke Have Contradictory Views of the Atonement?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "31770",
+        "title": "If Jesus’ Death Was Not an Atonement: Why Did He Die??",
+        "from": "Acts"
+      },
+      {
+        "wpId": "31755",
+        "title": "What Did Jesus Say at the Last Supper?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "31948",
+        "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+        "from": "Acts"
+      },
+      {
+        "wpId": "31498",
+        "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "30972",
+        "title": "You Mean Everyone (Except the Truly Destitute) Needs to Give? But How Much?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "30969",
+        "title": "A Christian NDE and the Problem with Being Filthy Rich",
+        "from": "Acts"
+      },
+      {
+        "wpId": "30975",
+        "title": "Thomas’s Trip to India and the Problem of Wealth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15168",
+        "title": "Why Are The Gospels Called Matthew, Mark, Luke, and John?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17205",
+        "title": "Jesus and Sexual Immorality",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12656",
+        "title": "How Can Paul Say that Jesus Appeared to The Twelve?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "29925",
+        "title": "Fabrication, Forgery, and Accusations of (Heretical) Christian Licentious Rituals!",
+        "from": "Acts"
+      },
+      {
+        "wpId": "29117",
+        "title": "What If Damascus Was In Arabia?  Solving a Dilemma in the Life of Paul.  Platinum Guest Post by Gregory Hartzler-Miller",
+        "from": "Acts"
+      },
+      {
+        "wpId": "28966",
+        "title": "The “Common Era”: Invented to Stop Speculations About the End of the World.  Platinum Guest Post by Daniel Kohanski",
+        "from": "Acts"
+      },
+      {
+        "wpId": "28747",
+        "title": "How Important Was Paul, Actually, For Early Christianity?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "27447",
+        "title": "Was Peter Crucified Upside Down?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "27206",
+        "title": "Student Papers for “The Birth of Christianity”",
+        "from": "Acts"
+      },
+      {
+        "wpId": "27182",
+        "title": "Was Paul Really at Odds with Peter and James?  Guest Post by Richard Fellows",
+        "from": "Acts"
+      },
+      {
+        "wpId": "27060",
+        "title": "Destroy More Others!  The Israelites’ Conquest of the City Ai",
+        "from": "Acts"
+      },
+      {
+        "wpId": "26922",
+        "title": "God is Holy and You Better Worship Him!",
+        "from": "Acts"
+      },
+      {
+        "wpId": "26081",
+        "title": "Jesus’ Final Speech in John:  A Lead-up to the Coming of the Spirit",
+        "from": "Acts"
+      },
+      {
+        "wpId": "26011",
+        "title": "The Spirit in the Life of Jesus",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25919",
+        "title": "The Holy Spirit in Charge of the Church (?)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25906",
+        "title": "The Coming of the Spirit on the Day of Pentecost",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25879",
+        "title": "Paul’s (Misunderstood) Message to His Corinthian Converts",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25875",
+        "title": "How Paul Started the Church in Corinth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25517",
+        "title": "Was Paul Peter’s Enemy?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25709",
+        "title": "Paul’s Community at Corinth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "25178",
+        "title": "Fifty Ways to Forge a Gospel",
+        "from": "Acts"
+      },
+      {
+        "wpId": "24590",
+        "title": "Did the Disciples See Jesus Raised from the Dead?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "24557",
+        "title": "Did Marcion Know the Gospels or Not??",
+        "from": "Acts"
+      },
+      {
+        "wpId": "23935",
+        "title": "Does Luke Present Different (Inconsistent!) Views of Christ?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "23386",
+        "title": "The Oldest View of Christ:  Found in Only One Greek Manuscript of Luke!",
+        "from": "Acts"
+      },
+      {
+        "wpId": "23381",
+        "title": "When Did Jesus Become Divine?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "23292",
+        "title": "Very Early Understandings of Christ in A Later Book of the NT",
+        "from": "Acts"
+      },
+      {
+        "wpId": "21421",
+        "title": "Who Would Die for a Lie?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "21403",
+        "title": "John, the Bedbugs, and Miracles that Convert",
+        "from": "Acts"
+      },
+      {
+        "wpId": "21300",
+        "title": "Jesus’ Twin Brother?  Really?  Readers’ Mailbag",
+        "from": "Acts"
+      },
+      {
+        "wpId": "21145",
+        "title": "My Early Christian Apocrypha Seminar",
+        "from": "Acts"
+      },
+      {
+        "wpId": "21054",
+        "title": "Will “All Israel” Be Saved? Really?  Guest Post by Jason Staples",
+        "from": "Acts"
+      },
+      {
+        "wpId": "21016",
+        "title": "A Very Odd Story about the Baby Jesus",
+        "from": "Acts"
+      },
+      {
+        "wpId": "20997",
+        "title": "Why Do Are So Many Textual Critics Evangelicals?   Readers’ Mailbag.",
+        "from": "Acts"
+      },
+      {
+        "wpId": "20725",
+        "title": "Yet Other Accounts Of the Death of Judas",
+        "from": "Acts"
+      },
+      {
+        "wpId": "20717",
+        "title": "But How Did Judas Die?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17521",
+        "title": "So: Was Luke Luke?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17515",
+        "title": "Did *Any* Companion of Paul Write Luke and Acts?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17501",
+        "title": "Does the Author of Acts Identify Himself?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17487",
+        "title": "Problems with Thinking That Luke Wrote Luke (and Acts)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17411",
+        "title": "The Life and Message of Paul",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17368",
+        "title": "Guided Tours of Heaven and Hell in a Christian Mode",
+        "from": "Acts"
+      },
+      {
+        "wpId": "17064",
+        "title": "What Is the New Testament?  A Broad Overview",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16873",
+        "title": "Why Would Jesus’ Disciples Doubt the Resurrection?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16473",
+        "title": "How Views of the Afterlife Changed",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16467",
+        "title": "Who Has The Answer For a Happy Afterlife?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16425",
+        "title": "Some Very Strange Journeys to Heaven and Hell",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16381",
+        "title": "My Current Research Projects, 7/2019",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16375",
+        "title": "Does the Book of James Have the Same Concerns as the Historical James?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16236",
+        "title": "Did Paul Really Write 2 Thessalonians?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16130",
+        "title": "Contradictions in the Gospels – Rev Matthew Firth’s Final Response",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16109",
+        "title": "Contradictions and Contradictions: Final Response to Matt Firth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16100",
+        "title": "Contradictions in the Gospels – Rev Matthew Firth’s Second Response",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16054",
+        "title": "Contradictions in the Gospels",
+        "from": "Acts"
+      },
+      {
+        "wpId": "16052",
+        "title": "What Is a Contradiction?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15991",
+        "title": "Did Jesus Pray “Father Forgive Them” from the Cross?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15898",
+        "title": "Homosexuality and the New Testament.  Guest Post by Jeff Siker.",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15896",
+        "title": "Homosexuality in the Bible (and the Christian Church)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15666",
+        "title": "Could Peter Have “Written” 1 and 2 Peter Some Other Way?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15607",
+        "title": "How Christianity Grew and Grew",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15490",
+        "title": "A Peculiar Story of Peter’s Martyrdom",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15477",
+        "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15459",
+        "title": "Thomas and His Identical Twin Jesus, in the Acts of Thomas",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15457",
+        "title": "Did Jesus Have a Twin Brother?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15444",
+        "title": "Thomasine Christians and Others, From After the New Testament",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15277",
+        "title": "Are Contradictions the Real Point?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15272",
+        "title": "Internal Discrepancies in the Gospel of John",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15221",
+        "title": "Two Rather Bizarre Accounts of How Judas Died",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15219",
+        "title": "Can We Know Anything Historically About How Judas Iscariot Died?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15217",
+        "title": "The Death of Judas in Matthew",
+        "from": "Acts"
+      },
+      {
+        "wpId": "15103",
+        "title": "Different Kinds of Literary Deceit",
+        "from": "Acts"
+      },
+      {
+        "wpId": "14988",
+        "title": "Scribes Who Injected the Idea of Atonement into Luke’s Gospel",
+        "from": "Acts"
+      },
+      {
+        "wpId": "14941",
+        "title": "Do We Know How Paul Died?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "14939",
+        "title": "The Legend of Peter’s Martyrdom",
+        "from": "Acts"
+      },
+      {
+        "wpId": "14891",
+        "title": "Do the Differences in Our Manuscripts Matter?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "14249",
+        "title": "The Ethical Teachings of the Didache",
+        "from": "Acts"
+      },
+      {
+        "wpId": "13225",
+        "title": "Were the Disciples Martyred for Believing the Resurrection? A Blast From the Past",
+        "from": "Acts"
+      },
+      {
+        "wpId": "13142",
+        "title": "Is Luke’s Christology Consistent?   A Blast from the Past",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12924",
+        "title": "Too Much Money and the Afterlife",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12903",
+        "title": "Speaking in Tongues and Virgin Births: Readers’ Mailbag September 3, 2017",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12887",
+        "title": "My Graduate Level New Testament Course",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12868",
+        "title": "Do Later Manuscript Discoveries Ever Support Proposed Interpolations?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12865",
+        "title": "Are There Passages Where *Every* NT Manuscript Gives the “Wrong” Reading?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12262",
+        "title": "What About the Apocrypha?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "12006",
+        "title": "James the Brother of the Lord",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11964",
+        "title": "The “Arch-Heretic” Marcion, Jesus, and the Jewish Law",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11921",
+        "title": "The Inerrancy of the Bible?  And Those Who Doubt.  Readers’ Mailbag October 2, 2016",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11875",
+        "title": "Rulers as Gods: The Context of Ancient Religion",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11821",
+        "title": "Does James Contradict Paul?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11581",
+        "title": "The Name of Saul/Paul and the Sources of the Pentateuch: Weekly Mailbag June 26, 2016",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11578",
+        "title": "More on Numbers of Converts",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11558",
+        "title": "The Conversion of Paul",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11556",
+        "title": "How Paul Persecuted the Christians",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11508",
+        "title": "The Resurrection and the Beginning of the Church",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11442",
+        "title": "The Rate of Christian Growth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11437",
+        "title": "Christians and their Exaggerated Numbers",
+        "from": "Acts"
+      },
+      {
+        "wpId": "11332",
+        "title": "The Death of Paul in Acts and Unrelated Topics:  Readers’ Mailbag April 29, 2016",
+        "from": "Acts"
+      },
+      {
+        "wpId": "10984",
+        "title": "The Letters of Paul: Mailbag April 1, 2016",
+        "from": "Acts"
+      },
+      {
+        "wpId": "10402",
+        "title": "Bart Ehrman vs Tim McGrew – Round 2",
+        "from": "Acts"
+      },
+      {
+        "wpId": "10331",
+        "title": "Does the New Testament Condemn Modern Practices of Homosexuality?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "10318",
+        "title": "Do Paul and Jesus Represent Fundamentally Different Religions?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "10312",
+        "title": "My Recitation Debates",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9864",
+        "title": "On the Accuracy of Oral Traditions",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9516",
+        "title": "Weekly Readers’ Mailbag: January 24, 2016",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9395",
+        "title": "Did Some Disciples Not Believe in the Resurrection?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9393",
+        "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9381",
+        "title": "The Reversal of the Disciples’ Decisive Disconfirmation",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9309",
+        "title": "Fifty Ways to Forge a Gospel",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9270",
+        "title": "Readers’ Mailbag on Revelation:  November 6, 2015",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9252",
+        "title": "Reader’s Mailbag on Virgin Birth: 10/29/15",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9217",
+        "title": "Arguments that Luke Did Not Originally Have the Virgin Birth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9187",
+        "title": "The Striking Conclusion: Jesus’ Last Supper in Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9184",
+        "title": "Luke’s Understanding of Jesus’ Death",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9177",
+        "title": "Anti-Judaism in the Gospel of Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9175",
+        "title": "Jesus’ Death as a Prophet in Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "9065",
+        "title": "How Textual Criticism Became Relevant",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8833",
+        "title": "Other Accounts of the Death of Judas",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8823",
+        "title": "The Death of Judas in the NT",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8599",
+        "title": "Lost Letters of Paul’s Opponents",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8405",
+        "title": "My Forgery Seminar (Syllabus)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8296",
+        "title": "Why Was the Gospel of Mark Attributed to Mark?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8294",
+        "title": "Why Was the Gospel of Luke Attributed to Luke?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8236",
+        "title": "Our Anonymous Gospels, Starting with Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "8003",
+        "title": "On Boring Textbooks",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7648",
+        "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7577",
+        "title": "Being Consistently Critical (in the good sense)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7504",
+        "title": "Day Two of Jesus and Brian",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7411",
+        "title": "Thomasine “Gnostics” and Others",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7260",
+        "title": "Paul’s Importance in Early Christianity?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7254",
+        "title": "Did Paul Invent the Resurrection?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7199",
+        "title": "Did Disciples Have Visions of Jesus?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7185",
+        "title": "The Disciples who Doubted the Resurrection",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7026",
+        "title": "The Gospel of John from a Literary-Historical Perspective",
+        "from": "Acts"
+      },
+      {
+        "wpId": "7002",
+        "title": "The Comparative Method and Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "6637",
+        "title": "The New and Improved After the New Testament",
+        "from": "Acts"
+      },
+      {
+        "wpId": "6478",
+        "title": "Mistakes about the New Testament in Aslan’s Zealot",
+        "from": "Acts"
+      },
+      {
+        "wpId": "5100",
+        "title": "Writers Who Contradict Themselves",
+        "from": "Acts"
+      },
+      {
+        "wpId": "5075",
+        "title": "Why Are There Contradictions in the New Testament?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "5067",
+        "title": "Jesus’ Brother and the Mythicists (Part 2)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4792",
+        "title": "My PhD Seminar: Early Christian Apocrypha",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4784",
+        "title": "Summing Up: Was Luke Luke?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4768",
+        "title": "Who Wrote Luke and Acts?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4753",
+        "title": "Problems with Luke as the Author of Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4747",
+        "title": "Why Luke is Thought To Have Written Luke",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4743",
+        "title": "The Final Part of My First-Day Quiz",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4683",
+        "title": "A Final Post (!) on Luke 3:22",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4678",
+        "title": "Luke 3:22 — More on What Luke Would Have Written",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4672",
+        "title": "Luke 3:22 — What Luke Himself Would Have Written",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4591",
+        "title": "Women in the Churches of Paul",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4523",
+        "title": "Jesus and Sacrifices",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4519",
+        "title": "Paul’s Chronology",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4308",
+        "title": "More on Mark and Peter",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4259",
+        "title": "More on Judas",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4247",
+        "title": "Jesus’ Rejection in Nazareth",
+        "from": "Acts"
+      },
+      {
+        "wpId": "4241",
+        "title": "Persecutions for Calling Jesus God",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3821",
+        "title": "An Important and Relevant Textual Variant in Luke 2",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3816",
+        "title": "Pushing Back the Exaltation",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3763",
+        "title": "How Jesus Became God: The “Original” Idea, Part 2",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3597",
+        "title": "Paul’s “Gospel” and Marcion",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3488",
+        "title": "Another Instance of Gematria",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3408",
+        "title": "Melito and arly Christian Anti-Judaism",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3295",
+        "title": "The Collection: Apostolic Fathers",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3079",
+        "title": "Disciples Who Doubt the Resurrection",
+        "from": "Acts"
+      },
+      {
+        "wpId": "3054",
+        "title": "Were the Disciples Martyred for Believing the Resurrection?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2838",
+        "title": "Does Luke Combat a Docetic Christology?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2831",
+        "title": "Peter, The Smoked Tuna, and the Flying Heretic",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2591",
+        "title": "A Christian Forger Caught in the Acts",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2551",
+        "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2528",
+        "title": "Silvanus as Peter’s Secretary?",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2512",
+        "title": "Paul in Acts: Part 3",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2492",
+        "title": "Paul in Acts: Part 2",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2483",
+        "title": "Paul the Persecutor and the Historical Jesus",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2268",
+        "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2259",
+        "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center",
+        "from": "Acts"
+      },
+      {
+        "wpId": "2023",
+        "title": "The Work of a Professional Scholar 3: Undergraduate Theses",
+        "from": "Acts"
+      },
+      {
+        "wpId": "1976",
+        "title": "More on the Resurrection",
+        "from": "Acts"
+      }
+    ],
+    "Book of Revelation": [
+      {
+        "wpId": "50192",
+        "title": "How the Year 1517 Revolutionized Biblical Studies",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "50165",
+        "title": "Two Years that Transformed the World of Biblical Studies.",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "48954",
+        "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "48943",
+        "title": "An Ancient Apocalypse Among the Apostolic Fathers: The Shepherd of Hermas",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "48864",
+        "title": "From Eternal Torment to Styles of Greek to the Dating of Ignatius: Interesting Readers’ Questions",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "48295",
+        "title": "A Glimpse of Proto-orthodox Views in the Letters of Ignatius",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "48021",
+        "title": "Was 1 Clement Written BEFORE Some of the New Testament?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47918",
+        "title": "Having Some Fun with 666!",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47813",
+        "title": "Why Most People Who Read Revelation Are Wrong About It",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47560",
+        "title": "Heaven, the Hedonic Treadmill, and Homer (Simpson)  Platinum Post by Douglas Wadeson MD",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47003",
+        "title": "My Next Book: Creating the Bible — How We Got the Canon of the New Testament",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "46992",
+        "title": "The Bible and Suffering:  My NEW Course at UNC This Term",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "46991",
+        "title": "So Did Secretaries Write the Apostles’ Letters for Them?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "46943",
+        "title": "Some Readers’ Questions and Some Responses",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47266",
+        "title": "Another Puzzling Figure in the Hebrew Bible: Woman Wisdom?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47258",
+        "title": "Understanding the Hebrew Bible: The “Old” Testament in Modern Scholarship",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "47177",
+        "title": "Key Questions about Paul",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "40849",
+        "title": "Introducing the Old Testament Apocrypha",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "40576",
+        "title": "Paul and the Anachronistic Origins of Early Christianity – Part 2 by Dr. Robyn Faith Walsh",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "39754",
+        "title": "Why Bible-Believing Christians Care About Textual Variants",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "38306",
+        "title": "How to Sugarcoat Scripture but Seem Sophisticated.  Final Guest Post by Jill Hicks-Keeton",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "37901",
+        "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "37889",
+        "title": "Biblical Monsters and Their Violent God!  Guest Post by Esther Hamori",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "37690",
+        "title": "When Modern Christians Came to Think “The End is Near”",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "37686",
+        "title": "American Support of Israel: A (Widely) Unknown Part of the History",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "37317",
+        "title": "The Gospel of Judas: The Most Recently Discovered Sethian Gnostic Gospel",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "35159",
+        "title": "Good Friday or Easter?  CNN OpEd",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "35065",
+        "title": "James Tabor on the 1993 Waco Disaster, Part III",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "35060",
+        "title": "James Tabor on the 1993 Waco Disaster, Part II",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "35029",
+        "title": "James Tabor on the 1993 Waco Disaster, Part I",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "34830",
+        "title": "Biblical Prophecy and the Coming Destruction of the Dome of the Rock",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "34826",
+        "title": "The Coming Apocalypse and U.S. Foreign Policy on Israel",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "34678",
+        "title": "REVELATION, A Novel.  Excerpts from Blog Guest Poster Gary McCarragher",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "34764",
+        "title": "Pre-Pub Offer on My Book: ARMAGEDDON!",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "33974",
+        "title": "The First Christian Martyr Text?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "33135",
+        "title": "Can’t We Just Get Rid of Some of the Books of the Bible?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "32743",
+        "title": "A Funny Story about the Rapture",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "32665",
+        "title": "Did the Apostles Use Secretaries to Write their Books?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "32505",
+        "title": "How Did They Decide Which Books to Include in the New Testament Canon?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29782",
+        "title": "The Apocalypse of John and the Gospel of Jesus: My Final Thoughts",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29786",
+        "title": "Are the Teachings of Jesus Realistic?  Guest Post by Douglas Wadeson",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29779",
+        "title": "John of Patmos and the Passion for World Domination",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29776",
+        "title": "Revelation and Ancient Views of Dominance",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29672",
+        "title": "The Most Violent Passage in Revelation, in My View:",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29668",
+        "title": "Two of the Most Violent Passages in Revelation",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "29435",
+        "title": "Is the Apocalypse of John a Book of Hope?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "28966",
+        "title": "The “Common Era”: Invented to Stop Speculations About the End of the World.  Platinum Guest Post by Daniel Kohanski",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "28939",
+        "title": "Are the Teachings of Jesus Realistic?   Platinum guest post by Douglas Wadeson",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "28809",
+        "title": "What Was Paul’s Innovation?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "28747",
+        "title": "How Important Was Paul, Actually, For Early Christianity?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "28666",
+        "title": "What Is The Difference Between an Evangelical and a Fundamentalist?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27871",
+        "title": "How I’ve Changed My Approach To Writing",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27740",
+        "title": "Starting My New Trade Book on Revelation",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27512",
+        "title": "Why these Caricatures of the Old Testament God? Guest post by Amy-Jill Levine",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27402",
+        "title": "Jesus’ View of Salvation: Who Can Have Eternal Life?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27397",
+        "title": "Jesus and the Coming Destruction: Who, Why, and How?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27343",
+        "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27285",
+        "title": "Jesus’s Apocalyptic View of Destruction",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27073",
+        "title": "Israel’s Conquest of the Promised Land: Did Any of That Happen?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "27056",
+        "title": "God’s Destruction of the “Other”: Joshua and the Battle of Jericho",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "26915",
+        "title": "The God of Wrath According to the Prophet Amos",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "26895",
+        "title": "The God of Wrath in Both Old and New Testament",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "26709",
+        "title": "Is Revelation Describing Warfare in the Twenty-first Century??",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "26592",
+        "title": "How I Take Notes When Doing Research for a Book",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "26586",
+        "title": "Apocalypse (the genre) and Apocalypticism (the worldview)",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "26425",
+        "title": "Why My Book on Revelation Has Been Different To Write",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "25931",
+        "title": "How Then Do Most Ancient Manuscripts Get Discovered?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "24315",
+        "title": "What Are the Sources of the Hebrew Bible?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "22087",
+        "title": "The Gospel of Mary Magdalene",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "21778",
+        "title": "Curiosities and Puzzles from the Very First Passage of the New Testament",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "21454",
+        "title": "Did Jesus’ Disciple John Write the Gospel of “John”?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "21061",
+        "title": "What is the Gospel of Judas About?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "19945",
+        "title": "A Good Time for Wisdom!",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "19933",
+        "title": "Q&A on Heaven and Hell",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "17134",
+        "title": "The Coming Armageddon:  I Need Some Suggestions!",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "17064",
+        "title": "What Is the New Testament?  A Broad Overview",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "16248",
+        "title": "How “Jews” Became “Children of the Devil” in the New Testament",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "16096",
+        "title": "Papias and the Writers of the New Testament: Guest Post by Stephen Carlson",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15993",
+        "title": "Armageddon and American Politics",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15935",
+        "title": "Expecting the Apocalypse: My Idea for the Book",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15609",
+        "title": "My Pod Cast Interview with Sam Harris",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15740",
+        "title": "My Research Goals for 2019",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15713",
+        "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15701",
+        "title": "Jesus’ Birth in Matthew and Luke: A Study in Contrasts",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15680",
+        "title": "Did Jesus Write Anything in the New Testament?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15532",
+        "title": "Who Wrote the Book of Revelation?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15494",
+        "title": "Writing a Historical-Critical Textbook that Isn’t *Critical*",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15398",
+        "title": "Is 1 Clement Older than Some Books of the New Testament?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "15263",
+        "title": "Sources for the Hebrew Bible: A Blast from the Past",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "13934",
+        "title": "Did Matthew Copy Luke?  Mark Goodacre’s Rebuttal",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "13419",
+        "title": "Why Do Translators Include Passages They Know Are Not Original?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "13343",
+        "title": "Were All Textual Changes Made by Scribes by 300 CE? Readers’ Mailbag November 5, 2017",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12854",
+        "title": "A Resurrection for Tortured Jews (2 Maccabees)",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12801",
+        "title": "A New Genre in Jewish Antiquity: The Apocalypse",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12665",
+        "title": "How a Non-Historical Account Can Be Meaningful: The Death of Jesus in Mark",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12642",
+        "title": "Can (or Should) We Change the Canon of Scripture? A Blast from the Past",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12636",
+        "title": "What I Came To Believe About the Bible",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12633",
+        "title": "What Really Happened to Me: Demythologizing the New Testament",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12605",
+        "title": "The Gospels as Myths",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12563",
+        "title": "Finding More Problems in the Old Testament",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "12004",
+        "title": "Paul’s Acquaintances: Jesus’ Disciples and Brother",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11961",
+        "title": "Why Don’t People See Discrepancies in the Bible?  Readers’ Mailbag October 15, 2016",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11738",
+        "title": "Did Ancient Secretaries Actually Compose Writings?  A Blast from the Past",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11729",
+        "title": "How Did Ancient Writers Use Secretaries?  A Blast from the Past",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11723",
+        "title": "Who Could Read and Write?  A Blast from the Past.",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11719",
+        "title": "Did John Write the Fourth Gospel?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11533",
+        "title": "Paul’s Own (and Only) Gospel",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "11529",
+        "title": "Were Jesus’ Followers Crazy?  Was He?  Mailbag June 4, 2016",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "9477",
+        "title": "Are the Prophecies Being Fulfilled?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "9024",
+        "title": "The Return of Jesus (Rapture?) in 1 Thessalonians",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "8993",
+        "title": "Fundamentalist Mistakes",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "8862",
+        "title": "How Are Manuscripts Discovered",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "8511",
+        "title": "Apocalypticism and Apocalypses",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "8485",
+        "title": "More on Greek Numerals",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "8011",
+        "title": "Where Do You Start an Introduction to the NT?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "8000",
+        "title": "The Importance of a Comparative Approach to the NT",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "7469",
+        "title": "Fundamentalists and the Variants in our Manuscripts",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "7266",
+        "title": "Paul’s Gospel Message",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "7260",
+        "title": "Paul’s Importance in Early Christianity?",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "7031",
+        "title": "More Literary-Historical Perspectives on John",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "4821",
+        "title": "My Bible Introduction!",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "3453",
+        "title": "The Infancy Narratives Compared",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "2609",
+        "title": "Bible Intro: Nearing the finish line",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "2551",
+        "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "2374",
+        "title": "My Bible Introduction",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "2328",
+        "title": "The Hebrew Bible and Its Sources",
+        "from": "Revelation"
+      },
+      {
+        "wpId": "2240",
+        "title": "Should We Change the Canon of Scripture?",
+        "from": "Revelation"
+      }
+    ]
+  },
+  "removedEquivalentTopicOverlapPosts": {
+    "Acts of the Apostles": [],
+    "Letter to the Romans": [],
+    "Book of Revelation": [
+      {
+        "wpId": "47918",
+        "title": "Having Some Fun with 666!"
+      },
+      {
+        "wpId": "47813",
+        "title": "Why Most People Who Read Revelation Are Wrong About It"
+      },
+      {
+        "wpId": "35159",
+        "title": "Good Friday or Easter?  CNN OpEd"
+      },
+      {
+        "wpId": "35060",
+        "title": "James Tabor on the 1993 Waco Disaster, Part II"
+      },
+      {
+        "wpId": "34830",
+        "title": "Biblical Prophecy and the Coming Destruction of the Dome of the Rock"
+      },
+      {
+        "wpId": "34764",
+        "title": "Pre-Pub Offer on My Book: ARMAGEDDON!"
+      },
+      {
+        "wpId": "29782",
+        "title": "The Apocalypse of John and the Gospel of Jesus: My Final Thoughts"
+      },
+      {
+        "wpId": "29779",
+        "title": "John of Patmos and the Passion for World Domination"
+      },
+      {
+        "wpId": "29776",
+        "title": "Revelation and Ancient Views of Dominance"
+      },
+      {
+        "wpId": "29672",
+        "title": "The Most Violent Passage in Revelation, in My View:"
+      },
+      {
+        "wpId": "29668",
+        "title": "Two of the Most Violent Passages in Revelation"
+      },
+      {
+        "wpId": "29435",
+        "title": "Is the Apocalypse of John a Book of Hope?"
+      },
+      {
+        "wpId": "26709",
+        "title": "Is Revelation Describing Warfare in the Twenty-first Century??"
+      },
+      {
+        "wpId": "26586",
+        "title": "Apocalypse (the genre) and Apocalypticism (the worldview)"
+      },
+      {
+        "wpId": "17134",
+        "title": "The Coming Armageddon:  I Need Some Suggestions!"
+      },
+      {
+        "wpId": "15935",
+        "title": "Expecting the Apocalypse: My Idea for the Book"
+      },
+      {
+        "wpId": "15532",
+        "title": "Who Wrote the Book of Revelation?"
+      }
+    ]
+  }
+}

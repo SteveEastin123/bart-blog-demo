@@ -1,0 +1,2595 @@
+{
+  "summary": {
+    "Peter": {
+      "resolvedThisPass": 67,
+      "stillAmbiguous": 16
+    },
+    "Mary": {
+      "resolvedThisPass": 0,
+      "stillAmbiguous": 33
+    },
+    "James": {
+      "resolvedThisPass": 18,
+      "stillAmbiguous": 45
+    },
+    "Herod": {
+      "resolvedThisPass": 17,
+      "stillAmbiguous": 40
+    },
+    "Barnabas": {
+      "resolvedThisPass": 46,
+      "stillAmbiguous": 27
+    },
+    "Thomas": {
+      "resolvedThisPass": 3,
+      "stillAmbiguous": 6
+    }
+  },
+  "details": {
+    "Peter": {
+      "resolved": [
+        {
+          "wpId": "49112",
+          "title": "Does Papias Say Matthew and Mark Wrote OUR Matthew and Mark?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "49084",
+          "title": "Is Papias Generally Trustworthy?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "49078",
+          "title": "Papias in a Nutshell.  An Important Figure Among the Apostolic Fathers",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "48954",
+          "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47177",
+          "title": "Key Questions about Paul",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47113",
+          "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47110",
+          "title": "The Book of Acts in a Nutshell",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47100",
+          "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47058",
+          "title": "Mark’s Messianic Secret",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47056",
+          "title": "The Gospel of Mark in a Nutshell",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "41058",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "41054",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 2 by Angus Nisbet",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "41256",
+          "title": "Forged Books, Anonymous Books, and The Use of Secretaries as Authors in the NT",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "40505",
+          "title": "Critical Problems With the Bible, in a Nutshell",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "38938",
+          "title": "Other “Unknown” Sayings of Jesus",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "38930",
+          "title": "Is the Paul of Acts at Odds with the Paul of His Own Letters?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "38564",
+          "title": "Facts Hidden Among the Legends of the Apostle Paul?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "38493",
+          "title": "Jesus and Mary Magdalene Seen Kissing??",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "37384",
+          "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "37162",
+          "title": "What the Jesus “Mythicists” Say About the Brothers of Jesus",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "34480",
+          "title": "Who Wrote the Gospels?  Our Earliest (Apparent) Reference",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33538",
+          "title": "Did Jesus Appear to 500 People After His Resurrection?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33399",
+          "title": "Writing Forgeries to Show the Truth",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33236",
+          "title": "How Can “Group Hallucinations” Possibly Happen?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "31948",
+          "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "1966",
+          "title": "Richard Carrier: A Fuller Reply to His Criticisms, Beliefs, and Claims about Jesus",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27490",
+          "title": "Did Paul Want to Please the Jerusalem Apostles?  Guest post by Richard Fellows",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "25906",
+          "title": "The Coming of the Spirit on the Day of Pentecost",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "23292",
+          "title": "Very Early Understandings of Christ in A Later Book of the NT",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "23254",
+          "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "22090",
+          "title": "Women Apostles in Early Christianity",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "21403",
+          "title": "John, the Bedbugs, and Miracles that Convert",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "21139",
+          "title": "At Last.  Jesus and the Son of Man.",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "21072",
+          "title": "Who Is the Son of Man?  From the Blog Readers’ Mailbag",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "20455",
+          "title": "Are the Gospel and Epistles of John *Forgeries*??  Guest Post by Hugo Mendez",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "17615",
+          "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16923",
+          "title": "A New Way of Explaining Contradictions in an “Inerrant” Bible",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16892",
+          "title": "But the Women Who Did *NOT* Doubt the Resurrection",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16240",
+          "title": "When Were Matthew and Mark First Seen as Scripture: Guest Post on Papias by Stephen Carlson",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15868",
+          "title": "Wrede’s Revolutionary Claim about the “Messianic Secret”",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15837",
+          "title": "Mark’s Central Focus on Jesus’ Death",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15834",
+          "title": "How No One Understands Jesus in Mark’s Gospel",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15672",
+          "title": "Do Any Forgeries Claim to be Written by Jesus?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "14899",
+          "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "13504",
+          "title": "Mark’s Suffering Son of God: A Blast From the Past",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "13502",
+          "title": "Jesus in Mark: Who Knew?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "12605",
+          "title": "The Gospels as Myths",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "12361",
+          "title": "How Variant Readings are Noted in the Greek New Testament",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "12006",
+          "title": "James the Brother of the Lord",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "9264",
+          "title": "Jesus as the Messiah in Mark’s Gospel",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8285",
+          "title": "Why Was the Gospel of John Attributed to John?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8265",
+          "title": "Papias on Matthew and Mark",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8261",
+          "title": "Believing Papias When It’s Convenient",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8254",
+          "title": "Papias and the Gospels: Some Background",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8238",
+          "title": "Did the Beloved Disciple Write the Gospel of John?",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "6967",
+          "title": "Jesus’ Death and Resurrection in Mark",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "6962",
+          "title": "Mark’s Suffering Son of God",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "6951",
+          "title": "More on Mark",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "6891",
+          "title": "Jesus Kissing Mary Magdalene",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "6858",
+          "title": "A Married Jesus and Celibate Priests",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "5055",
+          "title": "Brothers of Jesus and the Mythicists",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "4251",
+          "title": "Jesus’ Appearance to the 500",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "4177",
+          "title": "Capernaum and the “Jesus Boat”",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "3809",
+          "title": "Exaltation Christology in the Speeches in Acts",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "3086",
+          "title": "Women Who Did Not Doubt the Resurrection",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "2915",
+          "title": "The Next Project: How Jesus Became God",
+          "addedKeywords": [
+            "Peter the Apostle"
+          ],
+          "representedByTopics": []
+        }
+      ],
+      "remaining": [
+        {
+          "wpId": "50273",
+          "title": "Jesus the Pacifist",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Gospel Historical Reliability",
+            "Jesus' Teachings",
+            "Zealot Hypothesis"
+          ]
+        },
+        {
+          "wpId": "47122",
+          "title": "Paul’s Life and Letters:  For Further Reading",
+          "topics": [
+            "Paul's Life and Career"
+          ]
+        },
+        {
+          "wpId": "38488",
+          "title": "When Did Mary Magdalene Become a Prostitute?",
+          "topics": [
+            "Mary Magdalene"
+          ]
+        },
+        {
+          "wpId": "34033",
+          "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+          "topics": [
+            "Eyewitness Reliability",
+            "Historical Study of Miracles",
+            "Martyrdom of Polycarp",
+            "Miracle Claims and Apologetics",
+            "Miraculous Martyrdom Traditions"
+          ]
+        },
+        {
+          "wpId": "33005",
+          "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+          "topics": [
+            "Greco-Roman Religious Culture",
+            "Paul as Persecutor and Persecuted"
+          ]
+        },
+        {
+          "wpId": "32580",
+          "title": "The Canon of the New Testament:  Why It Matters",
+          "topics": [
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "27838",
+          "title": "Those Darn Demons!  Guest Post by Douglas Wadeson",
+          "topics": [
+            "Historical Study of Miracles",
+            "Jesus' Miracle Stories"
+          ]
+        },
+        {
+          "wpId": "21069",
+          "title": "Smith-Pettit Lecture – The History of Heaven and Hell",
+          "topics": [
+            "Heaven and Hell Beliefs",
+            "Media Interviews and Videos"
+          ]
+        },
+        {
+          "wpId": "21061",
+          "title": "What is the Gospel of Judas About?",
+          "topics": [
+            "Gospel of Judas"
+          ]
+        },
+        {
+          "wpId": "12903",
+          "title": "Speaking in Tongues and Virgin Births: Readers’ Mailbag September 3, 2017",
+          "topics": [
+            "Miracle Traditions (General)",
+            "Virgin Birth"
+          ]
+        },
+        {
+          "wpId": "11793",
+          "title": "Were Jesus and His Followers Armed?",
+          "topics": [
+            "Historical Jesus (General)"
+          ]
+        },
+        {
+          "wpId": "11508",
+          "title": "The Resurrection and the Beginning of the Church",
+          "topics": [
+            "Early Christianity (General)",
+            "Meaning of Jesus' Resurrection"
+          ]
+        },
+        {
+          "wpId": "7155",
+          "title": "Jesus as the Adopted Son of God",
+          "topics": [
+            "Adoptionist Christology",
+            "How Jesus Became God"
+          ]
+        },
+        {
+          "wpId": "6881",
+          "title": "Mary Magdalene as a Prostitute?",
+          "topics": [
+            "Mary Magdalene"
+          ]
+        },
+        {
+          "wpId": "6362",
+          "title": "Paul and the Resurrection of a Spiritual Body",
+          "topics": [
+            "Paul on Resurrection",
+            "Resurrection of the Dead"
+          ]
+        },
+        {
+          "wpId": "4317",
+          "title": "Mark and the Resurrection",
+          "topics": [
+            "Gospel of Mark",
+            "Resurrection of Jesus"
+          ]
+        }
+      ]
+    },
+    "Mary": {
+      "resolved": [],
+      "remaining": [
+        {
+          "wpId": "48832",
+          "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+          "topics": [
+            "Non-Canonical Gospel Traditions"
+          ]
+        },
+        {
+          "wpId": "47122",
+          "title": "Paul’s Life and Letters:  For Further Reading",
+          "topics": [
+            "Paul's Life and Career"
+          ]
+        },
+        {
+          "wpId": "47096",
+          "title": "John Versus the Synoptics:  How Does Jesus Raise the Dead?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Gospel of John",
+            "Jesus' Miracle Stories",
+            "Signs in the Gospel of John"
+          ]
+        },
+        {
+          "wpId": "40016",
+          "title": "More Lost Christianities",
+          "topics": [
+            "Canon Formation",
+            "Early Christian Diversity",
+            "Early Christian Writings"
+          ]
+        },
+        {
+          "wpId": "38093",
+          "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+          "topics": [
+            "Christian Interpretation of Jewish Scripture",
+            "Gospel of Matthew",
+            "Matthew's Use of Scripture"
+          ]
+        },
+        {
+          "wpId": "37901",
+          "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+          "topics": [
+            "Divine Beings in the Hebrew Bible"
+          ]
+        },
+        {
+          "wpId": "35270",
+          "title": "In What Sense is a Made-Up Story about Jesus a False *Memory*??",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Memory and Jesus Traditions"
+          ]
+        },
+        {
+          "wpId": "34332",
+          "title": "Wait, Was Jesus Married?  Guest Post by Kyle Smith",
+          "topics": [
+            "Jesus and Women"
+          ]
+        },
+        {
+          "wpId": "31511",
+          "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+          "topics": [
+            "Biblical Contradictions",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "31505",
+          "title": "There Are No Contradictions in the Gospels!  The Response by Matthew Firth",
+          "topics": [
+            "Biblical Contradictions",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "31498",
+          "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+          "topics": [
+            "Biblical Contradictions",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "21893",
+          "title": "Another Unusual Feature of Matthew’s Genealogy: The Women!",
+          "topics": [
+            "Genealogies of Jesus",
+            "Gospel of Matthew"
+          ]
+        },
+        {
+          "wpId": "21255",
+          "title": "Gospel Questions and Problems",
+          "topics": [
+            "Biblical Contradictions",
+            "Canonical Gospels (General)",
+            "Courses and Teaching",
+            "Non-Canonical Gospel Traditions"
+          ]
+        },
+        {
+          "wpId": "21223",
+          "title": "The Calm and Collected Jesus",
+          "topics": [
+            "Gospel of Luke",
+            "Gospel of Mark",
+            "Jesus' Passion Narratives"
+          ]
+        },
+        {
+          "wpId": "17247",
+          "title": "Why Don’t You Just Believe?",
+          "topics": [
+            "Agnosticism",
+            "Atheism"
+          ]
+        },
+        {
+          "wpId": "16146",
+          "title": "How Jesus Became Perfectly Sinless: Guest Post by Jeff Siker",
+          "topics": [
+            "Christology in the Gospels"
+          ]
+        },
+        {
+          "wpId": "16088",
+          "title": "Are These Really Contradictions?  My Response to Matt Firth",
+          "topics": [
+            "Biblical Contradictions",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "16063",
+          "title": "Contradictions in the Gospels – Rev Matthew Firth’s Response",
+          "topics": [
+            "Biblical Contradictions",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "16054",
+          "title": "Contradictions in the Gospels",
+          "topics": [
+            "Biblical Contradictions",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "15307",
+          "title": "Why Contradictions Matter for Understanding the Life of Jesus",
+          "topics": [
+            "Biblical Contradictions",
+            "Methods for Studying the Historical Jesus"
+          ]
+        },
+        {
+          "wpId": "13611",
+          "title": "The Women in Matthew’s Genealogy: Answer to a Reader",
+          "topics": [
+            "Genealogies of Jesus",
+            "Gospel of Matthew"
+          ]
+        },
+        {
+          "wpId": "13227",
+          "title": "Are Jews and Christians Monotheists?  Mailbag October 15, 2017",
+          "topics": [
+            "Development of the Trinity",
+            "Divine Beings in the Hebrew Bible"
+          ]
+        },
+        {
+          "wpId": "11294",
+          "title": "My Debate with Richard Bauckham – Round 2",
+          "topics": [
+            "Eyewitness Reliability",
+            "Gospel Eyewitness Claims",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "8657",
+          "title": "Can A Made-Up Story Be A False Memory?",
+          "topics": [
+            "Memory and Jesus Traditions"
+          ]
+        },
+        {
+          "wpId": "8401",
+          "title": "Matthew’s Fulfillment of Scripture Citations",
+          "topics": [
+            "Christian Interpretation of Jewish Scripture",
+            "Gospel of Matthew",
+            "Matthew's Use of Scripture"
+          ]
+        },
+        {
+          "wpId": "8326",
+          "title": "Forgeries in the Name of Paul",
+          "topics": [
+            "Pauline Forgeries"
+          ]
+        },
+        {
+          "wpId": "7206",
+          "title": "Modern Appearances of Jesus",
+          "topics": [
+            "How Jesus Became God",
+            "Visionary Experiences"
+          ]
+        },
+        {
+          "wpId": "6104",
+          "title": "Video: Ehrman & Evans 2012 Debate – Part 2",
+          "topics": [
+            "Gospel Historical Reliability",
+            "Media Interviews and Videos",
+            "Public Debates"
+          ]
+        },
+        {
+          "wpId": "6362",
+          "title": "Paul and the Resurrection of a Spiritual Body",
+          "topics": [
+            "Paul on Resurrection",
+            "Resurrection of the Dead"
+          ]
+        },
+        {
+          "wpId": "4317",
+          "title": "Mark and the Resurrection",
+          "topics": [
+            "Gospel of Mark",
+            "Resurrection of Jesus"
+          ]
+        },
+        {
+          "wpId": "3512",
+          "title": "Luke’s Genealogy",
+          "topics": [
+            "Genealogies of Jesus",
+            "Gospel of Luke",
+            "John the Baptist"
+          ]
+        },
+        {
+          "wpId": "3495",
+          "title": "The Women in Matthew’s Genealogy",
+          "topics": [
+            "Genealogies of Jesus",
+            "Gospel of Matthew"
+          ]
+        },
+        {
+          "wpId": "2106",
+          "title": "Undergraduate Courses (2): Introduction to the New Testament (Part 2)",
+          "topics": [
+            "Courses and Teaching"
+          ]
+        }
+      ]
+    },
+    "James": {
+      "resolved": [
+        {
+          "wpId": "47208",
+          "title": "Some Intriguing Questions about Paul’s Letters",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "47177",
+          "title": "Key Questions about Paul",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "41062",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 4 by Angus Nisbet",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "41058",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "41054",
+          "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 2 by Angus Nisbet",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "36661",
+          "title": "Did Luke Read Galatians? Platinum Post by Guillermo Mondon",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "35878",
+          "title": "Did Paul Get Along with the Other Apostles?",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33874",
+          "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33538",
+          "title": "Did Jesus Appear to 500 People After His Resurrection?",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27490",
+          "title": "Did Paul Want to Please the Jerusalem Apostles?  Guest post by Richard Fellows",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27182",
+          "title": "Was Paul Really at Odds with Peter and James?  Guest Post by Richard Fellows",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "25517",
+          "title": "Was Paul Peter’s Enemy?",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "13608",
+          "title": "Jesus’ Mother and Brothers in Mark",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "12120",
+          "title": "Was Cephas Peter?  The Rest of the Argument",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8391",
+          "title": "The Virgin Birth and Jesus’ Brothers",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "4255",
+          "title": "Paul on Judas",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "4251",
+          "title": "Jesus’ Appearance to the 500",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "2512",
+          "title": "Paul in Acts: Part 3",
+          "addedKeywords": [
+            "James the Brother of Jesus"
+          ],
+          "representedByTopics": []
+        }
+      ],
+      "remaining": [
+        {
+          "wpId": "50192",
+          "title": "How the Year 1517 Revolutionized Biblical Studies",
+          "topics": [
+            "Critical Biblical Scholarship",
+            "Historical Methods (General)"
+          ]
+        },
+        {
+          "wpId": "48954",
+          "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "48797",
+          "title": "Why Did Early Christians Want a New Canon of Scripture?",
+          "topics": [
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "47869",
+          "title": "Questions on Jesus as God, the Belief in the Resurrection, Secretaries in Early Christianity, and the KJV!",
+          "topics": [
+            "Ancient Secretaries and Authorship",
+            "Exaltation Christology",
+            "Jesus' Resurrection Appearances",
+            "King James Version"
+          ]
+        },
+        {
+          "wpId": "47100",
+          "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+          "topics": [
+            "Ancient Literacy",
+            "Eyewitness Reliability",
+            "Gospel Authorship",
+            "Gospel Eyewitness Claims",
+            "Gospel of John"
+          ]
+        },
+        {
+          "wpId": "47043",
+          "title": "What Is The New Testament?  Can You Actually Say?",
+          "topics": [
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "41262",
+          "title": "Why Would A Christian Author Lie About Who He Was?",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "39587",
+          "title": "An Important Early Christian Writing",
+          "topics": [
+            "Didache"
+          ]
+        },
+        {
+          "wpId": "38587",
+          "title": "Archaeology in the Time of Jesus!  New Course March 2-3!!",
+          "topics": [
+            "Archaeology and Material Evidence"
+          ]
+        },
+        {
+          "wpId": "38254",
+          "title": "Gospel Thrillers Part III by Andrew Jacobs",
+          "topics": [
+            "Gospel of Jesus' Wife Fragment",
+            "Modern Forgery Claims"
+          ]
+        },
+        {
+          "wpId": "36693",
+          "title": "Did Jesus Think He Was Going to Atone for the Sins of the World? A Platinum Post by Manuel Fiadeiro",
+          "topics": [
+            "Atonement (General)",
+            "Pauline Salvation Models"
+          ]
+        },
+        {
+          "wpId": "35689",
+          "title": "The Pauline Style and a Discussion About Paul’s Motivation. A Platinum Post From Omar Robb",
+          "topics": [
+            "Paul's Life and Career",
+            "Pauline Epistles (General)"
+          ]
+        },
+        {
+          "wpId": "34597",
+          "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+          "topics": [
+            "Apostolic Death Traditions"
+          ]
+        },
+        {
+          "wpId": "34088",
+          "title": "Recreational Drugs in the New Testament?  Platinum Guest Post by Douglas Wadeson",
+          "topics": [
+            "Jesus' Miracle Stories"
+          ]
+        },
+        {
+          "wpId": "33399",
+          "title": "Writing Forgeries to Show the Truth",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "32663",
+          "title": "Did Ancient Writers Use Secretaries?",
+          "topics": [
+            "Ancient Literacy",
+            "Ancient Secretaries and Authorship"
+          ]
+        },
+        {
+          "wpId": "32580",
+          "title": "The Canon of the New Testament:  Why It Matters",
+          "topics": [
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "32441",
+          "title": "Why Did Christians Even Need a Canon of Scripture?",
+          "topics": [
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "32498",
+          "title": "Is That One a Difference or a Contradiction?",
+          "topics": [
+            "Biblical Contradictions",
+            "Empty Tomb Traditions",
+            "Jesus' Resurrection Appearances"
+          ]
+        },
+        {
+          "wpId": "26835",
+          "title": "More Hints that Cephas Was Not Peter",
+          "topics": [
+            "Peter the Apostle"
+          ]
+        },
+        {
+          "wpId": "22094",
+          "title": "Peter and Mary Magdalene in Competition",
+          "topics": [
+            "Jesus' Resurrection Appearances",
+            "Mary Magdalene",
+            "Non-Canonical Gospel Traditions",
+            "Peter the Apostle"
+          ]
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "15912",
+          "title": "The Passion for Origins",
+          "topics": [
+            "Afterlife Journeys"
+          ]
+        },
+        {
+          "wpId": "15713",
+          "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+          "topics": [
+            "Apocalypse of Peter",
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "15701",
+          "title": "Jesus’ Birth in Matthew and Luke: A Study in Contrasts",
+          "topics": [
+            "Gospel of Matthew",
+            "Jesus' Birth Narratives"
+          ]
+        },
+        {
+          "wpId": "15672",
+          "title": "Do Any Forgeries Claim to be Written by Jesus?",
+          "topics": [
+            "Eusebius of Caesarea",
+            "Forgery (General)",
+            "Jesus and Abgar Legend"
+          ]
+        },
+        {
+          "wpId": "15014",
+          "title": "Forgery Lecture",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "14980",
+          "title": "Once More: The Interesting Text Called the Didache",
+          "topics": [
+            "Didache"
+          ]
+        },
+        {
+          "wpId": "12287",
+          "title": "Problems with the Language of the King James Version",
+          "topics": [
+            "King James Version",
+            "Translation Issues"
+          ]
+        },
+        {
+          "wpId": "12250",
+          "title": "Why Did We Get a New Testament?",
+          "topics": [
+            "Canon Formation"
+          ]
+        },
+        {
+          "wpId": "11707",
+          "title": "Who Wrote the Book of Revelation and the Fourth Gospel?",
+          "topics": [
+            "Book of Revelation",
+            "Gospel Authorship",
+            "Gospel of John",
+            "Revelation Authorship"
+          ]
+        },
+        {
+          "wpId": "8748",
+          "title": "York Symposium on Early Christian Apocrypha",
+          "topics": [
+            "Non-Canonical Gospel Traditions"
+          ]
+        },
+        {
+          "wpId": "8412",
+          "title": "Departments of Religious Studies",
+          "topics": [
+            "Academic Careers and University Life"
+          ]
+        },
+        {
+          "wpId": "8326",
+          "title": "Forgeries in the Name of Paul",
+          "topics": [
+            "Pauline Forgeries"
+          ]
+        },
+        {
+          "wpId": "8285",
+          "title": "Why Was the Gospel of John Attributed to John?",
+          "topics": [
+            "Eyewitness Reliability",
+            "Gospel Authorship",
+            "Gospel Eyewitness Claims",
+            "Gospel of John",
+            "Papias"
+          ]
+        },
+        {
+          "wpId": "8269",
+          "title": "Why Are the Gospels Anonymous?",
+          "topics": [
+            "Gospel Authorship"
+          ]
+        },
+        {
+          "wpId": "8000",
+          "title": "The Importance of a Comparative Approach to the NT",
+          "topics": [
+            "Textbooks and Teaching Materials"
+          ]
+        },
+        {
+          "wpId": "6285",
+          "title": "Errant Texts and Historians",
+          "topics": [
+            "Historical Methods (General)",
+            "Original Text Questions"
+          ]
+        },
+        {
+          "wpId": "4177",
+          "title": "Capernaum and the “Jesus Boat”",
+          "topics": [
+            "Archaeology and Material Evidence"
+          ]
+        },
+        {
+          "wpId": "4056",
+          "title": "A Third Forgery in the Name of Peter",
+          "topics": [
+            "Apocalypse of Peter",
+            "Petrine Authorship and Forgeries"
+          ]
+        },
+        {
+          "wpId": "4049",
+          "title": "Another Forgery in the Name of Peter",
+          "topics": [
+            "Petrine Authorship and Forgeries"
+          ]
+        },
+        {
+          "wpId": "3872",
+          "title": "What Kind of a Text is the King James Bible?",
+          "topics": [
+            "King James Version"
+          ]
+        },
+        {
+          "wpId": "3453",
+          "title": "The Infancy Narratives Compared",
+          "topics": [
+            "Biblical Contradictions",
+            "Gospel of Luke",
+            "Gospel of Matthew",
+            "Jesus' Birth Narratives"
+          ]
+        },
+        {
+          "wpId": "2551",
+          "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "2274",
+          "title": "Q & A with Ben Witherington: Part 5",
+          "topics": [
+            "Did Jesus Exist?",
+            "Methods for Studying the Historical Jesus",
+            "Woman Caught in Adultery"
+          ]
+        }
+      ]
+    },
+    "Herod": {
+      "resolved": [
+        {
+          "wpId": "39869",
+          "title": "A Remembrance of John Shelby Spong–Platinum Post By Ray Zubler",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "37901",
+          "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+          "addedKeywords": [
+            "Herod Agrippa I"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "35786",
+          "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+          "addedKeywords": [
+            "Herod Agrippa I"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "35338",
+          "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+          "addedKeywords": [
+            "Herod Agrippa I"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "34597",
+          "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+          "addedKeywords": [
+            "Herod Agrippa I"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "31511",
+          "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "31505",
+          "title": "There Are No Contradictions in the Gospels!  The Response by Matthew Firth",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "31498",
+          "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27939",
+          "title": "Really Riled By O’Reilly",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27935",
+          "title": "Killing Jesus Is Killing Me……",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "25202",
+          "title": "Did Paul the Pharisee Learn about Christianity from his Relative, the Apostle Junia?  Guest Post by James McGrath",
+          "addedKeywords": [
+            "Herod Antipas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16165",
+          "title": "When You Feel Like You’re Talking to a Wall",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16088",
+          "title": "Are These Really Contradictions?  My Response to Matt Firth",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16063",
+          "title": "Contradictions in the Gospels – Rev Matthew Firth’s Response",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16054",
+          "title": "Contradictions in the Gospels",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "4911",
+          "title": "Riled by O’Reilly",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "4906",
+          "title": "Killing Jesus is Killing Me….",
+          "addedKeywords": [
+            "Herod the Great"
+          ],
+          "representedByTopics": []
+        }
+      ],
+      "remaining": [
+        {
+          "wpId": "49865",
+          "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+          "topics": [
+            "Christology in the Gospels",
+            "Gospel Authorship",
+            "Problem of Evil and Suffering"
+          ]
+        },
+        {
+          "wpId": "48832",
+          "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+          "topics": [
+            "Non-Canonical Gospel Traditions"
+          ]
+        },
+        {
+          "wpId": "48005",
+          "title": "Was Jesus Poor? Platinum post by Douglas Wadeson, MD",
+          "topics": [
+            "Jesus on Wealth and Poverty"
+          ]
+        },
+        {
+          "wpId": "47257",
+          "title": "How We Know the World Was Created in 4004 BCE…",
+          "topics": [
+            "Genesis"
+          ]
+        },
+        {
+          "wpId": "41375",
+          "title": "Another Reason for Thinking Jesus Called Himself the Messiah",
+          "topics": [
+            "Messiah",
+            "Pontius Pilate"
+          ]
+        },
+        {
+          "wpId": "39865",
+          "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+          "topics": [
+            "Divine Beings in the Hebrew Bible"
+          ]
+        },
+        {
+          "wpId": "38881",
+          "title": "An Unusually Large “Fragment” of a Lost Gospel:  The Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ]
+        },
+        {
+          "wpId": "38658",
+          "title": "Who Cares if the Book of Acts is Historical??",
+          "topics": [
+            "Acts",
+            "Conversion",
+            "Early Christianity (General)"
+          ]
+        },
+        {
+          "wpId": "35685",
+          "title": "Mark 13:30–a New Argument for an Old Hypothesis. A Platinum Post From Omar Robb",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Gospel of Mark",
+            "Oral Tradition"
+          ]
+        },
+        {
+          "wpId": "35354",
+          "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+          "topics": [
+            "Development of the Trinity"
+          ]
+        },
+        {
+          "wpId": "34912",
+          "title": "The First Actual Account of the Resurrection (Hint: It’s Not in the New Testament)",
+          "topics": [
+            "Gospel of Peter",
+            "Resurrection of Jesus"
+          ]
+        },
+        {
+          "wpId": "34100",
+          "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+          "topics": [
+            "Book of Daniel",
+            "Hebrew Bible Prophets"
+          ]
+        },
+        {
+          "wpId": "33902",
+          "title": "Are the Gospels Anti-Jewish?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Christian Anti-Judaism",
+            "Pontius Pilate"
+          ]
+        },
+        {
+          "wpId": "33317",
+          "title": "Religion and the Wrecking Ball of Truth",
+          "topics": [
+            "Deconversion",
+            "Forged"
+          ]
+        },
+        {
+          "wpId": "16907",
+          "title": "Why Was Jesus Crucified: Bart Ehrman Crucifixion Thoughts",
+          "topics": [
+            "Crucified Messiah",
+            "Crucifixion of Jesus",
+            "Pontius Pilate"
+          ]
+        },
+        {
+          "wpId": "28350",
+          "title": "If Only I Were the *Right* Kind of Fundamentalist….",
+          "topics": [
+            "Biblical Inerrancy",
+            "Deconversion",
+            "Fundamentalism"
+          ]
+        },
+        {
+          "wpId": "26454",
+          "title": "Fiction and Fact, Legend and History.  Is it Either / Or?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Historical Methods (General)",
+            "Mythicism"
+          ]
+        },
+        {
+          "wpId": "21311",
+          "title": "And Now: The Gospel of Peter!",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Gospel of Peter"
+          ]
+        },
+        {
+          "wpId": "19669",
+          "title": "The Social History Behind the Fourth Gospel",
+          "topics": [
+            "Gospel of John"
+          ]
+        },
+        {
+          "wpId": "17034",
+          "title": "Why I’m To Be Pitied for Being the Wrong *Kind* of Fundamentalist!",
+          "topics": [
+            "Fundamentalism",
+            "Personal Reflections"
+          ]
+        },
+        {
+          "wpId": "16304",
+          "title": "Why Was the World Created in 4004 BC?",
+          "topics": [
+            "Genesis"
+          ]
+        },
+        {
+          "wpId": "15633",
+          "title": "Now, The Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ]
+        },
+        {
+          "wpId": "15334",
+          "title": "Rules of Thumb for Reconstructing the History behind the Gospels",
+          "topics": [
+            "Methods for Studying the Historical Jesus"
+          ]
+        },
+        {
+          "wpId": "13773",
+          "title": "The Exasperatingly Fragmentary Gospel of Peter: Readers’ Mailbag December 4, 2017",
+          "topics": [
+            "Gospel of Peter"
+          ]
+        },
+        {
+          "wpId": "12690",
+          "title": "Was Jesus Made Up?  A Blast from the Past.",
+          "topics": [
+            "Historical Jesus (General)",
+            "Mythicism"
+          ]
+        },
+        {
+          "wpId": "12667",
+          "title": "A Very Different Portrayal of Jesus’ Death",
+          "topics": [
+            "Biblical Contradictions",
+            "Gospel of Luke",
+            "Gospel of Mark",
+            "Jesus' Passion Narratives"
+          ]
+        },
+        {
+          "wpId": "11959",
+          "title": "Anti-Judaism in the Gospels: A Blast From the Past",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Christian Anti-Judaism",
+            "Pontius Pilate"
+          ]
+        },
+        {
+          "wpId": "11613",
+          "title": "When Was the World Created?  A Blast From the Past",
+          "topics": [
+            "Genesis"
+          ]
+        },
+        {
+          "wpId": "10649",
+          "title": "Major Themes in the Book of Acts",
+          "topics": [
+            "Acts",
+            "Conversion"
+          ]
+        },
+        {
+          "wpId": "9393",
+          "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+          "topics": [
+            "Apostolic Death Traditions"
+          ]
+        },
+        {
+          "wpId": "9175",
+          "title": "Jesus’ Death as a Prophet in Luke",
+          "topics": [
+            "Gospel of Luke"
+          ]
+        },
+        {
+          "wpId": "8307",
+          "title": "The Discovery of the Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ]
+        },
+        {
+          "wpId": "8138",
+          "title": "Why I’m To Be Pitied for Having Been the Wrong Kind of Fundamentalist",
+          "topics": [
+            "Autobiographical Posts",
+            "Fundamentalism"
+          ]
+        },
+        {
+          "wpId": "7627",
+          "title": "After the New Testament: Women in Early Christianity",
+          "topics": [
+            "Women in Early Christianity"
+          ]
+        },
+        {
+          "wpId": "4218",
+          "title": "Qumran and Masada",
+          "topics": [
+            "Dead Sea Scrolls and Essenes"
+          ]
+        },
+        {
+          "wpId": "3589",
+          "title": "The Mayan Calendar, Y2K, and the Letter of Barnabas",
+          "topics": [
+            "Letter of Barnabas",
+            "Modern End-Times Interpretation"
+          ]
+        },
+        {
+          "wpId": "3073",
+          "title": "Why Was Jesus Killed?",
+          "topics": [
+            "Crucified Messiah",
+            "Crucifixion of Jesus",
+            "Pontius Pilate"
+          ]
+        },
+        {
+          "wpId": "3069",
+          "title": "Anti-Judaism in the Gospels",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Christian Anti-Judaism",
+            "Pontius Pilate"
+          ]
+        },
+        {
+          "wpId": "2405",
+          "title": "Creation in 4004 BCE?",
+          "topics": [
+            "Genesis"
+          ]
+        },
+        {
+          "wpId": "2304",
+          "title": "Q & A with Ben Witherington: Part 7",
+          "topics": [
+            "Did Jesus Exist?",
+            "Mythicism"
+          ]
+        }
+      ]
+    },
+    "Barnabas": {
+      "resolved": [
+        {
+          "wpId": "48816",
+          "title": "Why Was the Canon Still Up For Grabs in the Second Century?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "48120",
+          "title": "The Didache: An Important Early Christian Document in a Nutshell",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "40686",
+          "title": "Was the Apocalypse of Peter Originally Considered Part of the New Testament?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "40273",
+          "title": "My Edition of the Apostolic Fathers",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "40021",
+          "title": "What If Another Christianity Had Won?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "40007",
+          "title": "More Lost Scriptures",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "39582",
+          "title": "Three Early Christian Writings Spliced Together Into One: The Didache",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "38658",
+          "title": "Who Cares if the Book of Acts is Historical??",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "36724",
+          "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "35878",
+          "title": "Did Paul Get Along with the Other Apostles?",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "35872",
+          "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33915",
+          "title": "The New Testament Ain’t the Only Text with Important Scribal Changes!",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33890",
+          "title": "What About Translations of Other Ancient Christian Writings?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "33021",
+          "title": "How Serendipity Changed My Life: The Apostolic Fathers",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "14238",
+          "title": "What Is the Didache & When Was the Didache Written",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "28966",
+          "title": "The “Common Era”: Invented to Stop Speculations About the End of the World.  Platinum Guest Post by Daniel Kohanski",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27743",
+          "title": "A Solution to a Major Anomaly in the Study of Paul: Guest Post by Richard Fellows",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27493",
+          "title": "Why and When Did We Get This Canon of the New Testament?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "27209",
+          "title": "MORE Assignments on the Birth of Christianity",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "21924",
+          "title": "The Number 666 in the Context of the Book of Revelation",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "20990",
+          "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "17537",
+          "title": "Want To Know About the Apostolic Fathers?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "17510",
+          "title": "How Were People Crucified?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "17477",
+          "title": "Did “Luke” Really Write Luke?  And the book of Acts?",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16787",
+          "title": "How Did We Get *These* 27 Books in the New Testament?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "16309",
+          "title": "When Christians Went on the Attack Against Jews",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15713",
+          "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15643",
+          "title": "Deciding on Which Books Should Be in the New Testament",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15392",
+          "title": "The Letter of First Clement: An Overview",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "15170",
+          "title": "Why Would an Ancient Author Write a Book Anonymously?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "14251",
+          "title": "Is the Didache One Document or Three?",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "13330",
+          "title": "The Apostolic Fathers: Serendipity Strikes",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "13326",
+          "title": "Translating the Apostolic Fathers: A Blast from the Past",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "12120",
+          "title": "Was Cephas Peter?  The Rest of the Argument",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "12118",
+          "title": "Cephas and Peter in the Writings of Paul (Who Knew Them)",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "10649",
+          "title": "Major Themes in the Book of Acts",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8864",
+          "title": "Tischendorf and the Discovery of Codex Sinaiticus",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "7654",
+          "title": "My Apostolic Fathers Seminar/Syllabus",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "6637",
+          "title": "The New and Improved After the New Testament",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "3295",
+          "title": "The Collection: Apostolic Fathers",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "3161",
+          "title": "Textual Problems in the Apostolic Fathers 1",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "3151",
+          "title": "The Apostolic Fathers: Serendipity Strikes",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "3147",
+          "title": "Translating the Apostolic Fathers",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "2512",
+          "title": "Paul in Acts: Part 3",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "2492",
+          "title": "Paul in Acts: Part 2",
+          "addedKeywords": [
+            "Barnabas, Associate of Paul"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "2108",
+          "title": "Question on How We Got the Canon of the New Testament",
+          "addedKeywords": [
+            "Letter of Barnabas"
+          ],
+          "representedByTopics": []
+        }
+      ],
+      "remaining": [
+        {
+          "wpId": "48800",
+          "title": "How and When Did Christians Decide What Should Be in the New Testament Canon?",
+          "topics": [
+            "Canon Formation",
+            "Marcion"
+          ]
+        },
+        {
+          "wpId": "46926",
+          "title": "The Letter to the Hebrews: For Further Reading",
+          "topics": [
+            "Hebrews"
+          ]
+        },
+        {
+          "wpId": "46933",
+          "title": "The Book of Hebrews:  Who Wrote It, When, and Why?",
+          "topics": [
+            "Hebrews",
+            "Non-Pauline Epistle Authorship",
+            "Persecution in the Epistles"
+          ]
+        },
+        {
+          "wpId": "40215",
+          "title": "Misquoting Jesus and My Fall From Fundamentalism",
+          "topics": [
+            "Fundamentalism",
+            "Misquoting Jesus",
+            "Original Text Questions",
+            "Scribal Changes"
+          ]
+        },
+        {
+          "wpId": "40170",
+          "title": "Ancient Ways of Interpreting Scripture",
+          "topics": [
+            "Christian Interpretation of Jewish Scripture",
+            "Gnostic and Orthodox Conflicts"
+          ]
+        },
+        {
+          "wpId": "40016",
+          "title": "More Lost Christianities",
+          "topics": [
+            "Canon Formation",
+            "Early Christian Diversity",
+            "Early Christian Writings"
+          ]
+        },
+        {
+          "wpId": "39587",
+          "title": "An Important Early Christian Writing",
+          "topics": [
+            "Didache"
+          ]
+        },
+        {
+          "wpId": "38938",
+          "title": "Other “Unknown” Sayings of Jesus",
+          "topics": [
+            "Apostolic Fathers",
+            "Jesus' Teachings"
+          ]
+        },
+        {
+          "wpId": "34145",
+          "title": "An Intriguing Anti-Jewish Variant:  Did Jesus Pray “Father forgive them”?",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Gospel of Luke",
+            "Textual Variants"
+          ]
+        },
+        {
+          "wpId": "32502",
+          "title": "Writings of the Apostles in the Canon of the New Testament",
+          "topics": [
+            "Canon Formation",
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "31948",
+          "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+          "topics": [
+            "Galatians",
+            "Gospel of Mark",
+            "James the Brother of Jesus"
+          ]
+        },
+        {
+          "wpId": "26835",
+          "title": "More Hints that Cephas Was Not Peter",
+          "topics": [
+            "Peter the Apostle"
+          ]
+        },
+        {
+          "wpId": "26811",
+          "title": "Some Evidence that Cephas and Peter WERE Two Different People",
+          "topics": [
+            "Peter the Apostle"
+          ]
+        },
+        {
+          "wpId": "15991",
+          "title": "Did Jesus Pray “Father Forgive Them” from the Cross?",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Gospel of Luke",
+            "Textual Variants"
+          ]
+        },
+        {
+          "wpId": "14980",
+          "title": "Once More: The Interesting Text Called the Didache",
+          "topics": [
+            "Didache"
+          ]
+        },
+        {
+          "wpId": "14874",
+          "title": "Is Paul Given Too Much Credit?",
+          "topics": [
+            "Apostolic Fathers"
+          ]
+        },
+        {
+          "wpId": "13346",
+          "title": "More on 666: The Number of the Beast: A Blast from the Past",
+          "topics": [
+            "Biblical Numerology",
+            "Book of Revelation"
+          ]
+        },
+        {
+          "wpId": "12253",
+          "title": "How We Got the New Testament (and not some other books!)",
+          "topics": [
+            "Canon Formation",
+            "Marcion"
+          ]
+        },
+        {
+          "wpId": "8508",
+          "title": "666: The Number of the Beast",
+          "topics": [
+            "Biblical Numerology",
+            "Book of Revelation"
+          ]
+        },
+        {
+          "wpId": "8405",
+          "title": "My Forgery Seminar (Syllabus)",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "8294",
+          "title": "Why Was the Gospel of Luke Attributed to Luke?",
+          "topics": [
+            "Gospel Authorship",
+            "Gospel of Luke"
+          ]
+        },
+        {
+          "wpId": "7648",
+          "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+          "topics": [
+            "Christian Interpretation of Jewish Scripture",
+            "Gnostic and Orthodox Conflicts"
+          ]
+        },
+        {
+          "wpId": "6578",
+          "title": "My New Testament Syllabus",
+          "topics": [
+            "Courses and Teaching"
+          ]
+        },
+        {
+          "wpId": "4747",
+          "title": "Why Luke is Thought To Have Written Luke",
+          "topics": [
+            "Gospel of Luke",
+            "Luke-Acts Authorship"
+          ]
+        },
+        {
+          "wpId": "3299",
+          "title": "Modern Interest in the Apostolic Fathers",
+          "topics": [
+            "Apostolic Fathers",
+            "Manuscript Discoveries and Controversies"
+          ]
+        },
+        {
+          "wpId": "3205",
+          "title": "A Stranger Problem with Lake’s Translation",
+          "topics": [
+            "Apostolic Fathers",
+            "Translation Issues"
+          ]
+        },
+        {
+          "wpId": "3199",
+          "title": "Problems with Lake’s Translation of the Apostolic Fathers",
+          "topics": [
+            "Apostolic Fathers",
+            "Translation Issues"
+          ]
+        }
+      ]
+    },
+    "Thomas": {
+      "resolved": [
+        {
+          "wpId": "21403",
+          "title": "John, the Bedbugs, and Miracles that Convert",
+          "addedKeywords": [
+            "Acts of Thomas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "21223",
+          "title": "The Calm and Collected Jesus",
+          "addedKeywords": [
+            "Gospel of Thomas"
+          ],
+          "representedByTopics": []
+        },
+        {
+          "wpId": "8736",
+          "title": "The Community Behind the Gospel of John",
+          "addedKeywords": [
+            "Gospel of Thomas"
+          ],
+          "representedByTopics": []
+        }
+      ],
+      "remaining": [
+        {
+          "wpId": "33399",
+          "title": "Writing Forgeries to Show the Truth",
+          "topics": [
+            "Forgery (General)"
+          ]
+        },
+        {
+          "wpId": "15672",
+          "title": "Do Any Forgeries Claim to be Written by Jesus?",
+          "topics": [
+            "Eusebius of Caesarea",
+            "Forgery (General)",
+            "Jesus and Abgar Legend"
+          ]
+        },
+        {
+          "wpId": "13934",
+          "title": "Did Matthew Copy Luke?  Mark Goodacre’s Rebuttal",
+          "topics": [
+            "Gospel of Luke",
+            "Gospel of Matthew",
+            "Q Source",
+            "Synoptic Problem"
+          ]
+        },
+        {
+          "wpId": "8890",
+          "title": "Mark Goodacre: Questioning the Discovery of the Nag Hammadi Library",
+          "topics": [
+            "Manuscript Discoveries and Controversies",
+            "Nag Hammadi"
+          ]
+        },
+        {
+          "wpId": "8326",
+          "title": "Forgeries in the Name of Paul",
+          "topics": [
+            "Pauline Forgeries"
+          ]
+        },
+        {
+          "wpId": "7504",
+          "title": "Day Two of Jesus and Brian",
+          "topics": [
+            "Life of Brian"
+          ]
+        }
+      ]
+    }
+  }
+}
