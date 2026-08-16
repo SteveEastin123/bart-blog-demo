@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-08-10",
-  "auditScope": "All 4395 posts in the canonical search index",
+  "updatedAt": "2026-08-16",
+  "auditScope": "All 4401 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,8 +10,8 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4395,
-  "noChangeCount": 3768,
+  "reviewedPostCount": 4401,
+  "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
     {
@@ -84667,6 +84667,118 @@
         "Gospel Historical Reliability",
         "Jesus' Passion Narratives",
         "Messiah"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4396,
+      "sourceIndex": 0,
+      "wpId": "50385",
+      "dateText": "August 16, 2026",
+      "title": "Did Paul Know that Peter and Cephas were Two Different People?",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Peter the Apostle",
+        "Paul and His Opponents"
+      ],
+      "topicsRecommended": [
+        "Peter the Apostle",
+        "Paul and His Opponents"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4397,
+      "sourceIndex": 1,
+      "wpId": "50382",
+      "dateText": "August 15, 2026",
+      "title": "Paying Your Religious Dues:  The Studied Indifference of Jesus",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Jesus' Teachings",
+        "Gospel of Matthew"
+      ],
+      "topicsRecommended": [
+        "Jesus' Teachings",
+        "Gospel of Matthew"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4398,
+      "sourceIndex": 2,
+      "wpId": "50251",
+      "dateText": "August 13, 2026",
+      "title": "Were Peter and Cephas the Same Person?",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Peter the Apostle"
+      ],
+      "topicsRecommended": [
+        "Peter the Apostle"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4399,
+      "sourceIndex": 3,
+      "wpId": "50349",
+      "dateText": "August 12, 2026",
+      "title": "Problems of Suffering and Why Gospels Started Being Written: Questions from Readers",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Problem of Evil and Suffering",
+        "Historical Study of Miracles",
+        "Dating the Gospels"
+      ],
+      "topicsRecommended": [
+        "Problem of Evil and Suffering",
+        "Historical Study of Miracles",
+        "Dating the Gospels"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4400,
+      "sourceIndex": 4,
+      "wpId": "50367",
+      "dateText": "August 11, 2026",
+      "title": "What Did Jesus’s Violent Action in the Temple Actually Mean?",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Apocalyptic Jesus",
+        "Jesus' Passion Narratives"
+      ],
+      "topicsRecommended": [
+        "Apocalyptic Jesus",
+        "Jesus' Passion Narratives"
+      ],
+      "topicsAdded": [],
+      "topicsRemoved": [],
+      "reason": null
+    },
+    {
+      "auditSequence": 4401,
+      "sourceIndex": 5,
+      "wpId": "50408",
+      "dateText": "August 10, 2026",
+      "title": "Blog Dinner in NYC, September 1.  Interested?",
+      "status": "reviewed_no_change",
+      "topicsBefore": [
+        "Ignore"
+      ],
+      "topicsRecommended": [
+        "Ignore"
       ],
       "topicsAdded": [],
       "topicsRemoved": [],

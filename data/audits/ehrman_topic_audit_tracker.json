@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-10",
+  "updatedAt": "2026-08-16",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -231,14 +231,22 @@
       "auditSequence": null,
       "status": "excluded",
       "postCountBefore": 437,
-      "postCountAfter": 428,
+      "postCountAfter": 425,
       "descriptionBefore": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [],
       "categoryRecommendation": null,
       "startedAt": null,
       "completedAt": null,
-      "decisions": [],
+      "decisions": [
+        {
+          "wpId": "50408",
+          "title": "Blog Dinner in NYC, September 1.  Interested?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        }
+      ],
       "notes": [
         "Administrative control topic; excluded from substantive topic auditing.",
         "Post-by-post topic-link audit for posts 1-100 updated this assignment.",
@@ -247,7 +255,8 @@
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -7171,7 +7180,7 @@
       "auditSequence": 10,
       "status": "completed",
       "postCountBefore": 77,
-      "postCountAfter": 103,
+      "postCountAfter": 104,
       "descriptionBefore": "Posts focused on the Gospel of Matthew, including its use of Jewish scripture, genealogy, birth narrative, relation to Mark and Luke, portrayal of Jesus, and distinctive teachings.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [
@@ -7726,6 +7735,13 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "This is an event and fundraising announcement; the removed subjects occur only in one brief lecture description."
+        },
+        {
+          "wpId": "50382",
+          "title": "Paying Your Religious Dues:  The Studied Indifference of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -7739,7 +7755,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Demo and SQLite outputs were not rebuilt.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -21676,7 +21693,7 @@
       "auditSequence": 40,
       "status": "completed",
       "postCountBefore": 49,
-      "postCountAfter": 77,
+      "postCountAfter": 78,
       "descriptionBefore": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "descriptionRecommendation": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categoriesBefore": [
@@ -22067,6 +22084,13 @@
         {
           "wpId": "50329",
           "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50382",
+          "title": "Paying Your Religious Dues:  The Studied Indifference of Jesus",
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
@@ -22507,7 +22531,7 @@
       "auditSequence": 42,
       "status": "completed",
       "postCountBefore": 49,
-      "postCountAfter": 76,
+      "postCountAfter": 77,
       "descriptionBefore": "Covers suffering as a challenge to belief in a loving and all-powerful God, including debates, proposed answers, apologetic arguments, biblical responses, and personal reflections.",
       "descriptionRecommendation": "Covers suffering as a challenge to belief in a loving and all-powerful God, including debates, proposed answers, apologetic arguments, biblical responses, and personal reflections.",
       "categoriesBefore": [
@@ -23048,6 +23072,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is a sustained personal reflection on Christian faith, suffering, moral values, and the incarnation story."
+        },
+        {
+          "wpId": "50349",
+          "title": "Problems of Suffering and Why Gospels Started Being Written: Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -23057,7 +23088,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -25723,7 +25755,7 @@
       "auditSequence": 49,
       "status": "completed",
       "postCountBefore": 42,
-      "postCountAfter": 75,
+      "postCountAfter": 76,
       "descriptionBefore": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "descriptionRecommendation": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categoriesBefore": [
@@ -26233,6 +26265,13 @@
         {
           "wpId": "50317",
           "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50367",
+          "title": "What Did Jesus’s Violent Action in the Temple Actually Mean?",
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
@@ -35631,7 +35670,7 @@
       "auditSequence": 81,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 37,
+      "postCountAfter": 38,
       "descriptionBefore": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "descriptionRecommendation": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
       "categoriesBefore": [
@@ -35889,6 +35928,13 @@
         {
           "wpId": "50317",
           "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50367",
+          "title": "What Did Jesus’s Violent Action in the Temple Actually Mean?",
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
@@ -42678,7 +42724,7 @@
       "auditSequence": 110,
       "status": "completed",
       "postCountBefore": 25,
-      "postCountAfter": 27,
+      "postCountAfter": 29,
       "descriptionBefore": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "descriptionRecommendation": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "categoriesBefore": [
@@ -42876,12 +42922,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses Paul's acquaintance with Peter, John, and James as sustained evidence against mythicist claims and for Paul's knowledge of the historical Jesus."
+        },
+        {
+          "wpId": "50385",
+          "title": "Did Paul Know that Peter and Cephas were Two Different People?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50251",
+          "title": "Were Peter and Cephas the Same Person?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -47648,7 +47709,7 @@
       "auditSequence": 134,
       "status": "completed",
       "postCountBefore": 21,
-      "postCountAfter": 23,
+      "postCountAfter": 24,
       "descriptionBefore": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
       "descriptionRecommendation": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
       "categoriesBefore": [
@@ -47846,6 +47907,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post contrasts Acts' harmonious portrait of Paul and the Jerusalem apostles with Paul's account of conflict involving Peter and James's associates."
+        },
+        {
+          "wpId": "50385",
+          "title": "Did Paul Know that Peter and Cephas were Two Different People?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -47854,7 +47922,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -49775,7 +49844,7 @@
       "auditSequence": 145,
       "status": "completed",
       "postCountBefore": 19,
-      "postCountAfter": 30,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
       "descriptionRecommendation": "Covers how historians evaluate miracle claims, including the limits of historical method, probability, evidence, and supernatural explanations.",
       "categoriesBefore": [
@@ -50002,12 +50071,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives sustained attention to Mary Magdalene and to historical, medical, and social explanations of healing and demon-possession traditions."
+        },
+        {
+          "wpId": "50349",
+          "title": "Problems of Suffering and Why Gospels Started Being Written: Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
@@ -61106,7 +61183,7 @@
       "auditSequence": 226,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 10,
+      "postCountAfter": 11,
       "descriptionBefore": "Covers when the canonical Gospels were written, including arguments for post-70 dates and how scholars date the Gospels.",
       "descriptionRecommendation": "Covers when the canonical Gospels were written, including arguments for post-70 dates and how scholars date the Gospels.",
       "categoriesBefore": [
@@ -61185,11 +61262,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives substantial responses about the planned canon book and the dating of Luke-Acts, in addition to its existing subjects."
+        },
+        {
+          "wpId": "50349",
+          "title": "Problems of Suffering and Why Gospels Started Being Written: Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 201-300 updated this assignment."
+        "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
+        "Newly downloaded August 2026 posts were reviewed in full."
       ]
     },
     {
