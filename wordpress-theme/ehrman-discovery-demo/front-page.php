@@ -1,6 +1,20 @@
 <?php
 get_header();
 $post_range = ehrman_demo_post_range();
+$diagram_directory = get_template_directory() . '/assets/images/';
+$diagram_uri = get_template_directory_uri() . '/assets/images/';
+$desktop_diagram_path = $diagram_directory . 'ehrman-search-methods.svg';
+$mobile_diagram_path = $diagram_directory . 'ehrman-search-methods-mobile.svg';
+$desktop_diagram_url = add_query_arg(
+    'ver',
+    (string) filemtime($desktop_diagram_path),
+    $diagram_uri . 'ehrman-search-methods.svg'
+);
+$mobile_diagram_url = add_query_arg(
+    'ver',
+    (string) filemtime($mobile_diagram_path),
+    $diagram_uri . 'ehrman-search-methods-mobile.svg'
+);
 ?>
 <main id="main-content" class="ehrman-main">
     <section class="ehrman-home">
@@ -17,8 +31,8 @@ $post_range = ehrman_demo_post_range();
                 </aside>
                 <figure class="ehrman-methods-figure">
                     <picture>
-                        <source media="(max-width: 700px)" srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/ehrman-search-methods-mobile.svg'); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/ehrman-search-methods.svg'); ?>" alt="<?php esc_attr_e('Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts', 'ehrman-discovery-demo'); ?>">
+                        <source media="(max-width: 700px)" srcset="<?php echo esc_url($mobile_diagram_url); ?>">
+                        <img src="<?php echo esc_url($desktop_diagram_url); ?>" alt="<?php esc_attr_e('Diagram comparing keyword search using topics and secondary keywords with topic browsing through subject areas, categories, topics, and posts', 'ehrman-discovery-demo'); ?>">
                     </picture>
                 </figure>
                 <?php if ('' !== $post_range) : ?>

@@ -17,7 +17,6 @@ RETIREMENTS_PATH = (
 REMOVE = {
     "2 Chronicles",
     "Absalom",
-    "Adoptionist Christology",
     "Ancient Text Translation",
     "Apostate",
     "Ben Hur",
