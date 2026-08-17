@@ -1,0 +1,138 @@
+{
+  "keyword": "Textual Criticism",
+  "criterion": "Retain Textual Criticism when manuscripts, textual variants, scribal alteration, reconstruction of the earliest attainable text, or textual-critical methods materially support the post.",
+  "approvedRemovalPostIds": [
+    "10250",
+    "11859",
+    "12525",
+    "2120",
+    "2218",
+    "2533",
+    "26101",
+    "32879",
+    "47178",
+    "7352",
+    "7381",
+    "7420",
+    "9207"
+  ],
+  "before": 181,
+  "retained": 168,
+  "removed": 13,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "47178",
+      "title": "How Do We Know the Chronology of Paul’s Life and Letters?",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ],
+      "reason": "Textual criticism appears only as an example of differing scholarly interests in a post about the chronology of Paul's life and letters."
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "topics": [
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Textual criticism occurs in bibliographic annotations rather than as a subject discussed by the post."
+    },
+    {
+      "wpId": "26101",
+      "title": "Why I Wrote my book Did Jesus Exist?  Interview with Evangelical Scholar Ben Witherington",
+      "topics": [
+        "Media Interviews and Videos",
+        "Mythicism",
+        "Did Jesus Exist?"
+      ],
+      "reason": "Textual criticism describes Bart's scholarly background in an interview about why he wrote Did Jesus Exist?"
+    },
+    {
+      "wpId": "12525",
+      "title": "Teaching Religion in a Secular Environment",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Textual criticism is mentioned as Bart's original specialization in a post about preparation for teaching."
+    },
+    {
+      "wpId": "11859",
+      "title": "The Rise of the Roman Empire",
+      "topics": [
+        "Roman World"
+      ],
+      "reason": "Textual criticism appears only in a transition away from an earlier series and into a discussion of the Roman Empire."
+    },
+    {
+      "wpId": "10250",
+      "title": "Weekly Readers’ Mailbag: February 18, 2016",
+      "topics": [
+        "Translation Issues"
+      ],
+      "reason": "A reader uses the phrase while asking what critical scholar means; the response does not discuss textual criticism."
+    },
+    {
+      "wpId": "9207",
+      "title": "Some Flak (Already!) Over My New Book",
+      "topics": [
+        "Jesus Before the Gospels"
+      ],
+      "reason": "The discipline is explained only because criticism of Jesus Before the Gospels appeared in a textual-criticism forum."
+    },
+    {
+      "wpId": "7352",
+      "title": "How Jesus Became God on Humanist Hour",
+      "topics": [
+        "How Jesus Became God",
+        "Media Interviews and Videos"
+      ],
+      "reason": "The post explicitly turns away from textual criticism to discuss a media interview about How Jesus Became God."
+    },
+    {
+      "wpId": "7420",
+      "title": "Larry Hurtado’s Critique of How Jesus Became God",
+      "topics": [
+        "Christology (General)",
+        "How Jesus Became God"
+      ],
+      "reason": "Textual criticism supplies biographical background about Larry Hurtado and Bart in a discussion centered on Christology."
+    },
+    {
+      "wpId": "7381",
+      "title": "More Background on Oral Traditions",
+      "topics": [
+        "Messianic Secret",
+        "Oral Tradition"
+      ],
+      "reason": "Textual criticism receives brief historical context before the post turns to oral tradition and form criticism."
+    },
+    {
+      "wpId": "2533",
+      "title": "So Much For THAT Idea….",
+      "topics": [
+        "Forgery and Counterforgery",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Textual criticism appears while identifying one of Bart's scholarly books in a post about writing and publishing."
+    },
+    {
+      "wpId": "2218",
+      "title": "Q&A With Ben Witherington: Part 1",
+      "topics": [
+        "Mythicism",
+        "Did Jesus Exist?"
+      ],
+      "reason": "Textual criticism describes Bart's scholarly background in an interview concerned with the historical existence of Jesus."
+    },
+    {
+      "wpId": "2120",
+      "title": "The Life of a Professional Scholar 8:  Editorial Work, Journals (1)",
+      "topics": [
+        "Scholarly Research and Publishing"
+      ],
+      "reason": "Textual criticism appears only in the name and description of a journal whose editorial board Bart served on."
+    }
+  ]
+}

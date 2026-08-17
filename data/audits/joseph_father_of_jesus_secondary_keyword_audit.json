@@ -1,0 +1,69 @@
+{
+  "keyword": "Joseph, Father of Jesus",
+  "criterion": "Retain Joseph, Father of Jesus when Joseph materially supports a discussion of Jesus' birth, genealogy, family, parentage, siblings, social setting, or later legends.",
+  "approvedRemovalPostIds": [
+    "15635",
+    "2106",
+    "46944",
+    "46971",
+    "47204"
+  ],
+  "before": 106,
+  "retained": 101,
+  "removed": 5,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "josephOfArimathea": 2,
+    "passingIdentification": 3
+  },
+  "removedPosts": [
+    {
+      "wpId": "46971",
+      "title": "Platinum Repost: The Death and Afterlife of Jesus: A Historical Reconstruction Part II – Guest Post by Platinum Member Mark Reichert",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ],
+      "reason": "The post discusses Joseph of Arimathea rather than Joseph, the father of Jesus."
+    },
+    {
+      "wpId": "46944",
+      "title": "James: Who, When, and Why?  Does It Claim to be by THAT James (the brother of Jesus)?",
+      "topics": [
+        "James the Brother of Jesus",
+        "Letter of James",
+        "Non-Pauline Epistle Authorship",
+        "Non-Pauline Epistle Forgeries"
+      ],
+      "reason": "Joseph appears only in a list distinguishing New Testament figures named James."
+    },
+    {
+      "wpId": "47204",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part II – Guest Post by Platinum Member Mark Reichert",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ],
+      "reason": "The post discusses Joseph of Arimathea rather than Joseph, the father of Jesus."
+    },
+    {
+      "wpId": "15635",
+      "title": "Early Debates about the Gospel of Peter",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Peter"
+      ],
+      "reason": "Joseph's supposed earlier marriage is only a passing tradition in a post about debates over the Gospel of Peter."
+    },
+    {
+      "wpId": "2106",
+      "title": "Undergraduate Courses (2): Introduction to the New Testament (Part 2)",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Joseph appears only in a brief census example within a broader description of an undergraduate course."
+    }
+  ]
+}

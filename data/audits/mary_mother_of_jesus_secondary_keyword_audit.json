@@ -1,0 +1,184 @@
+{
+  "keyword": "Mary, Mother of Jesus",
+  "criterion": "Retain Mary, Mother of Jesus when Mary herself, her role in Jesus' birth or family, Marian traditions, or visions of the Virgin Mary materially support the post.",
+  "approvedRemovalPostIds": [
+    "11520",
+    "11921",
+    "16892",
+    "17569",
+    "17579",
+    "17591",
+    "3086",
+    "38483",
+    "4591",
+    "47869",
+    "6211",
+    "6753",
+    "6762",
+    "6875",
+    "7185",
+    "8232",
+    "9395"
+  ],
+  "before": 100,
+  "retained": 84,
+  "removed": 16,
+  "previouslyRemoved": 1,
+  "removalCounts": {
+    "maryMagdaleneOrOtherMary": 12,
+    "incidentalMarianReference": 4,
+    "noMeaningfulDiscussion": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "38483",
+      "title": "Was Mary Magdalene a Prostitute?",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "11520",
+      "title": "Was Paul the Founder of Christianity?  Or Was it Mary, Peter…or Jesus?",
+      "topics": [
+        "Mary Magdalene",
+        "Rise of Christianity",
+        "Peter the Apostle"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "17591",
+      "title": "Jesus as Single: An Actual Argument!",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "17579",
+      "title": "Was Jesus Intimate with Mary Magdalene?",
+      "topics": [
+        "Jesus and Women",
+        "Mary Magdalene"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "17569",
+      "title": "A “Newly Discovered” “Gospel”: Was Jesus Married with Children?",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "16892",
+      "title": "But the Women Who Did *NOT* Doubt the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Jesus and Women",
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "11921",
+      "title": "The Inerrancy of the Bible?  And Those Who Doubt.  Readers’ Mailbag October 2, 2016",
+      "topics": [
+        "Biblical Inerrancy",
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ],
+      "reason": "Visions of the Virgin Mary supply only a brief comparison in a post about resurrection appearances or historical method."
+    },
+    {
+      "wpId": "9395",
+      "title": "Did Some Disciples Not Believe in the Resurrection?",
+      "topics": [
+        "How Jesus Became God",
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Visions of the Virgin Mary supply only a brief comparison in a post about resurrection appearances or historical method."
+    },
+    {
+      "wpId": "8232",
+      "title": "A Newly Discovered Gospel?  Was Jesus Married with Children???",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "7185",
+      "title": "The Disciples who Doubted the Resurrection",
+      "topics": [
+        "How Jesus Became God",
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Visions of the Virgin Mary supply only a brief comparison in a post about resurrection appearances or historical method."
+    },
+    {
+      "wpId": "6875",
+      "title": "Mary Magdalene in Various Guises",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "6762",
+      "title": "Jesus and Marriage: An Actual Argument!",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jesus' Family Traditions"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "6753",
+      "title": "Jesus and Mary Magdalene",
+      "topics": [
+        "Jesus and Women",
+        "Mary Magdalene"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "6211",
+      "title": "Why Historians Can Talk “About” the Resurrection",
+      "topics": [
+        "Historical Methods (General)",
+        "Historical Study of Miracles",
+        "Resurrection Arguments and Apologetics"
+      ],
+      "reason": "Visions of the Virgin Mary supply only a brief comparison in a post about resurrection appearances or historical method."
+    },
+    {
+      "wpId": "4591",
+      "title": "Women in the Churches of Paul",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Paul's Churches and Communities",
+        "Women in Early Christianity"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    },
+    {
+      "wpId": "3086",
+      "title": "Women Who Did Not Doubt the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Jesus and Women",
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Mary primarily refers to Mary Magdalene or another woman named Mary; Jesus' mother is not a meaningful subject of the post."
+    }
+  ]
+}

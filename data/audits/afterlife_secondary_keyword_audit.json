@@ -1,0 +1,225 @@
+{
+  "keyword": "Afterlife",
+  "criterion": "Retain Afterlife when life after death, the fate of the dead, resurrection, judgment, heaven, hell, Sheol, purgatory, or another postmortem tradition materially supports the post.",
+  "approvedRemovalPostIds": [
+    "12489",
+    "12850",
+    "13196",
+    "13684",
+    "15156",
+    "15160",
+    "15300",
+    "15345",
+    "15494",
+    "15502",
+    "15798",
+    "16543",
+    "17564",
+    "17780",
+    "20266",
+    "26592",
+    "29035",
+    "33641",
+    "3622",
+    "3872",
+    "49019"
+  ],
+  "before": 199,
+  "retained": 178,
+  "removed": 21,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "legacyWording": 3,
+    "promotionOnly": 3,
+    "incidentalOrPublishingContext": 15
+  },
+  "removedPosts": [
+    {
+      "wpId": "49019",
+      "title": "Interesting Questions from Readers (Including on the Consistency of Mark and the Reality of Suffering)",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "33641",
+      "title": "If the King James Was Good Enough for Paul, It’s Good Enough for Me",
+      "topics": [
+        "King James Version",
+        "Translation Issues"
+      ],
+      "reason": "Afterlife describes the King James Bible's later cultural legacy, not postmortem existence or beliefs about life after death."
+    },
+    {
+      "wpId": "29035",
+      "title": "Forgery for a General Audience",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "General-Audience Books"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "26592",
+      "title": "How I Take Notes When Doing Research for a Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "20266",
+      "title": "Live Event on Wednesday Evening, May 6!",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "The post is a raffle, preorder notice, or event announcement and does not substantively discuss afterlife beliefs."
+    },
+    {
+      "wpId": "17780",
+      "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "The post is a raffle, preorder notice, or event announcement and does not substantively discuss afterlife beliefs."
+    },
+    {
+      "wpId": "17564",
+      "title": "A Raffle!!  Would You Like a Pre-publication Copy of My  Book on Heaven and Hell?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "The post is a raffle, preorder notice, or event announcement and does not substantively discuss afterlife beliefs."
+    },
+    {
+      "wpId": "16543",
+      "title": "Writing Scholarly and Popular Books on the Same Topic",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15798",
+      "title": "How Does A Book Actually Get Published?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15502",
+      "title": "How I Take Notes on What I Read for a Trade Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15494",
+      "title": "Writing a Historical-Critical Textbook that Isn’t *Critical*",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15345",
+      "title": "How a Book Gets Its Title",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15300",
+      "title": "Balancing the Scholarly and the Popular",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Writing and Publishing Process",
+        "General-Audience Books"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15160",
+      "title": "How a Book Gets Written",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15156",
+      "title": "How I Write a Trade Book for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13684",
+      "title": "Arguments for Markan Priority (that Mark was the first Gospel written)",
+      "topics": [
+        "Gospel of Mark",
+        "Synoptic Problem"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13196",
+      "title": "Differences Between John and the Synoptics",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12850",
+      "title": "Interpolations and Textual Corruptions: The Blurry Lines",
+      "topics": [
+        "Gospel of Luke",
+        "Scribal Changes",
+        "Textual Variants"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12489",
+      "title": "Job’s So-called Friends (With Friends Like These….)",
+      "topics": [
+        "Book of Job",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Afterlife appears only as a book or research-project title, publishing example, thread transition, or incidental reference rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3872",
+      "title": "What Kind of a Text is the King James Bible?",
+      "topics": [
+        "King James Version"
+      ],
+      "reason": "Afterlife describes the King James Bible's later cultural legacy, not postmortem existence or beliefs about life after death."
+    },
+    {
+      "wpId": "3622",
+      "title": "Misleading Translations in the King James",
+      "topics": [
+        "King James Version",
+        "Translation Issues"
+      ],
+      "reason": "Afterlife describes the King James Bible's later cultural legacy, not postmortem existence or beliefs about life after death."
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "keyword": "Kingdom of God",
+  "criterion": "Retain Kingdom of God when the coming divine kingdom, its meaning, membership, ethics, timing, or relationship to Jesus' and Paul's teaching materially supports the post.",
+  "approvedRemovalPostIds": [
+    "14986",
+    "15898",
+    "17291",
+    "2693",
+    "27618",
+    "27644",
+    "31760",
+    "31763",
+    "36963",
+    "4858",
+    "48977",
+    "48982",
+    "9165",
+    "9167",
+    "9187"
+  ],
+  "before": 109,
+  "retained": 94,
+  "removed": 15,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "lastSupperQuotations": 11,
+    "angerPassages": 2,
+    "viceListQuotations": 2
+  },
+  "removedPosts": [
+    {
+      "wpId": "48982",
+      "title": "Has Luke Gotten Rid of the Idea That Jesus Died for Your Sins?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "48977",
+      "title": "The Controversy Over Jesus’ Last Supper in Luke (Did He Speak of Dying “For you”?)",
+      "topics": [
+        "Atonement in Luke-Acts",
+        "Textual Variants"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "36963",
+      "title": "Why Is Jesus So Angry?",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Miracle Stories",
+        "Textual Variants"
+      ],
+      "reason": "Kingdom language appears only in a quoted Markan scene used to analyze Jesus' anger and healing activity."
+    },
+    {
+      "wpId": "31763",
+      "title": "Does Luke Get Rid of the Atonement?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "31760",
+      "title": "How Do You Decide What an Author Actually Wrote?  The Last Supper",
+      "topics": [
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "27644",
+      "title": "Another Problem with the NRSV: Knowing What To Translate",
+      "topics": [
+        "Gospel of Luke",
+        "New Revised Standard Version (NRSV)",
+        "Original Text Questions",
+        "Scribal Changes",
+        "Translation Issues"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "27618",
+      "title": "What Do Translators Translate?  It’s Not So Obvious…",
+      "topics": [
+        "Gospel of Luke",
+        "New Revised Standard Version (NRSV)",
+        "Scribal Changes",
+        "Original Text Questions",
+        "Translation Issues"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "17291",
+      "title": "Does the New Testament Condemn “Homosexuals”?",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations",
+        "Translation Issues"
+      ],
+      "reason": "Kingdom of God appears only in Paul's quoted vice list; the post analyzes terminology concerning same-sex relations."
+    },
+    {
+      "wpId": "15898",
+      "title": "Homosexuality and the New Testament.  Guest Post by Jeff Siker.",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations",
+        "Translation Issues"
+      ],
+      "reason": "Kingdom of God appears only in Paul's quoted vice list; the post analyzes terminology concerning same-sex relations."
+    },
+    {
+      "wpId": "14986",
+      "title": "What Happened at the Last Supper?  A Textual Problem in Luke",
+      "topics": [
+        "Atonement in Luke-Acts",
+        "Gospel of Luke",
+        "Textual Variants",
+        "Theologically Significant Variants"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "9187",
+      "title": "The Striking Conclusion: Jesus’ Last Supper in Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts",
+        "Textual Variants"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "9167",
+      "title": "Luke’s View of Jesus’ Death",
+      "topics": [
+        "Gospel of Luke"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "9165",
+      "title": "Why Would a Scribe Change Luke’s Account of the Last Supper?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts",
+        "Scribal Changes"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    },
+    {
+      "wpId": "4858",
+      "title": "Jesus Getting Angry",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Miracle Stories",
+        "Textual Variants"
+      ],
+      "reason": "Kingdom language appears only in a quoted Markan scene used to analyze Jesus' anger and healing activity."
+    },
+    {
+      "wpId": "2693",
+      "title": "Problems with the NRSV (Part 3)",
+      "topics": [
+        "Gospel of Luke",
+        "New Revised Standard Version (NRSV)",
+        "Original Text Questions",
+        "Scribal Changes",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "Kingdom of God occurs only inside the repeated Last Supper text; the post analyzes atonement, translation, or a textual variant."
+    }
+  ]
+}

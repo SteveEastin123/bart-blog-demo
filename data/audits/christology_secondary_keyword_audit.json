@@ -1,0 +1,96 @@
+{
+  "keyword": "Christology",
+  "criterion": "Retain Christology when the post meaningfully addresses Jesus' identity, divinity, humanity, preexistence, exaltation, incarnation, or competing understandings of Christ.",
+  "approvedRemovalPostIds": [
+    "31878",
+    "35188",
+    "3801",
+    "3883",
+    "3924",
+    "48297",
+    "7531",
+    "8679"
+  ],
+  "before": 134,
+  "retained": 126,
+  "removed": 8,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "threadOrSeriesReferences": 3,
+    "listOrBackgroundReferences": 4,
+    "passionWithoutChristology": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "48297",
+      "title": "Ignatius: Eager to be Eaten by the Wild Beasts",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom Traditions (General)"
+      ],
+      "reason": "The post discusses imitation of Christ's suffering and martyrdom rather than Christ's identity or nature."
+    },
+    {
+      "wpId": "35188",
+      "title": "And Here’s My Final Exam on The Birth of Christianity",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Christology appears only in a list, introductory background, or brief reference to material outside the post's central subject."
+    },
+    {
+      "wpId": "31878",
+      "title": "The Birth of (the Messiah?) John the Baptist? Anniversary Guest Post by James F. McGrath",
+      "topics": [
+        "John the Baptist",
+        "Messiah",
+        "Jesus' Birth Narratives",
+        "Proto-Gospel of James"
+      ],
+      "reason": "Christology appears only in a list, introductory background, or brief reference to material outside the post's central subject."
+    },
+    {
+      "wpId": "8679",
+      "title": "On Being Controversial",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Christology appears only in a list, introductory background, or brief reference to material outside the post's central subject."
+    },
+    {
+      "wpId": "7531",
+      "title": "New Thread on the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God"
+      ],
+      "reason": "Christology appears only in a list, introductory background, or brief reference to material outside the post's central subject."
+    },
+    {
+      "wpId": "3924",
+      "title": "Biblical Views of Suffering",
+      "topics": [
+        "Biblical Explanations of Suffering",
+        "Ecclesiastes",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Christology appears only while pausing, contrasting with, or referring to a separate Christology series."
+    },
+    {
+      "wpId": "3883",
+      "title": "A Hiatus",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Christology appears only while pausing, contrasting with, or referring to a separate Christology series."
+    },
+    {
+      "wpId": "3801",
+      "title": "Gospel of the Savior",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Christology appears only while pausing, contrasting with, or referring to a separate Christology series."
+    }
+  ]
+}

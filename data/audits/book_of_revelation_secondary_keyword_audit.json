@@ -1,0 +1,619 @@
+{
+  "keyword": "Book of Revelation",
+  "criterion": "Retain Book of Revelation when its authorship, date, canon status, imagery, theology, textual history, interpretation, modern influence, or related research materially supports the post.",
+  "approvedRemovalPostIds": [
+    "11529",
+    "11533",
+    "11729",
+    "11738",
+    "11961",
+    "12004",
+    "12563",
+    "12605",
+    "12633",
+    "12636",
+    "12665",
+    "12854",
+    "13419",
+    "13934",
+    "15263",
+    "15398",
+    "15494",
+    "15609",
+    "15701",
+    "21061",
+    "22087",
+    "2328",
+    "2374",
+    "24315",
+    "2551",
+    "25931",
+    "2609",
+    "26915",
+    "27056",
+    "27073",
+    "28666",
+    "28747",
+    "28809",
+    "32665",
+    "33974",
+    "3453",
+    "34678",
+    "34826",
+    "37317",
+    "38306",
+    "39754",
+    "40576",
+    "40849",
+    "46991",
+    "47177",
+    "47258",
+    "47266",
+    "48021",
+    "4821",
+    "48295",
+    "48864",
+    "48954",
+    "50165",
+    "50192",
+    "7031",
+    "7260",
+    "7266",
+    "7469",
+    "8862",
+    "8993"
+  ],
+  "before": 110,
+  "retained": 50,
+  "removed": 60,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "50192",
+      "title": "How the Year 1517 Revolutionized Biblical Studies",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "Historical Methods (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "50165",
+      "title": "Two Years that Transformed the World of Biblical Studies.",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "New Testament Manuscripts",
+        "Textual Criticism Overview"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "48864",
+      "title": "From Eternal Torment to Styles of Greek to the Dating of Ignatius: Interesting Readers’ Questions",
+      "topics": [
+        "Eternal Punishment"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "48295",
+      "title": "A Glimpse of Proto-orthodox Views in the Letters of Ignatius",
+      "topics": [
+        "Apostolic Fathers",
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "48021",
+      "title": "Was 1 Clement Written BEFORE Some of the New Testament?",
+      "topics": [
+        "Apostolic Fathers",
+        "Dating Ancient Texts"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "46991",
+      "title": "So Did Secretaries Write the Apostles’ Letters for Them?",
+      "topics": [
+        "Ancient Literacy",
+        "Ancient Secretaries and Authorship",
+        "1 Peter"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "47266",
+      "title": "Another Puzzling Figure in the Hebrew Bible: Woman Wisdom?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "47258",
+      "title": "Understanding the Hebrew Bible: The “Old” Testament in Modern Scholarship",
+      "topics": [
+        "Courses and Teaching",
+        "Textbooks and Teaching Materials",
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "47177",
+      "title": "Key Questions about Paul",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Paul on Jewish Law",
+        "Paul and His Opponents",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "40849",
+      "title": "Introducing the Old Testament Apocrypha",
+      "topics": [
+        "Old Testament Apocrypha",
+        "Septuagint"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "40576",
+      "title": "Paul and the Anachronistic Origins of Early Christianity – Part 2 by Dr. Robyn Faith Walsh",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Oral Tradition",
+        "Early Christianity (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "39754",
+      "title": "Why Bible-Believing Christians Care About Textual Variants",
+      "topics": [
+        "Textual Variants",
+        "Fundamentalism"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "38306",
+      "title": "How to Sugarcoat Scripture but Seem Sophisticated.  Final Guest Post by Jill Hicks-Keeton",
+      "topics": [
+        "Moral Problems in Scripture",
+        "Women in Early Christianity"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "37317",
+      "title": "The Gospel of Judas: The Most Recently Discovered Sethian Gnostic Gospel",
+      "topics": [
+        "Gospel of Judas",
+        "Sethian Gnostics"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "34826",
+      "title": "The Coming Apocalypse and U.S. Foreign Policy on Israel",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Armageddon"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "34678",
+      "title": "REVELATION, A Novel.  Excerpts from Blog Guest Poster Gary McCarragher",
+      "topics": [
+        "General-Audience Books"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "33974",
+      "title": "The First Christian Martyr Text?",
+      "topics": [
+        "Martyrdom of Polycarp"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "32665",
+      "title": "Did the Apostles Use Secretaries to Write their Books?",
+      "topics": [
+        "Ancient Literacy",
+        "Ancient Secretaries and Authorship",
+        "1 Peter"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "28809",
+      "title": "What Was Paul’s Innovation?",
+      "topics": [
+        "Pauline Salvation Models",
+        "Paul on Jewish Law"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "28747",
+      "title": "How Important Was Paul, Actually, For Early Christianity?",
+      "topics": [
+        "Early Christian Diversity"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "28666",
+      "title": "What Is The Difference Between an Evangelical and a Fundamentalist?",
+      "topics": [
+        "Fundamentalism"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "27073",
+      "title": "Israel’s Conquest of the Promised Land: Did Any of That Happen?",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Archaeology and Material Evidence"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "27056",
+      "title": "God’s Destruction of the “Other”: Joshua and the Battle of Jericho",
+      "topics": [
+        "Divine Judgment",
+        "Moral Problems in Scripture"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "26915",
+      "title": "The God of Wrath According to the Prophet Amos",
+      "topics": [
+        "Divine Judgment",
+        "Hebrew Bible Prophets"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "25931",
+      "title": "How Then Do Most Ancient Manuscripts Get Discovered?",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "24315",
+      "title": "What Are the Sources of the Hebrew Bible?",
+      "topics": [
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "22087",
+      "title": "The Gospel of Mary Magdalene",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "21061",
+      "title": "What is the Gospel of Judas About?",
+      "topics": [
+        "Gospel of Judas"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "15609",
+      "title": "My Pod Cast Interview with Sam Harris",
+      "topics": [
+        "Media Interviews and Videos",
+        "Triumph of Christianity"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "15701",
+      "title": "Jesus’ Birth in Matthew and Luke: A Study in Contrasts",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "15494",
+      "title": "Writing a Historical-Critical Textbook that Isn’t *Critical*",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "15398",
+      "title": "Is 1 Clement Older than Some Books of the New Testament?",
+      "topics": [
+        "Apostolic Fathers",
+        "Dating Ancient Texts"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "15263",
+      "title": "Sources for the Hebrew Bible: A Blast from the Past",
+      "topics": [
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "13934",
+      "title": "Did Matthew Copy Luke?  Mark Goodacre’s Rebuttal",
+      "topics": [
+        "Gospel of Luke",
+        "Gospel of Matthew",
+        "Synoptic Problem",
+        "Q Source"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "13419",
+      "title": "Why Do Translators Include Passages They Know Are Not Original?",
+      "topics": [
+        "New Revised Standard Version (NRSV)",
+        "Translation Issues",
+        "Woman Caught in Adultery",
+        "Textual Variants"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12854",
+      "title": "A Resurrection for Tortured Jews (2 Maccabees)",
+      "topics": [
+        "Martyrdom Traditions (General)",
+        "Old Testament Apocrypha",
+        "Resurrection of the Dead",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12665",
+      "title": "How a Non-Historical Account Can Be Meaningful: The Death of Jesus in Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Passion Narratives"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12636",
+      "title": "What I Came To Believe About the Bible",
+      "topics": [
+        "Biblical Inerrancy",
+        "Fundamentalism"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12633",
+      "title": "What Really Happened to Me: Demythologizing the New Testament",
+      "topics": [
+        "Demythologizing the New Testament",
+        "Fundamentalism"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12605",
+      "title": "The Gospels as Myths",
+      "topics": [
+        "Jesus' Miracle Stories"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12563",
+      "title": "Finding More Problems in the Old Testament",
+      "topics": [
+        "Biblical Contradictions",
+        "Biblical Inerrancy",
+        "Genesis",
+        "Pentateuch",
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "12004",
+      "title": "Paul’s Acquaintances: Jesus’ Disciples and Brother",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions",
+        "Peter the Apostle",
+        "Mythicism",
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "11961",
+      "title": "Why Don’t People See Discrepancies in the Bible?  Readers’ Mailbag October 15, 2016",
+      "topics": [
+        "Biblical Contradictions",
+        "Biblical Inerrancy",
+        "Fundamentalism",
+        "Woman Caught in Adultery"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "11738",
+      "title": "Did Ancient Secretaries Actually Compose Writings?  A Blast from the Past",
+      "topics": [
+        "Ancient Literacy",
+        "Ancient Secretaries and Authorship",
+        "1 Peter"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "11729",
+      "title": "How Did Ancient Writers Use Secretaries?  A Blast from the Past",
+      "topics": [
+        "Ancient Literacy",
+        "Ancient Secretaries and Authorship",
+        "1 Peter"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "11533",
+      "title": "Paul’s Own (and Only) Gospel",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Salvation (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "11529",
+      "title": "Were Jesus’ Followers Crazy?  Was He?  Mailbag June 4, 2016",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Rise of Christianity"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "8993",
+      "title": "Fundamentalist Mistakes",
+      "topics": [
+        "Fundamentalism",
+        "Quran Manuscript Fragments"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "8862",
+      "title": "How Are Manuscripts Discovered",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "7469",
+      "title": "Fundamentalists and the Variants in our Manuscripts",
+      "topics": [
+        "Fundamentalism",
+        "Textual Variants"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "7266",
+      "title": "Paul’s Gospel Message",
+      "topics": [
+        "Salvation (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "7260",
+      "title": "Paul’s Importance in Early Christianity?",
+      "topics": [
+        "Early Christianity (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "7031",
+      "title": "More Literary-Historical Perspectives on John",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "4821",
+      "title": "My Bible Introduction!",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "3453",
+      "title": "The Infancy Narratives Compared",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Gospel of Matthew"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "2609",
+      "title": "Bible Intro: Nearing the finish line",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "2374",
+      "title": "My Bible Introduction",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    },
+    {
+      "wpId": "2328",
+      "title": "The Hebrew Bible and Its Sources",
+      "topics": [
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The biblical Book of Revelation is only incidental, listed as an example, or confused with revelation in a generic sense."
+    }
+  ]
+}

@@ -1,0 +1,1050 @@
+{
+  "keyword": "Romans",
+  "meaningAudited": "Paul's Letter to the Romans",
+  "criterion": "Retain Romans only when Paul's letter is directly discussed or provides meaningful evidence for the post's argument. Do not use it for Roman people, authorities, or incidental references.",
+  "approvedRemovalPostIds": [
+    "11863",
+    "12066",
+    "12074",
+    "12422",
+    "12508",
+    "13207",
+    "13238",
+    "13506",
+    "13616",
+    "14865",
+    "14870",
+    "15738",
+    "15839",
+    "15929",
+    "15998",
+    "16612",
+    "16656",
+    "16907",
+    "17064",
+    "1738",
+    "20741",
+    "21862",
+    "25709",
+    "2618",
+    "27285",
+    "27584",
+    "27935",
+    "28478",
+    "28670",
+    "29310",
+    "29817",
+    "29833",
+    "29846",
+    "3032",
+    "30684",
+    "3073",
+    "3094",
+    "3101",
+    "32589",
+    "32674",
+    "32678",
+    "32682",
+    "33005",
+    "33268",
+    "34100",
+    "35238",
+    "35346",
+    "35694",
+    "35715",
+    "35760",
+    "36026",
+    "36137",
+    "36224",
+    "36286",
+    "36389",
+    "36506",
+    "36533",
+    "36563",
+    "36611",
+    "36616",
+    "36622",
+    "36709",
+    "36715",
+    "37257",
+    "41375",
+    "41598",
+    "4234",
+    "47140",
+    "47152",
+    "47164",
+    "47195",
+    "47270",
+    "47673",
+    "48297",
+    "4906",
+    "4943",
+    "6434",
+    "6447",
+    "6459",
+    "6497",
+    "6541",
+    "6563",
+    "6571",
+    "6967",
+    "7494",
+    "7522",
+    "7543",
+    "7545",
+    "7548",
+    "7569",
+    "7583",
+    "7592",
+    "7597",
+    "7601",
+    "7609",
+    "8485",
+    "9337",
+    "9479"
+  ],
+  "before": 143,
+  "retained": 45,
+  "removed": 98,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "romanPeopleOrContext": 88,
+    "incidentalOrDifferentText": 10
+  },
+  "removedPosts": [
+    {
+      "wpId": "48297",
+      "title": "Ignatius: Eager to be Eaten by the Wild Beasts",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom Traditions (General)"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "47673",
+      "title": "Jude, The Denigration of Angels, and the Followers of Paul",
+      "topics": [
+        "Non-Pauline Epistle Authorship",
+        "Letter of Jude"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "topics": [
+        "Early Christian Diversity",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "47195",
+      "title": "Does a Different “Writing Style” Show (convincingly?) That Ephesians is a “Forgery”?",
+      "topics": [
+        "Forgery (General)",
+        "Pauline Authorship",
+        "Pauline Forgeries",
+        "Ephesians"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "47164",
+      "title": "2 Corinthians: Who Wrote It, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Composite Pauline Letters",
+        "Source Criticism",
+        "2 Corinthians"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "47152",
+      "title": "1 Corinthians in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Churches and Communities",
+        "1 Corinthians",
+        "Resurrection of the Dead"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "47140",
+      "title": "Guest Post by Dr. Paula Fredriksen Part II: The Politics of Piety",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Roman Persecution of Christians"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "41598",
+      "title": "Judaism 200 Years Before Jesus:  The Maccabean Revolt",
+      "topics": [
+        "Early Judaism (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "41375",
+      "title": "Another Reason for Thinking Jesus Called Himself the Messiah",
+      "topics": [
+        "Messiah",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "37257",
+      "title": "Interesting Questions About the Books From Nag Hammadi",
+      "topics": [
+        "Nag Hammadi",
+        "Dating Ancient Texts"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36715",
+      "title": "Does Archaeological Evidence Show that Jesus Was Buried on the Day He Died?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36709",
+      "title": "Josephus’ One Statement About the Burial of Crucified Victims in Judea",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36622",
+      "title": "How Relevant is Josephus for Knowing What Happened to the Body of Jesus?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Historical Methods (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36616",
+      "title": "Did Jews Always Bury Their Dead on the Day of their Death?  Was Jesus Buried Then?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36611",
+      "title": "The Evidence of Josephus for the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36563",
+      "title": "Corpses Left on Roman Crosses?  Penalties for Removing them Early?  A Humorous Story (?!) from Antiquity",
+      "topics": [
+        "Roman World",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36533",
+      "title": "Was “King of the Jews” Really the Charge Against Jesus, Leading to his Crucifixion?",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36506",
+      "title": "Pontius Pilate, Intransigent Governor, Crucifier of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36389",
+      "title": "Did Romans Show Clemency to Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36286",
+      "title": "Alleged “Proof” That Crucified Jews Were Allowed Decent Burials",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36224",
+      "title": "Did Romans Allow Decent Burials for Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36137",
+      "title": "Male Superiority in Antiquity",
+      "topics": [
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "36026",
+      "title": "The Life of Brian and Jesus:  Was Jesus Really Buried on the Day of the Crucifixion?",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "35694",
+      "title": "Was Jesus an Ascetic Street Preacher or a Man With a Plan? A Platinum Post From Omar Robb",
+      "topics": [
+        "John the Baptist",
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "35760",
+      "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?",
+      "topics": [
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "35715",
+      "title": "The Slippery Slope of Extreme DIAKRISIS (Discernment). A Platinum Post by Barry Haney",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "35346",
+      "title": "“You Have Heard His Blasphemy!” But Did They? A Platinum post by Daniel Kohanski",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Passion Narratives",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "35238",
+      "title": "Is 2 Thessalonians a Forgery?  From 132 CE?  Platinum Guest Post by Omar Robb",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "34100",
+      "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+      "topics": [
+        "Hebrew Bible Prophets",
+        "Book of Daniel"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "33268",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "33005",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "32682",
+      "title": "Did the Romans Stage Jesus’ Crucifixion?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Miracle Traditions (General)",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "32589",
+      "title": "Did Jesus Believe in Armed Resistance to the Romans?",
+      "topics": [
+        "Zealot Hypothesis",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "32678",
+      "title": "Did Jesus Collaborate with the Romans to Produce His Movement?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Roman World",
+        "Jesus' Miracle Stories",
+        "Crucifixion of Jesus",
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "32674",
+      "title": "Did the Romans Help Create the Jesus’ Movement?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Rise of Christianity",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "30684",
+      "title": "Does Wealth Make You More … Virtuous?",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Greco-Roman Religious Culture"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7543",
+      "title": "Why Romans Crucified People and Who Was Crucifixion Reserved For?",
+      "topics": [
+        "Roman Crucifixion and Burial",
+        "Roman World",
+        "Social Class in Antiquity"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "15929",
+      "title": "Pilate Released Barabbas.  Really??",
+      "topics": [
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus",
+        "Christian Anti-Judaism"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "29846",
+      "title": "A Full Reply to Mythicist Richard Carrier.  Most-Commented Blog Post: #4",
+      "topics": [
+        "Mythicism",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "29833",
+      "title": "Could Jews Bury Crucified Victims?  Most-commented Blog Post: #7",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "29817",
+      "title": "Burials for the Crucified.  Most-commented Blog Post: #9",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "16907",
+      "title": "Why Was Jesus Crucified: Bart Ehrman Crucifixion Thoughts",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "29310",
+      "title": "When Did the Bible Get Chapters and Verses?",
+      "topics": [
+        "Textual Criticism Overview"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "28670",
+      "title": "The Maccabean Revolt",
+      "topics": [
+        "Early Judaism (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "28478",
+      "title": "Jewish Indifference to Jesus and the Problems it Caused: Guest Post by Dan Kohanski",
+      "topics": [
+        "Conversion",
+        "Christian Anti-Judaism"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "27935",
+      "title": "Killing Jesus Is Killing Me……",
+      "topics": [
+        "Pontius Pilate",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "27584",
+      "title": "Jewish Indifference to Jesus and the Problems It Caused: Platinum Guest Post by Dan Kohanski",
+      "topics": [
+        "Conversion",
+        "Christian Anti-Judaism"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "27285",
+      "title": "Jesus’s Apocalyptic View of Destruction",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Divine Judgment"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "25709",
+      "title": "Paul’s Community at Corinth",
+      "topics": [
+        "Paul's Churches and Communities",
+        "Social Class in Antiquity",
+        "1 Corinthians"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "21862",
+      "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?",
+      "topics": [
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus",
+        "Christian Anti-Judaism"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "20741",
+      "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "topics": [
+        "Early Christian Writings"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "16656",
+      "title": "My Conference on Pseudepigraphy",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "16612",
+      "title": "How Did We Get Chapters and Verses?",
+      "topics": [
+        "Textual Criticism Overview"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "15998",
+      "title": "A Roman Vision of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "15839",
+      "title": "The Beginning of the Quest of the Historical Jesus",
+      "topics": [
+        "Gospel of Mark",
+        "Messianic Secret",
+        "Methods for Studying the Historical Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Paul's Letter to the Romans is only an incidental example or citation, or the reference is instead to Ignatius's Letter to the Romans."
+    },
+    {
+      "wpId": "14870",
+      "title": "Pilate, Who Never “Learned His Lesson”",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "14865",
+      "title": "Pontius Pilate: A Sensitive Guy….",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "13616",
+      "title": "Did Romans Allow Jews to Bury Crucified Victims?  Readers’ Mailbag January 1, 2018",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "13506",
+      "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+      "topics": [
+        "Meaning of Jesus' Resurrection",
+        "Gospel of Mark",
+        "Jesus' Passion Narratives",
+        "Christology in the Gospels"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "13238",
+      "title": "Decent Burials for Crucified Victims: A Blast From the Past",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "13207",
+      "title": "The Skeletal Remains of Yehohanan: Readers Mailbag October 8, 2017",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "12508",
+      "title": "Background to a Different View of the Afterlife: The Maccabean Revolt",
+      "topics": [
+        "Early Judaism (General)",
+        "Resurrection of the Dead"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "12422",
+      "title": "The Burial of Jesus: A Blast from the Past",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "12074",
+      "title": "Jesus’ Private Teachings about the King of the Jews",
+      "topics": [
+        "Judas Iscariot",
+        "Jesus' Passion Narratives",
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Messiah"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "12066",
+      "title": "Jesus’ Crucifixion as King of the Jews",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Messiah",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "11863",
+      "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016",
+      "topics": [
+        "Pontius Pilate",
+        "Life After Death (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "9479",
+      "title": "Background to Apocalypticism: The Maccabean Revolt",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "9337",
+      "title": "Jesus Death as King of the Jews",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Messiah",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "8485",
+      "title": "More on Greek Numerals",
+      "topics": [
+        "Biblical Numerology"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7609",
+      "title": "The Skeletal Remains of Yehohanan and Their Significance",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7601",
+      "title": "Josephus’s Clearest Claim about the Burial of Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7597",
+      "title": "More on Josephus and Jewish Burial Practices",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7592",
+      "title": "Does Josephus Show that Jews Always Buried Their Dead?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7583",
+      "title": "Josephus and the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7569",
+      "title": "Pilate the Intransigent",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7548",
+      "title": "Did Roman Authorities Show Clemency?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7545",
+      "title": "Did Romans Allow Decent Burials?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7522",
+      "title": "Violent Opposition to the Romans in the Days of Jesus (or Brian)?",
+      "topics": [
+        "Early Judaism (General)",
+        "Life of Brian",
+        "Roman World",
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "7494",
+      "title": "Brian and the Apocalyptic Jesus Part 3",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "topics": [
+        "Meaning of Jesus' Resurrection",
+        "Gospel of Mark",
+        "Historical Methods (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6571",
+      "title": "Final Loose Threads on the Zealot Hypothesis",
+      "topics": [
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6563",
+      "title": "Jesus’ Crucifixion as King of the Jews",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Messiah",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6541",
+      "title": "The Later De-apocalypticizing of Jesus",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Zealot Hypothesis",
+        "Jesus' Teachings"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6497",
+      "title": "Fundamental Problems with Aslan’s Thesis",
+      "topics": [
+        "Crucified Messiah",
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6459",
+      "title": "Aslan’s Zealot: Historical Mistakes",
+      "topics": [
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6447",
+      "title": "Aslan’s Zealot: Some Positive Comments",
+      "topics": [
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "6434",
+      "title": "Aslan’s Zealot: To Start With…",
+      "topics": [
+        "Zealot Hypothesis"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "4943",
+      "title": "More Conspiracy Nonsense",
+      "topics": [
+        "Mythicism"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "4906",
+      "title": "Killing Jesus is Killing Me….",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Media Coverage and Reviews"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "4234",
+      "title": "Jesus and the Dead Sea Scrolls",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Early Judaism (General)"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "3101",
+      "title": "Pilate and Barabbas",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "3094",
+      "title": "Decent Burials for Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "3073",
+      "title": "Why Was Jesus Killed?",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Pontius Pilate"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "3032",
+      "title": "Was Jesus Given a Decent Burial (By Joseph of Arimathea)",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "2618",
+      "title": "Questions on Jesus’ Language and on the Crucifixion",
+      "topics": [
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    },
+    {
+      "wpId": "1738",
+      "title": "Q & A – Historical Events in Jesus Tradition",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Resurrection Arguments and Apologetics"
+      ],
+      "reason": "Romans refers to Roman people, officials, government, society, or historical circumstances rather than Paul's Letter to the Romans."
+    }
+  ]
+}

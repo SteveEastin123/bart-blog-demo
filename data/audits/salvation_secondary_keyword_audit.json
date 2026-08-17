@@ -1,0 +1,84 @@
+{
+  "keyword": "Salvation",
+  "criterion": "Retain Salvation when the means, meaning, recipients, timing, or theology of salvation is a meaningful supporting subject of the post.",
+  "approvedRemovalPostIds": [
+    "15334",
+    "16103",
+    "28517",
+    "32825",
+    "4709",
+    "48685",
+    "6958"
+  ],
+  "before": 148,
+  "retained": 141,
+  "removed": 7,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "unrelatedPreviews": 3,
+    "incidentalReferences": 3,
+    "falseTitleMatches": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "48685",
+      "title": "Getting the Hebrew Bible:  A Primer (What is the Old Testament…)",
+      "topics": [
+        "Canon Formation"
+      ],
+      "reason": "Salvation appears only while previewing or listing a different subject and is not developed in the post."
+    },
+    {
+      "wpId": "32825",
+      "title": "Did King David Actually Exist?",
+      "topics": [
+        "Hebrew Bible Historical Reliability"
+      ],
+      "reason": "Salvation appears only while previewing or listing a different subject and is not developed in the post."
+    },
+    {
+      "wpId": "28517",
+      "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ],
+      "reason": "Salvation appears only while previewing or listing a different subject and is not developed in the post."
+    },
+    {
+      "wpId": "16103",
+      "title": "Similarities and Differences: Which Matter the Most?",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Salvation is used only as an incidental example or to explain what the post's actual subject does not address."
+    },
+    {
+      "wpId": "15334",
+      "title": "Rules of Thumb for Reconstructing the History behind the Gospels",
+      "topics": [
+        "Methods for Studying the Historical Jesus"
+      ],
+      "reason": "Salvation is used only as an incidental example or to explain what the post's actual subject does not address."
+    },
+    {
+      "wpId": "6958",
+      "title": "Snake-Handling and the Gospel of Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ],
+      "reason": "The match comes from the television title Snake Salvation rather than a discussion of salvation."
+    },
+    {
+      "wpId": "4709",
+      "title": "Who Cares?",
+      "topics": [
+        "Didymus the Blind",
+        "Original Text Questions",
+        "Church Fathers as Textual Evidence"
+      ],
+      "reason": "Salvation is used only as an incidental example or to explain what the post's actual subject does not address."
+    }
+  ]
+}

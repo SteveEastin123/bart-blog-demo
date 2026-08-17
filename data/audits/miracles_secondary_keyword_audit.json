@@ -1,0 +1,107 @@
+{
+  "keyword": "Miracles",
+  "criterion": "Retain Miracles when miracle stories, supernatural claims, historical evaluation, Gospel signs, miracle workers, magic, conversion, or related beliefs materially support the post.",
+  "approvedRemovalPostIds": [
+    "13608",
+    "14876",
+    "15609",
+    "17247",
+    "28977",
+    "30220",
+    "47008",
+    "4924",
+    "7311"
+  ],
+  "before": 103,
+  "retained": 94,
+  "removed": 9,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "passingContrast": 3,
+    "incidentalContext": 5,
+    "subjectList": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "47008",
+      "title": "The Weird Textual Variant of 1 John 4:3:  False Teachers Who “Loose” Jesus?",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Theologically Significant Variants",
+        "Johannine Epistles"
+      ],
+      "reason": "Miracles supply brief narrative, theological, or illustrative context, but the post analyzes another subject."
+    },
+    {
+      "wpId": "30220",
+      "title": "The Plausibility of the Fourth Gospel: The Chronology of Jesus’s Ministry.  Platinum Guest Post by Dennis Folds",
+      "topics": [
+        "Gospel of John",
+        "Gospel Historical Reliability"
+      ],
+      "reason": "Miracles supply brief narrative, theological, or illustrative context, but the post analyzes another subject."
+    },
+    {
+      "wpId": "28977",
+      "title": "Jesus and Paul:  Are They on the Same Page?",
+      "topics": [
+        "Jesus' Teachings",
+        "Pauline Salvation Models",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Miracles appear only in a passing contrast between Jesus' deeds and the message being analyzed; the post does not examine miracles."
+    },
+    {
+      "wpId": "17247",
+      "title": "Why Don’t You Just Believe?",
+      "topics": [
+        "Agnosticism",
+        "Atheism"
+      ],
+      "reason": "Miracles supply brief narrative, theological, or illustrative context, but the post analyzes another subject."
+    },
+    {
+      "wpId": "15609",
+      "title": "My Pod Cast Interview with Sam Harris",
+      "topics": [
+        "Media Interviews and Videos",
+        "Triumph of Christianity"
+      ],
+      "reason": "Miracles are only one item in a broad list of subjects covered by the interview."
+    },
+    {
+      "wpId": "14876",
+      "title": "Are Paul and Jesus on the Same Page?",
+      "topics": [
+        "Jesus' Teachings"
+      ],
+      "reason": "Miracles appear only in a passing contrast between Jesus' deeds and the message being analyzed; the post does not examine miracles."
+    },
+    {
+      "wpId": "13608",
+      "title": "Jesus’ Mother and Brothers in Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Family Traditions",
+        "Translation Issues"
+      ],
+      "reason": "Miracles supply brief narrative, theological, or illustrative context, but the post analyzes another subject."
+    },
+    {
+      "wpId": "7311",
+      "title": "Paul and Jesus",
+      "topics": [
+        "Jesus' Teachings"
+      ],
+      "reason": "Miracles appear only in a passing contrast between Jesus' deeds and the message being analyzed; the post does not examine miracles."
+    },
+    {
+      "wpId": "4924",
+      "title": "Jesus as a First-Century Tea-Partier",
+      "topics": [
+        "Historical Jesus (General)"
+      ],
+      "reason": "Miracles supply brief narrative, theological, or illustrative context, but the post analyzes another subject."
+    }
+  ]
+}

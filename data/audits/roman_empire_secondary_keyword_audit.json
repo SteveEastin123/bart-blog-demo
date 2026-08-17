@@ -1,0 +1,65 @@
+{
+  "keyword": "Roman Empire",
+  "criterion": "Retain Roman Empire when Roman government, imperial power, society, administration, religion, expansion, persecution, or the empire's relationship to Jews and Christians materially supports the post.",
+  "approvedRemovalPostIds": [
+    "11493",
+    "11515",
+    "2864",
+    "31770",
+    "4711"
+  ],
+  "before": 104,
+  "retained": 99,
+  "removed": 5,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "passingContext": 4,
+    "personalBackground": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "31770",
+      "title": "If Jesus’ Death Was Not an Atonement: Why Did He Die??",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "The Roman Empire appears only as brief geographical, historical, course, or previous-thread context; the post analyzes another subject."
+    },
+    {
+      "wpId": "11515",
+      "title": "A Personal Note and a Bit of a Bummer",
+      "topics": [
+        "Autobiographical Posts",
+        "Personal Reflections"
+      ],
+      "reason": "The Christianization of the Roman Empire identifies a research project behind a canceled trip, but the post is a personal update."
+    },
+    {
+      "wpId": "11493",
+      "title": "The Accuracy of Paul’s Letter to the Galatians",
+      "topics": [
+        "James the Brother of Jesus",
+        "Pauline Textual Issues",
+        "Galatians"
+      ],
+      "reason": "The Roman Empire appears only as brief geographical, historical, course, or previous-thread context; the post analyzes another subject."
+    },
+    {
+      "wpId": "4711",
+      "title": "Back To School!   My Jesus Syllabus",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "The Roman Empire appears only as brief geographical, historical, course, or previous-thread context; the post analyzes another subject."
+    },
+    {
+      "wpId": "2864",
+      "title": "Jesus and the Historical Criteria",
+      "topics": [
+        "Methods for Studying the Historical Jesus"
+      ],
+      "reason": "The Roman Empire appears only as brief geographical, historical, course, or previous-thread context; the post analyzes another subject."
+    }
+  ]
+}

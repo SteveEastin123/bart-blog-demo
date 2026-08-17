@@ -1,0 +1,139 @@
+{
+  "keyword": "Son of Man",
+  "criterion": "Retain Son of Man when the title's meaning, identity, Danielic background, Gospel usage, historical-Jesus question, eschatological role, or textual interpretation materially supports the post.",
+  "approvedRemovalPostIds": [
+    "12138",
+    "15060",
+    "15577",
+    "2043",
+    "21159",
+    "26033",
+    "26081",
+    "34899",
+    "38016",
+    "38524",
+    "7434",
+    "8497"
+  ],
+  "before": 120,
+  "retained": 108,
+  "removed": 12,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "bookTitleReferences": 2,
+    "passingOrPreviousReferences": 4,
+    "unforgivableSinQuotations": 4,
+    "genericPsalmUsage": 2
+  },
+  "removedPosts": [
+    {
+      "wpId": "38524",
+      "title": "How Much Fact, How Much Fiction? The Life of Peter",
+      "topics": [
+        "Apocryphal Acts",
+        "Historical Study of Miracles",
+        "Miracle Stories in Non-Canonical Texts",
+        "Peter the Apostle"
+      ],
+      "reason": "Son of Man appears only in a passing example, reference to a different post, list of titles, or unrelated quoted passage."
+    },
+    {
+      "wpId": "38016",
+      "title": "How Do We Fit in the Universe?",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Psalm 8 uses lowercase son of man to mean an ordinary human being rather than the apocalyptic or Christological title."
+    },
+    {
+      "wpId": "34899",
+      "title": "What If I Commit the Unforgivable Sin?  Can It Be Purged in Purgatory?",
+      "topics": [
+        "Eternal Punishment",
+        "Purgatory"
+      ],
+      "reason": "Son of Man appears only in the quoted saying contrasting speech against the Son of Man with blasphemy against the Holy Spirit."
+    },
+    {
+      "wpId": "26081",
+      "title": "Jesus’ Final Speech in John:  A Lead-up to the Coming of the Spirit",
+      "topics": [
+        "Development of the Trinity",
+        "Gospel of John"
+      ],
+      "reason": "Son of Man appears only in a passing example, reference to a different post, list of titles, or unrelated quoted passage."
+    },
+    {
+      "wpId": "26033",
+      "title": "You Don’t Want To Blaspheme the Spirit!  But What’s It Mean?",
+      "topics": [
+        "Gospel of Matthew",
+        "Purgatory",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Son of Man appears only in the quoted saying contrasting speech against the Son of Man with blasphemy against the Holy Spirit."
+    },
+    {
+      "wpId": "21159",
+      "title": "What Is the Unforgivable Sin?  Readers’ Mailbag.",
+      "topics": [
+        "Purgatory",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Son of Man appears only in the quoted saying contrasting speech against the Son of Man with blasphemy against the Holy Spirit."
+    },
+    {
+      "wpId": "15577",
+      "title": "Did Jesus Call Himself God?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Christology in the Gospels",
+        "Gospel of John"
+      ],
+      "reason": "Son of Man appears only in a passing example, reference to a different post, list of titles, or unrelated quoted passage."
+    },
+    {
+      "wpId": "15060",
+      "title": "The Unforgivable Sin and Purgatory",
+      "topics": [
+        "Eternal Punishment",
+        "Purgatory"
+      ],
+      "reason": "Son of Man appears only in the quoted saying contrasting speech against the Son of Man with blasphemy against the Holy Spirit."
+    },
+    {
+      "wpId": "12138",
+      "title": "The Marvels of our Universe",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Psalm 8 uses lowercase son of man to mean an ordinary human being rather than the apocalyptic or Christological title."
+    },
+    {
+      "wpId": "8497",
+      "title": "Debates For A Price",
+      "topics": [
+        "Public Debates",
+        "Mythicism"
+      ],
+      "reason": "Son of Man appears only in the title of Robert Price's book The Incredible Shrinking Son of Man."
+    },
+    {
+      "wpId": "7434",
+      "title": "More Misreadings of How Jesus Became God",
+      "topics": [
+        "How Jesus Became God",
+        "Development of the Trinity"
+      ],
+      "reason": "Son of Man appears only in a passing example, reference to a different post, list of titles, or unrelated quoted passage."
+    },
+    {
+      "wpId": "2043",
+      "title": "Did Jesus Exist as Part One",
+      "topics": [
+        "Did Jesus Exist?"
+      ],
+      "reason": "Son of Man appears only in the title of Robert Price's book The Incredible Shrinking Son of Man."
+    }
+  ]
+}

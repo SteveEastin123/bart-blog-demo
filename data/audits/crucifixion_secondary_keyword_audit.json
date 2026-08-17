@@ -1,0 +1,116 @@
+{
+  "keyword": "Crucifixion",
+  "criterion": "Retain Crucifixion when Jesus' execution, its causes, events, meaning, historical practice, aftermath, or another materially discussed crucifixion supports the post.",
+  "approvedRemovalPostIds": [
+    "12830",
+    "16873",
+    "17247",
+    "17428",
+    "24590",
+    "3079",
+    "37661",
+    "38488",
+    "7199",
+    "8763"
+  ],
+  "before": 122,
+  "retained": 112,
+  "removed": 10,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "chronologicalReferences": 5,
+    "listOrTitleReferences": 4,
+    "incidentalGospelLocation": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "38488",
+      "title": "When Did Mary Magdalene Become a Prostitute?",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "The post only notes that Mary Magdalene appears at the crucifixion before addressing a different tradition about her."
+    },
+    {
+      "wpId": "37661",
+      "title": "So: Did Anyone Think of Jesus as a Miracle-Worker Before His Crucifixion?",
+      "topics": [
+        "Ancient Miracle Workers",
+        "Jesus' Miracle Stories",
+        "Historical Study of Miracles",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Crucifixion is used only as a chronological boundary for a post about resurrection visions or Jesus' reputation as a miracle worker."
+    },
+    {
+      "wpId": "24590",
+      "title": "Did the Disciples See Jesus Raised from the Dead?",
+      "topics": [
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ],
+      "reason": "Crucifixion is used only as a chronological boundary for a post about resurrection visions or Jesus' reputation as a miracle worker."
+    },
+    {
+      "wpId": "17428",
+      "title": "End of the Year Final Exam!",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Crucifixion appears only in a book title, course list, reader's list of beliefs, or list of generally accepted facts about Jesus."
+    },
+    {
+      "wpId": "17247",
+      "title": "Why Don’t You Just Believe?",
+      "topics": [
+        "Agnosticism",
+        "Atheism"
+      ],
+      "reason": "Crucifixion appears only in a book title, course list, reader's list of beliefs, or list of generally accepted facts about Jesus."
+    },
+    {
+      "wpId": "16873",
+      "title": "Why Would Jesus’ Disciples Doubt the Resurrection?",
+      "topics": [
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ],
+      "reason": "Crucifixion is used only as a chronological boundary for a post about resurrection visions or Jesus' reputation as a miracle worker."
+    },
+    {
+      "wpId": "12830",
+      "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+      "topics": [
+        "Gnosticism (General)",
+        "Book of Daniel",
+        "Historical Methods (General)"
+      ],
+      "reason": "Crucifixion appears only in a book title, course list, reader's list of beliefs, or list of generally accepted facts about Jesus."
+    },
+    {
+      "wpId": "8763",
+      "title": "What Can We Know about the Life of Jesus?",
+      "topics": [
+        "Methods for Studying the Historical Jesus"
+      ],
+      "reason": "Crucifixion appears only in a book title, course list, reader's list of beliefs, or list of generally accepted facts about Jesus."
+    },
+    {
+      "wpId": "7199",
+      "title": "Did Disciples Have Visions of Jesus?",
+      "topics": [
+        "How Jesus Became God",
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Crucifixion is used only as a chronological boundary for a post about resurrection visions or Jesus' reputation as a miracle worker."
+    },
+    {
+      "wpId": "3079",
+      "title": "Disciples Who Doubt the Resurrection",
+      "topics": [
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Crucifixion is used only as a chronological boundary for a post about resurrection visions or Jesus' reputation as a miracle worker."
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "keyword": "How Jesus Became God",
+  "criterion": "Retain How Jesus Became God for posts directly discussing the book, its arguments, reception, promotion, lectures, or substantive material developed for it.",
+  "approvedRemovalPostIds": [
+    "10288",
+    "12080",
+    "14766",
+    "14804",
+    "16082",
+    "17662",
+    "17780",
+    "2296",
+    "3366",
+    "4036",
+    "4088",
+    "4273",
+    "4513",
+    "8748"
+  ],
+  "before": 101,
+  "retained": 87,
+  "removed": 14,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "promotionalOrBiographicalList": 6,
+    "unrelatedProjectContext": 8
+  },
+  "removedPosts": [
+    {
+      "wpId": "17780",
+      "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "How Jesus Became God appears only in a promotional, bibliographical, biographical, or publication list rather than as a subject of the post."
+    },
+    {
+      "wpId": "17662",
+      "title": "Interview with Buddhists on the New Testament",
+      "topics": [
+        "Media Interviews and Videos",
+        "Biblical Contradictions",
+        "Biblical Inerrancy"
+      ],
+      "reason": "How Jesus Became God appears only in a promotional, bibliographical, biographical, or publication list rather than as a subject of the post."
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "14804",
+      "title": "Pre-order Triumph of Christianity and Get Some Serious Perks!!",
+      "topics": [
+        "Triumph of Christianity"
+      ],
+      "reason": "How Jesus Became God appears only in a promotional, bibliographical, biographical, or publication list rather than as a subject of the post."
+    },
+    {
+      "wpId": "14766",
+      "title": "Request for Help!   Your Favorite Podcasts.",
+      "topics": [
+        "Media Coverage and Reviews",
+        "Triumph of Christianity"
+      ],
+      "reason": "How Jesus Became God appears only in a promotional, bibliographical, biographical, or publication list rather than as a subject of the post."
+    },
+    {
+      "wpId": "12080",
+      "title": "Looking Ahead to Christmas: A Blast from the Past",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "10288",
+      "title": "Weekly Readers’ Mailbag:  March 4, 2016",
+      "topics": [
+        "Jesus Before the Gospels"
+      ],
+      "reason": "How Jesus Became God appears only in a promotional, bibliographical, biographical, or publication list rather than as a subject of the post."
+    },
+    {
+      "wpId": "8748",
+      "title": "York Symposium on Early Christian Apocrypha",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "How Jesus Became God appears only in a promotional, bibliographical, biographical, or publication list rather than as a subject of the post."
+    },
+    {
+      "wpId": "4513",
+      "title": "Early Christianity in Egypt",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "4273",
+      "title": "The Next Trade Book: Jews and Christians",
+      "topics": [
+        "Christian Anti-Judaism",
+        "General-Audience Books"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "4036",
+      "title": "Making Things Interesting",
+      "topics": [
+        "Public-Facing Scholarship"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "3366",
+      "title": "The Other Gospels and the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "2296",
+      "title": "Why Did Christianity Succeed?",
+      "topics": [
+        "Rise of Christianity"
+      ],
+      "reason": "The book supplies only writing-project background or is explicitly identified as unrelated to the post's substantive subject."
+    }
+  ]
+}

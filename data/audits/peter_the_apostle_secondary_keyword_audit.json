@@ -1,0 +1,233 @@
+{
+  "keyword": "Peter the Apostle",
+  "criterion": "Retain Peter the Apostle when Peter's actions, authority, traditions, relationships, writings attributed to him, or historical role materially support the post.",
+  "approvedRemovalPostIds": [
+    "11954",
+    "14899",
+    "15672",
+    "17095",
+    "17615",
+    "21403",
+    "23254",
+    "2915",
+    "33236",
+    "37384",
+    "38483",
+    "38493",
+    "38564",
+    "38802",
+    "46924",
+    "48712",
+    "48954",
+    "6587",
+    "6875",
+    "6891",
+    "8294",
+    "8326"
+  ],
+  "before": 153,
+  "retained": 131,
+  "removed": 22,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "passingReferences": 7,
+    "maryMagdalenePosts": 8,
+    "otherApostlesBooksOrSurveys": 7
+  },
+  "removedPosts": [
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "48712",
+      "title": "The New Testament in a Nutshell: The 50 Word Summaries of Each Book (All of them!)",
+      "topics": [
+        "In a Nutshell Series"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    },
+    {
+      "wpId": "46924",
+      "title": "The Death of Paul",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Miraculous Martyrdom Traditions"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    },
+    {
+      "wpId": "38802",
+      "title": "What Did Paul’s Christian Enemies Write About Him?",
+      "topics": [
+        "Paul and His Opponents",
+        "Early Christian Diversity"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38564",
+      "title": "Facts Hidden Among the Legends of the Apostle Paul?",
+      "topics": [
+        "Paul in Acts",
+        "Historical Methods (General)"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    },
+    {
+      "wpId": "38493",
+      "title": "Jesus and Mary Magdalene Seen Kissing??",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "38483",
+      "title": "Was Mary Magdalene a Prostitute?",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "37384",
+      "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions",
+        "Valentinian Gnostics"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "33236",
+      "title": "How Can “Group Hallucinations” Possibly Happen?",
+      "topics": [
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "23254",
+      "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "21403",
+      "title": "John, the Bedbugs, and Miracles that Convert",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Miracle Stories in Non-Canonical Texts"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17615",
+      "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions",
+        "Valentinian Gnostics"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "17095",
+      "title": "A Synopsis of Each New Testament Book",
+      "topics": [
+        "Early Christian Writings"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    },
+    {
+      "wpId": "15672",
+      "title": "Do Any Forgeries Claim to be Written by Jesus?",
+      "topics": [
+        "Eusebius of Caesarea",
+        "Forgery (General)",
+        "Jesus and Abgar Legend"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "14899",
+      "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "11954",
+      "title": "Jesus and the Ten Commandments",
+      "topics": [
+        "Jesus' Teachings",
+        "Jewish Law and Torah"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8326",
+      "title": "Forgeries in the Name of Paul",
+      "topics": [
+        "Pauline Forgeries"
+      ],
+      "reason": "Peter appears only in a list, quiz, course preview, or comparison rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8294",
+      "title": "Why Was the Gospel of Luke Attributed to Luke?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Luke"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    },
+    {
+      "wpId": "6891",
+      "title": "Jesus Kissing Mary Magdalene",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "6875",
+      "title": "Mary Magdalene in Various Guises",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "The post concerns Mary Magdalene; Peter occurs only in a book title, comparison, or brief reference to male disciples' jealousy."
+    },
+    {
+      "wpId": "6587",
+      "title": "Followup on the NT Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    },
+    {
+      "wpId": "2915",
+      "title": "The Next Project: How Jesus Became God",
+      "topics": [
+        "How Jesus Became God"
+      ],
+      "reason": "Peter appears only as background to another apostle, in a book title, or within a broad New Testament survey."
+    }
+  ]
+}

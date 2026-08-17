@@ -1,0 +1,34 @@
+{
+  "keyword": "Translation",
+  "criterion": "Retain Translation when translating, translation choices, linguistic equivalence, ancient versions, or the consequences of a rendering materially support the post.",
+  "approvedRemovalPostIds": [
+    "16397",
+    "4667"
+  ],
+  "before": 133,
+  "retained": 131,
+  "removed": 2,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "16397",
+      "title": "Scribes Who Changed Their Texts on Purpose",
+      "topics": [
+        "Gospel of Mark",
+        "Theologically Significant Variants"
+      ],
+      "reason": "The post examines an intentional scribal alteration and notes that it had almost no effect on modern translations; Mark's translation of an Aramaic sentence is merely quoted context."
+    },
+    {
+      "wpId": "4667",
+      "title": "More Arguments over Luke 3:22",
+      "topics": [
+        "Church Fathers as Textual Evidence",
+        "Scribal Changes",
+        "Textual Variants",
+        "Adoptionist Christology"
+      ],
+      "reason": "Translation appears only when identifying the reading found in most English Bibles; the post concerns textual witnesses, patristic evidence, and the original reading."
+    }
+  ]
+}

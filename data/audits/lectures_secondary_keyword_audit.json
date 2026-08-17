@@ -1,0 +1,200 @@
+{
+  "keyword": "Lectures",
+  "criterion": "Retain Lectures for lecture announcements, recorded or published lectures, lecture summaries, public talks, conference presentations, lecture-based courses, or posts substantially developed from lecture content.",
+  "approvedRemovalPostIds": [
+    "12299",
+    "14210",
+    "15330",
+    "16236",
+    "16764",
+    "21187",
+    "25141",
+    "28082",
+    "34764",
+    "36737",
+    "38171",
+    "3853",
+    "39832",
+    "39896",
+    "4171",
+    "4295",
+    "47209",
+    "7197",
+    "8876"
+  ],
+  "before": 106,
+  "retained": 87,
+  "removed": 19,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "travelOrScheduling": 7,
+    "incidentalMentions": 9,
+    "biographicalBackground": 3
+  },
+  "removedPosts": [
+    {
+      "wpId": "47209",
+      "title": "How Athens Made Me Rethink….",
+      "topics": [
+        "Social Class in Antiquity",
+        "Rise of Christianity"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "39896",
+      "title": "Is It Possible To Continue Believing?  Guest Post by New Testament Scholar Judy Siker",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Lectures appear only as biographical background and are not a meaningful subject of the post."
+    },
+    {
+      "wpId": "39832",
+      "title": "Can You Disprove the Existence of God?",
+      "topics": [
+        "Agnosticism",
+        "Atheism"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "38171",
+      "title": "Atonement Doctrine – A Platinum Post by Manuel Fiadeiro",
+      "topics": [
+        "Atonement (General)",
+        "Pauline Salvation Models"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "36737",
+      "title": "A Hugely Memorable Moment: When I Saw Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "34764",
+      "title": "Pre-Pub Offer on My Book: ARMAGEDDON!",
+      "topics": [
+        "Armageddon",
+        "Book of Revelation"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "28082",
+      "title": "My Final Exam This Semester!  The Birth of Christianity.",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "25141",
+      "title": "Could Jesus Read?",
+      "topics": [
+        "Ancient Literacy",
+        "Historical Jesus (General)"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "21187",
+      "title": "Does Basic Information about the NT *Matter*?  My Pop Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "16764",
+      "title": "How Can You Still Believe?  Guest Post by Judy Siker",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Lectures appear only as biographical background and are not a meaningful subject of the post."
+    },
+    {
+      "wpId": "16236",
+      "title": "Did Paul Really Write 2 Thessalonians?",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "15330",
+      "title": "What I Saw at St. Catherine’s Monastery at Mount Sinai",
+      "topics": [
+        "Codex Sinaiticus"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "14210",
+      "title": "Managing the Time!  Readers’ Mailbag December 17, 2017",
+      "topics": [
+        "Writing and Publishing Process"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "12299",
+      "title": "Why He Is Still a Christian (And a Biblical Scholar): A Blast From the Past",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Lectures appear only as biographical background and are not a meaningful subject of the post."
+    },
+    {
+      "wpId": "8876",
+      "title": "What I Saw at St. Catherine’s Monastery",
+      "topics": [
+        "Codex Sinaiticus"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "7197",
+      "title": "Jesus as God in the Synoptics",
+      "topics": [
+        "Christology in the Gospels",
+        "How Jesus Became God",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "4295",
+      "title": "Future Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    },
+    {
+      "wpId": "4171",
+      "title": "Caesarea Maritima",
+      "topics": [
+        "Roman World",
+        "Archaeology and Material Evidence"
+      ],
+      "reason": "Lecturing supplies only travel, scheduling, or opening context; the post does not present or meaningfully describe a lecture."
+    },
+    {
+      "wpId": "3853",
+      "title": "An Ancient Accusation of Textual Tampering",
+      "topics": [
+        "Scribal Changes",
+        "Theologically Significant Variants",
+        "Adoptionist Christology"
+      ],
+      "reason": "A lecture or course is mentioned incidentally while the post's substantive subject lies elsewhere."
+    }
+  ]
+}

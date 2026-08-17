@@ -1,0 +1,680 @@
+{
+  "keyword": "John the Baptist",
+  "criterion": "Retain John the Baptist when his life, preaching, baptism, followers, death, historical role, relationship to Jesus, or traditions about him materially support the post.",
+  "approvedRemovalPostIds": [
+    "11954",
+    "12064",
+    "12744",
+    "12747",
+    "13183",
+    "13608",
+    "15206",
+    "15248",
+    "15885",
+    "15908",
+    "16088",
+    "16364",
+    "17064",
+    "17403",
+    "17708",
+    "20653",
+    "20851",
+    "2106",
+    "21154",
+    "21255",
+    "22610",
+    "23806",
+    "2492",
+    "24957",
+    "25886",
+    "26586",
+    "27012",
+    "27285",
+    "27512",
+    "28726",
+    "28730",
+    "28830",
+    "29830",
+    "31511",
+    "3440",
+    "34669",
+    "35679",
+    "35872",
+    "36122",
+    "36268",
+    "3863",
+    "41050",
+    "41058",
+    "41351",
+    "41615",
+    "41837",
+    "41894",
+    "4218",
+    "4229",
+    "46944",
+    "47045",
+    "47064",
+    "47084",
+    "4727",
+    "4743",
+    "47735",
+    "47851",
+    "48176",
+    "48384",
+    "6142",
+    "6587",
+    "7179",
+    "8350",
+    "8511",
+    "9177",
+    "9292"
+  ],
+  "before": 133,
+  "retained": 67,
+  "removed": 66,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "unrelatedReferences": 9,
+    "coursesQuizzesOrSurveys": 9,
+    "passingComparisonsOrLists": 32,
+    "incidentalGospelExamples": 16
+  },
+  "removedPosts": [
+    {
+      "wpId": "48384",
+      "title": "Why Do the Dead Sea Scrolls Matter for Understanding Jesus?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Early Judaism (General)"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "48176",
+      "title": "Some Good Questions On John and the Appearance of Jesus in the World",
+      "topics": [
+        "Gospel of John",
+        "Incarnation Christology"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "47735",
+      "title": "Four Intriguing Topics in the Study of the Historical Jesus",
+      "topics": [
+        "Historical Study of Miracles",
+        "Historical Jesus (General)"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "46944",
+      "title": "James: Who, When, and Why?  Does It Claim to be by THAT James (the brother of Jesus)?",
+      "topics": [
+        "James the Brother of Jesus",
+        "Letter of James",
+        "Non-Pauline Epistle Authorship",
+        "Non-Pauline Epistle Forgeries"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "47084",
+      "title": "Other Sources for Matthew and Luke:  M and L!  And Who CARES?",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Synoptic Problem",
+        "Gospel of Matthew",
+        "Source Criticism",
+        "Gospel of Luke"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "47064",
+      "title": "Is the Gospel of Luke Anti-Jewish?",
+      "topics": [
+        "Gospel of Luke",
+        "Christian Anti-Judaism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "47045",
+      "title": "The New Testament Gospels in a Nutshell",
+      "topics": [
+        "Canonical Gospels (General)",
+        "In a Nutshell Series"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "41837",
+      "title": "Twelve Days of Christmas Day 6: Why Does Matthew Have the Story of the “Wise Men”?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "41894",
+      "title": "Twelve Days of Christmas Day 5: Matthew’s Version of the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "41615",
+      "title": "Jewish Disagreements About the Afterlife: Pharisees and Sadducees",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Early Judaism (General)",
+        "Resurrection of the Dead"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "41351",
+      "title": "What Would an Apocalyptic Jew (Jesus!) Mean By Calling Himself Messiah?",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Messiah"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "41058",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul in Acts",
+        "Paul and His Opponents"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "41050",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul and His Opponents",
+        "Paul in Acts"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "36268",
+      "title": "Proposed Solutions For the Four Metaphysical Puzzles Related to Jesus From an Islamic Perspective From Omar Robb",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Virgin Birth"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "36122",
+      "title": "An Important Difference in John–a Platinum Post by Ryan Fleming",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "35872",
+      "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+      "topics": [
+        "Acts",
+        "Biblical Contradictions",
+        "Paul in Acts",
+        "Paul's Conversion"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "35679",
+      "title": "The Radical Teachings of Jesus–And Why No One Follows Them",
+      "topics": [
+        "Jesus' Ethics",
+        "Jesus' Teachings",
+        "Apocalyptic Jesus",
+        "Jesus on Wealth and Poverty"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "34669",
+      "title": "Why Would an Atheist Be Obsessed with Jesus?",
+      "topics": [
+        "Atheism",
+        "Historical Jesus (General)",
+        "How Jesus Became God"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "31511",
+      "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "29830",
+      "title": "Why Did Judas Betray Jesus?  Most-commented Blog Post: #8",
+      "topics": [
+        "Judas Iscariot"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "28730",
+      "title": "Major Perspectives of Ancient Jewish (and Jesus’!) Apocalyptic Views",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "28726",
+      "title": "Where Did the Apocalyptic Views of Jesus (and others) Come From?",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "28830",
+      "title": "Are the Gospels Too Early To Have Legends About Jesus?  Platinum Guest Post by Bob Seidensticker",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "27512",
+      "title": "Why these Caricatures of the Old Testament God? Guest post by Amy-Jill Levine",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Christian Interpretation of Jewish Scripture",
+        "Marcion"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "27285",
+      "title": "Jesus’s Apocalyptic View of Destruction",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Divine Judgment"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "27012",
+      "title": "Finally: Cephas and Peter.  What Do I Really Think?",
+      "topics": [
+        "Peter the Apostle"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "26586",
+      "title": "Apocalypse (the genre) and Apocalypticism (the worldview)",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Revelation"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "25886",
+      "title": "The Coming of the Spirit at the End of Time",
+      "topics": [
+        "Jewish Apocalypticism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "24957",
+      "title": "How The Afterlife Changed After Jesus’ Life",
+      "topics": [
+        "Life After Death (General)",
+        "Heaven and Hell Beliefs",
+        "Resurrection of the Dead"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "23806",
+      "title": "Was Christ actually God in the Flesh?",
+      "topics": [
+        "Gospel of John",
+        "Incarnation Christology"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "22610",
+      "title": "Do Christians Have to Believe in the Virgin Birth?",
+      "topics": [
+        "Virgin Birth",
+        "Fundamentalism"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "21255",
+      "title": "Gospel Questions and Problems",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Courses and Teaching",
+        "Canonical Gospels (General)",
+        "Biblical Contradictions"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "21154",
+      "title": "My Faux Pop Quiz this Semester",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "20851",
+      "title": "The Importance of the Dead Sea Scrolls for Understanding Jesus: Readers’ Mailbag",
+      "topics": [
+        "Dead Sea Scrolls and Essenes"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "20653",
+      "title": "But WHY Did Judas Betray Jesus?",
+      "topics": [
+        "Judas Iscariot"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "17708",
+      "title": "Paul’s Incredibly High Christology",
+      "topics": [
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem",
+        "Angelic Christology"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "17403",
+      "title": "Why Does Matthew Have the Story of the “Wise Men”?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jesus' Birth Narratives"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "topics": [
+        "Early Christian Writings"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "16364",
+      "title": "Did James Write James?",
+      "topics": [
+        "James the Brother of Jesus",
+        "Letter of James",
+        "Non-Pauline Epistle Authorship"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "16088",
+      "title": "Are These Really Contradictions?  My Response to Matt Firth",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "15908",
+      "title": "Do Any Ancient Jewish Sources Mention Jesus?  Weekly Mailbag",
+      "topics": [
+        "Historical Jesus (General)"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "15885",
+      "title": "The Gospel Writers as Editors Rather than Authors",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Redaction Criticism"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "15248",
+      "title": "Why I Am Obsessed with Jesus: A Blast from the Past",
+      "topics": [
+        "How Jesus Became God",
+        "Historical Jesus (General)"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "15206",
+      "title": "Why Did Judas Iscariot Betray Jesus?",
+      "topics": [
+        "Judas Iscariot"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "13608",
+      "title": "Jesus’ Mother and Brothers in Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Family Traditions",
+        "Translation Issues"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "13183",
+      "title": "Paul on Trial for the Resurrection",
+      "topics": [
+        "Paul on Resurrection",
+        "Resurrection of the Dead",
+        "Acts",
+        "Paul in Acts"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "12747",
+      "title": "The Essence of Biblical Apocalyptic Thought",
+      "topics": [
+        "Jewish Apocalypticism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "12744",
+      "title": "The Origins of Apocalypticism",
+      "topics": [
+        "Disasters and Human Suffering",
+        "Problem of Evil and Suffering",
+        "Jewish Apocalypticism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "12064",
+      "title": "The Apocalyptic Background to Jesus’ Messiahship",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Messiah"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "11954",
+      "title": "Jesus and the Ten Commandments",
+      "topics": [
+        "Jesus' Teachings",
+        "Jewish Law and Torah"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "9292",
+      "title": "The Apocalyptic Context for Jesus’ View of the Messiah",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Messiah"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "9177",
+      "title": "Anti-Judaism in the Gospel of Luke",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Gospel of Luke"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "8511",
+      "title": "Apocalypticism and Apocalypses",
+      "topics": [
+        "Jewish Apocalypticism"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "8350",
+      "title": "Do You Have To  Believe in the Virgin Birth?",
+      "topics": [
+        "Virgin Birth"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "7179",
+      "title": "Why I’m Obsessed with Jesus",
+      "topics": [
+        "How Jesus Became God"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "6587",
+      "title": "Followup on the NT Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "6142",
+      "title": "Who Can Still Be A Christian?",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Historical Jesus (General)"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "4743",
+      "title": "The Final Part of My First-Day Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "4727",
+      "title": "My Pop Quiz For First-Year Students",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    },
+    {
+      "wpId": "4229",
+      "title": "The Dead Sea Scrolls and Christianity",
+      "topics": [
+        "Dead Sea Scrolls and Essenes"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "4218",
+      "title": "Qumran and Masada",
+      "topics": [
+        "Dead Sea Scrolls and Essenes"
+      ],
+      "reason": "John appears only in a bibliography, scholarly credential, negative statement, or unrelated aside."
+    },
+    {
+      "wpId": "3863",
+      "title": "The Christ-Poem in John",
+      "topics": [
+        "Gospel of John",
+        "Incarnation Christology"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "3440",
+      "title": "Matthew’s Version of the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ],
+      "reason": "John appears in a single Gospel scene, chronology, source example, or comparison supporting another subject."
+    },
+    {
+      "wpId": "2492",
+      "title": "Paul in Acts: Part 2",
+      "topics": [
+        "Paul in Acts"
+      ],
+      "reason": "John is only named among apocalyptic Jews, prophets, historical figures, Gospel characters, or comparative examples."
+    },
+    {
+      "wpId": "2106",
+      "title": "Undergraduate Courses (2): Introduction to the New Testament (Part 2)",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "John is merely one item in a broad course outline, quiz, or New Testament survey."
+    }
+  ]
+}

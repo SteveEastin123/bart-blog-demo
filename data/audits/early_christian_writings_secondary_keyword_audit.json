@@ -1,0 +1,127 @@
+{
+  "keyword": "Early Christian Writings",
+  "criterion": "Retain Early Christian Writings when New Testament, apostolic-father, apocryphal, Gnostic, lost, forged, or other early Christian texts materially support the post.",
+  "approvedRemovalPostIds": [
+    "10314",
+    "12975",
+    "25647",
+    "28443",
+    "32546",
+    "32674",
+    "33023",
+    "35332",
+    "41594",
+    "8417",
+    "8942"
+  ],
+  "before": 107,
+  "retained": 96,
+  "removed": 11,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "jewishSects": 2,
+    "hebrewBibleTexts": 4,
+    "unrelatedModernSubjects": 5
+  },
+  "removedPosts": [
+    {
+      "wpId": "41594",
+      "title": "Jewish Sects in the time of Jesus:  Pharisees and Sadducees",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The post describes Jewish groups in the time of Jesus rather than early Christian writings."
+    },
+    {
+      "wpId": "35332",
+      "title": "Dr. Bart D. Ehrman, Apostle to the Atheists. A Platinum Post by Robert Droney",
+      "topics": [
+        "Atheism"
+      ],
+      "reason": "The post's main subject is modern personal, academic, blog, or historical speculation rather than early Christian writings."
+    },
+    {
+      "wpId": "33023",
+      "title": "A Major Forgery in the Hebrew Bible?  Guest Post by Platinum Member Dennis Folds",
+      "topics": [
+        "Forgery (General)",
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The post examines a Hebrew Bible text or its authorship rather than an early Christian writing."
+    },
+    {
+      "wpId": "32674",
+      "title": "Did the Romans Help Create the Jesus’ Movement?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Rise of Christianity",
+        "Roman World"
+      ],
+      "reason": "The post's main subject is modern personal, academic, blog, or historical speculation rather than early Christian writings."
+    },
+    {
+      "wpId": "32546",
+      "title": "A Major Forgery in the Hebrew Bible?  Platinum Guest Post by Dennis Folds",
+      "topics": [
+        "Forgery (General)",
+        "Hebrew Bible Composition and Sources"
+      ],
+      "reason": "The post examines a Hebrew Bible text or its authorship rather than an early Christian writing."
+    },
+    {
+      "wpId": "28443",
+      "title": "The Famous Short Stories about Daniel",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Book of Daniel"
+      ],
+      "reason": "The post examines a Hebrew Bible text or its authorship rather than an early Christian writing."
+    },
+    {
+      "wpId": "25647",
+      "title": "Who Wrote the Pentateuch Anyway?",
+      "topics": [
+        "Hebrew Bible Composition and Sources",
+        "Moses",
+        "Pentateuch"
+      ],
+      "reason": "The post examines a Hebrew Bible text or its authorship rather than an early Christian writing."
+    },
+    {
+      "wpId": "12975",
+      "title": "Ancient Jewish Sects:  Pharisees and Sadducees",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The post describes Jewish groups in the time of Jesus rather than early Christian writings."
+    },
+    {
+      "wpId": "10314",
+      "title": "Weekly Readers’ Mailbag: March 12, 2016",
+      "topics": [
+        "Fundamentalism",
+        "Public-Facing Scholarship",
+        "General-Audience Books"
+      ],
+      "reason": "The post's main subject is modern personal, academic, blog, or historical speculation rather than early Christian writings."
+    },
+    {
+      "wpId": "8942",
+      "title": "A Milestone on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "The post's main subject is modern personal, academic, blog, or historical speculation rather than early Christian writings."
+    },
+    {
+      "wpId": "8417",
+      "title": "New Testament Programs and Ancient Med.",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "The post's main subject is modern personal, academic, blog, or historical speculation rather than early Christian writings."
+    }
+  ]
+}

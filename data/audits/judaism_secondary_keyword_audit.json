@@ -1,0 +1,274 @@
+{
+  "keyword": "Judaism",
+  "criterion": "Retain Judaism when Jewish religion, identity, practice, history, interpretation, or Jewish-Christian relations materially support the post rather than serving as a passing comparison or background label.",
+  "approvedRemovalPostIds": [
+    "10321",
+    "11332",
+    "12512",
+    "13072",
+    "15108",
+    "15738",
+    "17217",
+    "17553",
+    "17676",
+    "2059",
+    "20836",
+    "21209",
+    "2378",
+    "2618",
+    "27166",
+    "28005",
+    "33028",
+    "3836",
+    "4150",
+    "48392",
+    "48836",
+    "4957",
+    "49991",
+    "6332",
+    "7475",
+    "7732",
+    "9315"
+  ],
+  "before": 176,
+  "retained": 149,
+  "removed": 27,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "academicContext": 12,
+    "passingContext": 8,
+    "eventPublishingOrPersonalContext": 7
+  },
+  "removedPosts": [
+    {
+      "wpId": "49991",
+      "title": "Memory of My Past: My First Girlfriend and Jesus",
+      "topics": [
+        "Autobiographical Posts",
+        "Fundamentalism",
+        "Personal Reflections"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "48836",
+      "title": "When Did Paul and the Gospels Become Canonical Scripture?",
+      "topics": [
+        "Canon Formation",
+        "Marcion"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "48392",
+      "title": "A Bizarre Scandal Involving the Dead Sea Scrolls",
+      "topics": [
+        "Dead Sea Scrolls and Essenes"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "33028",
+      "title": "What’s It Like to Teach PhD Seminars?",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "28005",
+      "title": "Should You Give Up All Your Possessions to Be Happy?  The Ancient Cynic View",
+      "topics": [
+        "Wealth and Poverty in Antiquity"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "27166",
+      "title": "My Syllabus for “The Birth of Christianity”",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "21209",
+      "title": "How I Do My Research",
+      "topics": [
+        "Writing and Publishing Process"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "20836",
+      "title": "Do You Have Advanced Training In any of the Blog’s Fields?",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "17676",
+      "title": "Buddhist Interview Questions on Suffering",
+      "topics": [
+        "Problem of Evil and Suffering",
+        "Media Interviews and Videos"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "17553",
+      "title": "How I Will Write My “Graphic Textbook of the New Testament”",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "17217",
+      "title": "The Annual Meeting of Biblical Scholars, and ALL Those Books!!",
+      "topics": [
+        "Academic Careers and University Life",
+        "Critical Biblical Scholarship",
+        "Scholarly Research and Publishing"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "15108",
+      "title": "What It Takes to be a Graduate Student",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "13072",
+      "title": "Does the Book of Acts Underplay the Significance of Jesus’ Death?",
+      "topics": [
+        "Atonement in Luke-Acts",
+        "Acts"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "12512",
+      "title": "About Graduate Studies:  A Blast from the Past",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "11332",
+      "title": "The Death of Paul in Acts and Unrelated Topics:  Readers’ Mailbag April 29, 2016",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "10321",
+      "title": "Were Paul’s Views of Women Oppressive?",
+      "topics": [
+        "Women in Pauline Traditions"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "9315",
+      "title": "The SBL and the Blog",
+      "topics": [
+        "Academic Careers and University Life",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "7732",
+      "title": "My Approach to Doing Research",
+      "topics": [
+        "Writing and Publishing Process"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "7475",
+      "title": "Day One of Jesus and Brian",
+      "topics": [
+        "Life of Brian"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "6332",
+      "title": "SBL and ALL those Books",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "4957",
+      "title": "Jesus Books",
+      "topics": [
+        "Historical Jesus (General)"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "4150",
+      "title": "Back to School: Graduate Studies",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    },
+    {
+      "wpId": "3836",
+      "title": "Dead Sea Scrolls Scandal",
+      "topics": [
+        "Dead Sea Scrolls and Essenes"
+      ],
+      "reason": "Judaism appears only in conference scope, bibliographic or planned publication material, manuscript-scandal background, or a personal identity reference rather than a substantive discussion."
+    },
+    {
+      "wpId": "2618",
+      "title": "Questions on Jesus’ Language and on the Crucifixion",
+      "topics": [
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "2378",
+      "title": "Introduction to the Bible: Part 1",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "Judaism supplies a passing comparison, historical transition, credential, book title, or isolated background reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "2059",
+      "title": "The Work of a Professional Scholar 5: Graduate Seminars",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Judaism appears only in a list or description of academic fields, courses, seminars, examinations, or professional activities."
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "keyword": "Messiah",
+  "criterion": "Retain Messiah when messianic identity, expectations, claims, interpretation, or titles materially support the post rather than serving as a passing label for Jesus.",
+  "approvedRemovalPostIds": [
+    "11640",
+    "14935",
+    "15239",
+    "15577",
+    "15609",
+    "1970",
+    "20556",
+    "2106",
+    "21081",
+    "21924",
+    "23948",
+    "24258",
+    "32879",
+    "38242",
+    "47045",
+    "48712",
+    "9340"
+  ],
+  "before": 177,
+  "retained": 160,
+  "removed": 17,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "48712",
+      "title": "The New Testament in a Nutshell: The 50 Word Summaries of Each Book (All of them!)",
+      "topics": [
+        "In a Nutshell Series"
+      ],
+      "reason": "Messiah appears only in compressed summaries of Matthew and Mark within a much broader survey of every New Testament book."
+    },
+    {
+      "wpId": "47045",
+      "title": "The New Testament Gospels in a Nutshell",
+      "topics": [
+        "Canonical Gospels (General)",
+        "In a Nutshell Series"
+      ],
+      "reason": "Messiah occurs once in a broad definition of the Gospel genre rather than as a sustained subject."
+    },
+    {
+      "wpId": "38242",
+      "title": "Gospel Thrillers Part II by Andrew Jacobs",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Messiah appears in summaries of fictional thriller plots rather than as a historical or theological subject."
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "topics": [
+        "Canonical Gospels (General)"
+      ],
+      "reason": "The occurrences are confined to titles and annotations for Raymond Brown's books in a suggested-reading list."
+    },
+    {
+      "wpId": "24258",
+      "title": "The Doctrine of the Trinity: Where We Are So Far",
+      "topics": [
+        "Development of the Trinity"
+      ],
+      "reason": "Human messiah is only one element in a brief list of increasingly exalted understandings of Jesus."
+    },
+    {
+      "wpId": "23948",
+      "title": "Live Lecture This Sunday!  Do Christians Need to Be Jews?  Understanding the Gospel of Matthew.",
+      "topics": [
+        "Courses and Teaching",
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Messiah occurs primarily in the advertised lecture title rather than in a substantive discussion."
+    },
+    {
+      "wpId": "21924",
+      "title": "The Number 666 in the Context of the Book of Revelation",
+      "topics": [
+        "Biblical Numerology",
+        "Book of Revelation"
+      ],
+      "reason": "Messiah appears only in a reference back to an earlier discussion of Matthew's genealogy."
+    },
+    {
+      "wpId": "21081",
+      "title": "A Bit of a Shocker: Jesus and the Son of Man",
+      "topics": [
+        "Son of Man"
+      ],
+      "reason": "Messiah appears only in a list of titles distinguished from the Son of Man designation examined by the post."
+    },
+    {
+      "wpId": "20556",
+      "title": "Judas Iscariot?  What’s an Iscariot??",
+      "topics": [
+        "Judas Iscariot"
+      ],
+      "reason": "All occurrences are in citations of Raymond Brown's The Death of the Messiah rather than in the post's discussion of Judas's name."
+    },
+    {
+      "wpId": "15609",
+      "title": "My Pod Cast Interview with Sam Harris",
+      "topics": [
+        "Media Interviews and Videos",
+        "Triumph of Christianity"
+      ],
+      "reason": "Messiah is merely one item in a long list of subjects discussed in the podcast interview."
+    },
+    {
+      "wpId": "15577",
+      "title": "Did Jesus Call Himself God?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Christology in the Gospels",
+        "Gospel of John"
+      ],
+      "reason": "The post briefly notes that Jesus acknowledges being the messiah before concentrating on whether he claims to be God."
+    },
+    {
+      "wpId": "15239",
+      "title": "The Name Judas Iscariot: What Does It Mean?",
+      "topics": [
+        "Judas Iscariot"
+      ],
+      "reason": "All occurrences are in citations of Raymond Brown's The Death of the Messiah rather than in the post's discussion of Judas's name."
+    },
+    {
+      "wpId": "14935",
+      "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Miracle Stories in Non-Canonical Texts",
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "The phrase their own messiah occurs once while explaining the growth of anti-Jewish blame in a non-canonical Pilate tradition."
+    },
+    {
+      "wpId": "11640",
+      "title": "Did Matthew Write in Hebrew? Did Jesus Institute the Lord’s Supper?  Did Josephus Mention Jesus?  Weekly Readers’ Mailbag July 9, 2016",
+      "topics": [
+        "Gospel of Matthew",
+        "James the Brother of Jesus",
+        "Atonement (General)"
+      ],
+      "reason": "Messiah occurs in Josephus's identifying phrase about Jesus rather than in a discussion of messianic beliefs."
+    },
+    {
+      "wpId": "9340",
+      "title": "Readers’ Mailbag December 4, 2015",
+      "topics": [
+        "Apocalyptic Jesus",
+        "John the Baptist",
+        "Problem of Evil and Suffering",
+        "Textual Criticism Methods"
+      ],
+      "reason": "Messiah occurs in the reader's question, while the response concerns recurring apocalyptic expectations more broadly."
+    },
+    {
+      "wpId": "2106",
+      "title": "Undergraduate Courses (2): Introduction to the New Testament (Part 2)",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Jesus being acclaimed as messiah is only one example in a description of an undergraduate New Testament course."
+    },
+    {
+      "wpId": "1970",
+      "title": "Another Question on the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Messiah appears only in a reader's hypothetical reconstruction of the disciples' reasoning about the resurrection."
+    }
+  ]
+}

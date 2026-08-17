@@ -1,0 +1,133 @@
+{
+  "keyword": "Hell",
+  "criterion": "Retain Hell when hell itself, punishment, its historical development, or beliefs about its inhabitants are a meaningful supporting subject of the post.",
+  "approvedRemovalPostIds": [
+    "14948",
+    "16028",
+    "17749",
+    "17833",
+    "30164",
+    "30170",
+    "32319",
+    "32441",
+    "34745",
+    "38990",
+    "4927",
+    "9413"
+  ],
+  "before": 142,
+  "retained": 130,
+  "removed": 12,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "idiomaticOrHumorousUses": 5,
+    "bookTitlesOrCitations": 6,
+    "briefBackgroundReferences": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "38990",
+      "title": "What’s It Like in Sheol?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs"
+      ],
+      "reason": "Hell appears only in a book or lecture title, source citation, or unrelated project reference."
+    },
+    {
+      "wpId": "34745",
+      "title": "Is The Rapture in the New Testament?",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "Armageddon",
+        "Pauline End-Time Expectations"
+      ],
+      "reason": "Hell appears only in an idiom, metaphor, or brief joke rather than as a meaningful subject of the post."
+    },
+    {
+      "wpId": "32441",
+      "title": "Why Did Christians Even Need a Canon of Scripture?",
+      "topics": [
+        "Canon Formation"
+      ],
+      "reason": "Hell appears only in a brief description of another text while the post addresses a different subject."
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Hell appears only in a book or lecture title, source citation, or unrelated project reference."
+    },
+    {
+      "wpId": "30170",
+      "title": "What’s Eternal Life Like?  Ask Paul…",
+      "topics": [
+        "Paul on Resurrection",
+        "Resurrection of the Dead"
+      ],
+      "reason": "Hell appears only in a book or lecture title, source citation, or unrelated project reference."
+    },
+    {
+      "wpId": "30164",
+      "title": "Understanding the Future Resurrection of the Dead…",
+      "topics": [
+        "Resurrection of the Dead"
+      ],
+      "reason": "Hell appears only in a book or lecture title, source citation, or unrelated project reference."
+    },
+    {
+      "wpId": "17833",
+      "title": "Is The End Today???",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Hell appears only in an idiom, metaphor, or brief joke rather than as a meaningful subject of the post."
+    },
+    {
+      "wpId": "17749",
+      "title": "Smithsonian",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Hell appears only in a book or lecture title, source citation, or unrelated project reference."
+    },
+    {
+      "wpId": "16028",
+      "title": "Jesus “Only” Adopted to be the Son of God?",
+      "topics": [
+        "How Jesus Became God",
+        "Adoptionist Christology"
+      ],
+      "reason": "Hell appears only in an idiom, metaphor, or brief joke rather than as a meaningful subject of the post."
+    },
+    {
+      "wpId": "14948",
+      "title": "Futuristic Interpretations of the Book of Revelation",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation"
+      ],
+      "reason": "Hell appears only in a book or lecture title, source citation, or unrelated project reference."
+    },
+    {
+      "wpId": "9413",
+      "title": "Readers’ Mailbag December 18, 2015",
+      "topics": [
+        "Jewish Apocalypticism"
+      ],
+      "reason": "Hell appears only in an idiom, metaphor, or brief joke rather than as a meaningful subject of the post."
+    },
+    {
+      "wpId": "4927",
+      "title": "Colbert on his Hero O’Reilly",
+      "topics": [
+        "Media Coverage and Reviews"
+      ],
+      "reason": "Hell appears only in an idiom, metaphor, or brief joke rather than as a meaningful subject of the post."
+    }
+  ]
+}
