@@ -1,0 +1,173 @@
+{
+  "keyword": "Forgery",
+  "criterion": "Retain Forgery when false authorship, fabricated documents, deceptive attribution, authenticity disputes, or ancient and modern forgery materially support the post.",
+  "approvedRemovalPostIds": [
+    "12936",
+    "14968",
+    "15172",
+    "15190",
+    "16082",
+    "16749",
+    "2361",
+    "25893",
+    "2669",
+    "32660",
+    "40493",
+    "4088",
+    "47155",
+    "7199",
+    "7693",
+    "8639"
+  ],
+  "before": 194,
+  "retained": 178,
+  "removed": 16,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "passingExample": 4,
+    "bookCourseOrPublishing": 8,
+    "anonymousGospels": 4
+  },
+  "removedPosts": [
+    {
+      "wpId": "47155",
+      "title": "1 Corinthians:  Who, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Social Class in Antiquity",
+        "1 Corinthians"
+      ],
+      "reason": "Forgery appears only as a passing example, comparison, or reference to an adjacent blog thread rather than as a meaningful subject."
+    },
+    {
+      "wpId": "40493",
+      "title": "Jesus Interrupted:  My Most Thorough Explanation of Critical Scholarship on the New Testament",
+      "topics": [
+        "General-Audience Books",
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "32660",
+      "title": "How Many People Were Literate in Antiquity?",
+      "topics": [
+        "Ancient Literacy",
+        "1 Peter"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "25893",
+      "title": "Several Letters in One?  What about Second Corinthians?",
+      "topics": [
+        "Composite Pauline Letters",
+        "2 Corinthians"
+      ],
+      "reason": "Forgery appears only as a passing example, comparison, or reference to an adjacent blog thread rather than as a meaningful subject."
+    },
+    {
+      "wpId": "16749",
+      "title": "Did The Israelites Really Conquer Canaan?",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Archaeology and Material Evidence"
+      ],
+      "reason": "Forgery appears only as a passing example, comparison, or reference to an adjacent blog thread rather than as a meaningful subject."
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "The post concerns anonymous Gospel writing rather than an author who deceptively claimed a false identity; Forged is only the source title."
+    },
+    {
+      "wpId": "15190",
+      "title": "Did the Gospels Originally Have Titles?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "The post concerns anonymous Gospel writing rather than an author who deceptively claimed a false identity; Forged is only the source title."
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "The post concerns anonymous Gospel writing rather than an author who deceptively claimed a false identity; Forged is only the source title."
+    },
+    {
+      "wpId": "14968",
+      "title": "My Upcoming Writing Plans: The Afterlife and the Afterlife",
+      "topics": [
+        "Heaven and Hell"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "12936",
+      "title": "Controversy Sells!",
+      "topics": [
+        "Heaven and Hell"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "8639",
+      "title": "Sketch of My Memory Book",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "7693",
+      "title": "Titles of Scholarly Books",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "7199",
+      "title": "Did Disciples Have Visions of Jesus?",
+      "topics": [
+        "How Jesus Became God",
+        "Jesus' Resurrection Appearances"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "The post concerns anonymous Gospel writing rather than an author who deceptively claimed a false identity; Forged is only the source title."
+    },
+    {
+      "wpId": "2669",
+      "title": "Another Take on Jesus’ Existence",
+      "topics": [
+        "Mythicism"
+      ],
+      "reason": "Forgery appears only as a passing example, comparison, or reference to an adjacent blog thread rather than as a meaningful subject."
+    },
+    {
+      "wpId": "2361",
+      "title": "My Next Book",
+      "topics": [
+        "Writing and Publishing Process",
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "Forgery appears only in a book title, course description, publishing example, or broad list of subjects rather than as a sustained topic."
+    }
+  ]
+}

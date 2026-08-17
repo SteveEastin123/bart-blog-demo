@@ -1,0 +1,371 @@
+{
+  "keyword": "Gospel of Matthew",
+  "criterion": "Remove approved cases unsupported by the full text or where Matthew appears only generically, promotionally, or tangentially.",
+  "approvedRemovalPostIds": [
+    "15046",
+    "15635",
+    "15705",
+    "19669",
+    "21223",
+    "21281",
+    "24108",
+    "29856",
+    "31763",
+    "32529",
+    "32874",
+    "33005",
+    "34033",
+    "34241",
+    "3488",
+    "35720",
+    "39489",
+    "39578",
+    "40016",
+    "40661",
+    "4513",
+    "47056",
+    "4747",
+    "48982",
+    "4906",
+    "49197",
+    "5149",
+    "6578",
+    "7026",
+    "7081",
+    "8417",
+    "8821",
+    "9061",
+    "9098",
+    "9167"
+  ],
+  "before": 418,
+  "retained": 383,
+  "removed": 35,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "unsupported": 5,
+    "generic": 13,
+    "promotionalOrAdministrative": 8,
+    "tangential": 9
+  },
+  "removedPosts": [
+    {
+      "wpId": "49197",
+      "title": "A New Proof of the Resurrection.  What Do YOU Think?",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Public Debates"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "48982",
+      "title": "Has Luke Gotten Rid of the Idea That Jesus Died for Your Sins?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47056",
+      "title": "The Gospel of Mark in a Nutshell",
+      "topics": [
+        "Gospel of Mark",
+        "In a Nutshell Series"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "40661",
+      "title": "Finding All the Earliest Christian Texts in One Place",
+      "topics": [
+        "Early Christian Writings"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Diversity",
+        "Early Christian Writings"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "39578",
+      "title": "Is Paul’s Second Letter to the Corinthians Actually TWO Letters?",
+      "topics": [
+        "Composite Pauline Letters",
+        "Source Criticism",
+        "2 Corinthians"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "39489",
+      "title": "Even If We Can Imagine an “Original” Text, How Could We Know if We Had It?",
+      "topics": [
+        "Original Text Questions"
+      ],
+      "reason": "The available full post text does not support the Gospel of Matthew keyword."
+    },
+    {
+      "wpId": "35720",
+      "title": "How Accurate Are Orally-Transmitted Reports? A Platinum Post From Imran M. Usmani",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "34241",
+      "title": "My New Online Course on the Gospel of Mark!",
+      "topics": [
+        "Gospel of Mark",
+        "Courses and Teaching"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Martyrdom of Polycarp",
+        "Miracle Claims and Apologetics",
+        "Miraculous Martyrdom Traditions"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "32874",
+      "title": "Big Questions for Studying the New Testament Gospels",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "33005",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ],
+      "reason": "The available full post text does not support the Gospel of Matthew keyword."
+    },
+    {
+      "wpId": "32529",
+      "title": "Problems in the Gospels–How do YOU Talk to Believers About Them?  What Do You Think?",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Biblical Contradictions"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "31763",
+      "title": "Does Luke Get Rid of the Atonement?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "29856",
+      "title": "A Reflection on Easter.  My Most-Commented Blog Post: #2",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus",
+        "Jesus' Resurrection Appearances",
+        "Rise of Christianity"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "24108",
+      "title": "Live Lectures this Sunday!  Distinctive Messages of Luke and John",
+      "topics": [
+        "Courses and Teaching",
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "21281",
+      "title": "The Secret Message of the Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "21223",
+      "title": "The Calm and Collected Jesus",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Gospel of Mark",
+        "Gospel of Luke"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "19669",
+      "title": "The Social History Behind the Fourth Gospel",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15705",
+      "title": "The Books of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Gospel of Peter",
+        "Petrine Authorship and Forgeries"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "15635",
+      "title": "Early Debates about the Gospel of Peter",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Peter"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "15046",
+      "title": "An Easter Reflection 2018",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "9167",
+      "title": "Luke’s View of Jesus’ Death",
+      "topics": [
+        "Gospel of Luke"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "9098",
+      "title": "On “Knowing” the Original Words of the NT",
+      "topics": [
+        "Original Text Questions"
+      ],
+      "reason": "The available full post text does not support the Gospel of Matthew keyword."
+    },
+    {
+      "wpId": "9061",
+      "title": "When I First Realized the Importance of Textual Criticism: The Bloody Sweat",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "Textual Variants"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "8821",
+      "title": "The Lost Writings of Papias",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "8417",
+      "title": "New Testament Programs and Ancient Med.",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "7081",
+      "title": "The Socio-Historical Method",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "7026",
+      "title": "The Gospel of John from a Literary-Historical Perspective",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "Media Interviews and Videos"
+      ],
+      "reason": "Matthew appears only in a generic Gospel list, analogy, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4906",
+      "title": "Killing Jesus is Killing Me….",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Media Coverage and Reviews"
+      ],
+      "reason": "The available full post text does not support the Gospel of Matthew keyword."
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "reason": "Matthew appears only in a transition, citation, or brief methodological reference unrelated to the post's substantive focus."
+    },
+    {
+      "wpId": "4513",
+      "title": "Early Christianity in Egypt",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts"
+      ],
+      "reason": "Matthew appears only in promotional, teaching, syllabus, or other administrative material."
+    },
+    {
+      "wpId": "3488",
+      "title": "Another Instance of Gematria",
+      "topics": [
+        "Biblical Numerology",
+        "Letter of Barnabas"
+      ],
+      "reason": "The available full post text does not support the Gospel of Matthew keyword."
+    }
+  ]
+}

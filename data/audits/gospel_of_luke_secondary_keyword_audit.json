@@ -1,0 +1,647 @@
+{
+  "keyword": "Gospel of Luke",
+  "criterion": "Remove approved cases where Luke denotes the author of Acts rather than the Gospel, or where the Gospel appears only incidentally.",
+  "approvedRemovalPostIds": [
+    "10882",
+    "10885",
+    "10997",
+    "11081",
+    "11332",
+    "11845",
+    "12830",
+    "13196",
+    "14905",
+    "15046",
+    "15170",
+    "15251",
+    "15254",
+    "15705",
+    "16764",
+    "17518",
+    "17769",
+    "19669",
+    "2106",
+    "21086",
+    "21281",
+    "2492",
+    "2597",
+    "2732",
+    "2771",
+    "30223",
+    "34033",
+    "34241",
+    "35255",
+    "35720",
+    "35872",
+    "3631",
+    "36661",
+    "36963",
+    "37422",
+    "3809",
+    "38667",
+    "38713",
+    "38758",
+    "39896",
+    "40016",
+    "41256",
+    "4418",
+    "4695",
+    "46983",
+    "47012",
+    "47113",
+    "4763",
+    "4777",
+    "4858",
+    "49081",
+    "49197",
+    "5149",
+    "7026",
+    "7081",
+    "8258",
+    "8296",
+    "8803",
+    "8814",
+    "8821",
+    "9072",
+    "9399"
+  ],
+  "before": 509,
+  "retained": 447,
+  "removed": 62,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "actsOnly": 17,
+    "incidental": 45
+  },
+  "removedPosts": [
+    {
+      "wpId": "49197",
+      "title": "A New Proof of the Resurrection.  What Do YOU Think?",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Public Debates"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "49081",
+      "title": "Does Papias Provide Us Direct Access to the Teachings of the Apostles?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Eyewitness Reliability"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "47012",
+      "title": "1, 2, and 3 John: For Further Reading",
+      "topics": [
+        "Johannine Epistles"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "46983",
+      "title": "For Further Reading on James, 1 Peter, and 2 Peter",
+      "topics": [
+        "Letter of James",
+        "1 Peter",
+        "2 Peter"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "47113",
+      "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+      "topics": [
+        "Exaltation Christology"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "41256",
+      "title": "Forged Books, Anonymous Books, and The Use of Secretaries as Authors in the NT",
+      "topics": [
+        "Ancient Secretaries and Authorship",
+        "Forgery (General)"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Diversity",
+        "Early Christian Writings"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "39896",
+      "title": "Is It Possible To Continue Believing?  Guest Post by New Testament Scholar Judy Siker",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "38758",
+      "title": "Is the Book of Acts Reliable?  The Affirmative REBUTTAL of the Negative Case",
+      "topics": [
+        "Acts",
+        "Public Debates"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38713",
+      "title": "The Book of Acts is NOT RELIABLE!  The Negative Case",
+      "topics": [
+        "Acts",
+        "Public Debates"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38667",
+      "title": "Arguments for “Historical Accuracy” That Are All Smoke and Mirrors.",
+      "topics": [
+        "Acts",
+        "Public Debates"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "37422",
+      "title": "What Is the Gospel of Thomas All About?  And Did the Author Use the New Testament Gospels?",
+      "topics": [
+        "Gospel of Thomas"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "36963",
+      "title": "Why Is Jesus So Angry?",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Miracle Stories",
+        "Textual Variants"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "36661",
+      "title": "Did Luke Read Galatians? Platinum Post by Guillermo Mondon",
+      "topics": [
+        "Acts",
+        "Galatians"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "35720",
+      "title": "How Accurate Are Orally-Transmitted Reports? A Platinum Post From Imran M. Usmani",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "35872",
+      "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+      "topics": [
+        "Acts",
+        "Biblical Contradictions",
+        "Paul in Acts",
+        "Paul's Conversion"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "35255",
+      "title": "Was Matthew Attacking Paul?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Paul and His Opponents"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "34241",
+      "title": "My New Online Course on the Gospel of Mark!",
+      "topics": [
+        "Gospel of Mark",
+        "Courses and Teaching"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Martyrdom of Polycarp",
+        "Miracle Claims and Apologetics",
+        "Miraculous Martyrdom Traditions"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "30223",
+      "title": "The Plausibility of the Fourth Gospel: The Sayings of Jesus. Guest Post by Dennis Folds",
+      "topics": [
+        "Gospel of John",
+        "Jesus' Teachings",
+        "Gospel Historical Reliability"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "21281",
+      "title": "The Secret Message of the Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "21086",
+      "title": "How Do You Know If Jesus Said That?",
+      "topics": [
+        "Methods for Studying the Historical Jesus",
+        "Son of Man"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "19669",
+      "title": "The Social History Behind the Fourth Gospel",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "17769",
+      "title": "Paul and the Status of Women",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Original Text Questions"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "17518",
+      "title": "Does the Book of Acts Accurately Record Paul’s Teachings?",
+      "topics": [
+        "Acts",
+        "Paul in Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "16764",
+      "title": "How Can You Still Believe?  Guest Post by Judy Siker",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "15705",
+      "title": "The Books of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Gospel of Peter",
+        "Petrine Authorship and Forgeries"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "15254",
+      "title": "Does the Book of Acts Portray the *Teachings* of Paul Accurately?",
+      "topics": [
+        "Paul in Acts",
+        "Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15251",
+      "title": "Does the Book of Acts Accurately Portray the Life and Teachings of Paul?",
+      "topics": [
+        "Acts",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15170",
+      "title": "Why Would an Ancient Author Write a Book Anonymously?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "15046",
+      "title": "An Easter Reflection 2018",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "14905",
+      "title": "How Was Jesus *Really* Born?  The Proto-Gospel of James",
+      "topics": [
+        "Proto-Gospel of James"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "13196",
+      "title": "Differences Between John and the Synoptics",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "12830",
+      "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+      "topics": [
+        "Gnosticism (General)",
+        "Book of Daniel",
+        "Historical Methods (General)"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "11845",
+      "title": "Bruce Metzger Beliefs, My Loss of Faith: A Blast from the Past",
+      "topics": [
+        "Bruce Metzger",
+        "Deconversion"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "11332",
+      "title": "The Death of Paul in Acts and Unrelated Topics:  Readers’ Mailbag April 29, 2016",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "11081",
+      "title": "Evaluating My Debate on the Book of Acts",
+      "topics": [
+        "Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "10997",
+      "title": "Is Acts Historically Reliable?  The Affirmative Rebuttal",
+      "topics": [
+        "Acts",
+        "Historical Methods (General)"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "10885",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative Case.",
+      "topics": [
+        "Acts",
+        "Historical Methods (General)"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "10882",
+      "title": "Is the Book of Acts Historically Reliable?  Smoke and Mirrors.",
+      "topics": [
+        "Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "9399",
+      "title": "The Resurrection of the Son of God",
+      "topics": [
+        "Meaning of Jesus' Resurrection"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "9072",
+      "title": "How God Could Become a Human",
+      "topics": [
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "8821",
+      "title": "The Lost Writings of Papias",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "8814",
+      "title": "Some Evidence for a Signs Source in John",
+      "topics": [
+        "Gospel of John",
+        "Jesus' Miracle Stories",
+        "Signs in the Gospel of John",
+        "Source Criticism"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "8803",
+      "title": "Signs in the Gospel of John",
+      "topics": [
+        "Gospel of John",
+        "Signs in the Gospel of John",
+        "Jesus' Miracle Stories"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "8296",
+      "title": "Why Was the Gospel of Mark Attributed to Mark?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "8258",
+      "title": "Papias as an Earwitness?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Eyewitness Reliability"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "7081",
+      "title": "The Socio-Historical Method",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "7026",
+      "title": "The Gospel of John from a Literary-Historical Perspective",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "Media Interviews and Videos"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "4858",
+      "title": "Jesus Getting Angry",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Miracle Stories",
+        "Textual Variants"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "4777",
+      "title": "The Accuracy of Acts: Part 2",
+      "topics": [
+        "Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4763",
+      "title": "Not for the Faint of Heart (Authorship of Colossians)",
+      "topics": [
+        "Pauline Authorship",
+        "Pauline Forgeries",
+        "Colossians"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "4695",
+      "title": "Didymus the Blind and Patristic Evidence",
+      "topics": [
+        "Didymus the Blind",
+        "Original Text Questions",
+        "Church Fathers as Textual Evidence",
+        "Textual Variants"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "4418",
+      "title": "Was the Author of Matthew Matthew?",
+      "topics": [
+        "Ancient Literacy",
+        "Gospel Authorship",
+        "Gospel of Matthew",
+        "Papias"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "3809",
+      "title": "Exaltation Christology in the Speeches in Acts",
+      "topics": [
+        "Exaltation Christology",
+        "Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3631",
+      "title": "More King James Curiosities",
+      "topics": [
+        "King James Version"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "2771",
+      "title": "Autobiographical.  Metzger and My Loss of Faith",
+      "topics": [
+        "Bruce Metzger",
+        "Deconversion",
+        "Autobiographical Posts"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "2732",
+      "title": "An Interlude: My Other CIA",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "2597",
+      "title": "A Forger Who Was Caught.  The Case of Salvian, Part 2",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    },
+    {
+      "wpId": "2492",
+      "title": "Paul in Acts: Part 2",
+      "topics": [
+        "Paul in Acts"
+      ],
+      "reason": "Luke refers primarily to the author of Acts; the Gospel of Luke is not a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "2106",
+      "title": "Undergraduate Courses (2): Introduction to the New Testament (Part 2)",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Luke appears only in a passing comparison, generic Gospel list, citation, transition, promotional material, or otherwise incidental context."
+    }
+  ]
+}

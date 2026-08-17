@@ -1,0 +1,281 @@
+{
+  "keyword": "Moses",
+  "criterion": "Retain Moses where Mosaic law, Pentateuchal authorship, Exodus traditions, Moses typology, Jewish interpretation, or traditions specifically about Moses materially support the post.",
+  "approvedRemovalPostIds": [
+    "11332",
+    "15172",
+    "15392",
+    "16082",
+    "17569",
+    "17642",
+    "17670",
+    "17708",
+    "20097",
+    "2551",
+    "26653",
+    "26895",
+    "28489",
+    "35238",
+    "35702",
+    "38488",
+    "39619",
+    "40543",
+    "40864",
+    "4088",
+    "41667",
+    "47088",
+    "47851",
+    "48013",
+    "48954",
+    "49514",
+    "6587",
+    "8232"
+  ],
+  "before": 315,
+  "retained": 287,
+  "removed": 28,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "wrongPerson": 2,
+    "generic": 21,
+    "tangential": 5
+  },
+  "removedPosts": [
+    {
+      "wpId": "49514",
+      "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "48013",
+      "title": "1 Clement in a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47088",
+      "title": "Materialism, Personal Identity, and Resurrection: Part 2 – Platinum Post by Dennis J. Folds, Ph.D.",
+      "topics": [
+        "Resurrection of the Dead"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "41667",
+      "title": "Final Reflections on Mummy Masks and Manuscripts",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Dating"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "40864",
+      "title": "Still More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+      "topics": [
+        "Old Testament Apocrypha"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "40543",
+      "title": "Why Don’t Pastors Teach What They Know about the Bible?",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "The reference to Moses or Mosaic law is tangential to the post's actual subject."
+    },
+    {
+      "wpId": "39619",
+      "title": "John the Baptist: The Most Influential Religious Innovator in History by James McGrath (Part 2)",
+      "topics": [
+        "John the Baptist"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "38488",
+      "title": "When Did Mary Magdalene Become a Prostitute?",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "The reference to Moses or Mosaic law is tangential to the post's actual subject."
+    },
+    {
+      "wpId": "35702",
+      "title": "(Part 2) A Discussion on the Issue of Suffering and the Moral in Job’s Story. A Platinum Post From Omar Robb",
+      "topics": [
+        "Book of Job",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "35238",
+      "title": "Is 2 Thessalonians a Forgery?  From 132 CE?  Platinum Guest Post by Omar Robb",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "reason": "The reference to Moses or Mosaic law is tangential to the post's actual subject."
+    },
+    {
+      "wpId": "28489",
+      "title": "My Pet Peeve: Simplistic Answers to Explain Suffering",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "26895",
+      "title": "The God of Wrath in Both Old and New Testament",
+      "topics": [
+        "Divine Judgment"
+      ],
+      "reason": "The reference to Moses or Mosaic law is tangential to the post's actual subject."
+    },
+    {
+      "wpId": "26653",
+      "title": "Understanding Revelation: A Sine Qua Non (Overlooked by most readers)",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "20097",
+      "title": "Misquoting Misquoting Jesus",
+      "topics": [
+        "Misquoting Jesus"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17708",
+      "title": "Paul’s Incredibly High Christology",
+      "topics": [
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem",
+        "Angelic Christology"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17670",
+      "title": "More Buddhist Questions on the Bible",
+      "topics": [
+        "Miracle Traditions (General)",
+        "Media Interviews and Videos"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17642",
+      "title": "How Do I Get To Know What Is In the Bible?",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17569",
+      "title": "A “Newly Discovered” “Gospel”: Was Jesus Married with Children?",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene"
+      ],
+      "reason": "The post refers to Moses of Ingila, not the biblical Moses."
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15392",
+      "title": "The Letter of First Clement: An Overview",
+      "topics": [
+        "Apostolic Fathers"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "11332",
+      "title": "The Death of Paul in Acts and Unrelated Topics:  Readers’ Mailbag April 29, 2016",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ],
+      "reason": "The reference to Moses or Mosaic law is tangential to the post's actual subject."
+    },
+    {
+      "wpId": "8232",
+      "title": "A Newly Discovered Gospel?  Was Jesus Married with Children???",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "The post refers to Moses of Ingila, not the biblical Moses."
+    },
+    {
+      "wpId": "6587",
+      "title": "Followup on the NT Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "topics": [
+        "Gospel Authorship"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Moses appears only in a generic list, joke, analogy, chronological marker, or transition rather than as a meaningful supporting subject."
+    }
+  ]
+}

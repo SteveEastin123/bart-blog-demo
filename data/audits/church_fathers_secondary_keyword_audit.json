@@ -1,0 +1,194 @@
+{
+  "keyword": "Church Fathers",
+  "criterion": "Retain Church Fathers when patristic writers, writings, theology, historical testimony, textual evidence, or institutional roles materially support the post.",
+  "approvedRemovalPostIds": [
+    "10314",
+    "11904",
+    "12101",
+    "16263",
+    "16543",
+    "2093",
+    "21126",
+    "2523",
+    "2624",
+    "26744",
+    "30248",
+    "32298",
+    "33005",
+    "33268",
+    "3605",
+    "47061",
+    "7669",
+    "8359"
+  ],
+  "before": 276,
+  "retained": 258,
+  "removed": 18,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "autobiographicalOrCareer": 6,
+    "writingOrPublishing": 5,
+    "incidentalReference": 7
+  },
+  "removedPosts": [
+    {
+      "wpId": "47061",
+      "title": "The Flukes of Life: How I Almost Never Became a Professor",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "A Church Father appears only as background to Bart's education, career, or earlier scholarship rather than as a meaningful subject."
+    },
+    {
+      "wpId": "33268",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "33005",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "32298",
+      "title": "Specious Arguments for the Truth of the Bible",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions",
+        "Textual Criticism Overview"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "30248",
+      "title": "I’m Puzzled about Time.  Is there a “Present”?",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "26744",
+      "title": "Bruce Metzger and the “Favor” He Did Me On My PhD Exams",
+      "topics": [
+        "Bruce Metzger",
+        "Academic Careers and University Life"
+      ],
+      "reason": "A Church Father appears only as background to Bart's education, career, or earlier scholarship rather than as a meaningful subject."
+    },
+    {
+      "wpId": "21126",
+      "title": "The Flukes of Life and My Teaching Career",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "A Church Father appears only as background to Bart's education, career, or earlier scholarship rather than as a meaningful subject."
+    },
+    {
+      "wpId": "16543",
+      "title": "Writing Scholarly and Popular Books on the Same Topic",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Church Fathers appear only in a book, article, or publishing example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "16263",
+      "title": "Why Paul Did Not Write 2 Thessalonians: A Final Post",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12101",
+      "title": "A Personal Transition",
+      "topics": [
+        "Triumph of Christianity"
+      ],
+      "reason": "A Church Father appears only as background to Bart's education, career, or earlier scholarship rather than as a meaningful subject."
+    },
+    {
+      "wpId": "11904",
+      "title": "Writing Books that Are Interesting and Important",
+      "topics": [
+        "General-Audience Books",
+        "Triumph of Christianity",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Church Fathers appear only in a book, article, or publishing example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "10314",
+      "title": "Weekly Readers’ Mailbag: March 12, 2016",
+      "topics": [
+        "Fundamentalism",
+        "Public-Facing Scholarship",
+        "General-Audience Books"
+      ],
+      "reason": "Church Fathers appear only in a book, article, or publishing example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8359",
+      "title": "2 Thessalonians as a Forgery: The Theological Argument",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "7669",
+      "title": "Trade Books and Scholarly Books",
+      "topics": [
+        "General-Audience Books"
+      ],
+      "reason": "Church Fathers appear only in a book, article, or publishing example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "3605",
+      "title": "New Reference Tool",
+      "topics": [
+        "Scholarly Research and Publishing"
+      ],
+      "reason": "A Church Father appears only in an incidental example, list, analogy, or bibliographic citation rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2624",
+      "title": "My First Teaching Position",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "A Church Father appears only as background to Bart's education, career, or earlier scholarship rather than as a meaningful subject."
+    },
+    {
+      "wpId": "2523",
+      "title": "Autobiographical.  Metzger and Me: My PhD Exams",
+      "topics": [
+        "Academic Careers and University Life",
+        "Autobiographical Posts",
+        "Bruce Metzger"
+      ],
+      "reason": "A Church Father appears only as background to Bart's education, career, or earlier scholarship rather than as a meaningful subject."
+    },
+    {
+      "wpId": "2093",
+      "title": "The Work of a Professional Scholar 7: Publishing in Academic Journals",
+      "topics": [
+        "Scholarly Research and Publishing"
+      ],
+      "reason": "Church Fathers appear only in a book, article, or publishing example rather than as a meaningful supporting subject."
+    }
+  ]
+}

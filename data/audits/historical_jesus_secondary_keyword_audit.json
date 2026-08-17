@@ -1,0 +1,166 @@
+{
+  "keyword": "Historical Jesus",
+  "criterion": "Retain Historical Jesus where reconstructing Jesus historically, evaluating sources or methods, assessing Jesus' existence, or distinguishing the historical Jesus from later portrayals is a meaningful part of the post.",
+  "approvedRemovalPostIds": [
+    "10254",
+    "10312",
+    "11748",
+    "12970",
+    "15850",
+    "17780",
+    "28076",
+    "29103",
+    "33161",
+    "3883",
+    "39917",
+    "40115",
+    "48919",
+    "8042",
+    "8679",
+    "8942"
+  ],
+  "before": 317,
+  "retained": 301,
+  "removed": 16,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "48919",
+      "title": "Why I Wrote Love Thy Stranger and Significant Benefits that Can Come Your Way",
+      "topics": [
+        "Charity and Altruism"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "40115",
+      "title": "The Parables!  Have You Signed up for the Course?  (This weekend!)",
+      "topics": [
+        "Jesus' Teachings",
+        "Courses and Teaching"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "39917",
+      "title": "NEW COURSE!  “The Parables of Jesus” with Amy-Jill Levine",
+      "topics": [
+        "Jesus' Teachings",
+        "Courses and Teaching"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "33161",
+      "title": "My New Podcast.   Help!  I Need Questions.",
+      "topics": [
+        "Media Interviews and Videos"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "29103",
+      "title": "In the Beginning: Myth, Legend, and History in the Book of Genesis (Part 1)",
+      "topics": [
+        "Genesis",
+        "Courses and Teaching"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "28076",
+      "title": "My New Great Courses Offering, Just Out!",
+      "topics": [
+        "Triumph of Christianity"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17780",
+      "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15850",
+      "title": "Pursuing My Passion for Textual Criticism",
+      "topics": [
+        "Original Text Questions",
+        "Scribal Changes",
+        "Textual Criticism Overview"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12970",
+      "title": "How Changing My Views Affected My Relationships",
+      "topics": [
+        "Agnosticism",
+        "Deconversion"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "11748",
+      "title": "Why Scholars Aren’t Trained To Write Trade Books",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "10312",
+      "title": "My Recitation Debates",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "10254",
+      "title": "My Debate with Michael Bird Feb. 12 , 2016",
+      "topics": [
+        "How Jesus Became God",
+        "Public Debates"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8942",
+      "title": "A Milestone on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8679",
+      "title": "On Being Controversial",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8042",
+      "title": "A Text-Critical Dissertation",
+      "topics": [
+        "Didymus the Blind",
+        "Church Fathers as Textual Evidence",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "3883",
+      "title": "A Hiatus",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Historical Jesus appears only in a list, promotional reference, biographical aside, course overview, or unrelated example rather than as a meaningful supporting subject."
+    }
+  ]
+}

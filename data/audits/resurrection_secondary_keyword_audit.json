@@ -1,0 +1,30 @@
+{
+  "keyword": "Resurrection",
+  "criterion": "Retain meaningful discussion of Jesus' resurrection, resurrection of the dead, appearances, theology, narratives, historical arguments, and substantial comparative treatment; remove incidental references.",
+  "approvedRemovalPostIds": [
+    "3012",
+    "38634"
+  ],
+  "before": 376,
+  "retained": 374,
+  "removed": 2,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "38634",
+      "title": "Is There Any Point Doing a Public Debate?",
+      "topics": [
+        "Public Debates"
+      ],
+      "reason": "Resurrection appears only in a transition or as an example of an earlier debate, rather than as a meaningful subject of the post."
+    },
+    {
+      "wpId": "3012",
+      "title": "Christians Charged as Perverts and Criminals",
+      "topics": [
+        "Roman Persecution of Christians"
+      ],
+      "reason": "Resurrection appears only in a transition or as an example of an earlier debate, rather than as a meaningful subject of the post."
+    }
+  ]
+}

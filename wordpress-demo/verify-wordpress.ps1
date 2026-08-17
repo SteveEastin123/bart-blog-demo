@@ -81,8 +81,8 @@ try {
             subject_area_categories = 83
             topic_categories = 313
             post_topics = 8596
-            post_keywords = 18491
-            post_search_terms = 27087
+            post_keywords = 17648
+            post_search_terms = 26244
         }
 
         foreach ($entry in $expectedCounts.GetEnumerator()) {

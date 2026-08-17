@@ -1,0 +1,700 @@
+{
+  "keyword": "Acts of the Apostles",
+  "criterion": "Retain Acts of the Apostles where the canonical book's narratives, speeches, theology, characters, historicity, or relationship to Luke or Paul materially supports the post.",
+  "approvedRemovalPostIds": [
+    "10318",
+    "10331",
+    "11821",
+    "11875",
+    "11964",
+    "12006",
+    "12262",
+    "12924",
+    "14249",
+    "14941",
+    "15272",
+    "15444",
+    "15457",
+    "15459",
+    "15607",
+    "15896",
+    "15898",
+    "16425",
+    "16467",
+    "16473",
+    "17205",
+    "17368",
+    "21016",
+    "21145",
+    "21300",
+    "21403",
+    "2259",
+    "2268",
+    "2551",
+    "2591",
+    "26922",
+    "27060",
+    "29925",
+    "30969",
+    "30975",
+    "32739",
+    "3295",
+    "33106",
+    "33985",
+    "3408",
+    "3488",
+    "36118",
+    "36803",
+    "37167",
+    "37411",
+    "37435",
+    "37565",
+    "38583",
+    "40849",
+    "46927",
+    "46983",
+    "47012",
+    "47131",
+    "47266",
+    "47276",
+    "47866",
+    "4792",
+    "48120",
+    "49317",
+    "5067",
+    "6637",
+    "7026",
+    "7254",
+    "7411",
+    "7504",
+    "7648",
+    "9309"
+  ],
+  "before": 285,
+  "retained": 218,
+  "removed": 67,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "wrongMeaning": 16,
+    "apocryphalActs": 33,
+    "passingReference": 18
+  },
+  "removedPosts": [
+    {
+      "wpId": "49317",
+      "title": "The Letter to Diognetus: An Unknown Gem among the Apostolic Fathers (in a Nutshell)",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "48120",
+      "title": "The Didache: An Important Early Christian Document in a Nutshell",
+      "topics": [
+        "Didache",
+        "In a Nutshell Series",
+        "Apostolic Fathers"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "47866",
+      "title": "Hebrews and James:  “At a Glance” and “Questions for Reflection”",
+      "topics": [
+        "Hebrews",
+        "Letter of James"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47012",
+      "title": "1, 2, and 3 John: For Further Reading",
+      "topics": [
+        "Johannine Epistles"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "46983",
+      "title": "For Further Reading on James, 1 Peter, and 2 Peter",
+      "topics": [
+        "Letter of James",
+        "1 Peter",
+        "2 Peter"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "46927",
+      "title": "The Letter to the Hebrews: In a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Persecution in the Epistles",
+        "Hebrews",
+        "Christian Anti-Judaism"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47276",
+      "title": "Paul and His Most Famous Woman Disciple",
+      "topics": [
+        "Apocryphal Acts",
+        "Women in Pauline Traditions"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "47266",
+      "title": "Another Puzzling Figure in the Hebrew Bible: Woman Wisdom?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "47131",
+      "title": "The Letter to the Romans: Who, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Romans"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "40849",
+      "title": "Introducing the Old Testament Apocrypha",
+      "topics": [
+        "Old Testament Apocrypha",
+        "Septuagint"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "38583",
+      "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+      "topics": [
+        "Marcion",
+        "Pauline Forgeries"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "37565",
+      "title": "How the Canon Itself Tames the Diversity of the New Testament",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Diversity"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "37435",
+      "title": "How Exactly Could the Virgin-Born Jesus Have a Twin Brother?",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "37411",
+      "title": "Thomasine Gnostic Christians, and Sundry Others",
+      "topics": [
+        "Gospel of Thomas",
+        "Gnosticism (General)"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "37167",
+      "title": "Another Mythicist View of Jesus’ Brothers",
+      "topics": [
+        "James the Brother of Jesus",
+        "Mythicism",
+        "Jesus' Family Traditions",
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?",
+      "topics": [
+        "Courses and Teaching",
+        "Early Christian Writings"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "36118",
+      "title": "Vespasian Miracles. A Platinum Post by Ryan Fleming",
+      "topics": [
+        "Ancient Miracle Workers"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "33985",
+      "title": "Is the Martyrdom of Polycarp an Authentic Account?",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "33106",
+      "title": "Suffering, Evil, and the Range Effect  Platinum Guest Post by Dennis J. Folds, Ph.D.",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "32739",
+      "title": "Is There Anything “Religious” about “Ethics”?",
+      "topics": [
+        "Early Judaism (General)",
+        "Greco-Roman Religious Culture",
+        "Moral Philosophy",
+        "Social Class in Antiquity",
+        "Jesus' Ethics"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "30969",
+      "title": "A Christian NDE and the Problem with Being Filthy Rich",
+      "topics": [
+        "Afterlife Journeys",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Early Christian Teachings on Wealth",
+        "Charity and Altruism"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "30975",
+      "title": "Thomas’s Trip to India and the Problem of Wealth",
+      "topics": [
+        "Early Christian Teachings on Wealth",
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "17205",
+      "title": "Jesus and Sexual Immorality",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations",
+        "Jewish Law and Torah",
+        "Sexual and Reproductive Ethics",
+        "Jesus' Ethics"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "29925",
+      "title": "Fabrication, Forgery, and Accusations of (Heretical) Christian Licentious Rituals!",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Mary Magdalene in Gnostic Traditions"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "27060",
+      "title": "Destroy More Others!  The Israelites’ Conquest of the City Ai",
+      "topics": [
+        "Divine Judgment",
+        "Moral Problems in Scripture"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "26922",
+      "title": "God is Holy and You Better Worship Him!",
+      "topics": [
+        "Divine Judgment",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "21403",
+      "title": "John, the Bedbugs, and Miracles that Convert",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Miracle Stories in Non-Canonical Texts"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "21300",
+      "title": "Jesus’ Twin Brother?  Really?  Readers’ Mailbag",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Acts of Thomas",
+        "Comparative Ancient Evidence"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "topics": [
+        "Courses and Teaching",
+        "Early Christian Writings"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "21016",
+      "title": "A Very Odd Story about the Baby Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Proto-Gospel of James"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "17368",
+      "title": "Guided Tours of Heaven and Hell in a Christian Mode",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "16473",
+      "title": "How Views of the Afterlife Changed",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "16467",
+      "title": "Who Has The Answer For a Happy Afterlife?",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Afterlife Journeys",
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "16425",
+      "title": "Some Very Strange Journeys to Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15898",
+      "title": "Homosexuality and the New Testament.  Guest Post by Jeff Siker.",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations",
+        "Translation Issues"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15896",
+      "title": "Homosexuality in the Bible (and the Christian Church)",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15607",
+      "title": "How Christianity Grew and Grew",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15459",
+      "title": "Thomas and His Identical Twin Jesus, in the Acts of Thomas",
+      "topics": [
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15457",
+      "title": "Did Jesus Have a Twin Brother?",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15444",
+      "title": "Thomasine Christians and Others, From After the New Testament",
+      "topics": [
+        "Gospel of Thomas",
+        "Gnosticism (General)"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "15272",
+      "title": "Internal Discrepancies in the Gospel of John",
+      "topics": [
+        "Biblical Contradictions",
+        "Gospel of John"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "14941",
+      "title": "Do We Know How Paul Died?",
+      "topics": [
+        "Apocryphal Acts",
+        "Apostolic Death Traditions"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "14249",
+      "title": "The Ethical Teachings of the Didache",
+      "topics": [
+        "Didache"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "12924",
+      "title": "Too Much Money and the Afterlife",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "12262",
+      "title": "What About the Apocrypha?",
+      "topics": [
+        "Old Testament Apocrypha"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "12006",
+      "title": "James the Brother of the Lord",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "11964",
+      "title": "The “Arch-Heretic” Marcion, Jesus, and the Jewish Law",
+      "topics": [
+        "Jewish Law and Torah",
+        "Marcion"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "11875",
+      "title": "Rulers as Gods: The Context of Ancient Religion",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "11821",
+      "title": "Does James Contradict Paul?",
+      "topics": [
+        "Biblical Contradictions",
+        "Letter of James"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "10331",
+      "title": "Does the New Testament Condemn Modern Practices of Homosexuality?",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "10318",
+      "title": "Do Paul and Jesus Represent Fundamentally Different Religions?",
+      "topics": [
+        "Jesus' Teachings"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "9309",
+      "title": "Fifty Ways to Forge a Gospel",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "7648",
+      "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Christian Interpretation of Jewish Scripture"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "7504",
+      "title": "Day Two of Jesus and Brian",
+      "topics": [
+        "Life of Brian"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "7411",
+      "title": "Thomasine “Gnostics” and Others",
+      "topics": [
+        "Gospel of Thomas",
+        "Gnosticism (General)"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "7254",
+      "title": "Did Paul Invent the Resurrection?",
+      "topics": [
+        "Early Christianity (General)",
+        "Paul on Resurrection",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "7026",
+      "title": "The Gospel of John from a Literary-Historical Perspective",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "topics": [
+        "Early Christian Writings"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "5067",
+      "title": "Jesus’ Brother and the Mythicists (Part 2)",
+      "topics": [
+        "James the Brother of Jesus",
+        "Mythicism",
+        "Jesus' Family Traditions",
+        "Acts of Thomas"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha",
+      "topics": [
+        "Apocryphal Acts",
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "3488",
+      "title": "Another Instance of Gematria",
+      "topics": [
+        "Biblical Numerology",
+        "Letter of Barnabas"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "3408",
+      "title": "Melito and arly Christian Anti-Judaism",
+      "topics": [
+        "Christian Anti-Judaism"
+      ],
+      "reason": "The word 'acts' is used as an ordinary noun rather than as the title of the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "3295",
+      "title": "The Collection: Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2591",
+      "title": "A Christian Forger Caught in the Acts",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Canonical Acts appears only as an isolated example, bibliographic reference, attribution detail, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+      "topics": [
+        "Early Christian Writings"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    },
+    {
+      "wpId": "2259",
+      "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center",
+      "topics": [
+        "Personal Reflections",
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "The post discusses one or more apocryphal Acts rather than the canonical Acts of the Apostles."
+    }
+  ]
+}

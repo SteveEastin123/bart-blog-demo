@@ -1,0 +1,338 @@
+{
+  "keyword": "Early Christianity",
+  "criterion": "Retain Early Christianity when early Christian history, communities, beliefs, institutions, expansion, diversity, or practices materially support the post.",
+  "approvedRemovalPostIds": [
+    "10994",
+    "11198",
+    "11280",
+    "11515",
+    "11823",
+    "11832",
+    "11904",
+    "13240",
+    "13781",
+    "15738",
+    "16606",
+    "17457",
+    "17780",
+    "17790",
+    "20959",
+    "2100",
+    "22919",
+    "24506",
+    "26434",
+    "30120",
+    "32728",
+    "33026",
+    "33161",
+    "35545",
+    "4733",
+    "47625",
+    "48392",
+    "48527",
+    "4963",
+    "7122",
+    "7747",
+    "8423",
+    "8942",
+    "9315"
+  ],
+  "before": 275,
+  "retained": 241,
+  "removed": 34,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "blogOrPromotion": 12,
+    "academicCareerOrPublishing": 14,
+    "incidentalReference": 8
+  },
+  "removedPosts": [
+    {
+      "wpId": "48527",
+      "title": "My Interview about Christmas with Nicholas Kristof (New York Times)",
+      "topics": [
+        "Media Interviews and Videos"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "48392",
+      "title": "A Bizarre Scandal Involving the Dead Sea Scrolls",
+      "topics": [
+        "Dead Sea Scrolls and Essenes"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "47625",
+      "title": "A New Way to Support the Blog: Become a Blog Steward",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "35545",
+      "title": "Did Morton Smith Forge the Secret Gospel of Mark?",
+      "topics": [
+        "Modern Forgery Claims"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "33161",
+      "title": "My New Podcast.   Help!  I Need Questions.",
+      "topics": [
+        "Media Interviews and Videos"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "33026",
+      "title": "What’s It Like to Teach at a Research University?",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "32728",
+      "title": "I’m Thinking about Starting a Podcast.   Your Opinion?",
+      "topics": [
+        "Media Interviews and Videos"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "30120",
+      "title": "10 Year Anniversary for The Bart Ehrman Blog!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "26434",
+      "title": "An Unusual Interview with an Ex-Muslim, Informed, Atheist",
+      "topics": [
+        "Media Interviews and Videos"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "24506",
+      "title": "The Value of Amulets for Reconstructing the New Testament Text: Guest Post by Brice Jones",
+      "topics": [
+        "New Testament Manuscripts",
+        "Textual Criticism Methods"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "22919",
+      "title": "The Blog Year in Review, 2020",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "20959",
+      "title": "Proving the Bible Is True: The Museum of the Bible. Guest Post by Cavan Concannon",
+      "topics": [
+        "Archaeology and Material Evidence"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "17790",
+      "title": "Hard Times and Using the Blog for Charity",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "17780",
+      "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "17457",
+      "title": "Blog Year in Review, 2019!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "16606",
+      "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "13781",
+      "title": "Is the Blog Meaningful for You?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "13240",
+      "title": "Was My Weird Background a Help or a Hindrance: Mailbag October 22, 2017",
+      "topics": [
+        "Fundamentalism",
+        "Autobiographical Posts"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "11904",
+      "title": "Writing Books that Are Interesting and Important",
+      "topics": [
+        "General-Audience Books",
+        "Triumph of Christianity",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "11832",
+      "title": "The Charities We Support",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "11823",
+      "title": "Becoming a Textual Critic",
+      "topics": [
+        "Bruce Metzger",
+        "Textual Criticism Overview",
+        "Autobiographical Posts"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "11515",
+      "title": "A Personal Note and a Bit of a Bummer",
+      "topics": [
+        "Autobiographical Posts",
+        "Personal Reflections"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "11280",
+      "title": "Who Should Write Trade Books?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "11198",
+      "title": "Why I Have Moved to a New Publisher",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "10994",
+      "title": "Our Fourth Anniversary!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "9315",
+      "title": "The SBL and the Blog",
+      "topics": [
+        "Academic Careers and University Life",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "8942",
+      "title": "A Milestone on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Early Christianity describes the blog's or podcast's general mission rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "8423",
+      "title": "Whom Do We Admit into our Graduate Program?",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "7747",
+      "title": "Communicating with Non-Scholars",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "7122",
+      "title": "Why Sell Books?",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "4963",
+      "title": "Podcast on My New Course",
+      "topics": [
+        "Media Interviews and Videos",
+        "Courses and Teaching"
+      ],
+      "reason": "Early Christianity appears only in a lecture description, biography, course list, audience description, or broad contextual statement."
+    },
+    {
+      "wpId": "4733",
+      "title": "Reza Aslan’s View of Jesus",
+      "topics": [
+        "Zealot Hypothesis"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    },
+    {
+      "wpId": "2100",
+      "title": "Undergraduate Courses (1): Introduction to the New Testament (Part 1)",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Early Christianity identifies an academic field, degree program, publishing market, or professional background rather than a subject examined by the post."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "keyword": "Son of God",
+  "criterion": "Retain Son of God when the designation's meaning, development, scriptural use, or theological significance materially supports the post.",
+  "approvedRemovalPostIds": [
+    "12432",
+    "13222",
+    "15908",
+    "21081",
+    "33535",
+    "33548",
+    "36282",
+    "37148",
+    "46935",
+    "46956",
+    "47203",
+    "48712",
+    "5016",
+    "7494"
+  ],
+  "before": 229,
+  "retained": 215,
+  "removed": 14,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "incidentalDesignation": 8,
+    "quotedOrSurroundingMaterial": 4,
+    "promotionalOrNavigational": 2
+  },
+  "removedPosts": [
+    {
+      "wpId": "48712",
+      "title": "The New Testament in a Nutshell: The 50 Word Summaries of Each Book (All of them!)",
+      "topics": [
+        "In a Nutshell Series"
+      ],
+      "reason": "Son of God occurs only in quoted or surrounding material while the post's argument concerns another subject."
+    },
+    {
+      "wpId": "46956",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – by Mark Reichert (Platinum Member Winner)",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "46935",
+      "title": "Can You “Lose Your Salvation”?",
+      "topics": [
+        "Free Will and Predestination",
+        "Salvation (General)",
+        "Hebrews"
+      ],
+      "reason": "Son of God occurs only in quoted or surrounding material while the post's argument concerns another subject."
+    },
+    {
+      "wpId": "47203",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – Guest Post by Platinum Member Mark Reichert",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "37148",
+      "title": "When a Gospel Meets the Twilight Zone: As Time Stands Still in the Proto-Gospel of James",
+      "topics": [
+        "Proto-Gospel of James"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "36282",
+      "title": "Does It Even Matter If Jesus Was Given a Proper Burial?",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ],
+      "reason": "Son of God occurs only in quoted or surrounding material while the post's argument concerns another subject."
+    },
+    {
+      "wpId": "33535",
+      "title": "Did Christ Save *Everyone* When He Descended to Hades?",
+      "topics": [
+        "Salvation (General)",
+        "Heaven and Hell Beliefs"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "33548",
+      "title": "Our Platinum Webinar:  The Infancy Gospels!",
+      "topics": [
+        "Infancy Gospel of Thomas",
+        "Proto-Gospel of James"
+      ],
+      "reason": "Son of God appears only in promotional, navigational, or introductory material rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "21081",
+      "title": "A Bit of a Shocker: Jesus and the Son of Man",
+      "topics": [
+        "Son of Man"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "15908",
+      "title": "Do Any Ancient Jewish Sources Mention Jesus?  Weekly Mailbag",
+      "topics": [
+        "Historical Jesus (General)"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "13222",
+      "title": "How Old Was Jesus at His Baptism, Start of His Ministry & Death?",
+      "topics": [
+        "Historical Jesus (General)"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "12432",
+      "title": "Was Jesus a Myth or a Historical Figure? Robert Price and I Debate This Very Interesting Question",
+      "topics": [
+        "Public Debates",
+        "Historical Jesus (General)",
+        "Mythicism"
+      ],
+      "reason": "Son of God appears only in promotional, navigational, or introductory material rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "7494",
+      "title": "Brian and the Apocalyptic Jesus Part 3",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ],
+      "reason": "Son of God occurs only in quoted or surrounding material while the post's argument concerns another subject."
+    },
+    {
+      "wpId": "5016",
+      "title": "When Time Stood Still",
+      "topics": [
+        "Proto-Gospel of James"
+      ],
+      "reason": "Son of God appears only as a routine designation, comparison, aside, or narrative detail rather than a meaningful supporting subject."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "keyword": "Hebrew Bible / Old Testament",
+  "criterion": "Retain the keyword when Hebrew Bible texts, figures, interpretation, reception, canon, or transmission meaningfully support the post; remove incidental academic, autobiographical, comparative, transitional, and administrative references.",
+  "approvedRemovalPostIds": [
+    "12126",
+    "13316",
+    "15738",
+    "15809",
+    "15818",
+    "2059",
+    "20836",
+    "21286",
+    "2449",
+    "3161",
+    "32860",
+    "33028",
+    "35858",
+    "37948",
+    "7693",
+    "9315"
+  ],
+  "before": 411,
+  "retained": 395,
+  "removed": 16,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "37948",
+      "title": "Problems with Translating a Single Greek WORD",
+      "topics": [
+        "New Revised Standard Version (NRSV)",
+        "Translation Issues"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "35858",
+      "title": "Can the Qur’an and Early Islam Be Studied Critically (Like the NT and Early Christianity?)  Guest Post by Stephen Shoemaker",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "33028",
+      "title": "What’s It Like to Teach PhD Seminars?",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "32860",
+      "title": "My New Course: The Unknown Gospels (Matthew, Mark, Luke, and John)",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Courses and Teaching"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "21286",
+      "title": "Translating the Bible (and other ancient texts)",
+      "topics": [
+        "Translation Issues"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "20836",
+      "title": "Do You Have Advanced Training In any of the Blog’s Fields?",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "15818",
+      "title": "The Aberrant View of the Afterlife in the Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Salvation (General)"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "15809",
+      "title": "Don’t Trust What You Read!",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "13316",
+      "title": "The Son of Man, Pericopes, and the Complexities of Biblical Scholarship",
+      "topics": [
+        "Oral Tradition",
+        "Son of Man",
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "12126",
+      "title": "Lost in Translation",
+      "topics": [
+        "New Revised Standard Version (NRSV)",
+        "Translation Issues"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "9315",
+      "title": "The SBL and the Blog",
+      "topics": [
+        "Academic Careers and University Life",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "7693",
+      "title": "Titles of Scholarly Books",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Writing and Publishing Process"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "3161",
+      "title": "Textual Problems in the Apostolic Fathers 1",
+      "topics": [
+        "Apostolic Fathers",
+        "Textual Variants",
+        "Theologically Significant Variants"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "2449",
+      "title": "Possibly of Some Interest",
+      "topics": [
+        "Biblical Inerrancy",
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    },
+    {
+      "wpId": "2059",
+      "title": "The Work of a Professional Scholar 5: Graduate Seminars",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "The Hebrew Bible appears only as an academic field, autobiographical detail, generic comparison, transition, or administrative reference rather than a meaningful supporting subject."
+    }
+  ]
+}

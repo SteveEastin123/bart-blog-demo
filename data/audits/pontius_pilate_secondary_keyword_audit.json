@@ -1,0 +1,799 @@
+{
+  "keyword": "Pontius Pilate",
+  "criterion": "Retain Pontius Pilate when his actions, responsibility, historical role, administration, trial proceedings, burial role, or portrayal materially supports the post.",
+  "approvedRemovalPostIds": [
+    "10579",
+    "12002",
+    "12355",
+    "12432",
+    "12494",
+    "12652",
+    "12762",
+    "12844",
+    "13189",
+    "13196",
+    "13336",
+    "15221",
+    "15497",
+    "15723",
+    "15852",
+    "16085",
+    "16599",
+    "17223",
+    "17387",
+    "17763",
+    "17813",
+    "19669",
+    "2047",
+    "20471",
+    "20725",
+    "21145",
+    "21154",
+    "2259",
+    "24468",
+    "25879",
+    "26327",
+    "28131",
+    "28208",
+    "29790",
+    "33175",
+    "33314",
+    "34368",
+    "3512",
+    "35404",
+    "35561",
+    "36687",
+    "36834",
+    "37067",
+    "37837",
+    "38176",
+    "38235",
+    "39619",
+    "39694",
+    "41185",
+    "4403",
+    "47045",
+    "47056",
+    "47100",
+    "47115",
+    "47141",
+    "47223",
+    "4727",
+    "47270",
+    "47288",
+    "4743",
+    "4846",
+    "49069",
+    "6578",
+    "6919",
+    "7031",
+    "7046",
+    "7326",
+    "7348",
+    "7681",
+    "7686",
+    "8405",
+    "8476",
+    "8650",
+    "8657",
+    "8833",
+    "8961",
+    "9297",
+    "9399"
+  ],
+  "before": 182,
+  "retained": 104,
+  "removed": 78,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "49069",
+      "title": "Do the Synoptics Present an Early Character of the Jesus Movement?  –Platinum Post by Ryan Fleming",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Dating the Gospels"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47288",
+      "title": "Did Jesus Exist?  Why I Don’t Enjoy Reading the Mythicists",
+      "topics": [
+        "Mythicism",
+        "Did Jesus Exist?"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "topics": [
+        "Early Christian Diversity",
+        "Roman World"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47223",
+      "title": "Interesting Questions from Readers",
+      "topics": [
+        "Acts",
+        "Bible Translations (General)",
+        "Translation Issues"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47141",
+      "title": "Guest Post by Dr. Paul Fredriksen Part III: The Conversions of “Christianity”",
+      "topics": [
+        "Early Church Developments"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47115",
+      "title": "The Gospel of Mark: Are You Interested in a More Extended Discussion?",
+      "topics": [
+        "Gospel of Mark",
+        "Courses and Teaching"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47100",
+      "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Ancient Literacy",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Eyewitness Reliability",
+        "Gospel Authorship"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47056",
+      "title": "The Gospel of Mark in a Nutshell",
+      "topics": [
+        "Gospel of Mark",
+        "In a Nutshell Series"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47045",
+      "title": "The New Testament Gospels in a Nutshell",
+      "topics": [
+        "Canonical Gospels (General)",
+        "In a Nutshell Series"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "41185",
+      "title": "Doesn’t “Free Will” Explain Suffering?",
+      "topics": [
+        "Free Will and Predestination",
+        "Free Will Explanations of Suffering"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "39694",
+      "title": "An Early Christian Advocate of Licentious Living?  Carpocrates — Guest Post by Dr. David Litwa",
+      "topics": [
+        "Gnosticism (General)",
+        "Early Christian Orthodoxy and Heresy"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "39619",
+      "title": "John the Baptist: The Most Influential Religious Innovator in History by James McGrath (Part 2)",
+      "topics": [
+        "John the Baptist"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38235",
+      "title": "Gospel Thrillers Part I by Andrew Jacobs",
+      "topics": [
+        "General-Audience Books"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38176",
+      "title": "Paul, the Apostate: a Platinum Post by Manuel Fiadeiro",
+      "topics": [
+        "Conversion",
+        "Paul's Conversion"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "37837",
+      "title": "Did Luke’s Gospel Originally Contain a Virgin Birth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Virgin Birth",
+        "Adoptionist Christology",
+        "Original Text Questions"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "37067",
+      "title": "Did Luke Originally Have the Birth Narrative (chapters 1-2)?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "Original Text Questions"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "36834",
+      "title": "That’s in the New Testament, Right?  An Interesting Non-Canonical Story.",
+      "topics": [
+        "Oral Tradition",
+        "Papyrus Egerton"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "36687",
+      "title": "Paul, the Apostate: a Platinum Post by Manuel Fiadeiro",
+      "topics": [
+        "Conversion",
+        "Paul's Conversion",
+        "Paul's Life and Career"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "35561",
+      "title": "Being Realistic about How Stories about Jesus Spread before the Gospels",
+      "topics": [
+        "Oral Tradition",
+        "Rise of Christianity"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "35404",
+      "title": "Did Early Christians “Invent” Memories of Jesus?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "34368",
+      "title": "Do We Suffer Because We Have “Free Will”?",
+      "topics": [
+        "Free Will and Predestination",
+        "Free Will Explanations of Suffering"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "33314",
+      "title": "Me and the “Truth”: A Bit of Autobiography",
+      "topics": [
+        "Autobiographical Posts"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "33175",
+      "title": "New Testament Manuscripts:  Good News and Bad News",
+      "topics": [
+        "New Testament Manuscripts",
+        "Scribal Changes"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "29790",
+      "title": "Does Paul Know That Judas Iscariot Betrayed Jesus?",
+      "topics": [
+        "Judas Iscariot",
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "28208",
+      "title": "But Why Doesn’t Paul Say More About the Historical Jesus?",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "28131",
+      "title": "What Paul Knows about Jesus’ Death, and What Led Up to It",
+      "topics": [
+        "Paul on Jesus' Crucifixion",
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "26327",
+      "title": "The Trinity!  A Final Summation",
+      "topics": [
+        "Development of the Trinity"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "25879",
+      "title": "Paul’s (Misunderstood) Message to His Corinthian Converts",
+      "topics": [
+        "Paul's Churches and Communities",
+        "1 Corinthians",
+        "Pauline Salvation Models"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "24468",
+      "title": "Christ as Non-Human (but fully God) in the Early Second Century",
+      "topics": [
+        "Development of the Trinity",
+        "Apostolic Fathers"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "21154",
+      "title": "My Faux Pop Quiz this Semester",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "topics": [
+        "Courses and Teaching",
+        "Early Christian Writings"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "20725",
+      "title": "Yet Other Accounts Of the Death of Judas",
+      "topics": [
+        "Judas Iscariot",
+        "Papias"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "20471",
+      "title": "Did Paul Know that Judas Betrayed Jesus?  Readers’ Mailbag!",
+      "topics": [
+        "Judas Iscariot",
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "19669",
+      "title": "The Social History Behind the Fourth Gospel",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17813",
+      "title": "Comparing John and the Synoptics",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17763",
+      "title": "You Lost Me On Hello.  A Plea for Expertise",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17387",
+      "title": "More on the Case Against Miracles: Michael Shermer Guest Post",
+      "topics": [
+        "Historical Study of Miracles"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17223",
+      "title": "Setting Dates for the Gospels",
+      "topics": [
+        "Dating Ancient Texts",
+        "Dating the Gospels"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "16599",
+      "title": "The Scholarly Edition of the Apocryphal Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "16085",
+      "title": "The Radical Implications of the Resurrection",
+      "topics": [
+        "Messiah",
+        "Meaning of Jesus' Resurrection",
+        "Development of the Trinity"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15852",
+      "title": "A New Argument that Mark Was the First Gospel (Editorial Fatigue):  Guest Post by Mark Goodacre!",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Synoptic Problem"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15723",
+      "title": "Did Luke Originally Tell the Birth Story?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "John the Baptist"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15497",
+      "title": "How Do We Know When the Gospels Were Written?",
+      "topics": [
+        "Dating Ancient Texts",
+        "Dating the Gospels"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15221",
+      "title": "Two Rather Bizarre Accounts of How Judas Died",
+      "topics": [
+        "Papias",
+        "Judas Iscariot"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13336",
+      "title": "Another Translation Project:  The Apocryphal Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13196",
+      "title": "Differences Between John and the Synoptics",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13189",
+      "title": "An Introduction to the Gospel of John",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12844",
+      "title": "Did Luke’s Gospel Originally Have The Birth Story?  Readers Mailbag and a Blast from the Past",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "John the Baptist"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12762",
+      "title": "Was There a “Moment” When I Left the Faith?",
+      "topics": [
+        "Deconversion",
+        "Suffering and Loss of Faith",
+        "Autobiographical Posts"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12652",
+      "title": "More of What I Believed When I Was a Committed (non-fundamentalist) Christian",
+      "topics": [
+        "Autobiographical Posts"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12494",
+      "title": "Did David Exist?  And When Did I Know I Lost My Faith?  Mailbag April 15, 2017",
+      "topics": [
+        "Deconversion",
+        "Suffering and Loss of Faith",
+        "Hebrew Bible Historical Reliability"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12432",
+      "title": "Was Jesus a Myth or a Historical Figure? Robert Price and I Debate This Very Interesting Question",
+      "topics": [
+        "Public Debates",
+        "Historical Jesus (General)",
+        "Mythicism"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12355",
+      "title": "How Do We Know When the Gospels Were Written:  A Mailbag Blast from the Past",
+      "topics": [
+        "Dating Ancient Texts",
+        "Dating the Gospels"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12002",
+      "title": "Paul and the Historical Jesus",
+      "topics": [
+        "Paul's Knowledge of Jesus",
+        "Mythicism"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "10579",
+      "title": "HNN News Story on Jesus Before the Gospels",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "9399",
+      "title": "The Resurrection of the Son of God",
+      "topics": [
+        "Meaning of Jesus' Resurrection"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "9297",
+      "title": "The Baptism of Jesus as an Apocalyptic Event",
+      "topics": [
+        "Apocalyptic Jesus",
+        "John the Baptist"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8961",
+      "title": "New Testament Manuscripts:  Good News and Bad News",
+      "topics": [
+        "New Testament Manuscripts",
+        "Scribal Changes"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8833",
+      "title": "Other Accounts of the Death of Judas",
+      "topics": [
+        "Judas Iscariot",
+        "Papias"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8657",
+      "title": "Can A Made-Up Story Be A False Memory?",
+      "topics": [
+        "Memory and Jesus Traditions"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8650",
+      "title": "My Memory Book, chs. 1-2",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8476",
+      "title": "My UNC Seminar Tomorrow",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7686",
+      "title": "Apocryphal Gospels: The Scholarly Version",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7681",
+      "title": "How I Decided to Publish the Apocryphal Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7348",
+      "title": "Why Doesn’t Paul Say More About Jesus?",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7326",
+      "title": "More on Paul’s Knowledge of Jesus’ Life",
+      "topics": [
+        "Paul on Jesus' Crucifixion",
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7046",
+      "title": "The Gospel of John from a Comparative Perspective",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7031",
+      "title": "More Literary-Historical Perspectives on John",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "6919",
+      "title": "Was Jesus Inserted Into Paul’s Letters?",
+      "topics": [
+        "Scribal Changes",
+        "Textual Variants",
+        "Pauline Textual Issues"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4846",
+      "title": "An Unknown Gospel",
+      "topics": [
+        "Oral Tradition",
+        "Papyrus Egerton"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4743",
+      "title": "The Final Part of My First-Day Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4727",
+      "title": "My Pop Quiz For First-Year Students",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4403",
+      "title": "On the Cutting Room Floor: Part 5 and Final!",
+      "topics": [
+        "Deconversion",
+        "How Jesus Became God",
+        "Suffering and Loss of Faith",
+        "Demythologizing the New Testament"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3512",
+      "title": "Luke’s Genealogy",
+      "topics": [
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "John the Baptist"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "2259",
+      "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center",
+      "topics": [
+        "Personal Reflections",
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "2047",
+      "title": "Dates of the Gospels",
+      "topics": [
+        "Dating Ancient Texts",
+        "Dating the Gospels"
+      ],
+      "reason": "Pontius Pilate appears only in a general summary, list, chronological formula, creed, course material, manuscript reference, or other passing context rather than as a meaningful supporting subject of the post."
+    }
+  ]
+}

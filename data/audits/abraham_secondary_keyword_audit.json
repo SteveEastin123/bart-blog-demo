@@ -1,0 +1,703 @@
+{
+  "keyword": "Abraham",
+  "criterion": "Retain Abraham when Abraham, Abrahamic traditions, the covenant, ancestry, faith, or scriptural interpretation involving Abraham materially supports the post.",
+  "approvedRemovalPostIds": [
+    "10268",
+    "11619",
+    "11857",
+    "12277",
+    "12301",
+    "12420",
+    "12943",
+    "13186",
+    "13316",
+    "14905",
+    "14935",
+    "15072",
+    "15315",
+    "15392",
+    "15559",
+    "15622",
+    "15676",
+    "15795",
+    "16111",
+    "17642",
+    "17708",
+    "19929",
+    "21016",
+    "23130",
+    "25439",
+    "26653",
+    "27343",
+    "27402",
+    "28269",
+    "31240",
+    "3222",
+    "32369",
+    "33480",
+    "34231",
+    "34586",
+    "36122",
+    "36539",
+    "3657",
+    "36599",
+    "37140",
+    "3729",
+    "37850",
+    "38132",
+    "38785",
+    "39865",
+    "3997",
+    "4071",
+    "40864",
+    "41062",
+    "41262",
+    "41343",
+    "4388",
+    "4505",
+    "46945",
+    "46992",
+    "47025",
+    "47269",
+    "47851",
+    "48013",
+    "48830",
+    "4885",
+    "7197",
+    "7224",
+    "7577",
+    "7899",
+    "8145",
+    "8513",
+    "8613",
+    "8741",
+    "9288"
+  ],
+  "before": 190,
+  "retained": 120,
+  "removed": 70,
+  "previouslyRemoved": 0,
+  "removedPosts": [
+    {
+      "wpId": "48830",
+      "title": "Here’s an Apocryphal Gospel You Probably Don’t Know!  The History of Joseph the Carpenter.",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "48013",
+      "title": "1 Clement in a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "46992",
+      "title": "The Bible and Suffering:  My NEW Course at UNC This Term",
+      "topics": [
+        "Biblical Explanations of Suffering",
+        "Disasters and Human Suffering",
+        "Courses and Teaching"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "46945",
+      "title": "The Book of James in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "James the Brother of Jesus",
+        "Letter of James"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47269",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "47025",
+      "title": "Being Consistently Critical (In the Good Sense)",
+      "topics": [
+        "Historical Methods (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "41062",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 4 by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul in Acts",
+        "Paul and His Opponents"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "41343",
+      "title": "Can We Know What Jesus Said About Himself?",
+      "topics": [
+        "Messiah",
+        "Gospel Historical Reliability"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "41262",
+      "title": "Why Would A Christian Author Lie About Who He Was?",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "40864",
+      "title": "Still More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+      "topics": [
+        "Old Testament Apocrypha"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "39865",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38785",
+      "title": "Making the Gospels Say What You WANT Them To Say",
+      "topics": [
+        "Christology in the Gospels",
+        "How Jesus Became God"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "38132",
+      "title": "The Origins of Altruism: My Next Book as It Stands Now",
+      "topics": [
+        "Charity and Altruism"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "37850",
+      "title": "How Did Early Christians Make Unorthodox Texts Seem Orthodox?",
+      "topics": [
+        "Early Christian Diversity",
+        "Canon Formation",
+        "Proto-Gospel of James",
+        "Adoptionist Christology"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "37140",
+      "title": "The Gospel Before the Gospel: The Proto-Gospel of James",
+      "topics": [
+        "Proto-Gospel of James"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "36599",
+      "title": "How To Be a Consistently Critical Historian, In the Good Sense",
+      "topics": [
+        "Historical Methods (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "36539",
+      "title": "Does Jesus Call Himself God in His Trial Before the Sanhedrin and the High Priest Caiaphas?",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Mark",
+        "Trial of Jesus"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "36122",
+      "title": "An Important Difference in John–a Platinum Post by Ryan Fleming",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "34586",
+      "title": "Is the God of Job Worthy of Worship?",
+      "topics": [
+        "Book of Job",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "34231",
+      "title": "Is It A Sin To Be Transgender? Platinum guest post by Douglas Wadeson MD",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "33480",
+      "title": "Is It A Sin To Be Transgender? Platinum guest post by Douglas Wadeson MD",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "32369",
+      "title": "Why Do Some Smart People Just Not Think?",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "31240",
+      "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+      "topics": [
+        "Pentateuch",
+        "Translation Issues",
+        "Moses"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4505",
+      "title": "Teeth Will Be Provided",
+      "topics": [
+        "Modern Forgery Claims"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "28269",
+      "title": "Another Fantastic Scriptural Short Story: Esther",
+      "topics": [
+        "Early Judaism (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "27402",
+      "title": "Jesus’ View of Salvation: Who Can Have Eternal Life?",
+      "topics": [
+        "Jesus' Teachings",
+        "Salvation (General)",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "27343",
+      "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
+      "topics": [
+        "Jesus' Teachings",
+        "Salvation (General)",
+        "Apocalyptic Jesus"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "26653",
+      "title": "Understanding Revelation: A Sine Qua Non (Overlooked by most readers)",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "25439",
+      "title": "The Letter Jesus Wrote from the Cross (!)",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "23130",
+      "title": "Guest Post Part 2 by New Testament Scholar Jeff Siker: Why I Am Still a Christian",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "21016",
+      "title": "A Very Odd Story about the Baby Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Proto-Gospel of James"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "19929",
+      "title": "More of the History Behind the Gospel of John",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17708",
+      "title": "Paul’s Incredibly High Christology",
+      "topics": [
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem",
+        "Angelic Christology"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "17642",
+      "title": "How Do I Get To Know What Is In the Bible?",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "16111",
+      "title": "Why Did Ancient Christian Forgers Commit Forgery?",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15795",
+      "title": "If Jesus Wasn’t God, Was He Necessarily Either a Calloused Liar or a Raving Lunatic?",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of John",
+        "Gospel Historical Reliability"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15676",
+      "title": "An Intriguingly Legendary Account of Jesus’ Death",
+      "topics": [
+        "Judas Iscariot",
+        "Non-Canonical Gospel Traditions",
+        "Crucifixion of Jesus"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15622",
+      "title": "A Very Perplexing Question",
+      "topics": [
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "2 Peter",
+        "Canon Formation"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15559",
+      "title": "More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+      "topics": [
+        "Old Testament Apocrypha"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15392",
+      "title": "The Letter of First Clement: An Overview",
+      "topics": [
+        "Apostolic Fathers"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15315",
+      "title": "Are the Gospels Principally Concerned to Show What Actually Happened?",
+      "topics": [
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "15072",
+      "title": "Jesus as God in the Synoptics: A Blast From the Past",
+      "topics": [
+        "Christology in the Gospels",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "14935",
+      "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Miracle Stories in Non-Canonical Texts",
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "14905",
+      "title": "How Was Jesus *Really* Born?  The Proto-Gospel of James",
+      "topics": [
+        "Proto-Gospel of James"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13316",
+      "title": "The Son of Man, Pericopes, and the Complexities of Biblical Scholarship",
+      "topics": [
+        "Oral Tradition",
+        "Son of Man",
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "13186",
+      "title": "Jesus’ Teaching About the Kingdom of God",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12943",
+      "title": "My Favorite Anecdote about Jesus and the Afterlife: Teeth Will Be Provided!",
+      "topics": [
+        "Life After Death (General)",
+        "Modern Forgery Claims"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12420",
+      "title": "Does Jesus Claim to Be God in Mark?  And My Former Converts.  Mailbag March 19, 2017",
+      "topics": [
+        "Gospel of Mark",
+        "Christology in the Gospels"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12301",
+      "title": "Jeff Siker Part 2: Why I am a Christian (and yet a New Testament scholar): A Blast From the Past",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "Historical Study and Theology"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "12277",
+      "title": "Where Did the King James Bible Come From?",
+      "topics": [
+        "King James Version",
+        "Translation Issues"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "11857",
+      "title": "Arguments, Evidence, and Changing Your Mind",
+      "topics": [
+        "Biblical Inerrancy",
+        "Deconversion",
+        "Textual Criticism Overview"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "11619",
+      "title": "Another Creation Story",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Genesis"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "10268",
+      "title": "What the Resurrection of Jesus MEANT",
+      "topics": [
+        "Meaning of Jesus' Resurrection"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "9288",
+      "title": "How Do We Know What Jesus Said About Himself?",
+      "topics": [
+        "Methods for Studying the Historical Jesus",
+        "Messiah"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8741",
+      "title": "The Community Behind the Gospel of John:  Part 2",
+      "topics": [
+        "Gospel of John"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8613",
+      "title": "Jesus, Matthew, and the Law",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8513",
+      "title": "The Book of Revelation and the Apocalypse Genre",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Revelation"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "8145",
+      "title": "A New Box on Why A (Christian) Author Would Lie About Who He Was",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7899",
+      "title": "A Day In the Life of a Research Professor",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7577",
+      "title": "Being Consistently Critical (in the good sense)",
+      "topics": [
+        "Historical Methods (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7224",
+      "title": "More on the Very Reverend Robert Barron",
+      "topics": [
+        "Christology (General)",
+        "How Jesus Became God"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "7197",
+      "title": "Jesus as God in the Synoptics",
+      "topics": [
+        "Christology in the Gospels",
+        "How Jesus Became God",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4885",
+      "title": "You Won’t Find *This* in the New Testament!",
+      "topics": [
+        "Proto-Gospel of James"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4388",
+      "title": "On the Cutting Room Floor: Part 3",
+      "topics": [
+        "Deconversion",
+        "How Jesus Became God"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "4071",
+      "title": "Moving from the Faith",
+      "topics": [
+        "Deconversion",
+        "Autobiographical Posts"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3997",
+      "title": "Divine Wisdom",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "How Jesus Became God"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3729",
+      "title": "Jeff Siker Part 2: Why I am a Christian (and yet a New Testament scholar)",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "Historical Study and Theology"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3657",
+      "title": "Liar Lunatic or Lord…..Is Jesus a Moral Teacher?",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    },
+    {
+      "wpId": "3222",
+      "title": "Lost Gospels That Are Still Lost 1",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Gospel of Judas"
+      ],
+      "reason": "Abraham appears only as a passing quotation, name in a list, genealogical reference, comparison, or illustrative example rather than as a meaningful supporting subject of the post."
+    }
+  ]
+}

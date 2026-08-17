@@ -1,0 +1,253 @@
+{
+  "keyword": "Gospel of Mark",
+  "criterion": "Remove approved cases where Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark.",
+  "approvedRemovalPostIds": [
+    "15046",
+    "15444",
+    "15701",
+    "17276",
+    "19669",
+    "21281",
+    "2492",
+    "27246",
+    "28151",
+    "32674",
+    "33569",
+    "34033",
+    "3453",
+    "34764",
+    "35872",
+    "37411",
+    "38088",
+    "40016",
+    "40440",
+    "4747",
+    "49197",
+    "5149",
+    "7026",
+    "7081",
+    "7411",
+    "8897",
+    "9177"
+  ],
+  "before": 582,
+  "retained": 559,
+  "removed": 23,
+  "previouslyRemoved": 4,
+  "removedPosts": [
+    {
+      "wpId": "40440",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor",
+      "topics": [
+        "Paul's Life and Career"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Diversity",
+        "Early Christian Writings"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "38088",
+      "title": "Is Matthew Duplicitous in His Reading of Scripture?",
+      "topics": [
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "37411",
+      "title": "Thomasine Gnostic Christians, and Sundry Others",
+      "topics": [
+        "Gospel of Thomas",
+        "Gnosticism (General)"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "35872",
+      "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+      "topics": [
+        "Acts",
+        "Biblical Contradictions",
+        "Paul in Acts",
+        "Paul's Conversion"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "34764",
+      "title": "Pre-Pub Offer on My Book: ARMAGEDDON!",
+      "topics": [
+        "Armageddon",
+        "Book of Revelation"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Martyrdom of Polycarp",
+        "Miracle Claims and Apologetics",
+        "Miraculous Martyrdom Traditions"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "33569",
+      "title": "Did Jesus Actually Come from Nazareth?",
+      "topics": [
+        "Nazareth",
+        "Methods for Studying the Historical Jesus"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "32674",
+      "title": "Did the Romans Help Create the Jesus’ Movement?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Rise of Christianity",
+        "Roman World"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "28151",
+      "title": "Must Jesus Divide Families? Part 2 of 2.   Platinum  Guest post by Douglas Wadeson",
+      "topics": [
+        "Jesus' Teachings",
+        "Jesus' Family Traditions"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "21281",
+      "title": "The Secret Message of the Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "17276",
+      "title": "An Older Manuscript Controversy about the Dead Sea Scrolls",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Early Judaism (General)"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "15701",
+      "title": "Jesus’ Birth in Matthew and Luke: A Study in Contrasts",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "15444",
+      "title": "Thomasine Christians and Others, From After the New Testament",
+      "topics": [
+        "Gospel of Thomas",
+        "Gnosticism (General)"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "15046",
+      "title": "An Easter Reflection 2018",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "9177",
+      "title": "Anti-Judaism in the Gospel of Luke",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Gospel of Luke"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "8897",
+      "title": "Contradictory Stories and Historical Method",
+      "topics": [
+        "Historical Methods (General)",
+        "Nag Hammadi"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "7411",
+      "title": "Thomasine “Gnostics” and Others",
+      "topics": [
+        "Gospel of Thomas",
+        "Gnosticism (General)"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "7081",
+      "title": "The Socio-Historical Method",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "7026",
+      "title": "The Gospel of John from a Literary-Historical Perspective",
+      "topics": [
+        "Gospel of John",
+        "Historical Methods (General)"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "Media Interviews and Videos"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    },
+    {
+      "wpId": "3453",
+      "title": "The Infancy Narratives Compared",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Gospel of Matthew"
+      ],
+      "reason": "Mark is a personal name, a generic list entry, or a brief analogy rather than a meaningful reference to the Gospel of Mark."
+    }
+  ]
+}

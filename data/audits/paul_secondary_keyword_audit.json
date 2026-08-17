@@ -1,0 +1,441 @@
+{
+  "keyword": "Paul",
+  "criterion": "Remove only approved cases where Paul is a brief analogy, quotation, list item, or comparison rather than a meaningful subject or supporting search term.",
+  "approvedRemovalPostIds": [
+    "10254",
+    "11201",
+    "11280",
+    "11748",
+    "11931",
+    "13229",
+    "15178",
+    "15738",
+    "16103",
+    "16211",
+    "16372",
+    "16549",
+    "17217",
+    "1993",
+    "2000",
+    "2023",
+    "2036",
+    "2059",
+    "21099",
+    "21126",
+    "2422",
+    "2611",
+    "2624",
+    "27266",
+    "28517",
+    "29103",
+    "29175",
+    "32404",
+    "32955",
+    "32964",
+    "33026",
+    "33028",
+    "3666",
+    "36683",
+    "47061",
+    "47140",
+    "47590",
+    "47593",
+    "48426",
+    "49016",
+    "6332",
+    "6875",
+    "8039",
+    "8042",
+    "8417",
+    "8626",
+    "8821",
+    "9413"
+  ],
+  "before": 950,
+  "retained": 907,
+  "removed": 43,
+  "previouslyRemoved": 5,
+  "removedPosts": [
+    {
+      "wpId": "49016",
+      "title": "Who Wrote the Shepherd of Hermas, and When?",
+      "topics": [
+        "Apostolic Fathers",
+        "Apostolic Fathers Attribution"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "47593",
+      "title": "Jude as Pseudepigraphic (i.e., forged)",
+      "topics": [
+        "Ancient Literacy",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Letter of Jude"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "47061",
+      "title": "The Flukes of Life: How I Almost Never Became a Professor",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "36683",
+      "title": "Jesus, Sun Myung Moon, and Me: a Platinum Post from William Poe",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "33028",
+      "title": "What’s It Like to Teach PhD Seminars?",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "32964",
+      "title": "What Serious Research Projects Can Undergraduates Do in Early Christianity?",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "33026",
+      "title": "What’s It Like to Teach at a Research University?",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "32955",
+      "title": "What is it Like to Supervise PhD Dissertations?",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "13229",
+      "title": "The Criterion of Dissimilarity",
+      "topics": [
+        "Methods for Studying the Historical Jesus"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "29175",
+      "title": "A Humorous Modern Gospel Forgery",
+      "topics": [
+        "Modern Forgery Claims"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "29103",
+      "title": "In the Beginning: Myth, Legend, and History in the Book of Genesis (Part 1)",
+      "topics": [
+        "Genesis",
+        "Courses and Teaching"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "28517",
+      "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "27266",
+      "title": "Bruce Metzger and My Strange Dissertation Defense",
+      "topics": [
+        "Bruce Metzger",
+        "Didymus the Blind",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "21126",
+      "title": "The Flukes of Life and My Teaching Career",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "21099",
+      "title": "A Podcast of Interest to You!  Guest post by Ian Mills and Laura Robinson",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "Media Interviews and Videos"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "17217",
+      "title": "The Annual Meeting of Biblical Scholars, and ALL Those Books!!",
+      "topics": [
+        "Academic Careers and University Life",
+        "Critical Biblical Scholarship",
+        "Scholarly Research and Publishing"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "16549",
+      "title": "My Two Books on Forgery",
+      "topics": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "General-Audience Books",
+        "Forgery (General)"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "16211",
+      "title": "How Do We know When Manuscripts Were Written? Guest Post by Brent Nongbri",
+      "topics": [
+        "Manuscript Dating"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "16103",
+      "title": "Similarities and Differences: Which Matter the Most?",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "15178",
+      "title": "Doing Research for a Trade Book",
+      "topics": [
+        "General-Audience Books"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "11931",
+      "title": "How I Learned To Write for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "11748",
+      "title": "Why Scholars Aren’t Trained To Write Trade Books",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "11280",
+      "title": "Who Should Write Trade Books?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "11201",
+      "title": "Being Qualified to Write a Scholarly Book",
+      "topics": [
+        "Scholarly Research and Publishing"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "10254",
+      "title": "My Debate with Michael Bird Feb. 12 , 2016",
+      "topics": [
+        "How Jesus Became God",
+        "Public Debates"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "9413",
+      "title": "Readers’ Mailbag December 18, 2015",
+      "topics": [
+        "Jewish Apocalypticism"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "8821",
+      "title": "The Lost Writings of Papias",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "8626",
+      "title": "My New Project on Memory",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "8417",
+      "title": "New Testament Programs and Ancient Med.",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "8042",
+      "title": "A Text-Critical Dissertation",
+      "topics": [
+        "Didymus the Blind",
+        "Church Fathers as Textual Evidence",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "8039",
+      "title": "My Graduate Training  (Textual Criticism??)",
+      "topics": [
+        "Bruce Metzger"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "6875",
+      "title": "Mary Magdalene in Various Guises",
+      "topics": [
+        "Mary Magdalene"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "6332",
+      "title": "SBL and ALL those Books",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "3666",
+      "title": "Against Demythologizing the Ethics of Jesus",
+      "topics": [
+        "Demythologizing the New Testament",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2624",
+      "title": "My First Teaching Position",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2611",
+      "title": "Autobiographical.  Metzger and Me.  The Dissertation Defense",
+      "topics": [
+        "Bruce Metzger",
+        "Didymus the Blind",
+        "Autobiographical Posts",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2422",
+      "title": "Autobiographical.  Metzger and Me: Beginning the PhD Program",
+      "topics": [
+        "Bruce Metzger",
+        "Autobiographical Posts",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2059",
+      "title": "The Work of a Professional Scholar 5: Graduate Seminars",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2036",
+      "title": "The Work of a Professional Scholar 4: Undergraduate Courses",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2023",
+      "title": "The Work of a Professional Scholar 3: Undergraduate Theses",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "2000",
+      "title": "The Work of a Professional Scholar 2: Supervising PhD Dissertations",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    },
+    {
+      "wpId": "1993",
+      "title": "The Irony of our Earliest Manuscripts",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions",
+        "Scribal Changes"
+      ],
+      "reason": "Paul is present only as a brief analogy, quotation, or comparison rather than a meaningful subject of the post."
+    }
+  ]
+}

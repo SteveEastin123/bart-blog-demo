@@ -28,6 +28,22 @@ COLLECTIVE_TOPICS = {
 }
 GOSPEL_NAMES = ("Matthew", "Mark", "Luke", "John")
 
+# These posts passed the mechanical collective-coverage test but failed a
+# subsequent semantic review. In each case, the Gospels are incidental,
+# confined to one Gospel, or secondary to another central subject.
+BORDERLINE_REMOVALS = {
+    "49237", "48795", "48712", "48614", "48090", "47270", "47188",
+    "47108", "47098", "47064", "47063", "47065", "47062", "47058",
+    "47057", "47055", "47043", "41835", "41519", "37850", "36834",
+    "36803", "35041", "33399", "33124", "32674", "26081", "25439",
+    "25436", "22529", "21355", "21324", "21311", "21260", "21187",
+    "17657", "17159", "16284", "15868", "15865", "15787", "15676",
+    "15674", "15358", "14903", "13773", "13236", "12665", "12282",
+    "12277", "11921", "11888", "11857", "11419", "10872", "9956",
+    "9303", "9215", "9177", "8011", "6587", "4792", "4042", "3559",
+    "2174",
+}
+
 
 def count_term(text: str, term: str) -> int:
     return len(re.findall(rf"\b{re.escape(term)}\b", text, flags=re.IGNORECASE))
@@ -42,9 +58,8 @@ def should_retain(post: dict, text: str) -> tuple[bool, dict]:
         (post.get("title", ""), post.get("description", ""))
     )
 
-    retain = any(
+    retain = str(post.get("wpId", "")) not in BORDERLINE_REMOVALS and any(
         (
-            plural_mentions >= 4,
             sustained_names >= 2 and plural_mentions >= 2,
             has_collective_topic and plural_mentions >= 2,
             bool(re.search(r"\bGospels\b", title_or_description, re.IGNORECASE)),
@@ -105,10 +120,13 @@ def main() -> None:
     audit = {
         "keyword": KEYWORD,
         "criterion": (
-            "Retain for sustained collective discussion: at least four plural Gospels "
-            "mentions; at least two repeatedly named canonical Gospels plus two plural "
-            "mentions; a collective Gospel topic plus two plural mentions; or an explicit "
-            "plural Gospels reference in the title or description."
+            "Retain for sustained collective discussion: at least two repeatedly named "
+            "canonical Gospels plus two plural mentions; a collective Gospel topic plus "
+            "two plural mentions; or an explicit plural Gospels reference in the title "
+            "or description. Repeated use of the plural word alone is insufficient."
+            " Posts that passed these signals were also removed when a semantic review "
+            "found that the Gospels were incidental, limited to one Gospel, or secondary "
+            "to another central subject."
         ),
         "before": len(targets),
         "retained": len(retained),

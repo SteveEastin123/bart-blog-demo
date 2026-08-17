@@ -1,0 +1,716 @@
+{
+  "keyword": "Heaven",
+  "criterion": "Retain Heaven where heaven, a heavenly realm, ascent, postmortem destiny, or heavenly beings and locations materially support the post.",
+  "approvedRemovalPostIds": [
+    "12050",
+    "12413",
+    "12693",
+    "12916",
+    "14948",
+    "15451",
+    "15502",
+    "15609",
+    "15674",
+    "15680",
+    "15798",
+    "16206",
+    "16245",
+    "17159",
+    "17247",
+    "17749",
+    "17833",
+    "21260",
+    "22557",
+    "22945",
+    "23276",
+    "23678",
+    "23938",
+    "25436",
+    "26592",
+    "27664",
+    "28005",
+    "28010",
+    "28014",
+    "28208",
+    "29035",
+    "2925",
+    "30164",
+    "30857",
+    "32319",
+    "32441",
+    "33005",
+    "34494",
+    "34652",
+    "34664",
+    "35255",
+    "3661",
+    "36683",
+    "36819",
+    "37167",
+    "37428",
+    "38093",
+    "4428",
+    "4469",
+    "4543",
+    "4660",
+    "4667",
+    "47027",
+    "47176",
+    "47239",
+    "4799",
+    "4803",
+    "5067",
+    "6942",
+    "7348",
+    "7845",
+    "8049",
+    "8401",
+    "8610",
+    "8613",
+    "8713",
+    "9068",
+    "9070",
+    "9418"
+  ],
+  "before": 279,
+  "retained": 210,
+  "removed": 69,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "kingdomOfHeaven": 15,
+    "incidentalReference": 40,
+    "bookTitleAdministrativeOrIdiom": 14
+  },
+  "removedPosts": [
+    {
+      "wpId": "47239",
+      "title": "2 Thessalonians, The Modern State of Israel,  World War III, and the Return of Jesus",
+      "topics": [
+        "2 Thessalonians",
+        "Modern End-Times Interpretation"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47027",
+      "title": "Did Jesus Come to Bring Peace?",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Matthew's Use of Scripture",
+        "Gospel of Matthew"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "37428",
+      "title": "Could the Gospel of Thomas Be Q?  Could it Be Older Than the NT Gospels?",
+      "topics": [
+        "Gospel of Thomas",
+        "Q Source"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "37167",
+      "title": "Another Mythicist View of Jesus’ Brothers",
+      "topics": [
+        "James the Brother of Jesus",
+        "Mythicism",
+        "Jesus' Family Traditions",
+        "Acts of Thomas"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "36819",
+      "title": "Contradictions?  What Contradictions?  Harmonizing the Gospels.",
+      "topics": [
+        "Biblical Contradictions",
+        "Jewish Christian Gospels"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "36683",
+      "title": "Jesus, Sun Myung Moon, and Me: a Platinum Post from William Poe",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "35255",
+      "title": "Was Matthew Attacking Paul?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Paul and His Opponents"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "34664",
+      "title": "You Have No Right To Question Why You Suffer. What???",
+      "topics": [
+        "Book of Job",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "34652",
+      "title": "Creation Stories of the Ancient World (Part 1): On Enuma Elish and Genesis 1  Guest Post by Joseph Lam",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Genesis"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "34494",
+      "title": "The Voice at Jesus’ Baptism–An Intriguing Version in the Gospel of the Ebionites",
+      "topics": [
+        "Jewish Christian Gospels",
+        "Biblical Contradictions"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "33005",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "32441",
+      "title": "Why Did Christians Even Need a Canon of Scripture?",
+      "topics": [
+        "Canon Formation"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "30857",
+      "title": "Concerns for the Poor in the Jewish Tradition",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Charity and Altruism"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "30164",
+      "title": "Understanding the Future Resurrection of the Dead…",
+      "topics": [
+        "Resurrection of the Dead"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "29035",
+      "title": "Forgery for a General Audience",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "General-Audience Books"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "28208",
+      "title": "But Why Doesn’t Paul Say More About the Historical Jesus?",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "28014",
+      "title": "Why Cynics Thought Being Poor Was Ironically Better",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Afterlife Journeys"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "28010",
+      "title": "A Humorous Take on Wealth From a Great Satire of Antiquity",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Comparative Ancient Evidence",
+        "Afterlife Journeys"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "28005",
+      "title": "Should You Give Up All Your Possessions to Be Happy?  The Ancient Cynic View",
+      "topics": [
+        "Wealth and Poverty in Antiquity"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "27664",
+      "title": "Did Jesus Sweat Blood?  Another Problem with the NRSV",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "New Revised Standard Version (NRSV)",
+        "Translation Issues"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "26592",
+      "title": "How I Take Notes When Doing Research for a Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "25436",
+      "title": "Another Letter Written By Jesus?  Stranger and Stranger…",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "23938",
+      "title": "A Christian Is Not Necessarily a Disciple (Monthly Platinum Post: Douglas Wadeson)",
+      "topics": [
+        "Jesus' Teachings",
+        "Charity and Altruism",
+        "Jesus on Wealth and Poverty"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "23678",
+      "title": "Even Giants Have a Cross to Bear:  Platinum Post by Marie Wiley",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "23276",
+      "title": "A Christian is Not Necessarily a Disciple: Platinum Post by Douglas Wadeson",
+      "topics": [
+        "Jesus' Teachings",
+        "Jesus on Wealth and Poverty"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "22945",
+      "title": "How the Trinity Got Into the New Testament",
+      "topics": [
+        "Development of the Trinity",
+        "Johannine Epistles",
+        "Textual Variants",
+        "New Testament Manuscripts"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "22557",
+      "title": "An Apocryphal Story of Mary’s Conception of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "21260",
+      "title": "Our Most Important Gospel from Outside the NT: The Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17833",
+      "title": "Is The End Today???",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17749",
+      "title": "Smithsonian",
+      "topics": [
+        "Ignore"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17247",
+      "title": "Why Don’t You Just Believe?",
+      "topics": [
+        "Agnosticism",
+        "Atheism"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17159",
+      "title": "Is the Bible Inspired by God?  Guest Post by Evangelical Apologist Mike Licona",
+      "topics": [
+        "Biblical Inerrancy"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "16245",
+      "title": "Should the Old Testament Even Be in the Bible?",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Jewish Law and Torah",
+        "Marcion"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "16206",
+      "title": "Is the Old Testament a Christian Book?",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Christian Interpretation of Jewish Scripture"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15798",
+      "title": "How Does A Book Actually Get Published?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15609",
+      "title": "My Pod Cast Interview with Sam Harris",
+      "topics": [
+        "Media Interviews and Videos",
+        "Triumph of Christianity"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15680",
+      "title": "Did Jesus Write Anything in the New Testament?",
+      "topics": [
+        "Gospel of John",
+        "Woman Caught in Adultery"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15674",
+      "title": "Did Jesus Write a Letter to Joseph of Arimathea",
+      "topics": [
+        "Judas Iscariot",
+        "Non-Canonical Gospel Traditions"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15502",
+      "title": "How I Take Notes on What I Read for a Trade Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15451",
+      "title": "Thomas, the Synoptic Gospels, and Q",
+      "topics": [
+        "Gospel of Thomas",
+        "Q Source",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "14948",
+      "title": "Futuristic Interpretations of the Book of Revelation",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12916",
+      "title": "Fun with the Jewish Christian Gospels: A Blast from the Past",
+      "topics": [
+        "Jewish Christian Gospels",
+        "Non-Canonical Gospel Traditions",
+        "Early Christian Orthodoxy and Heresy"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12693",
+      "title": "Why Even Bother Being a Liberal Christian?",
+      "topics": [
+        "Personal Reflections"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12413",
+      "title": "What Really Happens With Group Visions",
+      "topics": [
+        "Visionary Experiences"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12050",
+      "title": "Jesus the Messiah Before the Resurrection",
+      "topics": [
+        "Messiah",
+        "Meaning of Jesus' Resurrection",
+        "Crucified Messiah"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "9418",
+      "title": "Jesus the Suffering Messiah",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "9070",
+      "title": "Did Scribes Add the Passage of the Bloody Sweat?",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "Marcion",
+        "Theologically Significant Variants"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "9068",
+      "title": "The Bloody Sweat and the Scribes Who Changed It",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "Gospel of Luke"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8713",
+      "title": "My Memory Book:  False Memories and the Life of Jesus",
+      "topics": [
+        "Gospel of John",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "8613",
+      "title": "Jesus, Matthew, and the Law",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "8610",
+      "title": "Is Paul at Odds with Matthew?",
+      "topics": [
+        "Gospel of Matthew",
+        "Paul on Jewish Law"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8049",
+      "title": "Textual Scholars as Technicians",
+      "topics": [
+        "Textual Criticism Methods"
+      ],
+      "reason": "Heaven appears only in a book title, announcement, list of subjects, or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "7845",
+      "title": "New Discovery of an Ancient Christian Amulet",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Manuscript Discoveries and Controversies"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "7348",
+      "title": "Why Doesn’t Paul Say More About Jesus?",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "6942",
+      "title": "The Beginning of Mark’s Gospel/Biography",
+      "topics": [
+        "Gospel of Mark"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "5067",
+      "title": "Jesus’ Brother and the Mythicists (Part 2)",
+      "topics": [
+        "James the Brother of Jesus",
+        "Mythicism",
+        "Jesus' Family Traditions",
+        "Acts of Thomas"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4803",
+      "title": "Harmonizing the Gospels",
+      "topics": [
+        "Biblical Contradictions",
+        "Jewish Christian Gospels"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4799",
+      "title": "Fun with the Jewish Christian Gospels",
+      "topics": [
+        "Jewish Christian Gospels"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4667",
+      "title": "More Arguments over Luke 3:22",
+      "topics": [
+        "Church Fathers as Textual Evidence",
+        "Scribal Changes",
+        "Textual Variants",
+        "Adoptionist Christology"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4660",
+      "title": "Church Fathers and the Voice at Jesus’ Baptism",
+      "topics": [
+        "Church Fathers as Textual Evidence",
+        "Adoptionist Christology"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4543",
+      "title": "The Prose Story of Job",
+      "topics": [
+        "Book of Job",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4469",
+      "title": "Was Matthew’s Community Gentile or Jewish?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "4428",
+      "title": "The Jewish Emphases of Matthew: Part 2",
+      "topics": [
+        "Early Judaism (General)",
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "3661",
+      "title": "In Favor of Demythologizing the Ethics of Jesus",
+      "topics": [
+        "Demythologizing the New Testament",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    },
+    {
+      "wpId": "2925",
+      "title": "The Resurrection as a Key to Early Understandings of Jesus",
+      "topics": [
+        "How Jesus Became God",
+        "Meaning of Jesus' Resurrection"
+      ],
+      "reason": "Heaven appears only as an incidental location, direction, formula, or detail in a quoted narrative rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47176",
+      "title": "Is Paul One of Matthew’s Enemies?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Paul and His Opponents"
+      ],
+      "reason": "The post uses Matthew's expression 'kingdom of heaven' for the kingdom of God but does not discuss heaven as a destination or realm."
+    }
+  ]
+}

@@ -1,0 +1,937 @@
+{
+  "keyword": "Gospel of John",
+  "criterion": "Remove approved cases where John denotes Revelation or another person, or where the Gospel appears only incidentally.",
+  "approvedRemovalPostIds": [
+    "10285",
+    "11498",
+    "11723",
+    "11729",
+    "12280",
+    "12345",
+    "12537",
+    "12830",
+    "12848",
+    "12916",
+    "13186",
+    "15508",
+    "15510",
+    "15523",
+    "15525",
+    "16003",
+    "16015",
+    "16018",
+    "21223",
+    "21281",
+    "21308",
+    "21924",
+    "22178",
+    "2512",
+    "2551",
+    "2624",
+    "26572",
+    "26586",
+    "26631",
+    "26760",
+    "26777",
+    "26903",
+    "27651",
+    "27798",
+    "28076",
+    "28916",
+    "29435",
+    "29438",
+    "29668",
+    "29672",
+    "29708",
+    "29776",
+    "29779",
+    "29782",
+    "31763",
+    "31890",
+    "31948",
+    "32529",
+    "32663",
+    "32667",
+    "3284",
+    "32874",
+    "33132",
+    "33813",
+    "34033",
+    "34472",
+    "3472",
+    "34738",
+    "34764",
+    "34830",
+    "3519",
+    "35255",
+    "35720",
+    "35878",
+    "36203",
+    "36814",
+    "37087",
+    "38938",
+    "40007",
+    "4177",
+    "47061",
+    "47159",
+    "4747",
+    "47811",
+    "47813",
+    "47849",
+    "47851",
+    "47853",
+    "47987",
+    "4799",
+    "47991",
+    "48954",
+    "48982",
+    "49197",
+    "5149",
+    "6578",
+    "7129",
+    "7896",
+    "8505",
+    "8526",
+    "9129",
+    "9167"
+  ],
+  "before": 515,
+  "retained": 423,
+  "removed": 92,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "revelation": 40,
+    "otherPeople": 28,
+    "incidental": 24
+  },
+  "removedPosts": [
+    {
+      "wpId": "49197",
+      "title": "A New Proof of the Resurrection.  What Do YOU Think?",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Public Debates"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "48982",
+      "title": "Has Luke Gotten Rid of the Idea That Jesus Died for Your Sins?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "47991",
+      "title": "For Further Reading:  Jude and Revelation",
+      "topics": [
+        "Book of Revelation",
+        "Letter of Jude"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47987",
+      "title": "The Revelation of John at a Glance, with Questions for Reflection",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47853",
+      "title": "Understanding the Book of Revelation as an Apocalypse",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47849",
+      "title": "The Book of Revelation: When and Why?",
+      "topics": [
+        "Book of Revelation",
+        "Roman World"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47813",
+      "title": "Why Most People Who Read Revelation Are Wrong About It",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47811",
+      "title": "The Book of Revelation in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "47159",
+      "title": "Do We Have the Lord’s Supper All Wrong?  Platinum Post by Douglas Wadeson MD",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "1 Corinthians"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "47061",
+      "title": "The Flukes of Life: How I Almost Never Became a Professor",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "40007",
+      "title": "More Lost Scriptures",
+      "topics": [
+        "Canon Formation"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "38938",
+      "title": "Other “Unknown” Sayings of Jesus",
+      "topics": [
+        "Apostolic Fathers",
+        "Jesus' Teachings"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "37087",
+      "title": "If Luke Didn’t Originally Have a Birth Story — Then What?",
+      "topics": [
+        "Christology in the Gospels",
+        "Marcion",
+        "Adoptionist Christology",
+        "Gospel of Luke",
+        "Original Text Questions"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "36814",
+      "title": "The Apocryphal Gospels By and For Jewish Christians",
+      "topics": [
+        "Jewish Christian Gospels"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "35720",
+      "title": "How Accurate Are Orally-Transmitted Reports? A Platinum Post From Imran M. Usmani",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "36203",
+      "title": "Is the USA the Antichrist of the Book of Revelation?  Slavic Views of the Apocalypse.  Guest Post by Mikhail Abakumov",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "35878",
+      "title": "Did Paul Get Along with the Other Apostles?",
+      "topics": [
+        "Paul and His Opponents",
+        "Paul in Acts"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "35255",
+      "title": "Was Matthew Attacking Paul?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Paul and His Opponents"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "34830",
+      "title": "Biblical Prophecy and the Coming Destruction of the Dome of the Rock",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "2 Thessalonians",
+        "Armageddon"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "34738",
+      "title": "Armageddon Has Arrived!",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "Armageddon"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "34764",
+      "title": "Pre-Pub Offer on My Book: ARMAGEDDON!",
+      "topics": [
+        "Armageddon",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "34472",
+      "title": "Did Mark Write Mark?  What the Apostolic Fathers Say",
+      "topics": [
+        "Apostolic Fathers",
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of Mark",
+        "Papias"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Martyrdom of Polycarp",
+        "Miracle Claims and Apologetics",
+        "Miraculous Martyrdom Traditions"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "33813",
+      "title": "Armageddon!  My New Book on the Revelation of John.",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation",
+        "Armageddon"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "33132",
+      "title": "Armageddon in Biden and the Bible",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "Armageddon"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "32874",
+      "title": "Big Questions for Studying the New Testament Gospels",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Canonical Gospels (General)"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "32667",
+      "title": "Do You Need the Holy Spirit to Interpret the Bible?",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "32663",
+      "title": "Did Ancient Writers Use Secretaries?",
+      "topics": [
+        "Ancient Literacy",
+        "Ancient Secretaries and Authorship"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "32529",
+      "title": "Problems in the Gospels–How do YOU Talk to Believers About Them?  What Do You Think?",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Biblical Contradictions"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "31890",
+      "title": "Reading Genesis—Are You Lost in Translation? Anniversary Guest Post by James Tabor",
+      "topics": [
+        "Genesis",
+        "Translation Issues"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "31763",
+      "title": "Does Luke Get Rid of the Atonement?",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "31948",
+      "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+      "topics": [
+        "James the Brother of Jesus",
+        "Galatians",
+        "Gospel of Mark"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "29782",
+      "title": "The Apocalypse of John and the Gospel of Jesus: My Final Thoughts",
+      "topics": [
+        "Book of Revelation",
+        "Jesus' Teachings"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29779",
+      "title": "John of Patmos and the Passion for World Domination",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29776",
+      "title": "Revelation and Ancient Views of Dominance",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Roman World",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29708",
+      "title": "If Revelation is All Symbolic, Why Would the Violence *Matter*?",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29672",
+      "title": "The Most Violent Passage in Revelation, in My View:",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29668",
+      "title": "Two of the Most Violent Passages in Revelation",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29438",
+      "title": "Is the Sacrificed Lamb of God Violent?  More Reflections on Revelation",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "29435",
+      "title": "Is the Apocalypse of John a Book of Hope?",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "28916",
+      "title": "Preface to My Book on Revelation: Expecting Armageddon",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "Armageddon"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "28076",
+      "title": "My New Great Courses Offering, Just Out!",
+      "topics": [
+        "Triumph of Christianity"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "27798",
+      "title": "Change the Context, Change the Meaning:  The Apocalypse!",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "27651",
+      "title": "Who Knew?  Our Oldest Commentary on the Book of Revelation",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "26903",
+      "title": "My New View of the Book of Revelation",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "26777",
+      "title": "Understanding the Apocalypse as an “Apocalypse”",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "26760",
+      "title": "Returning to the Whore of Babylon",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "21308",
+      "title": "An Interview about Heaven and Hell: American Freethought Podcast",
+      "topics": [
+        "Heaven and Hell",
+        "Media Interviews and Videos"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "26586",
+      "title": "Apocalypse (the genre) and Apocalypticism (the worldview)",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "26572",
+      "title": "The Book of Revelation and the END.   Starting at the Beginning.",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "22178",
+      "title": "Christian Manuscripts Used for Magic?",
+      "topics": [
+        "New Testament Manuscripts"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "21924",
+      "title": "The Number 666 in the Context of the Book of Revelation",
+      "topics": [
+        "Biblical Numerology",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "21281",
+      "title": "The Secret Message of the Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "21223",
+      "title": "The Calm and Collected Jesus",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Gospel of Mark",
+        "Gospel of Luke"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "16018",
+      "title": "Revelation as a Blueprint for our Future",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "16015",
+      "title": "- The Bart Ehrman Blog",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "16003",
+      "title": "The Odd Modern Way of Reading the Book of Revelation",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "15525",
+      "title": "The Lake of Fire in Revelation",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "15523",
+      "title": "The Afterlife in Revelation",
+      "topics": [
+        "Life After Death (General)",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "15510",
+      "title": "Symbolism in Revelation: The Whore of Babylon",
+      "topics": [
+        "Book of Revelation",
+        "Roman World"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "15508",
+      "title": "Overview of the Book of Revelation",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "13186",
+      "title": "Jesus’ Teaching About the Kingdom of God",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jesus' Teachings"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "12916",
+      "title": "Fun with the Jewish Christian Gospels: A Blast from the Past",
+      "topics": [
+        "Jewish Christian Gospels",
+        "Non-Canonical Gospel Traditions",
+        "Early Christian Orthodoxy and Heresy"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "12848",
+      "title": "Is There Evidence that Luke Originally Did Not Have the Story of Jesus Birth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "John the Baptist",
+        "Marcion"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "12830",
+      "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+      "topics": [
+        "Gnosticism (General)",
+        "Book of Daniel",
+        "Historical Methods (General)"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "12537",
+      "title": "The Life Story I Tell My Students",
+      "topics": [
+        "Autobiographical Posts",
+        "Fundamentalism"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "12345",
+      "title": "What We Now Know about the Manuscripts of the New Testament",
+      "topics": [
+        "New Testament Manuscripts"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "12280",
+      "title": "Leading up to the King James Translation",
+      "topics": [
+        "King James Version"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "11729",
+      "title": "How Did Ancient Writers Use Secretaries?  A Blast from the Past",
+      "topics": [
+        "Ancient Literacy",
+        "Ancient Secretaries and Authorship",
+        "1 Peter"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "11723",
+      "title": "Who Could Read and Write?  A Blast from the Past.",
+      "topics": [
+        "Ancient Literacy",
+        "1 Peter"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "11498",
+      "title": "Progressive Spirit Interview",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Media Interviews and Videos",
+        "Memory and Jesus Traditions"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "10285",
+      "title": "My First Interview on Jesus Before the Gospels",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Oral Tradition",
+        "Media Interviews and Videos",
+        "Memory and Jesus Traditions"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "9167",
+      "title": "Luke’s View of Jesus’ Death",
+      "topics": [
+        "Gospel of Luke"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "9129",
+      "title": "Magic and Manuscripts",
+      "topics": [
+        "New Testament Manuscripts"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "8526",
+      "title": "The Book of Revelation as an Apocalypse",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "8505",
+      "title": "Symbolism in the Book of Revelation",
+      "topics": [
+        "Biblical Numerology",
+        "Book of Revelation"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    },
+    {
+      "wpId": "7896",
+      "title": "Manuscripts and Christian Magic",
+      "topics": [
+        "New Testament Manuscripts"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "7129",
+      "title": "My Debate with Dinesh D’Souza on the Problem of Suffering",
+      "topics": [
+        "Public Debates",
+        "Problem of Evil and Suffering"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus",
+      "topics": [
+        "Courses and Teaching"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "Media Interviews and Videos"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "4799",
+      "title": "Fun with the Jewish Christian Gospels",
+      "topics": [
+        "Jewish Christian Gospels"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "4177",
+      "title": "Capernaum and the “Jesus Boat”",
+      "topics": [
+        "Archaeology and Material Evidence"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "3519",
+      "title": "Luke’s First Edition",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Luke",
+        "John the Baptist",
+        "Marcion",
+        "Adoptionist Christology"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "3472",
+      "title": "Genealogies of Matthew and Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "Gospel of Matthew"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "3284",
+      "title": "Lost Gospels That Are Still Lost 4: Q",
+      "topics": [
+        "Q Source",
+        "Synoptic Problem"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "2624",
+      "title": "My First Teaching Position",
+      "topics": [
+        "Academic Careers and University Life"
+      ],
+      "reason": "The Gospel of John appears only in a generic list, promotional reference, course outline, or brief incidental example."
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+      "topics": [
+        "Forgery (General)"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "2512",
+      "title": "Paul in Acts: Part 3",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Churches and Communities",
+        "Paul and His Opponents"
+      ],
+      "reason": "John refers to another person, such as John the Baptist, an apostle, a church father, or a modern individual."
+    },
+    {
+      "wpId": "26631",
+      "title": "Is the Book of Revelation a Revised Version of a Non-Christian Apocalypse? Guest Post by James Tabor",
+      "topics": [
+        "Book of Revelation",
+        "Jewish Apocalypticism",
+        "Source Criticism"
+      ],
+      "reason": "John refers to John of Patmos or the Apocalypse of John rather than to the Gospel of John."
+    }
+  ]
+}

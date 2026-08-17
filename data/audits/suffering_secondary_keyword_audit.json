@@ -1,0 +1,88 @@
+{
+  "keyword": "Suffering",
+  "criterion": "Retain Suffering when physical or emotional pain, persecution, grief, illness, injustice, or theological responses to suffering materially support the post.",
+  "approvedRemovalPostIds": [
+    "11510",
+    "16100",
+    "16236",
+    "16757",
+    "20749",
+    "22919",
+    "47217"
+  ],
+  "before": 200,
+  "retained": 193,
+  "removed": 7,
+  "previouslyRemoved": 0,
+  "removalCounts": {
+    "formulaOrIdiom": 2,
+    "introductoryOrList": 4,
+    "bibliographic": 1
+  },
+  "removedPosts": [
+    {
+      "wpId": "47217",
+      "title": "The Letter to the Colossians: Who, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Colossians"
+      ],
+      "reason": "Suffering appears only in introductory material, a brief list, or one part of a multi-question post rather than as a sustained subject."
+    },
+    {
+      "wpId": "22919",
+      "title": "The Blog Year in Review, 2020",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ],
+      "reason": "Suffering appears only in introductory material, a brief list, or one part of a multi-question post rather than as a sustained subject."
+    },
+    {
+      "wpId": "20749",
+      "title": "Bart’s Latest Attack on Christianity by Randy Alcorn",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Heaven and Hell",
+        "Media Coverage and Reviews"
+      ],
+      "reason": "Suffering appears only in a cited book title rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "16757",
+      "title": "If the Old Testament is Not Accurate — Where Did Israel Come From?",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Archaeology and Material Evidence"
+      ],
+      "reason": "Suffering appears only in introductory material, a brief list, or one part of a multi-question post rather than as a sustained subject."
+    },
+    {
+      "wpId": "16236",
+      "title": "Did Paul Really Write 2 Thessalonians?",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ],
+      "reason": "Suffering appears only in a formula or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "16100",
+      "title": "Contradictions in the Gospels – Rev Matthew Firth’s Second Response",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ],
+      "reason": "Suffering appears only in a formula or idiomatic expression rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "11510",
+      "title": "Jesus’ Death; Good Scholars; and Writing the First Book: Readers’ Mailbag May 28, 2016",
+      "topics": [
+        "Atonement (General)",
+        "Scholarly Research and Publishing",
+        "Writing and Publishing Process"
+      ],
+      "reason": "Suffering appears only in introductory material, a brief list, or one part of a multi-question post rather than as a sustained subject."
+    }
+  ]
+}
