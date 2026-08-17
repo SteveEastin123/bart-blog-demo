@@ -1,0 +1,363 @@
+{
+  "keyword": "Gospel of Thomas",
+  "criterion": "Retain when the Coptic sayings Gospel is a meaningful subject, source, comparison, historical witness, or sustained teaching example; remove references that concern the Infancy Gospel of Thomas, Acts of Thomas, or Thomas the apostle, as well as passing lists, brief comparisons, exam choices, and background details.",
+  "before": 88,
+  "retained": 62,
+  "removed": 26,
+  "retainedPosts": [
+    {
+      "wpId": "50329",
+      "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies"
+    },
+    {
+      "wpId": "50148",
+      "title": "2 Clement (one of the “Apostolic Fathers”) in a Nutshell"
+    },
+    {
+      "wpId": "46993",
+      "title": "The Birth of Christianity (My Other Class): Check Out the Writing Assignments!"
+    },
+    {
+      "wpId": "47086",
+      "title": "Evidence for Q: The Sequence of the Sayings"
+    },
+    {
+      "wpId": "40178",
+      "title": "Women and Gender: Early Christianity in a Patriarchal World"
+    },
+    {
+      "wpId": "40021",
+      "title": "What If Another Christianity Had Won?"
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities"
+    },
+    {
+      "wpId": "38868",
+      "title": "Was Jesus Opposed to Women and Childbirth?  The Lost Gospel of the Egyptians"
+    },
+    {
+      "wpId": "38328",
+      "title": "The Jesus Seminar and the Non-Apocalyptic Jesus. Hey, Why Not?"
+    },
+    {
+      "wpId": "37235",
+      "title": "What Is Actually In the Nag Hammadi Library?"
+    },
+    {
+      "wpId": "37167",
+      "title": "Another Mythicist View of Jesus’ Brothers"
+    },
+    {
+      "wpId": "36902",
+      "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor"
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?"
+    },
+    {
+      "wpId": "33135",
+      "title": "Can’t We Just Get Rid of Some of the Books of the Bible?"
+    },
+    {
+      "wpId": "33085",
+      "title": "More Interesting Topics in New Testament Studies.  Other Writing Assignments for my Undergrads"
+    },
+    {
+      "wpId": "32505",
+      "title": "How Did They Decide Which Books to Include in the New Testament Canon?"
+    },
+    {
+      "wpId": "27875",
+      "title": "The Massive Diversity of Early Christianity. My Book: Lost Christianities"
+    },
+    {
+      "wpId": "27166",
+      "title": "My Syllabus for “The Birth of Christianity”"
+    },
+    {
+      "wpId": "26387",
+      "title": "How Do We Know If Jesus Did Something?"
+    },
+    {
+      "wpId": "21255",
+      "title": "Gospel Questions and Problems"
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar"
+    },
+    {
+      "wpId": "21106",
+      "title": "Jesus in Scholarship and Film"
+    },
+    {
+      "wpId": "21086",
+      "title": "How Do You Know If Jesus Said That?"
+    },
+    {
+      "wpId": "21031",
+      "title": "What Is Gnosticism?"
+    },
+    {
+      "wpId": "20507",
+      "title": "Did Some *One* Forge the Writings of “John”? Guest Post by Hugo Mendez"
+    },
+    {
+      "wpId": "16606",
+      "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels"
+    },
+    {
+      "wpId": "16599",
+      "title": "The Scholarly Edition of the Apocryphal Gospels"
+    },
+    {
+      "wpId": "15417",
+      "title": "What Was Discovered in the Nag Hammadi Library?"
+    },
+    {
+      "wpId": "15342",
+      "title": "The Trickiest Criterion for Determining What Happened in the Life of Jesus"
+    },
+    {
+      "wpId": "15339",
+      "title": "An Important Criterion for Establishing What Actually Happened"
+    },
+    {
+      "wpId": "13706",
+      "title": "And Then There Was Q"
+    },
+    {
+      "wpId": "13336",
+      "title": "Another Translation Project:  The Apocryphal Gospels"
+    },
+    {
+      "wpId": "13232",
+      "title": "How Do We Know What Jesus Said or Did?  The Criterion of Dissimilarity in Practice"
+    },
+    {
+      "wpId": "12642",
+      "title": "Can (or Should) We Change the Canon of Scripture? A Blast from the Past"
+    },
+    {
+      "wpId": "12454",
+      "title": "Recent Manuscript Discoveries: A Blast from the Past"
+    },
+    {
+      "wpId": "12253",
+      "title": "How We Got the New Testament (and not some other books!)"
+    },
+    {
+      "wpId": "10312",
+      "title": "My Recitation Debates"
+    },
+    {
+      "wpId": "9109",
+      "title": "Back to the Forgery of the Gospel of Jesus’ Wife"
+    },
+    {
+      "wpId": "8887",
+      "title": "The Contents of the Nag Hammadi Library"
+    },
+    {
+      "wpId": "8736",
+      "title": "The Community Behind the Gospel of John"
+    },
+    {
+      "wpId": "8591",
+      "title": "Q and the Passion Narrative"
+    },
+    {
+      "wpId": "8571",
+      "title": "The Lost Q Source"
+    },
+    {
+      "wpId": "8476",
+      "title": "My UNC Seminar Tomorrow"
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)"
+    },
+    {
+      "wpId": "7688",
+      "title": "The Other Gospels: The Trade Book Version"
+    },
+    {
+      "wpId": "7686",
+      "title": "Apocryphal Gospels: The Scholarly Version"
+    },
+    {
+      "wpId": "6690",
+      "title": "The Jesus Seminar and John the Baptist"
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament"
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus"
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament"
+    },
+    {
+      "wpId": "5072",
+      "title": "Upcoming Lectures at the Smithsonian"
+    },
+    {
+      "wpId": "5067",
+      "title": "Jesus’ Brother and the Mythicists (Part 2)"
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha"
+    },
+    {
+      "wpId": "4711",
+      "title": "Back To School!   My Jesus Syllabus"
+    },
+    {
+      "wpId": "4014",
+      "title": "More on Recent Manuscript Discoveries"
+    },
+    {
+      "wpId": "3284",
+      "title": "Lost Gospels That Are Still Lost 4: Q"
+    },
+    {
+      "wpId": "3216",
+      "title": "The Apocryphal Gospels: Texts and Translations"
+    },
+    {
+      "wpId": "3059",
+      "title": "The Gospel of Jesus’ Wife: Another New Development"
+    },
+    {
+      "wpId": "2826",
+      "title": "Is the New Gospel Fragment a Modern Forgery?"
+    },
+    {
+      "wpId": "2274",
+      "title": "Q & A with Ben Witherington: Part 5"
+    },
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2"
+    },
+    {
+      "wpId": "2240",
+      "title": "Should We Change the Canon of Scripture?"
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "37565",
+      "title": "How the Canon Itself Tames the Diversity of the New Testament"
+    },
+    {
+      "wpId": "37380",
+      "title": "The Gospel of Philip: An Example of a Valentinian Gnostic Gospel"
+    },
+    {
+      "wpId": "35410",
+      "title": "How Can We Get Behind “False Memories” of Jesus to the Historical Facts?"
+    },
+    {
+      "wpId": "35188",
+      "title": "And Here’s My Final Exam on The Birth of Christianity"
+    },
+    {
+      "wpId": "35182",
+      "title": "Wanna Take My Final Exam In New Testament?"
+    },
+    {
+      "wpId": "33548",
+      "title": "Our Platinum Webinar:  The Infancy Gospels!"
+    },
+    {
+      "wpId": "33026",
+      "title": "What’s It Like to Teach at a Research University?"
+    },
+    {
+      "wpId": "30975",
+      "title": "Thomas’s Trip to India and the Problem of Wealth"
+    },
+    {
+      "wpId": "12391",
+      "title": "Why I Am Not A Christian: Is Bart Ehrman a Christian?"
+    },
+    {
+      "wpId": "22087",
+      "title": "The Gospel of Mary Magdalene"
+    },
+    {
+      "wpId": "21300",
+      "title": "Jesus’ Twin Brother?  Really?  Readers’ Mailbag"
+    },
+    {
+      "wpId": "21223",
+      "title": "The Calm and Collected Jesus"
+    },
+    {
+      "wpId": "21220",
+      "title": "The Earliest Infancy Gospel:  Some of the Critical Problems"
+    },
+    {
+      "wpId": "21214",
+      "title": "Jesus as a Boy?   The Infancy Gospel of Thomas"
+    },
+    {
+      "wpId": "12262",
+      "title": "What About the Apocrypha?"
+    },
+    {
+      "wpId": "12110",
+      "title": "A Different Interpretation of the Mischievous Boy, Jesus"
+    },
+    {
+      "wpId": "12107",
+      "title": "Jesus the Superboy: A Blast From the Past"
+    },
+    {
+      "wpId": "8932",
+      "title": "Taming the Diversity of the New Testament"
+    },
+    {
+      "wpId": "8269",
+      "title": "Why Are the Gospels Anonymous?"
+    },
+    {
+      "wpId": "6417",
+      "title": "Infancy Gospel of Thomas: The Technical vs. the Interesting"
+    },
+    {
+      "wpId": "6409",
+      "title": "Taking Jesus the Wunderkind Seriously"
+    },
+    {
+      "wpId": "6402",
+      "title": "Jesus: L’enfant terrible?"
+    },
+    {
+      "wpId": "5016",
+      "title": "When Time Stood Still"
+    },
+    {
+      "wpId": "4927",
+      "title": "Colbert on his Hero O’Reilly"
+    },
+    {
+      "wpId": "2259",
+      "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center"
+    },
+    {
+      "wpId": "2036",
+      "title": "The Work of a Professional Scholar 4: Undergraduate Courses"
+    }
+  ]
+}

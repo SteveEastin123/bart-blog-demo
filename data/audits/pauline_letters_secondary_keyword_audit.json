@@ -1,0 +1,483 @@
+{
+  "keyword": "Pauline Letters",
+  "criterion": "Retain or add when Paul's letters as a corpus, an individual Pauline letter, its composition or textual history, or evidence drawn substantially from the letters is important to the post. Remove incidental course titles, source lists, comparisons, prior-thread references, and examples that do not materially contribute to the post's discussion.",
+  "before": 84,
+  "after": 102,
+  "retained": 69,
+  "removed": 15,
+  "added": 33,
+  "retainedPosts": [
+    {
+      "wpId": "2561",
+      "title": "Ancient Secretaries (Part 1)"
+    },
+    {
+      "wpId": "4753",
+      "title": "Problems with Luke as the Author of Luke"
+    },
+    {
+      "wpId": "4763",
+      "title": "Not for the Faint of Heart (Authorship of Colossians)"
+    },
+    {
+      "wpId": "7451",
+      "title": "Are There Two Letters to the Philippians?"
+    },
+    {
+      "wpId": "7459",
+      "title": "Dictation of Letters: More Complications for Knowing an “Original” Text"
+    },
+    {
+      "wpId": "8334",
+      "title": "Pauline Forgeries:  2 Thessalonians as a Test Case"
+    },
+    {
+      "wpId": "8341",
+      "title": "2 Thessalonians: The History of the Discussion"
+    },
+    {
+      "wpId": "8353",
+      "title": "The Writing Style of 2 Thessalonians"
+    },
+    {
+      "wpId": "8560",
+      "title": "Lost Christian Writings: The Letters of Paul"
+    },
+    {
+      "wpId": "8563",
+      "title": "Why I Wish We Had More of Paul’s Letters"
+    },
+    {
+      "wpId": "8599",
+      "title": "Lost Letters of Paul’s Opponents"
+    },
+    {
+      "wpId": "8605",
+      "title": "Paul’s Christian Enemies:  Galatians"
+    },
+    {
+      "wpId": "9485",
+      "title": "Weekly Readers’ Mailbag:  January 16, 2016"
+    },
+    {
+      "wpId": "10984",
+      "title": "The Letters of Paul: Mailbag April 1, 2016"
+    },
+    {
+      "wpId": "11493",
+      "title": "The Accuracy of Paul’s Letter to the Galatians"
+    },
+    {
+      "wpId": "11729",
+      "title": "How Did Ancient Writers Use Secretaries?  A Blast from the Past"
+    },
+    {
+      "wpId": "14685",
+      "title": "My Long Favorite Pauline Letter: Philippians"
+    },
+    {
+      "wpId": "16238",
+      "title": "2 Thessalonians: When Scholars Began To Doubt It Was Authentic"
+    },
+    {
+      "wpId": "16254",
+      "title": "2 Thessalonians as a Forgery?  Does the Author “Write” Like Paul?"
+    },
+    {
+      "wpId": "16388",
+      "title": "The Close Connections of James and Paul"
+    },
+    {
+      "wpId": "16404",
+      "title": "Is the Author of James Rejecting Paul Himself?"
+    },
+    {
+      "wpId": "16417",
+      "title": "Why Did the Author of James Claim to be James in Particular?"
+    },
+    {
+      "wpId": "17487",
+      "title": "Problems with Thinking That Luke Wrote Luke (and Acts)"
+    },
+    {
+      "wpId": "17494",
+      "title": "Did Paul Write Colossians? According to Most Scholars No – Paul did Not Write Colossians"
+    },
+    {
+      "wpId": "22288",
+      "title": "Could Paul’s Letter to the Philippians be TWO Letters?"
+    },
+    {
+      "wpId": "22325",
+      "title": "Paul Dictated His Letters: How Does *That* Complicate Finding an Original?"
+    },
+    {
+      "wpId": "24528",
+      "title": "Lost Christian Writings I’d Love to Get My Hands On!"
+    },
+    {
+      "wpId": "24800",
+      "title": "The Importance of What Is Lost: Paul’s Letters"
+    },
+    {
+      "wpId": "28304",
+      "title": "What We KNOW about Jesus.  Platinum guest post by Dan Kohanski"
+    },
+    {
+      "wpId": "31181",
+      "title": "Did Paul Write “Paul’s Letter to the Ephesians”?"
+    },
+    {
+      "wpId": "32502",
+      "title": "Writings of the Apostles in the Canon of the New Testament"
+    },
+    {
+      "wpId": "32663",
+      "title": "Did Ancient Writers Use Secretaries?"
+    },
+    {
+      "wpId": "38564",
+      "title": "Facts Hidden Among the Legends of the Apostle Paul?"
+    },
+    {
+      "wpId": "38583",
+      "title": "The Heretic Marcion and Forgeries of Pauline Letters"
+    },
+    {
+      "wpId": "38596",
+      "title": "Paul’s *THIRD* Letter to the Corinthians?  A Very Interesting Forgery"
+    },
+    {
+      "wpId": "38600",
+      "title": "Did Paul Exchange Letters with the Greatest Roman Philosopher of His Day??"
+    },
+    {
+      "wpId": "38610",
+      "title": "Paul’s Letter to the … Laodiceans?  Long Thought to be Part of the New Testament!"
+    },
+    {
+      "wpId": "38802",
+      "title": "What Did Paul’s Christian Enemies Write About Him?"
+    },
+    {
+      "wpId": "38840",
+      "title": "Among Paul’s Enemies…."
+    },
+    {
+      "wpId": "39648",
+      "title": "Is Paul’s Letter to the Philippians Actually Two Letters Cut and Spliced Together?"
+    },
+    {
+      "wpId": "39718",
+      "title": "Even More Snarly Problems If Paul Dictated His Letters"
+    },
+    {
+      "wpId": "40440",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor"
+    },
+    {
+      "wpId": "40572",
+      "title": "Paul and the Anachronistic Origins of Early Christianity – Part 1 by Dr. Robyn Faith Walsh"
+    },
+    {
+      "wpId": "46922",
+      "title": "Paul’s Letter to the Romans “At a Glance,” and Questions for Reflection"
+    },
+    {
+      "wpId": "46974",
+      "title": "Is 1 Peter More Like 1 Paul?"
+    },
+    {
+      "wpId": "46985",
+      "title": "Couldn’t 1 and 2 Peter Have Been Written By Peter’s Secretaries?"
+    },
+    {
+      "wpId": "47118",
+      "title": "The Significance and Letters of Paul, in a Nutshell"
+    },
+    {
+      "wpId": "47122",
+      "title": "Paul’s Life and Letters:  For Further Reading"
+    },
+    {
+      "wpId": "47124",
+      "title": "Paul’s Letter to the Romans: For Further Reading"
+    },
+    {
+      "wpId": "47152",
+      "title": "1 Corinthians in a Nutshell"
+    },
+    {
+      "wpId": "47153",
+      "title": "1 Corinthians: For Further Reading"
+    },
+    {
+      "wpId": "47163",
+      "title": "Taking 2 Corinthians to Pieces…."
+    },
+    {
+      "wpId": "47165",
+      "title": "2 Corinthians: For Further Reading"
+    },
+    {
+      "wpId": "47175",
+      "title": "Galatians: For Further Reading"
+    },
+    {
+      "wpId": "47187",
+      "title": "Ephesians:  For Further Reading"
+    },
+    {
+      "wpId": "47195",
+      "title": "Does a Different “Writing Style” Show (convincingly?) That Ephesians is a “Forgery”?"
+    },
+    {
+      "wpId": "47202",
+      "title": "Philippians: For Further Reading"
+    },
+    {
+      "wpId": "47218",
+      "title": "Colossians: For Further Reading"
+    },
+    {
+      "wpId": "47219",
+      "title": "Did Paul Write That Letter?  Getting Into the Weeds…"
+    },
+    {
+      "wpId": "47230",
+      "title": "1 Thessalonians.  For Further Reading"
+    },
+    {
+      "wpId": "47238",
+      "title": "2 Thessalonians: For Further Reading"
+    },
+    {
+      "wpId": "47272",
+      "title": "Paul’s Letter to Philemon: For Further Reading"
+    },
+    {
+      "wpId": "47276",
+      "title": "Paul and His Most Famous Woman Disciple"
+    },
+    {
+      "wpId": "47530",
+      "title": "The DeuteroPauline Epistles “At a Glance,” With Questions for Reflection"
+    },
+    {
+      "wpId": "47671",
+      "title": "Does Jude Attack Pauline Christians?"
+    },
+    {
+      "wpId": "48614",
+      "title": "Rarely Asked Questions About Why THESE Letters of Paul Are in the Canon"
+    },
+    {
+      "wpId": "49069",
+      "title": "Do the Synoptics Present an Early Character of the Jesus Movement?  –Platinum Post by Ryan Fleming"
+    },
+    {
+      "wpId": "49288",
+      "title": "Paul’s Lost Letters"
+    },
+    {
+      "wpId": "49293",
+      "title": "Why in Particular I’d Love to Get my Grubby Paws on Paul’s Lost Letters"
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)"
+    },
+    {
+      "wpId": "8571",
+      "title": "The Lost Q Source"
+    },
+    {
+      "wpId": "8626",
+      "title": "My New Project on Memory"
+    },
+    {
+      "wpId": "8821",
+      "title": "The Lost Writings of Papias"
+    },
+    {
+      "wpId": "10312",
+      "title": "My Recitation Debates"
+    },
+    {
+      "wpId": "11748",
+      "title": "Why Scholars Aren’t Trained To Write Trade Books"
+    },
+    {
+      "wpId": "12739",
+      "title": "Teaching about How The Bible Explains Suffering"
+    },
+    {
+      "wpId": "15818",
+      "title": "The Aberrant View of the Afterlife in the Apocalypse of Peter"
+    },
+    {
+      "wpId": "17551",
+      "title": "A Graphic Novel (Textbook) on the New Testament!"
+    },
+    {
+      "wpId": "26011",
+      "title": "The Spirit in the Life of Jesus"
+    },
+    {
+      "wpId": "46934",
+      "title": "Does the Book of Hebrews Indicate Jesus Ever Came To Earth?  A Response to Richard Carrier."
+    },
+    {
+      "wpId": "47188",
+      "title": "Can We Trust You When You Say “Most Scholars” Think Something?"
+    },
+    {
+      "wpId": "47215",
+      "title": "Some Interesting Questions of the Week"
+    },
+    {
+      "wpId": "48295",
+      "title": "A Glimpse of Proto-orthodox Views in the Letters of Ignatius"
+    },
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!"
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "2492",
+      "title": "Paul in Acts: Part 2"
+    },
+    {
+      "wpId": "4519",
+      "title": "Paul’s Chronology"
+    },
+    {
+      "wpId": "6919",
+      "title": "Was Jesus Inserted Into Paul’s Letters?"
+    },
+    {
+      "wpId": "9022",
+      "title": "Paul’s Letter to the Thessalonians"
+    },
+    {
+      "wpId": "9303",
+      "title": "Readers’ Mailbag November 20, 2015"
+    },
+    {
+      "wpId": "12118",
+      "title": "Cephas and Peter in the Writings of Paul (Who Knew Them)"
+    },
+    {
+      "wpId": "14674",
+      "title": "Is 2 Corinthians *FIVE* Letters?"
+    },
+    {
+      "wpId": "14690",
+      "title": "More Cutting and Pasting?  Paul’s Letter to the Philippians"
+    },
+    {
+      "wpId": "15151",
+      "title": "Does Paul Condemn Slavery?   The Case of Philemon and Onesimus."
+    },
+    {
+      "wpId": "22271",
+      "title": "Do We Have Paul’s Original Letter to the Philippians?"
+    },
+    {
+      "wpId": "25893",
+      "title": "Several Letters in One?  What about Second Corinthians?"
+    },
+    {
+      "wpId": "29621",
+      "title": "Does Paul Condemn Slavery?  The Surprising Answer–Paul and Philemon"
+    },
+    {
+      "wpId": "33349",
+      "title": "Do We KNOW What Paul Wrote?  If You Think So, Answer This…."
+    },
+    {
+      "wpId": "35689",
+      "title": "The Pauline Style and a Discussion About Paul’s Motivation. A Platinum Post From Omar Robb"
+    },
+    {
+      "wpId": "35878",
+      "title": "Did Paul Get Along with the Other Apostles?"
+    },
+    {
+      "wpId": "37572",
+      "title": "How Paul’s Own Writings Show the Earliest Church Was Split Over “Orthodoxy” and “Heresy”"
+    },
+    {
+      "wpId": "39286",
+      "title": "Did Paul Favor Gender Equality?"
+    },
+    {
+      "wpId": "39578",
+      "title": "Is Paul’s Second Letter to the Corinthians Actually TWO Letters?"
+    },
+    {
+      "wpId": "39593",
+      "title": "Is Paul’s Second Letter to the Corinthians Actually FIVE Letters?"
+    },
+    {
+      "wpId": "39723",
+      "title": "Serious Hypothetical (And Realistically Possible) Problems With Copies of Paul’s Letters"
+    },
+    {
+      "wpId": "40576",
+      "title": "Paul and the Anachronistic Origins of Early Christianity – Part 2 by Dr. Robyn Faith Walsh"
+    },
+    {
+      "wpId": "46994",
+      "title": "Paul’s Letter to the Galatians “At a Glance” and Questions for Reflection"
+    },
+    {
+      "wpId": "47001",
+      "title": "Paul’s Letters to the Philippians and to Philemon, “At a Glance” and with Questions for Reflection"
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell"
+    },
+    {
+      "wpId": "47131",
+      "title": "The Letter to the Romans: Who, When, and Why?"
+    },
+    {
+      "wpId": "47155",
+      "title": "1 Corinthians:  Who, When, and Why?"
+    },
+    {
+      "wpId": "47164",
+      "title": "2 Corinthians: Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "47169",
+      "title": "Galatians:  Who, When, and Why?"
+    },
+    {
+      "wpId": "47189",
+      "title": "Some Important Questions From Blog Readers"
+    },
+    {
+      "wpId": "47197",
+      "title": "Philippians: Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "47208",
+      "title": "Some Intriguing Questions about Paul’s Letters"
+    },
+    {
+      "wpId": "47565",
+      "title": "Questions on Forgeries, Historical Errors, and Alterations of Texts!"
+    },
+    {
+      "wpId": "49897",
+      "title": "Questions on Proving the Resurrection and Sundry Other Things"
+    }
+  ]
+}

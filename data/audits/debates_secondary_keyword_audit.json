@@ -1,0 +1,387 @@
+{
+  "keyword": "Debates",
+  "criterion": "Retain for formal public or classroom debates, direct responses to debate arguments, and sustained historical or scholarly controversies; remove from posts that merely discuss a disputed subject, present an argument, or mention debate incidentally.",
+  "before": 94,
+  "retained": 35,
+  "removed": 59,
+  "removedPosts": [
+    {
+      "wpId": "1945",
+      "title": "What Do Tectonic Plates Have To Do With Suffering?"
+    },
+    {
+      "wpId": "1984",
+      "title": "The Text of the New Testament:  Are the Textual Traditions of Other Ancient Works Relevant?"
+    },
+    {
+      "wpId": "1990",
+      "title": "For the “Original” Text: What Kinds of Manuscripts Would We Need?"
+    },
+    {
+      "wpId": "2155",
+      "title": "Question: Would I Be Personally Devastated if the Mythicists Were Right?"
+    },
+    {
+      "wpId": "2352",
+      "title": "Helping Charity and Improving My Blog"
+    },
+    {
+      "wpId": "3559",
+      "title": "How to Date Documents, including Barnabas"
+    },
+    {
+      "wpId": "4218",
+      "title": "Qumran and Masada"
+    },
+    {
+      "wpId": "6285",
+      "title": "Errant Texts and Historians"
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus"
+    },
+    {
+      "wpId": "6632",
+      "title": "Final Bit of The Introduction to After the New Testament"
+    },
+    {
+      "wpId": "7204",
+      "title": "Interview on Trinities.org on How Jesus Became God Part 2"
+    },
+    {
+      "wpId": "7360",
+      "title": "Interview for The Skeptic Fence Show"
+    },
+    {
+      "wpId": "7580",
+      "title": "Another Anecdote about Being Consistently Critical"
+    },
+    {
+      "wpId": "8022",
+      "title": "My Training as a Textual Critic"
+    },
+    {
+      "wpId": "8155",
+      "title": "My New Discussion of Gnosticism: Introduction"
+    },
+    {
+      "wpId": "8447",
+      "title": "How Accurate Are our Earliest NT Manuscripts?"
+    },
+    {
+      "wpId": "8659",
+      "title": "Ramblings on Charity and Religion"
+    },
+    {
+      "wpId": "9084",
+      "title": "Arguments that We Have the Original Text"
+    },
+    {
+      "wpId": "9086",
+      "title": "What Is the “Original” Text?"
+    },
+    {
+      "wpId": "9112",
+      "title": "Back to the Question:  The Orthodox Corruption of Scripture"
+    },
+    {
+      "wpId": "9122",
+      "title": "Why Intentional Changes of the Text Might Matter"
+    },
+    {
+      "wpId": "9150",
+      "title": "How Consistent are Orthodox Corruptions of Scripture?"
+    },
+    {
+      "wpId": "9190",
+      "title": "Luke’s Last Supper and Orthodox Corruptions of Scripture"
+    },
+    {
+      "wpId": "9194",
+      "title": "Are Their Any Completely Anti-Heretical Manuscripts?"
+    },
+    {
+      "wpId": "9384",
+      "title": "Does Paul Know about Judas Iscariot?"
+    },
+    {
+      "wpId": "9508",
+      "title": "Jesus and the Son of Man"
+    },
+    {
+      "wpId": "10049",
+      "title": "The Son of God, the Council of Nicea, and the Da Vinci Code"
+    },
+    {
+      "wpId": "10261",
+      "title": "Christ as Son of God in Mark’s Gospel"
+    },
+    {
+      "wpId": "12013",
+      "title": "What If the Mythicists Were Right:  Mailbag November 6, 2016"
+    },
+    {
+      "wpId": "12253",
+      "title": "How We Got the New Testament (and not some other books!)"
+    },
+    {
+      "wpId": "12381",
+      "title": "Views of the Afterlife"
+    },
+    {
+      "wpId": "12531",
+      "title": "The Text of the New Testament:  Are the Textual Traditions of Other Ancient Works Relevant?  A Blast From the Past"
+    },
+    {
+      "wpId": "12737",
+      "title": "Is Suffering Our Fault?"
+    },
+    {
+      "wpId": "14258",
+      "title": "Is the Christmas Story a Myth?"
+    },
+    {
+      "wpId": "14930",
+      "title": "My Interview with Michael Shermer"
+    },
+    {
+      "wpId": "16248",
+      "title": "How “Jews” Became “Children of the Devil” in the New Testament"
+    },
+    {
+      "wpId": "17291",
+      "title": "Does the New Testament Condemn “Homosexuals”?"
+    },
+    {
+      "wpId": "20014",
+      "title": "Do We NEED to Suffer?  The Argument from Tectonic Plates"
+    },
+    {
+      "wpId": "20504",
+      "title": "Reason and Theology – Heaven, Hell and the Afterlife"
+    },
+    {
+      "wpId": "20660",
+      "title": "Views of Suffering Among Those Who Suffer"
+    },
+    {
+      "wpId": "21031",
+      "title": "What Is Gnosticism?"
+    },
+    {
+      "wpId": "22174",
+      "title": "Why Scribes Changed Their Manuscripts"
+    },
+    {
+      "wpId": "24309",
+      "title": "Where Did the Trinity Come From?  The (Briefer) Video Version"
+    },
+    {
+      "wpId": "24790",
+      "title": "What Is Gnosticism?   A Video Introduction"
+    },
+    {
+      "wpId": "25638",
+      "title": "How Did the Holy Spirit Get Into the Trinity?  In the Beginning…."
+    },
+    {
+      "wpId": "26327",
+      "title": "The Trinity!  A Final Summation"
+    },
+    {
+      "wpId": "33030",
+      "title": "Would I Be Personally Upset if the Mythicists Were Right (That Jesus Never Existed)?"
+    },
+    {
+      "wpId": "33085",
+      "title": "More Interesting Topics in New Testament Studies.  Other Writing Assignments for my Undergrads"
+    },
+    {
+      "wpId": "36605",
+      "title": "Why Do Some (Many?) Scholars Not Treat the Bible Like Other Ancient Sources?"
+    },
+    {
+      "wpId": "37308",
+      "title": "Some of the Difficulties in Understanding Gnosticism"
+    },
+    {
+      "wpId": "38645",
+      "title": "Important Literary Features of the Book of Acts"
+    },
+    {
+      "wpId": "39468",
+      "title": "Is There an Original Text Even of One of MY Books??"
+    },
+    {
+      "wpId": "39477",
+      "title": "Dubious Arguments That We CAN Get to the “Original Text”"
+    },
+    {
+      "wpId": "40007",
+      "title": "More Lost Scriptures"
+    },
+    {
+      "wpId": "40657",
+      "title": "Why Were Some of the Earliest Christian Books Left OUT of the NT?"
+    },
+    {
+      "wpId": "47169",
+      "title": "Galatians:  Who, When, and Why?"
+    },
+    {
+      "wpId": "48090",
+      "title": "How Do You Date a Book Such as Barnabas?"
+    },
+    {
+      "wpId": "48800",
+      "title": "How and When Did Christians Decide What Should Be in the New Testament Canon?"
+    },
+    {
+      "wpId": "49694",
+      "title": "A Common But Lousy Argument That We KNOW What the NT Originally Said: Anniversary Post #14"
+    }
+  ],
+  "retainedPosts": [
+    {
+      "wpId": "49197",
+      "title": "A New Proof of the Resurrection.  What Do YOU Think?"
+    },
+    {
+      "wpId": "48266",
+      "title": "Why I Don’t Like Public Debates"
+    },
+    {
+      "wpId": "47289",
+      "title": "Fundamentalist Apologists, Christian and Mythicist"
+    },
+    {
+      "wpId": "41656",
+      "title": "Can We Defend Destroying Mummy Masks?"
+    },
+    {
+      "wpId": "40127",
+      "title": "More Major Issues Confronting the Early Christians."
+    },
+    {
+      "wpId": "36282",
+      "title": "Does It Even Matter If Jesus Was Given a Proper Burial?"
+    },
+    {
+      "wpId": "36215",
+      "title": "Back to Whether Jesus Was Really Given a Decent Burial"
+    },
+    {
+      "wpId": "21433",
+      "title": "The Original Blog Post!!  Misquoting Misquoting Jesus!"
+    },
+    {
+      "wpId": "17159",
+      "title": "Is the Bible Inspired by God?  Guest Post by Evangelical Apologist Mike Licona"
+    },
+    {
+      "wpId": "15635",
+      "title": "Early Debates about the Gospel of Peter"
+    },
+    {
+      "wpId": "11294",
+      "title": "My Debate with Richard Bauckham – Round 2"
+    },
+    {
+      "wpId": "11302",
+      "title": "The Fear of Hell, Good Debaters, and the Name of God: Mailbag April 22, 2016"
+    },
+    {
+      "wpId": "11081",
+      "title": "Evaluating My Debate on the Book of Acts"
+    },
+    {
+      "wpId": "10402",
+      "title": "Bart Ehrman vs Tim McGrew – Round 2"
+    },
+    {
+      "wpId": "10576",
+      "title": "The Book of Acts: An Overview"
+    },
+    {
+      "wpId": "10321",
+      "title": "Were Paul’s Views of Women Oppressive?"
+    },
+    {
+      "wpId": "10318",
+      "title": "Do Paul and Jesus Represent Fundamentally Different Religions?"
+    },
+    {
+      "wpId": "10312",
+      "title": "My Recitation Debates"
+    },
+    {
+      "wpId": "10046",
+      "title": "My Debate This Past Weekend"
+    },
+    {
+      "wpId": "9674",
+      "title": "Upcoming Debate!"
+    },
+    {
+      "wpId": "9029",
+      "title": "Ehrman Licona Debate – Prove Jesus Rose from Dead"
+    },
+    {
+      "wpId": "9125",
+      "title": "Debate in Dallas on Friday"
+    },
+    {
+      "wpId": "8901",
+      "title": "Kickstarting a Debate"
+    },
+    {
+      "wpId": "8433",
+      "title": "Defending the Destruction of Mummy Masks"
+    },
+    {
+      "wpId": "8408",
+      "title": "Defending Myself"
+    },
+    {
+      "wpId": "7541",
+      "title": "Jesus Burial: My Personal Stake in the Question"
+    },
+    {
+      "wpId": "7531",
+      "title": "New Thread on the Burial of Jesus"
+    },
+    {
+      "wpId": "7170",
+      "title": "Media: How Jesus became God – Ehrman vs Gathercole Pt 2"
+    },
+    {
+      "wpId": "7141",
+      "title": "Radio Debate on How Jesus became God: Part 1"
+    },
+    {
+      "wpId": "6444",
+      "title": "2009 Debate With Mike Licona: Can Historians Prove the Resurrection of Jesus?"
+    },
+    {
+      "wpId": "6104",
+      "title": "Video: Ehrman & Evans 2012 Debate – Part 2"
+    },
+    {
+      "wpId": "5707",
+      "title": "Carrier, Bayes Theorem, and Jesus’ Existence"
+    },
+    {
+      "wpId": "4277",
+      "title": "More on Jews, Christians, and the Battle for Scripture"
+    },
+    {
+      "wpId": "3666",
+      "title": "Against Demythologizing the Ethics of Jesus"
+    },
+    {
+      "wpId": "2199",
+      "title": "My Views on Suffering Are Not Held by Those Who Suffer"
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "keyword": "Gospel of Peter",
+  "criterion": "Retain or add when the Gospel of Peter is a meaningful source, case study, text under analysis, or sustained supporting example. Remove passing comparisons, generic lists of non-canonical works, syllabus and reading-list mentions, prior-thread references, and brief examples that do not materially advance the post's argument.",
+  "before": 84,
+  "after": 37,
+  "retained": 31,
+  "removed": 53,
+  "added": 6,
+  "retainedPosts": [
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2"
+    },
+    {
+      "wpId": "3032",
+      "title": "Was Jesus Given a Decent Burial (By Joseph of Arimathea)"
+    },
+    {
+      "wpId": "4273",
+      "title": "The Next Trade Book: Jews and Christians"
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha"
+    },
+    {
+      "wpId": "4893",
+      "title": "Jesus Position Papers"
+    },
+    {
+      "wpId": "5072",
+      "title": "Upcoming Lectures at the Smithsonian"
+    },
+    {
+      "wpId": "7373",
+      "title": "My Other Next Book"
+    },
+    {
+      "wpId": "7627",
+      "title": "After the New Testament: Women in Early Christianity"
+    },
+    {
+      "wpId": "8296",
+      "title": "Why Was the Gospel of Mark Attributed to Mark?"
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)"
+    },
+    {
+      "wpId": "8476",
+      "title": "My UNC Seminar Tomorrow"
+    },
+    {
+      "wpId": "8626",
+      "title": "My New Project on Memory"
+    },
+    {
+      "wpId": "8631",
+      "title": "My Original Interest in Memory"
+    },
+    {
+      "wpId": "12656",
+      "title": "How Can Paul Say that Jesus Appeared to The Twelve?"
+    },
+    {
+      "wpId": "15168",
+      "title": "Why Are The Gospels Called Matthew, Mark, Luke, and John?"
+    },
+    {
+      "wpId": "15334",
+      "title": "Rules of Thumb for Reconstructing the History behind the Gospels"
+    },
+    {
+      "wpId": "15811",
+      "title": "Other Manuscripts of the Apocalypse of Peter, And Why It Matters"
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar"
+    },
+    {
+      "wpId": "21255",
+      "title": "Gospel Questions and Problems"
+    },
+    {
+      "wpId": "23678",
+      "title": "Even Giants Have a Cross to Bear:  Platinum Post by Marie Wiley"
+    },
+    {
+      "wpId": "25926",
+      "title": "What Kind of Ancient Christian Books Might Be Discovered?"
+    },
+    {
+      "wpId": "29016",
+      "title": "Heaven and Hell at the Scholarly Level (for comparison)"
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?"
+    },
+    {
+      "wpId": "33081",
+      "title": "Interesting Topics in New Testament.  My Weekly Writing Assignments for Undergrads"
+    },
+    {
+      "wpId": "33402",
+      "title": "Forgeries in the Names of the Apostles: Some of the Most Interesting"
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?"
+    },
+    {
+      "wpId": "40178",
+      "title": "Women and Gender: Early Christianity in a Patriarchal World"
+    },
+    {
+      "wpId": "40285",
+      "title": "Jesus’ Followers in History and Legend"
+    },
+    {
+      "wpId": "47003",
+      "title": "My Next Book: Creating the Bible — How We Got the Canon of the New Testament"
+    },
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude"
+    },
+    {
+      "wpId": "48816",
+      "title": "Why Was the Canon Still Up For Grabs in the Second Century?"
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2059",
+      "title": "The Work of a Professional Scholar 5: Graduate Seminars"
+    },
+    {
+      "wpId": "2240",
+      "title": "Should We Change the Canon of Scripture?"
+    },
+    {
+      "wpId": "2263",
+      "title": "Q & A with Ben Witherington: Part 4"
+    },
+    {
+      "wpId": "2274",
+      "title": "Q & A with Ben Witherington: Part 5"
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)"
+    },
+    {
+      "wpId": "3101",
+      "title": "Pilate and Barabbas"
+    },
+    {
+      "wpId": "4049",
+      "title": "Another Forgery in the Name of Peter"
+    },
+    {
+      "wpId": "4056",
+      "title": "A Third Forgery in the Name of Peter"
+    },
+    {
+      "wpId": "4711",
+      "title": "Back To School!   My Jesus Syllabus"
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament"
+    },
+    {
+      "wpId": "6145",
+      "title": "Multiple Attestation for Jesus"
+    },
+    {
+      "wpId": "6402",
+      "title": "Jesus: L’enfant terrible?"
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus"
+    },
+    {
+      "wpId": "7688",
+      "title": "The Other Gospels: The Trade Book Version"
+    },
+    {
+      "wpId": "8269",
+      "title": "Why Are the Gospels Anonymous?"
+    },
+    {
+      "wpId": "8417",
+      "title": "New Testament Programs and Ancient Med."
+    },
+    {
+      "wpId": "8634",
+      "title": "Different Kinds of Memory"
+    },
+    {
+      "wpId": "10892",
+      "title": "Is Acts Reliable?  The Negative Rebuttal"
+    },
+    {
+      "wpId": "12107",
+      "title": "Jesus the Superboy: A Blast From the Past"
+    },
+    {
+      "wpId": "12262",
+      "title": "What About the Apocrypha?"
+    },
+    {
+      "wpId": "12391",
+      "title": "Why I Am Not A Christian: Is Bart Ehrman a Christian?"
+    },
+    {
+      "wpId": "12642",
+      "title": "Can (or Should) We Change the Canon of Scripture? A Blast from the Past"
+    },
+    {
+      "wpId": "15446",
+      "title": "The Gospel of Thomas: An Overview"
+    },
+    {
+      "wpId": "15624",
+      "title": "Introducing the Apocalypse of Peter"
+    },
+    {
+      "wpId": "15643",
+      "title": "Deciding on Which Books Should Be in the New Testament"
+    },
+    {
+      "wpId": "15647",
+      "title": "The So-Called First Letter of Peter"
+    },
+    {
+      "wpId": "15649",
+      "title": "The Situation Behind the (“Forged”) Book of 1 Peter"
+    },
+    {
+      "wpId": "15674",
+      "title": "Did Jesus Write a Letter to Joseph of Arimathea"
+    },
+    {
+      "wpId": "16606",
+      "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels"
+    },
+    {
+      "wpId": "16715",
+      "title": "A Recent Argument that Ancient Pseudepigraphy Was NOT Deceptive (or Meant to Be)"
+    },
+    {
+      "wpId": "17169",
+      "title": "How Did We Get The 27 Books of the New Testament?"
+    },
+    {
+      "wpId": "20507",
+      "title": "Did Some *One* Forge the Writings of “John”? Guest Post by Hugo Mendez"
+    },
+    {
+      "wpId": "21106",
+      "title": "Jesus in Scholarship and Film"
+    },
+    {
+      "wpId": "21223",
+      "title": "The Calm and Collected Jesus"
+    },
+    {
+      "wpId": "21274",
+      "title": "The Gospel of Thomas: Some Basic Information"
+    },
+    {
+      "wpId": "21355",
+      "title": "A Gospel of Nicodemus?"
+    },
+    {
+      "wpId": "22087",
+      "title": "The Gospel of Mary Magdalene"
+    },
+    {
+      "wpId": "25436",
+      "title": "Another Letter Written By Jesus?  Stranger and Stranger…"
+    },
+    {
+      "wpId": "25517",
+      "title": "Was Paul Peter’s Enemy?"
+    },
+    {
+      "wpId": "26382",
+      "title": "Some Key Evidence for Jesus"
+    },
+    {
+      "wpId": "26387",
+      "title": "How Do We Know If Jesus Did Something?"
+    },
+    {
+      "wpId": "32394",
+      "title": "A Letter from Peter to James … Against Paul!"
+    },
+    {
+      "wpId": "32441",
+      "title": "Why Did Christians Even Need a Canon of Scripture?"
+    },
+    {
+      "wpId": "33028",
+      "title": "What’s It Like to Teach PhD Seminars?"
+    },
+    {
+      "wpId": "33135",
+      "title": "Can’t We Just Get Rid of Some of the Books of the Bible?"
+    },
+    {
+      "wpId": "35188",
+      "title": "And Here’s My Final Exam on The Birth of Christianity"
+    },
+    {
+      "wpId": "35192",
+      "title": "My Forgotten Book on Memory"
+    },
+    {
+      "wpId": "35261",
+      "title": "Does Understanding “Memory” Have Any Bearing on the Study of the Historical Jesus?"
+    },
+    {
+      "wpId": "35410",
+      "title": "How Can We Get Behind “False Memories” of Jesus to the Historical Facts?"
+    },
+    {
+      "wpId": "37415",
+      "title": "The Most Famous Non-Canonical Gospel: The Gospel of Thomas"
+    },
+    {
+      "wpId": "38596",
+      "title": "Paul’s *THIRD* Letter to the Corinthians?  A Very Interesting Forgery"
+    },
+    {
+      "wpId": "38752",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative REBUTTAL of the Affirmative Case"
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities"
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "3069",
+      "title": "Anti-Judaism in the Gospels"
+    },
+    {
+      "wpId": "8857",
+      "title": "The Discovery of Lost Documents"
+    },
+    {
+      "wpId": "11959",
+      "title": "Anti-Judaism in the Gospels: A Blast From the Past"
+    },
+    {
+      "wpId": "33902",
+      "title": "Are the Gospels Anti-Jewish?"
+    },
+    {
+      "wpId": "47727",
+      "title": "A Primer for the Study of the Historical Jesus:  Our Non-Gospel Sources"
+    },
+    {
+      "wpId": "50098",
+      "title": "Exonerating Pilate to Implicate the Jews"
+    }
+  ]
+}

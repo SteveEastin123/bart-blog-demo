@@ -1,0 +1,383 @@
+{
+  "keyword": "Memory",
+  "criterion": "Retain when memory is a meaningful subject involving eyewitness recall, false or collective memory, oral transmission, remembered traditions, or historical reconstruction; remove ordinary expressions, incidental personal recollections, memorial labels, titles, and passing references.",
+  "before": 93,
+  "retained": 50,
+  "removed": 43,
+  "removedPosts": [
+    {
+      "wpId": "2609",
+      "title": "Bible Intro: Nearing the finish line"
+    },
+    {
+      "wpId": "4691",
+      "title": "Problems with Patristic Evidence"
+    },
+    {
+      "wpId": "4701",
+      "title": "Problems with the Textual Evidence from Didymus"
+    },
+    {
+      "wpId": "6341",
+      "title": "Papers at the SBL"
+    },
+    {
+      "wpId": "6585",
+      "title": "My New Testament Pop Quiz"
+    },
+    {
+      "wpId": "7170",
+      "title": "Media: How Jesus became God – Ehrman vs Gathercole Pt 2"
+    },
+    {
+      "wpId": "7415",
+      "title": "The Religion of a Sixteen-Year-Old"
+    },
+    {
+      "wpId": "7439",
+      "title": "Why I (Actually) Discuss Hallucinations"
+    },
+    {
+      "wpId": "7459",
+      "title": "Dictation of Letters: More Complications for Knowing an “Original” Text"
+    },
+    {
+      "wpId": "7669",
+      "title": "Trade Books and Scholarly Books"
+    },
+    {
+      "wpId": "7960",
+      "title": "My New Testament Textbook"
+    },
+    {
+      "wpId": "8469",
+      "title": "How I First Learned that the Gospel of Judas Had Been Discovered"
+    },
+    {
+      "wpId": "8773",
+      "title": "Education at Moody"
+    },
+    {
+      "wpId": "8801",
+      "title": "Back To the Discovery of Lost Early Christian Writings"
+    },
+    {
+      "wpId": "9055",
+      "title": "An Amusing Anecdote about the State of Textual Criticism"
+    },
+    {
+      "wpId": "9086",
+      "title": "What Is the “Original” Text?"
+    },
+    {
+      "wpId": "9956",
+      "title": "Upcoming Speaking Engagements 2016"
+    },
+    {
+      "wpId": "11546",
+      "title": "Jesus’ Death and Resurrection for Salvation; Paul’s Collection; and My Sunday Mornings: Readers’ Mailbag June 11, 2016"
+    },
+    {
+      "wpId": "12122",
+      "title": "My Work for the New Revised Standard Version Committee"
+    },
+    {
+      "wpId": "12341",
+      "title": "My Work Habits the Letter allegedly by Jesus’ Own Brother: Mailbag 2/12/2017"
+    },
+    {
+      "wpId": "12584",
+      "title": "Appreciating the Myths of the Bible"
+    },
+    {
+      "wpId": "12850",
+      "title": "Interpolations and Textual Corruptions: The Blurry Lines"
+    },
+    {
+      "wpId": "14685",
+      "title": "My Long Favorite Pauline Letter: Philippians"
+    },
+    {
+      "wpId": "15732",
+      "title": "Was Jesus Born of a Virgin in the Gospel of John?"
+    },
+    {
+      "wpId": "16309",
+      "title": "When Christians Went on the Attack Against Jews"
+    },
+    {
+      "wpId": "16467",
+      "title": "Who Has The Answer For a Happy Afterlife?"
+    },
+    {
+      "wpId": "16987",
+      "title": "What Does the Name Judas “Iscariot” Mean?"
+    },
+    {
+      "wpId": "17368",
+      "title": "Guided Tours of Heaven and Hell in a Christian Mode"
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?"
+    },
+    {
+      "wpId": "19917",
+      "title": "Easter Reflection 2020"
+    },
+    {
+      "wpId": "20014",
+      "title": "Do We NEED to Suffer?  The Argument from Tectonic Plates"
+    },
+    {
+      "wpId": "20983",
+      "title": "When I Learned the Gospel of Judas Had Been Discovered"
+    },
+    {
+      "wpId": "22325",
+      "title": "Paul Dictated His Letters: How Does *That* Complicate Finding an Original?"
+    },
+    {
+      "wpId": "22813",
+      "title": "Christmas 2020"
+    },
+    {
+      "wpId": "25282",
+      "title": "You Call *This* a Heresy?  The Views of Arius, In His Own Words"
+    },
+    {
+      "wpId": "29842",
+      "title": "The Religion of a Sixteen-Year Old.  Most-Commented Blog Post: #5"
+    },
+    {
+      "wpId": "33524",
+      "title": "A Truly Great New Testament Scholar:  E. P. Sanders in Memoriam"
+    },
+    {
+      "wpId": "39468",
+      "title": "Is There an Original Text Even of One of MY Books??"
+    },
+    {
+      "wpId": "39718",
+      "title": "Even More Snarly Problems If Paul Dictated His Letters"
+    },
+    {
+      "wpId": "47001",
+      "title": "Paul’s Letters to the Philippians and to Philemon, “At a Glance” and with Questions for Reflection"
+    },
+    {
+      "wpId": "47163",
+      "title": "Taking 2 Corinthians to Pieces…."
+    },
+    {
+      "wpId": "48176",
+      "title": "Some Good Questions On John and the Appearance of Jesus in the World"
+    },
+    {
+      "wpId": "48986",
+      "title": "If It Wasn’t “For Your Sins” Why Did Jesus Die (according to Luke)?"
+    }
+  ],
+  "retainedPosts": [
+    {
+      "wpId": "49239",
+      "title": "While We’re Talking About the Reliability of Eyewitnesses…"
+    },
+    {
+      "wpId": "49237",
+      "title": "Eyewitness Accounts of Miracles"
+    },
+    {
+      "wpId": "47733",
+      "title": "Problems with the Gospels: A Primer for the Study of the Historical Jesus (Part 2)"
+    },
+    {
+      "wpId": "38438",
+      "title": "Proof That Historical Narratives (not just myths) Constantly Change in Oral Cultures"
+    },
+    {
+      "wpId": "38434",
+      "title": "When is “The Same” Memory/Tradition/Story Not Actually “The Same”?"
+    },
+    {
+      "wpId": "35720",
+      "title": "How Accurate Are Orally-Transmitted Reports? A Platinum Post From Imran M. Usmani"
+    },
+    {
+      "wpId": "36377",
+      "title": "Creating the Qu’ran:  Where Did the Scripture of Islam Really Come From? Guest post by Stephen Shoemaker"
+    },
+    {
+      "wpId": "36298",
+      "title": "Preparing for that “Final Trip” (outta here).  What Do You Think?"
+    },
+    {
+      "wpId": "36024",
+      "title": "More on the Life of Brian and the Historical Jesus"
+    },
+    {
+      "wpId": "35760",
+      "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?"
+    },
+    {
+      "wpId": "35755",
+      "title": "Were Jesus Followers Really Armed and Dangerous in the Garden of Gethsemane?"
+    },
+    {
+      "wpId": "35746",
+      "title": "Did Jesus Really Cleanse the Temple?"
+    },
+    {
+      "wpId": "35742",
+      "title": "Did the Triumphal Entry Really Happen?"
+    },
+    {
+      "wpId": "35653",
+      "title": "Jesus’ Trial Before Pilate: What Can We Actually Know?"
+    },
+    {
+      "wpId": "35649",
+      "title": "The Events Leading up to the Death of Jesus: What Can We Know and Not Know?"
+    },
+    {
+      "wpId": "35609",
+      "title": "Eyewitness Testimony: The Importance of Actual Expertise"
+    },
+    {
+      "wpId": "35605",
+      "title": "Eyewitnesses and Guaranteed Accuracy"
+    },
+    {
+      "wpId": "35432",
+      "title": "Didn’t the Disciples Memorize Jesus’ Teachings and Accounts of His Life?"
+    },
+    {
+      "wpId": "15929",
+      "title": "Pilate Released Barabbas.  Really??"
+    },
+    {
+      "wpId": "24729",
+      "title": "Fantastic Story.  But History?  Some Doubts about the Triumphal Entry"
+    },
+    {
+      "wpId": "24593",
+      "title": "Did Jesus Really Have a “Triumphal Entry” into Jerusalem?"
+    },
+    {
+      "wpId": "21862",
+      "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?"
+    },
+    {
+      "wpId": "20741",
+      "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag"
+    },
+    {
+      "wpId": "12587",
+      "title": "Can Myths Be True and Meaningful?"
+    },
+    {
+      "wpId": "12565",
+      "title": "Eyewitnesses and the Gospels: A Blast From the Past"
+    },
+    {
+      "wpId": "12413",
+      "title": "What Really Happens With Group Visions"
+    },
+    {
+      "wpId": "11863",
+      "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016"
+    },
+    {
+      "wpId": "11498",
+      "title": "Progressive Spirit Interview"
+    },
+    {
+      "wpId": "11284",
+      "title": "New Archaeological Discoveries and the Bible! Readers Mailbag April 16, 2016"
+    },
+    {
+      "wpId": "10579",
+      "title": "HNN News Story on Jesus Before the Gospels"
+    },
+    {
+      "wpId": "10296",
+      "title": "Irritating Amazon Reviews"
+    },
+    {
+      "wpId": "10294",
+      "title": "The Triumphal Entry as a Distorted Memory"
+    },
+    {
+      "wpId": "10292",
+      "title": "The Memory of Jesus’ Triumphal Entry"
+    },
+    {
+      "wpId": "10285",
+      "title": "My First Interview on Jesus Before the Gospels"
+    },
+    {
+      "wpId": "9864",
+      "title": "On the Accuracy of Oral Traditions"
+    },
+    {
+      "wpId": "9581",
+      "title": "Q & A about Jesus Before the Gospels, Part 3"
+    },
+    {
+      "wpId": "9583",
+      "title": "Q & A about Jesus Before the Gospels: Part 2"
+    },
+    {
+      "wpId": "9518",
+      "title": "Press Release!  Jesus Before the Gospels"
+    },
+    {
+      "wpId": "9235",
+      "title": "Really???  Stories of Jesus’ Virgin Birth"
+    },
+    {
+      "wpId": "8846",
+      "title": "Papias and the Eyewitnesses"
+    },
+    {
+      "wpId": "8760",
+      "title": "Truth and History"
+    },
+    {
+      "wpId": "8757",
+      "title": "Another Jewish Miracle Worker"
+    },
+    {
+      "wpId": "8753",
+      "title": "Steps Toward Publishing the (a) Book"
+    },
+    {
+      "wpId": "8741",
+      "title": "The Community Behind the Gospel of John:  Part 2"
+    },
+    {
+      "wpId": "8736",
+      "title": "The Community Behind the Gospel of John"
+    },
+    {
+      "wpId": "8629",
+      "title": "Why I Shifted My Research Plans"
+    },
+    {
+      "wpId": "7736",
+      "title": "Where Do You Start Reading?"
+    },
+    {
+      "wpId": "7664",
+      "title": "My Future Books"
+    },
+    {
+      "wpId": "7657",
+      "title": "My Next Project"
+    },
+    {
+      "wpId": "7491",
+      "title": "Brian and the Apocalyptic Jesus Part 2"
+    }
+  ]
+}

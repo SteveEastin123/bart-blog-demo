@@ -1,0 +1,414 @@
+{
+  "keyword": "Authorship",
+  "criterion": "Retain when identifying who wrote a text, evaluating attribution or anonymity, assessing pseudonymous authorship, reconstructing textual composition, or explaining the evidence used to identify an author is a meaningful subject of the post.",
+  "before": 101,
+  "retained": 101,
+  "removed": 0,
+  "retainedPosts": [
+    {
+      "wpId": "49112",
+      "title": "Does Papias Say Matthew and Mark Wrote OUR Matthew and Mark?"
+    },
+    {
+      "wpId": "49084",
+      "title": "Is Papias Generally Trustworthy?"
+    },
+    {
+      "wpId": "49078",
+      "title": "Papias in a Nutshell.  An Important Figure Among the Apostolic Fathers"
+    },
+    {
+      "wpId": "48814",
+      "title": "Authors, Authorities, and Who Gets To Write the Bible"
+    },
+    {
+      "wpId": "47847",
+      "title": "The Book of Revelation:  Who Wrote It?"
+    },
+    {
+      "wpId": "47673",
+      "title": "Jude, The Denigration of Angels, and the Followers of Paul"
+    },
+    {
+      "wpId": "47590",
+      "title": "Book of Jude:  Who Wrote it?  When? And Why? (part 1)"
+    },
+    {
+      "wpId": "47530",
+      "title": "The DeuteroPauline Epistles “At a Glance,” With Questions for Reflection"
+    },
+    {
+      "wpId": "46985",
+      "title": "Couldn’t 1 and 2 Peter Have Been Written By Peter’s Secretaries?"
+    },
+    {
+      "wpId": "46975",
+      "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul"
+    },
+    {
+      "wpId": "46973",
+      "title": "Why Does the Author of 1 Peter Sound Like Paul Instead of Peter?"
+    },
+    {
+      "wpId": "46933",
+      "title": "The Book of Hebrews:  Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "47256",
+      "title": "More Evidence That the Pastoral Epistles Were Written After the Days of Paul"
+    },
+    {
+      "wpId": "47246",
+      "title": "The Pastoral Epistle of 1 Timothy in a Nutshell"
+    },
+    {
+      "wpId": "47234",
+      "title": "1 Thessalonians: Who, When, and Why"
+    },
+    {
+      "wpId": "47217",
+      "title": "The Letter to the Colossians: Who, When, and Why?"
+    },
+    {
+      "wpId": "47197",
+      "title": "Philippians: Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "47195",
+      "title": "Does a Different “Writing Style” Show (convincingly?) That Ephesians is a “Forgery”?"
+    },
+    {
+      "wpId": "47169",
+      "title": "Galatians:  Who, When, and Why?"
+    },
+    {
+      "wpId": "47164",
+      "title": "2 Corinthians: Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "47155",
+      "title": "1 Corinthians:  Who, When, and Why?"
+    },
+    {
+      "wpId": "47131",
+      "title": "The Letter to the Romans: Who, When, and Why?"
+    },
+    {
+      "wpId": "47112",
+      "title": "The Acts of the Apostles:  Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "47065",
+      "title": "The Gospel of Luke: Who Wrote It?  When?  And Why?"
+    },
+    {
+      "wpId": "47049",
+      "title": "Was (the author of) Matthew Really a Jew?"
+    },
+    {
+      "wpId": "34480",
+      "title": "Who Wrote the Gospels?  Our Earliest (Apparent) Reference"
+    },
+    {
+      "wpId": "34472",
+      "title": "Did Mark Write Mark?  What the Apostolic Fathers Say"
+    },
+    {
+      "wpId": "32075",
+      "title": "Did Matthew, Mark, Luke, and John Write Matthew, Mark, Luke, and John?  Free video."
+    },
+    {
+      "wpId": "31181",
+      "title": "Did Paul Write “Paul’s Letter to the Ephesians”?"
+    },
+    {
+      "wpId": "31309",
+      "title": "Free Webinar on June 12!  Did Matthew, Mark, Luke, and John Actually Write Matthew, Mark, Luke, and John?"
+    },
+    {
+      "wpId": "15168",
+      "title": "Why Are The Gospels Called Matthew, Mark, Luke, and John?"
+    },
+    {
+      "wpId": "29744",
+      "title": "Understanding the Old Testament!  Joshua – 2 Kings as the Deuteronomistic History"
+    },
+    {
+      "wpId": "29107",
+      "title": "“In the Beginning” (Part 2)"
+    },
+    {
+      "wpId": "28646",
+      "title": "Is the Book of Isaiah the Books of Three “Isaiahs”?"
+    },
+    {
+      "wpId": "25687",
+      "title": "More Recent Scholarship on Who Wrote the Pentateuch"
+    },
+    {
+      "wpId": "25682",
+      "title": "Who Really Wrote the Pentateuch (if not Moses)?  The JEDP Hypothesis"
+    },
+    {
+      "wpId": "25677",
+      "title": "More Inconsistencies in the Pentateuch"
+    },
+    {
+      "wpId": "25647",
+      "title": "Who Wrote the Pentateuch Anyway?"
+    },
+    {
+      "wpId": "24315",
+      "title": "What Are the Sources of the Hebrew Bible?"
+    },
+    {
+      "wpId": "21454",
+      "title": "Did Jesus’ Disciple John Write the Gospel of “John”?"
+    },
+    {
+      "wpId": "20492",
+      "title": "Problems with Thinking the “Letters of John” in the NT are Forgeries?  Guest Post: Hugo Mendez"
+    },
+    {
+      "wpId": "17521",
+      "title": "So: Was Luke Luke?"
+    },
+    {
+      "wpId": "17515",
+      "title": "Did *Any* Companion of Paul Write Luke and Acts?"
+    },
+    {
+      "wpId": "17501",
+      "title": "Does the Author of Acts Identify Himself?"
+    },
+    {
+      "wpId": "17487",
+      "title": "Problems with Thinking That Luke Wrote Luke (and Acts)"
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?"
+    },
+    {
+      "wpId": "16802",
+      "title": "Who Wrote the Pentateuch?  The JEDP Hypothesis"
+    },
+    {
+      "wpId": "16254",
+      "title": "2 Thessalonians as a Forgery?  Does the Author “Write” Like Paul?"
+    },
+    {
+      "wpId": "16238",
+      "title": "2 Thessalonians: When Scholars Began To Doubt It Was Authentic"
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?"
+    },
+    {
+      "wpId": "15711",
+      "title": "How Would an Early Christian “Know” Which Books Peter Wrote?"
+    },
+    {
+      "wpId": "15532",
+      "title": "Who Wrote the Book of Revelation?"
+    },
+    {
+      "wpId": "15263",
+      "title": "Sources for the Hebrew Bible: A Blast from the Past"
+    },
+    {
+      "wpId": "15190",
+      "title": "Did the Gospels Originally Have Titles?"
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?"
+    },
+    {
+      "wpId": "15170",
+      "title": "Why Would an Ancient Author Write a Book Anonymously?"
+    },
+    {
+      "wpId": "12862",
+      "title": "Was John the Son of Zebedee Capable of Writing a  Gospel?"
+    },
+    {
+      "wpId": "12560",
+      "title": "Finding Problems in the Old Testament"
+    },
+    {
+      "wpId": "12341",
+      "title": "My Work Habits the Letter allegedly by Jesus’ Own Brother: Mailbag 2/12/2017"
+    },
+    {
+      "wpId": "12282",
+      "title": "How Do We Know What “Most Scholars” Think?"
+    },
+    {
+      "wpId": "11719",
+      "title": "Did John Write the Fourth Gospel?"
+    },
+    {
+      "wpId": "11716",
+      "title": "The Author of Revelation"
+    },
+    {
+      "wpId": "11707",
+      "title": "Who Wrote the Book of Revelation and the Fourth Gospel?"
+    },
+    {
+      "wpId": "11640",
+      "title": "Did Matthew Write in Hebrew? Did Jesus Institute the Lord’s Supper?  Did Josephus Mention Jesus?  Weekly Readers’ Mailbag July 9, 2016"
+    },
+    {
+      "wpId": "11611",
+      "title": "Modern Views of the Authorship of the Pentateuch"
+    },
+    {
+      "wpId": "11602",
+      "title": "Did Moses Write the Pentateuch?  The JEDP Hypothesis."
+    },
+    {
+      "wpId": "11599",
+      "title": "Other Literary Tensions in the Pentateuch"
+    },
+    {
+      "wpId": "11587",
+      "title": "Who Wrote the Pentateuch?  Early Questions of Authorship."
+    },
+    {
+      "wpId": "11493",
+      "title": "The Accuracy of Paul’s Letter to the Galatians"
+    },
+    {
+      "wpId": "8353",
+      "title": "The Writing Style of 2 Thessalonians"
+    },
+    {
+      "wpId": "8341",
+      "title": "2 Thessalonians: The History of the Discussion"
+    },
+    {
+      "wpId": "8338",
+      "title": "The Inauthenticity of 2 Thessalonians: The Simple Reason"
+    },
+    {
+      "wpId": "8334",
+      "title": "Pauline Forgeries:  2 Thessalonians as a Test Case"
+    },
+    {
+      "wpId": "8296",
+      "title": "Why Was the Gospel of Mark Attributed to Mark?"
+    },
+    {
+      "wpId": "8294",
+      "title": "Why Was the Gospel of Luke Attributed to Luke?"
+    },
+    {
+      "wpId": "8285",
+      "title": "Why Was the Gospel of John Attributed to John?"
+    },
+    {
+      "wpId": "8282",
+      "title": "Why Was The Gospel of Matthew Attributed to Matthew?"
+    },
+    {
+      "wpId": "8269",
+      "title": "Why Are the Gospels Anonymous?"
+    },
+    {
+      "wpId": "8265",
+      "title": "Papias on Matthew and Mark"
+    },
+    {
+      "wpId": "8261",
+      "title": "Believing Papias When It’s Convenient"
+    },
+    {
+      "wpId": "8254",
+      "title": "Papias and the Gospels: Some Background"
+    },
+    {
+      "wpId": "8246",
+      "title": "The Gospels are Finally Named!  Irenaeus of Lyons."
+    },
+    {
+      "wpId": "8244",
+      "title": "When Did the Gospels Get Their Names?"
+    },
+    {
+      "wpId": "8238",
+      "title": "Did the Beloved Disciple Write the Gospel of John?"
+    },
+    {
+      "wpId": "8236",
+      "title": "Our Anonymous Gospels, Starting with Luke"
+    },
+    {
+      "wpId": "4784",
+      "title": "Summing Up: Was Luke Luke?"
+    },
+    {
+      "wpId": "4768",
+      "title": "Who Wrote Luke and Acts?"
+    },
+    {
+      "wpId": "4763",
+      "title": "Not for the Faint of Heart (Authorship of Colossians)"
+    },
+    {
+      "wpId": "4753",
+      "title": "Problems with Luke as the Author of Luke"
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke"
+    },
+    {
+      "wpId": "4638",
+      "title": "Early Doubts about the Pastorals"
+    },
+    {
+      "wpId": "4618",
+      "title": "The Non-Pauline Oppression of Women"
+    },
+    {
+      "wpId": "4424",
+      "title": "The Jewish Emphases of Matthew"
+    },
+    {
+      "wpId": "4418",
+      "title": "Was the Author of Matthew Matthew?"
+    },
+    {
+      "wpId": "4413",
+      "title": "When Was Matthew Called Matthew?"
+    },
+    {
+      "wpId": "4409",
+      "title": "The Identity of “Matthew”"
+    },
+    {
+      "wpId": "4380",
+      "title": "Was Matthew a Jew?"
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous"
+    },
+    {
+      "wpId": "3547",
+      "title": "Why Was The Letter of Barnabas Attributed to Barnabas?"
+    },
+    {
+      "wpId": "2579",
+      "title": "Peter as Literate?  Part 2"
+    },
+    {
+      "wpId": "2328",
+      "title": "The Hebrew Bible and Its Sources"
+    }
+  ],
+  "removedPosts": []
+}

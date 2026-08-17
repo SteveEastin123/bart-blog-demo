@@ -1,0 +1,194 @@
+{
+  "auditDate": "2026-08-17",
+  "scope": [
+    "1 Corinthians",
+    "Nazareth"
+  ],
+  "criteria": "Retain secondary keywords only when they represent meaningful supporting subjects rather than passing references, lists, generic names, or titles.",
+  "changes": [
+    {
+      "wpId": "35715",
+      "title": "The Slippery Slope of Extreme DIAKRISIS (Discernment). A Platinum Post by Barry Haney",
+      "removedSecondaryKeyword": "1 Corinthians"
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell",
+      "removedSecondaryKeyword": "1 Corinthians"
+    },
+    {
+      "wpId": "47165",
+      "title": "2 Corinthians: For Further Reading",
+      "removedSecondaryKeyword": "1 Corinthians"
+    },
+    {
+      "wpId": "49317",
+      "title": "The Letter to Diognetus: An Unknown Gem among the Apostolic Fathers (in a Nutshell)",
+      "removedSecondaryKeyword": "1 Corinthians"
+    },
+    {
+      "wpId": "894",
+      "title": "Latest HarperOne Book: Did Jesus Exist?",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "3371",
+      "title": "The Pope’s New Book",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "4720",
+      "title": "Reza Aslan on Jesus",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "4733",
+      "title": "Reza Aslan’s View of Jesus",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "4927",
+      "title": "Colbert on his Hero O’Reilly",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "6434",
+      "title": "Aslan’s Zealot: To Start With…",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "6439",
+      "title": "About the Blog and Two Clarifications about Reza Aslan’s Zealot",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "6442",
+      "title": "Did Jesus Exist?  Video Presentation",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "8369",
+      "title": "Did Jesus Exist? Interview by Guy Raz",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "8452",
+      "title": "Talks at the Smithsonian, March 21",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "11974",
+      "title": "Did Jesus Exist?  My Debate with Robert Price",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "12002",
+      "title": "Paul and the Historical Jesus",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "12013",
+      "title": "What If the Mythicists Were Right:  Mailbag November 6, 2016",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "12085",
+      "title": "Newsweek Article on Christmas: Part 1",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "12432",
+      "title": "Was Jesus a Myth or a Historical Figure? Robert Price and I Debate This Very Interesting Question",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "12456",
+      "title": "Is Mark’s Gospel Unsophisticated?",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "13189",
+      "title": "An Introduction to the Gospel of John",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "13684",
+      "title": "Arguments for Markan Priority (that Mark was the first Gospel written)",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "17237",
+      "title": "Who Was Jesus?",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "20977",
+      "title": "Christianizing the Old Testament and the Museum of the Bible: Guest Post by Jill Hicks-Keeton",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "21106",
+      "title": "Jesus in Scholarship and Film",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "22572",
+      "title": "My Article on Christmas in Newsweek",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "23181",
+      "title": "Platinum Guest Post by Steve Sutter:  The Buddhist Influence on the Gospel of Luke",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "27847",
+      "title": "A New Three-Week Book Club!",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "28785",
+      "title": "Do We Have Any Reliable Sources for Pontius Pilate?",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "29846",
+      "title": "A Full Reply to Mythicist Richard Carrier.  Most-Commented Blog Post: #4",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "33514",
+      "title": "Other Virgin Births In Antiquity!  A New Online Lecture, with Q&A",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "40614",
+      "title": "My Book “Did Jesus Exist” (an answer to the mythicists)",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "41050",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "41916",
+      "title": "Twelve Days of Christmas Day 11: My Article on Christmas in Newsweek Part 1",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "47289",
+      "title": "Fundamentalist Apologists, Christian and Mythicist",
+      "removedSecondaryKeyword": "Nazareth"
+    },
+    {
+      "wpId": "48832",
+      "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+      "removedSecondaryKeyword": "Nazareth"
+    }
+  ],
+  "countsAfter": {
+    "1 Corinthians": 91,
+    "Nazareth": 63
+  }
+}

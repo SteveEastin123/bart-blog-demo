@@ -1,0 +1,367 @@
+{
+  "keyword": "Forgery and Counterforgery",
+  "criterion": "Retain when a post reproduces, adapts, applies, discusses, or makes substantive use of Bart's scholarly book Forgery and Counterforgery; remove incidental publication lists, background comparisons, and recommendations unrelated to the post's main discussion.",
+  "before": 89,
+  "retained": 83,
+  "removed": 6,
+  "retainedPosts": [
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!"
+    },
+    {
+      "wpId": "48949",
+      "title": "And an Ancient Christian Deceived Deceiver (i.e. Forger)"
+    },
+    {
+      "wpId": "48945",
+      "title": "A Great Story of a Deceived Deceiver"
+    },
+    {
+      "wpId": "47671",
+      "title": "Does Jude Attack Pauline Christians?"
+    },
+    {
+      "wpId": "47593",
+      "title": "Jude as Pseudepigraphic (i.e., forged)"
+    },
+    {
+      "wpId": "47590",
+      "title": "Book of Jude:  Who Wrote it?  When? And Why? (part 1)"
+    },
+    {
+      "wpId": "46991",
+      "title": "So Did Secretaries Write the Apostles’ Letters for Them?"
+    },
+    {
+      "wpId": "46985",
+      "title": "Couldn’t 1 and 2 Peter Have Been Written By Peter’s Secretaries?"
+    },
+    {
+      "wpId": "46984",
+      "title": "2 Peter: Who Wrote It, When, and Why?"
+    },
+    {
+      "wpId": "46975",
+      "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul"
+    },
+    {
+      "wpId": "46974",
+      "title": "Is 1 Peter More Like 1 Paul?"
+    },
+    {
+      "wpId": "46973",
+      "title": "Why Does the Author of 1 Peter Sound Like Paul Instead of Peter?"
+    },
+    {
+      "wpId": "46952",
+      "title": "Why James Did Not Write James"
+    },
+    {
+      "wpId": "46946",
+      "title": "Could James, the Brother of Jesus, Even Write?"
+    },
+    {
+      "wpId": "46944",
+      "title": "James: Who, When, and Why?  Does It Claim to be by THAT James (the brother of Jesus)?"
+    },
+    {
+      "wpId": "46943",
+      "title": "Some Readers’ Questions and Some Responses"
+    },
+    {
+      "wpId": "47245",
+      "title": "In the Weeds with the Author of 2 Thessalonians"
+    },
+    {
+      "wpId": "47195",
+      "title": "Does a Different “Writing Style” Show (convincingly?) That Ephesians is a “Forgery”?"
+    },
+    {
+      "wpId": "41262",
+      "title": "Why Would A Christian Author Lie About Who He Was?"
+    },
+    {
+      "wpId": "41256",
+      "title": "Forged Books, Anonymous Books, and The Use of Secretaries as Authors in the NT"
+    },
+    {
+      "wpId": "38600",
+      "title": "Did Paul Exchange Letters with the Greatest Roman Philosopher of His Day??"
+    },
+    {
+      "wpId": "38610",
+      "title": "Paul’s Letter to the … Laodiceans?  Long Thought to be Part of the New Testament!"
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?"
+    },
+    {
+      "wpId": "34044",
+      "title": "Finally: The Martyrdom of Polycarp as a Clever Christian Forgery"
+    },
+    {
+      "wpId": "34038",
+      "title": "Evidence of Forgery.  More Reasons the Martyrdom of Polycarp Was Not Written by Someone There"
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp"
+    },
+    {
+      "wpId": "33989",
+      "title": "Can We Take the Martyrdom of Polycarp at Face Value?"
+    },
+    {
+      "wpId": "33985",
+      "title": "Is the Martyrdom of Polycarp an Authentic Account?"
+    },
+    {
+      "wpId": "32665",
+      "title": "Did the Apostles Use Secretaries to Write their Books?"
+    },
+    {
+      "wpId": "32663",
+      "title": "Did Ancient Writers Use Secretaries?"
+    },
+    {
+      "wpId": "32660",
+      "title": "How Many People Were Literate in Antiquity?"
+    },
+    {
+      "wpId": "32404",
+      "title": "You Don’t Think Peter Wrote 1 and 2 Peter?"
+    },
+    {
+      "wpId": "31181",
+      "title": "Did Paul Write “Paul’s Letter to the Ephesians”?"
+    },
+    {
+      "wpId": "30185",
+      "title": "Do My Research Assistants Do My Work for Me?"
+    },
+    {
+      "wpId": "29035",
+      "title": "Forgery for a General Audience"
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar"
+    },
+    {
+      "wpId": "17501",
+      "title": "Does the Author of Acts Identify Himself?"
+    },
+    {
+      "wpId": "17494",
+      "title": "Did Paul Write Colossians? According to Most Scholars No – Paul did Not Write Colossians"
+    },
+    {
+      "wpId": "16446",
+      "title": "A Christian Forger Caught in the Act"
+    },
+    {
+      "wpId": "16417",
+      "title": "Why Did the Author of James Claim to be James in Particular?"
+    },
+    {
+      "wpId": "16404",
+      "title": "Is the Author of James Rejecting Paul Himself?"
+    },
+    {
+      "wpId": "16385",
+      "title": "Is James Responding to Paul?"
+    },
+    {
+      "wpId": "16372",
+      "title": "The Brother of Jesus and the Book of James"
+    },
+    {
+      "wpId": "16364",
+      "title": "Did James Write James?"
+    },
+    {
+      "wpId": "16338",
+      "title": "One of My Favorite Letters in the New Testament: The Book of James"
+    },
+    {
+      "wpId": "16258",
+      "title": "Does Paul Think the End is Coming Soon?  Does 2 Thessalonians?"
+    },
+    {
+      "wpId": "16254",
+      "title": "2 Thessalonians as a Forgery?  Does the Author “Write” Like Paul?"
+    },
+    {
+      "wpId": "16251",
+      "title": "Is 2 Thessalonians a Forgery Based on 1 Thessalonians?"
+    },
+    {
+      "wpId": "16238",
+      "title": "2 Thessalonians: When Scholars Began To Doubt It Was Authentic"
+    },
+    {
+      "wpId": "16111",
+      "title": "Why Did Ancient Christian Forgers Commit Forgery?"
+    },
+    {
+      "wpId": "16098",
+      "title": "Paul in Hell.   The Apocryphal Apocalypse of Paul."
+    },
+    {
+      "wpId": "15657",
+      "title": "Seriously.  How Many People in Antiquity Could Write?"
+    },
+    {
+      "wpId": "15352",
+      "title": "Did Peter Use a Secretary for his Writings?  A Blast from the Past"
+    },
+    {
+      "wpId": "15170",
+      "title": "Why Would an Ancient Author Write a Book Anonymously?"
+    },
+    {
+      "wpId": "15103",
+      "title": "Different Kinds of Literary Deceit"
+    },
+    {
+      "wpId": "15099",
+      "title": "A Forger Fooled By Forgery"
+    },
+    {
+      "wpId": "14878",
+      "title": "What Is My Best Book for a General Audience?"
+    },
+    {
+      "wpId": "12428",
+      "title": "Another Gory Account of the Afterlife: The Apocalypse of Paul"
+    },
+    {
+      "wpId": "11738",
+      "title": "Did Ancient Secretaries Actually Compose Writings?  A Blast from the Past"
+    },
+    {
+      "wpId": "11729",
+      "title": "How Did Ancient Writers Use Secretaries?  A Blast from the Past"
+    },
+    {
+      "wpId": "11723",
+      "title": "Who Could Read and Write?  A Blast from the Past."
+    },
+    {
+      "wpId": "9309",
+      "title": "Fifty Ways to Forge a Gospel"
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)"
+    },
+    {
+      "wpId": "8359",
+      "title": "2 Thessalonians as a Forgery: The Theological Argument"
+    },
+    {
+      "wpId": "8353",
+      "title": "The Writing Style of 2 Thessalonians"
+    },
+    {
+      "wpId": "8344",
+      "title": "Is 2 Thessalonians Based on 1 Thessalonians?"
+    },
+    {
+      "wpId": "8341",
+      "title": "2 Thessalonians: The History of the Discussion"
+    },
+    {
+      "wpId": "8147",
+      "title": "Why Would Christian Authors Write Forgeries?"
+    },
+    {
+      "wpId": "8128",
+      "title": "New Boxes Related to Literary Forgery and the NT"
+    },
+    {
+      "wpId": "5149",
+      "title": "Video:  Forgery in the New Testament"
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha"
+    },
+    {
+      "wpId": "4768",
+      "title": "Who Wrote Luke and Acts?"
+    },
+    {
+      "wpId": "4763",
+      "title": "Not for the Faint of Heart (Authorship of Colossians)"
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke"
+    },
+    {
+      "wpId": "2597",
+      "title": "A Forger Who Was Caught.  The Case of Salvian, Part 2"
+    },
+    {
+      "wpId": "2591",
+      "title": "A Christian Forger Caught in the Acts"
+    },
+    {
+      "wpId": "2573",
+      "title": "Peter as Literate?"
+    },
+    {
+      "wpId": "2568",
+      "title": "Ancient Secretaries (Part 2)"
+    },
+    {
+      "wpId": "2561",
+      "title": "Ancient Secretaries (Part 1)"
+    },
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)"
+    },
+    {
+      "wpId": "2543",
+      "title": "Forgery.  Another Deceived Deceiver (Part 1)"
+    },
+    {
+      "wpId": "2528",
+      "title": "Silvanus as Peter’s Secretary?"
+    },
+    {
+      "wpId": "1921",
+      "title": "Do My Research Assistants Do All My Work For Me?"
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "33337",
+      "title": "What Is Paul’s First Surviving Letter All About?  1 Thessalonians"
+    },
+    {
+      "wpId": "14968",
+      "title": "My Upcoming Writing Plans: The Afterlife and the Afterlife"
+    },
+    {
+      "wpId": "12873",
+      "title": "My New Scholarly Project"
+    },
+    {
+      "wpId": "12379",
+      "title": "Moving to My Next Book"
+    },
+    {
+      "wpId": "9022",
+      "title": "Paul’s Letter to the Thessalonians"
+    },
+    {
+      "wpId": "8626",
+      "title": "My New Project on Memory"
+    }
+  ]
+}
