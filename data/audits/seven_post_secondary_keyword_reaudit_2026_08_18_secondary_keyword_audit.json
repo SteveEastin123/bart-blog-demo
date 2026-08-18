@@ -1,0 +1,518 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly seven posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, event logistics, and surrounding context; use precise names; and avoid duplicating a post's topic as a secondary keyword.",
+  "originalKeywords": [
+    "1 Kings",
+    "2 John",
+    "Ananias",
+    "Apocalypse",
+    "Cain",
+    "Death",
+    "Death of Jesus",
+    "Faith",
+    "Gospel of Jesus' Wife",
+    "Greater Questions of Mary",
+    "Judas",
+    "Julian",
+    "King Abgar",
+    "Live Q&A",
+    "Love Thy Stranger",
+    "Mark Goodacre",
+    "Mary of Bethany",
+    "Osiris",
+    "Papyrus Egerton",
+    "PhD",
+    "SBL",
+    "Smithsonian",
+    "Tamar"
+  ],
+  "auditedKeywords": [
+    "1 Kings",
+    "2 John",
+    "Ananias of Damascus",
+    "Apocalypse",
+    "Cain",
+    "Death",
+    "Death of Jesus",
+    "Faith",
+    "Gospel of Jesus' Wife",
+    "Greater Questions of Mary",
+    "Julian the Apostate",
+    "King Abgar",
+    "Love Thy Stranger",
+    "Mark Goodacre",
+    "Mary of Bethany",
+    "Osiris",
+    "PhD",
+    "Smithsonian",
+    "Society of Biblical Literature (SBL)",
+    "Tamar"
+  ],
+  "summary": {
+    "keywordsAudited": 23,
+    "linksReviewed": 161,
+    "assignmentsRemoved": 62,
+    "assignmentsAdded": 17,
+    "netLinksRemoved": 45,
+    "uniqueKeywordsBefore": 916,
+    "uniqueKeywordsAfter": 913,
+    "keywordsRetired": 3,
+    "labelsNormalized": 3
+  },
+  "retiredKeywords": [
+    {
+      "keyword": "Judas",
+      "reason": "All seven posts already have the more precise Judas Iscariot topic."
+    },
+    {
+      "keyword": "Live Q&A",
+      "reason": "Assignments described event format or promotional logistics rather than a substantive searchable subject."
+    },
+    {
+      "keyword": "Papyrus Egerton",
+      "reason": "Assignments were syllabus entries, lists, or transitional references; substantive posts remain covered by the topic."
+    }
+  ],
+  "normalizations": [
+    {
+      "from": "Ananias",
+      "to": "Ananias of Damascus"
+    },
+    {
+      "from": "Julian",
+      "to": "Julian the Apostate"
+    },
+    {
+      "from": "SBL",
+      "to": "Society of Biblical Literature (SBL)"
+    }
+  ],
+  "resultingCounts": {
+    "1 Kings": 7,
+    "2 John": 5,
+    "Ananias": 0,
+    "Ananias of Damascus": 6,
+    "Apocalypse": 6,
+    "Cain": 5,
+    "Death": 6,
+    "Death of Jesus": 8,
+    "Faith": 6,
+    "Gospel of Jesus' Wife": 2,
+    "Greater Questions of Mary": 7,
+    "Judas": 0,
+    "Julian": 0,
+    "Julian the Apostate": 5,
+    "King Abgar": 4,
+    "Live Q&A": 0,
+    "Love Thy Stranger": 7,
+    "Mark Goodacre": 7,
+    "Mary of Bethany": 5,
+    "Osiris": 7,
+    "Papyrus Egerton": 0,
+    "PhD": 7,
+    "SBL": 0,
+    "Society of Biblical Literature (SBL)": 5,
+    "Smithsonian": 6,
+    "Tamar": 5
+  },
+  "removedPosts": [
+    {
+      "wpId": "49780",
+      "title": "A Modern “Common Sense” About What Made Christianity Attractive to Converts",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "47587",
+      "title": "The Letter of Jude in a Nutshell",
+      "keyword": "Cain"
+    },
+    {
+      "wpId": "47109",
+      "title": "More Interesting Questions from Blog Readers",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "41678",
+      "title": "The Hobby Lobby, the Museum of the Bible, and Incredible Academic Fraud",
+      "keyword": "Gospel of Jesus' Wife"
+    },
+    {
+      "wpId": "40626",
+      "title": "A PROOF of the Resurrection of Jesus.  What Do YOU Think?",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "40302",
+      "title": "A (Modern-Discovered) Gospel That Shows Jesus Was Married With Children?",
+      "keyword": "Gospel of Jesus' Wife"
+    },
+    {
+      "wpId": "40115",
+      "title": "The Parables!  Have You Signed up for the Course?  (This weekend!)",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "39869",
+      "title": "A Remembrance of John Shelby Spong–Platinum Post By Ray Zubler",
+      "keyword": "Tamar"
+    },
+    {
+      "wpId": "39917",
+      "title": "NEW COURSE!  “The Parables of Jesus” with Amy-Jill Levine",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "38713",
+      "title": "The Book of Acts is NOT RELIABLE!  The Negative Case",
+      "keyword": "Ananias"
+    },
+    {
+      "wpId": "38524",
+      "title": "How Much Fact, How Much Fiction? The Life of Peter",
+      "keyword": "Ananias"
+    },
+    {
+      "wpId": "38587",
+      "title": "Archaeology in the Time of Jesus!  New Course March 2-3!!",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "37283",
+      "title": "Misquoting Jesus Podcast: Special One-Year Anniversary Edition",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "36957",
+      "title": "Jesus and Another Leper: Getting Angry at the Poor Fellow?",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "36661",
+      "title": "Did Luke Read Galatians? Platinum Post by Guillermo Mondon",
+      "keyword": "Ananias"
+    },
+    {
+      "wpId": "36799",
+      "title": "A Conference on the Gospels for Non-Scholars!",
+      "keyword": "Live Q&A"
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "35872",
+      "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+      "keyword": "Ananias"
+    },
+    {
+      "wpId": "32805",
+      "title": "Who Was The Last Non-Christian Emperor of Rome?",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "12656",
+      "title": "How Can Paul Say that Jesus Appeared to The Twelve?",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "27512",
+      "title": "Why these Caricatures of the Old Testament God? Guest post by Amy-Jill Levine",
+      "keyword": "Cain"
+    },
+    {
+      "wpId": "25436",
+      "title": "Another Letter Written By Jesus?  Stranger and Stranger…",
+      "keyword": "King Abgar"
+    },
+    {
+      "wpId": "24783",
+      "title": "A Probing Interview on “When Belief Dies Podcast”",
+      "keyword": "Faith"
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "20918",
+      "title": "Did the Benefits of the Christian Community Win Converts?  Readers’ Mailbag.",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "20540",
+      "title": "Academic Fraud at the Highest Levels",
+      "keyword": "Gospel of Jesus' Wife"
+    },
+    {
+      "wpId": "20531",
+      "title": "Did Judas Really Betray Jesus?  Readers’ Mailbag",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "20122",
+      "title": "Reading the New Testament Letters in CONTEXT",
+      "keyword": "2 John"
+    },
+    {
+      "wpId": "17579",
+      "title": "Was Jesus Intimate with Mary Magdalene?",
+      "keyword": "Mary of Bethany"
+    },
+    {
+      "wpId": "17095",
+      "title": "A Synopsis of Each New Testament Book",
+      "keyword": "2 John"
+    },
+    {
+      "wpId": "16606",
+      "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "16146",
+      "title": "How Jesus Became Perfectly Sinless: Guest Post by Jeff Siker",
+      "keyword": "Tamar"
+    },
+    {
+      "wpId": "15680",
+      "title": "Did Jesus Write Anything in the New Testament?",
+      "keyword": "King Abgar"
+    },
+    {
+      "wpId": "15674",
+      "title": "Did Jesus Write a Letter to Joseph of Arimathea",
+      "keyword": "King Abgar"
+    },
+    {
+      "wpId": "15125",
+      "title": "When Christianity Became the “Official” Religion of Rome",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "15123",
+      "title": "Making Rome Pagan Again",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "15119",
+      "title": "The Beginning of the End of Paganism",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "15115",
+      "title": "Did Constantine Outlaw the Pagan Religions?",
+      "keyword": "Julian"
+    },
+    {
+      "wpId": "12107",
+      "title": "Jesus the Superboy: A Blast From the Past",
+      "keyword": "Smithsonian"
+    },
+    {
+      "wpId": "12025",
+      "title": "Does Paul Know that Judas Betrayed Jesus?",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "11558",
+      "title": "The Conversion of Paul",
+      "keyword": "Ananias"
+    },
+    {
+      "wpId": "11529",
+      "title": "Were Jesus’ Followers Crazy?  Was He?  Mailbag June 4, 2016",
+      "keyword": "Apocalypse"
+    },
+    {
+      "wpId": "10885",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative Case.",
+      "keyword": "Ananias"
+    },
+    {
+      "wpId": "8823",
+      "title": "The Death of Judas in the NT",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "8242",
+      "title": "The Year’s Society of Biblical Literature Meeting",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "8232",
+      "title": "A Newly Discovered Gospel?  Was Jesus Married with Children???",
+      "keyword": "Gospel of Jesus' Wife"
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "keyword": "Death"
+    },
+    {
+      "wpId": "6753",
+      "title": "Jesus and Mary Magdalene",
+      "keyword": "Mary of Bethany"
+    },
+    {
+      "wpId": "6341",
+      "title": "Papers at the SBL",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "6332",
+      "title": "SBL and ALL those Books",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "6299",
+      "title": "My SBL Conference",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "4858",
+      "title": "Jesus Getting Angry",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "4851",
+      "title": "Speaking of Lepers",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha",
+      "keyword": "Papyrus Egerton"
+    },
+    {
+      "wpId": "4265",
+      "title": "What Judas Betrayed",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "4259",
+      "title": "More on Judas",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "4255",
+      "title": "Paul on Judas",
+      "keyword": "Judas"
+    },
+    {
+      "wpId": "3381",
+      "title": "Rene Salm at the SBL (2)",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "3376",
+      "title": "Rene Salm at the Society of Biblical Literature Meeting",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "3356",
+      "title": "The SBL Meeting",
+      "keyword": "SBL"
+    },
+    {
+      "wpId": "3222",
+      "title": "Lost Gospels That Are Still Lost 1",
+      "keyword": "Gospel of Jesus' Wife"
+    },
+    {
+      "wpId": "2492",
+      "title": "Paul in Acts: Part 2",
+      "keyword": "Ananias"
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "49780",
+      "title": "A Modern “Common Sense” About What Made Christianity Attractive to Converts",
+      "keyword": "Julian the Apostate"
+    },
+    {
+      "wpId": "38713",
+      "title": "The Book of Acts is NOT RELIABLE!  The Negative Case",
+      "keyword": "Ananias of Damascus"
+    },
+    {
+      "wpId": "36661",
+      "title": "Did Luke Read Galatians? Platinum Post by Guillermo Mondon",
+      "keyword": "Ananias of Damascus"
+    },
+    {
+      "wpId": "35872",
+      "title": "After Paul Converted…  Does the Book of Acts Contradict Paul Himself?",
+      "keyword": "Ananias of Damascus"
+    },
+    {
+      "wpId": "32805",
+      "title": "Who Was The Last Non-Christian Emperor of Rome?",
+      "keyword": "Julian the Apostate"
+    },
+    {
+      "wpId": "20918",
+      "title": "Did the Benefits of the Christian Community Win Converts?  Readers’ Mailbag.",
+      "keyword": "Julian the Apostate"
+    },
+    {
+      "wpId": "15123",
+      "title": "Making Rome Pagan Again",
+      "keyword": "Julian the Apostate"
+    },
+    {
+      "wpId": "15119",
+      "title": "The Beginning of the End of Paganism",
+      "keyword": "Julian the Apostate"
+    },
+    {
+      "wpId": "11558",
+      "title": "The Conversion of Paul",
+      "keyword": "Ananias of Damascus"
+    },
+    {
+      "wpId": "10885",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative Case.",
+      "keyword": "Ananias of Damascus"
+    },
+    {
+      "wpId": "8242",
+      "title": "The Year’s Society of Biblical Literature Meeting",
+      "keyword": "Society of Biblical Literature (SBL)"
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "keyword": "Death of Jesus"
+    },
+    {
+      "wpId": "6341",
+      "title": "Papers at the SBL",
+      "keyword": "Society of Biblical Literature (SBL)"
+    },
+    {
+      "wpId": "6332",
+      "title": "SBL and ALL those Books",
+      "keyword": "Society of Biblical Literature (SBL)"
+    },
+    {
+      "wpId": "6299",
+      "title": "My SBL Conference",
+      "keyword": "Society of Biblical Literature (SBL)"
+    },
+    {
+      "wpId": "3356",
+      "title": "The SBL Meeting",
+      "keyword": "Society of Biblical Literature (SBL)"
+    },
+    {
+      "wpId": "2492",
+      "title": "Paul in Acts: Part 2",
+      "keyword": "Ananias of Damascus"
+    }
+  ]
+}

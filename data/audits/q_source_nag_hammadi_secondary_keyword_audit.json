@@ -1,0 +1,182 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Q Source and Nag Hammadi",
+  "criterion": "Retain secondary keywords only when the complete post text meaningfully discusses the source, corpus, discovery, central text provenance, or evidentiary role; remove passing and false matches.",
+  "auditedKeywords": [
+    "Q Source",
+    "Nag Hammadi"
+  ],
+  "summary": {
+    "requestedKeywordsAudited": 2,
+    "linksReviewed": 77,
+    "linksRemoved": 16,
+    "linksAdded": 0,
+    "keywordsRetired": 0
+  },
+  "audits": [
+    {
+      "keyword": "Q Source",
+      "before": 39,
+      "retained": 29,
+      "removed": 10,
+      "final": 29,
+      "removedPosts": [
+        {
+          "wpId": "8485",
+          "title": "More on Greek Numerals",
+          "topics": [
+            "Biblical Numerology"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "12690",
+          "title": "Was Jesus Made Up?  A Blast from the Past.",
+          "topics": [
+            "Historical Jesus (General)",
+            "Mythicism"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "26101",
+          "title": "Why I Wrote my book Did Jesus Exist?  Interview with Evangelical Scholar Ben Witherington",
+          "topics": [
+            "Media Interviews and Videos",
+            "Mythicism",
+            "Did Jesus Exist?"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "26343",
+          "title": "Evidence for Jesus Outside the New Testament: Part 2 of My Exchange with Ben Witherington",
+          "topics": [
+            "Methods for Studying the Historical Jesus",
+            "Did Jesus Exist?",
+            "Mythicism"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "26348",
+          "title": "What About Other References to Jesus Outside the New Testament?",
+          "topics": [
+            "Did Jesus Exist?",
+            "Methods for Studying the Historical Jesus"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "26449",
+          "title": "Texts and Towns that Allegedly Didn’t Exist (So Did Jesus?)",
+          "topics": [
+            "Mythicism",
+            "Archaeology and Material Evidence"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "26454",
+          "title": "Fiction and Fact, Legend and History.  Is it Either / Or?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Historical Methods (General)",
+            "Mythicism"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "38235",
+          "title": "Gospel Thrillers Part I by Andrew Jacobs",
+          "topics": [
+            "General-Audience Books"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "41201",
+          "title": "Oral Traditions and the Dates of Our Gospels",
+          "topics": [
+            "Dating the Gospels",
+            "Oral Tradition",
+            "Papias"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        },
+        {
+          "wpId": "50349",
+          "title": "Problems of Suffering and Why Gospels Started Being Written: Questions from Readers",
+          "topics": [
+            "Problem of Evil and Suffering",
+            "Historical Study of Miracles",
+            "Dating the Gospels"
+          ],
+          "reason": "Q is only a list item, introductory aside, unrelated novel title, question marker, or Greek numeral and is not meaningfully discussed as the scholarly source used to explain Matthew and Luke."
+        }
+      ]
+    },
+    {
+      "keyword": "Nag Hammadi",
+      "before": 38,
+      "retained": 32,
+      "removed": 6,
+      "final": 32,
+      "removedPosts": [
+        {
+          "wpId": "2816",
+          "title": "The Gospel of Jesus’s Wife",
+          "topics": [
+            "Gospel of Jesus' Wife Fragment",
+            "Modern Forgery Claims"
+          ],
+          "reason": "Nag Hammadi appears only as an undeveloped example, exam term, conference subject, distinction from another text, or brief analogy rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "9055",
+          "title": "An Amusing Anecdote about the State of Textual Criticism",
+          "topics": [
+            "Textual Criticism Overview"
+          ],
+          "reason": "Nag Hammadi appears only as an undeveloped example, exam term, conference subject, distinction from another text, or brief analogy rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "15624",
+          "title": "Introducing the Apocalypse of Peter",
+          "topics": [
+            "Apocalypse of Peter",
+            "Canon Formation"
+          ],
+          "reason": "Nag Hammadi appears only as an undeveloped example, exam term, conference subject, distinction from another text, or brief analogy rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "21214",
+          "title": "Jesus as a Boy?   The Infancy Gospel of Thomas",
+          "topics": [
+            "Infancy Gospel of Thomas",
+            "Miracle Stories in Non-Canonical Texts"
+          ],
+          "reason": "Nag Hammadi appears only as an undeveloped example, exam term, conference subject, distinction from another text, or brief analogy rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "35182",
+          "title": "Wanna Take My Final Exam In New Testament?",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "Nag Hammadi appears only as an undeveloped example, exam term, conference subject, distinction from another text, or brief analogy rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "49417",
+          "title": "Early Christian Reactions to “Heresies” in a Nutshell",
+          "topics": [
+            "Eusebius of Caesarea",
+            "In a Nutshell Series",
+            "Early Christian Orthodoxy and Heresy"
+          ],
+          "reason": "Nag Hammadi appears only as an undeveloped example, exam term, conference subject, distinction from another text, or brief analogy rather than as a meaningful supporting subject."
+        }
+      ]
+    }
+  ]
+}

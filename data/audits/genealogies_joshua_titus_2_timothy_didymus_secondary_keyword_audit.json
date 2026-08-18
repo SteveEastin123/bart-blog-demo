@@ -1,0 +1,384 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Genealogies of Jesus, Joshua, Titus, 2 Timothy, and Didymus the Blind",
+  "criterion": "Retain secondary keywords only when they identify meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, charts, previews, and incidental autobiographical references.",
+  "auditedKeywords": [
+    "Genealogies of Jesus",
+    "Joshua",
+    "Joshua the High Priest",
+    "Titus",
+    "2 Timothy",
+    "Didymus the Blind"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 93,
+    "linksRemoved": 34,
+    "linksRetained": 59,
+    "linksRenamed": 1,
+    "keywordsRetired": 0,
+    "replacementKeywordsIntroduced": 1
+  },
+  "audits": [
+    {
+      "keyword": "Genealogies of Jesus",
+      "before": 19,
+      "retained": 17,
+      "removed": 2,
+      "removedPosts": [
+        {
+          "wpId": "3488",
+          "title": "Another Instance of Gematria",
+          "topics": [
+            "Biblical Numerology",
+            "Letter of Barnabas"
+          ],
+          "reason": "The post merely refers readers back to an earlier genealogy discussion instead of discussing Jesus' genealogies itself."
+        },
+        {
+          "wpId": "21924",
+          "title": "The Number 666 in the Context of the Book of Revelation",
+          "topics": [
+            "Biblical Numerology",
+            "Book of Revelation"
+          ],
+          "reason": "The post merely refers readers back to an earlier genealogy discussion instead of discussing Jesus' genealogies itself."
+        }
+      ]
+    },
+    {
+      "keyword": "Joshua",
+      "before": 19,
+      "retained": 16,
+      "removed": 3,
+      "removedPosts": [
+        {
+          "wpId": "12239",
+          "title": "What is the Hebrew Bible?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "Joshua appears only in a list, chart, or book-range label rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "28520",
+          "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+          "topics": [
+            "Hebrew Bible Prophets"
+          ],
+          "reason": "Joshua appears only in a list, chart, or book-range label rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "48687",
+          "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "Joshua appears only in a list, chart, or book-range label rather than as meaningful supporting content."
+        }
+      ],
+      "renamed": 1,
+      "remainingUnderOriginalKeyword": 15,
+      "replacements": [
+        {
+          "wpId": "48263",
+          "title": "A Gold Nugget Often Overlooked: The Book of Zechariah",
+          "from": "Joshua",
+          "to": "Joshua the High Priest",
+          "reason": "The post discusses the postexilic high priest in Zechariah, not Joshua son of Nun."
+        }
+      ]
+    },
+    {
+      "keyword": "Titus",
+      "before": 19,
+      "retained": 11,
+      "removed": 8,
+      "removedPosts": [
+        {
+          "wpId": "4618",
+          "title": "The Non-Pauline Oppression of Women",
+          "topics": [
+            "Early Church Developments",
+            "Pauline Authorship",
+            "Pauline Forgeries",
+            "Women in Pauline Traditions",
+            "Pastoral Epistles"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "8147",
+          "title": "Why Would Christian Authors Write Forgeries?",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "8334",
+          "title": "Pauline Forgeries:  2 Thessalonians as a Test Case",
+          "topics": [
+            "2 Thessalonians",
+            "Forgery (General)",
+            "Pauline Authorship",
+            "Pauline Forgeries"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "8599",
+          "title": "Lost Letters of Paul’s Opponents",
+          "topics": [
+            "Paul and His Opponents"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "14958",
+          "title": "The Surprising Understanding of Gender in the Ancient World",
+          "topics": [
+            "Women in Pauline Traditions",
+            "Roman World"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "38583",
+          "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+          "topics": [
+            "Marcion",
+            "Pauline Forgeries"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        },
+        {
+          "wpId": "39548",
+          "title": "The Silencing of Women: 1 Cor. 14:34-35 as an Interpolation",
+          "topics": [
+            "Women in Pauline Traditions",
+            "Pauline Textual Issues",
+            "Textual Variants",
+            "1 Corinthians"
+          ],
+          "reason": "Titus appears only in a list or brief collective reference to disputed Pauline or Pastoral letters and is not substantively discussed."
+        }
+      ]
+    },
+    {
+      "keyword": "2 Timothy",
+      "before": 18,
+      "retained": 7,
+      "removed": 11,
+      "removedPosts": [
+        {
+          "wpId": "4618",
+          "title": "The Non-Pauline Oppression of Women",
+          "topics": [
+            "Early Church Developments",
+            "Pauline Authorship",
+            "Pauline Forgeries",
+            "Women in Pauline Traditions",
+            "Pastoral Epistles"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "8147",
+          "title": "Why Would Christian Authors Write Forgeries?",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "8334",
+          "title": "Pauline Forgeries:  2 Thessalonians as a Test Case",
+          "topics": [
+            "2 Thessalonians",
+            "Forgery (General)",
+            "Pauline Authorship",
+            "Pauline Forgeries"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "8405",
+          "title": "My Forgery Seminar (Syllabus)",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "8599",
+          "title": "Lost Letters of Paul’s Opponents",
+          "topics": [
+            "Paul and His Opponents"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "14958",
+          "title": "The Surprising Understanding of Gender in the Ancient World",
+          "topics": [
+            "Women in Pauline Traditions",
+            "Roman World"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "17064",
+          "title": "What Is the New Testament?  A Broad Overview",
+          "topics": [
+            "Early Christian Writings"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "38583",
+          "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+          "topics": [
+            "Marcion",
+            "Pauline Forgeries"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "39548",
+          "title": "The Silencing of Women: 1 Cor. 14:34-35 as an Interpolation",
+          "topics": [
+            "Women in Pauline Traditions",
+            "Pauline Textual Issues",
+            "Textual Variants",
+            "1 Corinthians"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "47246",
+          "title": "The Pastoral Epistle of 1 Timothy in a Nutshell",
+          "topics": [
+            "In a Nutshell Series",
+            "Pastoral Epistles"
+          ],
+          "reason": "2 Timothy appears only in a list, syllabus entry, overview, or preview rather than as meaningful supporting content."
+        }
+      ]
+    },
+    {
+      "keyword": "Didymus the Blind",
+      "before": 18,
+      "retained": 8,
+      "removed": 10,
+      "removedPosts": [
+        {
+          "wpId": "2624",
+          "title": "My First Teaching Position",
+          "topics": [
+            "Academic Careers and University Life"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "4799",
+          "title": "Fun with the Jewish Christian Gospels",
+          "topics": [
+            "Jewish Christian Gospels"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "11904",
+          "title": "Writing Books that Are Interesting and Important",
+          "topics": [
+            "General-Audience Books",
+            "Triumph of Christianity",
+            "Writing and Publishing Process"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "12873",
+          "title": "My New Scholarly Project",
+          "topics": [
+            "Life After Death (General)",
+            "Heaven and Hell Beliefs",
+            "Afterlife Journeys",
+            "Scholarly Research and Publishing"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "12916",
+          "title": "Fun with the Jewish Christian Gospels: A Blast from the Past",
+          "topics": [
+            "Jewish Christian Gospels",
+            "Non-Canonical Gospel Traditions",
+            "Early Christian Orthodoxy and Heresy"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "21126",
+          "title": "The Flukes of Life and My Teaching Career",
+          "topics": [
+            "Academic Careers and University Life"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "26546",
+          "title": "Memories of Bruce Metzger: When I First Realized I Couldn’t Write",
+          "topics": [
+            "Bruce Metzger",
+            "Writing and Publishing Process"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "34494",
+          "title": "The Voice at Jesus’ Baptism–An Intriguing Version in the Gospel of the Ebionites",
+          "topics": [
+            "Jewish Christian Gospels",
+            "Biblical Contradictions"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "36814",
+          "title": "The Apocryphal Gospels By and For Jewish Christians",
+          "topics": [
+            "Jewish Christian Gospels"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        },
+        {
+          "wpId": "47061",
+          "title": "The Flukes of Life: How I Almost Never Became a Professor",
+          "topics": [
+            "Academic Careers and University Life",
+            "Courses and Teaching"
+          ],
+          "reason": "Didymus is only named in a list, book title, source attribution, or autobiographical aside rather than meaningfully discussed."
+        }
+      ]
+    }
+  ]
+}

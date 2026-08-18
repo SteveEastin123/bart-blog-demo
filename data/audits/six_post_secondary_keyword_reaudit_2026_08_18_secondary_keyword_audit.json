@@ -1,0 +1,329 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly six posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions and list entries; replace ambiguous or imprecise labels; and avoid duplicating a post's topic as a secondary keyword.",
+  "originalKeywords": [
+    "1 Chronicles",
+    "Aaron",
+    "Angels",
+    "Aquila",
+    "Aramaic",
+    "Bathsheba",
+    "Dinesh D'Souza",
+    "Ebionites",
+    "Evangelism",
+    "First-Century Mark",
+    "Gospel According to the Hebrews",
+    "Grace",
+    "Hosea",
+    "Imperial Cult",
+    "Introduction to the New Testament",
+    "John Shelby Spong",
+    "Keith Hopkins",
+    "King of the Jews",
+    "Marcion",
+    "Martin Goodman",
+    "Mummy Masks",
+    "Palaeography",
+    "Papias",
+    "Syllabus",
+    "Terry Gross",
+    "Textus Receptus",
+    "Thomas",
+    "Walter Bauer"
+  ],
+  "auditedKeywords": [
+    "1 Chronicles",
+    "Aaron",
+    "Angels",
+    "Aramaic",
+    "Bathsheba",
+    "Dinesh D'Souza",
+    "Ebionites",
+    "Evangelism",
+    "First-Century Mark Fragment",
+    "Gospel According to the Hebrews",
+    "Grace",
+    "Hosea",
+    "Imperial Cult",
+    "Introduction to the New Testament",
+    "John Shelby Spong",
+    "Keith Hopkins",
+    "King of the Jews",
+    "Marcion",
+    "Martin Goodman",
+    "Mummy Masks",
+    "Palaeography",
+    "Papias",
+    "Syllabus",
+    "Terry Gross",
+    "Textus Receptus",
+    "Walter Bauer"
+  ],
+  "summary": {
+    "keywordsAudited": 28,
+    "linksReviewed": 168,
+    "assignmentsRemoved": 34,
+    "assignmentsAdded": 3,
+    "netLinksRemoved": 31,
+    "uniqueKeywordsBefore": 918,
+    "uniqueKeywordsAfter": 916,
+    "keywordsRetired": 3,
+    "labelsIntroduced": 1
+  },
+  "retiredKeywords": [
+    {
+      "keyword": "Aquila",
+      "reason": "All six assignments were based on single passing mentions."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "reason": "The shortened label was replaced where needed by the more precise First-Century Mark Fragment label."
+    },
+    {
+      "keyword": "Thomas",
+      "reason": "The generic label was ambiguous and all assignments were passing, bibliographic, or already represented by Judas Thomas."
+    }
+  ],
+  "resultingCounts": {
+    "1 Chronicles": 5,
+    "Aaron": 2,
+    "Aquila": 0,
+    "Bathsheba": 5,
+    "Evangelism": 2,
+    "First-Century Mark": 0,
+    "First-Century Mark Fragment": 2,
+    "Fresh Air": 6,
+    "Introduction to the New Testament": 5,
+    "Marcion": 5,
+    "Martin Goodman": 4,
+    "Textus Receptus": 4,
+    "Thomas": 0
+  },
+  "removedPosts": [
+    {
+      "keyword": "1 Chronicles",
+      "wpId": "3472",
+      "title": "Genealogies of Matthew and Luke",
+      "reason": "The book appears only in a humorous aside contrasting its long genealogies with the genealogies in Matthew and Luke."
+    },
+    {
+      "keyword": "Aaron",
+      "wpId": "46934",
+      "title": "Does the Book of Hebrews Indicate Jesus Ever Came To Earth?  A Response to Richard Carrier.",
+      "reason": "Aaron appears only in a brief explanation that Jewish priests descended through the tribe of Levi."
+    },
+    {
+      "keyword": "Aaron",
+      "wpId": "41046",
+      "title": "Could Moses Have Been Thutmose, the Overseer of Borderlands? Platinum Post by Serene",
+      "reason": "Aaron appears only in two quoted family and narrative references within a speculative proposal about Moses."
+    },
+    {
+      "keyword": "Aaron",
+      "wpId": "38971",
+      "title": "Could Moses be Thutmose, the Overseer of the Borderlands? – Platinum Post from Serene",
+      "reason": "Aaron appears only in two quoted family and narrative references within a speculative proposal about Moses."
+    },
+    {
+      "keyword": "Aaron",
+      "wpId": "32990",
+      "title": "The Problem: Not Enough Killing!  Platinum Guest Post by Douglas Wadeson",
+      "reason": "Aaron appears only in a brief retelling of the golden-calf story."
+    },
+    {
+      "keyword": "Aquila",
+      "wpId": "40178",
+      "title": "Women and Gender: Early Christianity in a Patriarchal World",
+      "reason": "Aquila appears only once as Prisca's husband in a list of women."
+    },
+    {
+      "keyword": "Aquila",
+      "wpId": "39264",
+      "title": "Was Paul a Misogynist?",
+      "reason": "Aquila appears only once as Prisca's husband in a list of women."
+    },
+    {
+      "keyword": "Aquila",
+      "wpId": "25875",
+      "title": "How Paul Started the Church in Corinth",
+      "reason": "Aquila appears only once as part of the background to Paul's work in Corinth."
+    },
+    {
+      "keyword": "Aquila",
+      "wpId": "25709",
+      "title": "Paul’s Community at Corinth",
+      "reason": "Aquila appears only once as part of the background to Paul's Corinthian community."
+    },
+    {
+      "keyword": "Aquila",
+      "wpId": "7627",
+      "title": "After the New Testament: Women in Early Christianity",
+      "reason": "Aquila appears only once as Prisca's husband in a list of women."
+    },
+    {
+      "keyword": "Aquila",
+      "wpId": "4591",
+      "title": "Women in the Churches of Paul",
+      "reason": "Aquila appears only once as Prisca's husband in a list of women."
+    },
+    {
+      "keyword": "Bathsheba",
+      "wpId": "39869",
+      "title": "A Remembrance of John Shelby Spong–Platinum Post By Ray Zubler",
+      "reason": "Bathsheba appears only in a brief list of women from Matthew's genealogy within a remembrance of John Shelby Spong."
+    },
+    {
+      "keyword": "Evangelism",
+      "wpId": "15925",
+      "title": "My Doubts about the Son of God: A Blast from the Past",
+      "reason": "Door-to-door evangelism is only autobiographical background for a post about doubts concerning Jesus as the Son of God."
+    },
+    {
+      "keyword": "Evangelism",
+      "wpId": "12408",
+      "title": "Pastor Goranson, the Son of God, and I: A Blast From the Past",
+      "reason": "Door-to-door evangelism is only autobiographical background for a post about Pastor Goranson and belief in the Son of God."
+    },
+    {
+      "keyword": "Evangelism",
+      "wpId": "11803",
+      "title": "Learning to Teach at Moody",
+      "reason": "Door-to-door evangelism is one brief example among several Moody ministry assignments in a post about learning to teach."
+    },
+    {
+      "keyword": "Evangelism",
+      "wpId": "3947",
+      "title": "Pastor Goranson, the Son of God, and I",
+      "reason": "Door-to-door evangelism is only autobiographical background for a post about Pastor Goranson and belief in the Son of God."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "wpId": "17505",
+      "title": "Two Brief Comments on intriguing topics: the unknowability of God and scholarly subterfuge!",
+      "reason": "The post already carries the more precise topic First-Century Mark Fragment."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "wpId": "16884",
+      "title": "Startling and Disturbing Development Involving Manuscripts at the Museum of the Bible",
+      "reason": "The post already carries the more precise topic First-Century Mark Fragment."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "wpId": "16322",
+      "title": "The Legality, Morality, and Scandal of Acquiring Ancient Manuscripts: Guest Post by Jennifer Knust",
+      "reason": "The shortened label is being replaced with the precise label First-Century Mark Fragment."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "wpId": "16288",
+      "title": "Is There a Way to Know if a Manuscript is the “Original”?",
+      "reason": "The shortened label is being replaced with the precise label First-Century Mark Fragment."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "wpId": "15187",
+      "title": "Non-Disclosure Agreements",
+      "reason": "The post already carries the more precise topic First-Century Mark Fragment."
+    },
+    {
+      "keyword": "First-Century Mark",
+      "wpId": "15146",
+      "title": "A Different First-Century Mark?  An Interesting Piece of Sleuth Work",
+      "reason": "The post already carries the more precise topic First-Century Mark Fragment."
+    },
+    {
+      "keyword": "Introduction to the New Testament",
+      "wpId": "4727",
+      "title": "My Pop Quiz For First-Year Students",
+      "reason": "The quiz was given in a seminar about Jesus rather than the course Introduction to the New Testament."
+    },
+    {
+      "keyword": "Marcion",
+      "wpId": "4121",
+      "title": "Explaining myself….",
+      "reason": "Marcion appears only once in a list of competing early Christologies."
+    },
+    {
+      "keyword": "Martin Goodman",
+      "wpId": "7475",
+      "title": "Day One of Jesus and Brian",
+      "reason": "Goodman is only one of several speakers briefly noted in a conference recap."
+    },
+    {
+      "keyword": "Martin Goodman",
+      "wpId": "6277",
+      "title": "Jesus and Brian!!!",
+      "reason": "Goodman appears only in the speaker list for a conference announcement."
+    },
+    {
+      "keyword": "Textus Receptus",
+      "wpId": "12275",
+      "title": "The First Greek New Testament",
+      "reason": "The post discusses Erasmus's first published Greek New Testament but does not discuss the Textus Receptus."
+    },
+    {
+      "keyword": "Textus Receptus",
+      "wpId": "12272",
+      "title": "The Oldest Printed Versions of the Greek New Testament",
+      "reason": "The post discusses the earliest printed Greek New Testaments but does not discuss the Textus Receptus."
+    },
+    {
+      "keyword": "Thomas",
+      "wpId": "33399",
+      "title": "Writing Forgeries to Show the Truth",
+      "reason": "Thomas appears only in lists of famous names used for forged writings."
+    },
+    {
+      "keyword": "Thomas",
+      "wpId": "15672",
+      "title": "Do Any Forgeries Claim to be Written by Jesus?",
+      "reason": "The ambiguous Thomas label is redundant because the post already uses the precise keyword Judas Thomas."
+    },
+    {
+      "keyword": "Thomas",
+      "wpId": "13934",
+      "title": "Did Matthew Copy Luke?  Mark Goodacre’s Rebuttal",
+      "reason": "Thomas appears only in the title of a Mark Goodacre book cited in the contributor biography."
+    },
+    {
+      "keyword": "Thomas",
+      "wpId": "8890",
+      "title": "Mark Goodacre: Questioning the Discovery of the Nag Hammadi Library",
+      "reason": "Thomas appears only in the title of a Mark Goodacre book cited in the contributor biography."
+    },
+    {
+      "keyword": "Thomas",
+      "wpId": "8326",
+      "title": "Forgeries in the Name of Paul",
+      "reason": "Thomas appears only in a list of apostolic names used as claims of authority."
+    },
+    {
+      "keyword": "Thomas",
+      "wpId": "7504",
+      "title": "Day Two of Jesus and Brian",
+      "reason": "Thomas appears only in the title of a Mark Goodacre book cited in the contributor biography."
+    }
+  ],
+  "addedPosts": [
+    {
+      "keyword": "First-Century Mark Fragment",
+      "wpId": "16322",
+      "title": "The Legality, Morality, and Scandal of Acquiring Ancient Manuscripts: Guest Post by Jennifer Knust",
+      "reason": "The first-century Mark controversy is a meaningful example in the post's investigation of acquiring ancient manuscripts."
+    },
+    {
+      "keyword": "First-Century Mark Fragment",
+      "wpId": "16288",
+      "title": "Is There a Way to Know if a Manuscript is the “Original”?",
+      "reason": "The post directly asks how a hypothetical first-century copy of Mark could be dated and identified as an original."
+    },
+    {
+      "keyword": "Fresh Air",
+      "wpId": "12339",
+      "title": "The Gospel Truth: Sometimes A Little Hazy",
+      "reason": "The post shares a Fresh Air interview hosted by Terry Gross."
+    }
+  ]
+}

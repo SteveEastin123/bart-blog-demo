@@ -1,0 +1,249 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for 1 Timothy, Judas Iscariot, and Jude",
+  "criterion": "Retain secondary keywords only when the complete post text meaningfully discusses 1 Timothy, Judas Iscariot, or Jude; remove names and book titles that occur only in lists, brief narrative summaries, incidental comparisons, or introductory examples.",
+  "auditedKeywords": [
+    "1 Timothy",
+    "Judas Iscariot",
+    "Jude"
+  ],
+  "summary": {
+    "requestedKeywordsAudited": 3,
+    "linksReviewed": 105,
+    "linksRemoved": 22,
+    "linksAdded": 0,
+    "keywordsRetired": 0
+  },
+  "audits": [
+    {
+      "keyword": "1 Timothy",
+      "before": 35,
+      "retained": 29,
+      "removed": 6,
+      "final": 29,
+      "removedPosts": [
+        {
+          "wpId": "16117",
+          "title": "Early Christian Liars",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "1 Timothy is only a name in a list, a brief comparison, or one example among several writings rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "17041",
+          "title": "Sex and Gender in the Ancient World",
+          "topics": [
+            "Roman World"
+          ],
+          "reason": "1 Timothy is only a name in a list, a brief comparison, or one example among several writings rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "20492",
+          "title": "Problems with Thinking the “Letters of John” in the NT are Forgeries?  Guest Post: Hugo Mendez",
+          "topics": [
+            "Forgery (General)",
+            "Gospel Eyewitness Claims",
+            "Non-Pauline Epistle Forgeries",
+            "Non-Pauline Epistle Authorship",
+            "Johannine Epistles",
+            "Eyewitness Reliability"
+          ],
+          "reason": "1 Timothy is only a name in a list, a brief comparison, or one example among several writings rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "27835",
+          "title": "Must Jesus Divide Families? Platinum Guest Post by Douglas Wadeson",
+          "topics": [
+            "Jesus' Teachings",
+            "Jesus' Family Traditions"
+          ],
+          "reason": "1 Timothy is only a name in a list, a brief comparison, or one example among several writings rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "29032",
+          "title": "Must Jesus Divide Families?  Guest post by Douglas Wadeson",
+          "topics": [
+            "Jesus' Teachings",
+            "Jesus' Family Traditions"
+          ],
+          "reason": "1 Timothy is only a name in a list, a brief comparison, or one example among several writings rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "47123",
+          "title": "Paul’s Letter to the Romans in a Nutshell",
+          "topics": [
+            "In a Nutshell Series",
+            "Salvation (General)",
+            "Romans",
+            "Pauline Salvation Models"
+          ],
+          "reason": "1 Timothy is only a name in a list, a brief comparison, or one example among several writings rather than a meaningful supporting subject of the post."
+        }
+      ]
+    },
+    {
+      "keyword": "Judas Iscariot",
+      "before": 35,
+      "retained": 28,
+      "removed": 7,
+      "final": 28,
+      "removedPosts": [
+        {
+          "wpId": "1976",
+          "title": "More on the Resurrection",
+          "topics": [
+            "Empty Tomb Traditions",
+            "Resurrection Arguments and Apologetics"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        },
+        {
+          "wpId": "6967",
+          "title": "Jesus’ Death and Resurrection in Mark",
+          "topics": [
+            "Meaning of Jesus' Resurrection",
+            "Gospel of Mark",
+            "Historical Methods (General)"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        },
+        {
+          "wpId": "10579",
+          "title": "HNN News Story on Jesus Before the Gospels",
+          "topics": [
+            "Eyewitness Reliability",
+            "Jesus Before the Gospels",
+            "Memory and Jesus Traditions"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        },
+        {
+          "wpId": "12619",
+          "title": "Is Theological “Truth” More Important than Historical Accuracy?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Historical Study and Theology",
+            "Gospel of John",
+            "Biblical Contradictions"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "topics": [
+            "Meaning of Jesus' Resurrection",
+            "Gospel of Mark",
+            "Jesus' Passion Narratives",
+            "Christology in the Gospels"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        },
+        {
+          "wpId": "16044",
+          "title": "A Papias Mystery: What Was the Book He Wrote?  Guest Post by Stephen Carlson",
+          "topics": [
+            "Papias"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        },
+        {
+          "wpId": "47056",
+          "title": "The Gospel of Mark in a Nutshell",
+          "topics": [
+            "Gospel of Mark",
+            "In a Nutshell Series"
+          ],
+          "reason": "Judas Iscariot appears only as a passing element in a Passion summary, resurrection discussion, or introductory example rather than as a meaningfully discussed figure."
+        }
+      ]
+    },
+    {
+      "keyword": "Jude",
+      "before": 35,
+      "retained": 26,
+      "removed": 9,
+      "final": 26,
+      "removedPosts": [
+        {
+          "wpId": "2551",
+          "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "15672",
+          "title": "Do Any Forgeries Claim to be Written by Jesus?",
+          "topics": [
+            "Eusebius of Caesarea",
+            "Forgery (General)",
+            "Jesus and Abgar Legend"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "15818",
+          "title": "The Aberrant View of the Afterlife in the Apocalypse of Peter",
+          "topics": [
+            "Apocalypse of Peter",
+            "Salvation (General)"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "32580",
+          "title": "The Canon of the New Testament:  Why It Matters",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "32663",
+          "title": "Did Ancient Writers Use Secretaries?",
+          "topics": [
+            "Ancient Literacy",
+            "Ancient Secretaries and Authorship"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "41262",
+          "title": "Why Would A Christian Author Lie About Who He Was?",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "48954",
+          "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        },
+        {
+          "wpId": "50192",
+          "title": "How the Year 1517 Revolutionized Biblical Studies",
+          "topics": [
+            "Critical Biblical Scholarship",
+            "Historical Methods (General)"
+          ],
+          "reason": "Jude is only one name or book in a list of apostles, forged writings, or canonical works rather than a meaningful supporting subject of the post."
+        }
+      ]
+    }
+  ]
+}

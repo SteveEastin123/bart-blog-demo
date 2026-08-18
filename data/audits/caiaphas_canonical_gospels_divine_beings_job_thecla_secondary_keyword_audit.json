@@ -1,0 +1,161 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Caiaphas, Canonical Gospels, Divine Beings, Job, and Thecla secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting people, Gospel collections, divine figures, biblical books, and early Christian figures; remove character and book lists, passing comparisons, isolated citations, and references to material discussed elsewhere.",
+  "auditedKeywords": [
+    "Caiaphas",
+    "Canonical Gospels",
+    "Divine Beings",
+    "Job",
+    "Thecla"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 105,
+    "assignmentsRetained": 83,
+    "assignmentsRemoved": 22,
+    "uniqueKeywordsBefore": 908,
+    "uniqueKeywordsAfter": 908
+  },
+  "resultingCounts": {
+    "Caiaphas": 8,
+    "Canonical Gospels": 19,
+    "Divine Beings": 21,
+    "Job": 15,
+    "Thecla": 20
+  },
+  "removedPosts": [
+    {
+      "wpId": "15852",
+      "title": "A New Argument that Mark Was the First Gospel (Editorial Fatigue):  Guest Post by Mark Goodacre!",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "17813",
+      "title": "Comparing John and the Synoptics",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "13196",
+      "title": "Differences Between John and the Synoptics",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "49069",
+      "title": "Do the Synoptics Present an Early Character of the Jesus Movement?  –Platinum Post by Ryan Fleming",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "36715",
+      "title": "Does Archaeological Evidence Show that Jesus Was Buried on the Day He Died?",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "14935",
+      "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "7046",
+      "title": "The Gospel of John from a Comparative Perspective",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "21368",
+      "title": "The Roman Standards Worship Jesus?  From the Gospel of Nicodemus",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "7609",
+      "title": "The Skeletal Remains of Yehohanan and Their Significance",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "13207",
+      "title": "The Skeletal Remains of Yehohanan: Readers Mailbag October 8, 2017",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "19669",
+      "title": "The Social History Behind the Fourth Gospel",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "3032",
+      "title": "Was Jesus Given a Decent Burial (By Joseph of Arimathea)",
+      "keyword": "Caiaphas",
+      "reason": "Caiaphas appears only in a character list, family reference, or brief archaeological comparison rather than as a meaningfully discussed person or source of evidence."
+    },
+    {
+      "wpId": "1981",
+      "title": "A Final (for now) Post on the Resurrection",
+      "keyword": "Canonical Gospels",
+      "reason": "The post focuses on a proposal about Luke alone or does not meaningfully discuss the canonical Gospels."
+    },
+    {
+      "wpId": "12543",
+      "title": "Mythicists and the Virgin Birth: Readers’ Mailbag May 6, 2017",
+      "keyword": "Canonical Gospels",
+      "reason": "The post focuses on a proposal about Luke alone or does not meaningfully discuss the canonical Gospels."
+    },
+    {
+      "wpId": "1981",
+      "title": "A Final (for now) Post on the Resurrection",
+      "keyword": "Job",
+      "reason": "Job appears only in a biblical book list, isolated citation, passing reference, or is not substantively discussed."
+    },
+    {
+      "wpId": "3924",
+      "title": "Biblical Views of Suffering",
+      "keyword": "Job",
+      "reason": "Job appears only in a biblical book list, isolated citation, passing reference, or is not substantively discussed."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Job",
+      "reason": "Job appears only in a biblical book list, isolated citation, passing reference, or is not substantively discussed."
+    },
+    {
+      "wpId": "14258",
+      "title": "Is the Christmas Story a Myth?",
+      "keyword": "Job",
+      "reason": "Job appears only in a biblical book list, isolated citation, passing reference, or is not substantively discussed."
+    },
+    {
+      "wpId": "3631",
+      "title": "More King James Curiosities",
+      "keyword": "Job",
+      "reason": "Job appears only in a biblical book list, isolated citation, passing reference, or is not substantively discussed."
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "keyword": "Job",
+      "reason": "Job appears only in a biblical book list, isolated citation, passing reference, or is not substantively discussed."
+    },
+    {
+      "wpId": "11821",
+      "title": "Does James Contradict Paul?",
+      "keyword": "Thecla",
+      "reason": "Thecla appears only in the description of another chapter and is not discussed in the post itself."
+    }
+  ]
+}

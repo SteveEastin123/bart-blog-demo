@@ -1,0 +1,536 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Elisha, Jewish Apocalypticism, New Testament Manuscripts, Gabriel, Gospel of Mary, King James Version, Oral Tradition, Pedagogy, Proto-Gospel of James, and Tertullian",
+  "criterion": "Retain secondary keywords only when the complete post text meaningfully discusses the person, text, tradition, method, or concept; remove lists, passing mentions, footnotes, announcements, and surrounding context.",
+  "auditedKeywords": [
+    "Elisha",
+    "Jewish Apocalypticism",
+    "New Testament Manuscripts",
+    "Gabriel",
+    "Gospel of Mary",
+    "King James Version",
+    "Oral Tradition",
+    "Pedagogy",
+    "Proto-Gospel of James",
+    "Tertullian"
+  ],
+  "summary": {
+    "keywordsAudited": 10,
+    "linksReviewed": 173,
+    "linksRemoved": 48,
+    "linksRetained": 125,
+    "keywordsRetired": 0
+  },
+  "audits": [
+    {
+      "keyword": "Elisha",
+      "before": 18,
+      "retained": 15,
+      "removed": 3,
+      "removedPosts": [
+        {
+          "wpId": "32546",
+          "title": "A Major Forgery in the Hebrew Bible?  Platinum Guest Post by Dennis Folds",
+          "topics": [
+            "Forgery (General)",
+            "Hebrew Bible Composition and Sources"
+          ],
+          "reason": "Elisha appears only in a list of prophets or a brief comparison and is not meaningfully discussed."
+        },
+        {
+          "wpId": "33023",
+          "title": "A Major Forgery in the Hebrew Bible?  Guest Post by Platinum Member Dennis Folds",
+          "topics": [
+            "Forgery (General)",
+            "Hebrew Bible Composition and Sources"
+          ],
+          "reason": "Elisha appears only in a list of prophets or a brief comparison and is not meaningfully discussed."
+        },
+        {
+          "wpId": "39619",
+          "title": "John the Baptist: The Most Influential Religious Innovator in History by James McGrath (Part 2)",
+          "topics": [
+            "John the Baptist"
+          ],
+          "reason": "Elisha appears only in a list of prophets or a brief comparison and is not meaningfully discussed."
+        }
+      ]
+    },
+    {
+      "keyword": "Jewish Apocalypticism",
+      "before": 18,
+      "retained": 16,
+      "removed": 2,
+      "removedPosts": [
+        {
+          "wpId": "28517",
+          "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+          "topics": [
+            "Hebrew Bible Prophets"
+          ],
+          "reason": "Jewish apocalypticism is mentioned only to introduce a separate series on the prophets rather than discussed in the post itself."
+        },
+        {
+          "wpId": "28663",
+          "title": "The Prophets of Scripture: A Brief Summary of their Message and Mission",
+          "topics": [
+            "Hebrew Bible Prophets"
+          ],
+          "reason": "Jewish apocalypticism is mentioned only to introduce a separate series on the prophets rather than discussed in the post itself."
+        }
+      ]
+    },
+    {
+      "keyword": "New Testament Manuscripts",
+      "before": 18,
+      "retained": 18,
+      "removed": 0,
+      "removedPosts": []
+    },
+    {
+      "keyword": "Gabriel",
+      "before": 17,
+      "retained": 9,
+      "removed": 8,
+      "removedPosts": [
+        {
+          "wpId": "3433",
+          "title": "Luke’s Version of Jesus’ Birth",
+          "topics": [
+            "Jesus' Birth Narratives",
+            "Gospel of Luke"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "8350",
+          "title": "Do You Have To  Believe in the Virgin Birth?",
+          "topics": [
+            "Virgin Birth"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "12625",
+          "title": "Another “True” Story that Didn’t Happen?  Jesus’ Birth in Luke",
+          "topics": [
+            "Biblical Contradictions",
+            "Jesus' Birth Narratives",
+            "Gospel of Luke",
+            "Gospel of Matthew"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "15324",
+          "title": "A Key Contradiction in the Birth Narratives of Jesus",
+          "topics": [
+            "Biblical Contradictions",
+            "Jesus' Birth Narratives",
+            "Gospel of Matthew",
+            "Gospel of Luke"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "15687",
+          "title": "The Birth of Jesus in Luke",
+          "topics": [
+            "Jesus' Birth Narratives",
+            "Gospel of Luke"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "22610",
+          "title": "Do Christians Have to Believe in the Virgin Birth?",
+          "topics": [
+            "Virgin Birth",
+            "Fundamentalism"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "41900",
+          "title": "Twelve Days of Christmas Day 7: The Birth of Jesus in Luke",
+          "topics": [
+            "Jesus' Birth Narratives"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        },
+        {
+          "wpId": "41908",
+          "title": "Twelve Days of Christmas Day 9: A Key Contradiction in the Birth Narratives of Jesus",
+          "topics": [
+            "Biblical Contradictions",
+            "Jesus' Birth Narratives",
+            "Gospel of Matthew"
+          ],
+          "reason": "Gabriel receives only a brief narrative mention in a broader discussion of Jesus' birth or the virgin birth."
+        }
+      ]
+    },
+    {
+      "keyword": "Gospel of Mary",
+      "before": 17,
+      "retained": 9,
+      "removed": 8,
+      "removedPosts": [
+        {
+          "wpId": "2259",
+          "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center",
+          "topics": [
+            "Personal Reflections",
+            "Courses and Teaching",
+            "Academic Careers and University Life"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "7686",
+          "title": "Apocryphal Gospels: The Scholarly Version",
+          "topics": [
+            "Non-Canonical Gospel Traditions",
+            "Translation Issues"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "12262",
+          "title": "What About the Apocrypha?",
+          "topics": [
+            "Old Testament Apocrypha"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "13336",
+          "title": "Another Translation Project:  The Apocryphal Gospels",
+          "topics": [
+            "Non-Canonical Gospel Traditions",
+            "Translation Issues"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "16599",
+          "title": "The Scholarly Edition of the Apocryphal Gospels",
+          "topics": [
+            "Non-Canonical Gospel Traditions",
+            "Translation Issues"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "27082",
+          "title": "Jesus the Healer, Repossessed?  Platinum guest post by Douglas Wadeson MD",
+          "topics": [
+            "Jesus' Miracle Stories",
+            "Historical Study of Miracles"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "28082",
+          "title": "My Final Exam This Semester!  The Birth of Christianity.",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "37615",
+          "title": "Do You Want to Take the Final Exam for My Course: “Birth of Christianity”?",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "The Gospel of Mary appears only in a reading list, text inventory, exam term, or footnote rather than as meaningful supporting content."
+        }
+      ]
+    },
+    {
+      "keyword": "King James Version",
+      "before": 17,
+      "retained": 12,
+      "removed": 5,
+      "removedPosts": [
+        {
+          "wpId": "12138",
+          "title": "The Marvels of our Universe",
+          "topics": [
+            "Personal Reflections"
+          ],
+          "reason": "The King James Version is only quoted, named parenthetically, or used as a transition without substantive discussion of the translation."
+        },
+        {
+          "wpId": "15614",
+          "title": "The De-apocalypticized Jesus of the Gospel of John",
+          "topics": [
+            "Life After Death (General)",
+            "Gospel of John",
+            "Apocalyptic Jesus"
+          ],
+          "reason": "The King James Version is only quoted, named parenthetically, or used as a transition without substantive discussion of the translation."
+        },
+        {
+          "wpId": "33890",
+          "title": "What About Translations of Other Ancient Christian Writings?",
+          "topics": [
+            "Translation Issues",
+            "Apostolic Fathers"
+          ],
+          "reason": "The King James Version is only quoted, named parenthetically, or used as a transition without substantive discussion of the translation."
+        },
+        {
+          "wpId": "38016",
+          "title": "How Do We Fit in the Universe?",
+          "topics": [
+            "Personal Reflections"
+          ],
+          "reason": "The King James Version is only quoted, named parenthetically, or used as a transition without substantive discussion of the translation."
+        },
+        {
+          "wpId": "40387",
+          "title": "The Next Ten Commandments Platinum Guest post by Douglas Wadeson MD",
+          "topics": [
+            "Jewish Law and Torah",
+            "Moral Problems in Scripture"
+          ],
+          "reason": "The King James Version is only quoted, named parenthetically, or used as a transition without substantive discussion of the translation."
+        }
+      ]
+    },
+    {
+      "keyword": "Oral Tradition",
+      "before": 17,
+      "retained": 12,
+      "removed": 5,
+      "removedPosts": [
+        {
+          "wpId": "11974",
+          "title": "Did Jesus Exist?  My Debate with Robert Price",
+          "topics": [
+            "Public Debates",
+            "Mythicism",
+            "Did Jesus Exist?"
+          ],
+          "reason": "Oral tradition is absent or receives only a brief speculative, source, or contextual reference rather than meaningful discussion."
+        },
+        {
+          "wpId": "11983",
+          "title": "My Milwaukee Mythicist Debate",
+          "topics": [
+            "Public Debates",
+            "Mythicism"
+          ],
+          "reason": "Oral tradition is absent or receives only a brief speculative, source, or contextual reference rather than meaningful discussion."
+        },
+        {
+          "wpId": "13605",
+          "title": "Jesus Rejected by His Own Townspeople in Mark",
+          "topics": [
+            "Gospel of Mark",
+            "Nazareth"
+          ],
+          "reason": "Oral tradition is absent or receives only a brief speculative, source, or contextual reference rather than meaningful discussion."
+        },
+        {
+          "wpId": "14982",
+          "title": "The Golden Rule",
+          "topics": [
+            "Didache",
+            "Jesus' Ethics",
+            "Jesus' Teachings"
+          ],
+          "reason": "Oral tradition is absent or receives only a brief speculative, source, or contextual reference rather than meaningful discussion."
+        },
+        {
+          "wpId": "50349",
+          "title": "Problems of Suffering and Why Gospels Started Being Written: Questions from Readers",
+          "topics": [
+            "Problem of Evil and Suffering",
+            "Historical Study of Miracles",
+            "Dating the Gospels"
+          ],
+          "reason": "Oral tradition is absent or receives only a brief speculative, source, or contextual reference rather than meaningful discussion."
+        }
+      ]
+    },
+    {
+      "keyword": "Pedagogy",
+      "before": 17,
+      "retained": 16,
+      "removed": 1,
+      "removedPosts": [
+        {
+          "wpId": "10307",
+          "title": "The Value (or Not) of Debates",
+          "topics": [
+            "Public Debates"
+          ],
+          "reason": "The post evaluates public debates rather than teaching methods or classroom practice."
+        }
+      ]
+    },
+    {
+      "keyword": "Proto-Gospel of James",
+      "before": 17,
+      "retained": 4,
+      "removed": 13,
+      "removedPosts": [
+        {
+          "wpId": "3415",
+          "title": "An Agnostic Reflects on Christmas",
+          "topics": [
+            "Agnosticism",
+            "Jesus' Birth Narratives",
+            "Personal Reflections"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "6402",
+          "title": "Jesus: L’enfant terrible?",
+          "topics": [
+            "Infancy Gospel of Thomas"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "6409",
+          "title": "Taking Jesus the Wunderkind Seriously",
+          "topics": [
+            "Infancy Gospel of Thomas",
+            "Miracle Stories in Non-Canonical Texts"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "12088",
+          "title": "Newsweek Article on Christmas: Part 2",
+          "topics": [
+            "Jesus' Birth Narratives",
+            "Public-Facing Scholarship"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "12107",
+          "title": "Jesus the Superboy: A Blast From the Past",
+          "topics": [
+            "Infancy Gospel of Thomas",
+            "Miracle Stories in Non-Canonical Texts"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "12110",
+          "title": "A Different Interpretation of the Mischievous Boy, Jesus",
+          "topics": [
+            "Infancy Gospel of Thomas",
+            "Miracle Stories in Non-Canonical Texts"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "16117",
+          "title": "Early Christian Liars",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "16364",
+          "title": "Did James Write James?",
+          "topics": [
+            "James the Brother of Jesus",
+            "Letter of James",
+            "Non-Pauline Epistle Authorship"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "22604",
+          "title": "My Article on Christmas in Newsweek: Part 2",
+          "topics": [
+            "Jesus' Birth Narratives",
+            "Public-Facing Scholarship",
+            "Biblical Contradictions"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "35188",
+          "title": "And Here’s My Final Exam on The Birth of Christianity",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "37162",
+          "title": "What the Jesus “Mythicists” Say About the Brothers of Jesus",
+          "topics": [
+            "James the Brother of Jesus",
+            "Jesus' Family Traditions",
+            "Mythicism"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "41919",
+          "title": "Twelve Days of Christmas Day 12: My Article on Christmas in Newsweek: Part 2",
+          "topics": [
+            "Jesus' Birth Narratives"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        },
+        {
+          "wpId": "46944",
+          "title": "James: Who, When, and Why?  Does It Claim to be by THAT James (the brother of Jesus)?",
+          "topics": [
+            "James the Brother of Jesus",
+            "Letter of James",
+            "Non-Pauline Epistle Authorship",
+            "Non-Pauline Epistle Forgeries"
+          ],
+          "reason": "The Proto-Gospel of James appears only in an announcement, list, passing comparison, or reference to an earlier discussion."
+        }
+      ]
+    },
+    {
+      "keyword": "Tertullian",
+      "before": 17,
+      "retained": 14,
+      "removed": 3,
+      "removedPosts": [
+        {
+          "wpId": "6637",
+          "title": "The New and Improved After the New Testament",
+          "topics": [
+            "Early Christian Writings"
+          ],
+          "reason": "Tertullian appears only in a contents list, a brief verse and note, or a single source attribution rather than meaningful discussion."
+        },
+        {
+          "wpId": "25178",
+          "title": "Fifty Ways to Forge a Gospel",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Tertullian appears only in a contents list, a brief verse and note, or a single source attribution rather than meaningful discussion."
+        },
+        {
+          "wpId": "46925",
+          "title": "The Death of Peter",
+          "topics": [
+            "Apostolic Death Traditions",
+            "Peter the Apostle"
+          ],
+          "reason": "Tertullian appears only in a contents list, a brief verse and note, or a single source attribution rather than meaningful discussion."
+        }
+      ]
+    }
+  ]
+}

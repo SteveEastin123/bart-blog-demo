@@ -1,0 +1,287 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Jonah, Letter of James, Ben Witherington, New Testament Canon, and Gospel of Judas secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting people, biblical texts, documents, and canonical questions; remove lists, passing comparisons, bibliographic mentions, similarly titled books, and ambiguous or unrelated uses of a name.",
+  "auditedKeywords": [
+    "Jonah",
+    "Letter of James",
+    "Ben Witherington",
+    "New Testament Canon",
+    "Gospel of Judas"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 128,
+    "assignmentsRetained": 85,
+    "assignmentsRemoved": 43,
+    "uniqueKeywordsBefore": 908,
+    "uniqueKeywordsAfter": 908
+  },
+  "resultingCounts": {
+    "Jonah": 6,
+    "Letter of James": 19,
+    "Ben Witherington": 25,
+    "New Testament Canon": 24,
+    "Gospel of Judas": 11
+  },
+  "removedPosts": [
+    {
+      "wpId": "13336",
+      "title": "Another Translation Project:  The Apocryphal Gospels",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "7686",
+      "title": "Apocryphal Gospels: The Scholarly Version",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "34155",
+      "title": "Can We Know Anything About Judas Iscariot?",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "15219",
+      "title": "Can We Know Anything Historically About How Judas Iscariot Died?",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "20556",
+      "title": "Judas Iscariot?  What’s an Iscariot??",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "40118",
+      "title": "My Most Helpful Book?   After the New Testament: A Reader in Early Christianity",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "6595",
+      "title": "My New Edition of After the New Testament",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "11188",
+      "title": "Publishing with HarperOne",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "15217",
+      "title": "The Death of Judas in Matthew",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "15239",
+      "title": "The Name Judas Iscariot: What Does It Mean?",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "16599",
+      "title": "The Scholarly Edition of the Apocryphal Gospels",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "25034",
+      "title": "Was Marcion a Gnostic?",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "16987",
+      "title": "What Does the Name Judas “Iscariot” Mean?",
+      "keyword": "Gospel of Judas",
+      "reason": "The Gospel of Judas appears only briefly in a list, publishing or translation context, a similarly titled book, or a discussion focused instead on the historical Judas Iscariot."
+    },
+    {
+      "wpId": "28257",
+      "title": "A Great Short Story in Scripture:  The Book of Ruth",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "28520",
+      "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "13936",
+      "title": "Back Again: Did Matthew Use Luke?  Alan Garrow’s Reply to Mark Goodacre",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "13934",
+      "title": "Did Matthew Copy Luke?  Mark Goodacre’s Rebuttal",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "27012",
+      "title": "Finally: Cephas and Peter.  What Do I Really Think?",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "24393",
+      "title": "How to Make Sense of (or at least Peace with) What’s Strange in the Bible: Guest Post by Kristin Swenson",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "47223",
+      "title": "Interesting Questions from Readers",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "3627",
+      "title": "Is the King James Bible Actually the William Tyndale Version?",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "17818",
+      "title": "Is This the Same Jesus?  John and the Synoptics (part 2)",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "12006",
+      "title": "James the Brother of the Lord",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "27082",
+      "title": "Jesus the Healer, Repossessed?  Platinum guest post by Douglas Wadeson MD",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "13201",
+      "title": "Jesus’ Miracles in John and the Synoptics",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "47096",
+      "title": "John Versus the Synoptics:  How Does Jesus Raise the Dead?",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "15562",
+      "title": "More Apocrypha: A Letter of Jeremiah, (Fascinating) Additions to Daniel, and 1 Maccabees",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "7051",
+      "title": "More on John from a Comparative Perspective",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "40859",
+      "title": "Some More of the OT Apocrypha: the Letter of Jeremiah, Additions to Daniel, and 1 Maccabees",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "9464",
+      "title": "The Prophetic Background of Jewish Apocalyptic Thought",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "9513",
+      "title": "What Is Repentance in the Bible?  Is there Repentance in the Bible?",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "16111",
+      "title": "Why Did Ancient Christian Forgers Commit Forgery?",
+      "keyword": "Jonah",
+      "reason": "Jonah appears only in a book or prophet list, a brief comparison, an isolated quotation, or the unrelated patronymic Simon son of Jonah."
+    },
+    {
+      "wpId": "16446",
+      "title": "A Christian Forger Caught in the Act",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "2591",
+      "title": "A Christian Forger Caught in the Acts",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "4056",
+      "title": "A Third Forgery in the Name of Peter",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "32663",
+      "title": "Did Ancient Writers Use Secretaries?",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "16656",
+      "title": "My Conference on Pseudepigraphy",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "40436",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 1). Guest Post by James Tabor",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "47043",
+      "title": "What Is The New Testament?  Can You Actually Say?",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "41262",
+      "title": "Why Would A Christian Author Lie About Who He Was?",
+      "keyword": "Letter of James",
+      "reason": "The post uses James only in a list or passing comparison, refers to James Tabor, discusses a letter addressed to James, or merely recalls an earlier discussion of the epistle."
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "keyword": "New Testament Canon",
+      "reason": "The phrase appears only as the title of a recommended book in a general reading list."
+    }
+  ]
+}

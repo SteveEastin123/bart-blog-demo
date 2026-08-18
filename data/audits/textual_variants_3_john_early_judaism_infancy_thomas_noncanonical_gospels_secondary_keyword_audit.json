@@ -1,0 +1,233 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Textual Variants, 3 John, Early Judaism, Infancy Gospel of Thomas, and Non-Canonical Gospels secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting textual issues, biblical writings, historical settings, and non-canonical texts; remove field lists, transitions, passing comparisons, bibliographies, tables of contents, and isolated course or publication references.",
+  "auditedKeywords": [
+    "Textual Variants",
+    "3 John",
+    "Early Judaism",
+    "Infancy Gospel of Thomas",
+    "Non-Canonical Gospels"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 111,
+    "assignmentsRetained": 77,
+    "assignmentsRemoved": 34,
+    "uniqueKeywordsBefore": 908,
+    "uniqueKeywordsAfter": 908
+  },
+  "resultingCounts": {
+    "Textual Variants": 20,
+    "3 John": 14,
+    "Early Judaism": 14,
+    "Infancy Gospel of Thomas": 10,
+    "Non-Canonical Gospels": 19
+  },
+  "removedPosts": [
+    {
+      "wpId": "17813",
+      "title": "Comparing John and the Synoptics",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "32505",
+      "title": "How Did They Decide Which Books to Include in the New Testament Canon?",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "20122",
+      "title": "Reading the New Testament Letters in CONTEXT",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "15818",
+      "title": "The Aberrant View of the Afterlife in the Apocalypse of Peter",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "17830",
+      "title": "The Most Intriguing Evidence that John Used Sources",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "40686",
+      "title": "Was the Apocalypse of Peter Originally Considered Part of the New Testament?",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "15713",
+      "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "keyword": "3 John",
+      "reason": "The post merely lists 3 John, uses it as a passing comparison, or mentions it while introducing a different Johannine subject."
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "36377",
+      "title": "Creating the Qu’ran:  Where Did the Scripture of Islam Really Come From? Guest post by Stephen Shoemaker",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "7475",
+      "title": "Day One of Jesus and Brian",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "20836",
+      "title": "Do You Have Advanced Training In any of the Blog’s Fields?",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "21209",
+      "title": "How I Do My Research",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "7732",
+      "title": "My Approach to Doing Research",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "35824",
+      "title": "The Bart Ehrman Movie Club Presents: Life of Brian",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "9315",
+      "title": "The SBL and the Blog",
+      "keyword": "Early Judaism",
+      "reason": "Early Judaism identifies an academic field, conference specialty, or area of blog coverage rather than a subject discussed in the post."
+    },
+    {
+      "wpId": "16606",
+      "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "35188",
+      "title": "And Here’s My Final Exam on The Birth of Christianity",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "4711",
+      "title": "Back To School!   My Jesus Syllabus",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "35410",
+      "title": "How Can We Get Behind “False Memories” of Jesus to the Historical Facts?",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "21106",
+      "title": "Jesus in Scholarship and Film",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "21260",
+      "title": "Our Most Important Gospel from Outside the NT: The Gospel of Thomas",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "49350",
+      "title": "Readers’ Questions on the Accuracy of the Gospels",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "3216",
+      "title": "The Apocryphal Gospels: Texts and Translations",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "7688",
+      "title": "The Other Gospels: The Trade Book Version",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "5016",
+      "title": "When Time Stood Still",
+      "keyword": "Infancy Gospel of Thomas",
+      "reason": "The text appears only in a passing example, reading list, table of contents, or brief reference to another class or publication."
+    },
+    {
+      "wpId": "7648",
+      "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+      "keyword": "Non-Canonical Gospels",
+      "reason": "Non-canonical Gospels appear only in a list or brief transition and are not meaningfully discussed."
+    },
+    {
+      "wpId": "35410",
+      "title": "How Can We Get Behind “False Memories” of Jesus to the Historical Facts?",
+      "keyword": "Non-Canonical Gospels",
+      "reason": "Non-canonical Gospels appear only in a list or brief transition and are not meaningfully discussed."
+    },
+    {
+      "wpId": "33161",
+      "title": "My New Podcast.   Help!  I Need Questions.",
+      "keyword": "Non-Canonical Gospels",
+      "reason": "Non-canonical Gospels appear only in a list or brief transition and are not meaningfully discussed."
+    },
+    {
+      "wpId": "12373",
+      "title": "Christians Who Thought Jesus Was Adopted by God: A Blast From the Past",
+      "keyword": "Textual Variants",
+      "reason": "Textual variants appear only as a transition, contrast, or subject of a different discussion rather than a meaningfully treated issue."
+    },
+    {
+      "wpId": "16169",
+      "title": "God’s Library Part 1: Finding Ancient Christian Manuscripts in Egypt.  Guest Post by Brent Nongbri",
+      "keyword": "Textual Variants",
+      "reason": "Textual variants appear only as a transition, contrast, or subject of a different discussion rather than a meaningfully treated issue."
+    },
+    {
+      "wpId": "39777",
+      "title": "Toe-to-Toe with Evangelical New Testament Scholar Peter Williams:  Can We Trust the Gospels?",
+      "keyword": "Textual Variants",
+      "reason": "Textual variants appear only as a transition, contrast, or subject of a different discussion rather than a meaningfully treated issue."
+    }
+  ]
+}

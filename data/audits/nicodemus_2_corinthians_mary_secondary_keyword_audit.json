@@ -1,0 +1,516 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Nicodemus, 2 Corinthians, and Mary secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting subjects, people, or texts; remove passing mentions, lists, citations, and ambiguous labels; and replace broad names with precise identities when supported.",
+  "originalKeywords": [
+    "Nicodemus",
+    "2 Corinthians",
+    "Mary"
+  ],
+  "auditedKeywords": [
+    "Nicodemus",
+    "2 Corinthians",
+    "Mary, Mother of Jesus",
+    "Mary of Bethany"
+  ],
+  "summary": {
+    "keywordsAudited": 3,
+    "linksReviewed": 102,
+    "assignmentsRemoved": 61,
+    "assignmentsAdded": 20,
+    "netAssignmentsRemoved": 41,
+    "uniqueKeywordsBefore": 910,
+    "uniqueKeywordsAfter": 909,
+    "keywordsRetired": 1,
+    "labelsNormalizedOrRefined": 1
+  },
+  "retiredKeywords": [
+    "Mary"
+  ],
+  "labelChanges": [
+    {
+      "from": "Mary",
+      "to": [
+        "Mary, Mother of Jesus",
+        "Mary of Bethany"
+      ]
+    }
+  ],
+  "resultingCounts": {
+    "Nicodemus": 19,
+    "2 Corinthians": 22,
+    "Mary": 0,
+    "Mary, Mother of Jesus": 103,
+    "Mary of Bethany": 6
+  },
+  "removedPosts": [
+    {
+      "wpId": "16254",
+      "title": "2 Thessalonians as a Forgery?  Does the Author “Write” Like Paul?",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2597",
+      "title": "A Forger Who Was Caught.  The Case of Salvian, Part 2",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "16452",
+      "title": "An Ancient Author Trying to Justify His Deceit",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47169",
+      "title": "Galatians:  Who, When, and Why?",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47245",
+      "title": "In the Weeds with the Author of 2 Thessalonians",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "16251",
+      "title": "Is 2 Thessalonians a Forgery Based on 1 Thessalonians?",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8344",
+      "title": "Is 2 Thessalonians Based on 1 Thessalonians?",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "33874",
+      "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "15573",
+      "title": "Talking Dogs and Resurrected Slaves",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8353",
+      "title": "The Writing Style of 2 Thessalonians",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "keyword": "2 Corinthians",
+      "reason": "The letter appears only in a list, citation, statistical comparison, or analogy rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "21893",
+      "title": "Another Unusual Feature of Matthew’s Genealogy: The Women!",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "13227",
+      "title": "Are Jews and Christians Monotheists?  Mailbag October 15, 2017",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "16088",
+      "title": "Are These Really Contradictions?  My Response to Matt Firth",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "8657",
+      "title": "Can A Made-Up Story Be A False Memory?",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "16054",
+      "title": "Contradictions in the Gospels",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "16063",
+      "title": "Contradictions in the Gospels – Rev Matthew Firth’s Response",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "8326",
+      "title": "Forgeries in the Name of Paul",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "31498",
+      "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "21255",
+      "title": "Gospel Questions and Problems",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "37901",
+      "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "16146",
+      "title": "How Jesus Became Perfectly Sinless: Guest Post by Jeff Siker",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "35270",
+      "title": "In What Sense is a Made-Up Story about Jesus a False *Memory*??",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "47096",
+      "title": "John Versus the Synoptics:  How Does Jesus Raise the Dead?",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "3512",
+      "title": "Luke’s Genealogy",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "4317",
+      "title": "Mark and the Resurrection",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "7206",
+      "title": "Modern Appearances of Jesus",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "11294",
+      "title": "My Debate with Richard Bauckham – Round 2",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "6362",
+      "title": "Paul and the Resurrection of a Spiritual Body",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "47122",
+      "title": "Paul’s Life and Letters:  For Further Reading",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "21223",
+      "title": "The Calm and Collected Jesus",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "48832",
+      "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "3495",
+      "title": "The Women in Matthew’s Genealogy",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "13611",
+      "title": "The Women in Matthew’s Genealogy: Answer to a Reader",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "31505",
+      "title": "There Are No Contradictions in the Gospels!  The Response by Matthew Firth",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "2106",
+      "title": "Undergraduate Courses (2): Introduction to the New Testament (Part 2)",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "6104",
+      "title": "Video: Ehrman & Evans 2012 Debate – Part 2",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "34332",
+      "title": "Wait, Was Jesus Married?  Guest Post by Kyle Smith",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "15307",
+      "title": "Why Contradictions Matter for Understanding the Life of Jesus",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "17247",
+      "title": "Why Don’t You Just Believe?",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "31511",
+      "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+      "keyword": "Mary",
+      "reason": "The ambiguous label is replaced by Mary, Mother of Jesus or Mary of Bethany where the identity is substantive, and otherwise removed."
+    },
+    {
+      "wpId": "15676",
+      "title": "An Intriguingly Legendary Account of Jesus’ Death",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "13189",
+      "title": "An Introduction to the Gospel of John",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "7556",
+      "title": "Ancient Forerunners of Modern Gospel Critics",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "17813",
+      "title": "Comparing John and the Synoptics",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "13196",
+      "title": "Differences Between John and the Synoptics",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "11734",
+      "title": "Does a Person Need the Holy Spirit to Interpret the Bible?  Is John’s Gospel Accurate?  Readers Mailbag August 7, 2016",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "36424",
+      "title": "Is Critical Biblical Scholarship Valid?  What the New Testament Itself Indicates!",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "26081",
+      "title": "Jesus’ Final Speech in John:  A Lead-up to the Coming of the Spirit",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "7031",
+      "title": "More Literary-Historical Perspectives on John",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "4743",
+      "title": "The Final Part of My First-Day Quiz",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "7046",
+      "title": "The Gospel of John from a Comparative Perspective",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "47098",
+      "title": "The Gospel of John in a Nutshell",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "25439",
+      "title": "The Letter Jesus Wrote from the Cross (!)",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "8763",
+      "title": "What Can We Know about the Life of Jesus?",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    },
+    {
+      "wpId": "8296",
+      "title": "Why Was the Gospel of Mark Attributed to Mark?",
+      "keyword": "Nicodemus",
+      "reason": "Nicodemus is only listed, briefly mentioned, or named in a text title rather than functioning as meaningful supporting evidence."
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "34332",
+      "title": "Wait, Was Jesus Married?  Guest Post by Kyle Smith",
+      "keyword": "Mary of Bethany"
+    },
+    {
+      "wpId": "21893",
+      "title": "Another Unusual Feature of Matthew’s Genealogy: The Women!",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "16088",
+      "title": "Are These Really Contradictions?  My Response to Matt Firth",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "8657",
+      "title": "Can A Made-Up Story Be A False Memory?",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "16054",
+      "title": "Contradictions in the Gospels",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "16063",
+      "title": "Contradictions in the Gospels – Rev Matthew Firth’s Response",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "31498",
+      "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "21255",
+      "title": "Gospel Questions and Problems",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "37901",
+      "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "16146",
+      "title": "How Jesus Became Perfectly Sinless: Guest Post by Jeff Siker",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "35270",
+      "title": "In What Sense is a Made-Up Story about Jesus a False *Memory*??",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "7206",
+      "title": "Modern Appearances of Jesus",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "48832",
+      "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "3495",
+      "title": "The Women in Matthew’s Genealogy",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "13611",
+      "title": "The Women in Matthew’s Genealogy: Answer to a Reader",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "31505",
+      "title": "There Are No Contradictions in the Gospels!  The Response by Matthew Firth",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "15307",
+      "title": "Why Contradictions Matter for Understanding the Life of Jesus",
+      "keyword": "Mary, Mother of Jesus"
+    },
+    {
+      "wpId": "31511",
+      "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+      "keyword": "Mary, Mother of Jesus"
+    }
+  ]
+}

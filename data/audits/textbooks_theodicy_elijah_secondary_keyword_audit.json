@@ -1,0 +1,399 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Textbooks, Theodicy, and Elijah",
+  "criterion": "Retain secondary keywords only when the complete post text meaningfully discusses textbooks, the theological problem of suffering and evil, or Elijah; remove passing publication labels, adjacent series context, undeveloped comparisons, and names in lists.",
+  "auditedKeywords": [
+    "Textbooks",
+    "Theodicy",
+    "Elijah"
+  ],
+  "summary": {
+    "requestedKeywordsAudited": 3,
+    "linksReviewed": 110,
+    "linksRemoved": 40,
+    "linksAdded": 0,
+    "keywordsRetired": 0
+  },
+  "audits": [
+    {
+      "keyword": "Textbooks",
+      "before": 37,
+      "retained": 19,
+      "removed": 18,
+      "final": 19,
+      "removedPosts": [
+        {
+          "wpId": "3156",
+          "title": "The Loeb Apostolic Fathers: The Challenges",
+          "topics": [
+            "Apostolic Fathers",
+            "Translation Issues"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "3774",
+          "title": "How Jesus Became God: My Change of Direction",
+          "topics": [
+            "How Jesus Became God",
+            "Philippians 2 Christ Poem"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "3942",
+          "title": "Anecdotes in Trade Books",
+          "topics": [
+            "General-Audience Books"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "4273",
+          "title": "The Next Trade Book: Jews and Christians",
+          "topics": [
+            "Christian Anti-Judaism",
+            "General-Audience Books"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "7373",
+          "title": "My Other Next Book",
+          "topics": [
+            "Memory and Jesus Traditions",
+            "Oral Tradition"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "7397",
+          "title": "New Discussion of Gnosticism",
+          "topics": [
+            "Gnostic and Orthodox Conflicts",
+            "Gnosticism (General)",
+            "Nag Hammadi"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "12379",
+          "title": "Moving to My Next Book",
+          "topics": [
+            "Heaven and Hell"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "14766",
+          "title": "Request for Help!   Your Favorite Podcasts.",
+          "topics": [
+            "Media Coverage and Reviews",
+            "Triumph of Christianity"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "15003",
+          "title": "The Marvels of Media Attention",
+          "topics": [
+            "General-Audience Books",
+            "Media Coverage and Reviews"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "15156",
+          "title": "How I Write a Trade Book for a General Audience",
+          "topics": [
+            "General-Audience Books",
+            "Writing and Publishing Process"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "15505",
+          "title": "Studying the Bible as Theology and/or History",
+          "topics": [
+            "Historical Methods (General)",
+            "Historical Study and Theology"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "15902",
+          "title": "My Next Scholarly Book: Visits to Heaven and Hell",
+          "topics": [
+            "Afterlife Journeys",
+            "Scholarly Research and Publishing"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "20020",
+          "title": "Life after Death in the Bible and Beyond: Webinar with Oxford Press",
+          "topics": [
+            "Life After Death (General)"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "21154",
+          "title": "My Faux Pop Quiz this Semester",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "21333",
+          "title": "The Tragedy Behind My Teaching Position",
+          "topics": [
+            "Academic Careers and University Life"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "31181",
+          "title": "Did Paul Write “Paul’s Letter to the Ephesians”?",
+          "topics": [
+            "Pauline Authorship",
+            "Pauline Forgeries",
+            "Ephesians"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "33896",
+          "title": "What’s So Hard about Translating Ancient Texts?",
+          "topics": [
+            "Apostolic Fathers",
+            "Translation Issues"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        },
+        {
+          "wpId": "40572",
+          "title": "Paul and the Anachronistic Origins of Early Christianity – Part 1 by Dr. Robyn Faith Walsh",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Early Christianity (General)",
+            "Historical Methods (General)"
+          ],
+          "reason": "Textbooks are only a publication type, previous project, course requirement, source, or incidental example rather than a meaningful subject of the post."
+        }
+      ]
+    },
+    {
+      "keyword": "Theodicy",
+      "before": 37,
+      "retained": 35,
+      "removed": 2,
+      "final": 35,
+      "removedPosts": [
+        {
+          "wpId": "12299",
+          "title": "Why He Is Still a Christian (And a Biblical Scholar): A Blast From the Past",
+          "topics": [
+            "Critical Biblical Scholarship"
+          ],
+          "reason": "The post does not meaningfully examine suffering or evil in relation to God's goodness, power, justice, or proposed theological explanations."
+        },
+        {
+          "wpId": "12467",
+          "title": "Ecclesiastes and the Meaning of Life",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs",
+            "Ecclesiastes"
+          ],
+          "reason": "The post does not meaningfully examine suffering or evil in relation to God's goodness, power, justice, or proposed theological explanations."
+        }
+      ]
+    },
+    {
+      "keyword": "Elijah",
+      "before": 36,
+      "retained": 16,
+      "removed": 20,
+      "final": 16,
+      "removedPosts": [
+        {
+          "wpId": "2517",
+          "title": "Resurrection and Resuscitation",
+          "topics": [
+            "Resurrection of the Dead",
+            "Ancient Jewish Afterlife Beliefs"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "6951",
+          "title": "More on Mark",
+          "topics": [
+            "Gospel of Mark"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "7197",
+          "title": "Jesus as God in the Synoptics",
+          "topics": [
+            "Christology in the Gospels",
+            "How Jesus Became God",
+            "Canonical Gospels (General)"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "9177",
+          "title": "Anti-Judaism in the Gospel of Luke",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Gospel of Luke"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "9264",
+          "title": "Jesus as the Messiah in Mark’s Gospel",
+          "topics": [
+            "Gospel of Mark",
+            "Messiah"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "10268",
+          "title": "What the Resurrection of Jesus MEANT",
+          "topics": [
+            "Meaning of Jesus' Resurrection"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "11985",
+          "title": "Mythicists and the Stories Told of Jesus",
+          "topics": [
+            "John the Baptist",
+            "Mythicism"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "13502",
+          "title": "Jesus in Mark: Who Knew?",
+          "topics": [
+            "Gospel of Mark"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "15072",
+          "title": "Jesus as God in the Synoptics: A Blast From the Past",
+          "topics": [
+            "Christology in the Gospels",
+            "Canonical Gospels (General)"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "15834",
+          "title": "How No One Understands Jesus in Mark’s Gospel",
+          "topics": [
+            "Gospel of Mark",
+            "Messianic Secret"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "15868",
+          "title": "Wrede’s Revolutionary Claim about the “Messianic Secret”",
+          "topics": [
+            "Gospel of Mark",
+            "Messianic Secret"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "21072",
+          "title": "Who Is the Son of Man?  From the Blog Readers’ Mailbag",
+          "topics": [
+            "Son of Man"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "21139",
+          "title": "At Last.  Jesus and the Son of Man.",
+          "topics": [
+            "Son of Man",
+            "Apocalyptic Jesus"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "32546",
+          "title": "A Major Forgery in the Hebrew Bible?  Platinum Guest Post by Dennis Folds",
+          "topics": [
+            "Forgery (General)",
+            "Hebrew Bible Composition and Sources"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "33023",
+          "title": "A Major Forgery in the Hebrew Bible?  Guest Post by Platinum Member Dennis Folds",
+          "topics": [
+            "Forgery (General)",
+            "Hebrew Bible Composition and Sources"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "36333",
+          "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+          "topics": [
+            "Historical Jesus (General)"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "39619",
+          "title": "John the Baptist: The Most Influential Religious Innovator in History by James McGrath (Part 2)",
+          "topics": [
+            "John the Baptist"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "47058",
+          "title": "Mark’s Messianic Secret",
+          "topics": [
+            "Gospel of Mark",
+            "Messianic Secret"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "47064",
+          "title": "Is the Gospel of Luke Anti-Jewish?",
+          "topics": [
+            "Gospel of Luke",
+            "Christian Anti-Judaism"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        },
+        {
+          "wpId": "47640",
+          "title": "1 Enoch:  The Scripture Quoted by Jude",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs",
+            "Jewish Apocalypticism",
+            "Enoch Traditions"
+          ],
+          "reason": "Elijah is only a passing comparison, a name in a list, or briefly present in a cited biblical scene rather than a meaningful supporting figure."
+        }
+      ]
+    }
+  ]
+}

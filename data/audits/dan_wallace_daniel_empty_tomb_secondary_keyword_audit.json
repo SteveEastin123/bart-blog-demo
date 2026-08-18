@@ -1,0 +1,601 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Dan Wallace, Daniel, and Empty Tomb secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting people, texts, and traditions; remove passing mentions, lists, analogies, and mistaken references; use topic-aligned labels; and remove same-post topic/keyword duplication.",
+  "originalKeywords": [
+    "Dan Wallace",
+    "Daniel",
+    "Empty Tomb"
+  ],
+  "auditedKeywords": [
+    "Dan Wallace",
+    "Book of Daniel",
+    "Empty Tomb Traditions"
+  ],
+  "summary": {
+    "keywordsAudited": 3,
+    "linksReviewed": 93,
+    "assignmentsRemoved": 63,
+    "assignmentsAdded": 34,
+    "netAssignmentsRemoved": 29,
+    "incidentalAssignmentsRemoved": 12,
+    "topicKeywordOverlapsRemoved": 17,
+    "assignmentsRenamed": 34,
+    "uniqueKeywordsBefore": 909,
+    "uniqueKeywordsAfter": 909,
+    "keywordsRetired": 2
+  },
+  "retiredKeywords": [
+    "Daniel",
+    "Empty Tomb"
+  ],
+  "labelChanges": [
+    {
+      "from": "Daniel",
+      "to": "Book of Daniel"
+    },
+    {
+      "from": "Empty Tomb",
+      "to": "Empty Tomb Traditions"
+    }
+  ],
+  "resultingCounts": {
+    "Dan Wallace": 30,
+    "Daniel": 0,
+    "Book of Daniel": 18,
+    "Empty Tomb": 0,
+    "Empty Tomb Traditions": 16
+  },
+  "removedPosts": [
+    {
+      "wpId": "8433",
+      "title": "Defending the Destruction of Mummy Masks",
+      "keyword": "Dan Wallace",
+      "reason": "Wallace is not discussed in the available post text."
+    },
+    {
+      "wpId": "12801",
+      "title": "A New Genre in Jewish Antiquity: The Apocalypse",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "12854",
+      "title": "A Resurrection for Tortured Jews (2 Maccabees)",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "34100",
+      "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "8511",
+      "title": "Apocalypticism and Apocalypses",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "9477",
+      "title": "Are the Prophecies Being Fulfilled?",
+      "keyword": "Daniel",
+      "reason": "Daniel appears only in a list, passing citation, mistaken reader reference, or broad prophetic context."
+    },
+    {
+      "wpId": "12830",
+      "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Daniel",
+      "reason": "Daniel appears only in a list, passing citation, mistaken reader reference, or broad prophetic context."
+    },
+    {
+      "wpId": "12838",
+      "title": "Daniel and a New Doctrine of Resurrection From the Dead",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "21093",
+      "title": "Did Jesus Think He Would Be the Judge of the Earth?",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "16534",
+      "title": "Does Isaiah 53 Predict Jesus’ Suffering and Death or Has Isaiah 53 Been Debunked?",
+      "keyword": "Daniel",
+      "reason": "Daniel appears only in a list, passing citation, mistaken reader reference, or broad prophetic context."
+    },
+    {
+      "wpId": "36539",
+      "title": "Does Jesus Call Himself God in His Trial Before the Sanhedrin and the High Priest Caiaphas?",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "17343",
+      "title": "Heaven and Hell in a Nutshell: Getting into the Kernel",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "28460",
+      "title": "How I Begin My Book on Revelation",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "12248",
+      "title": "How We Got the Hebrew Bible",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "49019",
+      "title": "Interesting Questions from Readers (Including on the Consistency of Mark and the Reality of Suffering)",
+      "keyword": "Daniel",
+      "reason": "Daniel appears only in a list, passing citation, mistaken reader reference, or broad prophetic context."
+    },
+    {
+      "wpId": "29438",
+      "title": "Is the Sacrificed Lamb of God Violent?  More Reflections on Revelation",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "9508",
+      "title": "Jesus and the Son of Man",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "35685",
+      "title": "Mark 13:30–a New Argument for an Old Hypothesis. A Platinum Post From Omar Robb",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "15562",
+      "title": "More Apocrypha: A Letter of Jeremiah, (Fascinating) Additions to Daniel, and 1 Maccabees",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "26782",
+      "title": "Prophecies and Saints in the Book of Daniel.  Platinum Guest Post by Daniel Kohanski",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "40859",
+      "title": "Some More of the OT Apocrypha: the Letter of Jeremiah, Additions to Daniel, and 1 Maccabees",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "25886",
+      "title": "The Coming of the Spirit at the End of Time",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "28443",
+      "title": "The Famous Short Stories about Daniel",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "12813",
+      "title": "The First Apocalypse: The Book of Daniel",
+      "keyword": "Daniel",
+      "reason": "The post already has the Book of Daniel topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "48691",
+      "title": "The Formation of the Hebrew Bible: The Common Scholarly View Today",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "7432",
+      "title": "The Son of Man and Jesus",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "3989",
+      "title": "The Son of Man as Divine",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "49468",
+      "title": "Understanding the Gospels, Jesus, and the Spread of Christianity: Great Readers’ Questions",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "keyword": "Daniel",
+      "reason": "Daniel appears only in a list, passing citation, mistaken reader reference, or broad prophetic context."
+    },
+    {
+      "wpId": "34327",
+      "title": "Why Would Evolving Beliefs about Sin Lead to the Idea of an Afterlife?  Guest Post by Daniel Kohanski",
+      "keyword": "Daniel",
+      "reason": "The supporting keyword is renamed to Book of Daniel."
+    },
+    {
+      "wpId": "29856",
+      "title": "A Reflection on Easter.  My Most-Commented Blog Post: #2",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "15046",
+      "title": "An Easter Reflection 2018",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "49563",
+      "title": "Anniversary Post #6  Is Mark’s Seemingly Simple Gospel Unsophisticated?",
+      "keyword": "Empty Tomb",
+      "reason": "The empty tomb appears only as chronology, biographical context, an apologetic example, or an analogy."
+    },
+    {
+      "wpId": "1970",
+      "title": "Another Question on the Resurrection",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "3388",
+      "title": "Apostles as Guarantors of the Truth",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "37291",
+      "title": "Aren’t You Inconsistent in Your View of the Historicity of the Gospels?",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "7135",
+      "title": "Article in the Huffington Post",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "8897",
+      "title": "Contradictory Stories and Historical Method",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "7199",
+      "title": "Did Disciples Have Visions of Jesus?",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "20531",
+      "title": "Did Judas Really Betray Jesus?  Readers’ Mailbag",
+      "keyword": "Empty Tomb",
+      "reason": "The empty tomb appears only as chronology, biographical context, an apologetic example, or an analogy."
+    },
+    {
+      "wpId": "12775",
+      "title": "Did Paul Think Jesus’ Body Remained in the Grave?  Mailbag July 14, 2017",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "24590",
+      "title": "Did the Disciples See Jesus Raised from the Dead?",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "49107",
+      "title": "Free Live Debate on the Resurrection (March 2)",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "12401",
+      "title": "Group Visions and Agnostic Jesus Scholars: Mailbag March 12, 2017",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "32498",
+      "title": "Is That One a Difference or a Contradiction?",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "47177",
+      "title": "Key Questions about Paul",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "1976",
+      "title": "More on the Resurrection",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "15846",
+      "title": "On Being Just a Textual Critic",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "3007",
+      "title": "Paul’s View of Resurrection",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "22094",
+      "title": "Peter and Mary Magdalene in Competition",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "1738",
+      "title": "Q & A – Historical Events in Jesus Tradition",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "33317",
+      "title": "Religion and the Wrecking Ball of Truth",
+      "keyword": "Empty Tomb",
+      "reason": "The empty tomb appears only as chronology, biographical context, an apologetic example, or an analogy."
+    },
+    {
+      "wpId": "47208",
+      "title": "Some Intriguing Questions about Paul’s Letters",
+      "keyword": "Empty Tomb",
+      "reason": "The post already has the Empty Tomb Traditions topic, making the topic-aligned secondary keyword redundant."
+    },
+    {
+      "wpId": "21324",
+      "title": "Some Intriguing Selections from the Gospel of Peter",
+      "keyword": "Empty Tomb",
+      "reason": "The empty tomb appears only as chronology, biographical context, an apologetic example, or an analogy."
+    },
+    {
+      "wpId": "46956",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – by Mark Reichert (Platinum Member Winner)",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "47203",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – Guest Post by Platinum Member Mark Reichert",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "38520",
+      "title": "The Disciple Peter in History and Legend",
+      "keyword": "Empty Tomb",
+      "reason": "The empty tomb appears only as chronology, biographical context, an apologetic example, or an analogy."
+    },
+    {
+      "wpId": "35342",
+      "title": "Was Levi of Alphaeus the “the Beloved Disciple”? Platinum Post by Gregory Hartzler-Miller, MATS",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    },
+    {
+      "wpId": "38488",
+      "title": "When Did Mary Magdalene Become a Prostitute?",
+      "keyword": "Empty Tomb",
+      "reason": "The empty tomb appears only as chronology, biographical context, an apologetic example, or an analogy."
+    },
+    {
+      "wpId": "21421",
+      "title": "Who Would Die for a Lie?",
+      "keyword": "Empty Tomb",
+      "reason": "The supporting keyword is renamed to Empty Tomb Traditions."
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "12801",
+      "title": "A New Genre in Jewish Antiquity: The Apocalypse",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "12854",
+      "title": "A Resurrection for Tortured Jews (2 Maccabees)",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "8511",
+      "title": "Apocalypticism and Apocalypses",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "21093",
+      "title": "Did Jesus Think He Would Be the Judge of the Earth?",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "36539",
+      "title": "Does Jesus Call Himself God in His Trial Before the Sanhedrin and the High Priest Caiaphas?",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "17343",
+      "title": "Heaven and Hell in a Nutshell: Getting into the Kernel",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "28460",
+      "title": "How I Begin My Book on Revelation",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "12248",
+      "title": "How We Got the Hebrew Bible",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "29438",
+      "title": "Is the Sacrificed Lamb of God Violent?  More Reflections on Revelation",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "9508",
+      "title": "Jesus and the Son of Man",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "35685",
+      "title": "Mark 13:30–a New Argument for an Old Hypothesis. A Platinum Post From Omar Robb",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "25886",
+      "title": "The Coming of the Spirit at the End of Time",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "48691",
+      "title": "The Formation of the Hebrew Bible: The Common Scholarly View Today",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "7432",
+      "title": "The Son of Man and Jesus",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "3989",
+      "title": "The Son of Man as Divine",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "49468",
+      "title": "Understanding the Gospels, Jesus, and the Spread of Christianity: Great Readers’ Questions",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "34327",
+      "title": "Why Would Evolving Beliefs about Sin Lead to the Idea of an Afterlife?  Guest Post by Daniel Kohanski",
+      "keyword": "Book of Daniel"
+    },
+    {
+      "wpId": "3388",
+      "title": "Apostles as Guarantors of the Truth",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "37291",
+      "title": "Aren’t You Inconsistent in Your View of the Historicity of the Gospels?",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "7135",
+      "title": "Article in the Huffington Post",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "8897",
+      "title": "Contradictory Stories and Historical Method",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "7199",
+      "title": "Did Disciples Have Visions of Jesus?",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "12775",
+      "title": "Did Paul Think Jesus’ Body Remained in the Grave?  Mailbag July 14, 2017",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "24590",
+      "title": "Did the Disciples See Jesus Raised from the Dead?",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "49107",
+      "title": "Free Live Debate on the Resurrection (March 2)",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "12401",
+      "title": "Group Visions and Agnostic Jesus Scholars: Mailbag March 12, 2017",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "15846",
+      "title": "On Being Just a Textual Critic",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "22094",
+      "title": "Peter and Mary Magdalene in Competition",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "46956",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – by Mark Reichert (Platinum Member Winner)",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "47203",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – Guest Post by Platinum Member Mark Reichert",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "35342",
+      "title": "Was Levi of Alphaeus the “the Beloved Disciple”? Platinum Post by Gregory Hartzler-Miller, MATS",
+      "keyword": "Empty Tomb Traditions"
+    },
+    {
+      "wpId": "21421",
+      "title": "Who Would Die for a Lie?",
+      "keyword": "Empty Tomb Traditions"
+    }
+  ]
+}

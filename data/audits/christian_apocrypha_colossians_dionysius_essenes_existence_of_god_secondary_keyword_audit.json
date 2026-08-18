@@ -1,0 +1,364 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Christian Apocrypha, Colossians, Dionysius, Essenes, and Existence of God",
+  "criterion": "Retain secondary keywords only when they identify meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions and disambiguate people who share a name.",
+  "auditedKeywords": [
+    "Christian Apocrypha",
+    "Colossians",
+    "Dionysius",
+    "Dionysius the Renegade",
+    "Dionysius of Alexandria",
+    "Dionysius Exiguus",
+    "Pseudo-Dionysius the Areopagite",
+    "Essenes",
+    "Existence of God"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 95,
+    "linksRemoved": 14,
+    "linksRetained": 81,
+    "linksRenamed": 19,
+    "keywordsRetired": 1,
+    "replacementKeywordsIntroduced": 4
+  },
+  "audits": [
+    {
+      "keyword": "Christian Apocrypha",
+      "before": 19,
+      "retained": 19,
+      "removed": 0,
+      "removedPosts": []
+    },
+    {
+      "keyword": "Colossians",
+      "before": 19,
+      "retained": 16,
+      "removed": 3,
+      "removedPosts": [
+        {
+          "wpId": "8147",
+          "title": "Why Would Christian Authors Write Forgeries?",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Colossians appears only in an introductory list of disputed or forged letters and is not substantively discussed."
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "Colossians appears only in an introductory list of disputed or forged letters and is not substantively discussed."
+        },
+        {
+          "wpId": "38583",
+          "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+          "topics": [
+            "Marcion",
+            "Pauline Forgeries"
+          ],
+          "reason": "Colossians appears only in an introductory list of disputed or forged letters and is not substantively discussed."
+        }
+      ]
+    },
+    {
+      "keyword": "Dionysius",
+      "before": 19,
+      "retained": 19,
+      "removed": 0,
+      "renamed": 19,
+      "reason": "The generic name conflated four different historical figures; each assignment was replaced with the precise identity discussed.",
+      "replacements": [
+        {
+          "replacementKeyword": "Dionysius the Renegade",
+          "postCount": 6,
+          "posts": [
+            {
+              "wpId": "2536",
+              "title": "Forgery and Deceived Deceivers",
+              "topics": [
+                "Forgery (General)",
+                "Forgery and Counterforgery"
+              ]
+            },
+            {
+              "wpId": "15099",
+              "title": "A Forger Fooled By Forgery",
+              "topics": [
+                "Forgery (General)"
+              ]
+            },
+            {
+              "wpId": "16678",
+              "title": "Were Ancient Readers Interested in Detecting Forgeries?",
+              "topics": [
+                "Forgery (General)"
+              ]
+            },
+            {
+              "wpId": "16715",
+              "title": "A Recent Argument that Ancient Pseudepigraphy Was NOT Deceptive (or Meant to Be)",
+              "topics": [
+                "Forgery (General)"
+              ]
+            },
+            {
+              "wpId": "29035",
+              "title": "Forgery for a General Audience",
+              "topics": [
+                "Forged",
+                "Forgery (General)",
+                "General-Audience Books"
+              ]
+            },
+            {
+              "wpId": "48945",
+              "title": "A Great Story of a Deceived Deceiver",
+              "topics": [
+                "Forgery (General)"
+              ]
+            }
+          ]
+        },
+        {
+          "replacementKeyword": "Dionysius of Alexandria",
+          "postCount": 5,
+          "posts": [
+            {
+              "wpId": "15532",
+              "title": "Who Wrote the Book of Revelation?",
+              "topics": [
+                "Ancient Literacy",
+                "Revelation Authorship",
+                "Book of Revelation"
+              ]
+            },
+            {
+              "wpId": "16565",
+              "title": "Did Superior Health Care Lead to the Dominance of Christianity?",
+              "topics": [
+                "Conversion",
+                "Christian Health Care",
+                "Rise of Christianity"
+              ]
+            },
+            {
+              "wpId": "33405",
+              "title": "What about Forgeries IN the New Testament?  Is it Possible?",
+              "topics": [
+                "Forgery (General)",
+                "Pauline Forgeries"
+              ]
+            },
+            {
+              "wpId": "47847",
+              "title": "The Book of Revelation:  Who Wrote It?",
+              "topics": [
+                "Book of Revelation",
+                "Revelation Authorship",
+                "Canon Formation"
+              ]
+            },
+            {
+              "wpId": "49782",
+              "title": "Superior Health Care as an Explanation for the Spread of Christianity?",
+              "topics": [
+                "Conversion",
+                "Christian Health Care",
+                "Rise of Christianity"
+              ]
+            }
+          ]
+        },
+        {
+          "replacementKeyword": "Dionysius Exiguus",
+          "postCount": 6,
+          "posts": [
+            {
+              "wpId": "2405",
+              "title": "Creation in 4004 BCE?",
+              "topics": [
+                "Genesis"
+              ]
+            },
+            {
+              "wpId": "3371",
+              "title": "The Pope’s New Book",
+              "topics": [
+                "Jesus' Birth Narratives",
+                "Media Coverage and Reviews"
+              ]
+            },
+            {
+              "wpId": "11613",
+              "title": "When Was the World Created?  A Blast From the Past",
+              "topics": [
+                "Genesis"
+              ]
+            },
+            {
+              "wpId": "16304",
+              "title": "Why Was the World Created in 4004 BC?",
+              "topics": [
+                "Genesis"
+              ]
+            },
+            {
+              "wpId": "28966",
+              "title": "The “Common Era”: Invented to Stop Speculations About the End of the World.  Platinum Guest Post by Daniel Kohanski",
+              "topics": [
+                "Modern End-Times Interpretation"
+              ]
+            },
+            {
+              "wpId": "47257",
+              "title": "How We Know the World Was Created in 4004 BCE…",
+              "topics": [
+                "Genesis"
+              ]
+            }
+          ]
+        },
+        {
+          "replacementKeyword": "Pseudo-Dionysius the Areopagite",
+          "postCount": 2,
+          "posts": [
+            {
+              "wpId": "3295",
+              "title": "The Collection: Apostolic Fathers",
+              "topics": [
+                "Apostolic Fathers"
+              ]
+            },
+            {
+              "wpId": "40273",
+              "title": "My Edition of the Apostolic Fathers",
+              "topics": [
+                "Apostolic Fathers",
+                "Writing and Publishing Process"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "keyword": "Essenes",
+      "before": 19,
+      "retained": 9,
+      "removed": 10,
+      "removedPosts": [
+        {
+          "wpId": "6142",
+          "title": "Who Can Still Be A Christian?",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Historical Jesus (General)"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "6467",
+          "title": "More Historical Mistakes in Aslan’s Zealot",
+          "topics": [
+            "Zealot Hypothesis"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "12064",
+          "title": "The Apocalyptic Background to Jesus’ Messiahship",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Messiah"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "12747",
+          "title": "The Essence of Biblical Apocalyptic Thought",
+          "topics": [
+            "Jewish Apocalypticism"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "13183",
+          "title": "Paul on Trial for the Resurrection",
+          "topics": [
+            "Paul on Resurrection",
+            "Resurrection of the Dead",
+            "Acts",
+            "Paul in Acts"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "21114",
+          "title": "How Jesus’ Apocalyptic Teachings Were Changed (even in the NT)",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Son of Man"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "28730",
+          "title": "Major Perspectives of Ancient Jewish (and Jesus’!) Apocalyptic Views",
+          "topics": [
+            "Early Judaism (General)",
+            "Jewish Apocalypticism"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "41594",
+          "title": "Jewish Sects in the time of Jesus:  Pharisees and Sadducees",
+          "topics": [
+            "Early Judaism (General)",
+            "Jewish Law and Torah"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "41615",
+          "title": "Jewish Disagreements About the Afterlife: Pharisees and Sadducees",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs",
+            "Early Judaism (General)",
+            "Resurrection of the Dead"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "50364",
+          "title": "Prophetic Condemnations of Jews Within Judaism Before Jesus",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Hebrew Bible Prophets",
+            "Jesus' Ethics"
+          ],
+          "reason": "The Essenes appear only as a brief example or comparison rather than as a meaningful supporting subject."
+        }
+      ]
+    },
+    {
+      "keyword": "Existence of God",
+      "before": 19,
+      "retained": 18,
+      "removed": 1,
+      "removedPosts": [
+        {
+          "wpId": "36302",
+          "title": "Reminder:  Why I’m Not a Christian — tomorrow!",
+          "topics": [
+            "Deconversion"
+          ],
+          "reason": "The post announces a course that will address God's existence but does not itself discuss the subject."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly four posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions; consolidate duplicate search concepts; and use precise labels.",
+  "originalKeywords": [
+    "2 Clement",
+    "Academic Journals",
+    "After the New Testament",
+    "Alan Garrow",
+    "Apotheosis and Divinization",
+    "Bethlehem",
+    "Biblical Interpretation",
+    "Capitalism",
+    "Carbon Dating",
+    "Comparative Method",
+    "Creation",
+    "Demons",
+    "Editorial Boards",
+    "Exorcism",
+    "Galilee",
+    "Gerd Ludemann",
+    "Introduction to the Bible",
+    "James, Son of Alphaeus",
+    "Jeff Siker",
+    "Jerusalem",
+    "Jesus as God",
+    "Jesus' Teachings",
+    "Jewish Monotheism",
+    "Judicial Model",
+    "Killing Jesus",
+    "Michael Licona",
+    "Moral Philosophy",
+    "Objectivity",
+    "Pacifism",
+    "Participationist Model",
+    "Philo",
+    "Proto-Orthodoxy",
+    "Qumran",
+    "Religious Studies",
+    "Resurrection Accounts",
+    "Richard Bauckham",
+    "Roman Religion",
+    "Scholarly Books",
+    "Scribes",
+    "Second Temple Judaism",
+    "Susanna",
+    "Tenure",
+    "Triumphal Entry",
+    "University of Birmingham",
+    "Urban Ministries of Durham"
+  ],
+  "auditedKeywords": [
+    "2 Clement",
+    "Academic Journals",
+    "After the New Testament",
+    "Alan Garrow",
+    "Apotheosis and Divinization",
+    "Bethlehem",
+    "Biblical Interpretation",
+    "Capitalism",
+    "Comparative Method",
+    "Creation",
+    "Demons and Exorcism",
+    "Editorial Boards",
+    "Galilee",
+    "Gerd Ludemann",
+    "Gospel Resurrection Narratives",
+    "Introduction to the Bible",
+    "James, Son of Alphaeus",
+    "Jeff Siker",
+    "Jerusalem",
+    "Jesus and Pacifism",
+    "Jesus as God",
+    "Jesus' Teachings",
+    "Jewish Monotheism",
+    "Judicial Model",
+    "Killing Jesus",
+    "Michael Licona",
+    "Moral Philosophy",
+    "Objectivity",
+    "Participationist Model",
+    "Philo",
+    "Proto-Orthodoxy",
+    "Qumran",
+    "Radiocarbon Dating",
+    "Religious Studies",
+    "Richard Bauckham",
+    "Roman Religion",
+    "Scholarly Books",
+    "Scribes",
+    "Second Temple Judaism",
+    "Susanna",
+    "Tenure",
+    "Triumphal Entry",
+    "University of Birmingham",
+    "Urban Ministries of Durham"
+  ],
+  "summary": {
+    "keywordsAudited": 45,
+    "linksReviewed": 180,
+    "netLinksRemoved": 13,
+    "uniqueKeywordsBefore": 920,
+    "uniqueKeywordsAfter": 919,
+    "transformations": 4,
+    "assignmentsRemovedWithoutReplacement": 9
+  },
+  "transformations": [
+    {
+      "from": [
+        "Carbon Dating"
+      ],
+      "to": "Radiocarbon Dating",
+      "reason": "Radiocarbon Dating is the more precise name for the scientific dating issue discussed in these two versions of the post.",
+      "posts": [
+        {
+          "wpId": "8978",
+          "title": "More on the Discovery of Ancient Qur’an Fragments"
+        },
+        {
+          "wpId": "39128",
+          "title": "Responses to my Post on the Discovery of an Ancient Manuscript of the Quran"
+        }
+      ]
+    },
+    {
+      "from": [
+        "Demons",
+        "Exorcism"
+      ],
+      "to": "Demons and Exorcism",
+      "reason": "The two labels describe one connected subject and currently return the same four posts.",
+      "posts": [
+        {
+          "wpId": "25333",
+          "title": "Women and their Demons in the Life of Jesus: Guest Post by James McGrath"
+        },
+        {
+          "wpId": "26865",
+          "title": "Jesus the Healer: Those Darn Demons.     Platinum guest post by Douglas Wadeson MD"
+        },
+        {
+          "wpId": "27082",
+          "title": "Jesus the Healer, Repossessed?  Platinum guest post by Douglas Wadeson MD"
+        },
+        {
+          "wpId": "27838",
+          "title": "Those Darn Demons!  Guest Post by Douglas Wadeson"
+        }
+      ]
+    },
+    {
+      "from": [
+        "Pacifism"
+      ],
+      "to": "Jesus and Pacifism",
+      "reason": "The more precise label identifies the shared subject of all four posts.",
+      "posts": [
+        {
+          "wpId": "11793",
+          "title": "Were Jesus and His Followers Armed?"
+        },
+        {
+          "wpId": "32589",
+          "title": "Did Jesus Believe in Armed Resistance to the Romans?"
+        },
+        {
+          "wpId": "50273",
+          "title": "Jesus the Pacifist"
+        },
+        {
+          "wpId": "50329",
+          "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies"
+        }
+      ]
+    },
+    {
+      "from": [
+        "Resurrection Accounts"
+      ],
+      "to": "Gospel Resurrection Narratives",
+      "reason": "All four posts specifically examine resurrection narratives in the canonical Gospels.",
+      "posts": [
+        {
+          "wpId": "3079",
+          "title": "Disciples Who Doubt the Resurrection"
+        },
+        {
+          "wpId": "4018",
+          "title": "Resurrection Narratives in the Gospels"
+        },
+        {
+          "wpId": "4027",
+          "title": "Fuller Account of Resurrection Discrepancies"
+        },
+        {
+          "wpId": "12478",
+          "title": "My Meditation Practice and Women at the Empty Tomb: Readers Mailbag April 9, 2017"
+        }
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "keyword": "Academic Journals",
+      "wpId": "2205",
+      "title": "The Work of the Professional Scholar 10:  Editorial Work (Books)",
+      "reason": "The post concerns editorial work for scholarly book series; academic journals appear only in the opening comparison."
+    },
+    {
+      "keyword": "Carbon Dating",
+      "wpId": "39086",
+      "title": "More Hard Issues on the Qur’an Fragments",
+      "reason": "This version discusses oral memorization and written manuscript evidence rather than scientific dating."
+    },
+    {
+      "keyword": "Carbon Dating",
+      "wpId": "8999",
+      "title": "More Hard Issues on the Qur’an Fragments",
+      "reason": "This version discusses oral memorization and written manuscript evidence rather than scientific dating."
+    },
+    {
+      "keyword": "James, Son of Alphaeus",
+      "wpId": "48814",
+      "title": "Authors, Authorities, and Who Gets To Write the Bible",
+      "reason": "James son of Alphaeus appears only as an example showing that several New Testament figures shared the name James."
+    },
+    {
+      "keyword": "James, Son of Alphaeus",
+      "wpId": "16338",
+      "title": "One of My Favorite Letters in the New Testament: The Book of James",
+      "reason": "James son of Alphaeus is mentioned only to distinguish the possible author of the letter from other people named James."
+    },
+    {
+      "keyword": "Philo",
+      "wpId": "50201",
+      "title": "Jewish Precedents for Jesus Becoming God",
+      "reason": "Philo appears in a single citation among several Jewish precedents and is not otherwise discussed."
+    },
+    {
+      "keyword": "Susanna",
+      "wpId": "48005",
+      "title": "Was Jesus Poor? Platinum post by Douglas Wadeson, MD",
+      "reason": "Susanna appears only in a quoted list of women from Luke 8."
+    },
+    {
+      "keyword": "Susanna",
+      "wpId": "17579",
+      "title": "Was Jesus Intimate with Mary Magdalene?",
+      "reason": "Susanna appears only in a brief summary of the women named in Luke 8."
+    },
+    {
+      "keyword": "Susanna",
+      "wpId": "6753",
+      "title": "Jesus and Mary Magdalene",
+      "reason": "Susanna appears only in a brief summary of the women named in Luke 8."
+    }
+  ]
+}

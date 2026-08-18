@@ -1,0 +1,121 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Dissertations, Johannine Community, Judges, Media Coverage, Paganism, and Synoptic Problem secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, and concepts; remove passing mentions, lists, bibliography-only references, isolated course entries, ambiguous word matches, and contextual references that are not useful search signals.",
+  "auditedKeywords": [
+    "Dissertations",
+    "Johannine Community",
+    "Judges",
+    "Media Coverage",
+    "Paganism",
+    "Synoptic Problem"
+  ],
+  "summary": {
+    "keywordsAudited": 6,
+    "linksReviewed": 66,
+    "assignmentsRetained": 51,
+    "assignmentsRemoved": 15,
+    "uniqueKeywordsBefore": 911,
+    "uniqueKeywordsAfter": 911
+  },
+  "resultingCounts": {
+    "Dissertations": 11,
+    "Johannine Community": 11,
+    "Judges": 3,
+    "Media Coverage": 10,
+    "Paganism": 11,
+    "Synoptic Problem": 5
+  },
+  "removedPosts": [
+    {
+      "wpId": "49514",
+      "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "10312",
+      "title": "My Recitation Debates",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "26942",
+      "title": "Why God Had to Destroy the Outsiders…",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "keyword": "Judges",
+      "reason": "Judges appears only in a biblical-book list, a passing reference, or as the ordinary word for people judging a debate rather than as a meaningfully treated biblical text."
+    },
+    {
+      "wpId": "12101",
+      "title": "A Personal Transition",
+      "keyword": "Media Coverage",
+      "reason": "Media attention receives only one passing reference in a broader reflection on finishing a book and changing work habits."
+    },
+    {
+      "wpId": "15880",
+      "title": "A New Way of Looking at the Gospels",
+      "keyword": "Synoptic Problem",
+      "reason": "The Synoptic Problem appears only as a classroom example, syllabus entry, bibliography subject, or brief background reference without meaningful treatment."
+    },
+    {
+      "wpId": "7962",
+      "title": "Agreeing to Do the Textbook",
+      "keyword": "Synoptic Problem",
+      "reason": "The Synoptic Problem appears only as a classroom example, syllabus entry, bibliography subject, or brief background reference without meaningful treatment."
+    },
+    {
+      "wpId": "21106",
+      "title": "Jesus in Scholarship and Film",
+      "keyword": "Synoptic Problem",
+      "reason": "The Synoptic Problem appears only as a classroom example, syllabus entry, bibliography subject, or brief background reference without meaningful treatment."
+    },
+    {
+      "wpId": "32298",
+      "title": "Specious Arguments for the Truth of the Bible",
+      "keyword": "Synoptic Problem",
+      "reason": "The Synoptic Problem appears only as a classroom example, syllabus entry, bibliography subject, or brief background reference without meaningful treatment."
+    },
+    {
+      "wpId": "48565",
+      "title": "The A-Z of the New Testament: Guest Post by James McGrath",
+      "keyword": "Synoptic Problem",
+      "reason": "The Synoptic Problem appears only as a classroom example, syllabus entry, bibliography subject, or brief background reference without meaningful treatment."
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "keyword": "Synoptic Problem",
+      "reason": "The Synoptic Problem appears only as a classroom example, syllabus entry, bibliography subject, or brief background reference without meaningful treatment."
+    }
+  ]
+}

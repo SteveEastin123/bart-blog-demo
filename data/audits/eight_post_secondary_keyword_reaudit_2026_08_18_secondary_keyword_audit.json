@@ -1,0 +1,167 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly eight posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, event logistics, bibliographic references, and surrounding context; and avoid duplicating a post's topic as a secondary keyword.",
+  "originalKeywords": [
+    "Biblical Inerrancy",
+    "Codex Sinaiticus",
+    "Death of Jesus",
+    "Gospel of Pseudo-Matthew",
+    "Jesus' Miracle Stories",
+    "Joseph in Genesis",
+    "Moody Bible Institute",
+    "Mythicism",
+    "Princeton Theological Seminary",
+    "Pseudepigraphy",
+    "Ramsay MacMullen",
+    "Richard Carrier",
+    "Robert Price",
+    "Secret Gospel of Mark"
+  ],
+  "auditedKeywords": [
+    "Biblical Inerrancy",
+    "Codex Sinaiticus",
+    "Death of Jesus",
+    "Gospel of Pseudo-Matthew",
+    "Jesus' Miracle Stories",
+    "Joseph in Genesis",
+    "Moody Bible Institute",
+    "Mythicism",
+    "Princeton Theological Seminary",
+    "Pseudepigraphy",
+    "Ramsay MacMullen",
+    "Richard Carrier",
+    "Robert Price",
+    "Secret Gospel of Mark"
+  ],
+  "summary": {
+    "keywordsAudited": 14,
+    "linksReviewed": 112,
+    "assignmentsRetained": 95,
+    "assignmentsRemoved": 17,
+    "uniqueKeywordsBefore": 913,
+    "uniqueKeywordsAfter": 913,
+    "keywordsRetired": 0,
+    "labelsNormalized": 0
+  },
+  "resultingCounts": {
+    "Biblical Inerrancy": 8,
+    "Codex Sinaiticus": 8,
+    "Death of Jesus": 8,
+    "Gospel of Pseudo-Matthew": 7,
+    "Jesus' Miracle Stories": 4,
+    "Joseph in Genesis": 5,
+    "Moody Bible Institute": 8,
+    "Mythicism": 6,
+    "Princeton Theological Seminary": 8,
+    "Pseudepigraphy": 7,
+    "Ramsay MacMullen": 6,
+    "Richard Carrier": 8,
+    "Robert Price": 8,
+    "Secret Gospel of Mark": 4
+  },
+  "removedPosts": [
+    {
+      "wpId": "3415",
+      "title": "An Agnostic Reflects on Christmas",
+      "keyword": "Gospel of Pseudo-Matthew",
+      "reason": "The post only previews a later discussion of the text."
+    },
+    {
+      "wpId": "14876",
+      "title": "Are Paul and Jesus on the Same Page?",
+      "keyword": "Jesus' Miracle Stories",
+      "reason": "The posts mention Jesus' miracles briefly to contrast Jesus with Paul, rather than discussing the miracle stories themselves."
+    },
+    {
+      "wpId": "29838",
+      "title": "Are Paul and Jesus on the Same Page?  Most-Commented Blog Post: #6",
+      "keyword": "Jesus' Miracle Stories",
+      "reason": "The posts mention Jesus' miracles briefly to contrast Jesus with Paul, rather than discussing the miracle stories themselves."
+    },
+    {
+      "wpId": "28977",
+      "title": "Jesus and Paul:  Are They on the Same Page?",
+      "keyword": "Jesus' Miracle Stories",
+      "reason": "The posts mention Jesus' miracles briefly to contrast Jesus with Paul, rather than discussing the miracle stories themselves."
+    },
+    {
+      "wpId": "7311",
+      "title": "Paul and Jesus",
+      "keyword": "Jesus' Miracle Stories",
+      "reason": "The posts mention Jesus' miracles briefly to contrast Jesus with Paul, rather than discussing the miracle stories themselves."
+    },
+    {
+      "wpId": "28640",
+      "title": "A New Course to Watch (Live!) Remotely:  “In the Beginning”",
+      "keyword": "Joseph in Genesis",
+      "reason": "The posts use Joseph only in course logistics or a passing list of Genesis figures."
+    },
+    {
+      "wpId": "6898",
+      "title": "Camels and the Book of Genesis",
+      "keyword": "Joseph in Genesis",
+      "reason": "The posts use Joseph only in course logistics or a passing list of Genesis figures."
+    },
+    {
+      "wpId": "28913",
+      "title": "Reminder!  Live Lectures Tomorrow (Sunday 1/30/2022)",
+      "keyword": "Joseph in Genesis",
+      "reason": "The posts use Joseph only in course logistics or a passing list of Genesis figures."
+    },
+    {
+      "wpId": "12268",
+      "title": "Biblical Scholars Don’t Typically Call Themselves Biblical Historians",
+      "keyword": "Mythicism",
+      "reason": "Mythicism appears only in framing material or is absent from the substantive discussion."
+    },
+    {
+      "wpId": "9131",
+      "title": "My Debate with Kyle Butt on the Problem of Suffering",
+      "keyword": "Mythicism",
+      "reason": "Mythicism appears only in framing material or is absent from the substantive discussion."
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)",
+      "keyword": "Pseudepigraphy",
+      "reason": "The term appears only in a bibliographic syllabus entry."
+    },
+    {
+      "wpId": "4143",
+      "title": "Growth Rate of Early Christianity",
+      "keyword": "Ramsay MacMullen",
+      "reason": "MacMullen receives only a brief attribution or book recommendation."
+    },
+    {
+      "wpId": "49737",
+      "title": "How Early Christians Made Converts.  (Tent revivals?)",
+      "keyword": "Ramsay MacMullen",
+      "reason": "MacMullen receives only a brief attribution or book recommendation."
+    },
+    {
+      "wpId": "6388",
+      "title": "Jesus the Magician",
+      "keyword": "Secret Gospel of Mark",
+      "reason": "The references occur in a syllabus, event background, or an introductory mention rather than a meaningful discussion of the text."
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha",
+      "keyword": "Secret Gospel of Mark",
+      "reason": "The references occur in a syllabus, event background, or an introductory mention rather than a meaningful discussion of the text."
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?",
+      "keyword": "Secret Gospel of Mark",
+      "reason": "The references occur in a syllabus, event background, or an introductory mention rather than a meaningful discussion of the text."
+    },
+    {
+      "wpId": "8748",
+      "title": "York Symposium on Early Christian Apocrypha",
+      "keyword": "Secret Gospel of Mark",
+      "reason": "The references occur in a syllabus, event background, or an introductory mention rather than a meaningful discussion of the text."
+    }
+  ]
+}

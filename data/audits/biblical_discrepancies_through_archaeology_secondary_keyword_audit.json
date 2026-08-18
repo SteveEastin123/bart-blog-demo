@@ -1,0 +1,283 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Ten highest-frequency pending secondary keywords: Biblical Discrepancies through Archaeology and Material Evidence",
+  "criterion": "Retain keywords that identify meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, isolated examples, ambiguous names, and metaphorical uses that would mislead searchers.",
+  "auditedKeywords": [
+    "Biblical Discrepancies",
+    "Historical Criticism",
+    "Historicity",
+    "Jesus' Birth Narratives",
+    "Peter",
+    "Amos",
+    "Documentary Hypothesis",
+    "Jesus' Family",
+    "Poverty",
+    "Archaeology and Material Evidence"
+  ],
+  "summary": {
+    "keywordsAudited": 10,
+    "linksReviewed": 154,
+    "assignmentsRetained": 116,
+    "assignmentsRemoved": 38,
+    "assignmentsAdded": 2,
+    "uniqueKeywordsBefore": 912,
+    "uniqueKeywordsAfter": 911
+  },
+  "resultingCounts": {
+    "Biblical Discrepancies": 16,
+    "Historical Criticism": 15,
+    "Historicity": 15,
+    "Jesus' Birth Narratives": 15,
+    "Peter": 0,
+    "Peter the Apostle": 136,
+    "Amos": 8,
+    "Documentary Hypothesis": 15,
+    "Jesus' Family": 11,
+    "Poverty": 9,
+    "Archaeology and Material Evidence": 12
+  },
+  "removedPosts": [
+    {
+      "wpId": "28520",
+      "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "9479",
+      "title": "Background to Apocalypticism: The Maccabean Revolt",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "27131",
+      "title": "Does God Really Care How He Is Worshiped?  The Book of Hosea.",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "20867",
+      "title": "How Accurate are our Copies of the Hebrew Bible?",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "12186",
+      "title": "Manuscripts of the Hebrew Bible",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "49472",
+      "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "12752",
+      "title": "The Variety of Views of Suffering in the Bible",
+      "keyword": "Amos",
+      "reason": "Amos appears only in a list, brief comparison, or reference to an earlier discussion."
+    },
+    {
+      "wpId": "36709",
+      "title": "Josephus’ One Statement About the Burial of Crucified Victims in Judea",
+      "keyword": "Archaeology and Material Evidence",
+      "reason": "The post evaluates Josephus as textual evidence; archaeology is only mentioned as a separate argument."
+    },
+    {
+      "wpId": "7601",
+      "title": "Josephus’s Clearest Claim about the Burial of Crucified Victims",
+      "keyword": "Archaeology and Material Evidence",
+      "reason": "The post evaluates Josephus as textual evidence; archaeology is only mentioned as a separate argument."
+    },
+    {
+      "wpId": "12282",
+      "title": "How Do We Know What “Most Scholars” Think?",
+      "keyword": "Historical Criticism",
+      "reason": "The post discusses scholarly consensus rather than historical criticism as a method."
+    },
+    {
+      "wpId": "4335",
+      "title": "Inconsistencies in the Hebrew Bible",
+      "keyword": "Historicity",
+      "reason": "The post addresses contradictions and source composition rather than whether the narrated events occurred."
+    },
+    {
+      "wpId": "47199",
+      "title": "Luke and John “At a Glance” and Controversial Questions",
+      "keyword": "Jesus' Birth Narratives",
+      "reason": "The birth narrative receives only a passing sentence in a broader survey of Luke and John."
+    },
+    {
+      "wpId": "36799",
+      "title": "A Conference on the Gospels for Non-Scholars!",
+      "keyword": "Jesus' Family",
+      "reason": "Jesus' family is only a brief motif, isolated example, or one session within a broader event announcement."
+    },
+    {
+      "wpId": "38100",
+      "title": "How Jesus “Fills” Scripture “Full” in Matthew",
+      "keyword": "Jesus' Family",
+      "reason": "Jesus' family is only a brief motif, isolated example, or one session within a broader event announcement."
+    },
+    {
+      "wpId": "4247",
+      "title": "Jesus’ Rejection in Nazareth",
+      "keyword": "Jesus' Family",
+      "reason": "Jesus' family is only a brief motif, isolated example, or one session within a broader event announcement."
+    },
+    {
+      "wpId": "8403",
+      "title": "Matthew’s “Filling Full” of Scripture",
+      "keyword": "Jesus' Family",
+      "reason": "Jesus' family is only a brief motif, isolated example, or one session within a broader event announcement."
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "7155",
+      "title": "Jesus as the Adopted Son of God",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "50273",
+      "title": "Jesus the Pacifist",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "4317",
+      "title": "Mark and the Resurrection",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "6881",
+      "title": "Mary Magdalene as a Prostitute?",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "6362",
+      "title": "Paul and the Resurrection of a Spiritual Body",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "47122",
+      "title": "Paul’s Life and Letters:  For Further Reading",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "21069",
+      "title": "Smith-Pettit Lecture – The History of Heaven and Hell",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "12903",
+      "title": "Speaking in Tongues and Virgin Births: Readers’ Mailbag September 3, 2017",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "32580",
+      "title": "The Canon of the New Testament:  Why It Matters",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "11508",
+      "title": "The Resurrection and the Beginning of the Church",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "27838",
+      "title": "Those Darn Demons!  Guest Post by Douglas Wadeson",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "11793",
+      "title": "Were Jesus and His Followers Armed?",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "21061",
+      "title": "What is the Gospel of Judas About?",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "38488",
+      "title": "When Did Mary Magdalene Become a Prostitute?",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "33005",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+      "keyword": "Peter",
+      "reason": "Peter is incidental, ambiguous, part of a title or list, a reference to First Peter, or a different person; the two substantive apostle assignments are normalized to Peter the Apostle."
+    },
+    {
+      "wpId": "30120",
+      "title": "10 Year Anniversary for The Bart Ehrman Blog!",
+      "keyword": "Poverty",
+      "reason": "Poverty is merely passing or is used metaphorically for material existence rather than as a meaningful searchable subject."
+    },
+    {
+      "wpId": "4535",
+      "title": "Personal Response to Suffering?",
+      "keyword": "Poverty",
+      "reason": "Poverty is merely passing or is used metaphorically for material existence rather than as a meaningful searchable subject."
+    },
+    {
+      "wpId": "49861",
+      "title": "The Fear of Hell as an Incentive to Convert",
+      "keyword": "Poverty",
+      "reason": "Poverty is merely passing or is used metaphorically for material existence rather than as a meaningful searchable subject."
+    },
+    {
+      "wpId": "21281",
+      "title": "The Secret Message of the Gospel of Thomas",
+      "keyword": "Poverty",
+      "reason": "Poverty is merely passing or is used metaphorically for material existence rather than as a meaningful searchable subject."
+    },
+    {
+      "wpId": "15448",
+      "title": "Thomas: The Most Important Gospel Outside the New Testament",
+      "keyword": "Poverty",
+      "reason": "Poverty is merely passing or is used metaphorically for material existence rather than as a meaningful searchable subject."
+    },
+    {
+      "wpId": "37422",
+      "title": "What Is the Gospel of Thomas All About?  And Did the Author Use the New Testament Gospels?",
+      "keyword": "Poverty",
+      "reason": "Poverty is merely passing or is used metaphorically for material existence rather than as a meaningful searchable subject."
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "50273",
+      "title": "Jesus the Pacifist",
+      "keyword": "Peter the Apostle",
+      "reason": "The post substantively discusses Peter the Apostle; the precise keyword replaces the ambiguous Peter label."
+    },
+    {
+      "wpId": "11793",
+      "title": "Were Jesus and His Followers Armed?",
+      "keyword": "Peter the Apostle",
+      "reason": "The post substantively discusses Peter the Apostle; the precise keyword replaces the ambiguous Peter label."
+    }
+  ]
+}

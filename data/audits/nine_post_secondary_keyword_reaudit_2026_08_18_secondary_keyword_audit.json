@@ -1,0 +1,597 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly nine posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, event logistics, bibliographic references, and surrounding context; use precise labels; and avoid duplicating a post's topic.",
+  "originalKeywords": [
+    "2 Thessalonians",
+    "Anti-Judaism",
+    "Book Publishing",
+    "Coptic Apocalypse of Peter",
+    "Docetism",
+    "Ezekiel",
+    "Gamaliel",
+    "Justin Martyr",
+    "Letter to the Hebrews",
+    "Martin Luther",
+    "Micah",
+    "Orthodoxy",
+    "Philip",
+    "Quran",
+    "Redaction Criticism",
+    "Resurrection Appearances",
+    "Ruth"
+  ],
+  "auditedKeywords": [
+    "2 Thessalonians",
+    "Book Publishing",
+    "Christian Anti-Judaism",
+    "Coptic Apocalypse of Peter",
+    "Docetism",
+    "Ezekiel",
+    "Gamaliel",
+    "Gospel of Philip",
+    "Hebrews",
+    "Jesus' Resurrection Appearances",
+    "Justin Martyr",
+    "Martin Luther",
+    "Micah",
+    "Orthodoxy",
+    "Philip the Apostle",
+    "Quran",
+    "Redaction Criticism",
+    "Ruth"
+  ],
+  "summary": {
+    "keywordsAudited": 17,
+    "linksReviewed": 153,
+    "assignmentsRemoved": 57,
+    "assignmentsAdded": 29,
+    "netAssignmentsRemoved": 28,
+    "uniqueKeywordsBefore": 913,
+    "uniqueKeywordsAfter": 913,
+    "keywordsRetired": 4,
+    "labelsNormalizedOrRefined": 4
+  },
+  "retiredKeywords": [
+    "Anti-Judaism",
+    "Letter to the Hebrews",
+    "Philip",
+    "Resurrection Appearances"
+  ],
+  "labelChanges": [
+    {
+      "from": "Anti-Judaism",
+      "to": "Christian Anti-Judaism"
+    },
+    {
+      "from": "Letter to the Hebrews",
+      "to": "Hebrews"
+    },
+    {
+      "from": "Philip",
+      "to": [
+        "Gospel of Philip",
+        "Philip the Apostle"
+      ]
+    },
+    {
+      "from": "Resurrection Appearances",
+      "to": "Jesus' Resurrection Appearances"
+    }
+  ],
+  "resultingCounts": {
+    "2 Thessalonians": 5,
+    "Anti-Judaism": 0,
+    "Christian Anti-Judaism": 5,
+    "Book Publishing": 8,
+    "Coptic Apocalypse of Peter": 6,
+    "Docetism": 6,
+    "Ezekiel": 6,
+    "Gamaliel": 8,
+    "Justin Martyr": 9,
+    "Letter to the Hebrews": 0,
+    "Hebrews": 9,
+    "Martin Luther": 5,
+    "Micah": 9,
+    "Orthodoxy": 9,
+    "Philip": 0,
+    "Gospel of Philip": 8,
+    "Philip the Apostle": 1,
+    "Quran": 9,
+    "Redaction Criticism": 8,
+    "Resurrection Appearances": 0,
+    "Jesus' Resurrection Appearances": 7,
+    "Ruth": 8
+  },
+  "removedPosts": [
+    {
+      "wpId": "8350",
+      "title": "Do You Have To  Believe in the Virgin Birth?",
+      "keyword": "2 Thessalonians",
+      "reason": "The references occur only in a bibliography, broad list, explicit exclusion from the discussion, or transition to another subject."
+    },
+    {
+      "wpId": "38583",
+      "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+      "keyword": "2 Thessalonians",
+      "reason": "The references occur only in a bibliography, broad list, explicit exclusion from the discussion, or transition to another subject."
+    },
+    {
+      "wpId": "47267",
+      "title": "The Pastoral Epistles. For Further Reading",
+      "keyword": "2 Thessalonians",
+      "reason": "The references occur only in a bibliography, broad list, explicit exclusion from the discussion, or transition to another subject."
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "keyword": "2 Thessalonians",
+      "reason": "The references occur only in a bibliography, broad list, explicit exclusion from the discussion, or transition to another subject."
+    },
+    {
+      "wpId": "7654",
+      "title": "My Apostolic Fathers Seminar/Syllabus",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "7373",
+      "title": "My Other Next Book",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "27166",
+      "title": "My Syllabus for “The Birth of Christianity”",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "4163",
+      "title": "The God Christ and the Jews",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "26895",
+      "title": "The God of Wrath in Both Old and New Testament",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "46926",
+      "title": "The Letter to the Hebrews: For Further Reading",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "9428",
+      "title": "The Myth of the First Christmas",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "17537",
+      "title": "Want To Know About the Apostolic Fathers?",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "3555",
+      "title": "Why Was Barnabas Attributed to Barnabas: Part 2",
+      "keyword": "Anti-Judaism",
+      "reason": "The old label is either syllabus-only, redundant with the post's Christian Anti-Judaism topic, or replaced by that more precise label."
+    },
+    {
+      "wpId": "11429",
+      "title": "My Progress on the Book",
+      "keyword": "Book Publishing",
+      "reason": "The post concerns research and writing progress rather than publishing."
+    },
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+      "keyword": "Coptic Apocalypse of Peter",
+      "reason": "The text appears only in a syllabus or seminar list."
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)",
+      "keyword": "Coptic Apocalypse of Peter",
+      "reason": "The text appears only in a syllabus or seminar list."
+    },
+    {
+      "wpId": "2259",
+      "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center",
+      "keyword": "Coptic Apocalypse of Peter",
+      "reason": "The text appears only in a syllabus or seminar list."
+    },
+    {
+      "wpId": "14395",
+      "title": "Did Jesus’ Death Matter?  The Intriguing View of the Coptic Apocalypse of Peter",
+      "keyword": "Docetism",
+      "reason": "The post concerns separationism or adoptionism, with Docetism absent or used only as contrasting background."
+    },
+    {
+      "wpId": "9211",
+      "title": "Scribes Who Changed the Voice at Jesus Baptism?",
+      "keyword": "Docetism",
+      "reason": "The post concerns separationism or adoptionism, with Docetism absent or used only as contrasting background."
+    },
+    {
+      "wpId": "50331",
+      "title": "Was Jesus’s Crucifixion One Big Mistake?",
+      "keyword": "Docetism",
+      "reason": "The post concerns separationism or adoptionism, with Docetism absent or used only as contrasting background."
+    },
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude",
+      "keyword": "Ezekiel",
+      "reason": "Ezekiel appears only in a brief comparison or general list of prophets."
+    },
+    {
+      "wpId": "9477",
+      "title": "Are the Prophecies Being Fulfilled?",
+      "keyword": "Ezekiel",
+      "reason": "Ezekiel appears only in a brief comparison or general list of prophets."
+    },
+    {
+      "wpId": "34088",
+      "title": "Recreational Drugs in the New Testament?  Platinum Guest Post by Douglas Wadeson",
+      "keyword": "Ezekiel",
+      "reason": "Ezekiel appears only in a brief comparison or general list of prophets."
+    },
+    {
+      "wpId": "36333",
+      "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+      "keyword": "Gamaliel",
+      "reason": "Gamaliel appears only in a name discussion and brief Acts quotation."
+    },
+    {
+      "wpId": "12642",
+      "title": "Can (or Should) We Change the Canon of Scripture? A Blast from the Past",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "33135",
+      "title": "Can’t We Just Get Rid of Some of the Books of the Bible?",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "49360",
+      "title": "Early Christian Views of Judaism, In a Nutshell",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "50192",
+      "title": "How the Year 1517 Revolutionized Biblical Studies",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "38008",
+      "title": "How to Botch a Bible Translation (because of inclusive language)",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "40007",
+      "title": "More Lost Scriptures",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "12143",
+      "title": "Problems with Inclusive Language Bible Translation",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "2240",
+      "title": "Should We Change the Canon of Scripture?",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "32065",
+      "title": "“Redemptive Gifts”: Can Giving to Charity Save Your Soul?",
+      "keyword": "Letter to the Hebrews",
+      "reason": "The assignment is replaced by the concise label Hebrews, matching the existing topic."
+    },
+    {
+      "wpId": "3411",
+      "title": "Feedback on Excursus",
+      "keyword": "Martin Luther",
+      "reason": "The reference is a broad comparison or identifies Martin Luther King Jr. rather than Martin Luther."
+    },
+    {
+      "wpId": "39623",
+      "title": "John the Baptist: The Most Influential Religious Innovator in History by James McGrath (Part 3)",
+      "keyword": "Martin Luther",
+      "reason": "The reference is a broad comparison or identifies Martin Luther King Jr. rather than Martin Luther."
+    },
+    {
+      "wpId": "15505",
+      "title": "Studying the Bible as Theology and/or History",
+      "keyword": "Martin Luther",
+      "reason": "The reference is a broad comparison or identifies Martin Luther King Jr. rather than Martin Luther."
+    },
+    {
+      "wpId": "2844",
+      "title": "The Bible as History and Theology",
+      "keyword": "Martin Luther",
+      "reason": "The reference is a broad comparison or identifies Martin Luther King Jr. rather than Martin Luther."
+    },
+    {
+      "wpId": "37384",
+      "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "38493",
+      "title": "Jesus and Mary Magdalene Seen Kissing??",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "6891",
+      "title": "Jesus Kissing Mary Magdalene",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "17615",
+      "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "14899",
+      "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "23254",
+      "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "8846",
+      "title": "Papias and the Eyewitnesses",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "37380",
+      "title": "The Gospel of Philip: An Example of a Valentinian Gnostic Gospel",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "21061",
+      "title": "What is the Gospel of Judas About?",
+      "keyword": "Philip",
+      "reason": "The ambiguous label is replaced by Gospel of Philip or Philip the Apostle where supported, and otherwise removed."
+    },
+    {
+      "wpId": "6951",
+      "title": "More on Mark",
+      "keyword": "Redaction Criticism",
+      "reason": "The post merely mentions redaction criticism before using a different method."
+    },
+    {
+      "wpId": "37577",
+      "title": "An Intriguing and Unusual Demonstration of Early Christian Differences…",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "28740",
+      "title": "Did Paul Invent Jesus’ Resurrection?",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "7254",
+      "title": "Did Paul Invent the Resurrection?",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "8946",
+      "title": "Earliest Christian Diversity",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "15528",
+      "title": "Mapping the Diversity of Earliest Christianity",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "4317",
+      "title": "Mark and the Resurrection",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "32529",
+      "title": "Problems in the Gospels–How do YOU Talk to Believers About Them?  What Do You Think?",
+      "keyword": "Resurrection Appearances",
+      "reason": "The label is replaced by Jesus' Resurrection Appearances where supported, removed when incidental, and omitted when the matching topic is already present."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Ruth",
+      "reason": "Ruth appears only in charts listing biblical books."
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "7373",
+      "title": "My Other Next Book",
+      "keyword": "Christian Anti-Judaism"
+    },
+    {
+      "wpId": "26895",
+      "title": "The God of Wrath in Both Old and New Testament",
+      "keyword": "Christian Anti-Judaism"
+    },
+    {
+      "wpId": "46926",
+      "title": "The Letter to the Hebrews: For Further Reading",
+      "keyword": "Christian Anti-Judaism"
+    },
+    {
+      "wpId": "9428",
+      "title": "The Myth of the First Christmas",
+      "keyword": "Christian Anti-Judaism"
+    },
+    {
+      "wpId": "3555",
+      "title": "Why Was Barnabas Attributed to Barnabas: Part 2",
+      "keyword": "Christian Anti-Judaism"
+    },
+    {
+      "wpId": "37384",
+      "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "38493",
+      "title": "Jesus and Mary Magdalene Seen Kissing??",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "6891",
+      "title": "Jesus Kissing Mary Magdalene",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "17615",
+      "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "14899",
+      "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "23254",
+      "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "37380",
+      "title": "The Gospel of Philip: An Example of a Valentinian Gnostic Gospel",
+      "keyword": "Gospel of Philip"
+    },
+    {
+      "wpId": "12642",
+      "title": "Can (or Should) We Change the Canon of Scripture? A Blast from the Past",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "33135",
+      "title": "Can’t We Just Get Rid of Some of the Books of the Bible?",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "49360",
+      "title": "Early Christian Views of Judaism, In a Nutshell",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "50192",
+      "title": "How the Year 1517 Revolutionized Biblical Studies",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "38008",
+      "title": "How to Botch a Bible Translation (because of inclusive language)",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "40007",
+      "title": "More Lost Scriptures",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "12143",
+      "title": "Problems with Inclusive Language Bible Translation",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "2240",
+      "title": "Should We Change the Canon of Scripture?",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "32065",
+      "title": "“Redemptive Gifts”: Can Giving to Charity Save Your Soul?",
+      "keyword": "Hebrews"
+    },
+    {
+      "wpId": "37577",
+      "title": "An Intriguing and Unusual Demonstration of Early Christian Differences…",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "7254",
+      "title": "Did Paul Invent the Resurrection?",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "8946",
+      "title": "Earliest Christian Diversity",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "15528",
+      "title": "Mapping the Diversity of Earliest Christianity",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "4317",
+      "title": "Mark and the Resurrection",
+      "keyword": "Jesus' Resurrection Appearances"
+    },
+    {
+      "wpId": "8846",
+      "title": "Papias and the Eyewitnesses",
+      "keyword": "Philip the Apostle"
+    }
+  ]
+}

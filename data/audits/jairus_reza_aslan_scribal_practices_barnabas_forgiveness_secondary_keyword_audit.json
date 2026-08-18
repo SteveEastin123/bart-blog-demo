@@ -1,0 +1,326 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Jairus, Reza Aslan, Scribal Practices, Barnabas, and Forgiveness secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting people, narratives, textual activity, and theological concepts; remove brief examples, transitions, lists, syllabi, and passing references; and disambiguate Barnabas the associate of Paul from the Letter of Barnabas.",
+  "originalKeywords": [
+    "Jairus",
+    "Reza Aslan",
+    "Scribal Practices",
+    "Barnabas",
+    "Forgiveness"
+  ],
+  "auditedKeywords": [
+    "Jairus",
+    "Reza Aslan",
+    "Scribal Practices",
+    "Letter of Barnabas",
+    "Barnabas, Associate of Paul",
+    "Forgiveness"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 138,
+    "assignmentsRetained": 113,
+    "assignmentsRemoved": 25,
+    "assignmentsRenamed": 20,
+    "uniqueKeywordsBefore": 909,
+    "uniqueKeywordsAfter": 908,
+    "keywordsRetired": 1
+  },
+  "retiredKeywords": [
+    "Barnabas"
+  ],
+  "labelChanges": [
+    {
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "from": "Barnabas",
+      "to": "Barnabas, Associate of Paul"
+    }
+  ],
+  "resultingCounts": {
+    "Jairus": 23,
+    "Reza Aslan": 21,
+    "Scribal Practices": 26,
+    "Barnabas": 0,
+    "Letter of Barnabas": 29,
+    "Barnabas, Associate of Paul": 26,
+    "Forgiveness": 23
+  },
+  "removedPosts": [
+    {
+      "wpId": "40215",
+      "title": "Misquoting Jesus and My Fall From Fundamentalism",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "8405",
+      "title": "My Forgery Seminar (Syllabus)",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "6578",
+      "title": "My New Testament Syllabus",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "46926",
+      "title": "The Letter to the Hebrews: For Further Reading",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "4747",
+      "title": "Why Luke is Thought To Have Written Luke",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "8294",
+      "title": "Why Was the Gospel of Luke Attributed to Luke?",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "32502",
+      "title": "Writings of the Apostles in the Canon of the New Testament",
+      "keyword": "Barnabas",
+      "reason": "The name denotes a different modern scholar or appears only in a list, syllabus, or passing authorship comparison."
+    },
+    {
+      "wpId": "49865",
+      "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+      "keyword": "Forgiveness",
+      "reason": "Forgiveness appears only as a rhetorical example, isolated quotation, negative contrast, or passing theological reference."
+    },
+    {
+      "wpId": "16146",
+      "title": "How Jesus Became Perfectly Sinless: Guest Post by Jeff Siker",
+      "keyword": "Forgiveness",
+      "reason": "Forgiveness appears only as a rhetorical example, isolated quotation, negative contrast, or passing theological reference."
+    },
+    {
+      "wpId": "34088",
+      "title": "Recreational Drugs in the New Testament?  Platinum Guest Post by Douglas Wadeson",
+      "keyword": "Forgiveness",
+      "reason": "Forgiveness appears only as a rhetorical example, isolated quotation, negative contrast, or passing theological reference."
+    },
+    {
+      "wpId": "29776",
+      "title": "Revelation and Ancient Views of Dominance",
+      "keyword": "Forgiveness",
+      "reason": "Forgiveness appears only as a rhetorical example, isolated quotation, negative contrast, or passing theological reference."
+    },
+    {
+      "wpId": "7556",
+      "title": "Ancient Forerunners of Modern Gospel Critics",
+      "keyword": "Jairus",
+      "reason": "Jairus or his daughter appears only as a brief example rather than as a meaningfully discussed narrative or Gospel comparison."
+    },
+    {
+      "wpId": "15315",
+      "title": "Are the Gospels Principally Concerned to Show What Actually Happened?",
+      "keyword": "Jairus",
+      "reason": "Jairus or his daughter appears only as a brief example rather than as a meaningfully discussed narrative or Gospel comparison."
+    },
+    {
+      "wpId": "49622",
+      "title": "Different Words, VERY Different Theologies, and Understanding Which Words They Were. Readers’ Questions",
+      "keyword": "Jairus",
+      "reason": "Jairus or his daughter appears only as a brief example rather than as a meaningfully discussed narrative or Gospel comparison."
+    },
+    {
+      "wpId": "36424",
+      "title": "Is Critical Biblical Scholarship Valid?  What the New Testament Itself Indicates!",
+      "keyword": "Jairus",
+      "reason": "Jairus or his daughter appears only as a brief example rather than as a meaningfully discussed narrative or Gospel comparison."
+    },
+    {
+      "wpId": "5075",
+      "title": "Why Are There Contradictions in the New Testament?",
+      "keyword": "Jairus",
+      "reason": "Jairus or his daughter appears only as a brief example rather than as a meaningfully discussed narrative or Gospel comparison."
+    },
+    {
+      "wpId": "6444",
+      "title": "2009 Debate With Mike Licona: Can Historians Prove the Resurrection of Jesus?",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "4900",
+      "title": "Bill O’Reilly’s Jesus",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "7214",
+      "title": "Critique of the Very Reverend Robert Barron",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "38778",
+      "title": "Dealing With Reviews of My Books By People Who (Apparently) Haven’t Read Them",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "15087",
+      "title": "My Testier Days: A Response to a Critique of How Jesus Became God",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "6925",
+      "title": "Similarities and Differences: The Synoptic Problem",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "30471",
+      "title": "The Critique of the “Very Reverend Robert Barron”",
+      "keyword": "Reza Aslan",
+      "reason": "Aslan appears only as a comparison, transition, or future reading rather than as a meaningfully discussed author or argument."
+    },
+    {
+      "wpId": "9075",
+      "title": "Ruffling the Feathers of My Fellow Textual Critics",
+      "keyword": "Scribal Practices",
+      "reason": "The post concerns original-text questions or reactions among textual critics and mentions scribes only incidentally."
+    },
+    {
+      "wpId": "9086",
+      "title": "What Is the “Original” Text?",
+      "keyword": "Scribal Practices",
+      "reason": "The post concerns original-text questions or reactions among textual critics and mentions scribes only incidentally."
+    }
+  ],
+  "renamedPosts": [
+    {
+      "wpId": "26835",
+      "title": "More Hints that Cephas Was Not Peter",
+      "from": "Barnabas",
+      "to": "Barnabas, Associate of Paul"
+    },
+    {
+      "wpId": "26811",
+      "title": "Some Evidence that Cephas and Peter WERE Two Different People",
+      "from": "Barnabas",
+      "to": "Barnabas, Associate of Paul"
+    },
+    {
+      "wpId": "46933",
+      "title": "The Book of Hebrews:  Who Wrote It, When, and Why?",
+      "from": "Barnabas",
+      "to": "Barnabas, Associate of Paul"
+    },
+    {
+      "wpId": "31948",
+      "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+      "from": "Barnabas",
+      "to": "Barnabas, Associate of Paul"
+    },
+    {
+      "wpId": "8508",
+      "title": "666: The Number of the Beast",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "3205",
+      "title": "A Stranger Problem with Lake’s Translation",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "39587",
+      "title": "An Important Early Christian Writing",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "34145",
+      "title": "An Intriguing Anti-Jewish Variant:  Did Jesus Pray “Father forgive them”?",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "40170",
+      "title": "Ancient Ways of Interpreting Scripture",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "7648",
+      "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "15991",
+      "title": "Did Jesus Pray “Father Forgive Them” from the Cross?",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "48800",
+      "title": "How and When Did Christians Decide What Should Be in the New Testament Canon?",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "12253",
+      "title": "How We Got the New Testament (and not some other books!)",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "14874",
+      "title": "Is Paul Given Too Much Credit?",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "3299",
+      "title": "Modern Interest in the Apostolic Fathers",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "13346",
+      "title": "More on 666: The Number of the Beast: A Blast from the Past",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "14980",
+      "title": "Once More: The Interesting Text Called the Didache",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "38938",
+      "title": "Other “Unknown” Sayings of Jesus",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    },
+    {
+      "wpId": "3199",
+      "title": "Problems with Lake’s Translation of the Apostolic Fathers",
+      "from": "Barnabas",
+      "to": "Letter of Barnabas"
+    }
+  ]
+}

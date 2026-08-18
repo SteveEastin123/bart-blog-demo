@@ -1,0 +1,305 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "1 John, 2 Kings, Conversion, Deuteronomy, and Ephesians secondary-keyword assignments",
+  "criterion": "Retain texts, events, and concepts that receive meaningful supporting discussion; remove footnote artifacts, lists, course or syllabus entries, passing examples, chronological references, and ambiguous or erroneous matches.",
+  "auditedKeywords": [
+    "1 John",
+    "2 Kings",
+    "Conversion",
+    "Deuteronomy",
+    "Ephesians"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 142,
+    "assignmentsRetained": 96,
+    "assignmentsRemoved": 46,
+    "uniqueKeywordsBefore": 909,
+    "uniqueKeywordsAfter": 909
+  },
+  "resultingCounts": {
+    "1 John": 23,
+    "2 Kings": 17,
+    "Conversion": 19,
+    "Deuteronomy": 18,
+    "Ephesians": 19
+  },
+  "removedPosts": [
+    {
+      "wpId": "2459",
+      "title": "Autobiographical.  Metzger and Me: Serving as his Teaching Assistant",
+      "keyword": "1 John",
+      "reason": "The apparent reference is a footnote artifact, syllabus entry, passing doctrinal example, anecdote, or course reference rather than meaningful discussion of 1 John."
+    },
+    {
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "1 John",
+      "reason": "The apparent reference is a footnote artifact, syllabus entry, passing doctrinal example, anecdote, or course reference rather than meaningful discussion of 1 John."
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "1 John",
+      "reason": "The apparent reference is a footnote artifact, syllabus entry, passing doctrinal example, anecdote, or course reference rather than meaningful discussion of 1 John."
+    },
+    {
+      "wpId": "4121",
+      "title": "Explaining myself….",
+      "keyword": "1 John",
+      "reason": "The apparent reference is a footnote artifact, syllabus entry, passing doctrinal example, anecdote, or course reference rather than meaningful discussion of 1 John."
+    },
+    {
+      "wpId": "20122",
+      "title": "Reading the New Testament Letters in CONTEXT",
+      "keyword": "1 John",
+      "reason": "The apparent reference is a footnote artifact, syllabus entry, passing doctrinal example, anecdote, or course reference rather than meaningful discussion of 1 John."
+    },
+    {
+      "wpId": "9077",
+      "title": "Textual Criticism Syllabus",
+      "keyword": "1 John",
+      "reason": "The apparent reference is a footnote artifact, syllabus entry, passing doctrinal example, anecdote, or course reference rather than meaningful discussion of 1 John."
+    },
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "49514",
+      "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "12289",
+      "title": "Does It Mean What It Says?  More Problems with the King James",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "33641",
+      "title": "If the King James Was Good Enough for Paul, It’s Good Enough for Me",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "35238",
+      "title": "Is 2 Thessalonians a Forgery?  From 132 CE?  Platinum Guest Post by Omar Robb",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "3631",
+      "title": "More King James Curiosities",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "47215",
+      "title": "Some Interesting Questions of the Week",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "26942",
+      "title": "Why God Had to Destroy the Outsiders…",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "keyword": "2 Kings",
+      "reason": "The book appears only in a broad list, brief analogy, isolated comparison, or erroneous citation of 1 Kings 11:1 rather than as a meaningfully discussed text."
+    },
+    {
+      "wpId": "25276",
+      "title": "A Heresy that May Not Sound Heretical to You:  Arius of Alexandria",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "40170",
+      "title": "Ancient Ways of Interpreting Scripture",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "35188",
+      "title": "And Here’s My Final Exam on The Birth of Christianity",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "37615",
+      "title": "Do You Want to Take the Final Exam for My Course: “Birth of Christianity”?",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "47139",
+      "title": "Guest Post by Dr. Paula Fredriksen Part I: Ancient Christianities: Multiplicity, Messy Origins, and “Monotheism”",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "15609",
+      "title": "My Pod Cast Interview with Sam Harris",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "25481",
+      "title": "The Council of Nicaea and The Resulting View of Christ",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "9393",
+      "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "4938",
+      "title": "Widespread Misconceptions about the Council of Nicea",
+      "keyword": "Conversion",
+      "reason": "Conversion appears only as chronology, course or interview content, or brief historical background rather than as a meaningful subject."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "32825",
+      "title": "Did King David Actually Exist?",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "12560",
+      "title": "Finding Problems in the Old Testament",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "11589",
+      "title": "Literary Tensions in the Creation Account of Genesis",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "12447",
+      "title": "The Afterlife in the Hebrew Bible: Sheol",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "35354",
+      "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "15303",
+      "title": "The Historical Significance of Contradictions",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "12752",
+      "title": "The Variety of Views of Suffering in the Bible",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "25653",
+      "title": "Two (Contradictory?) Accounts of Creation in Genesis?",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "38977",
+      "title": "What Is Sheol in the Hebrew Bible?",
+      "keyword": "Deuteronomy",
+      "reason": "The book appears only in a canon or Pentateuch list, citation list, course description, or passing example rather than as a meaningful source or subject."
+    },
+    {
+      "wpId": "47155",
+      "title": "1 Corinthians:  Who, When, and Why?",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "31186",
+      "title": "And Did Paul Write 2 Thessalonians?",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "15607",
+      "title": "How Christianity Grew and Grew",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "16656",
+      "title": "My Conference on Pseudepigraphy",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "38583",
+      "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "47246",
+      "title": "The Pastoral Epistle of 1 Timothy in a Nutshell",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "46973",
+      "title": "Why Does the Author of 1 Peter Sound Like Paul Instead of Peter?",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    },
+    {
+      "wpId": "8147",
+      "title": "Why Would Christian Authors Write Forgeries?",
+      "keyword": "Ephesians",
+      "reason": "The letter appears only in a list, brief comparison, reference to a previous post, or—in one case—the word denotes the people of Ephesus rather than the New Testament letter."
+    }
+  ]
+}

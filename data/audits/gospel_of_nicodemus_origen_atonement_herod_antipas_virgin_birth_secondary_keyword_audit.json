@@ -1,0 +1,451 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Gospel of Nicodemus, Origen, Atonement, Herod Antipas, and Virgin Birth secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting people, texts, traditions, and theological concepts; remove passing comparisons, lists, syllabus entries, date formulas, and incidental doctrinal examples; and use a complete, unambiguous name for Origen of Alexandria.",
+  "originalKeywords": [
+    "Gospel of Nicodemus",
+    "Origen",
+    "Atonement",
+    "Herod Antipas",
+    "Virgin Birth"
+  ],
+  "auditedKeywords": [
+    "Gospel of Nicodemus",
+    "Origen of Alexandria",
+    "Atonement",
+    "Herod Antipas",
+    "Virgin Birth"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 152,
+    "assignmentsRemoved": 42,
+    "assignmentsRenamed": 25,
+    "uniqueKeywordsBefore": 909,
+    "uniqueKeywordsAfter": 909,
+    "keywordsRetired": 1
+  },
+  "retiredKeywords": [
+    "Origen"
+  ],
+  "labelChanges": [
+    {
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    }
+  ],
+  "resultingCounts": {
+    "Gospel of Nicodemus": 15,
+    "Origen": 0,
+    "Origen of Alexandria": 25,
+    "Atonement": 30,
+    "Herod Antipas": 22,
+    "Virgin Birth": 18
+  },
+  "removedPosts": [
+    {
+      "wpId": "21317",
+      "title": "A Very Odd Saying of Jesus",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "13771",
+      "title": "A Very Strange Saying:  From the Gospel of Peter?",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "13336",
+      "title": "Another Translation Project:  The Apocryphal Gospels",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "7686",
+      "title": "Apocryphal Gospels: The Scholarly Version",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "3801",
+      "title": "Gospel of the Savior",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "35410",
+      "title": "How Can We Get Behind “False Memories” of Jesus to the Historical Facts?",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "21106",
+      "title": "Jesus in Scholarship and Film",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "38877",
+      "title": "My Favorite Fragment of a Lost Gospel.  Is It the Gospel of Peter??",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "15633",
+      "title": "Now, The Gospel of Peter",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "2259",
+      "title": "Personal Reflections: My Apocrypha Seminar at the National Humanities Center",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "8307",
+      "title": "The Discovery of the Gospel of Peter",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "6320",
+      "title": "The Gospel of Peter in a Papyrus Fragment?",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "16599",
+      "title": "The Scholarly Edition of the Apocryphal Gospels",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "34597",
+      "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "8269",
+      "title": "Why Are the Gospels Anonymous?",
+      "keyword": "Gospel of Nicodemus",
+      "reason": "The text appears only as a comparison, list entry, syllabus item, or passing example rather than as a meaningful subject or source."
+    },
+    {
+      "wpId": "25202",
+      "title": "Did Paul the Pharisee Learn about Christianity from his Relative, the Apostle Junia?  Guest Post by James McGrath",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "32682",
+      "title": "Did the Romans Stage Jesus’ Crucifixion?  Platinum Guest Post by Ryan Fleming",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "49865",
+      "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "9337",
+      "title": "Jesus Death as King of the Jews",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "3512",
+      "title": "Luke’s Genealogy",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "14935",
+      "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "21368",
+      "title": "The Roman Standards Worship Jesus?  From the Gospel of Nicodemus",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "36902",
+      "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor",
+      "keyword": "Herod Antipas",
+      "reason": "The reference is only a date formula, passing historical comparison, list entry, or generic reference to Herod."
+    },
+    {
+      "wpId": "2435",
+      "title": "Autobiographical: Metzger and Me.  The Seminar on the Canon",
+      "keyword": "Origen",
+      "reason": "Origen appears only in a list of apologists, sources, readings, or canon authorities rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "4799",
+      "title": "Fun with the Jewish Christian Gospels",
+      "keyword": "Origen",
+      "reason": "Origen appears only in a list of apologists, sources, readings, or canon authorities rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "12916",
+      "title": "Fun with the Jewish Christian Gospels: A Blast from the Past",
+      "keyword": "Origen",
+      "reason": "Origen appears only in a list of apologists, sources, readings, or canon authorities rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "36814",
+      "title": "The Apocryphal Gospels By and For Jewish Christians",
+      "keyword": "Origen",
+      "reason": "Origen appears only in a list of apologists, sources, readings, or canon authorities rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "49051",
+      "title": "The Earliest Christian Apologist:  Quadratus in a Nutshell",
+      "keyword": "Origen",
+      "reason": "Origen appears only in a list of apologists, sources, readings, or canon authorities rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "keyword": "Origen",
+      "reason": "Origen appears only in a list of apologists, sources, readings, or canon authorities rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "1970",
+      "title": "Another Question on the Resurrection",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "37557",
+      "title": "But Your Own Teacher Bruce Metzger Didn’t Think That!",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "27450",
+      "title": "How Becoming an Agnostic Affected My Personal Life",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "12970",
+      "title": "How Changing My Views Affected My Relationships",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "39748",
+      "title": "If Textual Variants Don’t Change Any Key Doctrines — Then Who Cares?",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "27626",
+      "title": "John Shelby Spong: In Memoriam",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "3648",
+      "title": "My Problem with Fundamentalism",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "12270",
+      "title": "My Problem(s) With Fundamentalism: A Blast from the Past",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "4403",
+      "title": "On the Cutting Room Floor: Part 5 and Final!",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "15780",
+      "title": "The Dangers of Fundamentalism",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "7466",
+      "title": "Who Cares???  Do the Variants in the Manuscripts Matter for Anything?",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    },
+    {
+      "wpId": "17247",
+      "title": "Why Don’t You Just Believe?",
+      "keyword": "Virgin Birth",
+      "reason": "The virgin birth appears only as one item in a list of doctrines, supernatural claims, or former beliefs."
+    }
+  ],
+  "renamedPosts": [
+    {
+      "wpId": "46984",
+      "title": "2 Peter: Who Wrote It, When, and Why?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "34145",
+      "title": "An Intriguing Anti-Jewish Variant:  Did Jesus Pray “Father forgive them”?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "40170",
+      "title": "Ancient Ways of Interpreting Scripture",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "7648",
+      "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "16580",
+      "title": "Can We Reconstruct the Entire New Testament from Quotations of the Church Fathers?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "27766",
+      "title": "Can We Reconstruct the New Testament from the Writings of the Early Church Fathers?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15755",
+      "title": "Did Early Christians Believe in Reincarnation?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15991",
+      "title": "Did Jesus Pray “Father Forgive Them” from the Cross?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15752",
+      "title": "Did We Exist Before We Were Born?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15748",
+      "title": "Does Everyone Get Saved in the End?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "31840",
+      "title": "Early Christianity and War.  Guest Post by Dan Kohanski",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "30070",
+      "title": "Early Christianity and War.  Platinum Guest Post by Daniel Kohanski",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "4513",
+      "title": "Early Christianity in Egypt",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15635",
+      "title": "Early Debates about the Gospel of Peter",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "47141",
+      "title": "Guest Post by Dr. Paul Fredriksen Part III: The Conversions of “Christianity”",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "25226",
+      "title": "How Could Christ Be Both God and a Human — At Once?  The Unusual View of Origen",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "32072",
+      "title": "How Could Jesus Be BOTH Divine and Human at Once?  An Intriguing Ancient View",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "17793",
+      "title": "How To Begin with Heaven and Hell: An Excerpt",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "37841",
+      "title": "No Virgin Birth? Was Jesus ADOPTED by God to be His Son?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15818",
+      "title": "The Aberrant View of the Afterlife in the Apocalypse of Peter",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "15763",
+      "title": "The Happy News!  No One Stays In Hell!",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "49778",
+      "title": "What an Ancient Enemy of Christianity Said About Why It Was Successful",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "49016",
+      "title": "Who Wrote the Shepherd of Hermas, and When?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "8304",
+      "title": "Why Not the Gospel of Peter?",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    },
+    {
+      "wpId": "46936",
+      "title": "Will Everyone be Saved? (Everyone??)",
+      "from": "Origen",
+      "to": "Origen of Alexandria"
+    }
+  ]
+}

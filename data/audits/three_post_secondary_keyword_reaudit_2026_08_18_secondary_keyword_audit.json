@@ -1,0 +1,370 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly three posts before this re-audit",
+  "criterion": "Retain meaningful supporting search terms; remove weak or redundant assignments; consolidate labels that describe the same searchable concept; and use precise names.",
+  "originalKeywords": [
+    "616",
+    "Ancient New Testament Versions",
+    "Apocalyptic Jesus",
+    "Apologetics",
+    "Apotheosis",
+    "Artemis",
+    "Augustine",
+    "Baptism of Jesus",
+    "Book of Zechariah",
+    "Book Titles",
+    "Burial Practices",
+    "Celsus",
+    "Christian Identity",
+    "Criterion of Dissimilarity",
+    "Critical Biblical Scholarship",
+    "Crucified Messiah",
+    "Day of Atonement",
+    "Dieter Luhrmann",
+    "Doctors Without Borders",
+    "E. R. Dodds",
+    "Early Christian Population",
+    "Enlightenment",
+    "Esther",
+    "Exaltation Christology",
+    "Final Judgment",
+    "Food Bank of Central and Eastern North Carolina",
+    "Foraging",
+    "Freedom From Religion Foundation",
+    "Fundamentalism",
+    "Genre",
+    "Gethsemane",
+    "Goats",
+    "Graduate School",
+    "Greek Language",
+    "Gregory the Wonderworker",
+    "Habakkuk",
+    "Hades",
+    "Happiness",
+    "History of Joseph the Carpenter",
+    "Homosexuality",
+    "Inclusive Language",
+    "Irenaeus",
+    "Isis",
+    "Jesus Movement",
+    "Jesus' Ethics",
+    "Jewish Christian Relations",
+    "John Calvin",
+    "Justin Bass",
+    "Kirsopp Lake",
+    "Literacy",
+    "Lying",
+    "Magic",
+    "Marcionism",
+    "Martin of Tours",
+    "Max Weber",
+    "Melito of Sardis",
+    "Michael Bird",
+    "Miracle Claims",
+    "Oxyrhynchus Papyri",
+    "Papyrus Oxyrhynchus 4009",
+    "Patristic Evidence",
+    "Pilate Gospels",
+    "Research Methods",
+    "Resurrected Body",
+    "Septuagint",
+    "Sheep",
+    "Signs Source",
+    "Simon and Schuster",
+    "Simon Magus",
+    "St. Catherine's Monastery",
+    "Subjectivity",
+    "Sulpicius Severus",
+    "Taxation",
+    "Temple Authorities",
+    "Textual Scholar",
+    "Thanksgiving",
+    "Theology",
+    "Tiberius",
+    "Wisdom",
+    "Word of Mouth",
+    "Yale University"
+  ],
+  "auditedKeywords": [
+    "616",
+    "Ancient New Testament Versions",
+    "Apocalyptic Jesus",
+    "Apologetics",
+    "Apotheosis and Divinization",
+    "Artemis",
+    "Augustine",
+    "Baptism of Jesus",
+    "Book of Zechariah",
+    "Book Titles",
+    "Burial Practices",
+    "Celsus",
+    "Christian Identity",
+    "Criterion of Dissimilarity",
+    "Critical Biblical Scholarship",
+    "Crucified Messiah",
+    "Day of Atonement",
+    "Dieter Luhrmann",
+    "Doctors Without Borders",
+    "E. R. Dodds",
+    "Early Christian Population",
+    "Enlightenment",
+    "Esther",
+    "Exaltation Christology",
+    "Final Judgment",
+    "Food Bank of Central and Eastern North Carolina",
+    "Foraging",
+    "Freedom From Religion Foundation",
+    "Fundamentalism",
+    "Gethsemane",
+    "Gospel Genre",
+    "Graduate School",
+    "Greek Language",
+    "Gregory the Wonderworker",
+    "Habakkuk",
+    "Hades",
+    "Happiness",
+    "Historical Study and Theology",
+    "History of Joseph the Carpenter",
+    "Homosexuality",
+    "Inclusive Language",
+    "Irenaeus",
+    "Isis",
+    "Jesus Movement",
+    "Jesus' Ethics",
+    "Jewish Christian Relations",
+    "John Calvin",
+    "Justin Bass",
+    "Kirsopp Lake",
+    "Lying",
+    "Magic",
+    "Marcionism",
+    "Martin of Tours",
+    "Max Weber",
+    "Melito of Sardis",
+    "Michael Bird",
+    "Miracle Claims",
+    "Oxyrhynchus Papyri",
+    "Papyrus Oxyrhynchus 4009",
+    "Patristic Evidence",
+    "Pilate Gospels",
+    "Research Methods",
+    "Resurrected Body",
+    "Septuagint",
+    "Sheep and Goats",
+    "Signs Source",
+    "Simon & Schuster",
+    "Simon Magus",
+    "St. Catherine's Monastery",
+    "Subjectivity",
+    "Sulpicius Severus",
+    "Taxation",
+    "Temple Authorities",
+    "Thanksgiving",
+    "Tiberius",
+    "Wisdom",
+    "Word of Mouth",
+    "Yale University"
+  ],
+  "summary": {
+    "keywordsAudited": 81,
+    "linksReviewed": 243,
+    "netLinksRemoved": 16,
+    "uniqueKeywordsBefore": 925,
+    "uniqueKeywordsAfter": 920,
+    "transformations": 7,
+    "assignmentsRemovedWithoutReplacement": 10
+  },
+  "transformations": [
+    {
+      "from": "Apotheosis",
+      "to": "Apotheosis and Divinization",
+      "reason": "Apotheosis and Divinization describe the same supporting concept on these posts and should appear as one searchable label.",
+      "posts": [
+        {
+          "wpId": "10888",
+          "title": "Video of How Jesus Became God, Part 1 (of 3)"
+        },
+        {
+          "wpId": "11699",
+          "title": "Video of How Jesus Became God: Part 2 (of 3)"
+        },
+        {
+          "wpId": "11701",
+          "title": "Where Did the Trinity Come From?  Video Lecture."
+        }
+      ]
+    },
+    {
+      "from": "Divinization",
+      "to": "Apotheosis and Divinization",
+      "reason": "The combined label preserves both common search terms while removing duplicate assignments.",
+      "posts": [
+        {
+          "wpId": "10888",
+          "title": "Video of How Jesus Became God, Part 1 (of 3)"
+        },
+        {
+          "wpId": "11699",
+          "title": "Video of How Jesus Became God: Part 2 (of 3)"
+        },
+        {
+          "wpId": "11701",
+          "title": "Where Did the Trinity Come From?  Video Lecture."
+        },
+        {
+          "wpId": "50232",
+          "title": "Was Moses Called God?"
+        }
+      ]
+    },
+    {
+      "from": "Goats",
+      "to": "Sheep and Goats",
+      "reason": "The posts discuss the single Sheep and Goats teaching, so separate animal labels create duplicate search entries.",
+      "posts": [
+        {
+          "wpId": "13236",
+          "title": "Jesus, the Sheep, and the Goats"
+        },
+        {
+          "wpId": "13323",
+          "title": "The Sheep and the Goats"
+        },
+        {
+          "wpId": "13341",
+          "title": "Did Jesus Mean that Literally?  Rewards and Punishments in the Afterlife"
+        }
+      ]
+    },
+    {
+      "from": "Sheep",
+      "to": "Sheep and Goats",
+      "reason": "The posts discuss the single Sheep and Goats teaching, so separate animal labels create duplicate search entries.",
+      "posts": [
+        {
+          "wpId": "13236",
+          "title": "Jesus, the Sheep, and the Goats"
+        },
+        {
+          "wpId": "13323",
+          "title": "The Sheep and the Goats"
+        },
+        {
+          "wpId": "13341",
+          "title": "Did Jesus Mean that Literally?  Rewards and Punishments in the Afterlife"
+        }
+      ]
+    },
+    {
+      "from": "Genre",
+      "to": "Gospel Genre",
+      "reason": "All three posts concern the literary genre of the Gospels, making Gospel Genre more precise than the generic label Genre.",
+      "posts": [
+        {
+          "wpId": "6937",
+          "title": "The Gospels as Biographies"
+        },
+        {
+          "wpId": "7967",
+          "title": "Placing the New Testament in Its Own Historical Context"
+        },
+        {
+          "wpId": "7970",
+          "title": "The (Ancient) Genre of the Gospels"
+        }
+      ]
+    },
+    {
+      "from": "Simon and Schuster",
+      "to": "Simon & Schuster",
+      "reason": "Use the publisher's proper name.",
+      "posts": [
+        {
+          "wpId": "11198",
+          "title": "Why I Have Moved to a New Publisher"
+        },
+        {
+          "wpId": "12379",
+          "title": "Moving to My Next Book"
+        },
+        {
+          "wpId": "12638",
+          "title": "Update on my Publication Plans"
+        }
+      ]
+    },
+    {
+      "from": "Theology",
+      "to": "Historical Study and Theology",
+      "reason": "The more precise label connects this post to the existing Historical Study and Theology search concept.",
+      "posts": [
+        {
+          "wpId": "12529",
+          "title": "Teaching the Bible as a Historical Book"
+        }
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "keyword": "Literacy",
+      "wpId": "11284",
+      "title": "New Archaeological Discoveries and the Bible! Readers Mailbag April 16, 2016",
+      "reason": "Every linked post already has the Ancient Literacy topic, which contains the same search term and covers the subject more precisely."
+    },
+    {
+      "keyword": "Literacy",
+      "wpId": "11503",
+      "title": "How Many Christians Could Read?",
+      "reason": "Every linked post already has the Ancient Literacy topic, which contains the same search term and covers the subject more precisely."
+    },
+    {
+      "keyword": "Literacy",
+      "wpId": "11719",
+      "title": "Did John Write the Fourth Gospel?",
+      "reason": "Every linked post already has the Ancient Literacy topic, which contains the same search term and covers the subject more precisely."
+    },
+    {
+      "keyword": "Textual Scholar",
+      "wpId": "26613",
+      "title": "My Mentor Bruce Metzger and the Infamous Squirrel",
+      "reason": "Textual Scholar is a generic description of Bruce Metzger rather than a subject of these posts; the Bruce Metzger topic identifies them."
+    },
+    {
+      "keyword": "Textual Scholar",
+      "wpId": "27119",
+      "title": "Bruce Metzger and Me: Reminiscences on my Dissertation",
+      "reason": "Textual Scholar is a generic description of Bruce Metzger rather than a subject of these posts; the Bruce Metzger topic identifies them."
+    },
+    {
+      "keyword": "Textual Scholar",
+      "wpId": "27266",
+      "title": "Bruce Metzger and My Strange Dissertation Defense",
+      "reason": "Textual Scholar is a generic description of Bruce Metzger rather than a subject of these posts; the Bruce Metzger topic identifies them."
+    },
+    {
+      "keyword": "Theology",
+      "wpId": "11893",
+      "title": "Faith and History: A Blast From the Past",
+      "reason": "The post already has the Historical Study and Theology topic, making the broad Theology keyword redundant."
+    },
+    {
+      "keyword": "Theology",
+      "wpId": "2852",
+      "title": "More on Faith and History",
+      "reason": "The post already has the Historical Study and Theology topic, making the broad Theology keyword redundant."
+    },
+    {
+      "keyword": "Sulpicius Severus",
+      "wpId": "1966",
+      "title": "Richard Carrier: A Fuller Reply to His Criticisms, Beliefs, and Claims about Jesus",
+      "reason": "Sulpicius Severus appears only inside a narrow subargument about Tacitus in these broad replies to Richard Carrier."
+    },
+    {
+      "keyword": "Sulpicius Severus",
+      "wpId": "29846",
+      "title": "A Full Reply to Mythicist Richard Carrier.  Most-Commented Blog Post: #4",
+      "reason": "Sulpicius Severus appears only inside a narrow subargument about Tacitus in these broad replies to Richard Carrier."
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Ten highest-frequency pending secondary keywords: Didache through Philemon",
+  "criterion": "Retain keywords that identify meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, bibliographies, isolated syllabus entries, and ambiguous names that would mislead searchers.",
+  "auditedKeywords": [
+    "Didache",
+    "Jesus' Passion Narratives",
+    "Karen King",
+    "Leviticus",
+    "New Revised Standard Version (NRSV)",
+    "Pentateuch",
+    "Proverbs",
+    "Judas Thomas",
+    "King Saul",
+    "Philemon"
+  ],
+  "summary": {
+    "keywordsAudited": 10,
+    "linksReviewed": 137,
+    "assignmentsRetained": 102,
+    "assignmentsRemoved": 35,
+    "uniqueKeywordsBefore": 911,
+    "uniqueKeywordsAfter": 911
+  },
+  "resultingCounts": {
+    "Didache": 8,
+    "Jesus' Passion Narratives": 11,
+    "Karen King": 14,
+    "Leviticus": 12,
+    "New Revised Standard Version (NRSV)": 6,
+    "Pentateuch": 9,
+    "Proverbs": 12,
+    "Judas Thomas": 12,
+    "King Saul": 9,
+    "Philemon": 9
+  },
+  "removedPosts": [
+    {
+      "wpId": "11992",
+      "title": "Gospel Evidence that Jesus Existed",
+      "keyword": "Didache",
+      "reason": "The Didache appears only in a passing comparison, corpus list, or table-of-contents entry."
+    },
+    {
+      "wpId": "37565",
+      "title": "How the Canon Itself Tames the Diversity of the New Testament",
+      "keyword": "Didache",
+      "reason": "The Didache appears only in a passing comparison, corpus list, or table-of-contents entry."
+    },
+    {
+      "wpId": "15398",
+      "title": "Is 1 Clement Older than Some Books of the New Testament?",
+      "keyword": "Didache",
+      "reason": "The Didache appears only in a passing comparison, corpus list, or table-of-contents entry."
+    },
+    {
+      "wpId": "15392",
+      "title": "The Letter of First Clement: An Overview",
+      "keyword": "Didache",
+      "reason": "The Didache appears only in a passing comparison, corpus list, or table-of-contents entry."
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "keyword": "Didache",
+      "reason": "The Didache appears only in a passing comparison, corpus list, or table-of-contents entry."
+    },
+    {
+      "wpId": "48021",
+      "title": "Was 1 Clement Written BEFORE Some of the New Testament?",
+      "keyword": "Didache",
+      "reason": "The Didache appears only in a passing comparison, corpus list, or table-of-contents entry."
+    },
+    {
+      "wpId": "4711",
+      "title": "Back To School!   My Jesus Syllabus",
+      "keyword": "Jesus' Passion Narratives",
+      "reason": "Passion narratives appear only in a bibliography entry, passing course example, or one week of a broader syllabus."
+    },
+    {
+      "wpId": "8417",
+      "title": "New Testament Programs and Ancient Med.",
+      "keyword": "Jesus' Passion Narratives",
+      "reason": "Passion narratives appear only in a bibliography entry, passing course example, or one week of a broader syllabus."
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "keyword": "Jesus' Passion Narratives",
+      "reason": "Passion narratives appear only in a bibliography entry, passing course example, or one week of a broader syllabus."
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "keyword": "Judas Thomas",
+      "reason": "Judas Thomas appears only in a list of figures credited with non-canonical writings."
+    },
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude",
+      "keyword": "King Saul",
+      "reason": "Saul appears only in a list, historical summary, or brief narrative setup."
+    },
+    {
+      "wpId": "23142",
+      "title": "Could Jews Consider Someone Other than God To Be God?",
+      "keyword": "King Saul",
+      "reason": "Saul appears only in a list, historical summary, or brief narrative setup."
+    },
+    {
+      "wpId": "27097",
+      "title": "Sin and Divine Punishment As a Dominant Theme of Scripture",
+      "keyword": "King Saul",
+      "reason": "Saul appears only in a list, historical summary, or brief narrative setup."
+    },
+    {
+      "wpId": "29744",
+      "title": "Understanding the Old Testament!  Joshua – 2 Kings as the Deuteronomistic History",
+      "keyword": "King Saul",
+      "reason": "Saul appears only in a list, historical summary, or brief narrative setup."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Leviticus",
+      "reason": "Leviticus is merely listed or cited once while defining a different subject."
+    },
+    {
+      "wpId": "36908",
+      "title": "Was the Father of Jesus … Pantera?  Part II Guest Post by James Tabor",
+      "keyword": "Leviticus",
+      "reason": "Leviticus is merely listed or cited once while defining a different subject."
+    },
+    {
+      "wpId": "40653",
+      "title": "ALL the Christian Writings of the First Hundred Years",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "2732",
+      "title": "An Interlude: My Other CIA",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "2771",
+      "title": "Autobiographical.  Metzger and My Loss of Faith",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "11845",
+      "title": "Bruce Metzger Beliefs, My Loss of Faith: A Blast from the Past",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "20471",
+      "title": "Did Paul Know that Judas Betrayed Jesus?  Readers’ Mailbag!",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "33100",
+      "title": "Did the Israelites Practice Human Sacrifice?  Platinum Guest Post by Joel Scheller",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "29790",
+      "title": "Does Paul Know That Judas Iscariot Betrayed Jesus?",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "48795",
+      "title": "Important Questions About Matthew and Paul",
+      "keyword": "New Revised Standard Version (NRSV)",
+      "reason": "The NRSV merely identifies a quoted translation, publication choice, or earlier discussion and is not evaluated in the post."
+    },
+    {
+      "wpId": "11645",
+      "title": "Are the Hebrew Bible/Old Testament Manuscripts Reliable?  A Blast From the Past",
+      "keyword": "Pentateuch",
+      "reason": "The Pentateuch serves only as introductory context, a boundary marker, or a reference to another discussion."
+    },
+    {
+      "wpId": "28520",
+      "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+      "keyword": "Pentateuch",
+      "reason": "The Pentateuch serves only as introductory context, a boundary marker, or a reference to another discussion."
+    },
+    {
+      "wpId": "32825",
+      "title": "Did King David Actually Exist?",
+      "keyword": "Pentateuch",
+      "reason": "The Pentateuch serves only as introductory context, a boundary marker, or a reference to another discussion."
+    },
+    {
+      "wpId": "29744",
+      "title": "Understanding the Old Testament!  Joshua – 2 Kings as the Deuteronomistic History",
+      "keyword": "Pentateuch",
+      "reason": "The Pentateuch serves only as introductory context, a boundary marker, or a reference to another discussion."
+    },
+    {
+      "wpId": "11613",
+      "title": "When Was the World Created?  A Blast From the Past",
+      "keyword": "Pentateuch",
+      "reason": "The Pentateuch serves only as introductory context, a boundary marker, or a reference to another discussion."
+    },
+    {
+      "wpId": "3964",
+      "title": "Gods Who (Apparently) Become Human",
+      "keyword": "Philemon",
+      "reason": "Philemon is merely listed among Pauline letters or refers to the unrelated mythological character rather than Paul's letter."
+    },
+    {
+      "wpId": "33874",
+      "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+      "keyword": "Philemon",
+      "reason": "Philemon is merely listed among Pauline letters or refers to the unrelated mythological character rather than Paul's letter."
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell",
+      "keyword": "Philemon",
+      "reason": "Philemon is merely listed among Pauline letters or refers to the unrelated mythological character rather than Paul's letter."
+    },
+    {
+      "wpId": "17064",
+      "title": "What Is the New Testament?  A Broad Overview",
+      "keyword": "Philemon",
+      "reason": "Philemon is merely listed among Pauline letters or refers to the unrelated mythological character rather than Paul's letter."
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "keyword": "Proverbs",
+      "reason": "Proverbs is merely listed or used as a passing contrast with another biblical book."
+    },
+    {
+      "wpId": "12475",
+      "title": "The Afterlife (or not) in Ecclesiastes",
+      "keyword": "Proverbs",
+      "reason": "Proverbs is merely listed or used as a passing contrast with another biblical book."
+    }
+  ]
+}

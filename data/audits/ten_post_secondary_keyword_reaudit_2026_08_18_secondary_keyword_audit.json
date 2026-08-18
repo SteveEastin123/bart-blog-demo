@@ -1,0 +1,404 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly ten posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, generic labels, and surrounding context; use precise labels; and avoid duplicating a post's topic unless an alternate search term is genuinely useful.",
+  "originalKeywords": [
+    "Apollos",
+    "Bloody Sweat",
+    "Historical Method",
+    "History",
+    "James, Son of Zebedee",
+    "Loeb Classical Library",
+    "Martyrdom of Polycarp",
+    "Monotheism",
+    "Pericope Adulterae",
+    "Salome",
+    "Trinity"
+  ],
+  "auditedKeywords": [
+    "Apollos",
+    "James, Son of Zebedee",
+    "Loeb Classical Library",
+    "Martyrdom of Polycarp",
+    "Monotheism",
+    "Pericope Adulterae",
+    "Salome, Disciple of Jesus",
+    "Trinity"
+  ],
+  "summary": {
+    "keywordsAudited": 11,
+    "linksReviewed": 110,
+    "assignmentsRemoved": 55,
+    "assignmentsAdded": 1,
+    "netAssignmentsRemoved": 54,
+    "uniqueKeywordsBefore": 913,
+    "uniqueKeywordsAfter": 910,
+    "keywordsRetired": 4,
+    "labelsNormalizedOrRefined": 1
+  },
+  "retiredKeywords": [
+    "Bloody Sweat",
+    "Historical Method",
+    "History",
+    "Salome"
+  ],
+  "labelChanges": [
+    {
+      "from": "Salome",
+      "to": "Salome, Disciple of Jesus"
+    }
+  ],
+  "resultingCounts": {
+    "Apollos": 5,
+    "Bloody Sweat": 0,
+    "Historical Method": 0,
+    "History": 0,
+    "James, Son of Zebedee": 6,
+    "Loeb Classical Library": 10,
+    "Martyrdom of Polycarp": 8,
+    "Monotheism": 9,
+    "Pericope Adulterae": 10,
+    "Salome": 0,
+    "Salome, Disciple of Jesus": 1,
+    "Trinity": 7
+  },
+  "removedPosts": [
+    {
+      "wpId": "26839",
+      "title": "Cephas and Peter: Final Arguments, Summary, and Implications",
+      "keyword": "Apollos",
+      "reason": "Apollos is only a proposed author, a name in a faction list, or a brief comparison supporting a discussion centered on someone else."
+    },
+    {
+      "wpId": "15482",
+      "title": "Peter: First Bishop (Pope) in Rome?",
+      "keyword": "Apollos",
+      "reason": "Apollos is only a proposed author, a name in a faction list, or a brief comparison supporting a discussion centered on someone else."
+    },
+    {
+      "wpId": "46933",
+      "title": "The Book of Hebrews:  Who Wrote It, When, and Why?",
+      "keyword": "Apollos",
+      "reason": "Apollos is only a proposed author, a name in a faction list, or a brief comparison supporting a discussion centered on someone else."
+    },
+    {
+      "wpId": "12120",
+      "title": "Was Cephas Peter?  The Rest of the Argument",
+      "keyword": "Apollos",
+      "reason": "Apollos is only a proposed author, a name in a faction list, or a brief comparison supporting a discussion centered on someone else."
+    },
+    {
+      "wpId": "27410",
+      "title": "Was Peter the First Pope?",
+      "keyword": "Apollos",
+      "reason": "Apollos is only a proposed author, a name in a faction list, or a brief comparison supporting a discussion centered on someone else."
+    },
+    {
+      "wpId": "9070",
+      "title": "Did Scribes Add the Passage of the Bloody Sweat?",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "8065",
+      "title": "Jesus Sweating Blood: Transcriptional Probabilities",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "9063",
+      "title": "Jesus’ Lack of Agony",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "2727",
+      "title": "More on The Bloody Sweat",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "2699",
+      "title": "Problems with the NRSV (Part 4)",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "2721",
+      "title": "Problems with the NRSV (Part 5)",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "8085",
+      "title": "The Bloody Sweat and Historical Plausibility",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "9068",
+      "title": "The Bloody Sweat and the Scribes Who Changed It",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "9061",
+      "title": "When I First Realized the Importance of Textual Criticism: The Bloody Sweat",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "2759",
+      "title": "Why Did Scribes Add the Bloody Sweat?",
+      "keyword": "Bloody Sweat",
+      "reason": "The post already has the more precise topic Bloody Sweat Textual Variant, which remains discoverable from the shorter search phrase."
+    },
+    {
+      "wpId": "3411",
+      "title": "Feedback on Excursus",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "7097",
+      "title": "John from a Socio-Historical Perspective",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "7031",
+      "title": "More Literary-Historical Perspectives on John",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "6997",
+      "title": "The Comparative Method",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "19768",
+      "title": "The Divergent Views of Christ in John",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "7046",
+      "title": "The Gospel of John from a Comparative Perspective",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "7026",
+      "title": "The Gospel of John from a Literary-Historical Perspective",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "6982",
+      "title": "The Literary-Historical Method and History",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "7081",
+      "title": "The Socio-Historical Method",
+      "keyword": "Historical Method",
+      "reason": "The generic label is redundant with Historical Methods (General) or less useful than the post's more precise method labels."
+    },
+    {
+      "wpId": "12584",
+      "title": "Appreciating the Myths of the Bible",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "12587",
+      "title": "Can Myths Be True and Meaningful?",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "11893",
+      "title": "Faith and History: A Blast From the Past",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "2852",
+      "title": "More on Faith and History",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "12529",
+      "title": "Teaching the Bible as a Historical Book",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "12605",
+      "title": "The Gospels as Myths",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "12603",
+      "title": "The Gospels as Natural Histories",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "12601",
+      "title": "The Gospels as Supernatural Histories",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "12610",
+      "title": "True Stories that Didn’t Happen",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "8760",
+      "title": "Truth and History",
+      "keyword": "History",
+      "reason": "The label is too broad to improve retrieval; the post already has more precise history, historicity, memory, myth, or theology labels."
+    },
+    {
+      "wpId": "48814",
+      "title": "Authors, Authorities, and Who Gets To Write the Bible",
+      "keyword": "James, Son of Zebedee",
+      "reason": "James is mentioned only to distinguish people with the same name or as a brief example in a broader survey."
+    },
+    {
+      "wpId": "12006",
+      "title": "James the Brother of the Lord",
+      "keyword": "James, Son of Zebedee",
+      "reason": "James is mentioned only to distinguish people with the same name or as a brief example in a broader survey."
+    },
+    {
+      "wpId": "10649",
+      "title": "Major Themes in the Book of Acts",
+      "keyword": "James, Son of Zebedee",
+      "reason": "James is mentioned only to distinguish people with the same name or as a brief example in a broader survey."
+    },
+    {
+      "wpId": "16338",
+      "title": "One of My Favorite Letters in the New Testament: The Book of James",
+      "keyword": "James, Son of Zebedee",
+      "reason": "James is mentioned only to distinguish people with the same name or as a brief example in a broader survey."
+    },
+    {
+      "wpId": "3161",
+      "title": "Textual Problems in the Apostolic Fathers 1",
+      "keyword": "Martyrdom of Polycarp",
+      "reason": "The post merely announces that a later post will discuss the text."
+    },
+    {
+      "wpId": "33915",
+      "title": "The New Testament Ain’t the Only Text with Important Scribal Changes!",
+      "keyword": "Martyrdom of Polycarp",
+      "reason": "The post merely announces that a later post will discuss the text."
+    },
+    {
+      "wpId": "15987",
+      "title": "Why Did Christianity Take Over the World?  Smithsonian Lecture 3.",
+      "keyword": "Monotheism",
+      "reason": "Monotheism appears only in a passing description of an explanation for Christian expansion that the post rejects."
+    },
+    {
+      "wpId": "34961",
+      "title": "A Scandalous Discovery of a Scandalous Gospel?",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "38872",
+      "title": "Is That a Portion of a Famous Lost Gospel?",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "32498",
+      "title": "Is That One a Difference or a Contradiction?",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "13506",
+      "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "47109",
+      "title": "More Interesting Questions from Blog Readers",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "22094",
+      "title": "Peter and Mary Magdalene in Competition",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "4018",
+      "title": "Resurrection Narratives in the Gospels",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "38868",
+      "title": "Was Jesus Opposed to Women and Childbirth?  The Lost Gospel of the Egyptians",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "31948",
+      "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+      "keyword": "Salome",
+      "reason": "The one substantive assignment is replaced by the clearer label Salome, Disciple of Jesus; elsewhere Salome is merely named in a quotation, list, or narrative summary."
+    },
+    {
+      "wpId": "23213",
+      "title": "My Materialist View of the World",
+      "keyword": "Trinity",
+      "reason": "The doctrine appears only as an analogy, a passing endpoint of early Christology, or part of a church's proper name."
+    },
+    {
+      "wpId": "12408",
+      "title": "Pastor Goranson, the Son of God, and I: A Blast From the Past",
+      "keyword": "Trinity",
+      "reason": "The doctrine appears only as an analogy, a passing endpoint of early Christology, or part of a church's proper name."
+    },
+    {
+      "wpId": "10268",
+      "title": "What the Resurrection of Jesus MEANT",
+      "keyword": "Trinity",
+      "reason": "The doctrine appears only as an analogy, a passing endpoint of early Christology, or part of a church's proper name."
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "38868",
+      "title": "Was Jesus Opposed to Women and Childbirth?  The Lost Gospel of the Egyptians",
+      "keyword": "Salome, Disciple of Jesus"
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Bruce Metzger, Christmas, Polycarp, and Barabbas secondary-keyword assignments",
+  "criterion": "Retain meaningful supporting people, events, texts, traditions, or seasonal subjects; remove passing mentions, lists, citations, course logistics, generic summaries, and incidental context.",
+  "auditedKeywords": [
+    "Bruce Metzger",
+    "Christmas",
+    "Polycarp",
+    "Barabbas"
+  ],
+  "summary": {
+    "keywordsAudited": 4,
+    "linksReviewed": 127,
+    "assignmentsRemoved": 45,
+    "assignmentsRetained": 82,
+    "uniqueKeywordsBefore": 909,
+    "uniqueKeywordsAfter": 909,
+    "keywordsRetired": 0
+  },
+  "resultingCounts": {
+    "Bruce Metzger": 15,
+    "Christmas": 24,
+    "Polycarp": 25,
+    "Barabbas": 18
+  },
+  "removedPosts": [
+    {
+      "wpId": "28208",
+      "title": "But Why Doesn’t Paul Say More About the Historical Jesus?",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "17813",
+      "title": "Comparing John and the Synoptics",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "13196",
+      "title": "Differences Between John and the Synoptics",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "4893",
+      "title": "Jesus Position Papers",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "35658",
+      "title": "Jesus’ Trial Before Pilate: Some of the Distorted Memories of the Gospels",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "15837",
+      "title": "Mark’s Central Focus on Jesus’ Death",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "6962",
+      "title": "Mark’s Suffering Son of God",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "13504",
+      "title": "Mark’s Suffering Son of God: A Blast From the Past",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "32865",
+      "title": "More on My New Course: The Unknown Gospels:  Matthew, Mark, Luke, and John",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "9583",
+      "title": "Q & A about Jesus Before the Gospels: Part 2",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "35649",
+      "title": "The Events Leading up to the Death of Jesus: What Can We Know and Not Know?",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "7046",
+      "title": "The Gospel of John from a Comparative Perspective",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "7348",
+      "title": "Why Doesn’t Paul Say More About Jesus?",
+      "keyword": "Barabbas",
+      "reason": "Barabbas appears only in an event summary, list, course description, or general Passion narrative rather than as a meaningfully discussed figure."
+    },
+    {
+      "wpId": "2732",
+      "title": "An Interlude: My Other CIA",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47567",
+      "title": "Cleopatra, Virgin Births, and Professional Scribes: More about antiquity…",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "17191",
+      "title": "Do Textual Variants Actually *Matter* For Much??",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "8271",
+      "title": "Do Textual Variants Really Matter for Anything?",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "39455",
+      "title": "Don’t the MOST Manuscripts Show What An Author Wrote?",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "47086",
+      "title": "Evidence for Q: The Sequence of the Sayings",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "21855",
+      "title": "How Hard It is To Become an Agnostic….",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2792",
+      "title": "How My Loss of Faith Affected My Scholarship",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2624",
+      "title": "My First Teaching Position",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "4792",
+      "title": "My PhD Seminar: Early Christian Apocrypha",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2721",
+      "title": "Problems with the NRSV (Part 5)",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "2533",
+      "title": "So Much For THAT Idea….",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "11643",
+      "title": "Suggestions for Further Reading on the Pentateuch",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "9674",
+      "title": "Upcoming Debate!",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "36803",
+      "title": "Want to Study the Early Christian Apocrypha?",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "12697",
+      "title": "Why I Was Afraid to Become an Agnostic",
+      "keyword": "Bruce Metzger",
+      "reason": "Metzger appears only in a bibliography, course assignment, generic biographical aside, quotation attribution, or transition rather than as a meaningful supporting subject."
+    },
+    {
+      "wpId": "23276",
+      "title": "A Christian is Not Necessarily a Disciple: Platinum Post by Douglas Wadeson",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "2764",
+      "title": "Autobiographical: Back to Metzger and Me",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "14395",
+      "title": "Did Jesus’ Death Matter?  The Intriguing View of the Coptic Apocalypse of Peter",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "49062",
+      "title": "Does God Care What We Eat? – Platinum Post by Doug Wadeson",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "7326",
+      "title": "More on Paul’s Knowledge of Jesus’ Life",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "47032",
+      "title": "Was Jesus from “Israel”?  Did Jesus “Pre-exist”?  Answers to Readers Questions",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "8087",
+      "title": "Who Changed the Bible and Why? Diane Rehm Show",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "16293",
+      "title": "Would You Be Willing To Donate a Membership?",
+      "keyword": "Christmas",
+      "reason": "Christmas appears only as a date, gift, joke, transition, or passing reference rather than as a meaningful seasonal or interpretive subject."
+    },
+    {
+      "wpId": "48295",
+      "title": "A Glimpse of Proto-orthodox Views in the Letters of Ignatius",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    },
+    {
+      "wpId": "48864",
+      "title": "From Eternal Torment to Styles of Greek to the Dating of Ignatius: Interesting Readers’ Questions",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    },
+    {
+      "wpId": "14874",
+      "title": "Is Paul Given Too Much Credit?",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    },
+    {
+      "wpId": "15392",
+      "title": "The Letter of First Clement: An Overview",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    },
+    {
+      "wpId": "3147",
+      "title": "Translating the Apostolic Fathers",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    },
+    {
+      "wpId": "13326",
+      "title": "Translating the Apostolic Fathers: A Blast from the Past",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    },
+    {
+      "wpId": "33890",
+      "title": "What About Translations of Other Ancient Christian Writings?",
+      "keyword": "Polycarp",
+      "reason": "Polycarp or a work associated with him appears only in a list, syllabus, dating reference, or general survey rather than as a meaningful subject."
+    }
+  ]
+}

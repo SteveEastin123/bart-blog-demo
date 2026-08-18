@@ -1,0 +1,189 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "2 Samuel through Brent Nongbri secondary-keyword assignments, covering the ten highest-frequency pending keywords",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, and concepts; remove passing mentions, lists, bibliography-only references, isolated course entries, and contextual references that are not useful search signals.",
+  "auditedKeywords": [
+    "2 Samuel",
+    "Gospel of the Ebionites",
+    "Professional Scholarship",
+    "Repentance",
+    "Rodney Stark",
+    "Women in the Church",
+    "Writing a Book",
+    "Acts of Thomas",
+    "Albert Schweitzer",
+    "Brent Nongbri"
+  ],
+  "summary": {
+    "keywordsAudited": 10,
+    "linksReviewed": 117,
+    "assignmentsRetained": 92,
+    "assignmentsRemoved": 25,
+    "uniqueKeywordsBefore": 911,
+    "uniqueKeywordsAfter": 911
+  },
+  "resultingCounts": {
+    "2 Samuel": 6,
+    "Gospel of the Ebionites": 11,
+    "Professional Scholarship": 12,
+    "Repentance": 10,
+    "Rodney Stark": 11,
+    "Women in the Church": 9,
+    "Writing a Book": 12,
+    "Acts of Thomas": 6,
+    "Albert Schweitzer": 5,
+    "Brent Nongbri": 10
+  },
+  "removedPosts": [
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude",
+      "keyword": "2 Samuel",
+      "reason": "The book appears only in a list, a passing comparison, or a single illustrative reference rather than as a meaningfully treated text."
+    },
+    {
+      "wpId": "49514",
+      "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+      "keyword": "2 Samuel",
+      "reason": "The book appears only in a list, a passing comparison, or a single illustrative reference rather than as a meaningfully treated text."
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "keyword": "2 Samuel",
+      "reason": "The book appears only in a list, a passing comparison, or a single illustrative reference rather than as a meaningfully treated text."
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "keyword": "2 Samuel",
+      "reason": "The book appears only in a list, a passing comparison, or a single illustrative reference rather than as a meaningfully treated text."
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+      "keyword": "2 Samuel",
+      "reason": "The book appears only in a list, a passing comparison, or a single illustrative reference rather than as a meaningfully treated text."
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "keyword": "2 Samuel",
+      "reason": "The book appears only in a list, a passing comparison, or a single illustrative reference rather than as a meaningfully treated text."
+    },
+    {
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Acts of Thomas",
+      "reason": "The work appears only in a footnote, syllabus, contents list, or unrelated apocryphal-acts discussion."
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "keyword": "Acts of Thomas",
+      "reason": "The work appears only in a footnote, syllabus, contents list, or unrelated apocryphal-acts discussion."
+    },
+    {
+      "wpId": "21403",
+      "title": "John, the Bedbugs, and Miracles that Convert",
+      "keyword": "Acts of Thomas",
+      "reason": "The work appears only in a footnote, syllabus, contents list, or unrelated apocryphal-acts discussion."
+    },
+    {
+      "wpId": "21145",
+      "title": "My Early Christian Apocrypha Seminar",
+      "keyword": "Acts of Thomas",
+      "reason": "The work appears only in a footnote, syllabus, contents list, or unrelated apocryphal-acts discussion."
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "keyword": "Acts of Thomas",
+      "reason": "The work appears only in a footnote, syllabus, contents list, or unrelated apocryphal-acts discussion."
+    },
+    {
+      "wpId": "6537",
+      "title": "Back to Aslan’s Thesis.   An Alternative View: Jesus the Apocalypticist",
+      "keyword": "Albert Schweitzer",
+      "reason": "Schweitzer receives only a brief attribution or historical reference rather than meaningful discussion of him or his work."
+    },
+    {
+      "wpId": "35324",
+      "title": "Did Jesus Believe The End Would Come Within His Lifetime? Platinum Post by Rizwan Ahmed",
+      "keyword": "Albert Schweitzer",
+      "reason": "Schweitzer receives only a brief attribution or historical reference rather than meaningful discussion of him or his work."
+    },
+    {
+      "wpId": "28730",
+      "title": "Major Perspectives of Ancient Jewish (and Jesus’!) Apocalyptic Views",
+      "keyword": "Albert Schweitzer",
+      "reason": "Schweitzer receives only a brief attribution or historical reference rather than meaningful discussion of him or his work."
+    },
+    {
+      "wpId": "12747",
+      "title": "The Essence of Biblical Apocalyptic Thought",
+      "keyword": "Albert Schweitzer",
+      "reason": "Schweitzer receives only a brief attribution or historical reference rather than meaningful discussion of him or his work."
+    },
+    {
+      "wpId": "7392",
+      "title": "The Next Step: Redaction Criticism",
+      "keyword": "Albert Schweitzer",
+      "reason": "Schweitzer receives only a brief attribution or historical reference rather than meaningful discussion of him or his work."
+    },
+    {
+      "wpId": "6142",
+      "title": "Who Can Still Be A Christian?",
+      "keyword": "Albert Schweitzer",
+      "reason": "Schweitzer receives only a brief attribution or historical reference rather than meaningful discussion of him or his work."
+    },
+    {
+      "wpId": "16314",
+      "title": "Tracking Down Stolen Manuscripts: Guest Post by Jennifer Knust",
+      "keyword": "Brent Nongbri",
+      "reason": "Nongbri appears in lists of scholars following the manuscript controversy but is not a sustained subject of the post."
+    },
+    {
+      "wpId": "4273",
+      "title": "The Next Trade Book: Jews and Christians",
+      "keyword": "Gospel of the Ebionites",
+      "reason": "The Gospel appears only in a list of texts planned for a scholarly commentary."
+    },
+    {
+      "wpId": "6467",
+      "title": "More Historical Mistakes in Aslan’s Zealot",
+      "keyword": "Repentance",
+      "reason": "Repentance is confined to a brief part of a multipart question or a passing comparison in a broader critique."
+    },
+    {
+      "wpId": "47109",
+      "title": "More Interesting Questions from Blog Readers",
+      "keyword": "Repentance",
+      "reason": "Repentance is confined to a brief part of a multipart question or a passing comparison in a broader critique."
+    },
+    {
+      "wpId": "2296",
+      "title": "Why Did Christianity Succeed?",
+      "keyword": "Rodney Stark",
+      "reason": "Stark and his book appear only among several recommended studies and are not discussed."
+    },
+    {
+      "wpId": "4602",
+      "title": "Jesus’ Association with Women",
+      "keyword": "Women in the Church",
+      "reason": "The phrase appears only in a list of scholarly disputes, or the post concerns women in Jesus' ministry rather than women in churches."
+    },
+    {
+      "wpId": "9122",
+      "title": "Why Intentional Changes of the Text Might Matter",
+      "keyword": "Women in the Church",
+      "reason": "The phrase appears only in a list of scholarly disputes, or the post concerns women in Jesus' ministry rather than women in churches."
+    },
+    {
+      "wpId": "4598",
+      "title": "Women in the Ministry of Jesus",
+      "keyword": "Women in the Church",
+      "reason": "The phrase appears only in a list of scholarly disputes, or the post concerns women in Jesus' ministry rather than women in churches."
+    }
+  ]
+}

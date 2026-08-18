@@ -1,0 +1,176 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "Every secondary keyword assigned to exactly five posts before this re-audit",
+  "criterion": "Retain meaningful supporting subjects, people, texts, places, or concepts and remove assignments based only on passing mentions, brief comparisons, or incidental examples.",
+  "originalKeywords": [
+    "1 Samuel",
+    "Abel",
+    "Agnosticism",
+    "Bill O'Reilly",
+    "Cephas",
+    "Consciousness",
+    "Da Vinci Code",
+    "Desiderius Erasmus",
+    "Evangelicalism",
+    "Fresh Air",
+    "Gospel Quotations",
+    "Group Visions",
+    "Hallucinations",
+    "Healing",
+    "Herod Agrippa I",
+    "Islam",
+    "Jerusalem Temple",
+    "Jewish Christianity",
+    "Larry Hurtado",
+    "Logos",
+    "Maccabees",
+    "Marriage",
+    "Memory Studies",
+    "Muhammad",
+    "Newsweek",
+    "Orthodox Corruption of Scripture",
+    "Papyri",
+    "Passover",
+    "Psalms",
+    "Pseudepigrapha",
+    "Sacrifice",
+    "Sethian Gnostics",
+    "Sheol",
+    "Stephen",
+    "Synoptic Gospels",
+    "Thomas the Apostle"
+  ],
+  "auditedKeywords": [
+    "1 Samuel",
+    "Abel",
+    "Agnosticism",
+    "Bill O'Reilly",
+    "Cephas",
+    "Consciousness",
+    "Da Vinci Code",
+    "Desiderius Erasmus",
+    "Evangelicalism",
+    "Fresh Air",
+    "Gospel Quotations",
+    "Group Visions",
+    "Hallucinations",
+    "Healing",
+    "Islam",
+    "Jerusalem Temple",
+    "Jewish Christianity",
+    "Larry Hurtado",
+    "Logos",
+    "Maccabees",
+    "Marriage",
+    "Memory Studies",
+    "Muhammad",
+    "Newsweek",
+    "Orthodox Corruption of Scripture",
+    "Papyri",
+    "Passover",
+    "Psalms",
+    "Pseudepigrapha",
+    "Sacrifice",
+    "Sethian Gnostics",
+    "Sheol",
+    "Stephen",
+    "Synoptic Gospels",
+    "Thomas the Apostle"
+  ],
+  "summary": {
+    "keywordsAudited": 36,
+    "linksReviewed": 180,
+    "linksRetained": 168,
+    "netLinksRemoved": 12,
+    "uniqueKeywordsBefore": 919,
+    "uniqueKeywordsAfter": 918,
+    "keywordsRetired": 1,
+    "assignmentsRemoved": 12
+  },
+  "retiredKeywords": [
+    {
+      "keyword": "Herod Agrippa I",
+      "reason": "All five assignments were based on brief examples or passing references rather than meaningful supporting discussion."
+    }
+  ],
+  "resultingCounts": {
+    "Abel": 1,
+    "Herod Agrippa I": 0,
+    "Psalms": 4,
+    "Stephen": 3
+  },
+  "removedPosts": [
+    {
+      "keyword": "Abel",
+      "wpId": "20971",
+      "title": "How I First Learned About the Gospel of Judas Iscariot",
+      "reason": "Abel is mentioned only as Cain's victim while the post's sustained subject is Cainite theology and the Gospel of Judas."
+    },
+    {
+      "keyword": "Abel",
+      "wpId": "8466",
+      "title": "Finding Out about the Gospel of Judas",
+      "reason": "Abel is mentioned only as Cain's victim while the post explains Cainite reverence for Cain and the Gospel of Judas."
+    },
+    {
+      "keyword": "Abel",
+      "wpId": "8462",
+      "title": "Non-Disclosure Agreements and the Gospel of Judas Iscariot",
+      "reason": "Abel is mentioned only as Cain's victim in background about the Cainites and the Gospel of Judas."
+    },
+    {
+      "keyword": "Abel",
+      "wpId": "3222",
+      "title": "Lost Gospels That Are Still Lost 1",
+      "reason": "Abel is mentioned only to identify Cain as a murderer in a post about lost Gospels and the Gospel of Judas."
+    },
+    {
+      "keyword": "Herod Agrippa I",
+      "wpId": "37901",
+      "title": "Hark, the Herald Angels What Now?  Guest Post by Esther J. Hamori",
+      "reason": "Herod Agrippa appears only in a single example of angelic violence in Acts."
+    },
+    {
+      "keyword": "Herod Agrippa I",
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "reason": "Herod appears only in a parenthetical identification of the ruler who killed James."
+    },
+    {
+      "keyword": "Herod Agrippa I",
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "reason": "Herod appears only in a parenthetical identification of the ruler who killed James."
+    },
+    {
+      "keyword": "Herod Agrippa I",
+      "wpId": "34597",
+      "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+      "reason": "Herod Agrippa appears only in the brief biblical example of James's death."
+    },
+    {
+      "keyword": "Herod Agrippa I",
+      "wpId": "9393",
+      "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+      "reason": "Herod appears only in a brief reference to the unexplained death of James."
+    },
+    {
+      "keyword": "Psalms",
+      "wpId": "9516",
+      "title": "Weekly Readers’ Mailbag: January 24, 2016",
+      "reason": "Psalm 22 appears only as the source of one saying in a discussion about Aramaic words in Mark."
+    },
+    {
+      "keyword": "Stephen",
+      "wpId": "33985",
+      "title": "Is the Martyrdom of Polycarp an Authentic Account?",
+      "reason": "Stephen appears only in a passing comparison used to introduce the Martyrdom of Polycarp."
+    },
+    {
+      "keyword": "Stephen",
+      "wpId": "33974",
+      "title": "The First Christian Martyr Text?",
+      "reason": "Stephen appears only as a brief comparison establishing the Martyrdom of Polycarp as the earliest full martyr narrative outside the New Testament."
+    }
+  ]
+}
