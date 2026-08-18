@@ -1,0 +1,895 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Herod, 1 Peter, Canon Formation, and Noah",
+  "criterion": "Retain secondary keywords only when they identify meaningful supporting subjects, people, texts, places, or concepts; replace ambiguous people with precise identities and remove passing mentions.",
+  "auditedKeywords": [
+    "Herod",
+    "1 Peter",
+    "Canon Formation",
+    "Noah"
+  ],
+  "summary": {
+    "requestedKeywordsAudited": 4,
+    "linksReviewed": 157,
+    "linksRemoved": 60,
+    "linksAdded": 30,
+    "keywordsRetired": 1
+  },
+  "audits": [
+    {
+      "keyword": "Herod",
+      "before": 40,
+      "retained": 0,
+      "removed": 40,
+      "final": 0,
+      "removedPosts": [
+        {
+          "wpId": "2304",
+          "title": "Q & A with Ben Witherington: Part 7",
+          "topics": [
+            "Mythicism",
+            "Did Jesus Exist?"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "2405",
+          "title": "Creation in 4004 BCE?",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "3069",
+          "title": "Anti-Judaism in the Gospels",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Canonical Gospels (General)",
+            "Pontius Pilate"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "3073",
+          "title": "Why Was Jesus Killed?",
+          "topics": [
+            "Crucified Messiah",
+            "Crucifixion of Jesus",
+            "Pontius Pilate"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "3589",
+          "title": "The Mayan Calendar, Y2K, and the Letter of Barnabas",
+          "topics": [
+            "Letter of Barnabas",
+            "Modern End-Times Interpretation"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "4218",
+          "title": "Qumran and Masada",
+          "topics": [
+            "Dead Sea Scrolls and Essenes"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "7627",
+          "title": "After the New Testament: Women in Early Christianity",
+          "topics": [
+            "Women in Early Christianity"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "8138",
+          "title": "Why I’m To Be Pitied for Having Been the Wrong Kind of Fundamentalist",
+          "topics": [
+            "Autobiographical Posts",
+            "Fundamentalism"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "8307",
+          "title": "The Discovery of the Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "9175",
+          "title": "Jesus’ Death as a Prophet in Luke",
+          "topics": [
+            "Gospel of Luke"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "9393",
+          "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+          "topics": [
+            "Apostolic Death Traditions"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "10649",
+          "title": "Major Themes in the Book of Acts",
+          "topics": [
+            "Acts",
+            "Conversion"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "11613",
+          "title": "When Was the World Created?  A Blast From the Past",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "11959",
+          "title": "Anti-Judaism in the Gospels: A Blast From the Past",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Canonical Gospels (General)",
+            "Pontius Pilate"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "12667",
+          "title": "A Very Different Portrayal of Jesus’ Death",
+          "topics": [
+            "Jesus' Passion Narratives",
+            "Gospel of Mark",
+            "Gospel of Luke",
+            "Biblical Contradictions"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "12690",
+          "title": "Was Jesus Made Up?  A Blast from the Past.",
+          "topics": [
+            "Historical Jesus (General)",
+            "Mythicism"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "13773",
+          "title": "The Exasperatingly Fragmentary Gospel of Peter: Readers’ Mailbag December 4, 2017",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "15334",
+          "title": "Rules of Thumb for Reconstructing the History behind the Gospels",
+          "topics": [
+            "Methods for Studying the Historical Jesus"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "15633",
+          "title": "Now, The Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "16304",
+          "title": "Why Was the World Created in 4004 BC?",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "16907",
+          "title": "Why Was Jesus Crucified: Bart Ehrman Crucifixion Thoughts",
+          "topics": [
+            "Crucified Messiah",
+            "Crucifixion of Jesus",
+            "Pontius Pilate"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "17034",
+          "title": "Why I’m To Be Pitied for Being the Wrong *Kind* of Fundamentalist!",
+          "topics": [
+            "Fundamentalism",
+            "Personal Reflections"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "19669",
+          "title": "The Social History Behind the Fourth Gospel",
+          "topics": [
+            "Gospel of John"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "21311",
+          "title": "And Now: The Gospel of Peter!",
+          "topics": [
+            "Gospel of Peter",
+            "Christian Anti-Judaism"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "26454",
+          "title": "Fiction and Fact, Legend and History.  Is it Either / Or?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Historical Methods (General)",
+            "Mythicism"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "28350",
+          "title": "If Only I Were the *Right* Kind of Fundamentalist….",
+          "topics": [
+            "Fundamentalism",
+            "Deconversion",
+            "Biblical Inerrancy"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "33317",
+          "title": "Religion and the Wrecking Ball of Truth",
+          "topics": [
+            "Forged",
+            "Deconversion"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "33902",
+          "title": "Are the Gospels Anti-Jewish?",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Canonical Gospels (General)",
+            "Pontius Pilate"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "34100",
+          "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+          "topics": [
+            "Hebrew Bible Prophets",
+            "Book of Daniel"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "34912",
+          "title": "The First Actual Account of the Resurrection (Hint: It’s Not in the New Testament)",
+          "topics": [
+            "Gospel of Peter",
+            "Resurrection of Jesus"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "35354",
+          "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+          "topics": [
+            "Development of the Trinity"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "35685",
+          "title": "Mark 13:30–a New Argument for an Old Hypothesis. A Platinum Post From Omar Robb",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Gospel of Mark",
+            "Oral Tradition"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "38658",
+          "title": "Who Cares if the Book of Acts is Historical??",
+          "topics": [
+            "Acts",
+            "Conversion",
+            "Early Christianity (General)"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "38881",
+          "title": "An Unusually Large “Fragment” of a Lost Gospel:  The Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "39865",
+          "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+          "topics": [
+            "Divine Beings in the Hebrew Bible"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "41375",
+          "title": "Another Reason for Thinking Jesus Called Himself the Messiah",
+          "topics": [
+            "Messiah",
+            "Pontius Pilate"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "47257",
+          "title": "How We Know the World Was Created in 4004 BCE…",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "48005",
+          "title": "Was Jesus Poor? Platinum post by Douglas Wadeson, MD",
+          "topics": [
+            "Jesus on Wealth and Poverty"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "48832",
+          "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+          "topics": [
+            "Non-Canonical Gospel Traditions"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        },
+        {
+          "wpId": "49865",
+          "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+          "topics": [
+            "Problem of Evil and Suffering",
+            "Christology in the Gospels",
+            "Gospel Authorship"
+          ],
+          "reason": "The generic name is either ambiguous among members of the Herodian dynasty or appears only as an incidental example; precise replacements are recorded separately where the ruler is a meaningful subject."
+        }
+      ]
+    },
+    {
+      "keyword": "1 Peter",
+      "before": 39,
+      "retained": 30,
+      "removed": 9,
+      "final": 30,
+      "removedPosts": [
+        {
+          "wpId": "6145",
+          "title": "Multiple Attestation for Jesus",
+          "topics": [
+            "Resurrection of Jesus",
+            "Methods for Studying the Historical Jesus"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "6578",
+          "title": "My New Testament Syllabus",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "6587",
+          "title": "Followup on the NT Quiz",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "7185",
+          "title": "The Disciples who Doubted the Resurrection",
+          "topics": [
+            "How Jesus Became God",
+            "Jesus' Resurrection Appearances"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "9395",
+          "title": "Did Some Disciples Not Believe in the Resurrection?",
+          "topics": [
+            "How Jesus Became God",
+            "Jesus' Resurrection Appearances"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "11921",
+          "title": "The Inerrancy of the Bible?  And Those Who Doubt.  Readers’ Mailbag October 2, 2016",
+          "topics": [
+            "Biblical Inerrancy",
+            "Jesus' Resurrection Appearances",
+            "Visionary Experiences"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "13072",
+          "title": "Does the Book of Acts Underplay the Significance of Jesus’ Death?",
+          "topics": [
+            "Atonement in Luke-Acts",
+            "Acts"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "28254",
+          "title": "Strawmanning Ehrman:  Guest Post by Kurt Jaros",
+          "topics": [
+            "Misquoting Jesus"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        },
+        {
+          "wpId": "46934",
+          "title": "Does the Book of Hebrews Indicate Jesus Ever Came To Earth?  A Response to Richard Carrier.",
+          "topics": [
+            "Crucifixion of Jesus",
+            "Hebrews",
+            "Mythicism"
+          ],
+          "reason": "The reference concerns Peter the person, or the letter appears only in a citation, list, quiz, syllabus, or passing comparison rather than as a meaningful supporting text."
+        }
+      ]
+    },
+    {
+      "keyword": "Canon Formation",
+      "before": 39,
+      "retained": 39,
+      "removed": 0,
+      "final": 39,
+      "removedPosts": []
+    },
+    {
+      "keyword": "Noah",
+      "before": 39,
+      "retained": 28,
+      "removed": 11,
+      "final": 28,
+      "removedPosts": [
+        {
+          "wpId": "4117",
+          "title": "Humans Who Become Angels",
+          "topics": [
+            "Angelic Christology",
+            "Divine Beings in the Hebrew Bible",
+            "How Jesus Became God",
+            "Enoch Traditions"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "12898",
+          "title": "Life in Hades",
+          "topics": [
+            "Afterlife Journeys",
+            "Comparative Ancient Evidence"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "14935",
+          "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+          "topics": [
+            "Crucifixion of Jesus",
+            "Miracle Stories in Non-Canonical Texts",
+            "Pontius Pilate",
+            "Trial of Jesus",
+            "Non-Canonical Gospel Traditions"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "15559",
+          "title": "More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+          "topics": [
+            "Old Testament Apocrypha"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "17376",
+          "title": "The Case Against Miracles",
+          "topics": [
+            "Historical Study of Miracles",
+            "Miracle Claims and Apologetics"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "17642",
+          "title": "How Do I Get To Know What Is In the Bible?",
+          "topics": [
+            "Textbooks and Teaching Materials"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "23078",
+          "title": "Did Humans Ever Become Divine in Judaism?  (Seems unlikely, no?)",
+          "topics": [
+            "Divine Beings in the Hebrew Bible",
+            "Christology (General)",
+            "Enoch Traditions"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "24393",
+          "title": "How to Make Sense of (or at least Peace with) What’s Strange in the Bible: Guest Post by Kristin Swenson",
+          "topics": [
+            "Critical Biblical Scholarship",
+            "Genesis"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "31240",
+          "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+          "topics": [
+            "Pentateuch",
+            "Translation Issues",
+            "Moses"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "34826",
+          "title": "The Coming Apocalypse and U.S. Foreign Policy on Israel",
+          "topics": [
+            "Modern End-Times Interpretation",
+            "Armageddon"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        },
+        {
+          "wpId": "40864",
+          "title": "Still More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+          "topics": [
+            "Old Testament Apocrypha"
+          ],
+          "reason": "Noah appears only in an ancestor list, brief analogy, humorous phrase, or one example among many and is not a meaningful supporting subject."
+        }
+      ]
+    }
+  ],
+  "disambiguatedReplacements": [
+    {
+      "keyword": "Herod the Great",
+      "before": 66,
+      "added": 11,
+      "final": 77,
+      "posts": [
+        {
+          "wpId": "2304",
+          "title": "Q & A with Ben Witherington: Part 7",
+          "topics": [
+            "Mythicism",
+            "Did Jesus Exist?"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "2405",
+          "title": "Creation in 4004 BCE?",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "3589",
+          "title": "The Mayan Calendar, Y2K, and the Letter of Barnabas",
+          "topics": [
+            "Letter of Barnabas",
+            "Modern End-Times Interpretation"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "4218",
+          "title": "Qumran and Masada",
+          "topics": [
+            "Dead Sea Scrolls and Essenes"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "11613",
+          "title": "When Was the World Created?  A Blast From the Past",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "12690",
+          "title": "Was Jesus Made Up?  A Blast from the Past.",
+          "topics": [
+            "Historical Jesus (General)",
+            "Mythicism"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "16304",
+          "title": "Why Was the World Created in 4004 BC?",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "26454",
+          "title": "Fiction and Fact, Legend and History.  Is it Either / Or?",
+          "topics": [
+            "Canonical Gospels (General)",
+            "Historical Methods (General)",
+            "Mythicism"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "34100",
+          "title": "Analyzing the Prophecies in Daniel 7, 2 and 9.  Platinum Guest Post by Omar Abur-Robb",
+          "topics": [
+            "Hebrew Bible Prophets",
+            "Book of Daniel"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "35685",
+          "title": "Mark 13:30–a New Argument for an Old Hypothesis. A Platinum Post From Omar Robb",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Gospel of Mark",
+            "Oral Tradition"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        },
+        {
+          "wpId": "47257",
+          "title": "How We Know the World Was Created in 4004 BCE…",
+          "topics": [
+            "Genesis"
+          ],
+          "reason": "The post meaningfully discusses Herod the Great or uses his reign, death, building program, or role in Matthew as substantive context."
+        }
+      ]
+    },
+    {
+      "keyword": "Herod Antipas",
+      "before": 15,
+      "added": 15,
+      "final": 30,
+      "posts": [
+        {
+          "wpId": "3069",
+          "title": "Anti-Judaism in the Gospels",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Canonical Gospels (General)",
+            "Pontius Pilate"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "3073",
+          "title": "Why Was Jesus Killed?",
+          "topics": [
+            "Crucified Messiah",
+            "Crucifixion of Jesus",
+            "Pontius Pilate"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "8307",
+          "title": "The Discovery of the Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "9175",
+          "title": "Jesus’ Death as a Prophet in Luke",
+          "topics": [
+            "Gospel of Luke"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "11959",
+          "title": "Anti-Judaism in the Gospels: A Blast From the Past",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Canonical Gospels (General)",
+            "Pontius Pilate"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "12667",
+          "title": "A Very Different Portrayal of Jesus’ Death",
+          "topics": [
+            "Jesus' Passion Narratives",
+            "Gospel of Mark",
+            "Gospel of Luke",
+            "Biblical Contradictions"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "13773",
+          "title": "The Exasperatingly Fragmentary Gospel of Peter: Readers’ Mailbag December 4, 2017",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "15334",
+          "title": "Rules of Thumb for Reconstructing the History behind the Gospels",
+          "topics": [
+            "Methods for Studying the Historical Jesus"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "15633",
+          "title": "Now, The Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "16907",
+          "title": "Why Was Jesus Crucified: Bart Ehrman Crucifixion Thoughts",
+          "topics": [
+            "Crucified Messiah",
+            "Crucifixion of Jesus",
+            "Pontius Pilate"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "21311",
+          "title": "And Now: The Gospel of Peter!",
+          "topics": [
+            "Gospel of Peter",
+            "Christian Anti-Judaism"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "33902",
+          "title": "Are the Gospels Anti-Jewish?",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Canonical Gospels (General)",
+            "Pontius Pilate"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "34912",
+          "title": "The First Actual Account of the Resurrection (Hint: It’s Not in the New Testament)",
+          "topics": [
+            "Gospel of Peter",
+            "Resurrection of Jesus"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "38881",
+          "title": "An Unusually Large “Fragment” of a Lost Gospel:  The Gospel of Peter",
+          "topics": [
+            "Gospel of Peter"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        },
+        {
+          "wpId": "49865",
+          "title": "Doesn’t Goodness Point to the Existence of God?  And Gospel Perplexities.  Good Readers’ Questions",
+          "topics": [
+            "Problem of Evil and Suffering",
+            "Christology in the Gospels",
+            "Gospel Authorship"
+          ],
+          "reason": "The ruler discussed in the trial, death, Galilean, or Gospel of Peter context is specifically Herod Antipas."
+        }
+      ]
+    },
+    {
+      "keyword": "Herod Agrippa I",
+      "before": 4,
+      "added": 1,
+      "final": 5,
+      "posts": [
+        {
+          "wpId": "9393",
+          "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+          "topics": [
+            "Apostolic Death Traditions"
+          ],
+          "reason": "The Acts ruler connected with the death of James son of Zebedee is specifically Herod Agrippa I."
+        }
+      ]
+    },
+    {
+      "keyword": "Peter the Apostle",
+      "before": 131,
+      "added": 3,
+      "final": 134,
+      "posts": [
+        {
+          "wpId": "7185",
+          "title": "The Disciples who Doubted the Resurrection",
+          "topics": [
+            "How Jesus Became God",
+            "Jesus' Resurrection Appearances"
+          ],
+          "reason": "The post discusses Peter's resurrection experience rather than the canonical letter 1 Peter."
+        },
+        {
+          "wpId": "9395",
+          "title": "Did Some Disciples Not Believe in the Resurrection?",
+          "topics": [
+            "How Jesus Became God",
+            "Jesus' Resurrection Appearances"
+          ],
+          "reason": "The post discusses Peter's resurrection experience rather than the canonical letter 1 Peter."
+        },
+        {
+          "wpId": "11921",
+          "title": "The Inerrancy of the Bible?  And Those Who Doubt.  Readers’ Mailbag October 2, 2016",
+          "topics": [
+            "Biblical Inerrancy",
+            "Jesus' Resurrection Appearances",
+            "Visionary Experiences"
+          ],
+          "reason": "The post discusses Peter's resurrection experience rather than the canonical letter 1 Peter."
+        }
+      ]
+    }
+  ]
+}

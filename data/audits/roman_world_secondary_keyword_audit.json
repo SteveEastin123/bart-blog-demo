@@ -1,0 +1,648 @@
+{
+  "keyword": "Roman World",
+  "criterion": "Retain Roman World when Roman political, social, legal, religious, or cultural context materially supports the post. Remove generic geographical framing, bibliographic and footnote references, course organization, and pointers to other posts.",
+  "before": 79,
+  "after": 66,
+  "retained": 66,
+  "removed": 13,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "2776",
+      "title": "The Need for Context",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Comparative Ancient Evidence",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "2784",
+      "title": "Possibilities for the Afterlife",
+      "topics": [
+        "Resurrection of the Dead",
+        "Life After Death (General)"
+      ]
+    },
+    {
+      "wpId": "3519",
+      "title": "Luke’s First Edition",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Luke",
+        "John the Baptist",
+        "Marcion",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "4622",
+      "title": "Male Domination in Antiquity",
+      "topics": [
+        "Women in Early Christianity"
+      ]
+    },
+    {
+      "wpId": "4627",
+      "title": "How Women Came to Be Silenced",
+      "topics": [
+        "Early Church Developments",
+        "Women in Early Christianity"
+      ]
+    },
+    {
+      "wpId": "6490",
+      "title": "Aslan Zealot: A Deeper Evaluation of the Thesis Itself",
+      "topics": [
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "6937",
+      "title": "The Gospels as Biographies",
+      "topics": [
+        "Canonical Gospels (General)"
+      ]
+    },
+    {
+      "wpId": "6942",
+      "title": "The Beginning of Mark’s Gospel/Biography",
+      "topics": [
+        "Gospel of Mark"
+      ]
+    },
+    {
+      "wpId": "7101",
+      "title": "How Jesus Became God!!",
+      "topics": [
+        "Christology (General)",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7155",
+      "title": "Jesus as the Adopted Son of God",
+      "topics": [
+        "How Jesus Became God",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "7585",
+      "title": "Hiatus: A New Teaching Company Course",
+      "topics": [
+        "How Jesus Became God",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "7967",
+      "title": "Placing the New Testament in Its Own Historical Context",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ]
+    },
+    {
+      "wpId": "8415",
+      "title": "Ancient Mediterranean Religions?!?",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "10270",
+      "title": "Christ as the Adopted Son of God",
+      "topics": [
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "10331",
+      "title": "Does the New Testament Condemn Modern Practices of Homosexuality?",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations"
+      ]
+    },
+    {
+      "wpId": "11289",
+      "title": "The New Book: The Triumph of Christianity",
+      "topics": [
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "11324",
+      "title": "Roman Religion as the Context for Christianity",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11868",
+      "title": "When Men Became Gods: My Lecture in Denmark",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "12775",
+      "title": "Did Paul Think Jesus’ Body Remained in the Grave?  Mailbag July 14, 2017",
+      "topics": [
+        "Paul on Resurrection",
+        "Resurrection of Jesus",
+        "Burial of Jesus"
+      ]
+    },
+    {
+      "wpId": "12815",
+      "title": "How Women Came to Be Silenced in Early Christianity: A Blast From the Past",
+      "topics": [
+        "Early Church Developments",
+        "Women in Early Christianity"
+      ]
+    },
+    {
+      "wpId": "12848",
+      "title": "Is There Evidence that Luke Originally Did Not Have the Story of Jesus Birth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "John the Baptist",
+        "Marcion"
+      ]
+    },
+    {
+      "wpId": "14712",
+      "title": "Were Cut and Paste Jobs Common in Antiquity?  Guest Post by Brent Nongbri",
+      "topics": [
+        "Source Criticism"
+      ]
+    },
+    {
+      "wpId": "14943",
+      "title": "What Did Jesus Look Like?",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "14961",
+      "title": "Why Women Came to be Silenced",
+      "topics": [
+        "Early Church Developments",
+        "Women in Early Christianity"
+      ]
+    },
+    {
+      "wpId": "15607",
+      "title": "How Christianity Grew and Grew",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "15726",
+      "title": "The Gospel of Luke without a Birth Story",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Christology in the Gospels",
+        "Gospel of Luke",
+        "Marcion",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "15998",
+      "title": "A Roman Vision of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16028",
+      "title": "Jesus “Only” Adopted to be the Son of God?",
+      "topics": [
+        "How Jesus Became God",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "16309",
+      "title": "When Christians Went on the Attack Against Jews",
+      "topics": [
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "16565",
+      "title": "Did Superior Health Care Lead to the Dominance of Christianity?",
+      "topics": [
+        "Conversion",
+        "Christian Health Care",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "17553",
+      "title": "How I Will Write My “Graphic Textbook of the New Testament”",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ]
+    },
+    {
+      "wpId": "20946",
+      "title": "Did Early Christian Heretics Promote Outrageous Sex Rituals?",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "23049",
+      "title": "Could a Human Become a God in the Ancient World?",
+      "topics": [
+        "Development of the Trinity",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "27166",
+      "title": "My Syllabus for “The Birth of Christianity”",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "27584",
+      "title": "Jewish Indifference to Jesus and the Problems It Caused: Platinum Guest Post by Dan Kohanski",
+      "topics": [
+        "Conversion",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "28010",
+      "title": "A Humorous Take on Wealth From a Great Satire of Antiquity",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Comparative Ancient Evidence",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "28076",
+      "title": "My New Great Courses Offering, Just Out!",
+      "topics": [
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "28478",
+      "title": "Jewish Indifference to Jesus and the Problems it Caused: Guest Post by Dan Kohanski",
+      "topics": [
+        "Conversion",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "30972",
+      "title": "You Mean Everyone (Except the Truly Destitute) Needs to Give? But How Much?",
+      "topics": [
+        "Charity and Altruism",
+        "Early Christian Teachings on Wealth"
+      ]
+    },
+    {
+      "wpId": "30975",
+      "title": "Thomas’s Trip to India and the Problem of Wealth",
+      "topics": [
+        "Early Christian Teachings on Wealth",
+        "Acts of Thomas"
+      ]
+    },
+    {
+      "wpId": "31491",
+      "title": "The Invention of Charity:  My Prospectus for the Book",
+      "topics": [
+        "Charity and Altruism",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "32068",
+      "title": "Christians Who Reversed Jesus’ Teachings:  Wealth is GOOD!",
+      "topics": [
+        "Charity and Altruism",
+        "Early Christian Teachings on Wealth",
+        "Early Church Developments",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "32820",
+      "title": "Why I Want to Write a Book on Christian Love",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "35346",
+      "title": "“You Have Heard His Blasphemy!” But Did They? A Platinum post by Daniel Kohanski",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Passion Narratives",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "35707",
+      "title": "A Proposition That the First Greek Converts to Jesus Were a Few Ascetic Pythagorean Philosophers. A Platinum Post From Omar Robb",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "36915",
+      "title": "Was Jesus Conceived out of Wedlock by Mary and a Jewish Relative, Pantera?  Part III Guest Post by James Tabor",
+      "topics": [
+        "Jesus' Family Traditions"
+      ]
+    },
+    {
+      "wpId": "37087",
+      "title": "If Luke Didn’t Originally Have a Birth Story — Then What?",
+      "topics": [
+        "Christology in the Gospels",
+        "Marcion",
+        "Adoptionist Christology",
+        "Gospel of Luke",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "37091",
+      "title": "Is Christ *Merely* the “Adopted” Son of God?",
+      "topics": [
+        "Adoptionist Christology",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "37959",
+      "title": "The Gift of Christmas (2023)",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "38137",
+      "title": "The Fate of Jesus’ Ethics after His Death",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Jesus' Teachings",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "38142",
+      "title": "Is Christian Love Different from Love?",
+      "topics": [
+        "Charity and Altruism",
+        "1 Corinthians",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "38146",
+      "title": "Love in Action: Christian Views of Charitable Giving",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "38151",
+      "title": "When Is Forgiveness not Forgiveness?",
+      "topics": [
+        "Atonement (General)",
+        "Comparative Ancient Evidence",
+        "Greco-Roman Religious Culture",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "38155",
+      "title": "How’s the Christian World Doin’ These Days with the Ethics of Jesus?",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "39844",
+      "title": "The New Book I’m Writing About Altruism:  Putting It In a Nutshell",
+      "topics": [
+        "Charity and Altruism",
+        "In a Nutshell Series",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "40364",
+      "title": "Heartache and Loss:  When a Religion is Destroyed",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "40373",
+      "title": "How Fast Did Early Christianity Grow?  Doing the Math",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "41474",
+      "title": "How I Begin My Book on Jesus, Ethics, and Altruism",
+      "topics": [
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "41526",
+      "title": "Does this World Make Any Sense?  The Ancient Stoics",
+      "topics": [
+        "Moral Philosophy"
+      ]
+    },
+    {
+      "wpId": "47000",
+      "title": "1 Thessalonians at a Glance, and Questions for Reflection",
+      "topics": [
+        "1 Thessalonians"
+      ]
+    },
+    {
+      "wpId": "47118",
+      "title": "The Significance and Letters of Paul, in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47131",
+      "title": "The Letter to the Romans: Who, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "49472",
+      "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "49737",
+      "title": "How Early Christians Made Converts.  (Tent revivals?)",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49782",
+      "title": "Superior Health Care as an Explanation for the Spread of Christianity?",
+      "topics": [
+        "Conversion",
+        "Christian Health Care",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49814",
+      "title": "Why Christian Miracles Converted the Empire",
+      "topics": [
+        "Conversion",
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "4957",
+      "title": "Jesus Books",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "7896",
+      "title": "Manuscripts and Christian Magic",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "8018",
+      "title": "Where Does One Deal with Textual Criticism?",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "9129",
+      "title": "Magic and Manuscripts",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "10590",
+      "title": "The Literary Artistry of the Book of Acts",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "11777",
+      "title": "Different Ways of Describing the Theology of the New Testament",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "Historical Study and Theology"
+      ]
+    },
+    {
+      "wpId": "15251",
+      "title": "Does the Book of Acts Accurately Portray the Life and Teachings of Paul?",
+      "topics": [
+        "Acts",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship",
+        "Gospel Authorship",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "22178",
+      "title": "Christian Manuscripts Used for Magic?",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "31849",
+      "title": "Did Jesus Insist on Voluntary Poverty?",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "32879",
+      "title": "Understanding the Gospels: Suggested Readings!",
+      "topics": [
+        "Canonical Gospels (General)"
+      ]
+    },
+    {
+      "wpId": "38645",
+      "title": "Important Literary Features of the Book of Acts",
+      "topics": [
+        "Acts"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

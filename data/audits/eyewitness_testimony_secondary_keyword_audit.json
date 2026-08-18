@@ -1,0 +1,652 @@
+{
+  "keyword": "Eyewitness Testimony",
+  "criterion": "Retain or add Eyewitness Testimony when eyewitness evidence, claimed eyewitness authorship, witness reliability, or the historical value of testimony materially supports the post's argument. Remove announcements, passing references, neighboring examples, and assignments unsupported by the full post text.",
+  "before": 64,
+  "after": 69,
+  "retained": 60,
+  "removed": 4,
+  "added": 9,
+  "retainedPosts": [
+    {
+      "wpId": "2079",
+      "title": "Question about Eyewitnesses and the Gospels",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Eyewitness Claims",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "2263",
+      "title": "Q & A with Ben Witherington: Part 4",
+      "topics": [
+        "Methods for Studying the Historical Jesus",
+        "Mythicism",
+        "Did Jesus Exist?"
+      ]
+    },
+    {
+      "wpId": "3134",
+      "title": "Lincoln’s Watch and Eyewitnesses",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "4343",
+      "title": "Historical Problems with the Hebrew Bible: The Conquest of Canaan",
+      "topics": [
+        "Hebrew Bible Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "4768",
+      "title": "Who Wrote Luke and Acts?",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "7491",
+      "title": "Brian and the Apocalyptic Jesus Part 2",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Life of Brian",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "8046",
+      "title": "On Changing One’s Mind",
+      "topics": [
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "8258",
+      "title": "Papias as an Earwitness?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "8285",
+      "title": "Why Was the Gospel of John Attributed to John?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Papias",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "8652",
+      "title": "My Memory Book, ch. 3",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "8743",
+      "title": "Help!  My Views of Memory",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "8757",
+      "title": "Another Jewish Miracle Worker",
+      "topics": [
+        "Ancient Miracle Workers"
+      ]
+    },
+    {
+      "wpId": "8839",
+      "title": "A Fantastic Saying of Jesus in Papias",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "9518",
+      "title": "Press Release!  Jesus Before the Gospels",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "9545",
+      "title": "Do I Have the Expertise Needed for My Book?",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "9583",
+      "title": "Q & A about Jesus Before the Gospels: Part 2",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "9671",
+      "title": "Weekly Readers’ Mailbag: February 7, 2016",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "10296",
+      "title": "Irritating Amazon Reviews",
+      "topics": [
+        "Jesus Before the Gospels"
+      ]
+    },
+    {
+      "wpId": "10404",
+      "title": "Memory, Eyewitnesses, and the Relevance of Jesus: Readers Mailbag",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "10892",
+      "title": "Is Acts Reliable?  The Negative Rebuttal",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "11277",
+      "title": "Bart Ehrman vs Richard Bauckham – Round 1",
+      "topics": [
+        "Public Debates",
+        "Gospel Eyewitness Claims",
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "11294",
+      "title": "My Debate with Richard Bauckham – Round 2",
+      "topics": [
+        "Public Debates",
+        "Gospel Eyewitness Claims",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "12413",
+      "title": "What Really Happens With Group Visions",
+      "topics": [
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "12565",
+      "title": "Eyewitnesses and the Gospels: A Blast From the Past",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Eyewitness Claims",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "15133",
+      "title": "Bogus Christian Apologetics and a First-Century Fragment of Mark",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15592",
+      "title": "The Value of Eyewitness Testimony",
+      "topics": [
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "16143",
+      "title": "An Eyewitness to the Crucifixion?  Another Modern Forgery",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Modern Forgery Claims",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "16952",
+      "title": "The Quest for the Historical … Judas Iscariot",
+      "topics": [
+        "Judas Iscariot"
+      ]
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship",
+        "Gospel Authorship",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "17480",
+      "title": "Once More on the Credibility of Miracles: Guest post by Darren Slade",
+      "topics": [
+        "Historical Study of Miracles",
+        "Miracle Claims and Apologetics"
+      ]
+    },
+    {
+      "wpId": "17501",
+      "title": "Does the Author of Acts Identify Himself?",
+      "topics": [
+        "Luke-Acts Authorship"
+      ]
+    },
+    {
+      "wpId": "20455",
+      "title": "Are the Gospel and Epistles of John *Forgeries*??  Guest Post by Hugo Mendez",
+      "topics": [
+        "Forgery (General)",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Johannine Epistles",
+        "Eyewitness Reliability",
+        "Non-Pauline Epistle Authorship",
+        "Non-Pauline Epistle Forgeries"
+      ]
+    },
+    {
+      "wpId": "20492",
+      "title": "Problems with Thinking the “Letters of John” in the NT are Forgeries?  Guest Post: Hugo Mendez",
+      "topics": [
+        "Forgery (General)",
+        "Gospel Eyewitness Claims",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Johannine Epistles",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "20507",
+      "title": "Did Some *One* Forge the Writings of “John”? Guest Post by Hugo Mendez",
+      "topics": [
+        "Forgery (General)",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Johannine Epistles",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "20545",
+      "title": "Was Judas Iscariot “Made Up”?",
+      "topics": [
+        "Judas Iscariot"
+      ]
+    },
+    {
+      "wpId": "21385",
+      "title": "Hard Evidence that the Book of Acts was Written by an Eyewitness?",
+      "topics": [
+        "Acts",
+        "Eyewitness Reliability",
+        "Archaeology and Material Evidence",
+        "Luke-Acts Authorship"
+      ]
+    },
+    {
+      "wpId": "26382",
+      "title": "Some Key Evidence for Jesus",
+      "topics": [
+        "Historical Jesus (General)",
+        "Methods for Studying the Historical Jesus",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "26635",
+      "title": "Does Revelation Contain an Eyewitness Account of the Eruption of Mount Vesuvius?  Guest Post by James Tabor",
+      "topics": [
+        "Book of Revelation",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "29185",
+      "title": "An Eyewitness Account of Jesus’ Crucifixion!",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Eyewitness Reliability",
+        "Modern Forgery Claims"
+      ]
+    },
+    {
+      "wpId": "33980",
+      "title": "More about the First Christian Martyr Text",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "33985",
+      "title": "Is the Martyrdom of Polycarp an Authentic Account?",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "33989",
+      "title": "Can We Take the Martyrdom of Polycarp at Face Value?",
+      "topics": [
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "34033",
+      "title": "Do Eyewitnesses Prove Miracles?  Can They Be Faked?  The Martyrdom of Polycarp",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Martyrdom of Polycarp",
+        "Miracle Claims and Apologetics",
+        "Miraculous Martyrdom Traditions"
+      ]
+    },
+    {
+      "wpId": "34038",
+      "title": "Evidence of Forgery.  More Reasons the Martyrdom of Polycarp Was Not Written by Someone There",
+      "topics": [
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability",
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "34044",
+      "title": "Finally: The Martyrdom of Polycarp as a Clever Christian Forgery",
+      "topics": [
+        "Forgery (General)",
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "35192",
+      "title": "My Forgotten Book on Memory",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35478",
+      "title": "Do Modern Mideastern Story Tellers Show How the Ancient Traditions of Jesus Were Circulated?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35553",
+      "title": "Jesus, Eyewitnesses, and Stories Floating Around….",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35557",
+      "title": "Who Was Spreading the Stories about Jesus Before the Gospels?",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Jesus Before the Gospels",
+        "Oral Tradition",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "35605",
+      "title": "Eyewitnesses and Guaranteed Accuracy",
+      "topics": [
+        "Eyewitness Reliability",
+        "Miracle Claims and Apologetics",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35609",
+      "title": "Eyewitness Testimony: The Importance of Actual Expertise",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35645",
+      "title": "If We Can Know the “Gist” of What Jesus Said and Did … What’s the Gist?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35720",
+      "title": "How Accurate Are Orally-Transmitted Reports? A Platinum Post From Imran M. Usmani",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "36024",
+      "title": "More on the Life of Brian and the Historical Jesus",
+      "topics": [
+        "Life of Brian",
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "38752",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative REBUTTAL of the Affirmative Case",
+      "topics": [
+        "Acts",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "47100",
+      "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Ancient Literacy",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Eyewitness Reliability",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "49081",
+      "title": "Does Papias Provide Us Direct Access to the Teachings of the Apostles?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "49237",
+      "title": "Eyewitness Accounts of Miracles",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Miracle Claims and Apologetics",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "49239",
+      "title": "While We’re Talking About the Reliability of Eyewitnesses…",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Eyewitness Claims"
+      ]
+    },
+    {
+      "wpId": "50150",
+      "title": "The Martyrdom of Polycarp (Another Book of the Apostolic Fathers): In a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series",
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "12401",
+      "title": "Group Visions and Agnostic Jesus Scholars: Mailbag March 12, 2017",
+      "topics": [
+        "Agnosticism",
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "16167",
+      "title": "An Official Copy of Jesus’ Death Sentence:  Another Forgery?",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Modern Forgery Claims"
+      ]
+    },
+    {
+      "wpId": "49107",
+      "title": "Free Live Debate on the Resurrection (March 2)",
+      "topics": [
+        "Public Debates",
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "49522",
+      "title": "Anniversary Post #4: Why Gospels Matter Even Where They Are Not Historical",
+      "topics": [
+        "Memory and Jesus Traditions",
+        "Historical Jesus (General)"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "6194",
+      "title": "Historians and the Problem of Miracle",
+      "topics": [
+        "Historical Methods (General)",
+        "Historical Study of Miracles",
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "8236",
+      "title": "Our Anonymous Gospels, Starting with Luke",
+      "topics": [
+        "Luke-Acts Authorship",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "10711",
+      "title": "Is Acts Historically Reliable?  The Affirmative Argument",
+      "topics": [
+        "Acts",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "11999",
+      "title": "What Can We Do About Presuppositions?",
+      "topics": [
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "15332",
+      "title": "The Historian’s Wish List",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "15366",
+      "title": "More on the Historical Problem of Miracles",
+      "topics": [
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "35561",
+      "title": "Being Realistic about How Stories about Jesus Spread before the Gospels",
+      "topics": [
+        "Oral Tradition",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "38718",
+      "title": "The Book of Acts IS HISTORICAL!  The Affirmative Argument",
+      "topics": [
+        "Acts",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "40554",
+      "title": "Can We Get Rid of Our Presuppositions?",
+      "topics": [
+        "Historical Study of Miracles",
+        "Miracle Claims and Apologetics"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "keyword": "Triumph of Christianity",
+  "criterion": "Retain or add Triumph of Christianity when Bart's book, its research and arguments, or a course, interview, publication, or event substantially centered on the book supports the post. Remove author biographies, reading lists, contract history, unrelated link lists, passing citations, and generic references to Christianity's historical triumph that do not name the book.",
+  "before": 63,
+  "after": 58,
+  "retained": 50,
+  "removed": 13,
+  "added": 8,
+  "retainedPosts": [
+    {
+      "wpId": "2296",
+      "title": "Why Did Christianity Succeed?",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11324",
+      "title": "Roman Religion as the Context for Christianity",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11326",
+      "title": "From Jewish Sect to Gentile Church",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11330",
+      "title": "The Early Growth of Christianity",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11337",
+      "title": "Why Christianity Succeeded",
+      "topics": [
+        "Conversion",
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "11515",
+      "title": "A Personal Note and a Bit of a Bummer",
+      "topics": [
+        "Autobiographical Posts",
+        "Personal Reflections"
+      ]
+    },
+    {
+      "wpId": "11536",
+      "title": "Paul, Jesus, and the Messiah",
+      "topics": [
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "11558",
+      "title": "The Conversion of Paul",
+      "topics": [
+        "Conversion",
+        "Paul in Acts",
+        "Paul's Conversion"
+      ]
+    },
+    {
+      "wpId": "11576",
+      "title": "Back to the Question of How Many People Converted",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11652",
+      "title": "The Emperor Constantine: Some Background",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "11691",
+      "title": "Constantine’s Vision(s): What Did He Really See and When?",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "11910",
+      "title": "The Process of Publishing a Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15115",
+      "title": "Did Constantine Outlaw the Pagan Religions?",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "15119",
+      "title": "The Beginning of the End of Paganism",
+      "topics": [
+        "Early Church Developments",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "15123",
+      "title": "Making Rome Pagan Again",
+      "topics": [
+        "Early Church Developments",
+        "Greco-Roman Religious Culture",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "15128",
+      "title": "Are Christians Intolerant?",
+      "topics": [
+        "Early Church Developments",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "15607",
+      "title": "How Christianity Grew and Grew",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "16309",
+      "title": "When Christians Went on the Attack Against Jews",
+      "topics": [
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "16565",
+      "title": "Did Superior Health Care Lead to the Dominance of Christianity?",
+      "topics": [
+        "Conversion",
+        "Christian Health Care",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "17463",
+      "title": "Why Do Christians Try to Convert People?",
+      "topics": [
+        "Conversion",
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "17468",
+      "title": "Was Christianity a Missionary Religion with No Missionaries?",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "20918",
+      "title": "Did the Benefits of the Christian Community Win Converts?  Readers’ Mailbag.",
+      "topics": [
+        "Conversion"
+      ]
+    },
+    {
+      "wpId": "20924",
+      "title": "The Outrageous Immorality of Early Christians (!) (?)",
+      "topics": [
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "21403",
+      "title": "John, the Bedbugs, and Miracles that Convert",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Miracle Stories in Non-Canonical Texts"
+      ]
+    },
+    {
+      "wpId": "23034",
+      "title": "Were Ancient Pagans Sometimes Monotheists?",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "25481",
+      "title": "The Council of Nicaea and The Resulting View of Christ",
+      "topics": [
+        "Arius and Arianism",
+        "Constantine",
+        "Early Church Developments",
+        "Development of the Trinity"
+      ]
+    },
+    {
+      "wpId": "40339",
+      "title": "Losing Your Religion: Today and in Antiquity",
+      "topics": [
+        "Deconversion",
+        "Personal Reflections"
+      ]
+    },
+    {
+      "wpId": "40360",
+      "title": "Was Christianity Bound to Take Over the Ancient World?",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Rise of Christianity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "40364",
+      "title": "Heartache and Loss:  When a Religion is Destroyed",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "40368",
+      "title": "The Conversion of the Emperor Constantine",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "40373",
+      "title": "How Fast Did Early Christianity Grow?  Doing the Math",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "40377",
+      "title": "How Many Early Christians Were There and When?  Crunchin’ the Numbers",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "40382",
+      "title": "How Many Christians Were There in 100 CE? 150? 250? 300?",
+      "topics": [
+        "Early Church Developments",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "47209",
+      "title": "How Athens Made Me Rethink….",
+      "topics": [
+        "Social Class in Antiquity",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49419",
+      "title": "When Emperors Became More Involved in Christian Persecutions",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Roman Persecution of Christians",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "49422",
+      "title": "The First Attempts to Wipe Out Christianity",
+      "topics": [
+        "Roman Persecution of Christians"
+      ]
+    },
+    {
+      "wpId": "49737",
+      "title": "How Early Christians Made Converts.  (Tent revivals?)",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49765",
+      "title": "Christianity:  A Weirdly Exclusivist Religion",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Greco-Roman Religious Culture",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "49767",
+      "title": "Do You Know The Golden Ass?   (Is a Mystery Religion like Christianity?)",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "49776",
+      "title": "How Did Christianity Succeed?  An Older View That Many People Still Have",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "49778",
+      "title": "What an Ancient Enemy of Christianity Said About Why It Was Successful",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Social Class in Antiquity"
+      ]
+    },
+    {
+      "wpId": "49780",
+      "title": "A Modern “Common Sense” About What Made Christianity Attractive to Converts",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49782",
+      "title": "Superior Health Care as an Explanation for the Spread of Christianity?",
+      "topics": [
+        "Conversion",
+        "Christian Health Care",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49814",
+      "title": "Why Christian Miracles Converted the Empire",
+      "topics": [
+        "Conversion",
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49818",
+      "title": "How Could Christian Miracles Convert the Empire if Miracles Don’t Happen?",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "49820",
+      "title": "And the Miracles Just Keep on Comin’",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Jesus and Abgar Legend",
+        "Miracle Stories in Non-Canonical Texts"
+      ]
+    },
+    {
+      "wpId": "49838",
+      "title": "Biographical Accounts of Early Christian Miracles (Based on Eyewitnesses!)",
+      "topics": [
+        "Conversion",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "49842",
+      "title": "Was Augustine Telling the Truth About Miracles He’d Seen?",
+      "topics": [
+        "Augustine of Hippo",
+        "Conversion",
+        "Miracle Claims and Apologetics",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "49861",
+      "title": "The Fear of Hell as an Incentive to Convert",
+      "topics": [
+        "Conversion",
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "49863",
+      "title": "Did the Glories of Martyrdom Lead to Christian Conversions?",
+      "topics": [
+        "Conversion",
+        "Martyrdom Traditions (General)"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "11935",
+      "title": "The Invention of the Afterlife: Request for Ideas!",
+      "topics": [
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "12432",
+      "title": "Was Jesus a Myth or a Historical Figure? Robert Price and I Debate This Very Interesting Question",
+      "topics": [
+        "Public Debates",
+        "Historical Jesus (General)",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "12873",
+      "title": "My New Scholarly Project",
+      "topics": [
+        "Life After Death (General)",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "14948",
+      "title": "Futuristic Interpretations of the Book of Revelation",
+      "topics": [
+        "Book of Revelation",
+        "Modern End-Times Interpretation"
+      ]
+    },
+    {
+      "wpId": "14963",
+      "title": "Ehrman & Licona: Are the Gospels Historically Reliable? Part 1",
+      "topics": [
+        "Public Debates",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "14973",
+      "title": "Ehrman & Licona: Are the Gospels Historically Reliable? Part 2",
+      "topics": [
+        "Public Debates",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "16202",
+      "title": "Why Do Christians Have an Old Testament?  Another Trade Book.",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "17619",
+      "title": "Heaven and Hell: Press Release!!",
+      "topics": [
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "27166",
+      "title": "My Syllabus for “The Birth of Christianity”",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "32805",
+      "title": "Who Was The Last Non-Christian Emperor of Rome?",
+      "topics": [
+        "Early Church Developments",
+        "Greco-Roman Religious Culture",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "33538",
+      "title": "Did Jesus Appear to 500 People After His Resurrection?",
+      "topics": [
+        "Judas Iscariot",
+        "Paul on Resurrection",
+        "Paul's Knowledge of Jesus",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "47139",
+      "title": "Guest Post by Dr. Paula Fredriksen Part I: Ancient Christianities: Multiplicity, Messy Origins, and “Monotheism”",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "7664",
+      "title": "My Future Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15003",
+      "title": "The Marvels of Media Attention",
+      "topics": [
+        "General-Audience Books",
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "15140",
+      "title": "My Life!  An Interview with Frank Statio on “The State of Things”",
+      "topics": [
+        "Autobiographical Posts",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "15156",
+      "title": "How I Write a Trade Book for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15740",
+      "title": "My Research Goals for 2019",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Heaven and Hell",
+        "Afterlife Journeys",
+        "Modern End-Times Interpretation"
+      ]
+    },
+    {
+      "wpId": "16381",
+      "title": "My Current Research Projects, 7/2019",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "17561",
+      "title": "Want A Korean Version of My Last Book?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "49733",
+      "title": "Converting the World:  Why Has Christianity Always Been “Missionary”?",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Roman World"
+      ]
+    }
+  ]
+}

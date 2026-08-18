@@ -1,0 +1,741 @@
+{
+  "keyword": "Eusebius of Caesarea",
+  "criterion": "Retain or add Eusebius of Caesarea when his testimony, historical judgment, quotation, or preservation of an otherwise lost source materially supports the post's argument. Remove bibliographic citations, assignment lists, autobiographical reading lists, and references that merely recap a previous post.",
+  "before": 61,
+  "after": 79,
+  "retained": 57,
+  "removed": 4,
+  "added": 22,
+  "retainedPosts": [
+    {
+      "wpId": "3169",
+      "title": "Textual Problems in the Apostolic Fathers 2",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "3853",
+      "title": "An Ancient Accusation of Textual Tampering",
+      "topics": [
+        "Scribal Changes",
+        "Theologically Significant Variants",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "4513",
+      "title": "Early Christianity in Egypt",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts"
+      ]
+    },
+    {
+      "wpId": "6595",
+      "title": "My New Edition of After the New Testament",
+      "topics": [
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "8254",
+      "title": "Papias and the Gospels: Some Background",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Oral Tradition",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "8265",
+      "title": "Papias on Matthew and Mark",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "8304",
+      "title": "Why Not the Gospel of Peter?",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "8309",
+      "title": "Is the Discovered Gospel the Gospel of Peter?",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "8821",
+      "title": "The Lost Writings of Papias",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "8839",
+      "title": "A Fantastic Saying of Jesus in Papias",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "8846",
+      "title": "Papias and the Eyewitnesses",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "8926",
+      "title": "Evaluating the Views of Walter Bauer",
+      "topics": [
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "8928",
+      "title": "How Diverse Was Early Christianity?",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "9204",
+      "title": "Other Christians Who Denied that Christ was Divine by Nature",
+      "topics": [
+        "Early Church Developments",
+        "Exaltation Christology"
+      ]
+    },
+    {
+      "wpId": "11675",
+      "title": "Constantine Before His Conversion",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "11691",
+      "title": "Constantine’s Vision(s): What Did He Really See and When?",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "12112",
+      "title": "Are Cephas and Peter Two Different People?",
+      "topics": [
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "12675",
+      "title": "How Did Judas Iscariot Die?  Readers’ Mailbag June 18, 2017",
+      "topics": [
+        "Gospel of Matthew",
+        "Judas Iscariot",
+        "Papias",
+        "Acts",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "15115",
+      "title": "Did Constantine Outlaw the Pagan Religions?",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "15221",
+      "title": "Two Rather Bizarre Accounts of How Judas Died",
+      "topics": [
+        "Papias",
+        "Judas Iscariot"
+      ]
+    },
+    {
+      "wpId": "15396",
+      "title": "Did a “Pope” Write the First-Century Book of 1 Clement?",
+      "topics": [
+        "Apostolic Fathers",
+        "Apostolic Fathers Attribution"
+      ]
+    },
+    {
+      "wpId": "15482",
+      "title": "Peter: First Bishop (Pope) in Rome?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "15486",
+      "title": "Who Was the First Bishop of Rome?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "15532",
+      "title": "Who Wrote the Book of Revelation?",
+      "topics": [
+        "Ancient Literacy",
+        "Revelation Authorship",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "15635",
+      "title": "Early Debates about the Gospel of Peter",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "16023",
+      "title": "The Writings of Papias: Guest Post by Stephen Carlson",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Oral Tradition",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16026",
+      "title": "Papias.  How Do We Know His Context?  Guest post by Stephen Carlson",
+      "topics": [
+        "Gospel of Mark",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16096",
+      "title": "Papias and the Writers of the New Testament: Guest Post by Stephen Carlson",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16240",
+      "title": "When Were Matthew and Mark First Seen as Scripture: Guest Post on Papias by Stephen Carlson",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "20492",
+      "title": "Problems with Thinking the “Letters of John” in the NT are Forgeries?  Guest Post: Hugo Mendez",
+      "topics": [
+        "Forgery (General)",
+        "Gospel Eyewitness Claims",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Johannine Epistles",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "24388",
+      "title": "Was Christ Human But Not Divine?  Another Early Christian View",
+      "topics": [
+        "Early Christian Orthodoxy and Heresy",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "26796",
+      "title": "Were Cephas and Peter Two Different People?  A Blast from the Past",
+      "topics": [
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "27410",
+      "title": "Was Peter the First Pope?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "27443",
+      "title": "Then Who WAS the First Bishop of Rome (if not Peter)?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "33405",
+      "title": "What about Forgeries IN the New Testament?  Is it Possible?",
+      "topics": [
+        "Forgery (General)",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "33920",
+      "title": "A Spectacular Martyrdom and an Intriguing Textual Change",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "33980",
+      "title": "More about the First Christian Martyr Text",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "33989",
+      "title": "Can We Take the Martyrdom of Polycarp at Face Value?",
+      "topics": [
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "34480",
+      "title": "Who Wrote the Gospels?  Our Earliest (Apparent) Reference",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "35685",
+      "title": "Mark 13:30–a New Argument for an Old Hypothesis. A Platinum Post From Omar Robb",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Gospel of Mark",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "37491",
+      "title": "The Revolutionary Understanding of Orthodoxy and Heresy: An Evaluation of Bauer’s Views",
+      "topics": [
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "37497",
+      "title": "Wasn’t Early Christianity Basically Unified?  Why Fret About Occasional Diversity?",
+      "topics": [
+        "Early Christian Diversity",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "40016",
+      "title": "More Lost Christianities",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Diversity",
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "40118",
+      "title": "My Most Helpful Book?   After the New Testament: A Reader in Early Christianity",
+      "topics": [
+        "Early Christian Writings",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "46943",
+      "title": "Some Readers’ Questions and Some Responses",
+      "topics": [
+        "2 Thessalonians",
+        "Textual Variants",
+        "Revelation Authorship"
+      ]
+    },
+    {
+      "wpId": "47141",
+      "title": "Guest Post by Dr. Paul Fredriksen Part III: The Conversions of “Christianity”",
+      "topics": [
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "topics": [
+        "Early Christian Diversity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "48014",
+      "title": "Did “Pope” Clement Write 1 Clement?",
+      "topics": [
+        "Apostolic Fathers",
+        "Apostolic Fathers Attribution"
+      ]
+    },
+    {
+      "wpId": "49016",
+      "title": "Who Wrote the Shepherd of Hermas, and When?",
+      "topics": [
+        "Apostolic Fathers",
+        "Apostolic Fathers Attribution"
+      ]
+    },
+    {
+      "wpId": "49051",
+      "title": "The Earliest Christian Apologist:  Quadratus in a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series",
+        "Miracle Claims and Apologetics"
+      ]
+    },
+    {
+      "wpId": "49078",
+      "title": "Papias in a Nutshell.  An Important Figure Among the Apostolic Fathers",
+      "topics": [
+        "Gospel Authorship",
+        "In a Nutshell Series",
+        "Papias",
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "49081",
+      "title": "Does Papias Provide Us Direct Access to the Teachings of the Apostles?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "49112",
+      "title": "Does Papias Say Matthew and Mark Wrote OUR Matthew and Mark?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "49782",
+      "title": "Superior Health Care as an Explanation for the Spread of Christianity?",
+      "topics": [
+        "Conversion",
+        "Christian Health Care",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49820",
+      "title": "And the Miracles Just Keep on Comin’",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Jesus and Abgar Legend",
+        "Miracle Stories in Non-Canonical Texts"
+      ]
+    },
+    {
+      "wpId": "49926",
+      "title": "How To Figure Out If a Miracle Happened…  Questions from Readers",
+      "topics": [
+        "Historical Methods (General)",
+        "Historical Study of Miracles",
+        "Resurrection Arguments and Apologetics",
+        "Miracle Claims and Apologetics",
+        "Roman Persecution of Christians"
+      ]
+    },
+    {
+      "wpId": "50148",
+      "title": "2 Clement (one of the “Apostolic Fathers”) in a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "Christian Interpretation of Jewish Scripture",
+        "In a Nutshell Series"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2435",
+      "title": "Autobiographical: Metzger and Me.  The Seminar on the Canon",
+      "topics": [
+        "Athanasius of Alexandria",
+        "Bruce Metzger",
+        "Canon Formation",
+        "Didymus the Blind",
+        "Autobiographical Posts",
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "8307",
+      "title": "The Discovery of the Gospel of Peter",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "27209",
+      "title": "MORE Assignments on the Birth of Christianity",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "50150",
+      "title": "The Martyrdom of Polycarp (Another Book of the Apostolic Fathers): In a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series",
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "6299",
+      "title": "My SBL Conference",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "8285",
+      "title": "Why Was the Gospel of John Attributed to John?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Papias",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "8857",
+      "title": "The Discovery of Lost Documents",
+      "topics": [
+        "Apostolic Fathers",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "11669",
+      "title": "Constantine and the Battle at the Milvian Bridge",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Conversion"
+      ]
+    },
+    {
+      "wpId": "12425",
+      "title": "Touring Hell: The Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "15398",
+      "title": "Is 1 Clement Older than Some Books of the New Testament?",
+      "topics": [
+        "Apostolic Fathers",
+        "Dating Ancient Texts"
+      ]
+    },
+    {
+      "wpId": "15713",
+      "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "16364",
+      "title": "Did James Write James?",
+      "topics": [
+        "James the Brother of Jesus",
+        "Letter of James",
+        "Non-Pauline Epistle Authorship"
+      ]
+    },
+    {
+      "wpId": "16565",
+      "title": "Did Superior Health Care Lead to the Dominance of Christianity?",
+      "topics": [
+        "Conversion",
+        "Christian Health Care",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "32323",
+      "title": "A Book That Nearly Became Scripture: The Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "32326",
+      "title": "Another Book by “Peter” That Could Have Become Scripture",
+      "topics": [
+        "Canon Formation",
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "32505",
+      "title": "How Did They Decide Which Books to Include in the New Testament Canon?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "34486",
+      "title": "Is the Gospel of Mark in Papias Our Gospel of Mark?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "40686",
+      "title": "Was the Apocalypse of Peter Originally Considered Part of the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "46944",
+      "title": "James: Who, When, and Why?  Does It Claim to be by THAT James (the brother of Jesus)?",
+      "topics": [
+        "James the Brother of Jesus",
+        "Letter of James",
+        "Non-Pauline Epistle Authorship",
+        "Non-Pauline Epistle Forgeries"
+      ]
+    },
+    {
+      "wpId": "46984",
+      "title": "2 Peter: Who Wrote It, When, and Why?",
+      "topics": [
+        "2 Peter",
+        "Non-Pauline Epistle Authorship",
+        "Petrine Authorship and Forgeries"
+      ]
+    },
+    {
+      "wpId": "47004",
+      "title": "Why Wasn’t Peter’s Apocalypse Included in the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "47590",
+      "title": "Book of Jude:  Who Wrote it?  When? And Why? (part 1)",
+      "topics": [
+        "James the Brother of Jesus",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "47847",
+      "title": "The Book of Revelation:  Who Wrote It?",
+      "topics": [
+        "Book of Revelation",
+        "Revelation Authorship",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "48021",
+      "title": "Was 1 Clement Written BEFORE Some of the New Testament?",
+      "topics": [
+        "Apostolic Fathers",
+        "Dating Ancient Texts"
+      ]
+    },
+    {
+      "wpId": "49419",
+      "title": "When Emperors Became More Involved in Christian Persecutions",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Roman Persecution of Christians",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "50251",
+      "title": "Were Peter and Cephas the Same Person?",
+      "topics": [
+        "Peter the Apostle"
+      ]
+    }
+  ]
+}

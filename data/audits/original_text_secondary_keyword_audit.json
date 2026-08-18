@@ -1,0 +1,38 @@
+{
+  "keyword": "Original Text",
+  "criterion": "Retain Original Text when identifying or reconstructing an author's original wording or textual form is a meaningful supporting subject.",
+  "before": 53,
+  "retained": 50,
+  "removed": 3,
+  "added": 0,
+  "after": 50,
+  "removedPosts": [
+    {
+      "wpId": "7381",
+      "title": "More Background on Oral Traditions",
+      "topics": [
+        "Messianic Secret",
+        "Oral Tradition"
+      ],
+      "reason": "The original text is only introductory background or is explicitly unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "8922",
+      "title": "What Are Orthodoxy and Heresy?",
+      "topics": [
+        "Eusebius of Caesarea",
+        "Early Christian Orthodoxy and Heresy"
+      ],
+      "reason": "The original text is only introductory background or is explicitly unrelated to the post's substantive subject."
+    },
+    {
+      "wpId": "9207",
+      "title": "Some Flak (Already!) Over My New Book",
+      "topics": [
+        "Jesus Before the Gospels"
+      ],
+      "reason": "The original text is only introductory background or is explicitly unrelated to the post's substantive subject."
+    }
+  ],
+  "addedPosts": []
+}

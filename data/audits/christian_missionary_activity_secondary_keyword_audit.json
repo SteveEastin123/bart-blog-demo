@@ -1,0 +1,695 @@
+{
+  "keyword": "Christian Missionary Activity",
+  "renamedFrom": "Mission",
+  "criterion": "Use Christian Missionary Activity when Christian evangelism, conversion efforts, apostolic or missionary travel, church expansion, or disputes arising from the mission are a major or meaningful supporting subject. Exclude organizational mission statements, fundraising, personal callings, prophetic vocations, book-title wording, and general references to Jesus' purpose.",
+  "before": 60,
+  "after": 56,
+  "renamed": 33,
+  "retained": 33,
+  "removed": 27,
+  "added": 23,
+  "retainedPosts": [
+    {
+      "wpId": "2512",
+      "title": "Paul in Acts: Part 3",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Churches and Communities",
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "4777",
+      "title": "The Accuracy of Acts: Part 2",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "7266",
+      "title": "Paul’s Gospel Message",
+      "topics": [
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "7362",
+      "title": "Other Options for Paul and Jesus",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ]
+    },
+    {
+      "wpId": "8565",
+      "title": "Paul’s “Exceptional” Letter to the Romans",
+      "topics": [
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "10590",
+      "title": "The Literary Artistry of the Book of Acts",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "11297",
+      "title": "Older Explanations for Why Christianity Succeeded",
+      "topics": [
+        "Rise of Christianity",
+        "Triumph of Christianity",
+        "Greco-Roman Religious Culture",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "11326",
+      "title": "From Jewish Sect to Gentile Church",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11439",
+      "title": "Paul in a Nutshell and NT Views of Crucifixion: Readers Mailbag May 13, 2016",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul on Jesus' Crucifixion",
+        "Crucifixion of Jesus"
+      ]
+    },
+    {
+      "wpId": "11558",
+      "title": "The Conversion of Paul",
+      "topics": [
+        "Conversion",
+        "Paul in Acts",
+        "Paul's Conversion"
+      ]
+    },
+    {
+      "wpId": "13513",
+      "title": "Paul’s Exalted Self-Image: The Fulfillment of Ancient Prophecy",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "15254",
+      "title": "Does the Book of Acts Portray the *Teachings* of Paul Accurately?",
+      "topics": [
+        "Paul in Acts",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "15482",
+      "title": "Peter: First Bishop (Pope) in Rome?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "17463",
+      "title": "Why Do Christians Try to Convert People?",
+      "topics": [
+        "Conversion",
+        "Greco-Roman Religious Culture",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "17468",
+      "title": "Was Christianity a Missionary Religion with No Missionaries?",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "17518",
+      "title": "Does the Book of Acts Accurately Record Paul’s Teachings?",
+      "topics": [
+        "Acts",
+        "Paul in Acts"
+      ]
+    },
+    {
+      "wpId": "20990",
+      "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
+      "topics": [
+        "Romans",
+        "Pauline Salvation Models"
+      ]
+    },
+    {
+      "wpId": "27410",
+      "title": "Was Peter the First Pope?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "28213",
+      "title": "Why Doesn’t Paul Say More about the Historical Jesus?  Other Options.",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ]
+    },
+    {
+      "wpId": "28809",
+      "title": "What Was Paul’s Innovation?",
+      "topics": [
+        "Pauline Salvation Models",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "32062",
+      "title": "Softening Jesus’ Message on Giving up (Literally) Everything",
+      "topics": [
+        "Early Christian Teachings on Wealth",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "35878",
+      "title": "Did Paul Get Along with the Other Apostles?",
+      "topics": [
+        "Paul and His Opponents",
+        "Paul in Acts"
+      ]
+    },
+    {
+      "wpId": "36683",
+      "title": "Jesus, Sun Myung Moon, and Me: a Platinum Post from William Poe",
+      "topics": [
+        "Personal Reflections"
+      ]
+    },
+    {
+      "wpId": "36687",
+      "title": "Paul, the Apostate: a Platinum Post by Manuel Fiadeiro",
+      "topics": [
+        "Conversion",
+        "Paul's Conversion",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "38645",
+      "title": "Important Literary Features of the Book of Acts",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "47110",
+      "title": "The Book of Acts in a Nutshell",
+      "topics": [
+        "Acts",
+        "In a Nutshell Series"
+      ]
+    },
+    {
+      "wpId": "47112",
+      "title": "The Acts of the Apostles:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Luke-Acts Authorship",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "47118",
+      "title": "The Significance and Letters of Paul, in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47131",
+      "title": "The Letter to the Romans: Who, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "47139",
+      "title": "Guest Post by Dr. Paula Fredriksen Part I: Ancient Christianities: Multiplicity, Messy Origins, and “Monotheism”",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "47223",
+      "title": "Interesting Questions from Readers",
+      "topics": [
+        "Acts",
+        "Bible Translations (General)",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "49468",
+      "title": "Understanding the Gospels, Jesus, and the Spread of Christianity: Great Readers’ Questions",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Memory and Jesus Traditions",
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "49733",
+      "title": "Converting the World:  Why Has Christianity Always Been “Missionary”?",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity",
+        "Roman World"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2095",
+      "title": "Why Did Jesus Go To Jerusalem?",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "4007",
+      "title": "Modern Visions of Jesus",
+      "topics": [
+        "How Jesus Became God",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "4357",
+      "title": "More Criticisms of the Historical Criticisms of John (by John! Spong)",
+      "topics": [
+        "Christology in the Gospels",
+        "Gospel of John",
+        "Incarnation Christology"
+      ]
+    },
+    {
+      "wpId": "6493",
+      "title": "Aslan’s Key Chapter",
+      "topics": [
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "7206",
+      "title": "Modern Appearances of Jesus",
+      "topics": [
+        "How Jesus Became God",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "9674",
+      "title": "Upcoming Debate!",
+      "topics": [
+        "Public Debates",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "9864",
+      "title": "On the Accuracy of Oral Traditions",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "10046",
+      "title": "My Debate This Past Weekend",
+      "topics": [
+        "How Jesus Became God",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "12529",
+      "title": "Teaching the Bible as a Historical Book",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "12545",
+      "title": "My Encounter with the Enlightenment",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ]
+    },
+    {
+      "wpId": "12862",
+      "title": "Was John the Son of Zebedee Capable of Writing a  Gospel?",
+      "topics": [
+        "Ancient Literacy",
+        "Gospel Authorship",
+        "Gospel of John"
+      ]
+    },
+    {
+      "wpId": "15839",
+      "title": "The Beginning of the Quest of the Historical Jesus",
+      "topics": [
+        "Gospel of Mark",
+        "Messianic Secret",
+        "Methods for Studying the Historical Jesus"
+      ]
+    },
+    {
+      "wpId": "17676",
+      "title": "Buddhist Interview Questions on Suffering",
+      "topics": [
+        "Problem of Evil and Suffering",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "20540",
+      "title": "Academic Fraud at the Highest Levels",
+      "topics": [
+        "Modern Forgery Claims",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "28663",
+      "title": "The Prophets of Scripture: A Brief Summary of their Message and Mission",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "31844",
+      "title": "Mike Licona’s Response to My Post on Contradictions",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "34084",
+      "title": "Was Moses High on Mt. Sinai?  Part 1   Platinum Post by Douglas Wadeson MD",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Pentateuch",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "35694",
+      "title": "Was Jesus an Ascetic Street Preacher or a Man With a Plan? A Platinum Post From Omar Robb",
+      "topics": [
+        "John the Baptist",
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "36268",
+      "title": "Proposed Solutions For the Four Metaphysical Puzzles Related to Jesus From an Islamic Perspective From Omar Robb",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "38313",
+      "title": "In Support of Religious Studies at a Major University",
+      "topics": [
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "38348",
+      "title": "A Less-Expected Argument that Jesus Preached the End of All Things",
+      "topics": [
+        "John the Baptist",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "39040",
+      "title": "We Need An Experienced Fundraiser!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "41233",
+      "title": "New Course by Bart Ehrman: The Genius of the Acts of the Apostles",
+      "topics": [
+        "Acts",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "41678",
+      "title": "The Hobby Lobby, the Museum of the Bible, and Incredible Academic Fraud",
+      "topics": [
+        "Modern Forgery Claims",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "41684",
+      "title": "Special Webinar Announcement: Ehrman Blog Annual Appeal",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "41780",
+      "title": "Annual Appeal 2024: Behind the Mission Pt. 1",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "47029",
+      "title": "A Matching Grant for our End of the Year Giving 2024:  Consider the Blog and Its Mission!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "4500",
+      "title": "Gentile Judaizers",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "8605",
+      "title": "Paul’s Christian Enemies:  Galatians",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Paul and His Opponents",
+        "Paul's Churches and Communities",
+        "Galatians"
+      ]
+    },
+    {
+      "wpId": "10576",
+      "title": "The Book of Acts: An Overview",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "11289",
+      "title": "The New Book: The Triumph of Christianity",
+      "topics": [
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "11576",
+      "title": "Back to the Question of How Many People Converted",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11578",
+      "title": "More on Numbers of Converts",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "21403",
+      "title": "John, the Bedbugs, and Miracles that Convert",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Miracle Stories in Non-Canonical Texts"
+      ]
+    },
+    {
+      "wpId": "22090",
+      "title": "Women Apostles in Early Christianity",
+      "topics": [
+        "Mary Magdalene",
+        "Women in Early Christianity"
+      ]
+    },
+    {
+      "wpId": "30975",
+      "title": "Thomas’s Trip to India and the Problem of Wealth",
+      "topics": [
+        "Early Christian Teachings on Wealth",
+        "Acts of Thomas"
+      ]
+    },
+    {
+      "wpId": "35557",
+      "title": "Who Was Spreading the Stories about Jesus Before the Gospels?",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Jesus Before the Gospels",
+        "Oral Tradition",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "35561",
+      "title": "Being Realistic about How Stories about Jesus Spread before the Gospels",
+      "topics": [
+        "Oral Tradition",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "38639",
+      "title": "What is the Book of Acts About?",
+      "topics": [
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "38840",
+      "title": "Among Paul’s Enemies….",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Paul and His Opponents",
+        "Paul's Churches and Communities"
+      ]
+    },
+    {
+      "wpId": "40382",
+      "title": "How Many Christians Were There in 100 CE? 150? 250? 300?",
+      "topics": [
+        "Early Church Developments",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "41050",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul and His Opponents",
+        "Paul in Acts"
+      ]
+    },
+    {
+      "wpId": "47121",
+      "title": "The Life of Paul in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Salvation (General)",
+        "Romans",
+        "Pauline Salvation Models"
+      ]
+    },
+    {
+      "wpId": "47137",
+      "title": "Paul and Women Apostles",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Translation Issues",
+        "Romans",
+        "Paul's Churches and Communities"
+      ]
+    },
+    {
+      "wpId": "47169",
+      "title": "Galatians:  Who, When, and Why?",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Pauline Authorship",
+        "Galatians"
+      ]
+    },
+    {
+      "wpId": "47234",
+      "title": "1 Thessalonians: Who, When, and Why",
+      "topics": [
+        "Pauline Authorship",
+        "1 Thessalonians"
+      ]
+    },
+    {
+      "wpId": "49737",
+      "title": "How Early Christians Made Converts.  (Tent revivals?)",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "49820",
+      "title": "And the Miracles Just Keep on Comin’",
+      "topics": [
+        "Apocryphal Acts",
+        "Conversion",
+        "Jesus and Abgar Legend",
+        "Miracle Stories in Non-Canonical Texts"
+      ]
+    },
+    {
+      "wpId": "49838",
+      "title": "Biographical Accounts of Early Christian Miracles (Based on Eyewitnesses!)",
+      "topics": [
+        "Conversion",
+        "Historical Study of Miracles"
+      ]
+    }
+  ]
+}

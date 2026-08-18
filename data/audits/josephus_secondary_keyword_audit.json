@@ -1,0 +1,639 @@
+{
+  "keyword": "Josephus",
+  "criterion": "Retain Josephus when his writings, testimony, biography, historical claims, or use as comparative evidence materially supports the post. Remove source-list mentions, question framing, event listings, generic comparisons, and isolated references.",
+  "before": 76,
+  "after": 66,
+  "retained": 66,
+  "removed": 10,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "2000",
+      "title": "The Work of a Professional Scholar 2: Supervising PhD Dissertations",
+      "topics": [
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "2249",
+      "title": "Q & A with Ben Witherington: Part 3",
+      "topics": [
+        "Did Jesus Exist?"
+      ]
+    },
+    {
+      "wpId": "2573",
+      "title": "Peter as Literate?",
+      "topics": [
+        "Ancient Literacy",
+        "Petrine Authorship and Forgeries",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "4906",
+      "title": "Killing Jesus is Killing Me….",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "6459",
+      "title": "Aslan’s Zealot: Historical Mistakes",
+      "topics": [
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "7244",
+      "title": "Attacks from the Other Side: An Ill-Tempered Richard Carrier",
+      "topics": [
+        "Mythicism",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7565",
+      "title": "Did Pilate “Learn His Lesson”?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7569",
+      "title": "Pilate the Intransigent",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7574",
+      "title": "Discovered Crucifixion Nails",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7580",
+      "title": "Another Anecdote about Being Consistently Critical",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ]
+    },
+    {
+      "wpId": "7583",
+      "title": "Josephus and the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "7592",
+      "title": "Does Josephus Show that Jews Always Buried Their Dead?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7597",
+      "title": "More on Josephus and Jewish Burial Practices",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7601",
+      "title": "Josephus’s Clearest Claim about the Burial of Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7609",
+      "title": "The Skeletal Remains of Yehohanan and Their Significance",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "11640",
+      "title": "Did Matthew Write in Hebrew? Did Jesus Institute the Lord’s Supper?  Did Josephus Mention Jesus?  Weekly Readers’ Mailbag July 9, 2016",
+      "topics": [
+        "Gospel of Matthew",
+        "James the Brother of Jesus",
+        "Atonement (General)"
+      ]
+    },
+    {
+      "wpId": "11723",
+      "title": "Who Could Read and Write?  A Blast from the Past.",
+      "topics": [
+        "Ancient Literacy",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "11989",
+      "title": "The Gospels and the Existence of Jesus",
+      "topics": [
+        "Mythicism",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "12975",
+      "title": "Ancient Jewish Sects:  Pharisees and Sadducees",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "12977",
+      "title": "Two Other Ancient Jewish Sects",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "13207",
+      "title": "The Skeletal Remains of Yehohanan: Readers Mailbag October 8, 2017",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "13616",
+      "title": "Did Romans Allow Jews to Bury Crucified Victims?  Readers’ Mailbag January 1, 2018",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "14865",
+      "title": "Pontius Pilate: A Sensitive Guy….",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "14870",
+      "title": "Pilate, Who Never “Learned His Lesson”",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "15660",
+      "title": "Were First-Century Jewish Boys Taught to Read and Write?",
+      "topics": [
+        "Ancient Literacy",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "15876",
+      "title": "Non-Christian Sources for Jesus: An Interview with History.com",
+      "topics": [
+        "Media Interviews and Videos",
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "15908",
+      "title": "Do Any Ancient Jewish Sources Mention Jesus?  Weekly Mailbag",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "16367",
+      "title": "Could Most People Write in Antiquity?",
+      "topics": [
+        "Ancient Literacy"
+      ]
+    },
+    {
+      "wpId": "20577",
+      "title": "The Remarkable Story of Masada:  Guest Post by Jodi Magness",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "21009",
+      "title": "When Paul Says “Israel” Does He Mean “The Jews”?  Guest Post by Jason Staples",
+      "topics": [
+        "Early Judaism (General)",
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "26348",
+      "title": "What About Other References to Jesus Outside the New Testament?",
+      "topics": [
+        "Did Jesus Exist?",
+        "Methods for Studying the Historical Jesus"
+      ]
+    },
+    {
+      "wpId": "27935",
+      "title": "Killing Jesus Is Killing Me……",
+      "topics": [
+        "Pontius Pilate",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "28304",
+      "title": "What We KNOW about Jesus.  Platinum guest post by Dan Kohanski",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "28785",
+      "title": "Do We Have Any Reliable Sources for Pontius Pilate?",
+      "topics": [
+        "Historical Methods (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "29833",
+      "title": "Could Jews Bury Crucified Victims?  Most-commented Blog Post: #7",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "31240",
+      "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+      "topics": [
+        "Pentateuch",
+        "Translation Issues",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "32660",
+      "title": "How Many People Were Literate in Antiquity?",
+      "topics": [
+        "Ancient Literacy",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "32678",
+      "title": "Did Jesus Collaborate with the Romans to Produce His Movement?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Roman World",
+        "Jesus' Miracle Stories",
+        "Crucifixion of Jesus",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "32955",
+      "title": "What is it Like to Supervise PhD Dissertations?",
+      "topics": [
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "35346",
+      "title": "“You Have Heard His Blasphemy!” But Did They? A Platinum post by Daniel Kohanski",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Passion Narratives",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "35354",
+      "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+      "topics": [
+        "Development of the Trinity"
+      ]
+    },
+    {
+      "wpId": "36333",
+      "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "36498",
+      "title": "Did Pilate Allow Jesus to be Buried Because He Had “Learned his Lesson”?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36506",
+      "title": "Pontius Pilate, Intransigent Governor, Crucifier of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36594",
+      "title": "We Have Crucifixion Nails!  Isn’t that Evidence for Jesus’ Burial?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36605",
+      "title": "Why Do Some (Many?) Scholars Not Treat the Bible Like Other Ancient Sources?",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "36611",
+      "title": "The Evidence of Josephus for the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36616",
+      "title": "Did Jews Always Bury Their Dead on the Day of their Death?  Was Jesus Buried Then?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36622",
+      "title": "How Relevant is Josephus for Knowing What Happened to the Body of Jesus?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "36709",
+      "title": "Josephus’ One Statement About the Burial of Crucified Victims in Judea",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36715",
+      "title": "Does Archaeological Evidence Show that Jesus Was Buried on the Day He Died?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "38971",
+      "title": "Could Moses be Thutmose, the Overseer of the Borderlands? – Platinum Post from Serene",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Pentateuch",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "39865",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "41046",
+      "title": "Could Moses Have Been Thutmose, the Overseer of Borderlands? Platinum Post by Serene",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Pentateuch",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "41594",
+      "title": "Jewish Sects in the time of Jesus:  Pharisees and Sadducees",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "41609",
+      "title": "Jewish Sects at the Time of Jesus: The Essenes and the Fourth Philosophy",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "46956",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – by Mark Reichert (Platinum Member Winner)",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "46969",
+      "title": "Did The Apostle Peter Write 1 Peter?",
+      "topics": [
+        "Ancient Literacy",
+        "Petrine Authorship and Forgeries",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "47112",
+      "title": "The Acts of the Apostles:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Luke-Acts Authorship",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "47203",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – Guest Post by Platinum Member Mark Reichert",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "47269",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "topics": [
+        "Early Christian Diversity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "47727",
+      "title": "A Primer for the Study of the Historical Jesus:  Our Non-Gospel Sources",
+      "topics": [
+        "Methods for Studying the Historical Jesus"
+      ]
+    },
+    {
+      "wpId": "49520",
+      "title": "Anniversary Post #3:  My Response to an Ill-Tempered Richard Carrier",
+      "topics": [
+        "Pontius Pilate",
+        "Mythicism",
+        "Did Jesus Exist?"
+      ]
+    },
+    {
+      "wpId": "50057",
+      "title": "Pro-Roman Jews in First-Century Palestine? Guest Post by Christopher Stanley",
+      "topics": [
+        "Early Judaism (General)",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "50347",
+      "title": "Gist and Exaggeration: Jesus and the Cleansing of the Temple",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2228",
+      "title": "Was Jesus an Essene?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Early Judaism (General)",
+        "John the Baptist"
+      ]
+    },
+    {
+      "wpId": "3073",
+      "title": "Why Was Jesus Killed?",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "6277",
+      "title": "Jesus and Brian!!!",
+      "topics": [
+        "Life of Brian"
+      ]
+    },
+    {
+      "wpId": "6563",
+      "title": "Jesus’ Crucifixion as King of the Jews",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Messiah",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7563",
+      "title": "Did Pontius Pilate Respect Jewish Sensitivities?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "11992",
+      "title": "Gospel Evidence that Jesus Existed",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Canonical Gospels (General)",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "15012",
+      "title": "How Were Books Published in the Ancient World?",
+      "topics": [
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15820",
+      "title": "Guest Post!  Joel Marcus on His New Book on the John the Baptist",
+      "topics": [
+        "John the Baptist"
+      ]
+    },
+    {
+      "wpId": "16907",
+      "title": "Why Was Jesus Crucified: Bart Ehrman Crucifixion Thoughts",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "17237",
+      "title": "Who Was Jesus?",
+      "topics": [
+        "Historical Jesus (General)",
+        "Apocalyptic Jesus"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

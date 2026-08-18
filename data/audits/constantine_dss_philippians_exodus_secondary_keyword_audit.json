@@ -1,0 +1,433 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Constantine, Dead Sea Scrolls, Philippians, and Exodus",
+  "criterion": "Retain secondary keywords only when they identify meaningful supporting subjects, people, texts, places, or concepts; remove lists, passing examples, unrelated promotions, and ambiguous names.",
+  "auditedKeywords": [
+    "Constantine",
+    "Dead Sea Scrolls",
+    "Philippians",
+    "Exodus",
+    "Constantine von Tischendorf"
+  ],
+  "summary": {
+    "requestedKeywordsAudited": 4,
+    "linksReviewed": 165,
+    "linksRemoved": 41,
+    "linksAdded": 1,
+    "keywordsRetired": 0
+  },
+  "audits": [
+    {
+      "keyword": "Constantine",
+      "before": 42,
+      "retained": 32,
+      "removed": 10,
+      "final": 32,
+      "removedPosts": [
+        {
+          "wpId": "1738",
+          "title": "Q & A – Historical Events in Jesus Tradition",
+          "topics": [
+            "Burial of Jesus",
+            "Empty Tomb Traditions",
+            "Resurrection Arguments and Apologetics"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "3444",
+          "title": "Cover Stories on Jesus",
+          "topics": [
+            "Media Coverage and Reviews"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "6595",
+          "title": "My New Edition of After the New Testament",
+          "topics": [
+            "Early Christian Writings"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "14872",
+          "title": "Was Jesus Given Special Treatment?",
+          "topics": [
+            "Burial of Jesus",
+            "Pontius Pilate"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "17780",
+          "title": "Heaven and Hell Pre-order Offer: Still Valid!!",
+          "topics": [
+            "Ignore"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "27170",
+          "title": "Pop Quiz on Early Christianity",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "28167",
+          "title": "An Article about Religious Studies by One of My Undergraduate Students",
+          "topics": [
+            "Academic Careers and University Life"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "32817",
+          "title": "Is It Even Possible to Follow Jesus’ Teaching to “Love Your Neighbor as Yourself”",
+          "topics": [
+            "Charity and Altruism",
+            "Jesus on Wealth and Poverty",
+            "Jesus' Ethics",
+            "Jesus' Teachings"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "36724",
+          "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+          "topics": [
+            "Codex Sinaiticus"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "40170",
+          "title": "Ancient Ways of Interpreting Scripture",
+          "topics": [
+            "Christian Interpretation of Jewish Scripture",
+            "Gnostic and Orthodox Conflicts"
+          ],
+          "reason": "Constantine appears only in a title, date boundary, course or subject list, or brief comparison rather than as a meaningful supporting subject."
+        }
+      ]
+    },
+    {
+      "keyword": "Dead Sea Scrolls",
+      "before": 42,
+      "retained": 25,
+      "removed": 17,
+      "final": 25,
+      "removedPosts": [
+        {
+          "wpId": "2380",
+          "title": "My Colleague’s Archaeological Find!",
+          "topics": [
+            "Archaeology and Material Evidence",
+            "Early Judaism (General)"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "5125",
+          "title": "Is The NT Portrayal of Jesus Accurate?  Debate With Craig Evans",
+          "topics": [
+            "Public Debates",
+            "Gospel Historical Reliability",
+            "Historical Methods (General)"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "6142",
+          "title": "Who Can Still Be A Christian?",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Historical Jesus (General)"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "6595",
+          "title": "My New Edition of After the New Testament",
+          "topics": [
+            "Early Christian Writings"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "8884",
+          "title": "The Discovery of the Nag Hammadi Library",
+          "topics": [
+            "Nag Hammadi"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "9292",
+          "title": "The Apocalyptic Context for Jesus’ View of the Messiah",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Messiah"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "11339",
+          "title": "Final Exam for New Testament Class (2016)",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "12064",
+          "title": "The Apocalyptic Background to Jesus’ Messiahship",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Messiah"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "12262",
+          "title": "What About the Apocrypha?",
+          "topics": [
+            "Old Testament Apocrypha"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "12747",
+          "title": "The Essence of Biblical Apocalyptic Thought",
+          "topics": [
+            "Jewish Apocalypticism"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "15590",
+          "title": "Discovery of the Nag Hammadi Library and Some Crucial Missing Parts!",
+          "topics": [
+            "Nag Hammadi"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "21114",
+          "title": "How Jesus’ Apocalyptic Teachings Were Changed (even in the NT)",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Son of Man"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "27285",
+          "title": "Jesus’s Apocalyptic View of Destruction",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Divine Judgment"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "28730",
+          "title": "Major Perspectives of Ancient Jewish (and Jesus’!) Apocalyptic Views",
+          "topics": [
+            "Early Judaism (General)",
+            "Jewish Apocalypticism"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "35354",
+          "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+          "topics": [
+            "Development of the Trinity"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "40118",
+          "title": "My Most Helpful Book?   After the New Testament: A Reader in Early Christianity",
+          "topics": [
+            "Early Christian Writings",
+            "Early Christian Diversity"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        },
+        {
+          "wpId": "41351",
+          "title": "What Would an Apocalyptic Jew (Jesus!) Mean By Calling Himself Messiah?",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Messiah"
+          ],
+          "reason": "The scrolls appear only in credentials, a list, a chronological comparison, or a formulaic reference to the Essenes and are not discussed."
+        }
+      ]
+    },
+    {
+      "keyword": "Philippians",
+      "before": 41,
+      "retained": 36,
+      "removed": 5,
+      "final": 36,
+      "removedPosts": [
+        {
+          "wpId": "33874",
+          "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+          "topics": [
+            "Source Criticism",
+            "Paul's Knowledge of Jesus"
+          ],
+          "reason": "Philippians appears only in a list or brief comparison, or refers to Polycarp's audience rather than Paul's canonical letter."
+        },
+        {
+          "wpId": "47113",
+          "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+          "topics": [
+            "Exaltation Christology"
+          ],
+          "reason": "Philippians appears only in a list or brief comparison, or refers to Polycarp's audience rather than Paul's canonical letter."
+        },
+        {
+          "wpId": "47123",
+          "title": "Paul’s Letter to the Romans in a Nutshell",
+          "topics": [
+            "In a Nutshell Series",
+            "Salvation (General)",
+            "Romans",
+            "Pauline Salvation Models"
+          ],
+          "reason": "Philippians appears only in a list or brief comparison, or refers to Polycarp's audience rather than Paul's canonical letter."
+        },
+        {
+          "wpId": "48426",
+          "title": "The Letter of Polycarp to the Philippians (Another Apostolic Father) in a Nutshell",
+          "topics": [
+            "Apostolic Fathers",
+            "In a Nutshell Series"
+          ],
+          "reason": "Philippians appears only in a list or brief comparison, or refers to Polycarp's audience rather than Paul's canonical letter."
+        },
+        {
+          "wpId": "48428",
+          "title": "Light Cast on the Formation of the Christian Canon in Polycarp’s Short Letter",
+          "topics": [
+            "Apostolic Fathers",
+            "Canon Formation"
+          ],
+          "reason": "Philippians appears only in a list or brief comparison, or refers to Polycarp's audience rather than Paul's canonical letter."
+        }
+      ]
+    },
+    {
+      "keyword": "Exodus",
+      "before": 40,
+      "retained": 31,
+      "removed": 9,
+      "final": 31,
+      "removedPosts": [
+        {
+          "wpId": "11589",
+          "title": "Literary Tensions in the Creation Account of Genesis",
+          "topics": [
+            "Genesis",
+            "Pentateuch",
+            "Hebrew Bible Composition and Sources"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "12239",
+          "title": "What is the Hebrew Bible?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "12447",
+          "title": "The Afterlife in the Hebrew Bible: Sheol",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs",
+            "Heaven and Hell Beliefs"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "25653",
+          "title": "Two (Contradictory?) Accounts of Creation in Genesis?",
+          "topics": [
+            "Biblical Contradictions",
+            "Genesis"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "29103",
+          "title": "In the Beginning: Myth, Legend, and History in the Book of Genesis (Part 1)",
+          "topics": [
+            "Genesis",
+            "Courses and Teaching"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "32825",
+          "title": "Did King David Actually Exist?",
+          "topics": [
+            "Hebrew Bible Historical Reliability"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "33421",
+          "title": "Do We Have the Original Hebrew Bible (Old Testament)?",
+          "topics": [
+            "Dead Sea Scrolls and Essenes",
+            "Septuagint",
+            "Hebrew Bible Manuscripts"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "38977",
+          "title": "What Is Sheol in the Hebrew Bible?",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs",
+            "Eternal Punishment"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        },
+        {
+          "wpId": "48687",
+          "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "Exodus appears only in a book list, course promotion, broad example, or passing Pentateuch reference rather than as a meaningful supporting subject."
+        }
+      ]
+    }
+  ],
+  "disambiguatedReplacements": [
+    {
+      "keyword": "Constantine von Tischendorf",
+      "added": 1,
+      "posts": [
+        {
+          "wpId": "36724",
+          "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+          "topics": [
+            "Codex Sinaiticus"
+          ],
+          "reason": "The post centrally discusses the manuscript hunter Constantine von Tischendorf, not Emperor Constantine."
+        }
+      ]
+    }
+  ]
+}

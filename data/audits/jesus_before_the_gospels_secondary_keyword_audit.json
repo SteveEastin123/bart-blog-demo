@@ -1,0 +1,682 @@
+{
+  "keyword": "Jesus Before the Gospels",
+  "criterion": "Retain or add Jesus Before the Gospels when the book, an excerpt from it, its development, or its central arguments about memory, eyewitnesses, and oral tradition materially support the post. Remove incidental publishing references and posts whose actual subject is unrelated methodology or publishing history.",
+  "before": 67,
+  "after": 73,
+  "retained": 61,
+  "removed": 6,
+  "added": 12,
+  "retainedPosts": [
+    {
+      "wpId": "7669",
+      "title": "Trade Books and Scholarly Books",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "8668",
+      "title": "Differences Between Oral and Written Cultures",
+      "topics": [
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "8671",
+      "title": "“The Same” Traditions in Oral Cultures",
+      "topics": [
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "8733",
+      "title": "More on Collective Memory",
+      "topics": [
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "8736",
+      "title": "The Community Behind the Gospel of John",
+      "topics": [
+        "Gospel of John"
+      ]
+    },
+    {
+      "wpId": "8846",
+      "title": "Papias and the Eyewitnesses",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "9086",
+      "title": "What Is the “Original” Text?",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "9235",
+      "title": "Really???  Stories of Jesus’ Virgin Birth",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Eyewitness Reliability",
+        "Oral Tradition",
+        "Virgin Birth",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "11277",
+      "title": "Bart Ehrman vs Richard Bauckham – Round 1",
+      "topics": [
+        "Public Debates",
+        "Gospel Eyewitness Claims",
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "11793",
+      "title": "Were Jesus and His Followers Armed?",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "12587",
+      "title": "Can Myths Be True and Meaningful?",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "15168",
+      "title": "Why Are The Gospels Called Matthew, Mark, Luke, and John?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark",
+        "Luke-Acts Authorship",
+        "Gospel of Matthew",
+        "Gospel of John"
+      ]
+    },
+    {
+      "wpId": "15373",
+      "title": "Jesus and His Miracles: Some Interesting Features",
+      "topics": [
+        "Jesus' Miracle Stories"
+      ]
+    },
+    {
+      "wpId": "15929",
+      "title": "Pilate Released Barabbas.  Really??",
+      "topics": [
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "20639",
+      "title": "If We Did Have the “Original” Gospels, Would That Make Them True?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Oral Tradition",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "20741",
+      "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "20782",
+      "title": "Weren’t Jesus’ Followers Armed and Eager to Fight in the Garden of Gethsemane?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Memory and Jesus Traditions",
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "21862",
+      "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?",
+      "topics": [
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "23521",
+      "title": "Do You Want to Hear Two More Lectures on the Gospels?",
+      "topics": [
+        "Courses and Teaching",
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "24593",
+      "title": "Did Jesus Really Have a “Triumphal Entry” into Jerusalem?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "24729",
+      "title": "Fantastic Story.  But History?  Some Doubts about the Triumphal Entry",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Memory and Jesus Traditions",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "32589",
+      "title": "Did Jesus Believe in Armed Resistance to the Romans?",
+      "topics": [
+        "Zealot Hypothesis",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "34472",
+      "title": "Did Mark Write Mark?  What the Apostolic Fathers Say",
+      "topics": [
+        "Apostolic Fathers",
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of Mark",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "34480",
+      "title": "Who Wrote the Gospels?  Our Earliest (Apparent) Reference",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "35212",
+      "title": "Remembering Columbus, Remembering Christ",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35216",
+      "title": "How Do We “Remember”  Lincoln?",
+      "topics": [
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35261",
+      "title": "Does Understanding “Memory” Have Any Bearing on the Study of the Historical Jesus?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35404",
+      "title": "Did Early Christians “Invent” Memories of Jesus?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35410",
+      "title": "How Can We Get Behind “False Memories” of Jesus to the Historical Facts?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions",
+        "Gospel of Mark",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35428",
+      "title": "Stories of Jesus Passed on By Word of Mouth.  When Scholars First Took Oral Traditions Seriously.",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35432",
+      "title": "Didn’t the Disciples Memorize Jesus’ Teachings and Accounts of His Life?",
+      "topics": [
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35436",
+      "title": "More Problems with Thinking Jesus’ Followers Memorized the Stories about Him",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35473",
+      "title": "Do Modern Mideastern Customs of Story Telling Show that the Gospels Are Accurate?",
+      "topics": [
+        "Gospel Eyewitness Claims",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35478",
+      "title": "Do Modern Mideastern Story Tellers Show How the Ancient Traditions of Jesus Were Circulated?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35482",
+      "title": "Are *Groups* of Story Tellers (Think: Ancient Followers of Jesus) More Likely to Preserve Traditions Accurately than Individuals?",
+      "topics": [
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35553",
+      "title": "Jesus, Eyewitnesses, and Stories Floating Around….",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35561",
+      "title": "Being Realistic about How Stories about Jesus Spread before the Gospels",
+      "topics": [
+        "Oral Tradition",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "35605",
+      "title": "Eyewitnesses and Guaranteed Accuracy",
+      "topics": [
+        "Eyewitness Reliability",
+        "Miracle Claims and Apologetics",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35609",
+      "title": "Eyewitness Testimony: The Importance of Actual Expertise",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35622",
+      "title": "Were Jesus’ Most Amazing Deeds the Ones Most Likely to be Remembered?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35645",
+      "title": "If We Can Know the “Gist” of What Jesus Said and Did … What’s the Gist?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35649",
+      "title": "The Events Leading up to the Death of Jesus: What Can We Know and Not Know?",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Jesus' Passion Narratives"
+      ]
+    },
+    {
+      "wpId": "35653",
+      "title": "Jesus’ Trial Before Pilate: What Can We Actually Know?",
+      "topics": [
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Methods for Studying the Historical Jesus",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35658",
+      "title": "Jesus’ Trial Before Pilate: Some of the Distorted Memories of the Gospels",
+      "topics": [
+        "Gospel of John",
+        "Canonical Gospels (General)",
+        "Memory and Jesus Traditions",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "35720",
+      "title": "How Accurate Are Orally-Transmitted Reports? A Platinum Post From Imran M. Usmani",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35742",
+      "title": "Did the Triumphal Entry Really Happen?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Memory and Jesus Traditions",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "35746",
+      "title": "Did Jesus Really Cleanse the Temple?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "35755",
+      "title": "Were Jesus Followers Really Armed and Dangerous in the Garden of Gethsemane?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Memory and Jesus Traditions",
+        "Jesus' Passion Narratives",
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "35760",
+      "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?",
+      "topics": [
+        "Pontius Pilate",
+        "Memory and Jesus Traditions",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "35764",
+      "title": "Did the Curtain in the Temple Really Rip in Half at Jesus’ Crucifixion?",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Memory and Jesus Traditions",
+        "Jesus' Passion Narratives"
+      ]
+    },
+    {
+      "wpId": "38426",
+      "title": "Do People in Oral Cultures Have Better Memories?",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "38430",
+      "title": "How Do We Know About Oral Cultures?  By Starting Where You’d Never Suspect!",
+      "topics": [
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "38434",
+      "title": "When is “The Same” Memory/Tradition/Story Not Actually “The Same”?",
+      "topics": [
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "38438",
+      "title": "Proof That Historical Narratives (not just myths) Constantly Change in Oral Cultures",
+      "topics": [
+        "Eyewitness Reliability",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "38442",
+      "title": "Changing the Past in Light of the Present",
+      "topics": [
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "39468",
+      "title": "Is There an Original Text Even of One of MY Books??",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "49237",
+      "title": "Eyewitness Accounts of Miracles",
+      "topics": [
+        "Eyewitness Reliability",
+        "Historical Study of Miracles",
+        "Miracle Claims and Apologetics",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "49239",
+      "title": "While We’re Talking About the Reliability of Eyewitnesses…",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Eyewitness Claims"
+      ]
+    },
+    {
+      "wpId": "49522",
+      "title": "Anniversary Post #4: Why Gospels Matter Even Where They Are Not Historical",
+      "topics": [
+        "Memory and Jesus Traditions",
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "50273",
+      "title": "Jesus the Pacifist",
+      "topics": [
+        "Zealot Hypothesis",
+        "Apocalyptic Jesus",
+        "Jesus' Teachings",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "50319",
+      "title": "The Implausibility of the Triumphal Entry",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Messiah"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "10314",
+      "title": "Weekly Readers’ Mailbag: March 12, 2016",
+      "topics": [
+        "Fundamentalism",
+        "Public-Facing Scholarship",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "11188",
+      "title": "Publishing with HarperOne",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11198",
+      "title": "Why I Have Moved to a New Publisher",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11287",
+      "title": "Getting a Literary Agent",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15880",
+      "title": "A New Way of Looking at the Gospels",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Redaction Criticism"
+      ]
+    },
+    {
+      "wpId": "16618",
+      "title": "Why Don’t More Scholars Write Trade Books?",
+      "topics": [
+        "General-Audience Books"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "7664",
+      "title": "My Future Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "8629",
+      "title": "Why I Shifted My Research Plans",
+      "topics": [
+        "Gospel of Peter",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "9504",
+      "title": "Am I Converting to Islam?",
+      "topics": [
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "9671",
+      "title": "Weekly Readers’ Mailbag: February 7, 2016",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "10404",
+      "title": "Memory, Eyewitnesses, and the Relevance of Jesus: Readers Mailbag",
+      "topics": [
+        "Eyewitness Reliability",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "11863",
+      "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016",
+      "topics": [
+        "Pontius Pilate",
+        "Life After Death (General)"
+      ]
+    },
+    {
+      "wpId": "12413",
+      "title": "What Really Happens With Group Visions",
+      "topics": [
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "14872",
+      "title": "Was Jesus Given Special Treatment?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "34048",
+      "title": "Am I About To Become Muslim?",
+      "topics": [
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "35270",
+      "title": "In What Sense is a Made-Up Story about Jesus a False *Memory*??",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "39090",
+      "title": "Am I Converting to Islam?",
+      "topics": [
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "40268",
+      "title": "The Reliability of Eyewitnesses and Abraham Lincoln’s Watch",
+      "topics": [
+        "Eyewitness Reliability"
+      ]
+    }
+  ]
+}

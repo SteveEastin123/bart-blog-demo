@@ -1,0 +1,557 @@
+{
+  "keyword": "Gnosticism",
+  "criterion": "Use Gnosticism when Gnostic beliefs, texts, movements, Christologies, opponents, or conflicts with proto-orthodox Christians are a major or meaningful supporting subject. Exclude references that merely identify a scholar's specialty or list Gnosticism among several academic fields or courses. Do not duplicate the equivalent Gnosticism (General) topic.",
+  "before": 58,
+  "after": 63,
+  "retained": 56,
+  "removed": 2,
+  "added": 7,
+  "retainedPosts": [
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+      "topics": [
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "2311",
+      "title": "Why Did “Orthodox” Christianity Win?",
+      "topics": [
+        "Eusebius of Caesarea",
+        "Gnostic and Orthodox Conflicts",
+        "Early Christian Orthodoxy and Heresy",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "3169",
+      "title": "Textual Problems in the Apostolic Fathers 2",
+      "topics": [
+        "Apostolic Fathers",
+        "Martyrdom of Polycarp",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "3222",
+      "title": "Lost Gospels That Are Still Lost 1",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Gospel of Judas"
+      ]
+    },
+    {
+      "wpId": "3769",
+      "title": "How Jesus Became God: The “Original” Idea, Part 3",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "6371",
+      "title": "A Gnostic View of Jesus’ Resurrection",
+      "topics": [
+        "Apocalypse of Peter",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "6891",
+      "title": "Jesus Kissing Mary Magdalene",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "7401",
+      "title": "The Sethian Gnostics",
+      "topics": [
+        "Sethian Gnostics"
+      ]
+    },
+    {
+      "wpId": "7406",
+      "title": "The Valentinian Gnostics",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "wpId": "7648",
+      "title": "ANT: Methods of Biblical Interpretation in the Early Church",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "8232",
+      "title": "A Newly Discovered Gospel?  Was Jesus Married with Children???",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "8246",
+      "title": "The Gospels are Finally Named!  Irenaeus of Lyons.",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Gospel Authorship",
+        "Canonical Gospels (General)"
+      ]
+    },
+    {
+      "wpId": "8664",
+      "title": "BBC Clip on “The Lost Gospels”",
+      "topics": [
+        "Gospel of Thomas",
+        "Media Interviews and Videos",
+        "Nag Hammadi"
+      ]
+    },
+    {
+      "wpId": "8928",
+      "title": "How Diverse Was Early Christianity?",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "9020",
+      "title": "Mark 1:1 as an Intentional Alteration of the Text",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Gospel of Mark",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "9156",
+      "title": "Early Christian Docetism",
+      "topics": [
+        "Christology (General)",
+        "Marcion"
+      ]
+    },
+    {
+      "wpId": "9202",
+      "title": "Was Christ God?  The View of Jewish-Christian Ebionites",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "11546",
+      "title": "Jesus’ Death and Resurrection for Salvation; Paul’s Collection; and My Sunday Mornings: Readers’ Mailbag June 11, 2016",
+      "topics": [
+        "Atonement (General)",
+        "Meaning of Jesus' Resurrection",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "14398",
+      "title": "Did They Crucify the Wrong Guy?  Jesus’ Identity Switch.",
+      "topics": [
+        "Apocalypse of Peter"
+      ]
+    },
+    {
+      "wpId": "14899",
+      "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "15415",
+      "title": "How the Gospel of Thomas Was Discovered",
+      "topics": [
+        "Gospel of Thomas",
+        "Nag Hammadi"
+      ]
+    },
+    {
+      "wpId": "15440",
+      "title": "The Sethian Gnostics, from After The New Testament",
+      "topics": [
+        "Sethian Gnostics"
+      ]
+    },
+    {
+      "wpId": "15446",
+      "title": "The Gospel of Thomas: An Overview",
+      "topics": [
+        "Gospel of Thomas"
+      ]
+    },
+    {
+      "wpId": "15448",
+      "title": "Thomas: The Most Important Gospel Outside the New Testament",
+      "topics": [
+        "Gospel of Thomas"
+      ]
+    },
+    {
+      "wpId": "17569",
+      "title": "A “Newly Discovered” “Gospel”: Was Jesus Married with Children?",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene"
+      ]
+    },
+    {
+      "wpId": "17615",
+      "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions",
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "wpId": "20946",
+      "title": "Did Early Christian Heretics Promote Outrageous Sex Rituals?",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "20951",
+      "title": "Slurs Against Religious Opponents and Makin’ Stuff Up",
+      "topics": [
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "20971",
+      "title": "How I First Learned About the Gospel of Judas Iscariot",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Gospel of Judas"
+      ]
+    },
+    {
+      "wpId": "21058",
+      "title": "Sethian Gnostics and the Gospel of Judas",
+      "topics": [
+        "Gospel of Judas",
+        "Sethian Gnostics"
+      ]
+    },
+    {
+      "wpId": "21281",
+      "title": "The Secret Message of the Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ]
+    },
+    {
+      "wpId": "22087",
+      "title": "The Gospel of Mary Magdalene",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "23254",
+      "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "24247",
+      "title": "More Live Lectures this Sunday:  The Gospel of John and Early Christian Gnosticism!",
+      "topics": [
+        "Blog Updates and Fundraising",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "24723",
+      "title": "Were Jesus and Christ Two Different Beings?",
+      "topics": [
+        "Apocalypse of Peter"
+      ]
+    },
+    {
+      "wpId": "29928",
+      "title": "Did Heretics’ Texts Describe Their Incestuous Rituals?",
+      "topics": [
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "32445",
+      "title": "The OTHER Apocalypse of Peter (Stranger still…)",
+      "topics": [
+        "Apocalypse of Peter",
+        "Gnostic and Orthodox Conflicts",
+        "Christology (General)"
+      ]
+    },
+    {
+      "wpId": "33310",
+      "title": "Why Would Scribes Mess with Mark’s Very First Verse?",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Gospel of Mark",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "37317",
+      "title": "The Gospel of Judas: The Most Recently Discovered Sethian Gnostic Gospel",
+      "topics": [
+        "Gospel of Judas",
+        "Sethian Gnostics"
+      ]
+    },
+    {
+      "wpId": "37367",
+      "title": "Check Out This Gnostic Myth from the Gospel of Judas!",
+      "topics": [
+        "Gospel of Judas",
+        "Sethian Gnostics"
+      ]
+    },
+    {
+      "wpId": "37376",
+      "title": "A Different Kind of Gnostic:  The Valentinians",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "wpId": "37380",
+      "title": "The Gospel of Philip: An Example of a Valentinian Gnostic Gospel",
+      "topics": [
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "wpId": "37384",
+      "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions",
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "wpId": "37415",
+      "title": "The Most Famous Non-Canonical Gospel: The Gospel of Thomas",
+      "topics": [
+        "Gospel of Thomas"
+      ]
+    },
+    {
+      "wpId": "37422",
+      "title": "What Is the Gospel of Thomas All About?  And Did the Author Use the New Testament Gospels?",
+      "topics": [
+        "Gospel of Thomas"
+      ]
+    },
+    {
+      "wpId": "37497",
+      "title": "Wasn’t Early Christianity Basically Unified?  Why Fret About Occasional Diversity?",
+      "topics": [
+        "Early Christian Diversity",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "38493",
+      "title": "Jesus and Mary Magdalene Seen Kissing??",
+      "topics": [
+        "Mary Magdalene",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "39703",
+      "title": "The Arch-Heretic of Them All? Simon of Samaria — Guest Post From Dr. David Litwa",
+      "topics": [
+        "Gnostic and Orthodox Conflicts"
+      ]
+    },
+    {
+      "wpId": "40170",
+      "title": "Ancient Ways of Interpreting Scripture",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gnostic and Orthodox Conflicts"
+      ]
+    },
+    {
+      "wpId": "40174",
+      "title": "Competing Interpretations of Scripture in the Early Church",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gnostic and Orthodox Conflicts",
+        "Valentinian Gnostics"
+      ]
+    },
+    {
+      "wpId": "41050",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul and His Opponents",
+        "Paul in Acts"
+      ]
+    },
+    {
+      "wpId": "47008",
+      "title": "The Weird Textual Variant of 1 John 4:3:  False Teachers Who “Loose” Jesus?",
+      "topics": [
+        "Gnostic and Orthodox Conflicts",
+        "Theologically Significant Variants",
+        "Johannine Epistles"
+      ]
+    },
+    {
+      "wpId": "47246",
+      "title": "The Pastoral Epistle of 1 Timothy in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Pastoral Epistles"
+      ]
+    },
+    {
+      "wpId": "47249",
+      "title": "Who Wrote the Pastoral Epistles?  When?  And Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Pauline Forgeries",
+        "Pastoral Epistles"
+      ]
+    },
+    {
+      "wpId": "47256",
+      "title": "More Evidence That the Pastoral Epistles Were Written After the Days of Paul",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts",
+        "Pauline Authorship",
+        "Pauline Forgeries",
+        "Pastoral Epistles"
+      ]
+    },
+    {
+      "wpId": "49417",
+      "title": "Early Christian Reactions to “Heresies” in a Nutshell",
+      "topics": [
+        "Eusebius of Caesarea",
+        "In a Nutshell Series",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2059",
+      "title": "The Work of a Professional Scholar 5: Graduate Seminars",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "2797",
+      "title": "BREAKING NEWS!  A Significant New Non-Canonical Gospel Fragment",
+      "topics": [
+        "Gospel of Jesus' Wife Fragment"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "4513",
+      "title": "Early Christianity in Egypt",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts"
+      ]
+    },
+    {
+      "wpId": "8950",
+      "title": "Orthodoxy and Proto-Orthodoxy",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    },
+    {
+      "wpId": "29925",
+      "title": "Fabrication, Forgery, and Accusations of (Heretical) Christian Licentious Rituals!",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "40302",
+      "title": "A (Modern-Discovered) Gospel That Shows Jesus Was Married With Children?",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Mary Magdalene",
+        "Non-Canonical Gospel Traditions",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "47007",
+      "title": "Was Jesus Christ Two Beings, One Human (Jesus) and One Divine (Christ)?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Johannine Epistles",
+        "Theologically Significant Variants",
+        "Gnostic and Orthodox Conflicts"
+      ]
+    },
+    {
+      "wpId": "47009",
+      "title": "1 John in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Johannine Epistles",
+        "Gnostic and Orthodox Conflicts"
+      ]
+    },
+    {
+      "wpId": "48295",
+      "title": "A Glimpse of Proto-orthodox Views in the Letters of Ignatius",
+      "topics": [
+        "Apostolic Fathers",
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts"
+      ]
+    }
+  ]
+}

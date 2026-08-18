@@ -1,0 +1,602 @@
+{
+  "keyword": "Persecution",
+  "criterion": "Retain or add Persecution when oppression, official or social violence, the persecution of Christians or Jews, or persecution's historical and theological effects materially support the post. Remove exam and syllabus entries, announcements, intellectual criticism mislabeled as persecution, and passing background.",
+  "before": 64,
+  "after": 57,
+  "retained": 51,
+  "removed": 13,
+  "added": 6,
+  "retainedPosts": [
+    {
+      "wpId": "2483",
+      "title": "Paul the Persecutor and the Historical Jesus",
+      "topics": [
+        "Paul as Persecutor and Persecuted",
+        "Paul in Acts",
+        "Paul's Knowledge of Jesus",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "2755",
+      "title": "Jesus’ Death in Mark and Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Gospel of Mark",
+        "Atonement in Luke-Acts"
+      ]
+    },
+    {
+      "wpId": "3012",
+      "title": "Christians Charged as Perverts and Criminals",
+      "topics": [
+        "Roman Persecution of Christians"
+      ]
+    },
+    {
+      "wpId": "3054",
+      "title": "Were the Disciples Martyred for Believing the Resurrection?",
+      "topics": [
+        "Apocryphal Acts",
+        "Apostolic Death Traditions"
+      ]
+    },
+    {
+      "wpId": "4241",
+      "title": "Persecutions for Calling Jesus God",
+      "topics": [
+        "Christology (General)"
+      ]
+    },
+    {
+      "wpId": "4947",
+      "title": "Constantine and Christianity",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "8538",
+      "title": "Finally!  How To Understand the Symbols of Revelation",
+      "topics": [
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "11289",
+      "title": "The New Book: The Triumph of Christianity",
+      "topics": [
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "11346",
+      "title": "The Conversion of Constantine and Beyond",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments",
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "11447",
+      "title": "How Many Christians Were There?",
+      "topics": [
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11457",
+      "title": "How Significant Was Early Christianity?",
+      "topics": [
+        "Rise of Christianity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "11518",
+      "title": "Paul as a Persecutor of the Church",
+      "topics": [
+        "Paul as Persecutor and Persecuted",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "11551",
+      "title": "Why Paul Persecuted the Christians",
+      "topics": [
+        "Messiah",
+        "Paul as Persecutor and Persecuted"
+      ]
+    },
+    {
+      "wpId": "11556",
+      "title": "How Paul Persecuted the Christians",
+      "topics": [
+        "Paul as Persecutor and Persecuted"
+      ]
+    },
+    {
+      "wpId": "11652",
+      "title": "The Emperor Constantine: Some Background",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "12667",
+      "title": "A Very Different Portrayal of Jesus’ Death",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Gospel of Mark",
+        "Gospel of Luke",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "12813",
+      "title": "The First Apocalypse: The Book of Daniel",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "12858",
+      "title": "Physical Persecution and the Physical Resurrection of the Dead",
+      "topics": [
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "14912",
+      "title": "The Conversion of Constantine",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "15128",
+      "title": "Are Christians Intolerant?",
+      "topics": [
+        "Early Church Developments",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "15519",
+      "title": "More on the Symbolism of Revelation",
+      "topics": [
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "15523",
+      "title": "The Afterlife in Revelation",
+      "topics": [
+        "Life After Death (General)",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "15647",
+      "title": "The So-Called First Letter of Peter",
+      "topics": [
+        "Persecution in the Epistles",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "15649",
+      "title": "The Situation Behind the (“Forged”) Book of 1 Peter",
+      "topics": [
+        "Persecution in the Epistles",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "21245",
+      "title": "Jesus’ Death in Mark and Luke: Why Don’t They Agree?",
+      "topics": [
+        "Gospel of Luke",
+        "Gospel of Mark",
+        "Atonement in Luke-Acts"
+      ]
+    },
+    {
+      "wpId": "28740",
+      "title": "Did Paul Invent Jesus’ Resurrection?",
+      "topics": [
+        "Early Christianity (General)",
+        "Resurrection of Jesus",
+        "Paul on Resurrection",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "28939",
+      "title": "Are the Teachings of Jesus Realistic?   Platinum guest post by Douglas Wadeson",
+      "topics": [
+        "Jesus' Teachings",
+        "Jesus' Ethics",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "29786",
+      "title": "Are the Teachings of Jesus Realistic?  Guest Post by Douglas Wadeson",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "33005",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ]
+    },
+    {
+      "wpId": "33268",
+      "title": "Why Paul Was Persecuted (Or Claimed He Was).  Guest Post by Daniel Kohanski",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Paul as Persecutor and Persecuted"
+      ]
+    },
+    {
+      "wpId": "35865",
+      "title": "Was Paul Authorized to Persecute Christians?",
+      "topics": [
+        "Paul as Persecutor and Persecuted",
+        "Paul in Acts"
+      ]
+    },
+    {
+      "wpId": "40368",
+      "title": "The Conversion of the Emperor Constantine",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "40436",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 1). Guest Post by James Tabor",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Life and Career",
+        "Pauline Authorship"
+      ]
+    },
+    {
+      "wpId": "40440",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "40456",
+      "title": "Were Christians Statistically Insignificant in the First 200 years?",
+      "topics": [
+        "Early Church Developments",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "46927",
+      "title": "The Letter to the Hebrews: In a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Persecution in the Epistles",
+        "Hebrews",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "46933",
+      "title": "The Book of Hebrews:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Non-Pauline Epistle Authorship",
+        "Persecution in the Epistles",
+        "Hebrews"
+      ]
+    },
+    {
+      "wpId": "46967",
+      "title": "1 Peter in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Persecution in the Epistles",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "46968",
+      "title": "1 Peter: Who Wrote It, When, and Why?",
+      "topics": [
+        "Ancient Literacy",
+        "Persecution in the Epistles",
+        "1 Peter",
+        "Non-Pauline Epistle Authorship",
+        "Petrine Authorship and Forgeries"
+      ]
+    },
+    {
+      "wpId": "46975",
+      "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul",
+      "topics": [
+        "Non-Pauline Epistle Authorship",
+        "Petrine Authorship and Forgeries",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "46983",
+      "title": "For Further Reading on James, 1 Peter, and 2 Peter",
+      "topics": [
+        "Letter of James",
+        "1 Peter",
+        "2 Peter"
+      ]
+    },
+    {
+      "wpId": "47121",
+      "title": "The Life of Paul in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47140",
+      "title": "Guest Post by Dr. Paula Fredriksen Part II: The Politics of Piety",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Roman Persecution of Christians"
+      ]
+    },
+    {
+      "wpId": "47141",
+      "title": "Guest Post by Dr. Paul Fredriksen Part III: The Conversions of “Christianity”",
+      "topics": [
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "47224",
+      "title": "1 Thessalonians in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Persecution in the Epistles",
+        "1 Thessalonians"
+      ]
+    },
+    {
+      "wpId": "47236",
+      "title": "2 Thessalonians in a Nutshell",
+      "topics": [
+        "2 Thessalonians",
+        "In a Nutshell Series",
+        "Pauline Forgeries",
+        "Persecution in the Epistles"
+      ]
+    },
+    {
+      "wpId": "47849",
+      "title": "The Book of Revelation: When and Why?",
+      "topics": [
+        "Book of Revelation",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "47866",
+      "title": "Hebrews and James:  “At a Glance” and “Questions for Reflection”",
+      "topics": [
+        "Hebrews",
+        "Letter of James"
+      ]
+    },
+    {
+      "wpId": "47958",
+      "title": "1 and 2 Peter and Jude “At a Glance,” and Questions for Reflection",
+      "topics": [
+        "1 Peter",
+        "2 Peter",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "49526",
+      "title": "Anniversary Post #5: Why I Was Reluctant to Write The Triumph of Christianity",
+      "topics": [
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "49663",
+      "title": "An Amazing Fragment of a Lost Gospel: Anniversary Post #12",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2759",
+      "title": "Why Did Scribes Add the Bloody Sweat?",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "Church Fathers as Textual Evidence",
+        "Scribal Changes",
+        "Textual Variants",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "7654",
+      "title": "My Apostolic Fathers Seminar/Syllabus",
+      "topics": [
+        "Apostolic Fathers",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "11675",
+      "title": "Constantine Before His Conversion",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "11680",
+      "title": "Two Versions of Constantine’s Vision",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "13213",
+      "title": "Explaining Jesus’ Apocalyptic Assumptions",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "15773",
+      "title": "Does Eternal Punishment Even Make Sense?",
+      "topics": [
+        "Augustine of Hippo",
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "16272",
+      "title": "Why Christians Needed an Old Testament: Pagan Attacks on the Faith",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "17537",
+      "title": "Want To Know About the Apostolic Fathers?",
+      "topics": [
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "27793",
+      "title": "Why Would Later Scribes Be Interested In Having Jesus “Sweat Blood”?",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "Scribal Changes",
+        "Textual Variants",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "33161",
+      "title": "My New Podcast.   Help!  I Need Questions.",
+      "topics": [
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "35188",
+      "title": "And Here’s My Final Exam on The Birth of Christianity",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "35332",
+      "title": "Dr. Bart D. Ehrman, Apostle to the Atheists. A Platinum Post by Robert Droney",
+      "topics": [
+        "Atheism"
+      ]
+    },
+    {
+      "wpId": "47012",
+      "title": "1, 2, and 3 John: For Further Reading",
+      "topics": [
+        "Johannine Epistles"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "12854",
+      "title": "A Resurrection for Tortured Jews (2 Maccabees)",
+      "topics": [
+        "Martyrdom Traditions (General)",
+        "Old Testament Apocrypha",
+        "Resurrection of the Dead",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "49414",
+      "title": "Early Persecutions of Christians, in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Roman Persecution of Christians"
+      ]
+    },
+    {
+      "wpId": "49419",
+      "title": "When Emperors Became More Involved in Christian Persecutions",
+      "topics": [
+        "Greco-Roman Religious Culture",
+        "Roman Persecution of Christians",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "49422",
+      "title": "The First Attempts to Wipe Out Christianity",
+      "topics": [
+        "Roman Persecution of Christians"
+      ]
+    },
+    {
+      "wpId": "49863",
+      "title": "Did the Glories of Martyrdom Lead to Christian Conversions?",
+      "topics": [
+        "Conversion",
+        "Martyrdom Traditions (General)"
+      ]
+    },
+    {
+      "wpId": "49926",
+      "title": "How To Figure Out If a Miracle Happened…  Questions from Readers",
+      "topics": [
+        "Historical Methods (General)",
+        "Historical Study of Miracles",
+        "Resurrection Arguments and Apologetics",
+        "Miracle Claims and Apologetics",
+        "Roman Persecution of Christians"
+      ]
+    }
+  ]
+}

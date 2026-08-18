@@ -1,0 +1,624 @@
+{
+  "keyword": "Burial",
+  "criterion": "Retain Burial when burial practices, Jesus' burial, Joseph of Arimathea, Roman or Jewish treatment of bodies, or burial's relation to the empty tomb materially supports the post. Remove framing references, narrative details, book titles, and examples whose actual subject lies elsewhere.",
+  "before": 71,
+  "after": 57,
+  "retained": 57,
+  "removed": 14,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "36715",
+      "title": "Does Archaeological Evidence Show that Jesus Was Buried on the Day He Died?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36709",
+      "title": "Josephus’ One Statement About the Burial of Crucified Victims in Judea",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36622",
+      "title": "How Relevant is Josephus for Knowing What Happened to the Body of Jesus?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "36616",
+      "title": "Did Jews Always Bury Their Dead on the Day of their Death?  Was Jesus Buried Then?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36611",
+      "title": "The Evidence of Josephus for the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36506",
+      "title": "Pontius Pilate, Intransigent Governor, Crucifier of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36498",
+      "title": "Did Pilate Allow Jesus to be Buried Because He Had “Learned his Lesson”?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36490",
+      "title": "Was Pilate Sensitive to Jews and their Customs (such that he would allow decent burials for crucified victims)?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36594",
+      "title": "We Have Crucifixion Nails!  Isn’t that Evidence for Jesus’ Burial?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36403",
+      "title": "Hey, Stop Trashing the Gospels!",
+      "topics": [
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "36395",
+      "title": "Were Roman Leaders Told to Provide Decent Burials for Crucified Victims?  (Really?)",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "36389",
+      "title": "Did Romans Show Clemency to Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36286",
+      "title": "Alleged “Proof” That Crucified Jews Were Allowed Decent Burials",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "36282",
+      "title": "Does It Even Matter If Jesus Was Given a Proper Burial?",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "36276",
+      "title": "More Reasons for Thinking Jesus was Not Given a Decent Burial",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36224",
+      "title": "Did Romans Allow Decent Burials for Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "36219",
+      "title": "Literary Problems with the Gospel Accounts of Jesus’ Burial",
+      "topics": [
+        "Burial of Jesus"
+      ]
+    },
+    {
+      "wpId": "36215",
+      "title": "Back to Whether Jesus Was Really Given a Decent Burial",
+      "topics": [
+        "Burial of Jesus",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "36026",
+      "title": "The Life of Brian and Jesus:  Was Jesus Really Buried on the Day of the Crucifixion?",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "31240",
+      "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+      "topics": [
+        "Pentateuch",
+        "Translation Issues",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "7543",
+      "title": "Why Romans Crucified People and Who Was Crucifixion Reserved For?",
+      "topics": [
+        "Roman Crucifixion and Burial",
+        "Roman World",
+        "Social Class in Antiquity"
+      ]
+    },
+    {
+      "wpId": "29833",
+      "title": "Could Jews Bury Crucified Victims?  Most-commented Blog Post: #7",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "29817",
+      "title": "Burials for the Crucified.  Most-commented Blog Post: #9",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "21324",
+      "title": "Some Intriguing Selections from the Gospel of Peter",
+      "topics": [
+        "Gospel of Peter",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "15471",
+      "title": "Gehenna:  Where You Do Not Want to Go",
+      "topics": [
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "15469",
+      "title": "Jesus on Gehenna",
+      "topics": [
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "14872",
+      "title": "Was Jesus Given Special Treatment?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "14870",
+      "title": "Pilate, Who Never “Learned His Lesson”",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "14865",
+      "title": "Pontius Pilate: A Sensitive Guy….",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "13616",
+      "title": "Did Romans Allow Jews to Bury Crucified Victims?  Readers’ Mailbag January 1, 2018",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "13238",
+      "title": "Decent Burials for Crucified Victims: A Blast From the Past",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "13207",
+      "title": "The Skeletal Remains of Yehohanan: Readers Mailbag October 8, 2017",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "12422",
+      "title": "The Burial of Jesus: A Blast from the Past",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "7609",
+      "title": "The Skeletal Remains of Yehohanan and Their Significance",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7601",
+      "title": "Josephus’s Clearest Claim about the Burial of Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7597",
+      "title": "More on Josephus and Jewish Burial Practices",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7592",
+      "title": "Does Josephus Show that Jews Always Buried Their Dead?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7583",
+      "title": "Josephus and the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "7574",
+      "title": "Discovered Crucifixion Nails",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7569",
+      "title": "Pilate the Intransigent",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7565",
+      "title": "Did Pilate “Learn His Lesson”?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7563",
+      "title": "Did Pontius Pilate Respect Jewish Sensitivities?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7553",
+      "title": "Why Are You Trashing the Gospels?",
+      "topics": [
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "7550",
+      "title": "Did Roman Laws Require Decent Burials?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "7548",
+      "title": "Did Roman Authorities Show Clemency?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "7545",
+      "title": "Did Romans Allow Decent Burials?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "7541",
+      "title": "Jesus Burial: My Personal Stake in the Question",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7536",
+      "title": "Argument Against Jesus’ Burial in HJBG, Part 2",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7533",
+      "title": "Argument Against Jesus’ Burial in HJBG, Part 1",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7531",
+      "title": "New Thread on the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7494",
+      "title": "Brian and the Apocalyptic Jesus Part 3",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "3101",
+      "title": "Pilate and Barabbas",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "3094",
+      "title": "Decent Burials for Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "3090",
+      "title": "Crucified Bodies and Scavengers",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "3032",
+      "title": "Was Jesus Given a Decent Burial (By Joseph of Arimathea)",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "1970",
+      "title": "Another Question on the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "1738",
+      "title": "Q & A – Historical Events in Jesus Tradition",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Resurrection Arguments and Apologetics"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "49563",
+      "title": "Anniversary Post #6  Is Mark’s Seemingly Simple Gospel Unsophisticated?",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Passion Narratives"
+      ]
+    },
+    {
+      "wpId": "47270",
+      "title": "Acts of the Jewish Christians: Rethinking Their Role in the First Jewish-Roman War – Platinum Post by Rizwan Ahmed",
+      "topics": [
+        "Early Christian Diversity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36599",
+      "title": "How To Be a Consistently Critical Historian, In the Good Sense",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "36533",
+      "title": "Was “King of the Jews” Really the Charge Against Jesus, Leading to his Crucifixion?",
+      "topics": [
+        "Crucified Messiah",
+        "Crucifixion of Jesus",
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36435",
+      "title": "Why Discrepancies and Contradictions *Enrich* Our Understanding of the Gospels",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Passion Narratives",
+        "Gospel of Mark",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "35342",
+      "title": "Was Levi of Alphaeus the “the Beloved Disciple”? Platinum Post by Gregory Hartzler-Miller, MATS",
+      "topics": [
+        "Gospel of John",
+        "Gospel of Matthew",
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "31177",
+      "title": "An Even More Unusual Story of What Happens to the Rich…",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "25333",
+      "title": "Women and their Demons in the Life of Jesus: Guest Post by James McGrath",
+      "topics": [
+        "Jesus and Women",
+        "Jesus' Miracle Stories",
+        "Mary Magdalene",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "15541",
+      "title": "The Fate of the Rich and the Poor: Another Story",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Wealth and Poverty in Antiquity",
+        "Comparative Ancient Evidence",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "14687",
+      "title": "Can Historians Be Neutral?",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "12456",
+      "title": "Is Mark’s Gospel Unsophisticated?",
+      "topics": [
+        "Gospel of Mark",
+        "Jesus' Passion Narratives"
+      ]
+    },
+    {
+      "wpId": "7585",
+      "title": "Hiatus: A New Teaching Company Course",
+      "topics": [
+        "How Jesus Became God",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "7577",
+      "title": "Being Consistently Critical (in the good sense)",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "7560",
+      "title": "Discrepancies That Pay Rich Dividends",
+      "topics": [
+        "Biblical Contradictions",
+        "Gospel of Luke",
+        "Jesus' Passion Narratives"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

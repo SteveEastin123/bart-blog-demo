@@ -1,0 +1,659 @@
+{
+  "keyword": "Jewish Law",
+  "criterion": "Retain Jewish Law when Torah observance, circumcision, Sabbath, dietary requirements, Jewish burial law, or disputes about the Law materially support the post. Remove thread references, course listings, and incidental examples or comparisons.",
+  "before": 79,
+  "after": 69,
+  "retained": 69,
+  "removed": 10,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "4455",
+      "title": "The Jewish Emphases of Matthew’s Gospel: Part 3",
+      "topics": [
+        "Early Judaism (General)",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "4460",
+      "title": "The Jewish Emphases of Matthew: Part 4",
+      "topics": [
+        "Early Judaism (General)",
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "4465",
+      "title": "The Jewish Emphases of Matthew: Part 5",
+      "topics": [
+        "Early Judaism (General)",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "4772",
+      "title": "The Historical Accuracy of Acts",
+      "topics": [
+        "Acts",
+        "Luke-Acts Authorship"
+      ]
+    },
+    {
+      "wpId": "4799",
+      "title": "Fun with the Jewish Christian Gospels",
+      "topics": [
+        "Jewish Christian Gospels"
+      ]
+    },
+    {
+      "wpId": "4814",
+      "title": "The Ebionites and their Gospel",
+      "topics": [
+        "Jewish Christian Gospels"
+      ]
+    },
+    {
+      "wpId": "7146",
+      "title": "Why It Matters",
+      "topics": [
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7266",
+      "title": "Paul’s Gospel Message",
+      "topics": [
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "7311",
+      "title": "Paul and Jesus",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "7315",
+      "title": "Jesus and Paul Compared and Contrasted",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "7494",
+      "title": "Brian and the Apocalyptic Jesus Part 3",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7533",
+      "title": "Argument Against Jesus’ Burial in HJBG, Part 1",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7569",
+      "title": "Pilate the Intransigent",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7592",
+      "title": "Does Josephus Show that Jews Always Buried Their Dead?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7597",
+      "title": "More on Josephus and Jewish Burial Practices",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "8610",
+      "title": "Is Paul at Odds with Matthew?",
+      "topics": [
+        "Gospel of Matthew",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "8932",
+      "title": "Taming the Diversity of the New Testament",
+      "topics": [
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "9070",
+      "title": "Did Scribes Add the Passage of the Bloody Sweat?",
+      "topics": [
+        "Bloody Sweat Textual Variant",
+        "Marcion",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "9156",
+      "title": "Early Christian Docetism",
+      "topics": [
+        "Christology (General)",
+        "Marcion"
+      ]
+    },
+    {
+      "wpId": "9202",
+      "title": "Was Christ God?  The View of Jewish-Christian Ebionites",
+      "topics": [
+        "Early Christian Diversity",
+        "Gnostic and Orthodox Conflicts",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "9278",
+      "title": "Another Problem with Calling Jesus the Messiah",
+      "topics": [
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "9290",
+      "title": "Readers’ Mailbag November 13, 2015",
+      "topics": [
+        "Atonement (General)",
+        "Jewish Christian Gospels"
+      ]
+    },
+    {
+      "wpId": "10318",
+      "title": "Do Paul and Jesus Represent Fundamentally Different Religions?",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "11326",
+      "title": "From Jewish Sect to Gentile Church",
+      "topics": [
+        "Conversion",
+        "Rise of Christianity"
+      ]
+    },
+    {
+      "wpId": "11439",
+      "title": "Paul in a Nutshell and NT Views of Crucifixion: Readers Mailbag May 13, 2016",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul on Jesus' Crucifixion",
+        "Crucifixion of Jesus"
+      ]
+    },
+    {
+      "wpId": "11564",
+      "title": "What Paul’s Conversion Meant",
+      "topics": [
+        "Conversion",
+        "Paul's Conversion",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "11640",
+      "title": "Did Matthew Write in Hebrew? Did Jesus Institute the Lord’s Supper?  Did Josephus Mention Jesus?  Weekly Readers’ Mailbag July 9, 2016",
+      "topics": [
+        "Gospel of Matthew",
+        "James the Brother of Jesus",
+        "Atonement (General)"
+      ]
+    },
+    {
+      "wpId": "14865",
+      "title": "Pontius Pilate: A Sensitive Guy….",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "14876",
+      "title": "Are Paul and Jesus on the Same Page?",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "14882",
+      "title": "Jesus and Paul: Similarities and Differences",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "15048",
+      "title": "Did Jesus Teach About Purgatory?",
+      "topics": [
+        "Purgatory"
+      ]
+    },
+    {
+      "wpId": "15251",
+      "title": "Does the Book of Acts Accurately Portray the Life and Teachings of Paul?",
+      "topics": [
+        "Acts",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "17149",
+      "title": "Jesus and “Homosexuality”",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations"
+      ]
+    },
+    {
+      "wpId": "17411",
+      "title": "The Life and Message of Paul",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "17515",
+      "title": "Did *Any* Companion of Paul Write Luke and Acts?",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "24312",
+      "title": "Christ as “Not God” in the Second Century: Early Jewish Adoptionists",
+      "topics": [
+        "Early Christian Orthodoxy and Heresy",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "25517",
+      "title": "Was Paul Peter’s Enemy?",
+      "topics": [
+        "Paul and His Opponents",
+        "Petrine Authorship and Forgeries",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "26858",
+      "title": "Why Did Paul Think *Faith* Would Bring Salvation?",
+      "topics": [
+        "Pauline Salvation Models",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "28809",
+      "title": "What Was Paul’s Innovation?",
+      "topics": [
+        "Pauline Salvation Models",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "28977",
+      "title": "Jesus and Paul:  Are They on the Same Page?",
+      "topics": [
+        "Jesus' Teachings",
+        "Pauline Salvation Models",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "28981",
+      "title": "The Messages of Jesus and Paul:  Basically the Same or Fundamentally Different?",
+      "topics": [
+        "Jesus' Teachings",
+        "Apocalyptic Jesus",
+        "Pauline End-Time Expectations",
+        "Pauline Salvation Models"
+      ]
+    },
+    {
+      "wpId": "29838",
+      "title": "Are Paul and Jesus on the Same Page?  Most-Commented Blog Post: #6",
+      "topics": [
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "31811",
+      "title": "Onan the Barbarian: How an obscure Bible character affected reproductive rights.  Platinum Guest post by Douglas Wadeson MD",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ]
+    },
+    {
+      "wpId": "32394",
+      "title": "A Letter from Peter to James … Against Paul!",
+      "topics": [
+        "James the Brother of Jesus",
+        "Paul and His Opponents",
+        "Petrine Authorship and Forgeries",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "32580",
+      "title": "The Canon of the New Testament:  Why It Matters",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "34895",
+      "title": "Did Jesus Believe in Purgatory?",
+      "topics": [
+        "Purgatory"
+      ]
+    },
+    {
+      "wpId": "36026",
+      "title": "The Life of Brian and Jesus:  Was Jesus Really Buried on the Day of the Crucifixion?",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36224",
+      "title": "Did Romans Allow Decent Burials for Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "36506",
+      "title": "Pontius Pilate, Intransigent Governor, Crucifier of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36616",
+      "title": "Did Jews Always Bury Their Dead on the Day of their Death?  Was Jesus Buried Then?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36622",
+      "title": "How Relevant is Josephus for Knowing What Happened to the Body of Jesus?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "36814",
+      "title": "The Apocryphal Gospels By and For Jewish Christians",
+      "topics": [
+        "Jewish Christian Gospels"
+      ]
+    },
+    {
+      "wpId": "36829",
+      "title": "About Those Ebionites and Their Peculiar Gospel",
+      "topics": [
+        "Early Christian Diversity",
+        "Jewish Christian Gospels"
+      ]
+    },
+    {
+      "wpId": "37565",
+      "title": "How the Canon Itself Tames the Diversity of the New Testament",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "38583",
+      "title": "The Heretic Marcion and Forgeries of Pauline Letters",
+      "topics": [
+        "Marcion",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "41306",
+      "title": "A Particular Problem with a Crucified Messiah",
+      "topics": [
+        "Crucified Messiah",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "46922",
+      "title": "Paul’s Letter to the Romans “At a Glance,” and Questions for Reflection",
+      "topics": [
+        "Romans",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "46946",
+      "title": "Could James, the Brother of Jesus, Even Write?",
+      "topics": [
+        "Ancient Literacy",
+        "James the Brother of Jesus",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Letter of James"
+      ]
+    },
+    {
+      "wpId": "47109",
+      "title": "More Interesting Questions from Blog Readers",
+      "topics": [
+        "Atonement (General)",
+        "Son of Man",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "47112",
+      "title": "The Acts of the Apostles:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Luke-Acts Authorship",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "47186",
+      "title": "Ephesians: Who Wrote the Letter, When, and Why?",
+      "topics": [
+        "Pauline Forgeries",
+        "Ephesians"
+      ]
+    },
+    {
+      "wpId": "47198",
+      "title": "Matthew and Mark “At a Glance” with Controversial Questions",
+      "topics": [
+        "Gospel of Mark",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "47216",
+      "title": "The Letter to the Colossians, in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Colossians"
+      ]
+    },
+    {
+      "wpId": "47223",
+      "title": "Interesting Questions from Readers",
+      "topics": [
+        "Acts",
+        "Bible Translations (General)",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "47671",
+      "title": "Does Jude Attack Pauline Christians?",
+      "topics": [
+        "Non-Pauline Epistle Forgeries",
+        "Early Christian Diversity",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "48079",
+      "title": "The Epistle of Barnabas in a Nutshell (Part 2)",
+      "topics": [
+        "In a Nutshell Series",
+        "Jewish Law and Torah",
+        "Letter of Barnabas"
+      ]
+    },
+    {
+      "wpId": "49110",
+      "title": "How Important Actually Was Paul (When Alive and After)?",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "49362",
+      "title": "The Rise of Christian Anti-Judaism, in a Nutshell",
+      "topics": [
+        "Christian Anti-Judaism",
+        "In a Nutshell Series",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "49417",
+      "title": "Early Christian Reactions to “Heresies” in a Nutshell",
+      "topics": [
+        "Eusebius of Caesarea",
+        "In a Nutshell Series",
+        "Early Christian Orthodoxy and Heresy"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "4076",
+      "title": "Paul’s Christology",
+      "topics": [
+        "Christology (General)",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7471",
+      "title": "Why Textual Variants Matter for the Rest of Us",
+      "topics": [
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "11977",
+      "title": "Mythicists: Did Nazareth Exist?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Mythicism",
+        "Nazareth"
+      ]
+    },
+    {
+      "wpId": "16236",
+      "title": "Did Paul Really Write 2 Thessalonians?",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "33399",
+      "title": "Writing Forgeries to Show the Truth",
+      "topics": [
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "33421",
+      "title": "Do We Have the Original Hebrew Bible (Old Testament)?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint",
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "33431",
+      "title": "Is The Exodus a Myth?",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Pentateuch",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "38088",
+      "title": "Is Matthew Duplicitous in His Reading of Scripture?",
+      "topics": [
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ]
+    },
+    {
+      "wpId": "39827",
+      "title": "Why Textual Variants Matter Even for Those Who Do NOT Think the Bible is Infallible",
+      "topics": [
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "47273",
+      "title": "Philemon and the Morality of Slavery",
+      "topics": [
+        "Moral Problems in Scripture",
+        "Paul and Slavery",
+        "Philemon"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

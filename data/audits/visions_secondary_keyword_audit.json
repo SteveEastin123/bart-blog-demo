@@ -1,0 +1,117 @@
+{
+  "keyword": "Visions",
+  "criterion": "Retain Visions for meaningful discussion of dreams, revelations, or visionary experiences, not figurative uses meaning outlook or conception.",
+  "before": 53,
+  "retained": 52,
+  "removed": 1,
+  "added": 10,
+  "after": 62,
+  "removedPosts": [
+    {
+      "wpId": "15937",
+      "title": "Fundamentalist Visions of the End of the World",
+      "topics": [
+        "Fundamentalism",
+        "Modern End-Times Interpretation",
+        "Book of Revelation"
+      ],
+      "reason": "The title uses visions figuratively for an outlook on the end times rather than a visionary experience."
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "11680",
+      "title": "Two Versions of Constantine’s Vision",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "11688",
+      "title": "Constantine’s Vision according to Eusebius",
+      "topics": [
+        "Constantine",
+        "Conversion",
+        "Early Church Developments",
+        "Eusebius of Caesarea"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "12813",
+      "title": "The First Apocalypse: The Book of Daniel",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Daniel"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "15998",
+      "title": "A Roman Vision of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "16038",
+      "title": "Enoch’s Vision of the Realms of the Dead",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Comparative Ancient Evidence",
+        "Heaven and Hell",
+        "Afterlife Journeys",
+        "Enoch Traditions"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "34847",
+      "title": "Dreaming of Purgatory",
+      "topics": [
+        "Martyrdom of Perpetua",
+        "Purgatory"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "46916",
+      "title": "The Transformation of Paul’s Teaching:  The Apocalypse of Paul",
+      "topics": [
+        "Afterlife Journeys"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "47121",
+      "title": "The Life of Paul in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "47283",
+      "title": "Paul’s Vision of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    },
+    {
+      "wpId": "47853",
+      "title": "Understanding the Book of Revelation as an Apocalypse",
+      "topics": [
+        "Book of Revelation"
+      ],
+      "reason": "Dreams, revelations, or visionary experiences are a substantial part of the post's discussion."
+    }
+  ]
+}

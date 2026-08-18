@@ -1,0 +1,633 @@
+{
+  "keyword": "King David",
+  "renamedFrom": "David",
+  "criterion": "Use King David when the biblical king, Davidic ancestry, Davidic kingship, or Davidic messianic expectations materially support the post. Remove passing quotations, background examples, speculative allusions, and references to modern people named David. Rename David to King David to disambiguate the biblical figure.",
+  "before": 62,
+  "after": 62,
+  "renamed": 49,
+  "retained": 49,
+  "removed": 13,
+  "added": 13,
+  "retainedPosts": [
+    {
+      "wpId": "3433",
+      "title": "Luke’s Version of Jesus’ Birth",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "3472",
+      "title": "Genealogies of Matthew and Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "3479",
+      "title": "Matthew’s Genealogy",
+      "topics": [
+        "Gospel of Matthew",
+        "Genealogies of Jesus"
+      ]
+    },
+    {
+      "wpId": "3483",
+      "title": "Matthew’s Genealogy: The Number “Fourteen”",
+      "topics": [
+        "Biblical Numerology",
+        "Genealogies of Jesus",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "3512",
+      "title": "Luke’s Genealogy",
+      "topics": [
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "John the Baptist"
+      ]
+    },
+    {
+      "wpId": "3795",
+      "title": "Exaltation Christology in an Early Creed",
+      "topics": [
+        "Exaltation Christology"
+      ]
+    },
+    {
+      "wpId": "3809",
+      "title": "Exaltation Christology in the Speeches in Acts",
+      "topics": [
+        "Exaltation Christology",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "4088",
+      "title": "Why The Gospels Are Anonymous",
+      "topics": [
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "4211",
+      "title": "More in Jerusalem",
+      "topics": [
+        "Autobiographical Posts"
+      ]
+    },
+    {
+      "wpId": "4424",
+      "title": "The Jewish Emphases of Matthew",
+      "topics": [
+        "Gospel of Matthew",
+        "Genealogies of Jesus"
+      ]
+    },
+    {
+      "wpId": "6928",
+      "title": "Differences in the Gospels and Redaction Criticism",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Redaction Criticism"
+      ]
+    },
+    {
+      "wpId": "7319",
+      "title": "What Did Paul Know About the Historical Jesus?",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ]
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ]
+    },
+    {
+      "wpId": "8503",
+      "title": "Creative Uses of Numbers in Scripture",
+      "topics": [
+        "Apostolic Fathers",
+        "Biblical Numerology"
+      ]
+    },
+    {
+      "wpId": "8551",
+      "title": "Bethlehem and Nazareth in Luke: Where Was Jesus Really Born?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Nazareth"
+      ]
+    },
+    {
+      "wpId": "9266",
+      "title": "The Jewish Messiah",
+      "topics": [
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "11536",
+      "title": "Paul, Jesus, and the Messiah",
+      "topics": [
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "12020",
+      "title": "Mythicists, Jesus, and the Messiah",
+      "topics": [
+        "Messiah",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "12494",
+      "title": "Did David Exist?  And When Did I Know I Lost My Faith?  Mailbag April 15, 2017",
+      "topics": [
+        "Deconversion",
+        "Suffering and Loss of Faith",
+        "Hebrew Bible Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "13761",
+      "title": "Redaction Criticism of the Gospels",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Redaction Criticism"
+      ]
+    },
+    {
+      "wpId": "15065",
+      "title": "Who Invented the Idea of a Suffering Messiah?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah",
+        "Crucified Messiah"
+      ]
+    },
+    {
+      "wpId": "15172",
+      "title": "Why Didn’t the Gospel Writers Tell Us Who They Were?",
+      "topics": [
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "15687",
+      "title": "The Birth of Jesus in Luke",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "15829",
+      "title": "How Do We Explain the Messianic Secret?",
+      "topics": [
+        "Gospel of Mark",
+        "Messianic Secret"
+      ]
+    },
+    {
+      "wpId": "16054",
+      "title": "Contradictions in the Gospels",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "16082",
+      "title": "Why Are the Gospels Anonymous?",
+      "topics": [
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "21778",
+      "title": "Curiosities and Puzzles from the Very First Passage of the New Testament",
+      "topics": [
+        "Gospel of Matthew",
+        "Genealogies of Jesus",
+        "Biblical Numerology"
+      ]
+    },
+    {
+      "wpId": "21781",
+      "title": "A Numerical Puzzle in Matthew’s Genealogy",
+      "topics": [
+        "Biblical Numerology",
+        "Gospel of Matthew",
+        "Genealogies of Jesus"
+      ]
+    },
+    {
+      "wpId": "21859",
+      "title": "Where Did the Idea of a “Suffering Messiah” Come From?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah",
+        "Crucified Messiah"
+      ]
+    },
+    {
+      "wpId": "22062",
+      "title": "Luke and Matthew at Odds: The Genealogies",
+      "topics": [
+        "Genealogies of Jesus",
+        "Gospel of Matthew",
+        "Gospel of Luke",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "22670",
+      "title": "Was Jesus Born in Bethlehem?  Luke’s Version.",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "23142",
+      "title": "Could Jews Consider Someone Other than God To Be God?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "Development of the Trinity"
+      ]
+    },
+    {
+      "wpId": "23250",
+      "title": "The Earliest Understanding of Christ?  The Hint in Paul’s Letter to the Romans",
+      "topics": [
+        "Exaltation Christology",
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "28085",
+      "title": "Did Paul Know Much about the Historical Jesus?",
+      "topics": [
+        "Paul's Knowledge of Jesus"
+      ]
+    },
+    {
+      "wpId": "28257",
+      "title": "A Great Short Story in Scripture:  The Book of Ruth",
+      "topics": [
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "31498",
+      "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "32682",
+      "title": "Did the Romans Stage Jesus’ Crucifixion?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Miracle Traditions (General)",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "32825",
+      "title": "Did King David Actually Exist?",
+      "topics": [
+        "Hebrew Bible Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "33580",
+      "title": "O Little Town of Nazareth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Nazareth",
+        "Gospel of Matthew",
+        "Gospel of Luke",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "35742",
+      "title": "Did the Triumphal Entry Really Happen?",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Memory and Jesus Traditions",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "36333",
+      "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "36902",
+      "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Matthew's Use of Scripture",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "41621",
+      "title": "Readers’ Questions and My Responses (11/2024)",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "41891",
+      "title": "Twelve Days of Christmas Day 4: O Little Town of Nazareth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Nazareth",
+        "Roman World",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "41900",
+      "title": "Twelve Days of Christmas Day 7: The Birth of Jesus in Luke",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "47046",
+      "title": "The Gospel of Matthew in a Nutshell",
+      "topics": [
+        "Gospel of Matthew",
+        "In a Nutshell Series",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "49514",
+      "title": "Anniversary Post #2: Why Were the Gospels Written Anonymously?",
+      "topics": [
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "50201",
+      "title": "Jewish Precedents for Jesus Becoming God",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "Early Judaism (General)",
+        "How Jesus Became God"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "3440",
+      "title": "Matthew’s Version of the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "12023",
+      "title": "Mythicists and the Crucified Messiah",
+      "topics": [
+        "Crucified Messiah",
+        "Messiah",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "12465",
+      "title": "Life After Death According to Samuel",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs"
+      ]
+    },
+    {
+      "wpId": "15691",
+      "title": "The Birth of Jesus in Matthew",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "21009",
+      "title": "When Paul Says “Israel” Does He Mean “The Jews”?  Guest Post by Jason Staples",
+      "topics": [
+        "Early Judaism (General)",
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "21924",
+      "title": "The Number 666 in the Context of the Book of Revelation",
+      "topics": [
+        "Biblical Numerology",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "26631",
+      "title": "Is the Book of Revelation a Revised Version of a Non-Christian Apocalypse? Guest Post by James Tabor",
+      "topics": [
+        "Book of Revelation",
+        "Jewish Apocalypticism",
+        "Source Criticism"
+      ]
+    },
+    {
+      "wpId": "35358",
+      "title": "Was Jesus Literate or Illiterate? A Platinum Post by Omar Abur-Robb",
+      "topics": [
+        "Ancient Literacy"
+      ]
+    },
+    {
+      "wpId": "38930",
+      "title": "Is the Paul of Acts at Odds with the Paul of His Own Letters?",
+      "topics": [
+        "Paul in Acts",
+        "Atonement in Luke-Acts"
+      ]
+    },
+    {
+      "wpId": "38963",
+      "title": "Did People Have Time for Jesus? – a Platinum Post from Doug Wadeson, MD.",
+      "topics": [
+        "Social Class in Antiquity",
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "39925",
+      "title": "Did People Have Time for Jesus? – Guest Post from Platinum Member Doug Wadeson, MD.",
+      "topics": [
+        "Social Class in Antiquity",
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "47239",
+      "title": "2 Thessalonians, The Modern State of Israel,  World War III, and the Return of Jesus",
+      "topics": [
+        "2 Thessalonians",
+        "Modern End-Times Interpretation"
+      ]
+    },
+    {
+      "wpId": "48151",
+      "title": "The Striking Prayers of the Didache",
+      "topics": [
+        "Didache"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "3976",
+      "title": "The Jewish King as God",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)"
+      ]
+    },
+    {
+      "wpId": "8549",
+      "title": "Bethlehem and Nazareth in Matthew",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew",
+        "Nazareth"
+      ]
+    },
+    {
+      "wpId": "9473",
+      "title": "Amos as a Representative Prophet",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "10276",
+      "title": "Did the Earliest Christians Believe Jesus *Became* God?",
+      "topics": [
+        "Adoptionist Christology",
+        "Incarnation Christology",
+        "Exaltation Christology"
+      ]
+    },
+    {
+      "wpId": "10294",
+      "title": "The Triumphal Entry as a Distorted Memory",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "12467",
+      "title": "Ecclesiastes and the Meaning of Life",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Ecclesiastes"
+      ]
+    },
+    {
+      "wpId": "22663",
+      "title": "Was Jesus Born in Bethlehem?  Matthew’s Version….",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "23135",
+      "title": "Was the King of Israel Called God??",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "24729",
+      "title": "Fantastic Story.  But History?  Some Doubts about the Triumphal Entry",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Memory and Jesus Traditions",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "48263",
+      "title": "A Gold Nugget Often Overlooked: The Book of Zechariah",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "50227",
+      "title": "The King of Israel Was Called … God?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "50317",
+      "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "50319",
+      "title": "The Implausibility of the Triumphal Entry",
+      "topics": [
+        "Gospel Historical Reliability",
+        "Jesus' Passion Narratives",
+        "Messiah"
+      ]
+    }
+  ]
+}

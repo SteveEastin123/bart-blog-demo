@@ -1,0 +1,922 @@
+{
+  "keyword": "Trade Books",
+  "criterion": "Retain or add Trade Books when writing, researching, publishing, marketing, or comparing books for general audiences is a meaningful subject. Remove passing references to trade books, incidental publishing history, and brief contrasts in posts whose sustained subject is something else.",
+  "before": 70,
+  "after": 103,
+  "retained": 61,
+  "removed": 9,
+  "added": 42,
+  "retainedPosts": [
+    {
+      "wpId": "2043",
+      "title": "Did Jesus Exist as Part One",
+      "topics": [
+        "Did Jesus Exist?"
+      ]
+    },
+    {
+      "wpId": "2361",
+      "title": "My Next Book",
+      "topics": [
+        "Writing and Publishing Process",
+        "Textbooks and Teaching Materials"
+      ]
+    },
+    {
+      "wpId": "2385",
+      "title": "Income from Books",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "2915",
+      "title": "The Next Project: How Jesus Became God",
+      "topics": [
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "3774",
+      "title": "How Jesus Became God: My Change of Direction",
+      "topics": [
+        "How Jesus Became God",
+        "Philippians 2 Christ Poem"
+      ]
+    },
+    {
+      "wpId": "3942",
+      "title": "Anecdotes in Trade Books",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "4273",
+      "title": "The Next Trade Book: Jews and Christians",
+      "topics": [
+        "Christian Anti-Judaism",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "4295",
+      "title": "Future Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7105",
+      "title": "How Books Are Sold",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7122",
+      "title": "Why Sell Books?",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "7131",
+      "title": "Scholars and Popular Audiences",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "7173",
+      "title": "My Interview on Fresh Air",
+      "topics": [
+        "How Jesus Became God",
+        "Media Coverage and Reviews",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "7373",
+      "title": "My Other Next Book",
+      "topics": [
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "7664",
+      "title": "My Future Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7669",
+      "title": "Trade Books and Scholarly Books",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7674",
+      "title": "My Scholarly and Trade Books on Forgery",
+      "topics": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7686",
+      "title": "Apocryphal Gospels: The Scholarly Version",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "7690",
+      "title": "Scholarly vs. Trade Books",
+      "topics": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7697",
+      "title": "Titles for Trade Books, Like Misquoting Jesus",
+      "topics": [
+        "General-Audience Books",
+        "Misquoting Jesus",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7734",
+      "title": "Writing a Trade Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7744",
+      "title": "Choosing a Topic for A Trade Book",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7936",
+      "title": "What Counts for Tenure?",
+      "topics": [
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "8784",
+      "title": "Writing to Become Famous?",
+      "topics": [
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "8794",
+      "title": "How I Moved into Trade Publishing",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "8796",
+      "title": "Authors Who “Just Want to Sell Books”",
+      "topics": [
+        "Misquoting Jesus"
+      ]
+    },
+    {
+      "wpId": "9207",
+      "title": "Some Flak (Already!) Over My New Book",
+      "topics": [
+        "Jesus Before the Gospels"
+      ]
+    },
+    {
+      "wpId": "11188",
+      "title": "Publishing with HarperOne",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11280",
+      "title": "Who Should Write Trade Books?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11282",
+      "title": "Getting a First Book Published",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11284",
+      "title": "New Archaeological Discoveries and the Bible! Readers Mailbag April 16, 2016",
+      "topics": [
+        "Ancient Literacy",
+        "Archaeology and Material Evidence",
+        "Jesus Before the Gospels"
+      ]
+    },
+    {
+      "wpId": "11510",
+      "title": "Jesus’ Death; Good Scholars; and Writing the First Book: Readers’ Mailbag May 28, 2016",
+      "topics": [
+        "Atonement (General)",
+        "Scholarly Research and Publishing",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11571",
+      "title": "Opportunity Comes Knocking!!",
+      "topics": [
+        "Triumph of Christianity",
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "11743",
+      "title": "What Do We Call It?  Coming Up with a Book Title.",
+      "topics": [
+        "General-Audience Books",
+        "Triumph of Christianity",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11748",
+      "title": "Why Scholars Aren’t Trained To Write Trade Books",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "11791",
+      "title": "Beginning My Study of the Bible",
+      "topics": [
+        "Autobiographical Posts"
+      ]
+    },
+    {
+      "wpId": "11931",
+      "title": "How I Learned To Write for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "12379",
+      "title": "Moving to My Next Book",
+      "topics": [
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "14766",
+      "title": "Request for Help!   Your Favorite Podcasts.",
+      "topics": [
+        "Media Coverage and Reviews",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "14878",
+      "title": "What Is My Best Book for a General Audience?",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "15003",
+      "title": "The Marvels of Media Attention",
+      "topics": [
+        "General-Audience Books",
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "15156",
+      "title": "How I Write a Trade Book for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15160",
+      "title": "How a Book Gets Written",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15178",
+      "title": "Doing Research for a Trade Book",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "15300",
+      "title": "Balancing the Scholarly and the Popular",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Writing and Publishing Process",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "15345",
+      "title": "How a Book Gets Its Title",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15902",
+      "title": "My Next Scholarly Book: Visits to Heaven and Hell",
+      "topics": [
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "16021",
+      "title": "A Blog Anniversary!  Seven Years!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "16543",
+      "title": "Writing Scholarly and Popular Books on the Same Topic",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "16599",
+      "title": "The Scholarly Edition of the Apocryphal Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "16618",
+      "title": "Why Don’t More Scholars Write Trade Books?",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "16624",
+      "title": "Some Pitfalls of Writing for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "21444",
+      "title": "How Do Popular Books Get Their Titles?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "26425",
+      "title": "Why My Book on Revelation Has Been Different To Write",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "27740",
+      "title": "Starting My New Trade Book on Revelation",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "28736",
+      "title": "An Old Interview on Fresh Air:  How Jesus Became God",
+      "topics": [
+        "How Jesus Became God",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "28985",
+      "title": "Heaven and Hell at the Popular Level",
+      "topics": [
+        "Apocalypse of Peter",
+        "General-Audience Books",
+        "Heaven and Hell",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "29035",
+      "title": "Forgery for a General Audience",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "30862",
+      "title": "How Do You Get a Book Published??",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "31491",
+      "title": "The Invention of Charity:  My Prospectus for the Book",
+      "topics": [
+        "Charity and Altruism",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "40226",
+      "title": "How I Almost Published “Lost in Transmission”",
+      "topics": [
+        "General-Audience Books",
+        "Misquoting Jesus",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "50011",
+      "title": "How Do You Publish a Book for a General Audience?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2822",
+      "title": "A Problem with My Textbook",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ]
+    },
+    {
+      "wpId": "4821",
+      "title": "My Bible Introduction!",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ]
+    },
+    {
+      "wpId": "11859",
+      "title": "The Rise of the Roman Empire",
+      "topics": [
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "13336",
+      "title": "Another Translation Project:  The Apocryphal Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "15494",
+      "title": "Writing a Historical-Critical Textbook that Isn’t *Critical*",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Critical Biblical Scholarship"
+      ]
+    },
+    {
+      "wpId": "17551",
+      "title": "A Graphic Novel (Textbook) on the New Testament!",
+      "topics": [
+        "Textbooks and Teaching Materials"
+      ]
+    },
+    {
+      "wpId": "30695",
+      "title": "A Lively Interview on my New Book “Journeys”",
+      "topics": [
+        "Afterlife Journeys",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "33529",
+      "title": "The Mind-Body Problem As My Personal Dilemma.  What Do YOU Think?",
+      "topics": [
+        "Free Will and Predestination"
+      ]
+    },
+    {
+      "wpId": "47869",
+      "title": "Questions on Jesus as God, the Belief in the Resurrection, Secretaries in Early Christianity, and the KJV!",
+      "topics": [
+        "Ancient Secretaries and Authorship",
+        "King James Version",
+        "Exaltation Christology",
+        "Jesus' Resurrection Appearances"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "3938",
+      "title": "A New Phase for My Book",
+      "topics": [
+        "How Jesus Became God",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "4036",
+      "title": "Making Things Interesting",
+      "topics": [
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "7369",
+      "title": "My Next Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7676",
+      "title": "My Third Scholarly and Trade Book Combination, Told Tangentally",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7681",
+      "title": "How I Decided to Publish the Apocryphal Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "7688",
+      "title": "The Other Gospels: The Trade Book Version",
+      "topics": [
+        "General-Audience Books",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "7736",
+      "title": "Where Do You Start Reading?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "7740",
+      "title": "How Do You Know What To Write About?",
+      "topics": [
+        "Writing and Publishing Process",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "7747",
+      "title": "Communicating with Non-Scholars",
+      "topics": [
+        "General-Audience Books",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "7764",
+      "title": "How I Actually Write",
+      "topics": [
+        "Autobiographical Posts",
+        "Writing and Publishing Process",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "10314",
+      "title": "Weekly Readers’ Mailbag: March 12, 2016",
+      "topics": [
+        "Fundamentalism",
+        "Public-Facing Scholarship",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "11198",
+      "title": "Why I Have Moved to a New Publisher",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11287",
+      "title": "Getting a Literary Agent",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11904",
+      "title": "Writing Books that Are Interesting and Important",
+      "topics": [
+        "General-Audience Books",
+        "Triumph of Christianity",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "12101",
+      "title": "A Personal Transition",
+      "topics": [
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "12638",
+      "title": "Update on my Publication Plans",
+      "topics": [
+        "Triumph of Christianity",
+        "Heaven and Hell",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "12873",
+      "title": "My New Scholarly Project",
+      "topics": [
+        "Life After Death (General)",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "14968",
+      "title": "My Upcoming Writing Plans: The Afterlife and the Afterlife",
+      "topics": [
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "15162",
+      "title": "The Tricks of Writing for a General Audience",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15246",
+      "title": "How Does an Author Write a Trade Book?  Phase 2.",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15349",
+      "title": "Finishing my Work on the Afterlife",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "15455",
+      "title": "Progress Report on the Afterlife",
+      "topics": [
+        "Heaven and Hell",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "15502",
+      "title": "How I Take Notes on What I Read for a Trade Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15740",
+      "title": "My Research Goals for 2019",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Heaven and Hell",
+        "Afterlife Journeys",
+        "Modern End-Times Interpretation"
+      ]
+    },
+    {
+      "wpId": "15798",
+      "title": "How Does A Book Actually Get Published?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15900",
+      "title": "Heaven and Hell, Finally",
+      "topics": [
+        "Heaven and Hell",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "16202",
+      "title": "Why Do Christians Have an Old Testament?  Another Trade Book.",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "16549",
+      "title": "My Two Books on Forgery",
+      "topics": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "General-Audience Books",
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "16606",
+      "title": "A Readable Edition of the “Lost” (i.e. non-canonical) Gospels",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "17134",
+      "title": "The Coming Armageddon:  I Need Some Suggestions!",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "Armageddon",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "17320",
+      "title": "Update on My Next Book: The Joys of Academic Writing",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Writing and Publishing Process",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "17360",
+      "title": "Guided Tours of Heaven and Hell:  My Scholarly Book",
+      "topics": [
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "25914",
+      "title": "What About Authors Who “Just Want to Sell Books”?",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Writing and Publishing Process",
+        "Misquoting Jesus"
+      ]
+    },
+    {
+      "wpId": "26592",
+      "title": "How I Take Notes When Doing Research for a Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "27871",
+      "title": "How I’ve Changed My Approach To Writing",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "29016",
+      "title": "Heaven and Hell at the Scholarly Level (for comparison)",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "33177",
+      "title": "Trying to Make Scholarship Interesting",
+      "topics": [
+        "Autobiographical Posts",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "35045",
+      "title": "How Does An Author Write a Bestseller?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "39995",
+      "title": "My First Trade Book:  Jesus, Apocalyptic Prophet",
+      "topics": [
+        "General-Audience Books",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "40002",
+      "title": "Lost Scriptures",
+      "topics": [
+        "Early Christian Writings",
+        "General-Audience Books",
+        "Canon Formation",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "47003",
+      "title": "My Next Book: Creating the Bible — How We Got the Canon of the New Testament",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    }
+  ]
+}

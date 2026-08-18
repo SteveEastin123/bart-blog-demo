@@ -1,0 +1,1117 @@
+{
+  "keyword": "Manuscripts",
+  "criterion": "Use Manuscripts when ancient physical witnesses, their copying, dating, discovery, contents, acquisition, preservation, or use are a major or meaningful supporting subject. Remove general introductions to biblical contents and discussions of lost writings that do not materially address manuscript evidence.",
+  "before": 60,
+  "after": 137,
+  "retained": 58,
+  "removed": 2,
+  "added": 79,
+  "retainedPosts": [
+    {
+      "wpId": "1990",
+      "title": "For the “Original” Text: What Kinds of Manuscripts Would We Need?",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "1993",
+      "title": "The Irony of our Earliest Manuscripts",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions",
+        "Scribal Changes"
+      ]
+    },
+    {
+      "wpId": "2103",
+      "title": "Did the Gospels Originally Contain Miracle Stories?",
+      "topics": [
+        "Jesus' Miracle Stories",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "2338",
+      "title": "Would We Recognize an Original Manuscript?",
+      "topics": [
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "4282",
+      "title": "Exciting Discovery of a Hebrew Bible Scroll",
+      "topics": [
+        "Hebrew Bible Manuscripts",
+        "Pentateuch"
+      ]
+    },
+    {
+      "wpId": "4329",
+      "title": "Problems with the Hebrew Bible Manuscripts",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Hebrew Bible Manuscripts",
+        "Septuagint"
+      ]
+    },
+    {
+      "wpId": "5458",
+      "title": "Fortune Telling with Manuscripts",
+      "topics": [
+        "Gospel of John",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "5506",
+      "title": "New Hermeneia Manuscript",
+      "topics": [
+        "Gospel of John",
+        "Manuscript Discoveries and Controversies",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "7896",
+      "title": "Manuscripts and Christian Magic",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "8018",
+      "title": "Where Does One Deal with Textual Criticism?",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "8433",
+      "title": "Defending the Destruction of Mummy Masks",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "8447",
+      "title": "How Accurate Are our Earliest NT Manuscripts?",
+      "topics": [
+        "New Testament Manuscripts",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "8457",
+      "title": "Another (Final!) Insight into that Mummy Mask and Papyrus",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "8916",
+      "title": "Guest Post by Brice Jones on the Reliability of the Early Manuscripts",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "8952",
+      "title": "What Is Textual Criticism?",
+      "topics": [
+        "Original Text Questions",
+        "Textual Criticism Methods"
+      ]
+    },
+    {
+      "wpId": "8954",
+      "title": "The Manuscripts of the New Testament",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "8961",
+      "title": "New Testament Manuscripts:  Good News and Bad News",
+      "topics": [
+        "New Testament Manuscripts",
+        "Scribal Changes"
+      ]
+    },
+    {
+      "wpId": "9018",
+      "title": "A Variant in Mark 1:1 — Accidental or Intentional?",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "9077",
+      "title": "Textual Criticism Syllabus",
+      "topics": [
+        "Textual Criticism Methods",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "9114",
+      "title": "The Unusual Thesis of The Orthodox Corruption of Scripture",
+      "topics": [
+        "Original Text Questions",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "9129",
+      "title": "Magic and Manuscripts",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "9462",
+      "title": "Weekly Readers’ Mailbag:  January 8, 2016",
+      "topics": [
+        "Atonement (General)"
+      ]
+    },
+    {
+      "wpId": "9516",
+      "title": "Weekly Readers’ Mailbag: January 24, 2016",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "10984",
+      "title": "The Letters of Paul: Mailbag April 1, 2016",
+      "topics": [
+        "Pauline Epistles (General)"
+      ]
+    },
+    {
+      "wpId": "11645",
+      "title": "Are the Hebrew Bible/Old Testament Manuscripts Reliable?  A Blast From the Past",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Hebrew Bible Manuscripts",
+        "Septuagint"
+      ]
+    },
+    {
+      "wpId": "11828",
+      "title": "Do Most Manuscripts Have the Original Text?",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "11981",
+      "title": "The Best Manuscripts and Social Justice: Readers’ Mailbag October 23, 2016",
+      "topics": [
+        "New Testament Manuscripts",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "12095",
+      "title": "Is the New Testament Authentic?  Readers’ Mailbag December 4, 2016",
+      "topics": [
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "12186",
+      "title": "Manuscripts of the Hebrew Bible",
+      "topics": [
+        "Hebrew Bible Manuscripts",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "12190",
+      "title": "The Copying of the Hebrew Bible",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Hebrew Bible Manuscripts",
+        "Septuagint"
+      ]
+    },
+    {
+      "wpId": "12326",
+      "title": "Responses to Misquoting Jesus: Readers’ Mailbag",
+      "topics": [
+        "Misquoting Jesus",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "12334",
+      "title": "Better Editions of the Greek New Testament",
+      "topics": [
+        "Translation Issues",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "12345",
+      "title": "What We Now Know about the Manuscripts of the New Testament",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "12543",
+      "title": "Mythicists and the Virgin Birth: Readers’ Mailbag May 6, 2017",
+      "topics": [
+        "Textual Criticism Methods",
+        "Translation Issues",
+        "Virgin Birth",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "14897",
+      "title": "Do We KNOW the Original Words of the NT?",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "15176",
+      "title": "We Do *NOT* Have a First-Century Copy of the Gospel of Mark",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15746",
+      "title": "Fundamentalist Arguments Ad Absurdum about the “Original” Text of the NT",
+      "topics": [
+        "Fundamentalism",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "16169",
+      "title": "God’s Library Part 1: Finding Ancient Christian Manuscripts in Egypt.  Guest Post by Brent Nongbri",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "16851",
+      "title": "Crazy Things Textual Scholars Say",
+      "topics": [
+        "Textual Criticism Overview",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "17185",
+      "title": "Introduction to the Manuscripts of the New Testament",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "17559",
+      "title": "Rapid Fire Questions and Answers on Biblical Manuscripts",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "17769",
+      "title": "Paul and the Status of Women",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "22178",
+      "title": "Christian Manuscripts Used for Magic?",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "24506",
+      "title": "The Value of Amulets for Reconstructing the New Testament Text: Guest Post by Brice Jones",
+      "topics": [
+        "New Testament Manuscripts",
+        "Textual Criticism Methods"
+      ]
+    },
+    {
+      "wpId": "29298",
+      "title": "The “Young Ehrman’s” Faulty Understanding of Inspiration",
+      "topics": [
+        "Deconversion",
+        "Biblical Inerrancy"
+      ]
+    },
+    {
+      "wpId": "32298",
+      "title": "Specious Arguments for the Truth of the Bible",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "32946",
+      "title": "How Useful Are Our Earliest New Testament Manuscripts?",
+      "topics": [
+        "New Testament Manuscripts",
+        "Original Text Questions",
+        "Pauline Textual Issues",
+        "Scribal Changes"
+      ]
+    },
+    {
+      "wpId": "33171",
+      "title": "The Strange World of Textual Criticism",
+      "topics": [
+        "Original Text Questions",
+        "Scribal Changes",
+        "Textual Criticism Methods",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "33173",
+      "title": "The Greek Manuscripts of the New Testament",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "33175",
+      "title": "New Testament Manuscripts:  Good News and Bad News",
+      "topics": [
+        "New Testament Manuscripts",
+        "Scribal Changes"
+      ]
+    },
+    {
+      "wpId": "33309",
+      "title": "Do We Know How Mark Began His Gospel?  Another Scribal Change",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "34114",
+      "title": "New Testament Manuscripts as Windows into Early Christian History",
+      "topics": [
+        "New Testament Manuscripts",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "34121",
+      "title": "New Testament Manuscripts That Reveal Later Theological Controversies",
+      "topics": [
+        "Theologically Significant Variants",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "39482",
+      "title": "A Major Argument That We Can Be Sure We Have the Original Text",
+      "topics": [
+        "Original Text Questions",
+        "Scribal Changes",
+        "Textual Criticism Methods",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "41656",
+      "title": "Can We Defend Destroying Mummy Masks?",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "New Testament Manuscripts",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "41667",
+      "title": "Final Reflections on Mummy Masks and Manuscripts",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "48693",
+      "title": "Do We Know if Our Copies of the Hebrew Bible (Old Testament) Are Accurate?",
+      "topics": [
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "48695",
+      "title": "Weren’t Jewish Scribes Fully Accurate to the Letter?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Hebrew Bible Manuscripts",
+        "Scribal Changes",
+        "Septuagint"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "8801",
+      "title": "Back To the Discovery of Lost Early Christian Writings",
+      "topics": [
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "48685",
+      "title": "Getting the Hebrew Bible:  A Primer (What is the Old Testament…)",
+      "topics": [
+        "Canon Formation"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "1761",
+      "title": "First-Century Copy of Mark? – Part 1",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "2472",
+      "title": "Some Questions on the Greek",
+      "topics": [
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "3299",
+      "title": "Modern Interest in the Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "4014",
+      "title": "More on Recent Manuscript Discoveries",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Gospel of Jesus' Wife Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "7845",
+      "title": "New Discovery of an Ancient Christian Amulet",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "8428",
+      "title": "New Manuscripts and the Destruction of Antiquities",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "8440",
+      "title": "An Expert Talks About Mummy Masks and Papyri",
+      "topics": [
+        "Manuscript Dating",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "8443",
+      "title": "Would a First-Century Fragment of Mark Matter?",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "8449",
+      "title": "Why Are Evangelical Scholars So Interested in Finding a First-Century Manuscript?",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "8454",
+      "title": "Why I’d Be Thrilled If A First-Century Manuscript Appeared",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "8459",
+      "title": "GUEST POST!  Dr. Brent Nongbri on How We Date Manuscripts",
+      "topics": [
+        "Manuscript Dating",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "8857",
+      "title": "The Discovery of Lost Documents",
+      "topics": [
+        "Apostolic Fathers",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "8862",
+      "title": "How Are Manuscripts Discovered",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "8864",
+      "title": "Tischendorf and the Discovery of Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "8874",
+      "title": "St. Catherine’s Monastery",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "8876",
+      "title": "What I Saw at St. Catherine’s Monastery",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "8890",
+      "title": "Mark Goodacre: Questioning the Discovery of the Nag Hammadi Library",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Nag Hammadi"
+      ]
+    },
+    {
+      "wpId": "8892",
+      "title": "My Response To Mark Goodacre on the Discovery of the Nag Hammadi Library",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Nag Hammadi"
+      ]
+    },
+    {
+      "wpId": "8904",
+      "title": "Guest Post – Brent Nongbri on Manuscript Discoveries",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "8975",
+      "title": "The Significance of an Astounding New Discovery",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "8978",
+      "title": "More on the Discovery of Ancient Qur’an Fragments",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "8993",
+      "title": "Fundamentalist Mistakes",
+      "topics": [
+        "Fundamentalism",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "8999",
+      "title": "More Hard Issues on the Qur’an Fragments",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "9323",
+      "title": "Readers’ Mailbag November 27, 2015",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "12454",
+      "title": "Recent Manuscript Discoveries: A Blast from the Past",
+      "topics": [
+        "Gospel of Jesus' Wife Fragment",
+        "Manuscript Discoveries and Controversies",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "12865",
+      "title": "Are There Passages Where *Every* NT Manuscript Gives the “Wrong” Reading?",
+      "topics": [
+        "Textual Variants",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "12868",
+      "title": "Do Later Manuscript Discoveries Ever Support Proposed Interpolations?",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "15133",
+      "title": "Bogus Christian Apologetics and a First-Century Fragment of Mark",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15142",
+      "title": "Why Would It Matter If There Were a First-Century Copy of Mark?",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15146",
+      "title": "A Different First-Century Mark?  An Interesting Piece of Sleuth Work",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15185",
+      "title": "What the New Fragment of Mark’s Gospel Looks like (the so-called First-Century Mark)",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15187",
+      "title": "Non-Disclosure Agreements",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "15328",
+      "title": "Visiting the Monastery at Mount Sinai: A Blast From the Past",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "15330",
+      "title": "What I Saw at St. Catherine’s Monastery at Mount Sinai",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "15370",
+      "title": "Did the Original Gospels Describe Jesus’ Miracles?",
+      "topics": [
+        "Jesus' Miracle Stories",
+        "New Testament Manuscripts",
+        "Textual Criticism Methods"
+      ]
+    },
+    {
+      "wpId": "16159",
+      "title": "Were Miracle Stories Originally in the Gospels?",
+      "topics": [
+        "Jesus' Miracle Stories",
+        "New Testament Manuscripts",
+        "Textual Criticism Methods"
+      ]
+    },
+    {
+      "wpId": "16211",
+      "title": "How Do We know When Manuscripts Were Written? Guest Post by Brent Nongbri",
+      "topics": [
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "16275",
+      "title": "Finally!  Now We Know.  The “First-Century Copy” of Mark",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "16281",
+      "title": "The Hobby Lobby, Biblical Manuscripts, and Academic Scandal",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "16284",
+      "title": "Flat-out Lies or Willful Ignorance.  How Do They Get Away With It?",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "16288",
+      "title": "Is There a Way to Know if a Manuscript is the “Original”?",
+      "topics": [
+        "Manuscript Dating",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "16314",
+      "title": "Tracking Down Stolen Manuscripts: Guest Post by Jennifer Knust",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "16318",
+      "title": "Christian Manuscripts and Nazi Loot: Guest Post by Jennifer Knust",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "16322",
+      "title": "The Legality, Morality, and Scandal of Acquiring Ancient Manuscripts: Guest Post by Jennifer Knust",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "16884",
+      "title": "Startling and Disturbing Development Involving Manuscripts at the Museum of the Bible",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "17505",
+      "title": "Two Brief Comments on intriguing topics: the unknowability of God and scholarly subterfuge!",
+      "topics": [
+        "Agnosticism",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "20540",
+      "title": "Academic Fraud at the Highest Levels",
+      "topics": [
+        "Modern Forgery Claims",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "20624",
+      "title": "Would It Matter If It HAD BEEN a First-century Copy of Mark?  A Surprising Answer in the Readers’ Mailbag",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "20867",
+      "title": "How Accurate are our Copies of the Hebrew Bible?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint",
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "21003",
+      "title": "Seeing the Gospel of Judas for the First Time",
+      "topics": [
+        "Gospel of Judas",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "21317",
+      "title": "A Very Odd Saying of Jesus",
+      "topics": [
+        "Apostolic Fathers",
+        "Gospel of Peter",
+        "Jesus' Teachings",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "22945",
+      "title": "How the Trinity Got Into the New Testament",
+      "topics": [
+        "Development of the Trinity",
+        "Johannine Epistles",
+        "Textual Variants",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "25926",
+      "title": "What Kind of Ancient Christian Books Might Be Discovered?",
+      "topics": [
+        "Apostolic Fathers",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "25931",
+      "title": "How Then Do Most Ancient Manuscripts Get Discovered?",
+      "topics": [
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "28781",
+      "title": "How Would We Know If We Found an “Original” Manuscript?",
+      "topics": [
+        "Manuscript Dating",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "33421",
+      "title": "Do We Have the Original Hebrew Bible (Old Testament)?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint",
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "36058",
+      "title": "Radiocarbon Dating of the Qur’an.  Has It Solved the Problem?  Guest Post by Stephen Shoemaker",
+      "topics": [
+        "Manuscript Dating",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "36102",
+      "title": "Questions about Dating the Gospels",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Dating the Gospels",
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "36724",
+      "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "36732",
+      "title": "My Trip to Saint Catherine’s Monastery on Mount Sinai: Discovery Site of Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "36737",
+      "title": "A Hugely Memorable Moment: When I Saw Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "37644",
+      "title": "Were Jesus’ Miracles in the Original Texts of the Gospels?",
+      "topics": [
+        "Jesus' Miracle Stories",
+        "Original Text Questions",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "39082",
+      "title": "An Astounding Quran Manuscript Discovery",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "39086",
+      "title": "More Hard Issues on the Qur’an Fragments",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "39128",
+      "title": "Responses to my Post on the Discovery of an Ancient Manuscript of the Quran",
+      "topics": [
+        "Manuscript Discoveries and Controversies",
+        "Quran Manuscript Fragments"
+      ]
+    },
+    {
+      "wpId": "40056",
+      "title": "The Debacle Over the First-Century Copy of Mark",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "40060",
+      "title": "More on the Initial Debacle on First-Century Mark (in relation to the Dead Sea Scrolls)",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "40079",
+      "title": "Would It Matter if We DID Have a First-Century Manuscript of Mark?",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "40084",
+      "title": "How Would a First-Century Fragment of the Gospels Actually Change What We Know/Think?",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "40091",
+      "title": "Not a Game-Changer?  Why I’d Still Be Thrilled to Have a First-Century Gospel Fragment",
+      "topics": [
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "41649",
+      "title": "Destroying Mummy Masks",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Manuscript Discoveries and Controversies"
+      ]
+    },
+    {
+      "wpId": "41662",
+      "title": "A True Expert Speaks About Mummy Masks and Papyri",
+      "topics": [
+        "Manuscript Dating",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "41672",
+      "title": "The Low-Down on That First-Century Gospel of Mark",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Gospel of Mark"
+      ]
+    },
+    {
+      "wpId": "41678",
+      "title": "The Hobby Lobby, the Museum of the Bible, and Incredible Academic Fraud",
+      "topics": [
+        "Modern Forgery Claims",
+        "First-Century Mark Fragment"
+      ]
+    },
+    {
+      "wpId": "47116",
+      "title": "Dating Manuscripts and Understanding Mark: Readers’ Questions",
+      "topics": [
+        "Gospel of Mark",
+        "Manuscript Dating",
+        "Messianic Secret"
+      ]
+    },
+    {
+      "wpId": "47130",
+      "title": "Two Fundamental Questions: How Do You Date a Manuscript and How Do you Know the Meaning of a Word?",
+      "topics": [
+        "Manuscript Dating"
+      ]
+    },
+    {
+      "wpId": "48697",
+      "title": "When Did We Get Chapters and Verses? A Quick Answer",
+      "topics": [
+        "Hebrew Bible Manuscripts",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "50101",
+      "title": "Evangelicals Who Lie to Promote the(ir) Truth….",
+      "topics": [
+        "First-Century Mark Fragment",
+        "Fundamentalism"
+      ]
+    },
+    {
+      "wpId": "50165",
+      "title": "Two Years that Transformed the World of Biblical Studies.",
+      "topics": [
+        "Critical Biblical Scholarship",
+        "New Testament Manuscripts",
+        "Textual Criticism Overview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,643 @@
+{
+  "keyword": "Misquoting Jesus",
+  "criterion": "Retain Misquoting Jesus when the book or podcast, its arguments, reception, composition, title, excerpts, or direct application materially supports the post. Remove author credentials, reading lists, event listings, title analogies, and passing cross-references.",
+  "before": 77,
+  "after": 57,
+  "retained": 57,
+  "removed": 20,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "2213",
+      "title": "Which Bible Translation Do I Prefer?",
+      "topics": [
+        "Bible Translations (General)",
+        "New Revised Standard Version (NRSV)"
+      ]
+    },
+    {
+      "wpId": "2659",
+      "title": "My Preferred Bible Translation",
+      "topics": [
+        "Bible Translations (General)",
+        "New Revised Standard Version (NRSV)"
+      ]
+    },
+    {
+      "wpId": "3641",
+      "title": "Textual Problems with the King James: The Trinity",
+      "topics": [
+        "King James Version",
+        "Scribal Changes",
+        "Textual Variants",
+        "Translation Issues",
+        "Development of the Trinity",
+        "Johannine Epistles"
+      ]
+    },
+    {
+      "wpId": "3942",
+      "title": "Anecdotes in Trade Books",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "4329",
+      "title": "Problems with the Hebrew Bible Manuscripts",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Hebrew Bible Manuscripts",
+        "Septuagint"
+      ]
+    },
+    {
+      "wpId": "4392",
+      "title": "On the Cutting Room Floor: Part 4",
+      "topics": [
+        "Deconversion",
+        "How Jesus Became God",
+        "Suffering and Loss of Faith"
+      ]
+    },
+    {
+      "wpId": "6919",
+      "title": "Was Jesus Inserted Into Paul’s Letters?",
+      "topics": [
+        "Scribal Changes",
+        "Textual Variants",
+        "Pauline Textual Issues"
+      ]
+    },
+    {
+      "wpId": "6989",
+      "title": "Books and Response Books",
+      "topics": [
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7037",
+      "title": "Radio Debate with Pete Williams on Textual Variants",
+      "topics": [
+        "Textual Variants",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "7420",
+      "title": "Larry Hurtado’s Critique of How Jesus Became God",
+      "topics": [
+        "Christology (General)",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7469",
+      "title": "Fundamentalists and the Variants in our Manuscripts",
+      "topics": [
+        "Fundamentalism",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "7669",
+      "title": "Trade Books and Scholarly Books",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7674",
+      "title": "My Scholarly and Trade Books on Forgery",
+      "topics": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "8864",
+      "title": "Tischendorf and the Discovery of Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "9075",
+      "title": "Ruffling the Feathers of My Fellow Textual Critics",
+      "topics": [
+        "Original Text Questions",
+        "Textual Criticism Methods",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "10282",
+      "title": "Jesus Before the Gospels in Relation to My Other Books",
+      "topics": [
+        "Jesus Before the Gospels"
+      ]
+    },
+    {
+      "wpId": "10288",
+      "title": "Weekly Readers’ Mailbag:  March 4, 2016",
+      "topics": [
+        "Jesus Before the Gospels"
+      ]
+    },
+    {
+      "wpId": "10872",
+      "title": "My Book Sales and the “Relatives” of Paul:  Weekly Reader’s Mailbag March 25, 2016",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "10984",
+      "title": "The Letters of Paul: Mailbag April 1, 2016",
+      "topics": [
+        "Pauline Epistles (General)"
+      ]
+    },
+    {
+      "wpId": "11743",
+      "title": "What Do We Call It?  Coming Up with a Book Title.",
+      "topics": [
+        "General-Audience Books",
+        "Triumph of Christianity",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "11857",
+      "title": "Arguments, Evidence, and Changing Your Mind",
+      "topics": [
+        "Biblical Inerrancy",
+        "Deconversion",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "12272",
+      "title": "The Oldest Printed Versions of the Greek New Testament",
+      "topics": [
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "12275",
+      "title": "The First Greek New Testament",
+      "topics": [
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "12317",
+      "title": "The Woman Taken in Adultery in the King James Version",
+      "topics": [
+        "Gospel of John",
+        "King James Version",
+        "Woman Caught in Adultery"
+      ]
+    },
+    {
+      "wpId": "12319",
+      "title": "The Ending of Mark in the King James Bible",
+      "topics": [
+        "Gospel of Mark",
+        "King James Version"
+      ]
+    },
+    {
+      "wpId": "12336",
+      "title": "A Major Controversy in New Testament Textual Criticism",
+      "topics": [
+        "Original Text Questions",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "12345",
+      "title": "What We Now Know about the Manuscripts of the New Testament",
+      "topics": [
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "12552",
+      "title": "How I First Realized There Are Mistakes in the Bible",
+      "topics": [
+        "Biblical Contradictions",
+        "Biblical Inerrancy",
+        "Gospel of Mark",
+        "Fundamentalism"
+      ]
+    },
+    {
+      "wpId": "14891",
+      "title": "Do the Differences in Our Manuscripts Matter?",
+      "topics": [
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "14897",
+      "title": "Do We KNOW the Original Words of the NT?",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "14988",
+      "title": "Scribes Who Injected the Idea of Atonement into Luke’s Gospel",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "15345",
+      "title": "How a Book Gets Its Title",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15680",
+      "title": "Did Jesus Write Anything in the New Testament?",
+      "topics": [
+        "Gospel of John",
+        "Woman Caught in Adultery"
+      ]
+    },
+    {
+      "wpId": "15850",
+      "title": "Pursuing My Passion for Textual Criticism",
+      "topics": [
+        "Original Text Questions",
+        "Scribal Changes",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "16007",
+      "title": "My Very First Post: Do Textual Variants Matter??",
+      "topics": [
+        "Original Text Questions",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "16234",
+      "title": "Is There a “Best” Bible Translation Out There?  A Blast from the Past",
+      "topics": [
+        "Bible Translations (General)",
+        "New Revised Standard Version (NRSV)"
+      ]
+    },
+    {
+      "wpId": "16543",
+      "title": "Writing Scholarly and Popular Books on the Same Topic",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "16549",
+      "title": "My Two Books on Forgery",
+      "topics": [
+        "Forged",
+        "Forgery and Counterforgery",
+        "General-Audience Books",
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "16633",
+      "title": "What About the Original *Old* Testament?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint"
+      ]
+    },
+    {
+      "wpId": "17191",
+      "title": "Do Textual Variants Actually *Matter* For Much??",
+      "topics": [
+        "Textual Variants",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "21444",
+      "title": "How Do Popular Books Get Their Titles?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "22950",
+      "title": "How the Trinity Got Into the New Testament: Part 2",
+      "topics": [
+        "Development of the Trinity",
+        "Johannine Epistles",
+        "Textual Variants",
+        "King James Version"
+      ]
+    },
+    {
+      "wpId": "27808",
+      "title": "Why I Prefer the NRSV",
+      "topics": [
+        "Bible Translations (General)",
+        "New Revised Standard Version (NRSV)"
+      ]
+    },
+    {
+      "wpId": "28985",
+      "title": "Heaven and Hell at the Popular Level",
+      "topics": [
+        "Apocalypse of Peter",
+        "General-Audience Books",
+        "Heaven and Hell",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "29303",
+      "title": "Faith and Inerrancy, In My Case — Did the “Young Ehrman” Get it Wrong?",
+      "topics": [
+        "Biblical Inerrancy",
+        "Deconversion",
+        "Fundamentalism"
+      ]
+    },
+    {
+      "wpId": "33161",
+      "title": "My New Podcast.   Help!  I Need Questions.",
+      "topics": [
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "33171",
+      "title": "The Strange World of Textual Criticism",
+      "topics": [
+        "Original Text Questions",
+        "Scribal Changes",
+        "Textual Criticism Methods",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "33641",
+      "title": "If the King James Was Good Enough for Paul, It’s Good Enough for Me",
+      "topics": [
+        "King James Version",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "33718",
+      "title": "Can We Trust the Bible?  The First Printed Greek New Testament",
+      "topics": [
+        "Translation Issues",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "33724",
+      "title": "Can We Trust the Bible?  The First Published (as opposed to Printed) Greek New Testament",
+      "topics": [
+        "Translation Issues",
+        "Textual Criticism Overview"
+      ]
+    },
+    {
+      "wpId": "35255",
+      "title": "Was Matthew Attacking Paul?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "35313",
+      "title": "Was Jesus a False Prophet?",
+      "topics": [
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "36724",
+      "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "37283",
+      "title": "Misquoting Jesus Podcast: Special One-Year Anniversary Edition",
+      "topics": [
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "39766",
+      "title": "A Debate with Peter Williams on Textual Variants",
+      "topics": [
+        "Textual Variants",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "39886",
+      "title": "The Reason for Detailed Work on Textual Criticism",
+      "topics": [
+        "Bruce Metzger",
+        "Didymus the Blind",
+        "Scribal Changes",
+        "Church Fathers as Textual Evidence"
+      ]
+    },
+    {
+      "wpId": "48970",
+      "title": "Should You Say It Like You Mean It?  Those Inoffensive Critical Scholars…",
+      "topics": [
+        "Gospel of Luke",
+        "Atonement in Luke-Acts"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2282",
+      "title": "Some Reading Suggestions on the New Testament",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ]
+    },
+    {
+      "wpId": "2385",
+      "title": "Income from Books",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "3151",
+      "title": "The Apostolic Fathers: Serendipity Strikes",
+      "topics": [
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "7101",
+      "title": "How Jesus Became God!!",
+      "topics": [
+        "Christology (General)",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7155",
+      "title": "Jesus as the Adopted Son of God",
+      "topics": [
+        "How Jesus Became God",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "8244",
+      "title": "When Did the Gospels Get Their Names?",
+      "topics": [
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "8639",
+      "title": "Sketch of My Memory Book",
+      "topics": [
+        "Eyewitness Reliability",
+        "Jesus Before the Gospels",
+        "Memory and Jesus Traditions",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "9047",
+      "title": "The Malaise in New Testament Textual Criticism",
+      "topics": [
+        "Original Text Questions",
+        "Textual Criticism Methods",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "9518",
+      "title": "Press Release!  Jesus Before the Gospels",
+      "topics": [
+        "Jesus Before the Gospels",
+        "Oral Tradition"
+      ]
+    },
+    {
+      "wpId": "9956",
+      "title": "Upcoming Speaking Engagements 2016",
+      "topics": [
+        "Courses and Teaching",
+        "Jesus Before the Gospels"
+      ]
+    },
+    {
+      "wpId": "11560",
+      "title": "Reading Suggestions for the New Testament: A Blast from the Past",
+      "topics": [
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "11845",
+      "title": "Bruce Metzger Beliefs, My Loss of Faith: A Blast from the Past",
+      "topics": [
+        "Bruce Metzger",
+        "Deconversion"
+      ]
+    },
+    {
+      "wpId": "13330",
+      "title": "The Apostolic Fathers: Serendipity Strikes",
+      "topics": [
+        "Apostolic Fathers",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "14766",
+      "title": "Request for Help!   Your Favorite Podcasts.",
+      "topics": [
+        "Media Coverage and Reviews",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "17619",
+      "title": "Heaven and Hell: Press Release!!",
+      "topics": [
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "17662",
+      "title": "Interview with Buddhists on the New Testament",
+      "topics": [
+        "Media Interviews and Videos",
+        "Biblical Contradictions",
+        "Biblical Inerrancy"
+      ]
+    },
+    {
+      "wpId": "20704",
+      "title": "Are Bible Translators Consistent?  Readers’ Mailbag",
+      "topics": [
+        "New Revised Standard Version (NRSV)",
+        "Translation Issues",
+        "Woman Caught in Adultery"
+      ]
+    },
+    {
+      "wpId": "33021",
+      "title": "How Serendipity Changed My Life: The Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers",
+        "Autobiographical Posts"
+      ]
+    },
+    {
+      "wpId": "34837",
+      "title": "The Apocalypse and the Situation in Ukraine: Interview with a Ukrainian Christian Scholar",
+      "topics": [
+        "Media Interviews and Videos",
+        "Armageddon"
+      ]
+    },
+    {
+      "wpId": "37502",
+      "title": "My New Course: November 11 — The Scribal Corruption of Scripture",
+      "topics": [
+        "Scribal Changes",
+        "Courses and Teaching",
+        "Original Text Questions"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

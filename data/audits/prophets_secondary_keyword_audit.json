@@ -1,0 +1,672 @@
+{
+  "keyword": "Prophets",
+  "criterion": "Retain Prophets when prophets, prophetic teaching, prophetic roles, or the Prophets as a scriptural collection materially support the post. Remove incidental quotations, labels, comparisons, lists, and background references that do not meaningfully advance its subject.",
+  "before": 82,
+  "after": 61,
+  "retained": 61,
+  "removed": 21,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "4247",
+      "title": "Jesus’ Rejection in Nazareth",
+      "topics": [
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "4535",
+      "title": "Personal Response to Suffering?",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ]
+    },
+    {
+      "wpId": "4613",
+      "title": "Paul, the Pastorals, and Women",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Pastoral Epistles"
+      ]
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ]
+    },
+    {
+      "wpId": "9011",
+      "title": "Illustration of a Textual Change: Did Mark Make a Mistake?",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "9175",
+      "title": "Jesus’ Death as a Prophet in Luke",
+      "topics": [
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "9177",
+      "title": "Anti-Judaism in the Gospel of Luke",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "9497",
+      "title": "The Rise of Apocalypticism",
+      "topics": [
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "12248",
+      "title": "How We Got the Hebrew Bible",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "12363",
+      "title": "An Interesting Scribal Change at the Beginning of Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "12744",
+      "title": "The Origins of Apocalypticism",
+      "topics": [
+        "Disasters and Human Suffering",
+        "Problem of Evil and Suffering",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "12752",
+      "title": "The Variety of Views of Suffering in the Bible",
+      "topics": [
+        "Biblical Explanations of Suffering",
+        "Ecclesiastes",
+        "Book of Job",
+        "Problem of Evil and Suffering"
+      ]
+    },
+    {
+      "wpId": "12830",
+      "title": "Charges and Anti-Supernatural Biases!  Readers Mailbag August 6, 2017",
+      "topics": [
+        "Gnosticism (General)",
+        "Book of Daniel",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "12838",
+      "title": "Daniel and a New Doctrine of Resurrection From the Dead",
+      "topics": [
+        "Resurrection of the Dead",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "13513",
+      "title": "Paul’s Exalted Self-Image: The Fulfillment of Ancient Prophecy",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "13605",
+      "title": "Jesus Rejected by His Own Townspeople in Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Nazareth"
+      ]
+    },
+    {
+      "wpId": "14251",
+      "title": "Is the Didache One Document or Three?",
+      "topics": [
+        "Didache",
+        "Source Criticism"
+      ]
+    },
+    {
+      "wpId": "14860",
+      "title": "Was Paul a Misogynist?",
+      "topics": [
+        "Women in Pauline Traditions"
+      ]
+    },
+    {
+      "wpId": "14980",
+      "title": "Once More: The Interesting Text Called the Didache",
+      "topics": [
+        "Didache"
+      ]
+    },
+    {
+      "wpId": "15586",
+      "title": "The Difference Between Eschatology and Apocalypticism",
+      "topics": [
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "16272",
+      "title": "Why Christians Needed an Old Testament: Pagan Attacks on the Faith",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "16503",
+      "title": "Resurrection from the Dead: Were Jews Influenced by Zoroastrianism?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "16512",
+      "title": "An Alternative View of Suffering and the Idea of Resurrection",
+      "topics": [
+        "Divine Judgment",
+        "Problem of Evil and Suffering",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "17670",
+      "title": "More Buddhist Questions on the Bible",
+      "topics": [
+        "Miracle Traditions (General)",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "17776",
+      "title": "Paul the Misogynist?  The Alternative Perspective",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Pastoral Epistles"
+      ]
+    },
+    {
+      "wpId": "21009",
+      "title": "When Paul Says “Israel” Does He Mean “The Jews”?  Guest Post by Jason Staples",
+      "topics": [
+        "Early Judaism (General)",
+        "Romans"
+      ]
+    },
+    {
+      "wpId": "23276",
+      "title": "A Christian is Not Necessarily a Disciple: Platinum Post by Douglas Wadeson",
+      "topics": [
+        "Jesus' Teachings",
+        "Jesus on Wealth and Poverty"
+      ]
+    },
+    {
+      "wpId": "23938",
+      "title": "A Christian Is Not Necessarily a Disciple (Monthly Platinum Post: Douglas Wadeson)",
+      "topics": [
+        "Jesus' Teachings",
+        "Charity and Altruism",
+        "Jesus on Wealth and Poverty"
+      ]
+    },
+    {
+      "wpId": "25705",
+      "title": "Why the Spirit Mattered for the Earliest Christians",
+      "topics": [
+        "Development of the Trinity",
+        "Pauline End-Time Expectations",
+        "Paul on Resurrection"
+      ]
+    },
+    {
+      "wpId": "25886",
+      "title": "The Coming of the Spirit at the End of Time",
+      "topics": [
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "25906",
+      "title": "The Coming of the Spirit on the Day of Pentecost",
+      "topics": [
+        "Holy Spirit in Luke-Acts"
+      ]
+    },
+    {
+      "wpId": "28443",
+      "title": "The Famous Short Stories about Daniel",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "28726",
+      "title": "Where Did the Apocalyptic Views of Jesus (and others) Come From?",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "30857",
+      "title": "Concerns for the Poor in the Jewish Tradition",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "32546",
+      "title": "A Major Forgery in the Hebrew Bible?  Platinum Guest Post by Dennis Folds",
+      "topics": [
+        "Forgery (General)",
+        "Hebrew Bible Composition and Sources"
+      ]
+    },
+    {
+      "wpId": "33023",
+      "title": "A Major Forgery in the Hebrew Bible?  Guest Post by Platinum Member Dennis Folds",
+      "topics": [
+        "Forgery (General)",
+        "Hebrew Bible Composition and Sources"
+      ]
+    },
+    {
+      "wpId": "33275",
+      "title": "An Error in Mark?  Did Scribes Change It?",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes"
+      ]
+    },
+    {
+      "wpId": "34084",
+      "title": "Was Moses High on Mt. Sinai?  Part 1   Platinum Post by Douglas Wadeson MD",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Pentateuch",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "34338",
+      "title": "Is Suffering a “Problem” for Believers?",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ]
+    },
+    {
+      "wpId": "35679",
+      "title": "The Radical Teachings of Jesus–And Why No One Follows Them",
+      "topics": [
+        "Jesus' Ethics",
+        "Jesus' Teachings",
+        "Apocalyptic Jesus",
+        "Jesus on Wealth and Poverty"
+      ]
+    },
+    {
+      "wpId": "36268",
+      "title": "Proposed Solutions For the Four Metaphysical Puzzles Related to Jesus From an Islamic Perspective From Omar Robb",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Matthew's Use of Scripture",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "38592",
+      "title": "The Two Gods of Marcion and the Forgeries in the Name of Paul",
+      "topics": [
+        "Canon Formation",
+        "Marcion",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "38596",
+      "title": "Paul’s *THIRD* Letter to the Corinthians?  A Very Interesting Forgery",
+      "topics": [
+        "Marcion",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "39160",
+      "title": "Fundraiser for Sudan With James Tabor",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "39582",
+      "title": "Three Early Christian Writings Spliced Together Into One: The Didache",
+      "topics": [
+        "Didache",
+        "Source Criticism"
+      ]
+    },
+    {
+      "wpId": "39587",
+      "title": "An Important Early Christian Writing",
+      "topics": [
+        "Didache"
+      ]
+    },
+    {
+      "wpId": "39865",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "46927",
+      "title": "The Letter to the Hebrews: In a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Persecution in the Epistles",
+        "Hebrews",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "47046",
+      "title": "The Gospel of Matthew in a Nutshell",
+      "topics": [
+        "Gospel of Matthew",
+        "In a Nutshell Series",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "47062",
+      "title": "The Gospel of Luke in a Nutshell",
+      "topics": [
+        "Gospel of Luke",
+        "In a Nutshell Series"
+      ]
+    },
+    {
+      "wpId": "47064",
+      "title": "Is the Gospel of Luke Anti-Jewish?",
+      "topics": [
+        "Gospel of Luke",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "47159",
+      "title": "Do We Have the Lord’s Supper All Wrong?  Platinum Post by Douglas Wadeson MD",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "1 Corinthians"
+      ]
+    },
+    {
+      "wpId": "47269",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "48120",
+      "title": "The Didache: An Important Early Christian Document in a Nutshell",
+      "topics": [
+        "Didache",
+        "In a Nutshell Series",
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "48122",
+      "title": "Intriguing Instructions for How To Run the Church:  More on the Didache",
+      "topics": [
+        "Didache"
+      ]
+    },
+    {
+      "wpId": "48685",
+      "title": "Getting the Hebrew Bible:  A Primer (What is the Old Testament…)",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "48687",
+      "title": "Charts Showing the Organization of the English Old Testament and the Hebrew Bible",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "48691",
+      "title": "The Formation of the Hebrew Bible: The Common Scholarly View Today",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "49472",
+      "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "4428",
+      "title": "The Jewish Emphases of Matthew: Part 2",
+      "topics": [
+        "Early Judaism (General)",
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "4588",
+      "title": "Suffering and My Blog",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ]
+    },
+    {
+      "wpId": "7369",
+      "title": "My Next Books",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "9340",
+      "title": "Readers’ Mailbag December 4, 2015",
+      "topics": [
+        "Apocalyptic Jesus",
+        "John the Baptist",
+        "Problem of Evil and Suffering",
+        "Textual Criticism Methods"
+      ]
+    },
+    {
+      "wpId": "9479",
+      "title": "Background to Apocalypticism: The Maccabean Revolt",
+      "topics": [
+        "Early Judaism (General)",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "12186",
+      "title": "Manuscripts of the Hebrew Bible",
+      "topics": [
+        "Hebrew Bible Manuscripts",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "12447",
+      "title": "The Afterlife in the Hebrew Bible: Sheol",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "15676",
+      "title": "An Intriguingly Legendary Account of Jesus’ Death",
+      "topics": [
+        "Judas Iscariot",
+        "Non-Canonical Gospel Traditions",
+        "Crucifixion of Jesus"
+      ]
+    },
+    {
+      "wpId": "20867",
+      "title": "How Accurate are our Copies of the Hebrew Bible?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint",
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "21072",
+      "title": "Who Is the Son of Man?  From the Blog Readers’ Mailbag",
+      "topics": [
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "21114",
+      "title": "How Jesus’ Apocalyptic Teachings Were Changed (even in the NT)",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "21139",
+      "title": "At Last.  Jesus and the Son of Man.",
+      "topics": [
+        "Son of Man",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "25439",
+      "title": "The Letter Jesus Wrote from the Cross (!)",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "25919",
+      "title": "The Holy Spirit in Charge of the Church (?)",
+      "topics": [
+        "Pauline End-Time Expectations",
+        "Paul's Churches and Communities",
+        "1 Corinthians"
+      ]
+    },
+    {
+      "wpId": "28670",
+      "title": "The Maccabean Revolt",
+      "topics": [
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "32441",
+      "title": "Why Did Christians Even Need a Canon of Scripture?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "33124",
+      "title": "Little Known Aspects of The Golden Rule as Found in the Sermon on the Mount",
+      "topics": [
+        "Gospel of Matthew",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "33221",
+      "title": "Is it Possible Jesus Didn’t Teach the Golden Rule?",
+      "topics": [
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "36640",
+      "title": "Premarital Sex in The Song of Songs: A Platinum Post by Dan Kohanski",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ]
+    },
+    {
+      "wpId": "38977",
+      "title": "What Is Sheol in the Hebrew Bible?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "47215",
+      "title": "Some Interesting Questions of the Week",
+      "topics": [
+        "Hebrew Bible Composition and Sources",
+        "Didache"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

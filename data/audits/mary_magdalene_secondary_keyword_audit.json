@@ -1,0 +1,613 @@
+{
+  "keyword": "Mary Magdalene",
+  "criterion": "Retain Mary Magdalene when her role in resurrection traditions, Jesus' ministry, marriage claims, healing traditions, or non-canonical texts materially supports the post. Remove book-title and bibliography references, list entries, naming analogies, and brief appearances that do not make her a meaningful subject.",
+  "before": 73,
+  "after": 27,
+  "retained": 27,
+  "removed": 46,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "50046",
+      "title": "Did Jesus Have Wealthy Donors?",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus and Women",
+        "Social Class in Antiquity"
+      ]
+    },
+    {
+      "wpId": "46956",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – by Mark Reichert (Platinum Member Winner)",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "47203",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – Guest Post by Platinum Member Mark Reichert",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "38524",
+      "title": "How Much Fact, How Much Fiction? The Life of Peter",
+      "topics": [
+        "Apocryphal Acts",
+        "Historical Study of Miracles",
+        "Miracle Stories in Non-Canonical Texts",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "36219",
+      "title": "Literary Problems with the Gospel Accounts of Jesus’ Burial",
+      "topics": [
+        "Burial of Jesus"
+      ]
+    },
+    {
+      "wpId": "35342",
+      "title": "Was Levi of Alphaeus the “the Beloved Disciple”? Platinum Post by Gregory Hartzler-Miller, MATS",
+      "topics": [
+        "Gospel of John",
+        "Gospel of Matthew",
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "32498",
+      "title": "Is That One a Difference or a Contradiction?",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Resurrection Appearances",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "29928",
+      "title": "Did Heretics’ Texts Describe Their Incestuous Rituals?",
+      "topics": [
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "29925",
+      "title": "Fabrication, Forgery, and Accusations of (Heretical) Christian Licentious Rituals!",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Mary Magdalene in Gnostic Traditions"
+      ]
+    },
+    {
+      "wpId": "27082",
+      "title": "Jesus the Healer, Repossessed?  Platinum guest post by Douglas Wadeson MD",
+      "topics": [
+        "Jesus' Miracle Stories",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "20951",
+      "title": "Slurs Against Religious Opponents and Makin’ Stuff Up",
+      "topics": [
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "20946",
+      "title": "Did Early Christian Heretics Promote Outrageous Sex Rituals?",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Gnostic and Orthodox Conflicts",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "17591",
+      "title": "Jesus as Single: An Actual Argument!",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "17525",
+      "title": "Guest Post by James Tabor: The Historian and the Supernatural",
+      "topics": [
+        "Historical Methods (General)",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "16892",
+      "title": "But the Women Who Did *NOT* Doubt the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Jesus and Women",
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "15590",
+      "title": "Discovery of the Nag Hammadi Library and Some Crucial Missing Parts!",
+      "topics": [
+        "Nag Hammadi"
+      ]
+    },
+    {
+      "wpId": "12319",
+      "title": "The Ending of Mark in the King James Bible",
+      "topics": [
+        "Gospel of Mark",
+        "King James Version"
+      ]
+    },
+    {
+      "wpId": "11921",
+      "title": "The Inerrancy of the Bible?  And Those Who Doubt.  Readers’ Mailbag October 2, 2016",
+      "topics": [
+        "Biblical Inerrancy",
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "11713",
+      "title": "Celibacy and Polygamy in the Bible: Weekly Readers’ Mailbag July 30, 2016",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ]
+    },
+    {
+      "wpId": "9395",
+      "title": "Did Some Disciples Not Believe in the Resurrection?",
+      "topics": [
+        "How Jesus Became God",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "8285",
+      "title": "Why Was the Gospel of John Attributed to John?",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Papias",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "7185",
+      "title": "The Disciples who Doubted the Resurrection",
+      "topics": [
+        "How Jesus Became God",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "6762",
+      "title": "Jesus and Marriage: An Actual Argument!",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Jesus' Family Traditions"
+      ]
+    },
+    {
+      "wpId": "4018",
+      "title": "Resurrection Narratives in the Gospels",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "3086",
+      "title": "Women Who Did Not Doubt the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Jesus and Women",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "3007",
+      "title": "Paul’s View of Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Paul on Resurrection",
+        "Resurrection of the Dead",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "2816",
+      "title": "The Gospel of Jesus’s Wife",
+      "topics": [
+        "Gospel of Jesus' Wife Fragment",
+        "Modern Forgery Claims"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "47137",
+      "title": "Paul and Women Apostles",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Translation Issues",
+        "Romans",
+        "Paul's Churches and Communities"
+      ]
+    },
+    {
+      "wpId": "47100",
+      "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Ancient Literacy",
+        "Gospel Eyewitness Claims",
+        "Gospel of John",
+        "Eyewitness Reliability",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "40614",
+      "title": "My Book “Did Jesus Exist” (an answer to the mythicists)",
+      "topics": [
+        "Mythicism",
+        "Did Jesus Exist?"
+      ]
+    },
+    {
+      "wpId": "40118",
+      "title": "My Most Helpful Book?   After the New Testament: A Reader in Early Christianity",
+      "topics": [
+        "Early Christian Writings",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "40002",
+      "title": "Lost Scriptures",
+      "topics": [
+        "Early Christian Writings",
+        "General-Audience Books",
+        "Canon Formation",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "38930",
+      "title": "Is the Paul of Acts at Odds with the Paul of His Own Letters?",
+      "topics": [
+        "Paul in Acts",
+        "Atonement in Luke-Acts"
+      ]
+    },
+    {
+      "wpId": "38564",
+      "title": "Facts Hidden Among the Legends of the Apostle Paul?",
+      "topics": [
+        "Paul in Acts",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "38568",
+      "title": "Our Controversial Sources About the Controversial Paul",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "38587",
+      "title": "Archaeology in the Time of Jesus!  New Course March 2-3!!",
+      "topics": [
+        "Archaeology and Material Evidence"
+      ]
+    },
+    {
+      "wpId": "38520",
+      "title": "The Disciple Peter in History and Legend",
+      "topics": [
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "34998",
+      "title": "The Quest for the Legendary Jesus.  Platinum Guest Post by Robert Droney",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "34597",
+      "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+      "topics": [
+        "Apostolic Death Traditions"
+      ]
+    },
+    {
+      "wpId": "33402",
+      "title": "Forgeries in the Names of the Apostles: Some of the Most Interesting",
+      "topics": [
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "31948",
+      "title": "Which James in Galatians?  Platinum Guest Post by Gregory Hartzler-Miller",
+      "topics": [
+        "James the Brother of Jesus",
+        "Galatians",
+        "Gospel of Mark"
+      ]
+    },
+    {
+      "wpId": "28558",
+      "title": "On Misreading The Gospels: Platinum Guest Post by Joel Scheller",
+      "topics": [
+        "Canonical Gospels (General)"
+      ]
+    },
+    {
+      "wpId": "27939",
+      "title": "Really Riled By O’Reilly",
+      "topics": [
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "27871",
+      "title": "How I’ve Changed My Approach To Writing",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "27447",
+      "title": "Was Peter Crucified Upside Down?",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "27410",
+      "title": "Was Peter the First Pope?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "21421",
+      "title": "Who Would Die for a Lie?",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "20556",
+      "title": "Judas Iscariot?  What’s an Iscariot??",
+      "topics": [
+        "Judas Iscariot"
+      ]
+    },
+    {
+      "wpId": "16987",
+      "title": "What Does the Name Judas “Iscariot” Mean?",
+      "topics": [
+        "Judas Iscariot"
+      ]
+    },
+    {
+      "wpId": "15600",
+      "title": "Jews and Gentiles in Paul’s Churches",
+      "topics": [
+        "Paul's Churches and Communities"
+      ]
+    },
+    {
+      "wpId": "15490",
+      "title": "A Peculiar Story of Peter’s Martyrdom",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "15482",
+      "title": "Peter: First Bishop (Pope) in Rome?",
+      "topics": [
+        "Early Church Developments",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "15477",
+      "title": "Would the Disciples Die for A Lie?  Proofs for the Resurrection.",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Apostolic Death Traditions"
+      ]
+    },
+    {
+      "wpId": "15239",
+      "title": "The Name Judas Iscariot: What Does It Mean?",
+      "topics": [
+        "Judas Iscariot"
+      ]
+    },
+    {
+      "wpId": "14941",
+      "title": "Do We Know How Paul Died?",
+      "topics": [
+        "Apocryphal Acts",
+        "Apostolic Death Traditions"
+      ]
+    },
+    {
+      "wpId": "14939",
+      "title": "The Legend of Peter’s Martyrdom",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Peter the Apostle",
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "13506",
+      "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+      "topics": [
+        "Meaning of Jesus' Resurrection",
+        "Gospel of Mark",
+        "Jesus' Passion Narratives",
+        "Christology in the Gospels"
+      ]
+    },
+    {
+      "wpId": "13225",
+      "title": "Were the Disciples Martyred for Believing the Resurrection? A Blast From the Past",
+      "topics": [
+        "Apostolic Death Traditions",
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "12255",
+      "title": "Did the Council of Nicaea Take Away Reincarnation and Give us the Bible?",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "11508",
+      "title": "The Resurrection and the Beginning of the Church",
+      "topics": [
+        "Early Christianity (General)",
+        "Meaning of Jesus' Resurrection"
+      ]
+    },
+    {
+      "wpId": "11188",
+      "title": "Publishing with HarperOne",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "10049",
+      "title": "The Son of God, the Council of Nicea, and the Da Vinci Code",
+      "topics": [
+        "Arius and Arianism",
+        "Constantine",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "9393",
+      "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+      "topics": [
+        "Apostolic Death Traditions"
+      ]
+    },
+    {
+      "wpId": "7155",
+      "title": "Jesus as the Adopted Son of God",
+      "topics": [
+        "How Jesus Became God",
+        "Adoptionist Christology"
+      ]
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "topics": [
+        "Meaning of Jesus' Resurrection",
+        "Gospel of Mark",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "6595",
+      "title": "My New Edition of After the New Testament",
+      "topics": [
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "6587",
+      "title": "Followup on the NT Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "4911",
+      "title": "Riled by O’Reilly",
+      "topics": [
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "4591",
+      "title": "Women in the Churches of Paul",
+      "topics": [
+        "Women in Pauline Traditions",
+        "Paul's Churches and Communities",
+        "Women in Early Christianity"
+      ]
+    },
+    {
+      "wpId": "4177",
+      "title": "Capernaum and the “Jesus Boat”",
+      "topics": [
+        "Archaeology and Material Evidence"
+      ]
+    },
+    {
+      "wpId": "3774",
+      "title": "How Jesus Became God: My Change of Direction",
+      "topics": [
+        "How Jesus Became God",
+        "Philippians 2 Christ Poem"
+      ]
+    },
+    {
+      "wpId": "3054",
+      "title": "Were the Disciples Martyred for Believing the Resurrection?",
+      "topics": [
+        "Apocryphal Acts",
+        "Apostolic Death Traditions"
+      ]
+    },
+    {
+      "wpId": "2915",
+      "title": "The Next Project: How Jesus Became God",
+      "topics": [
+        "How Jesus Became God"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

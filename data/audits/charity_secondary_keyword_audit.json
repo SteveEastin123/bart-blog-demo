@@ -1,0 +1,860 @@
+{
+  "keyword": "Charity",
+  "criterion": "Use Charity when charitable giving, altruism, aid to people in need, Christian teachings or institutions of charity, or the blog's charitable fundraising is a major or meaningful supporting subject. Exclude membership boilerplate, passing biographical or publishing references, and unrelated uses such as intellectual charity.",
+  "before": 58,
+  "after": 88,
+  "retained": 35,
+  "removed": 23,
+  "added": 53,
+  "retainedPosts": [
+    {
+      "wpId": "1918",
+      "title": "What Charities Does The Blog Support?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "2352",
+      "title": "Helping Charity and Improving My Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "2557",
+      "title": "Always Looking for MORE!!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "4034",
+      "title": "Our One-Year Anniversary!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "6293",
+      "title": "Amusing Fund Raising and the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "6385",
+      "title": "The Giving Season",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "7235",
+      "title": "A Milestone for the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "8593",
+      "title": "About the Blog: Charities and Improvements",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "8659",
+      "title": "Ramblings on Charity and Religion",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "8765",
+      "title": "Year Three on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "8980",
+      "title": "Lunch Auction",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "11775",
+      "title": "How We’re Doing on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "11819",
+      "title": "How You Can Help!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "11832",
+      "title": "The Charities We Support",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "12459",
+      "title": "Our Fifth Year Anniversary!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "14405",
+      "title": "Year in Review 2017!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "15738",
+      "title": "Blog Year in Review, 2018",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "16021",
+      "title": "A Blog Anniversary!  Seven Years!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "17285",
+      "title": "One of the Blog’s Main Charities: Urban Ministries of Durham",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "17790",
+      "title": "Hard Times and Using the Blog for Charity",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "19664",
+      "title": "Blog Anniversary, 2020!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "21340",
+      "title": "Another Important Evangelical Charity: Guest Post by Robin Jones",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "27272",
+      "title": "On Giving.   Platinum Guest Post by Judith Coyle",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "28330",
+      "title": "End of the Year Option?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "31849",
+      "title": "Did Jesus Insist on Voluntary Poverty?",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "31884",
+      "title": "Critical Scholarship from a Sophisticated Faith Perspective. Blog Anniversary Guest Post by Judy Yates Siker",
+      "topics": [
+        "Critical Biblical Scholarship"
+      ]
+    },
+    {
+      "wpId": "32267",
+      "title": "Did Christians Invent Hospitals?",
+      "topics": [
+        "Christian Health Care",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "33226",
+      "title": "What Charities does the Blog Support?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "38116",
+      "title": "Our Commitment to Charity",
+      "topics": [
+        "Blog Updates and Fundraising",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "39040",
+      "title": "We Need An Experienced Fundraiser!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "41780",
+      "title": "Annual Appeal 2024: Behind the Mission Pt. 1",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "47133",
+      "title": "A Major Milestone on the Blog! $3 Million Donated to Charity!!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "47625",
+      "title": "A New Way to Support the Blog: Become a Blog Steward",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "48640",
+      "title": "The Year in Review: 2025!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "49487",
+      "title": "You’re Invited: The Blog Turns 14",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2079",
+      "title": "Question about Eyewitnesses and the Gospels",
+      "topics": [
+        "Eyewitness Reliability",
+        "Gospel Eyewitness Claims",
+        "Oral Tradition",
+        "Memory and Jesus Traditions"
+      ]
+    },
+    {
+      "wpId": "2380",
+      "title": "My Colleague’s Archaeological Find!",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "4689",
+      "title": "Did Luke Originally Have Chapters 1-2?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "Marcion"
+      ]
+    },
+    {
+      "wpId": "6439",
+      "title": "About the Blog and Two Clarifications about Reza Aslan’s Zealot",
+      "topics": [
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "8874",
+      "title": "St. Catherine’s Monastery",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "12516",
+      "title": "My “Preparation” to Teach in a Secular Research Institution",
+      "topics": [
+        "Academic Careers and University Life",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "13192",
+      "title": "Reasonable Doubts – How Jesus Became God",
+      "topics": [
+        "How Jesus Became God",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "14952",
+      "title": "Reading The Triumph of Christianity at Quail Ridge Books",
+      "topics": [
+        "Media Interviews and Videos",
+        "Rise of Christianity",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "14971",
+      "title": "My Scholarly Project on the Afterlife",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "15288",
+      "title": "The Broader Significance(s) of Contradictions",
+      "topics": [
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "15981",
+      "title": "Christianity’s Most Important Convert: Lecture at the Smithsonian",
+      "topics": [
+        "Conversion",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "16383",
+      "title": "But WHY Doesn’t Torture Hurt??  Guest Post by Stephanie Cobb",
+      "topics": [
+        "Miraculous Martyrdom Traditions"
+      ]
+    },
+    {
+      "wpId": "16425",
+      "title": "Some Very Strange Journeys to Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16851",
+      "title": "Crazy Things Textual Scholars Say",
+      "topics": [
+        "Textual Criticism Overview",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "17095",
+      "title": "A Synopsis of Each New Testament Book",
+      "topics": [
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "17149",
+      "title": "Jesus and “Homosexuality”",
+      "topics": [
+        "Biblical Debates on Same-Sex Relations"
+      ]
+    },
+    {
+      "wpId": "17159",
+      "title": "Is the Bible Inspired by God?  Guest Post by Evangelical Apologist Mike Licona",
+      "topics": [
+        "Biblical Inerrancy"
+      ]
+    },
+    {
+      "wpId": "29846",
+      "title": "A Full Reply to Mythicist Richard Carrier.  Most-Commented Blog Post: #4",
+      "topics": [
+        "Mythicism",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "32323",
+      "title": "A Book That Nearly Became Scripture: The Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "34837",
+      "title": "The Apocalypse and the Situation in Ukraine: Interview with a Ukrainian Christian Scholar",
+      "topics": [
+        "Media Interviews and Videos",
+        "Armageddon"
+      ]
+    },
+    {
+      "wpId": "38151",
+      "title": "When Is Forgiveness not Forgiveness?",
+      "topics": [
+        "Atonement (General)",
+        "Comparative Ancient Evidence",
+        "Greco-Roman Religious Culture",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "47004",
+      "title": "Why Wasn’t Peter’s Apocalypse Included in the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "2254",
+      "title": "Which Charities Does The Blog Support?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "4633",
+      "title": "A Plea for My Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "7645",
+      "title": "Ideas for Raising More Money on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "7683",
+      "title": "Suggested Donation for the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "7906",
+      "title": "Letter from Urban Ministries of Durham",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "8385",
+      "title": "The Blog Year in Review: 2014",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "8942",
+      "title": "A Milestone on the Blog",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "9173",
+      "title": "My Big Day Appeal",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "9448",
+      "title": "Blog Year in Review 2015",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "13781",
+      "title": "Is the Blog Meaningful for You?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "15053",
+      "title": "The Sixth Anniversary of the Blog!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "16040",
+      "title": "Fund Raising Event on the Blog: Contradictions in the Gospels??",
+      "topics": [
+        "Biblical Contradictions",
+        "Blog Updates and Fundraising",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "17457",
+      "title": "Blog Year in Review, 2019!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "20486",
+      "title": "A Bart Ehrman Webinar: How We Got the New Testament!",
+      "topics": [
+        "Blog Updates and Fundraising",
+        "Canon Formation",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "21022",
+      "title": "Evangelicals Who Make the World A Better Place.  Guest Post by Robin Jones",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "22447",
+      "title": "A Fund-Raising Webinar:  What Can We Really Know about the Birth of Jesus??",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "22720",
+      "title": "A Holiday Season Request!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "22919",
+      "title": "The Blog Year in Review, 2020",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "23938",
+      "title": "A Christian Is Not Necessarily a Disciple (Monthly Platinum Post: Douglas Wadeson)",
+      "topics": [
+        "Jesus' Teachings",
+        "Charity and Altruism",
+        "Jesus on Wealth and Poverty"
+      ]
+    },
+    {
+      "wpId": "24074",
+      "title": "The Stories We Tell: Guest Post by Robin Jones",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "26018",
+      "title": "Jesus according to the Christians:  A Three-Part Blog Lecture Series",
+      "topics": [
+        "Courses and Teaching",
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "27091",
+      "title": "A Blog Event!  Want to Join a three-week Blog Book Club??",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "30458",
+      "title": "Did Christians Invent Charity?",
+      "topics": [
+        "Charity and Altruism",
+        "Early Christian Teachings on Wealth"
+      ]
+    },
+    {
+      "wpId": "30857",
+      "title": "Concerns for the Poor in the Jewish Tradition",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "30969",
+      "title": "A Christian NDE and the Problem with Being Filthy Rich",
+      "topics": [
+        "Afterlife Journeys",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Early Christian Teachings on Wealth",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "30972",
+      "title": "You Mean Everyone (Except the Truly Destitute) Needs to Give? But How Much?",
+      "topics": [
+        "Charity and Altruism",
+        "Early Christian Teachings on Wealth"
+      ]
+    },
+    {
+      "wpId": "31491",
+      "title": "The Invention of Charity:  My Prospectus for the Book",
+      "topics": [
+        "Charity and Altruism",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "32062",
+      "title": "Softening Jesus’ Message on Giving up (Literally) Everything",
+      "topics": [
+        "Early Christian Teachings on Wealth",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "32065",
+      "title": "“Redemptive Gifts”: Can Giving to Charity Save Your Soul?",
+      "topics": [
+        "Charity and Altruism",
+        "Early Christian Teachings on Wealth"
+      ]
+    },
+    {
+      "wpId": "32068",
+      "title": "Christians Who Reversed Jesus’ Teachings:  Wealth is GOOD!",
+      "topics": [
+        "Charity and Altruism",
+        "Early Christian Teachings on Wealth",
+        "Early Church Developments",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "32264",
+      "title": "Were Early Christians Really Charitable?  Or Was It All Talk?",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "32735",
+      "title": "Love.  How I’ve Shifted the Focus of My Book on Charity.",
+      "topics": [
+        "Charity and Altruism",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "32817",
+      "title": "Is It Even Possible to Follow Jesus’ Teaching to “Love Your Neighbor as Yourself”",
+      "topics": [
+        "Charity and Altruism",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "32820",
+      "title": "Why I Want to Write a Book on Christian Love",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "33559",
+      "title": "Are You Interested in an End-of-the-Year Donation Opportunity?  Blog Challenge Grants!!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "37959",
+      "title": "The Gift of Christmas (2023)",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "38132",
+      "title": "The Origins of Altruism: My Next Book as It Stands Now",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "38142",
+      "title": "Is Christian Love Different from Love?",
+      "topics": [
+        "Charity and Altruism",
+        "1 Corinthians",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "38146",
+      "title": "Love in Action: Christian Views of Charitable Giving",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "39844",
+      "title": "The New Book I’m Writing About Altruism:  Putting It In a Nutshell",
+      "topics": [
+        "Charity and Altruism",
+        "In a Nutshell Series",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "39850",
+      "title": "Does Altruism Even Exist?  Some Personal Reflections Based on a Crazy Anecdote",
+      "topics": [
+        "Charity and Altruism",
+        "Moral Philosophy",
+        "Personal Reflections"
+      ]
+    },
+    {
+      "wpId": "41484",
+      "title": "Blog Fundraiser: The Origins of Altruism Pre-Publication Manuscript Sneak Peek",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "41505",
+      "title": "What Do You Really Want in Life?  And How is that Related to Altruism?",
+      "topics": [
+        "Charity and Altruism",
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "47029",
+      "title": "A Matching Grant for our End of the Year Giving 2024:  Consider the Blog and Its Mission!",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "47031",
+      "title": "2024: Ehrman Blog Year in Review",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "47684",
+      "title": "Seventy Years on This Planet and One Fundraiser: You’re Invited",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "48160",
+      "title": "Help Feed Families in Need (With a Particularly Enticing Incentive!): Ehrman Blog Annual Appeal",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "48737",
+      "title": "Christian Churches Steadfastly Refusing To Help Those in Need….",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "48919",
+      "title": "Why I Wrote Love Thy Stranger and Significant Benefits that Can Come Your Way",
+      "topics": [
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "49334",
+      "title": "Advance Preview–How I Begin My New Book: Love Thy Stranger",
+      "topics": [
+        "Charity and Altruism",
+        "Jesus' Ethics"
+      ]
+    },
+    {
+      "wpId": "49337",
+      "title": "The Dark Side of Christianity: How I (Partially) End My New Book",
+      "topics": [
+        "Jesus' Ethics",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "49339",
+      "title": "The Good Done By Christianity to Our World",
+      "topics": [
+        "Jesus' Ethics",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "49516",
+      "title": "Celebrating The Blog’s 14th Anniversary!  Do You Have a Favorite Post?",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    }
+  ]
+}

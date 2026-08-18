@@ -1,0 +1,740 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for 1 Thessalonians, Craig Evans, Lazarus, Isaac, and Martyrdom",
+  "criterion": "Retain secondary keywords only when they identify meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions, lists, credits, previews, and name collisions.",
+  "auditedKeywords": [
+    "1 Thessalonians",
+    "Craig Evans",
+    "Lazarus",
+    "Isaac",
+    "Martyrdom"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 257,
+    "linksRemoved": 73,
+    "linksRetained": 184,
+    "keywordsRetired": 0
+  },
+  "audits": [
+    {
+      "keyword": "1 Thessalonians",
+      "before": 52,
+      "retained": 44,
+      "removed": 8,
+      "removedPosts": [
+        {
+          "wpId": "3012",
+          "title": "Christians Charged as Perverts and Criminals",
+          "topics": [
+            "Roman Persecution of Christians"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "4753",
+          "title": "Problems with Luke as the Author of Luke",
+          "topics": [
+            "Gospel of Luke",
+            "Luke-Acts Authorship"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "4763",
+          "title": "Not for the Faint of Heart (Authorship of Colossians)",
+          "topics": [
+            "Pauline Authorship",
+            "Pauline Forgeries",
+            "Colossians"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "17487",
+          "title": "Problems with Thinking That Luke Wrote Luke (and Acts)",
+          "topics": [
+            "Gospel of Luke",
+            "Luke-Acts Authorship"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "17494",
+          "title": "Did Paul Write Colossians? According to Most Scholars No – Paul did Not Write Colossians",
+          "topics": [
+            "Pauline Forgeries",
+            "Colossians"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "47123",
+          "title": "Paul’s Letter to the Romans in a Nutshell",
+          "topics": [
+            "In a Nutshell Series",
+            "Salvation (General)",
+            "Romans",
+            "Pauline Salvation Models"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "47217",
+          "title": "The Letter to the Colossians: Who, When, and Why?",
+          "topics": [
+            "Pauline Authorship",
+            "Colossians"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        },
+        {
+          "wpId": "47219",
+          "title": "Did Paul Write That Letter?  Getting Into the Weeds…",
+          "topics": [
+            "Forgery (General)",
+            "Forgery and Counterforgery",
+            "Pauline Forgeries",
+            "Colossians"
+          ],
+          "reason": "The letter is only listed or used as one of several statistical comparators rather than discussed as a meaningful subject."
+        }
+      ]
+    },
+    {
+      "keyword": "Craig Evans",
+      "before": 52,
+      "retained": 45,
+      "removed": 7,
+      "removedPosts": [
+        {
+          "wpId": "7533",
+          "title": "Argument Against Jesus’ Burial in HJBG, Part 1",
+          "topics": [
+            "Burial of Jesus",
+            "How Jesus Became God"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        },
+        {
+          "wpId": "7536",
+          "title": "Argument Against Jesus’ Burial in HJBG, Part 2",
+          "topics": [
+            "Burial of Jesus",
+            "How Jesus Became God",
+            "Pontius Pilate"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        },
+        {
+          "wpId": "7553",
+          "title": "Why Are You Trashing the Gospels?",
+          "topics": [
+            "Gospel Historical Reliability"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        },
+        {
+          "wpId": "7560",
+          "title": "Discrepancies That Pay Rich Dividends",
+          "topics": [
+            "Biblical Contradictions",
+            "Gospel of Luke",
+            "Jesus' Passion Narratives"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        },
+        {
+          "wpId": "36276",
+          "title": "More Reasons for Thinking Jesus was Not Given a Decent Burial",
+          "topics": [
+            "Burial of Jesus",
+            "Empty Tomb Traditions",
+            "Pontius Pilate"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        },
+        {
+          "wpId": "36403",
+          "title": "Hey, Stop Trashing the Gospels!",
+          "topics": [
+            "Gospel Historical Reliability"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        },
+        {
+          "wpId": "36435",
+          "title": "Why Discrepancies and Contradictions *Enrich* Our Understanding of the Gospels",
+          "topics": [
+            "Biblical Contradictions",
+            "Jesus' Passion Narratives",
+            "Gospel of Mark",
+            "Gospel of Luke"
+          ],
+          "reason": "The post either precedes the substantive response to Evans or pauses that series to discuss a different subject."
+        }
+      ]
+    },
+    {
+      "keyword": "Lazarus",
+      "before": 52,
+      "retained": 37,
+      "removed": 15,
+      "removedPosts": [
+        {
+          "wpId": "4598",
+          "title": "Women in the Ministry of Jesus",
+          "topics": [
+            "Jesus and Women"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "7046",
+          "title": "The Gospel of John from a Comparative Perspective",
+          "topics": [
+            "Gospel of John",
+            "Canonical Gospels (General)"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "8803",
+          "title": "Signs in the Gospel of John",
+          "topics": [
+            "Gospel of John",
+            "Signs in the Gospel of John",
+            "Jesus' Miracle Stories"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "8814",
+          "title": "Some Evidence for a Signs Source in John",
+          "topics": [
+            "Gospel of John",
+            "Jesus' Miracle Stories",
+            "Signs in the Gospel of John",
+            "Source Criticism"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "12450",
+          "title": "Returning from the Dead in the Hebrew Bible",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "12840",
+          "title": "Was Resurrection a Zoroastrian Idea?",
+          "topics": [
+            "Resurrection of the Dead"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "13196",
+          "title": "Differences Between John and the Synoptics",
+          "topics": [
+            "Gospel of John",
+            "Canonical Gospels (General)"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "13684",
+          "title": "Arguments for Markan Priority (that Mark was the first Gospel written)",
+          "topics": [
+            "Gospel of Mark",
+            "Synoptic Problem"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "14935",
+          "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+          "topics": [
+            "Crucifixion of Jesus",
+            "Miracle Stories in Non-Canonical Texts",
+            "Pontius Pilate",
+            "Trial of Jesus",
+            "Non-Canonical Gospel Traditions"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "15181",
+          "title": "Did Jesus Do “Signs” To Prove Who He Was?  A Blast from the Past",
+          "topics": [
+            "Gospel of John",
+            "Signs in the Gospel of John",
+            "Jesus' Miracle Stories"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "17813",
+          "title": "Comparing John and the Synoptics",
+          "topics": [
+            "Gospel of John",
+            "Canonical Gospels (General)"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "21106",
+          "title": "Jesus in Scholarship and Film",
+          "topics": [
+            "Courses and Teaching"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "29381",
+          "title": "How Luke Rewrote Matthew’s Nativity Story     Platinum Guest Post by Dennis J. Folds",
+          "topics": [
+            "Synoptic Problem",
+            "Gospel of Matthew",
+            "Jesus' Birth Narratives",
+            "Gospel of Luke"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "38983",
+          "title": "What About People Who Come Back From the Dead in the Hebrew Bible?",
+          "topics": [
+            "Ancient Jewish Afterlife Beliefs"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        },
+        {
+          "wpId": "47098",
+          "title": "The Gospel of John in a Nutshell",
+          "topics": [
+            "Gospel of John",
+            "In a Nutshell Series",
+            "Signs in the Gospel of John"
+          ],
+          "reason": "Lazarus appears only in a passing example, list, citation title, or brief comparison rather than as meaningful supporting content."
+        }
+      ]
+    },
+    {
+      "keyword": "Isaac",
+      "before": 51,
+      "retained": 15,
+      "removed": 36,
+      "removedPosts": [
+        {
+          "wpId": "3222",
+          "title": "Lost Gospels That Are Still Lost 1",
+          "topics": [
+            "Gnostic and Orthodox Conflicts",
+            "Gospel of Judas"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "3917",
+          "title": "“Human” Appearances of God in the Old Testament",
+          "topics": [
+            "Divine Beings in the Hebrew Bible",
+            "Christology (General)"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "4094",
+          "title": "Angels as Divine",
+          "topics": [
+            "Angelic Christology",
+            "How Jesus Became God"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "4335",
+          "title": "Inconsistencies in the Hebrew Bible",
+          "topics": [
+            "Biblical Contradictions",
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "4469",
+          "title": "Was Matthew’s Community Gentile or Jewish?",
+          "topics": [
+            "Gospel of Matthew",
+            "Jewish Law and Torah"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "4505",
+          "title": "Teeth Will Be Provided",
+          "topics": [
+            "Modern Forgery Claims"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "4885",
+          "title": "You Won’t Find *This* in the New Testament!",
+          "topics": [
+            "Proto-Gospel of James"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "8613",
+          "title": "Jesus, Matthew, and the Law",
+          "topics": [
+            "Gospel of Matthew",
+            "Jewish Law and Torah"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "11599",
+          "title": "Other Literary Tensions in the Pentateuch",
+          "topics": [
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "11619",
+          "title": "Another Creation Story",
+          "topics": [
+            "Comparative Ancient Evidence",
+            "Genesis"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "12563",
+          "title": "Finding More Problems in the Old Testament",
+          "topics": [
+            "Biblical Contradictions",
+            "Biblical Inerrancy",
+            "Genesis",
+            "Pentateuch",
+            "Hebrew Bible Composition and Sources"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "12943",
+          "title": "My Favorite Anecdote about Jesus and the Afterlife: Teeth Will Be Provided!",
+          "topics": [
+            "Life After Death (General)",
+            "Modern Forgery Claims"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "13186",
+          "title": "Jesus’ Teaching About the Kingdom of God",
+          "topics": [
+            "Apocalyptic Jesus",
+            "Jesus' Teachings"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "14905",
+          "title": "How Was Jesus *Really* Born?  The Proto-Gospel of James",
+          "topics": [
+            "Proto-Gospel of James"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "14935",
+          "title": "Pilate’s *Own* Account of Why He Crucified Jesus",
+          "topics": [
+            "Crucifixion of Jesus",
+            "Miracle Stories in Non-Canonical Texts",
+            "Pontius Pilate",
+            "Trial of Jesus",
+            "Non-Canonical Gospel Traditions"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "15303",
+          "title": "The Historical Significance of Contradictions",
+          "topics": [
+            "Biblical Contradictions",
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "15559",
+          "title": "More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+          "topics": [
+            "Old Testament Apocrypha"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "15676",
+          "title": "An Intriguingly Legendary Account of Jesus’ Death",
+          "topics": [
+            "Judas Iscariot",
+            "Non-Canonical Gospel Traditions",
+            "Crucifixion of Jesus"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "16639",
+          "title": "Now: Literary Inconsistencies in the Old Testament",
+          "topics": [
+            "Biblical Contradictions",
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "20711",
+          "title": "Two Ancient Jesuses and the Current Crises",
+          "topics": [
+            "Jesus' Ethics",
+            "Moral Problems in Scripture"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "21016",
+          "title": "A Very Odd Story about the Baby Jesus",
+          "topics": [
+            "Jesus' Birth Narratives",
+            "Proto-Gospel of James"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "24163",
+          "title": "God Showing Up a (Apparently) Human in the Hebrew Bible",
+          "topics": [
+            "Divine Beings in the Hebrew Bible"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "25439",
+          "title": "The Letter Jesus Wrote from the Cross (!)",
+          "topics": [
+            "Jesus' Passion Narratives",
+            "Non-Canonical Gospel Traditions"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "25677",
+          "title": "More Inconsistencies in the Pentateuch",
+          "topics": [
+            "Biblical Contradictions",
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "27056",
+          "title": "God’s Destruction of the “Other”: Joshua and the Battle of Jericho",
+          "topics": [
+            "Divine Judgment",
+            "Moral Problems in Scripture"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "27343",
+          "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
+          "topics": [
+            "Jesus' Teachings",
+            "Salvation (General)",
+            "Apocalyptic Jesus"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "27402",
+          "title": "Jesus’ View of Salvation: Who Can Have Eternal Life?",
+          "topics": [
+            "Jesus' Teachings",
+            "Salvation (General)",
+            "Apocalyptic Jesus"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "31240",
+          "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+          "topics": [
+            "Pentateuch",
+            "Translation Issues",
+            "Moses"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "33426",
+          "title": "Are There Contradictions in the Pentateuch?",
+          "topics": [
+            "Biblical Contradictions",
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "34141",
+          "title": "Anti-Jewish Alterations of the New Testament Writings?",
+          "topics": [
+            "Christian Anti-Judaism",
+            "Scribal Changes"
+          ],
+          "reason": "The post refers to the twentieth-century scholar Jules Isaac, not the biblical Isaac."
+        },
+        {
+          "wpId": "36268",
+          "title": "Proposed Solutions For the Four Metaphysical Puzzles Related to Jesus From an Islamic Perspective From Omar Robb",
+          "topics": [
+            "Crucifixion of Jesus",
+            "Virgin Birth"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "37140",
+          "title": "The Gospel Before the Gospel: The Proto-Gospel of James",
+          "topics": [
+            "Proto-Gospel of James"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "38971",
+          "title": "Could Moses be Thutmose, the Overseer of the Borderlands? – Platinum Post from Serene",
+          "topics": [
+            "Hebrew Bible Historical Reliability",
+            "Pentateuch",
+            "Moses"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "40538",
+          "title": "Major Contradictions (and Other Problems) in the Old Testament",
+          "topics": [
+            "Biblical Contradictions",
+            "Moral Problems in Scripture"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "40864",
+          "title": "Still More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+          "topics": [
+            "Old Testament Apocrypha"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        },
+        {
+          "wpId": "48868",
+          "title": "The Most Egregious Copying Mistake by a New Testament Scribe",
+          "topics": [
+            "Gospel of Luke",
+            "Genealogies of Jesus",
+            "Scribal Changes",
+            "Textual Variants"
+          ],
+          "reason": "Isaac occurs only in a patriarchal list, quoted formula, genealogy, or passing example rather than being meaningfully discussed."
+        }
+      ]
+    },
+    {
+      "keyword": "Martyrdom",
+      "before": 50,
+      "retained": 43,
+      "removed": 7,
+      "removedPosts": [
+        {
+          "wpId": "3161",
+          "title": "Textual Problems in the Apostolic Fathers 1",
+          "topics": [
+            "Apostolic Fathers",
+            "Textual Variants",
+            "Theologically Significant Variants"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        },
+        {
+          "wpId": "15392",
+          "title": "The Letter of First Clement: An Overview",
+          "topics": [
+            "Apostolic Fathers"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        },
+        {
+          "wpId": "15482",
+          "title": "Peter: First Bishop (Pope) in Rome?",
+          "topics": [
+            "Early Church Developments",
+            "Peter the Apostle"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        },
+        {
+          "wpId": "27410",
+          "title": "Was Peter the First Pope?",
+          "topics": [
+            "Early Church Developments",
+            "Peter the Apostle"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        },
+        {
+          "wpId": "33161",
+          "title": "My New Podcast.   Help!  I Need Questions.",
+          "topics": [
+            "Media Interviews and Videos"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        },
+        {
+          "wpId": "34882",
+          "title": "The Origins of Purgatory",
+          "topics": [
+            "Purgatory"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        },
+        {
+          "wpId": "48295",
+          "title": "A Glimpse of Proto-orthodox Views in the Letters of Ignatius",
+          "topics": [
+            "Apostolic Fathers",
+            "Early Christian Diversity",
+            "Gnostic and Orthodox Conflicts"
+          ],
+          "reason": "Martyrdom is only previewed, listed, or supplied as brief biographical context rather than meaningfully discussed."
+        }
+      ]
+    }
+  ]
+}

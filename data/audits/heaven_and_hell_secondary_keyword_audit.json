@@ -1,0 +1,671 @@
+{
+  "keyword": "Heaven and Hell",
+  "criterion": "Retain Heaven and Hell when postmortem reward or punishment, the realms of heaven and hell, related afterlife traditions, or Bart's books on those subjects materially support the post. Remove passing book-title citations, comparisons, source notices, and list entries.",
+  "before": 80,
+  "after": 69,
+  "retained": 69,
+  "removed": 11,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "3635",
+      "title": "Heaven and Hell: When was Heaven and Hell Invented?",
+      "topics": [
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "4056",
+      "title": "A Third Forgery in the Name of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Petrine Authorship and Forgeries"
+      ]
+    },
+    {
+      "wpId": "9456",
+      "title": "Heaven and Hell, Part One",
+      "topics": [
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "9458",
+      "title": "Heaven and Hell, Part Two",
+      "topics": [
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "11863",
+      "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016",
+      "topics": [
+        "Pontius Pilate",
+        "Life After Death (General)"
+      ]
+    },
+    {
+      "wpId": "11941",
+      "title": "Jesus and Paul on Heaven and Hell",
+      "topics": [
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Paul on Resurrection"
+      ]
+    },
+    {
+      "wpId": "11944",
+      "title": "(Later) Early Christian Understandings of Heaven and Hell",
+      "topics": [
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "12425",
+      "title": "Touring Hell: The Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "12428",
+      "title": "Another Gory Account of the Afterlife: The Apocalypse of Paul",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "12447",
+      "title": "The Afterlife in the Hebrew Bible: Sheol",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "12826",
+      "title": "The Origins of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "12873",
+      "title": "My New Scholarly Project",
+      "topics": [
+        "Life After Death (General)",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "12885",
+      "title": "Journeys to Heaven and Hell: A Sketch of My Project",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "12972",
+      "title": "Reviewing the Afterlife",
+      "topics": [
+        "Life After Death (General)"
+      ]
+    },
+    {
+      "wpId": "14971",
+      "title": "My Scholarly Project on the Afterlife",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "15041",
+      "title": "The Birth of Purgatory",
+      "topics": [
+        "Purgatory"
+      ]
+    },
+    {
+      "wpId": "15070",
+      "title": "Is There a Time and Place for Heaven and Hell?",
+      "topics": [
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "15502",
+      "title": "How I Take Notes on What I Read for a Trade Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15622",
+      "title": "A Very Perplexing Question",
+      "topics": [
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "2 Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "15705",
+      "title": "The Books of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Gospel of Peter",
+        "Petrine Authorship and Forgeries"
+      ]
+    },
+    {
+      "wpId": "15798",
+      "title": "How Does A Book Actually Get Published?",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "15801",
+      "title": "How Do We Know What Was Originally in the Apocalypse of Peter?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "15902",
+      "title": "My Next Scholarly Book: Visits to Heaven and Hell",
+      "topics": [
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "15905",
+      "title": "The Original Obsession with Trips to the Afterlife",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "15912",
+      "title": "The Passion for Origins",
+      "topics": [
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "15915",
+      "title": "Who Cares How It All Started?",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "15995",
+      "title": "Did Ancient Greeks Invent Heaven and Hell?",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "15998",
+      "title": "A Roman Vision of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16098",
+      "title": "Paul in Hell.   The Apocryphal Apocalypse of Paul.",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16425",
+      "title": "Some Very Strange Journeys to Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16467",
+      "title": "Who Has The Answer For a Happy Afterlife?",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Afterlife Journeys",
+        "Acts of Thomas"
+      ]
+    },
+    {
+      "wpId": "16473",
+      "title": "How Views of the Afterlife Changed",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16503",
+      "title": "Resurrection from the Dead: Were Jews Influenced by Zoroastrianism?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "16543",
+      "title": "Writing Scholarly and Popular Books on the Same Topic",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "17360",
+      "title": "Guided Tours of Heaven and Hell:  My Scholarly Book",
+      "topics": [
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "17368",
+      "title": "Guided Tours of Heaven and Hell in a Christian Mode",
+      "topics": [
+        "Comparative Ancient Evidence",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "21069",
+      "title": "Smith-Pettit Lecture – The History of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "22909",
+      "title": "Want To See My New Book Manuscript?  A Blog Fundraiser",
+      "topics": [
+        "Blog Updates and Fundraising"
+      ]
+    },
+    {
+      "wpId": "26112",
+      "title": "What We Know Today About Religions and the Afterlife (in the US): Platinum Guest Post by Sharon Friedman",
+      "topics": [
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "26592",
+      "title": "How I Take Notes When Doing Research for a Book",
+      "topics": [
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "27589",
+      "title": "What Do YOU Think?  The Experience of Death.",
+      "topics": [
+        "Life After Death (General)"
+      ]
+    },
+    {
+      "wpId": "27889",
+      "title": "God’s Mercy and Justice: The Opening of a Chapter in Journeys to Heaven and Hell",
+      "topics": [
+        "Apocalypse of Peter",
+        "Divine Judgment",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "28005",
+      "title": "Should You Give Up All Your Possessions to Be Happy?  The Ancient Cynic View",
+      "topics": [
+        "Wealth and Poverty in Antiquity"
+      ]
+    },
+    {
+      "wpId": "28010",
+      "title": "A Humorous Take on Wealth From a Great Satire of Antiquity",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Comparative Ancient Evidence",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "28014",
+      "title": "Why Cynics Thought Being Poor Was Ironically Better",
+      "topics": [
+        "Wealth and Poverty in Antiquity",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "29150",
+      "title": "Platinum Webinar! March 8.  Why Is the Apocalypse of Peter Not in the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "29445",
+      "title": "What Do You Think?  Is There a Reason to Be Religious If There Is No Afterlife?",
+      "topics": [
+        "Life After Death (General)"
+      ]
+    },
+    {
+      "wpId": "29969",
+      "title": "O Frabjous Day, Callou Callay",
+      "topics": [
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "30167",
+      "title": "Eternal Life is in the BODY?  Really?",
+      "topics": [
+        "Resurrection of the Dead",
+        "Paul on Resurrection"
+      ]
+    },
+    {
+      "wpId": "30170",
+      "title": "What’s Eternal Life Like?  Ask Paul…",
+      "topics": [
+        "Paul on Resurrection",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "30695",
+      "title": "A Lively Interview on my New Book “Journeys”",
+      "topics": [
+        "Afterlife Journeys",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "30969",
+      "title": "A Christian NDE and the Problem with Being Filthy Rich",
+      "topics": [
+        "Afterlife Journeys",
+        "Heaven and Hell Beliefs",
+        "Acts of Thomas",
+        "Early Christian Teachings on Wealth",
+        "Charity and Altruism"
+      ]
+    },
+    {
+      "wpId": "31173",
+      "title": "Lazarus and the Rich Man: What To Do with Wealth",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Jesus on Wealth and Poverty",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "31221",
+      "title": "An Interesting Interview on Journeys to Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Media Interviews and Videos",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "31624",
+      "title": "Digging Deep into Afterlife Journeys",
+      "topics": [
+        "Afterlife Journeys",
+        "Media Interviews and Videos"
+      ]
+    },
+    {
+      "wpId": "32323",
+      "title": "A Book That Nearly Became Scripture: The Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "33532",
+      "title": "Did Jesus Descend to Hell After He Died?",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "33535",
+      "title": "Did Christ Save *Everyone* When He Descended to Hades?",
+      "topics": [
+        "Salvation (General)",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "34841",
+      "title": "The Martyrdom of Perpetua and the Rise of Purgatory",
+      "topics": [
+        "Martyrdom of Perpetua",
+        "Purgatory"
+      ]
+    },
+    {
+      "wpId": "34882",
+      "title": "The Origins of Purgatory",
+      "topics": [
+        "Purgatory"
+      ]
+    },
+    {
+      "wpId": "38977",
+      "title": "What Is Sheol in the Hebrew Bible?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "38990",
+      "title": "What’s It Like in Sheol?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs"
+      ]
+    },
+    {
+      "wpId": "39002",
+      "title": "More on Sheol: Was it an Actual Place?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "40686",
+      "title": "Was the Apocalypse of Peter Originally Considered Part of the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "47004",
+      "title": "Why Wasn’t Peter’s Apocalypse Included in the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "47147",
+      "title": "One of the Most Misunderstood Verses of Paul:  Flesh and Blood Will Not Inherit the Kingdom",
+      "topics": [
+        "Resurrection of the Dead",
+        "Paul on Resurrection"
+      ]
+    },
+    {
+      "wpId": "47283",
+      "title": "Paul’s Vision of Heaven and Hell",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Jewish Apocalypticism",
+        "Enoch Traditions"
+      ]
+    },
+    {
+      "wpId": "48864",
+      "title": "From Eternal Torment to Styles of Greek to the Dating of Ignatius: Interesting Readers’ Questions",
+      "topics": [
+        "Eternal Punishment"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "14395",
+      "title": "Did Jesus’ Death Matter?  The Intriguing View of the Coptic Apocalypse of Peter",
+      "topics": [
+        "Apocalypse of Peter"
+      ]
+    },
+    {
+      "wpId": "15609",
+      "title": "My Pod Cast Interview with Sam Harris",
+      "topics": [
+        "Media Interviews and Videos",
+        "Triumph of Christianity"
+      ]
+    },
+    {
+      "wpId": "16202",
+      "title": "Why Do Christians Have an Old Testament?  Another Trade Book.",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "20337",
+      "title": "Readers Mailbag:  Does Isaiah 53 Predict the Death and Resurrection of Jesus?",
+      "topics": [
+        "Messiah",
+        "Resurrection of Jesus",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "27343",
+      "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
+      "topics": [
+        "Jesus' Teachings",
+        "Salvation (General)",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "29035",
+      "title": "Forgery for a General Audience",
+      "topics": [
+        "Forged",
+        "Forgery (General)",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "30164",
+      "title": "Understanding the Future Resurrection of the Dead…",
+      "topics": [
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "30461",
+      "title": "The Ancient Argument for Getting Rid of All Your Wealth",
+      "topics": [
+        "Wealth and Poverty in Antiquity"
+      ]
+    },
+    {
+      "wpId": "32319",
+      "title": "And Then My NEXT Book Project: How Did We Get the Canon of the NT?",
+      "topics": [
+        "Canon Formation",
+        "General-Audience Books",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "32441",
+      "title": "Why Did Christians Even Need a Canon of Scripture?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "32445",
+      "title": "The OTHER Apocalypse of Peter (Stranger still…)",
+      "topics": [
+        "Apocalypse of Peter",
+        "Gnostic and Orthodox Conflicts",
+        "Christology (General)"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

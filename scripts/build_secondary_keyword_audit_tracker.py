@@ -28,6 +28,9 @@ def documented_audits() -> dict[str, list[str]]:
         keyword = data.get("keyword")
         if isinstance(keyword, str):
             evidence.setdefault(keyword, []).append(path.name)
+        for audited_keyword in data.get("auditedKeywords", []):
+            if isinstance(audited_keyword, str):
+                evidence.setdefault(audited_keyword, []).append(path.name)
 
     combined_path = AUDITS_DIR / "1_corinthians_nazareth_keyword_audit_2026_08_17.json"
     if combined_path.exists():

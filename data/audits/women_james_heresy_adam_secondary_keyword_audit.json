@@ -1,0 +1,934 @@
+{
+  "auditDate": "2026-08-18",
+  "scope": "All existing assignments for Women, James, Heresy, James the Brother of Jesus, and Adam",
+  "criterion": "Retain secondary keywords only when they identify meaningful supporting subjects, people, texts, places, or concepts; remove passing mentions and name collisions, and replace ambiguous James assignments only when the exact referent is meaningful.",
+  "auditedKeywords": [
+    "Women",
+    "James",
+    "Heresy",
+    "James the Brother of Jesus",
+    "Adam"
+  ],
+  "summary": {
+    "keywordsAudited": 5,
+    "linksReviewed": 221,
+    "linksRemoved": 68,
+    "linksAdded": 21,
+    "keywordsRetired": 1,
+    "retiredKeywords": [
+      "James"
+    ]
+  },
+  "audits": [
+    {
+      "keyword": "Women",
+      "before": 47,
+      "retainedFromOriginal": 46,
+      "removed": 1,
+      "added": 0,
+      "final": 46,
+      "removedPosts": [
+        {
+          "wpId": "17205",
+          "title": "Jesus and Sexual Immorality",
+          "topics": [
+            "Biblical Debates on Same-Sex Relations",
+            "Jewish Law and Torah",
+            "Sexual and Reproductive Ethics",
+            "Jesus' Ethics"
+          ],
+          "reason": "Women appear only within examples about divorce and adultery; the post's sustained subject is sexual ethics."
+        }
+      ],
+      "addedPosts": []
+    },
+    {
+      "keyword": "James",
+      "before": 45,
+      "retainedFromOriginal": 0,
+      "removed": 45,
+      "added": 0,
+      "final": 0,
+      "removedPosts": [
+        {
+          "wpId": "2274",
+          "title": "Q & A with Ben Witherington: Part 5",
+          "topics": [
+            "Methods for Studying the Historical Jesus",
+            "Woman Caught in Adultery",
+            "Did Jesus Exist?"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "2551",
+          "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "3453",
+          "title": "The Infancy Narratives Compared",
+          "topics": [
+            "Biblical Contradictions",
+            "Jesus' Birth Narratives",
+            "Gospel of Luke",
+            "Gospel of Matthew"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "3872",
+          "title": "What Kind of a Text is the King James Bible?",
+          "topics": [
+            "King James Version"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "4049",
+          "title": "Another Forgery in the Name of Peter",
+          "topics": [
+            "Petrine Authorship and Forgeries"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "4056",
+          "title": "A Third Forgery in the Name of Peter",
+          "topics": [
+            "Apocalypse of Peter",
+            "Petrine Authorship and Forgeries"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "4177",
+          "title": "Capernaum and the “Jesus Boat”",
+          "topics": [
+            "Archaeology and Material Evidence"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "6285",
+          "title": "Errant Texts and Historians",
+          "topics": [
+            "Original Text Questions",
+            "Historical Methods (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "8000",
+          "title": "The Importance of a Comparative Approach to the NT",
+          "topics": [
+            "Textbooks and Teaching Materials"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "8269",
+          "title": "Why Are the Gospels Anonymous?",
+          "topics": [
+            "Gospel Authorship"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "8285",
+          "title": "Why Was the Gospel of John Attributed to John?",
+          "topics": [
+            "Gospel Authorship",
+            "Gospel Eyewitness Claims",
+            "Gospel of John",
+            "Papias",
+            "Eyewitness Reliability"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "8326",
+          "title": "Forgeries in the Name of Paul",
+          "topics": [
+            "Pauline Forgeries"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "8412",
+          "title": "Departments of Religious Studies",
+          "topics": [
+            "Academic Careers and University Life"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "8748",
+          "title": "York Symposium on Early Christian Apocrypha",
+          "topics": [
+            "Non-Canonical Gospel Traditions"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "11707",
+          "title": "Who Wrote the Book of Revelation and the Fourth Gospel?",
+          "topics": [
+            "Gospel Authorship",
+            "Gospel of John",
+            "Book of Revelation",
+            "Revelation Authorship"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "12250",
+          "title": "Why Did We Get a New Testament?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "12287",
+          "title": "Problems with the Language of the King James Version",
+          "topics": [
+            "King James Version",
+            "Translation Issues"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "14980",
+          "title": "Once More: The Interesting Text Called the Didache",
+          "topics": [
+            "Didache"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "15014",
+          "title": "Forgery Lecture",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "15672",
+          "title": "Do Any Forgeries Claim to be Written by Jesus?",
+          "topics": [
+            "Eusebius of Caesarea",
+            "Forgery (General)",
+            "Jesus and Abgar Legend"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "15701",
+          "title": "Jesus’ Birth in Matthew and Luke: A Study in Contrasts",
+          "topics": [
+            "Jesus' Birth Narratives",
+            "Gospel of Matthew"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "15713",
+          "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+          "topics": [
+            "Apocalypse of Peter",
+            "Canon Formation"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "15912",
+          "title": "The Passion for Origins",
+          "topics": [
+            "Afterlife Journeys"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "22094",
+          "title": "Peter and Mary Magdalene in Competition",
+          "topics": [
+            "Mary Magdalene",
+            "Non-Canonical Gospel Traditions",
+            "Peter the Apostle",
+            "Jesus' Resurrection Appearances"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "26835",
+          "title": "More Hints that Cephas Was Not Peter",
+          "topics": [
+            "Peter the Apostle"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "32441",
+          "title": "Why Did Christians Even Need a Canon of Scripture?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "32498",
+          "title": "Is That One a Difference or a Contradiction?",
+          "topics": [
+            "Biblical Contradictions",
+            "Jesus' Resurrection Appearances",
+            "Empty Tomb Traditions"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "32580",
+          "title": "The Canon of the New Testament:  Why It Matters",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "32663",
+          "title": "Did Ancient Writers Use Secretaries?",
+          "topics": [
+            "Ancient Literacy",
+            "Ancient Secretaries and Authorship"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "33399",
+          "title": "Writing Forgeries to Show the Truth",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "34088",
+          "title": "Recreational Drugs in the New Testament?  Platinum Guest Post by Douglas Wadeson",
+          "topics": [
+            "Jesus' Miracle Stories"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "34597",
+          "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+          "topics": [
+            "Apostolic Death Traditions"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "35689",
+          "title": "The Pauline Style and a Discussion About Paul’s Motivation. A Platinum Post From Omar Robb",
+          "topics": [
+            "Pauline Epistles (General)",
+            "Paul's Life and Career"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "36693",
+          "title": "Did Jesus Think He Was Going to Atone for the Sins of the World? A Platinum Post by Manuel Fiadeiro",
+          "topics": [
+            "Atonement (General)",
+            "Pauline Salvation Models"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "38254",
+          "title": "Gospel Thrillers Part III by Andrew Jacobs",
+          "topics": [
+            "Gospel of Jesus' Wife Fragment",
+            "Modern Forgery Claims"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "38587",
+          "title": "Archaeology in the Time of Jesus!  New Course March 2-3!!",
+          "topics": [
+            "Archaeology and Material Evidence"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "39587",
+          "title": "An Important Early Christian Writing",
+          "topics": [
+            "Didache"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "41262",
+          "title": "Why Would A Christian Author Lie About Who He Was?",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "47043",
+          "title": "What Is The New Testament?  Can You Actually Say?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "47100",
+          "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+          "topics": [
+            "Ancient Literacy",
+            "Gospel Eyewitness Claims",
+            "Gospel of John",
+            "Eyewitness Reliability",
+            "Gospel Authorship"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "47869",
+          "title": "Questions on Jesus as God, the Belief in the Resurrection, Secretaries in Early Christianity, and the KJV!",
+          "topics": [
+            "Ancient Secretaries and Authorship",
+            "King James Version",
+            "Exaltation Christology",
+            "Jesus' Resurrection Appearances"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "48797",
+          "title": "Why Did Early Christians Want a New Canon of Scripture?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "48954",
+          "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        },
+        {
+          "wpId": "50192",
+          "title": "How the Year 1517 Revolutionized Biblical Studies",
+          "topics": [
+            "Critical Biblical Scholarship",
+            "Historical Methods (General)"
+          ],
+          "reason": "The generic name combines several biblical figures, writings, a Bible translation, modern people, and incidental name occurrences."
+        }
+      ],
+      "addedPosts": []
+    },
+    {
+      "keyword": "Heresy",
+      "before": 44,
+      "retainedFromOriginal": 36,
+      "removed": 8,
+      "added": 0,
+      "final": 36,
+      "removedPosts": [
+        {
+          "wpId": "4814",
+          "title": "The Ebionites and their Gospel",
+          "topics": [
+            "Jewish Christian Gospels"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "8954",
+          "title": "The Manuscripts of the New Testament",
+          "topics": [
+            "New Testament Manuscripts"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "15850",
+          "title": "Pursuing My Passion for Textual Criticism",
+          "topics": [
+            "Original Text Questions",
+            "Scribal Changes",
+            "Textual Criticism Overview"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "23479",
+          "title": "Platinum Guest Post by Douglas Wadeson: A Christian Is Not Necessarily a Disciple, and Vice Versa. Part 2",
+          "topics": [
+            "Jesus' Teachings"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "28558",
+          "title": "On Misreading The Gospels: Platinum Guest Post by Joel Scheller",
+          "topics": [
+            "Canonical Gospels (General)"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "33161",
+          "title": "My New Podcast.   Help!  I Need Questions.",
+          "topics": [
+            "Media Interviews and Videos"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "35986",
+          "title": "The Lost Gospel of Basilides",
+          "topics": [
+            "Non-Canonical Gospel Traditions",
+            "Gnosticism (General)"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        },
+        {
+          "wpId": "36829",
+          "title": "About Those Ebionites and Their Peculiar Gospel",
+          "topics": [
+            "Early Christian Diversity",
+            "Jewish Christian Gospels"
+          ],
+          "reason": "Heresy appears only in a source designation, book title, subject list, transition, or passing remark."
+        }
+      ],
+      "addedPosts": []
+    },
+    {
+      "keyword": "James the Brother of Jesus",
+      "before": 43,
+      "retainedFromOriginal": 36,
+      "removed": 7,
+      "added": 4,
+      "final": 40,
+      "removedPosts": [
+        {
+          "wpId": "4255",
+          "title": "Paul on Judas",
+          "topics": [
+            "Judas Iscariot",
+            "Paul's Knowledge of Jesus"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        },
+        {
+          "wpId": "9393",
+          "title": "Were the Disciples Martyred for Believing in the Resurrection?",
+          "topics": [
+            "Apostolic Death Traditions"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        },
+        {
+          "wpId": "13608",
+          "title": "Jesus’ Mother and Brothers in Mark",
+          "topics": [
+            "Gospel of Mark",
+            "Jesus' Family Traditions",
+            "Translation Issues"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        },
+        {
+          "wpId": "27490",
+          "title": "Did Paul Want to Please the Jerusalem Apostles?  Guest post by Richard Fellows",
+          "topics": [
+            "Paul on Jewish Law",
+            "Paul and His Opponents",
+            "Galatians"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        },
+        {
+          "wpId": "34094",
+          "title": "Was the Roman Soldier Pantera Jesus’ Father? His Cousin? Platinum Guest Post by Omar Abur-Robb",
+          "topics": [
+            "Jesus' Family Traditions"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        },
+        {
+          "wpId": "34743",
+          "title": "Was the Roman Soldier Pantera Jesus’ Father? His Cousin? Platinum Guest Post by Omar Abur-Robb",
+          "topics": [
+            "Jesus' Family Traditions"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        },
+        {
+          "wpId": "36908",
+          "title": "Was the Father of Jesus … Pantera?  Part II Guest Post by James Tabor",
+          "topics": [
+            "Jesus' Family Traditions"
+          ],
+          "reason": "The post concerns another James or mentions Jesus' brother only in a passing list, citation, or comparison."
+        }
+      ],
+      "addedPosts": [
+        {
+          "wpId": "26835",
+          "title": "More Hints that Cephas Was Not Peter",
+          "topics": [
+            "Peter the Apostle"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        },
+        {
+          "wpId": "35689",
+          "title": "The Pauline Style and a Discussion About Paul’s Motivation. A Platinum Post From Omar Robb",
+          "topics": [
+            "Pauline Epistles (General)",
+            "Paul's Life and Career"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        },
+        {
+          "wpId": "36693",
+          "title": "Did Jesus Think He Was Going to Atone for the Sins of the World? A Platinum Post by Manuel Fiadeiro",
+          "topics": [
+            "Atonement (General)",
+            "Pauline Salvation Models"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        },
+        {
+          "wpId": "38587",
+          "title": "Archaeology in the Time of Jesus!  New Course March 2-3!!",
+          "topics": [
+            "Archaeology and Material Evidence"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        }
+      ]
+    },
+    {
+      "keyword": "Adam",
+      "before": 42,
+      "retainedFromOriginal": 35,
+      "removed": 7,
+      "added": 0,
+      "final": 35,
+      "removedPosts": [
+        {
+          "wpId": "8466",
+          "title": "Finding Out about the Gospel of Judas",
+          "topics": [
+            "Gospel of Judas"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        },
+        {
+          "wpId": "11602",
+          "title": "Did Moses Write the Pentateuch?  The JEDP Hypothesis.",
+          "topics": [
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch",
+            "Moses"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        },
+        {
+          "wpId": "17041",
+          "title": "Sex and Gender in the Ancient World",
+          "topics": [
+            "Roman World"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        },
+        {
+          "wpId": "17124",
+          "title": "Are Same-Sex Relations Condemned in the Old Testament?",
+          "topics": [
+            "Biblical Debates on Same-Sex Relations"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        },
+        {
+          "wpId": "21893",
+          "title": "Another Unusual Feature of Matthew’s Genealogy: The Women!",
+          "topics": [
+            "Genealogies of Jesus",
+            "Gospel of Matthew"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        },
+        {
+          "wpId": "25682",
+          "title": "Who Really Wrote the Pentateuch (if not Moses)?  The JEDP Hypothesis",
+          "topics": [
+            "Hebrew Bible Composition and Sources",
+            "Pentateuch",
+            "Moses"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        },
+        {
+          "wpId": "46926",
+          "title": "The Letter to the Hebrews: For Further Reading",
+          "topics": [
+            "Hebrews"
+          ],
+          "reason": "Adam is an author's name or appears only in a passing example, phrase, genealogy, or source summary."
+        }
+      ],
+      "addedPosts": []
+    }
+  ],
+  "preciseJamesReplacements": [
+    {
+      "keyword": "James the Brother of Jesus",
+      "added": 4,
+      "posts": [
+        {
+          "wpId": "26835",
+          "title": "More Hints that Cephas Was Not Peter",
+          "topics": [
+            "Peter the Apostle"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        },
+        {
+          "wpId": "35689",
+          "title": "The Pauline Style and a Discussion About Paul’s Motivation. A Platinum Post From Omar Robb",
+          "topics": [
+            "Pauline Epistles (General)",
+            "Paul's Life and Career"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        },
+        {
+          "wpId": "36693",
+          "title": "Did Jesus Think He Was Going to Atone for the Sins of the World? A Platinum Post by Manuel Fiadeiro",
+          "topics": [
+            "Atonement (General)",
+            "Pauline Salvation Models"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        },
+        {
+          "wpId": "38587",
+          "title": "Archaeology in the Time of Jesus!  New Course March 2-3!!",
+          "topics": [
+            "Archaeology and Material Evidence"
+          ],
+          "reason": "The post meaningfully discusses James the Just, Jesus' brother, rather than an unspecified James."
+        }
+      ]
+    },
+    {
+      "keyword": "James, Son of Zebedee",
+      "added": 4,
+      "posts": [
+        {
+          "wpId": "8285",
+          "title": "Why Was the Gospel of John Attributed to John?",
+          "topics": [
+            "Gospel Authorship",
+            "Gospel Eyewitness Claims",
+            "Gospel of John",
+            "Papias",
+            "Eyewitness Reliability"
+          ],
+          "reason": "The post meaningfully discusses James son of Zebedee rather than Jesus' brother or an unspecified James."
+        },
+        {
+          "wpId": "11707",
+          "title": "Who Wrote the Book of Revelation and the Fourth Gospel?",
+          "topics": [
+            "Gospel Authorship",
+            "Gospel of John",
+            "Book of Revelation",
+            "Revelation Authorship"
+          ],
+          "reason": "The post meaningfully discusses James son of Zebedee rather than Jesus' brother or an unspecified James."
+        },
+        {
+          "wpId": "34597",
+          "title": "What Do the Apostles’ Deaths Prove?  Guest Post by Kyle Smith.",
+          "topics": [
+            "Apostolic Death Traditions"
+          ],
+          "reason": "The post meaningfully discusses James son of Zebedee rather than Jesus' brother or an unspecified James."
+        },
+        {
+          "wpId": "47100",
+          "title": "The Gospel of John:  Who Wrote It, When, and Why?",
+          "topics": [
+            "Ancient Literacy",
+            "Gospel Eyewitness Claims",
+            "Gospel of John",
+            "Eyewitness Reliability",
+            "Gospel Authorship"
+          ],
+          "reason": "The post meaningfully discusses James son of Zebedee rather than Jesus' brother or an unspecified James."
+        }
+      ]
+    },
+    {
+      "keyword": "Letter of James",
+      "added": 10,
+      "posts": [
+        {
+          "wpId": "4056",
+          "title": "A Third Forgery in the Name of Peter",
+          "topics": [
+            "Apocalypse of Peter",
+            "Petrine Authorship and Forgeries"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "8000",
+          "title": "The Importance of a Comparative Approach to the NT",
+          "topics": [
+            "Textbooks and Teaching Materials"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "14980",
+          "title": "Once More: The Interesting Text Called the Didache",
+          "topics": [
+            "Didache"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "16656",
+          "title": "My Conference on Pseudepigraphy",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "32580",
+          "title": "The Canon of the New Testament:  Why It Matters",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "32663",
+          "title": "Did Ancient Writers Use Secretaries?",
+          "topics": [
+            "Ancient Literacy",
+            "Ancient Secretaries and Authorship"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "39587",
+          "title": "An Important Early Christian Writing",
+          "topics": [
+            "Didache"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "41262",
+          "title": "Why Would A Christian Author Lie About Who He Was?",
+          "topics": [
+            "Forgery (General)"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "47043",
+          "title": "What Is The New Testament?  Can You Actually Say?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        },
+        {
+          "wpId": "50192",
+          "title": "How the Year 1517 Revolutionized Biblical Studies",
+          "topics": [
+            "Critical Biblical Scholarship",
+            "Historical Methods (General)"
+          ],
+          "reason": "The post meaningfully discusses the canonical Letter of James."
+        }
+      ]
+    },
+    {
+      "keyword": "Letter of Peter to James",
+      "added": 1,
+      "posts": [
+        {
+          "wpId": "32441",
+          "title": "Why Did Christians Even Need a Canon of Scripture?",
+          "topics": [
+            "Canon Formation"
+          ],
+          "reason": "The post identifies the non-canonical Letter of Peter to James."
+        }
+      ]
+    },
+    {
+      "keyword": "King James Version",
+      "added": 1,
+      "posts": [
+        {
+          "wpId": "15912",
+          "title": "The Passion for Origins",
+          "topics": [
+            "Afterlife Journeys"
+          ],
+          "reason": "The reference is to the King James Version rather than a person named James."
+        }
+      ]
+    },
+    {
+      "keyword": "James White",
+      "added": 1,
+      "posts": [
+        {
+          "wpId": "6285",
+          "title": "Errant Texts and Historians",
+          "topics": [
+            "Original Text Questions",
+            "Historical Methods (General)"
+          ],
+          "reason": "The post meaningfully discusses Bart's debate with James White."
+        }
+      ]
+    }
+  ]
+}

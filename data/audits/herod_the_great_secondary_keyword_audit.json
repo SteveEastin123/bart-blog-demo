@@ -1,0 +1,682 @@
+{
+  "keyword": "Herod the Great",
+  "criterion": "Retain Herod the Great when his reign, actions, family, building program, historical chronology, or portrayal in Matthew materially supports the post. Remove references to Herod Antipas and passing examples, lists, comparisons, and background details.",
+  "before": 80,
+  "after": 66,
+  "retained": 66,
+  "removed": 14,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "3366",
+      "title": "The Other Gospels and the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "3420",
+      "title": "The Myth of the First Christmas",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "3428",
+      "title": "The Christmas Story: Some Basic Background",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "3433",
+      "title": "Luke’s Version of Jesus’ Birth",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "3440",
+      "title": "Matthew’s Version of the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "3448",
+      "title": "Matthew’s Fulfillment Citations",
+      "topics": [
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture",
+        "Septuagint",
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "4171",
+      "title": "Caesarea Maritima",
+      "topics": [
+        "Roman World",
+        "Archaeology and Material Evidence"
+      ]
+    },
+    {
+      "wpId": "4424",
+      "title": "The Jewish Emphases of Matthew",
+      "topics": [
+        "Gospel of Matthew",
+        "Genealogies of Jesus"
+      ]
+    },
+    {
+      "wpId": "4882",
+      "title": "Jesus at the Movies: Infancy Narratives",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "4906",
+      "title": "Killing Jesus is Killing Me….",
+      "topics": [
+        "Public-Facing Scholarship",
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "4911",
+      "title": "Riled by O’Reilly",
+      "topics": [
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "7009",
+      "title": "Jesus’ Birth: Some Comparisons",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Canonical Gospels (General)",
+        "Gospel of Luke",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ]
+    },
+    {
+      "wpId": "8403",
+      "title": "Matthew’s “Filling Full” of Scripture",
+      "topics": [
+        "Matthew's Use of Scripture",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "8549",
+      "title": "Bethlehem and Nazareth in Matthew",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew",
+        "Nazareth"
+      ]
+    },
+    {
+      "wpId": "8551",
+      "title": "Bethlehem and Nazareth in Luke: Where Was Jesus Really Born?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Nazareth"
+      ]
+    },
+    {
+      "wpId": "9428",
+      "title": "The Myth of the First Christmas",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "9436",
+      "title": "Readers’ Mailbag:  December 27, 2015",
+      "topics": [
+        "Christology (General)",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "12080",
+      "title": "Looking Ahead to Christmas: A Blast from the Past",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "12625",
+      "title": "Another “True” Story that Didn’t Happen?  Jesus’ Birth in Luke",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "12627",
+      "title": "Why It Didn’t Happen that Way.  The Stories of Jesus’ Birth",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "15324",
+      "title": "A Key Contradiction in the Birth Narratives of Jesus",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "15684",
+      "title": "What Can We Know about Jesus’ Birth?",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "15687",
+      "title": "The Birth of Jesus in Luke",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "15691",
+      "title": "The Birth of Jesus in Matthew",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "15694",
+      "title": "Jesus’ Birth as “The Fulfillment of the Prophecies”",
+      "topics": [
+        "Matthew's Use of Scripture",
+        "Septuagint",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "15852",
+      "title": "A New Argument that Mark Was the First Gospel (Editorial Fatigue):  Guest Post by Mark Goodacre!",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Synoptic Problem"
+      ]
+    },
+    {
+      "wpId": "16054",
+      "title": "Contradictions in the Gospels",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "16063",
+      "title": "Contradictions in the Gospels – Rev Matthew Firth’s Response",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "16088",
+      "title": "Are These Really Contradictions?  My Response to Matt Firth",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "16165",
+      "title": "When You Feel Like You’re Talking to a Wall",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "17403",
+      "title": "Why Does Matthew Have the Story of the “Wise Men”?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "20577",
+      "title": "The Remarkable Story of Masada:  Guest Post by Jodi Magness",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "21202",
+      "title": "Two More Answers from My Pop Quiz",
+      "topics": [
+        "Courses and Teaching",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "22568",
+      "title": "Christmas from a Historical Point of View",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "22643",
+      "title": "Was The Messiah Supposed to Be Born of a Virgin?",
+      "topics": [
+        "Matthew's Use of Scripture",
+        "Septuagint",
+        "Book of Isaiah",
+        "Gospel of Matthew",
+        "Messiah",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "22663",
+      "title": "Was Jesus Born in Bethlehem?  Matthew’s Version….",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "22670",
+      "title": "Was Jesus Born in Bethlehem?  Luke’s Version.",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "27031",
+      "title": "The Naivety of the Nativity: Platinum Guest Post by Joel Scheller",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew",
+        "Gospel of Luke",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "27935",
+      "title": "Killing Jesus Is Killing Me……",
+      "topics": [
+        "Pontius Pilate",
+        "Public-Facing Scholarship"
+      ]
+    },
+    {
+      "wpId": "27939",
+      "title": "Really Riled By O’Reilly",
+      "topics": [
+        "Media Coverage and Reviews"
+      ]
+    },
+    {
+      "wpId": "28405",
+      "title": "Which King of the Jews Do You Prefer?  Christmas Message, 2021",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "29381",
+      "title": "How Luke Rewrote Matthew’s Nativity Story     Platinum Guest Post by Dennis J. Folds",
+      "topics": [
+        "Synoptic Problem",
+        "Gospel of Matthew",
+        "Jesus' Birth Narratives",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "31498",
+      "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "31505",
+      "title": "There Are No Contradictions in the Gospels!  The Response by Matthew Firth",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "31511",
+      "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+      "topics": [
+        "Biblical Contradictions",
+        "Public Debates"
+      ]
+    },
+    {
+      "wpId": "31878",
+      "title": "The Birth of (the Messiah?) John the Baptist? Anniversary Guest Post by James F. McGrath",
+      "topics": [
+        "John the Baptist",
+        "Messiah",
+        "Jesus' Birth Narratives",
+        "Proto-Gospel of James"
+      ]
+    },
+    {
+      "wpId": "32674",
+      "title": "Did the Romans Help Create the Jesus’ Movement?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Rise of Christianity",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "33580",
+      "title": "O Little Town of Nazareth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Nazareth",
+        "Gospel of Matthew",
+        "Gospel of Luke",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "36045",
+      "title": "Our Inner Herod.  Guest Post by Glenn Siepert",
+      "topics": [
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "36333",
+      "title": "Jesus the Half-Nabataean Prince, a Platinum Post by Serene",
+      "topics": [
+        "Historical Jesus (General)"
+      ]
+    },
+    {
+      "wpId": "36915",
+      "title": "Was Jesus Conceived out of Wedlock by Mary and a Jewish Relative, Pantera?  Part III Guest Post by James Tabor",
+      "topics": [
+        "Jesus' Family Traditions"
+      ]
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Matthew's Use of Scripture",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "38100",
+      "title": "How Jesus “Fills” Scripture “Full” in Matthew",
+      "topics": [
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ]
+    },
+    {
+      "wpId": "41821",
+      "title": "Twelve Days of Christmas Day 1: From a Historical View",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "41831",
+      "title": "Twelve Days of Christmas Day 2: The Myth of the First Christmas",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "41837",
+      "title": "Twelve Days of Christmas Day 6: Why Does Matthew Have the Story of the “Wise Men”?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "41891",
+      "title": "Twelve Days of Christmas Day 4: O Little Town of Nazareth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Nazareth",
+        "Roman World",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "41894",
+      "title": "Twelve Days of Christmas Day 5: Matthew’s Version of the Birth of Jesus",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "41900",
+      "title": "Twelve Days of Christmas Day 7: The Birth of Jesus in Luke",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "41908",
+      "title": "Twelve Days of Christmas Day 9: A Key Contradiction in the Birth Narratives of Jesus",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "41912",
+      "title": "Twelve Days of Christmas Day 10: What Can We Know About Jesus’ Birth?",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "47027",
+      "title": "Did Jesus Come to Bring Peace?",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "47046",
+      "title": "The Gospel of Matthew in a Nutshell",
+      "topics": [
+        "Gospel of Matthew",
+        "In a Nutshell Series",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "47108",
+      "title": "The Gospel of Matthew.  Are You Interested in a More Extended Discussion?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "48590",
+      "title": "Uh, Duh.  What I SHOULD Have Said.  (Bethlehem)",
+      "topics": [
+        "Biblical Contradictions",
+        "Jesus' Birth Narratives"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "4602",
+      "title": "Jesus’ Association with Women",
+      "topics": [
+        "Social Class in Antiquity",
+        "Jesus and Women"
+      ]
+    },
+    {
+      "wpId": "8350",
+      "title": "Do You Have To  Believe in the Virgin Birth?",
+      "topics": [
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "12844",
+      "title": "Did Luke’s Gospel Originally Have The Birth Story?  Readers Mailbag and a Blast from the Past",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "John the Baptist"
+      ]
+    },
+    {
+      "wpId": "15723",
+      "title": "Did Luke Originally Tell the Birth Story?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "John the Baptist"
+      ]
+    },
+    {
+      "wpId": "22610",
+      "title": "Do Christians Have to Believe in the Virgin Birth?",
+      "topics": [
+        "Virgin Birth",
+        "Fundamentalism"
+      ]
+    },
+    {
+      "wpId": "33124",
+      "title": "Little Known Aspects of The Golden Rule as Found in the Sermon on the Mount",
+      "topics": [
+        "Gospel of Matthew",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "36902",
+      "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor",
+      "topics": [
+        "Jesus' Family Traditions",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "37067",
+      "title": "Did Luke Originally Have the Birth Narrative (chapters 1-2)?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "37837",
+      "title": "Did Luke’s Gospel Originally Contain a Virgin Birth?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Virgin Birth",
+        "Adoptionist Christology",
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "39278",
+      "title": "Women in the World of Jesus",
+      "topics": [
+        "Jesus and Women",
+        "Social Class in Antiquity"
+      ]
+    },
+    {
+      "wpId": "39869",
+      "title": "A Remembrance of John Shelby Spong–Platinum Post By Ray Zubler",
+      "topics": [
+        "Scholar Tributes and Memorials"
+      ]
+    },
+    {
+      "wpId": "40440",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47084",
+      "title": "Other Sources for Matthew and Luke:  M and L!  And Who CARES?",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Synoptic Problem",
+        "Gospel of Matthew",
+        "Source Criticism",
+        "Gospel of Luke"
+      ]
+    },
+    {
+      "wpId": "47139",
+      "title": "Guest Post by Dr. Paula Fredriksen Part I: Ancient Christianities: Multiplicity, Messy Origins, and “Monotheism”",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

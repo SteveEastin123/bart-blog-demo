@@ -1,0 +1,626 @@
+{
+  "keyword": "Galatians",
+  "criterion": "Retain Galatians when the letter, its historical setting, theology, text, or evidence about Paul materially supports the post. Remove author credentials, lists of Pauline letters, and passing references to arguments developed elsewhere.",
+  "before": 73,
+  "after": 65,
+  "retained": 65,
+  "removed": 8,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "4085",
+      "title": "Paul’s View of Jesus as an Angel",
+      "topics": [
+        "Angelic Christology",
+        "How Jesus Became God",
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem"
+      ]
+    },
+    {
+      "wpId": "4500",
+      "title": "Gentile Judaizers",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law"
+      ]
+    },
+    {
+      "wpId": "4519",
+      "title": "Paul’s Chronology",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "4753",
+      "title": "Problems with Luke as the Author of Luke",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ]
+    },
+    {
+      "wpId": "4763",
+      "title": "Not for the Faint of Heart (Authorship of Colossians)",
+      "topics": [
+        "Pauline Authorship",
+        "Pauline Forgeries",
+        "Colossians"
+      ]
+    },
+    {
+      "wpId": "4772",
+      "title": "The Historical Accuracy of Acts",
+      "topics": [
+        "Acts",
+        "Luke-Acts Authorship"
+      ]
+    },
+    {
+      "wpId": "5055",
+      "title": "Brothers of Jesus and the Mythicists",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "6285",
+      "title": "Errant Texts and Historians",
+      "topics": [
+        "Original Text Questions",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "7189",
+      "title": "Christ as an Angel in Paul",
+      "topics": [
+        "Angelic Christology",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7260",
+      "title": "Paul’s Importance in Early Christianity?",
+      "topics": [
+        "Early Christianity (General)"
+      ]
+    },
+    {
+      "wpId": "7266",
+      "title": "Paul’s Gospel Message",
+      "topics": [
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "7442",
+      "title": "Christ as an Angel in Paul",
+      "topics": [
+        "Angelic Christology",
+        "Incarnation Christology"
+      ]
+    },
+    {
+      "wpId": "8599",
+      "title": "Lost Letters of Paul’s Opponents",
+      "topics": [
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "8613",
+      "title": "Jesus, Matthew, and the Law",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "9039",
+      "title": "More Intriguing Problems with 1 Thessalonians 2:7",
+      "topics": [
+        "Pauline Textual Issues",
+        "Textual Variants",
+        "1 Thessalonians"
+      ]
+    },
+    {
+      "wpId": "9244",
+      "title": "An Irritating Criticism: My View of Paul’s View of Christ",
+      "topics": [
+        "Angelic Christology",
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem"
+      ]
+    },
+    {
+      "wpId": "9278",
+      "title": "Another Problem with Calling Jesus the Messiah",
+      "topics": [
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "11518",
+      "title": "Paul as a Persecutor of the Church",
+      "topics": [
+        "Paul as Persecutor and Persecuted",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "11523",
+      "title": "The Core of Paul’s Gospel",
+      "topics": [
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "11533",
+      "title": "Paul’s Own (and Only) Gospel",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "11773",
+      "title": "My Work as a Historian and Paul in Conflict with the Jerusalem Church: Readers’ Mailbag August 20, 2016",
+      "topics": [
+        "Historical Methods (General)",
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "12002",
+      "title": "Paul and the Historical Jesus",
+      "topics": [
+        "Paul's Knowledge of Jesus",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "12004",
+      "title": "Paul’s Acquaintances: Jesus’ Disciples and Brother",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions",
+        "Peter the Apostle",
+        "Mythicism",
+        "Paul's Knowledge of Jesus"
+      ]
+    },
+    {
+      "wpId": "12006",
+      "title": "James the Brother of the Lord",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions"
+      ]
+    },
+    {
+      "wpId": "12008",
+      "title": "Carrier and James the Brother of Jesus",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "12118",
+      "title": "Cephas and Peter in the Writings of Paul (Who Knew Them)",
+      "topics": [
+        "Paul and His Opponents",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "15251",
+      "title": "Does the Book of Acts Accurately Portray the Life and Teachings of Paul?",
+      "topics": [
+        "Acts",
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "16342",
+      "title": "Is the Book of James Attacking the Teachings of Paul?",
+      "topics": [
+        "Jewish Law and Torah",
+        "Letter of James"
+      ]
+    },
+    {
+      "wpId": "17487",
+      "title": "Problems with Thinking That Luke Wrote Luke (and Acts)",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship"
+      ]
+    },
+    {
+      "wpId": "17494",
+      "title": "Did Paul Write Colossians? According to Most Scholars No – Paul did Not Write Colossians",
+      "topics": [
+        "Pauline Forgeries",
+        "Colossians"
+      ]
+    },
+    {
+      "wpId": "17515",
+      "title": "Did *Any* Companion of Paul Write Luke and Acts?",
+      "topics": [
+        "Gospel of Luke",
+        "Luke-Acts Authorship",
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "17685",
+      "title": "Was Christ an Angel, According to Paul?",
+      "topics": [
+        "Angelic Christology",
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem"
+      ]
+    },
+    {
+      "wpId": "17806",
+      "title": "Christians Against Christians: Already In the New Testament",
+      "topics": [
+        "Jewish Law and Torah",
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "26811",
+      "title": "Some Evidence that Cephas and Peter WERE Two Different People",
+      "topics": [
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "27182",
+      "title": "Was Paul Really at Odds with Peter and James?  Guest Post by Richard Fellows",
+      "topics": [
+        "Paul on Jewish Law",
+        "Paul and His Opponents",
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "28747",
+      "title": "How Important Was Paul, Actually, For Early Christianity?",
+      "topics": [
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "33349",
+      "title": "Do We KNOW What Paul Wrote?  If You Think So, Answer This….",
+      "topics": [
+        "Original Text Questions",
+        "1 Thessalonians",
+        "Textual Variants",
+        "Textual Criticism Methods"
+      ]
+    },
+    {
+      "wpId": "33874",
+      "title": "Paul and the Gospels: Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Source Criticism",
+        "Paul's Knowledge of Jesus"
+      ]
+    },
+    {
+      "wpId": "35338",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "topics": [
+        "Early Christianity (General)"
+      ]
+    },
+    {
+      "wpId": "35786",
+      "title": "Did The Twelve Become Only Three? Platinum post by Douglas Wadeson MD",
+      "topics": [
+        "Early Christianity (General)"
+      ]
+    },
+    {
+      "wpId": "37162",
+      "title": "What the Jesus “Mythicists” Say About the Brothers of Jesus",
+      "topics": [
+        "James the Brother of Jesus",
+        "Jesus' Family Traditions",
+        "Mythicism"
+      ]
+    },
+    {
+      "wpId": "38840",
+      "title": "Among Paul’s Enemies….",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Paul and His Opponents",
+        "Paul's Churches and Communities"
+      ]
+    },
+    {
+      "wpId": "40161",
+      "title": "Salvation, Love, and the Jewish Law in Paul.  Are His Views Internally Coherent?",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "40165",
+      "title": "Does Paul Have Contradictory Views of the Law, Love, and Salvation?",
+      "topics": [
+        "Biblical Contradictions",
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "40436",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 1). Guest Post by James Tabor",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Life and Career",
+        "Pauline Authorship"
+      ]
+    },
+    {
+      "wpId": "40440",
+      "title": "The Quest for the Historical Paul: Sorting Through Our Sources (Part 2) by Dr. James Tabor",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "41050",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part I by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul and His Opponents",
+        "Paul in Acts"
+      ]
+    },
+    {
+      "wpId": "41054",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 2 by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul in Acts",
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "41058",
+      "title": "An Imagined Dialogue for the Dispute Between Paul & Barnabas in Acts Part 3 by Angus Nisbet",
+      "topics": [
+        "Jewish Law and Torah",
+        "Paul in Acts",
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "46923",
+      "title": "Some Readers’ Questions and Responses",
+      "topics": [
+        "2 Thessalonians",
+        "Bible Translations (General)",
+        "Dead Sea Scrolls and Essenes"
+      ]
+    },
+    {
+      "wpId": "46970",
+      "title": "Jesus, Essenes, Bible Translations, and 2 Thessalonians: Readers’ Questions and Answers",
+      "topics": [
+        "2 Thessalonians",
+        "Bible Translations (General)",
+        "Dead Sea Scrolls and Essenes"
+      ]
+    },
+    {
+      "wpId": "46975",
+      "title": "Why An Author Claiming to Be Peter Wanted to Sound Like Paul",
+      "topics": [
+        "Non-Pauline Epistle Authorship",
+        "Petrine Authorship and Forgeries",
+        "1 Peter"
+      ]
+    },
+    {
+      "wpId": "47112",
+      "title": "The Acts of the Apostles:  Who Wrote It, When, and Why?",
+      "topics": [
+        "Luke-Acts Authorship",
+        "Acts"
+      ]
+    },
+    {
+      "wpId": "47118",
+      "title": "The Significance and Letters of Paul, in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47121",
+      "title": "The Life of Paul in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47176",
+      "title": "Is Paul One of Matthew’s Enemies?",
+      "topics": [
+        "Gospel of Matthew",
+        "Jewish Law and Torah",
+        "Paul on Jewish Law",
+        "Paul and His Opponents"
+      ]
+    },
+    {
+      "wpId": "47177",
+      "title": "Key Questions about Paul",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Paul on Jewish Law",
+        "Paul and His Opponents",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "47178",
+      "title": "How Do We Know the Chronology of Paul’s Life and Letters?",
+      "topics": [
+        "Paul in Acts",
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "47217",
+      "title": "The Letter to the Colossians: Who, When, and Why?",
+      "topics": [
+        "Pauline Authorship",
+        "Colossians"
+      ]
+    },
+    {
+      "wpId": "47219",
+      "title": "Did Paul Write That Letter?  Getting Into the Weeds…",
+      "topics": [
+        "Forgery (General)",
+        "Forgery and Counterforgery",
+        "Pauline Forgeries",
+        "Colossians"
+      ]
+    },
+    {
+      "wpId": "48176",
+      "title": "Some Good Questions On John and the Appearance of Jesus in the World",
+      "topics": [
+        "Gospel of John",
+        "Incarnation Christology"
+      ]
+    },
+    {
+      "wpId": "48712",
+      "title": "The New Testament in a Nutshell: The 50 Word Summaries of Each Book (All of them!)",
+      "topics": [
+        "In a Nutshell Series"
+      ]
+    },
+    {
+      "wpId": "49666",
+      "title": "Was Jesus the Incarnation of an Angel?  Anniversary Post #13",
+      "topics": [
+        "Angelic Christology",
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem"
+      ]
+    },
+    {
+      "wpId": "50251",
+      "title": "Were Peter and Cephas the Same Person?",
+      "topics": [
+        "Peter the Apostle"
+      ]
+    },
+    {
+      "wpId": "50385",
+      "title": "Did Paul Know that Peter and Cephas were Two Different People?",
+      "topics": [
+        "Peter the Apostle",
+        "Paul and His Opponents"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "7285",
+      "title": "Paul’s “Participationist” Model of Salvation",
+      "topics": [
+        "Pauline Salvation Models"
+      ]
+    },
+    {
+      "wpId": "16026",
+      "title": "Papias.  How Do We Know His Context?  Guest post by Stephen Carlson",
+      "topics": [
+        "Gospel of Mark",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16096",
+      "title": "Papias and the Writers of the New Testament: Guest Post by Stephen Carlson",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel Eyewitness Claims",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16120",
+      "title": "Wine Flowing in the Kingdom: Guest Post on Papias by Stephen Carlson",
+      "topics": [
+        "Oral Tradition",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16122",
+      "title": "What Kind of Book Was Papias Writing?  Guest Post by Stephen Carlson",
+      "topics": [
+        "Oral Tradition",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "16240",
+      "title": "When Were Matthew and Mark First Seen as Scripture: Guest Post on Papias by Stephen Carlson",
+      "topics": [
+        "Gospel Authorship",
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Papias"
+      ]
+    },
+    {
+      "wpId": "28882",
+      "title": "Paul’s “Participationist” Model of Salvation.",
+      "topics": [
+        "Pauline Salvation Models"
+      ]
+    },
+    {
+      "wpId": "47123",
+      "title": "Paul’s Letter to the Romans in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Salvation (General)",
+        "Romans",
+        "Pauline Salvation Models"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

@@ -1,0 +1,508 @@
+{
+  "keyword": "Letter of Barnabas",
+  "criterion": "Retain Letter of Barnabas when the writing's interpretation of Scripture, anti-Judaism, numerology, language, dating, canonical status, or relationship to another text materially supports the post. Remove lists, bibliographies, syllabi, manuscript inventories, and passing examples. Do not duplicate the identical Letter of Barnabas topic as a secondary keyword.",
+  "before": 63,
+  "after": 13,
+  "retained": 13,
+  "removed": 50,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "8359",
+      "title": "2 Thessalonians as a Forgery: The Theological Argument",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "8503",
+      "title": "Creative Uses of Numbers in Scripture",
+      "topics": [
+        "Apostolic Fathers",
+        "Biblical Numerology"
+      ]
+    },
+    {
+      "wpId": "14238",
+      "title": "What Is the Didache & When Was the Didache Written",
+      "topics": [
+        "Dating Ancient Texts",
+        "Didache"
+      ]
+    },
+    {
+      "wpId": "14251",
+      "title": "Is the Didache One Document or Three?",
+      "topics": [
+        "Didache",
+        "Source Criticism"
+      ]
+    },
+    {
+      "wpId": "16258",
+      "title": "Does Paul Think the End is Coming Soon?  Does 2 Thessalonians?",
+      "topics": [
+        "2 Thessalonians",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "16309",
+      "title": "When Christians Went on the Attack Against Jews",
+      "topics": [
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "17510",
+      "title": "How Were People Crucified?",
+      "topics": [
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "20990",
+      "title": "Did Paul Really Think “All Israel Will Be Saved”? Guest Post by Jason Staples",
+      "topics": [
+        "Romans",
+        "Pauline Salvation Models"
+      ]
+    },
+    {
+      "wpId": "28966",
+      "title": "The “Common Era”: Invented to Stop Speculations About the End of the World.  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Modern End-Times Interpretation"
+      ]
+    },
+    {
+      "wpId": "32505",
+      "title": "How Did They Decide Which Books to Include in the New Testament Canon?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "39582",
+      "title": "Three Early Christian Writings Spliced Together Into One: The Didache",
+      "topics": [
+        "Didache",
+        "Source Criticism"
+      ]
+    },
+    {
+      "wpId": "48025",
+      "title": "A New Thread!  The Apostolic Fathers: In a Nutshell",
+      "topics": [
+        "Apostolic Fathers",
+        "In a Nutshell Series"
+      ]
+    },
+    {
+      "wpId": "48120",
+      "title": "The Didache: An Important Early Christian Document in a Nutshell",
+      "topics": [
+        "Didache",
+        "In a Nutshell Series",
+        "Apostolic Fathers"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2059",
+      "title": "The Work of a Professional Scholar 5: Graduate Seminars",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "2108",
+      "title": "Question on How We Got the Canon of the New Testament",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "2240",
+      "title": "Should We Change the Canon of Scripture?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "2435",
+      "title": "Autobiographical: Metzger and Me.  The Seminar on the Canon",
+      "topics": [
+        "Athanasius of Alexandria",
+        "Bruce Metzger",
+        "Canon Formation",
+        "Didymus the Blind",
+        "Autobiographical Posts",
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "3147",
+      "title": "Translating the Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "3151",
+      "title": "The Apostolic Fathers: Serendipity Strikes",
+      "topics": [
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "3161",
+      "title": "Textual Problems in the Apostolic Fathers 1",
+      "topics": [
+        "Apostolic Fathers",
+        "Textual Variants",
+        "Theologically Significant Variants"
+      ]
+    },
+    {
+      "wpId": "3295",
+      "title": "The Collection: Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "4938",
+      "title": "Widespread Misconceptions about the Council of Nicea",
+      "topics": [
+        "Arius and Arianism",
+        "Canon Formation",
+        "Constantine",
+        "Early Church Developments"
+      ]
+    },
+    {
+      "wpId": "6637",
+      "title": "The New and Improved After the New Testament",
+      "topics": [
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "7654",
+      "title": "My Apostolic Fathers Seminar/Syllabus",
+      "topics": [
+        "Apostolic Fathers",
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "7676",
+      "title": "My Third Scholarly and Trade Book Combination, Told Tangentally",
+      "topics": [
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "7965",
+      "title": "A Historical Approach to the New Testament",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Critical Biblical Scholarship",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "8485",
+      "title": "More on Greek Numerals",
+      "topics": [
+        "Biblical Numerology"
+      ]
+    },
+    {
+      "wpId": "8864",
+      "title": "Tischendorf and the Discovery of Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "8874",
+      "title": "St. Catherine’s Monastery",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "12255",
+      "title": "Did the Council of Nicaea Take Away Reincarnation and Give us the Bible?",
+      "topics": [
+        "Constantine",
+        "Early Church Developments",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "12368",
+      "title": "Jesus’ Teaching in Aramaic and the Books of the Canon: Mailbag February 24, 2017",
+      "topics": [
+        "Canon Formation",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "12518",
+      "title": "How We Got Our 27-Book New Testament: The Case of Didymus",
+      "topics": [
+        "Athanasius of Alexandria",
+        "Bruce Metzger",
+        "Canon Formation",
+        "Didymus the Blind"
+      ]
+    },
+    {
+      "wpId": "12642",
+      "title": "Can (or Should) We Change the Canon of Scripture? A Blast from the Past",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "13326",
+      "title": "Translating the Apostolic Fathers: A Blast from the Past",
+      "topics": [
+        "Apostolic Fathers",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "13330",
+      "title": "The Apostolic Fathers: Serendipity Strikes",
+      "topics": [
+        "Apostolic Fathers",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "15170",
+      "title": "Why Would an Ancient Author Write a Book Anonymously?",
+      "topics": [
+        "Gospel Authorship"
+      ]
+    },
+    {
+      "wpId": "15328",
+      "title": "Visiting the Monastery at Mount Sinai: A Blast From the Past",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "15392",
+      "title": "The Letter of First Clement: An Overview",
+      "topics": [
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "15643",
+      "title": "Deciding on Which Books Should Be in the New Testament",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "15713",
+      "title": "Was the Apocalypse of Peter Originally Part of the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "16556",
+      "title": "On Producing a New Translation of Ancient Texts",
+      "topics": [
+        "Apostolic Fathers",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "16787",
+      "title": "How Did We Get *These* 27 Books in the New Testament?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "17537",
+      "title": "Want To Know About the Apostolic Fathers?",
+      "topics": [
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "21924",
+      "title": "The Number 666 in the Context of the Book of Revelation",
+      "topics": [
+        "Biblical Numerology",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "27166",
+      "title": "My Syllabus for “The Birth of Christianity”",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "27209",
+      "title": "MORE Assignments on the Birth of Christianity",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "27493",
+      "title": "Why and When Did We Get This Canon of the New Testament?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "32809",
+      "title": "Jesus’ Teachings on Love and Salvation",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Salvation (General)",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    },
+    {
+      "wpId": "33021",
+      "title": "How Serendipity Changed My Life: The Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers",
+        "Autobiographical Posts"
+      ]
+    },
+    {
+      "wpId": "33028",
+      "title": "What’s It Like to Teach PhD Seminars?",
+      "topics": [
+        "Courses and Teaching",
+        "Academic Careers and University Life"
+      ]
+    },
+    {
+      "wpId": "33135",
+      "title": "Can’t We Just Get Rid of Some of the Books of the Bible?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "33890",
+      "title": "What About Translations of Other Ancient Christian Writings?",
+      "topics": [
+        "Translation Issues",
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "33915",
+      "title": "The New Testament Ain’t the Only Text with Important Scribal Changes!",
+      "topics": [
+        "Scribal Changes",
+        "Theologically Significant Variants",
+        "Apostolic Fathers"
+      ]
+    },
+    {
+      "wpId": "36724",
+      "title": "The Discovery of Codex Sinaiticus: One of the Most Important Manuscripts of the New Testament",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "36732",
+      "title": "My Trip to Saint Catherine’s Monastery on Mount Sinai: Discovery Site of Codex Sinaiticus",
+      "topics": [
+        "Codex Sinaiticus"
+      ]
+    },
+    {
+      "wpId": "40007",
+      "title": "More Lost Scriptures",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "40021",
+      "title": "What If Another Christianity Had Won?",
+      "topics": [
+        "Early Christian Diversity"
+      ]
+    },
+    {
+      "wpId": "40273",
+      "title": "My Edition of the Apostolic Fathers",
+      "topics": [
+        "Apostolic Fathers",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "40657",
+      "title": "Why Were Some of the Earliest Christian Books Left OUT of the NT?",
+      "topics": [
+        "Canon Formation",
+        "Early Christian Writings"
+      ]
+    },
+    {
+      "wpId": "40665",
+      "title": "Was the New Testament Canon Really Closed in 367 CE?",
+      "topics": [
+        "Athanasius of Alexandria",
+        "Bruce Metzger",
+        "Canon Formation",
+        "Didymus the Blind"
+      ]
+    },
+    {
+      "wpId": "40686",
+      "title": "Was the Apocalypse of Peter Originally Considered Part of the New Testament?",
+      "topics": [
+        "Apocalypse of Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "47005",
+      "title": "My First Scholarly Encounter with the Canon of the New Testament",
+      "topics": [
+        "Athanasius of Alexandria",
+        "Canon Formation",
+        "Didymus the Blind",
+        "Bruce Metzger"
+      ]
+    },
+    {
+      "wpId": "48816",
+      "title": "Why Was the Canon Still Up For Grabs in the Second Century?",
+      "topics": [
+        "Canon Formation"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

@@ -1,0 +1,618 @@
+{
+  "keyword": "Enoch",
+  "criterion": "Retain or add Enoch when the biblical figure, 1 Enoch, or Enochic traditions materially support the post's argument. Remove names in catalogs, manuscript contents, broad source lists, passing comparisons, and brief examples that are not developed.",
+  "before": 70,
+  "after": 47,
+  "retained": 44,
+  "removed": 26,
+  "added": 3,
+  "retainedPosts": [
+    {
+      "wpId": "3989",
+      "title": "The Son of Man as Divine",
+      "topics": [
+        "How Jesus Became God",
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "4117",
+      "title": "Humans Who Become Angels",
+      "topics": [
+        "Angelic Christology",
+        "Divine Beings in the Hebrew Bible",
+        "How Jesus Became God",
+        "Enoch Traditions"
+      ]
+    },
+    {
+      "wpId": "6459",
+      "title": "Aslan’s Zealot: Historical Mistakes",
+      "topics": [
+        "Zealot Hypothesis"
+      ]
+    },
+    {
+      "wpId": "7432",
+      "title": "The Son of Man and Jesus",
+      "topics": [
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "8103",
+      "title": "New Boxes on Jesus as God in the NT",
+      "topics": [
+        "Exaltation Christology",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "9508",
+      "title": "Jesus and the Son of Man",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "10268",
+      "title": "What the Resurrection of Jesus MEANT",
+      "topics": [
+        "Meaning of Jesus' Resurrection"
+      ]
+    },
+    {
+      "wpId": "10276",
+      "title": "Did the Earliest Christians Believe Jesus *Became* God?",
+      "topics": [
+        "Adoptionist Christology",
+        "Incarnation Christology",
+        "Exaltation Christology"
+      ]
+    },
+    {
+      "wpId": "12397",
+      "title": "What I’m Thinking about the Afterlife",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Heaven and Hell"
+      ]
+    },
+    {
+      "wpId": "12801",
+      "title": "A New Genre in Jewish Antiquity: The Apocalypse",
+      "topics": [
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "12885",
+      "title": "Journeys to Heaven and Hell: A Sketch of My Project",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "14971",
+      "title": "My Scholarly Project on the Afterlife",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Scholarly Research and Publishing"
+      ]
+    },
+    {
+      "wpId": "15471",
+      "title": "Gehenna:  Where You Do Not Want to Go",
+      "topics": [
+        "Eternal Punishment"
+      ]
+    },
+    {
+      "wpId": "15912",
+      "title": "The Passion for Origins",
+      "topics": [
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16038",
+      "title": "Enoch’s Vision of the Realms of the Dead",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Comparative Ancient Evidence",
+        "Heaven and Hell",
+        "Afterlife Journeys",
+        "Enoch Traditions"
+      ]
+    },
+    {
+      "wpId": "16098",
+      "title": "Paul in Hell.   The Apocryphal Apocalypse of Paul.",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "16103",
+      "title": "Similarities and Differences: Which Matter the Most?",
+      "topics": [
+        "Personal Reflections"
+      ]
+    },
+    {
+      "wpId": "16519",
+      "title": "Does Your Soul Go To Heaven?",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Resurrection of the Dead"
+      ]
+    },
+    {
+      "wpId": "17360",
+      "title": "Guided Tours of Heaven and Hell:  My Scholarly Book",
+      "topics": [
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "17727",
+      "title": "What Did Ancient People Think (a) God Was?",
+      "topics": [
+        "Greco-Roman Religious Culture"
+      ]
+    },
+    {
+      "wpId": "21093",
+      "title": "Did Jesus Think He Would Be the Judge of the Earth?",
+      "topics": [
+        "Divine Judgment",
+        "Son of Man",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "23078",
+      "title": "Did Humans Ever Become Divine in Judaism?  (Seems unlikely, no?)",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "Enoch Traditions"
+      ]
+    },
+    {
+      "wpId": "23142",
+      "title": "Could Jews Consider Someone Other than God To Be God?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "Development of the Trinity"
+      ]
+    },
+    {
+      "wpId": "24992",
+      "title": "Quotations of Non-Canonical Writings in the New Testament: Platinum Post by Douglas Wadeson",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Enoch Traditions"
+      ]
+    },
+    {
+      "wpId": "25178",
+      "title": "Fifty Ways to Forge a Gospel",
+      "topics": [
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "25712",
+      "title": "Other New Testament References to Books Outside the Hebrew Bible: Platinum Guest Post by Doug Wadeson",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "27340",
+      "title": "The Horrible Fate of Sinners: Jesus’ Teaching on Gehenna",
+      "topics": [
+        "Eternal Punishment",
+        "Heaven and Hell",
+        "Heaven and Hell Beliefs",
+        "Jesus' Teachings",
+        "Apocalyptic Jesus"
+      ]
+    },
+    {
+      "wpId": "29016",
+      "title": "Heaven and Hell at the Scholarly Level (for comparison)",
+      "topics": [
+        "Apocalypse of Peter",
+        "Heaven and Hell",
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "30223",
+      "title": "The Plausibility of the Fourth Gospel: The Sayings of Jesus. Guest Post by Dennis Folds",
+      "topics": [
+        "Gospel of John",
+        "Jesus' Teachings",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "31240",
+      "title": "Who Buried Moses?  Platinum Guest Post by Lou Suarez",
+      "topics": [
+        "Pentateuch",
+        "Translation Issues",
+        "Moses"
+      ]
+    },
+    {
+      "wpId": "33405",
+      "title": "What about Forgeries IN the New Testament?  Is it Possible?",
+      "topics": [
+        "Forgery (General)",
+        "Pauline Forgeries"
+      ]
+    },
+    {
+      "wpId": "34327",
+      "title": "Why Would Evolving Beliefs about Sin Lead to the Idea of an Afterlife?  Guest Post by Daniel Kohanski",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs"
+      ]
+    },
+    {
+      "wpId": "37529",
+      "title": "Does God Have Chromosomes? Platinum Post by Douglas Wadeson, MD",
+      "topics": [
+        "Virgin Birth",
+        "Incarnation Christology"
+      ]
+    },
+    {
+      "wpId": "39923",
+      "title": "Does God Have Chromosomes? Guest Post by Douglas Wadeson, MD",
+      "topics": [
+        "Virgin Birth",
+        "Christology (General)"
+      ]
+    },
+    {
+      "wpId": "41244",
+      "title": "Jesus as God in the New Testament",
+      "topics": [
+        "Exaltation Christology",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "47587",
+      "title": "The Letter of Jude in a Nutshell",
+      "topics": [
+        "In a Nutshell Series",
+        "Early Christian Diversity",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "47590",
+      "title": "Book of Jude:  Who Wrote it?  When? And Why? (part 1)",
+      "topics": [
+        "James the Brother of Jesus",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "47593",
+      "title": "Jude as Pseudepigraphic (i.e., forged)",
+      "topics": [
+        "Ancient Literacy",
+        "Non-Pauline Epistle Forgeries",
+        "Non-Pauline Epistle Authorship",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "47640",
+      "title": "1 Enoch:  The Scripture Quoted by Jude",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Jewish Apocalypticism",
+        "Enoch Traditions"
+      ]
+    },
+    {
+      "wpId": "47645",
+      "title": "Unpacking 1 Enoch, the Apocryphal Writing Quoted by Jude",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs",
+        "Enoch Traditions",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "47673",
+      "title": "Jude, The Denigration of Angels, and the Followers of Paul",
+      "topics": [
+        "Non-Pauline Epistle Authorship",
+        "Letter of Jude"
+      ]
+    },
+    {
+      "wpId": "47851",
+      "title": "Revelation is an Apocalypse.  What Is An Apocalypse?",
+      "topics": [
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "47869",
+      "title": "Questions on Jesus as God, the Belief in the Resurrection, Secretaries in Early Christianity, and the KJV!",
+      "topics": [
+        "Ancient Secretaries and Authorship",
+        "King James Version",
+        "Exaltation Christology",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "50196",
+      "title": "How Can Monotheists Think a Human Could Become God?",
+      "topics": [
+        "Early Judaism (General)",
+        "How Jesus Became God",
+        "Enoch Traditions"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2551",
+      "title": "Forgery.  Another Deceived Deceiver (Part 2)",
+      "topics": [
+        "Forgery (General)"
+      ]
+    },
+    {
+      "wpId": "8307",
+      "title": "The Discovery of the Gospel of Peter",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "8511",
+      "title": "Apocalypticism and Apocalypses",
+      "topics": [
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "8513",
+      "title": "The Book of Revelation and the Apocalypse Genre",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "12450",
+      "title": "Returning from the Dead in the Hebrew Bible",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs"
+      ]
+    },
+    {
+      "wpId": "12854",
+      "title": "A Resurrection for Tortured Jews (2 Maccabees)",
+      "topics": [
+        "Martyrdom Traditions (General)",
+        "Old Testament Apocrypha",
+        "Resurrection of the Dead",
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "13508",
+      "title": "What Is the Original Text of the Gospels?",
+      "topics": [
+        "Original Text Questions"
+      ]
+    },
+    {
+      "wpId": "13773",
+      "title": "The Exasperatingly Fragmentary Gospel of Peter: Readers’ Mailbag December 4, 2017",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "15559",
+      "title": "More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+      "topics": [
+        "Old Testament Apocrypha"
+      ]
+    },
+    {
+      "wpId": "15622",
+      "title": "A Very Perplexing Question",
+      "topics": [
+        "Apocalypse of Peter",
+        "Eternal Punishment",
+        "2 Peter",
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "15633",
+      "title": "Now, The Gospel of Peter",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "17134",
+      "title": "The Coming Armageddon:  I Need Some Suggestions!",
+      "topics": [
+        "Modern End-Times Interpretation",
+        "Book of Revelation",
+        "Armageddon",
+        "General-Audience Books"
+      ]
+    },
+    {
+      "wpId": "17688",
+      "title": "Did Paul Think Jesus Was a New Adam, Not a Divine Being?",
+      "topics": [
+        "Philippians 2 Christ Poem",
+        "Incarnation Christology",
+        "Angelic Christology"
+      ]
+    },
+    {
+      "wpId": "21114",
+      "title": "How Jesus’ Apocalyptic Teachings Were Changed (even in the NT)",
+      "topics": [
+        "Apocalyptic Jesus",
+        "Son of Man"
+      ]
+    },
+    {
+      "wpId": "21311",
+      "title": "And Now: The Gospel of Peter!",
+      "topics": [
+        "Gospel of Peter",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "23289",
+      "title": "Interview about My Writing with the North Carolina Writers’ Network",
+      "topics": [
+        "Life After Death (General)",
+        "Heaven and Hell",
+        "Media Interviews and Videos",
+        "Writing and Publishing Process"
+      ]
+    },
+    {
+      "wpId": "26586",
+      "title": "Apocalypse (the genre) and Apocalypticism (the worldview)",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "26653",
+      "title": "Understanding Revelation: A Sine Qua Non (Overlooked by most readers)",
+      "topics": [
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "28985",
+      "title": "Heaven and Hell at the Popular Level",
+      "topics": [
+        "Apocalypse of Peter",
+        "General-Audience Books",
+        "Heaven and Hell",
+        "Heaven and Hell Beliefs"
+      ]
+    },
+    {
+      "wpId": "33532",
+      "title": "Did Jesus Descend to Hell After He Died?",
+      "topics": [
+        "Heaven and Hell Beliefs",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "34912",
+      "title": "The First Actual Account of the Resurrection (Hint: It’s Not in the New Testament)",
+      "topics": [
+        "Gospel of Peter",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "38881",
+      "title": "An Unusually Large “Fragment” of a Lost Gospel:  The Gospel of Peter",
+      "topics": [
+        "Gospel of Peter"
+      ]
+    },
+    {
+      "wpId": "38983",
+      "title": "What About People Who Come Back From the Dead in the Hebrew Bible?",
+      "topics": [
+        "Ancient Jewish Afterlife Beliefs"
+      ]
+    },
+    {
+      "wpId": "39461",
+      "title": "How Can We Even IMAGINE an “Original” Text of the Gospels?",
+      "topics": [
+        "Original Text Questions",
+        "Gospel of John"
+      ]
+    },
+    {
+      "wpId": "40864",
+      "title": "Still More Books of the Apocrypha:  Wisdom of Solomon, Sirach, and Baruch",
+      "topics": [
+        "Old Testament Apocrypha"
+      ]
+    },
+    {
+      "wpId": "48954",
+      "title": "Yet More: A Christian Forger Who Warns Against Reading Forgeries!",
+      "topics": [
+        "Forgery (General)"
+      ]
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "17320",
+      "title": "Update on My Next Book: The Joys of Academic Writing",
+      "topics": [
+        "Scholarly Research and Publishing",
+        "Writing and Publishing Process",
+        "Afterlife Journeys"
+      ]
+    },
+    {
+      "wpId": "49218",
+      "title": "Christ’s legalism, his divine and human nature, stories of his father Joseph — and other questions.",
+      "topics": [
+        "Jewish Law and Torah",
+        "Christology (General)"
+      ]
+    },
+    {
+      "wpId": "50201",
+      "title": "Jewish Precedents for Jesus Becoming God",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "Early Judaism (General)",
+        "How Jesus Became God"
+      ]
+    }
+  ]
+}

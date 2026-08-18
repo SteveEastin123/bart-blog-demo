@@ -1,0 +1,658 @@
+{
+  "keyword": "Joseph of Arimathea",
+  "criterion": "Retain Joseph of Arimathea when his role in Jesus' burial, the empty-tomb and resurrection traditions, historical reconstruction, literary portrayal, or later legends materially supports the post. Remove narrative transitions, list items, cross-references, and brief illustrative mentions.",
+  "before": 77,
+  "after": 64,
+  "retained": 64,
+  "removed": 13,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "1738",
+      "title": "Q & A – Historical Events in Jesus Tradition",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "1970",
+      "title": "Another Question on the Resurrection",
+      "topics": [
+        "Empty Tomb Traditions",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "2935",
+      "title": "Gerd Lüdemann on the Resurrection of Jesus",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Resurrection of Jesus",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "3032",
+      "title": "Was Jesus Given a Decent Burial (By Joseph of Arimathea)",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "3090",
+      "title": "Crucified Bodies and Scavengers",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "3094",
+      "title": "Decent Burials for Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "3129",
+      "title": "Secret Followers of Jesus?",
+      "topics": [
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "4743",
+      "title": "The Final Part of My First-Day Quiz",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "6967",
+      "title": "Jesus’ Death and Resurrection in Mark",
+      "topics": [
+        "Meaning of Jesus' Resurrection",
+        "Gospel of Mark",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "7494",
+      "title": "Brian and the Apocalyptic Jesus Part 3",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7531",
+      "title": "New Thread on the Burial of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7533",
+      "title": "Argument Against Jesus’ Burial in HJBG, Part 1",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7536",
+      "title": "Argument Against Jesus’ Burial in HJBG, Part 2",
+      "topics": [
+        "Burial of Jesus",
+        "How Jesus Became God",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7541",
+      "title": "Jesus Burial: My Personal Stake in the Question",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "7543",
+      "title": "Why Romans Crucified People and Who Was Crucifixion Reserved For?",
+      "topics": [
+        "Roman Crucifixion and Burial",
+        "Roman World",
+        "Social Class in Antiquity"
+      ]
+    },
+    {
+      "wpId": "7548",
+      "title": "Did Roman Authorities Show Clemency?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "7553",
+      "title": "Why Are You Trashing the Gospels?",
+      "topics": [
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "7569",
+      "title": "Pilate the Intransigent",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "7577",
+      "title": "Being Consistently Critical (in the good sense)",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "7592",
+      "title": "Does Josephus Show that Jews Always Buried Their Dead?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7601",
+      "title": "Josephus’s Clearest Claim about the Burial of Crucified Victims",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "7609",
+      "title": "The Skeletal Remains of Yehohanan and Their Significance",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "11929",
+      "title": "Gerd Luedemann on the Resurrection: A Blast From the Past",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Visionary Experiences",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "11999",
+      "title": "What Can We Do About Presuppositions?",
+      "topics": [
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "12422",
+      "title": "The Burial of Jesus: A Blast from the Past",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "12498",
+      "title": "Bart Ehrman Resurrection of Jesus: A Blast from the Past",
+      "topics": [
+        "Resurrection Arguments and Apologetics"
+      ]
+    },
+    {
+      "wpId": "13207",
+      "title": "The Skeletal Remains of Yehohanan: Readers Mailbag October 8, 2017",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "13238",
+      "title": "Decent Burials for Crucified Victims: A Blast From the Past",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "13506",
+      "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+      "topics": [
+        "Meaning of Jesus' Resurrection",
+        "Gospel of Mark",
+        "Jesus' Passion Narratives",
+        "Christology in the Gospels"
+      ]
+    },
+    {
+      "wpId": "13616",
+      "title": "Did Romans Allow Jews to Bury Crucified Victims?  Readers’ Mailbag January 1, 2018",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "14870",
+      "title": "Pilate, Who Never “Learned His Lesson”",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "14872",
+      "title": "Was Jesus Given Special Treatment?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "15530",
+      "title": "If Jesus Wasn’t Really Raised from the Dead, What Happened?",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Jesus' Resurrection Appearances"
+      ]
+    },
+    {
+      "wpId": "15674",
+      "title": "Did Jesus Write a Letter to Joseph of Arimathea",
+      "topics": [
+        "Judas Iscariot",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "15676",
+      "title": "An Intriguingly Legendary Account of Jesus’ Death",
+      "topics": [
+        "Judas Iscariot",
+        "Non-Canonical Gospel Traditions",
+        "Crucifixion of Jesus"
+      ]
+    },
+    {
+      "wpId": "16143",
+      "title": "An Eyewitness to the Crucifixion?  Another Modern Forgery",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Modern Forgery Claims",
+        "Eyewitness Reliability"
+      ]
+    },
+    {
+      "wpId": "21255",
+      "title": "Gospel Questions and Problems",
+      "topics": [
+        "Non-Canonical Gospel Traditions",
+        "Courses and Teaching",
+        "Canonical Gospels (General)",
+        "Biblical Contradictions"
+      ]
+    },
+    {
+      "wpId": "21355",
+      "title": "A Gospel of Nicodemus?",
+      "topics": [
+        "Pontius Pilate",
+        "Trial of Jesus",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "25436",
+      "title": "Another Letter Written By Jesus?  Stranger and Stranger…",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "25439",
+      "title": "The Letter Jesus Wrote from the Cross (!)",
+      "topics": [
+        "Jesus' Passion Narratives",
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "29185",
+      "title": "An Eyewitness Account of Jesus’ Crucifixion!",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Eyewitness Reliability",
+        "Modern Forgery Claims"
+      ]
+    },
+    {
+      "wpId": "29817",
+      "title": "Burials for the Crucified.  Most-commented Blog Post: #9",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "29833",
+      "title": "Could Jews Bury Crucified Victims?  Most-commented Blog Post: #7",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "31191",
+      "title": "Another Historical Scholar’s Understanding of the Resurrection",
+      "topics": [
+        "Resurrection Arguments and Apologetics",
+        "Jesus' Resurrection Appearances",
+        "Visionary Experiences"
+      ]
+    },
+    {
+      "wpId": "32329",
+      "title": "Why Do I “Trash” the Gospels??",
+      "topics": [
+        "Canonical Gospels (General)",
+        "Gospel Historical Reliability",
+        "Critical Biblical Scholarship"
+      ]
+    },
+    {
+      "wpId": "32682",
+      "title": "Did the Romans Stage Jesus’ Crucifixion?  Platinum Guest Post by Ryan Fleming",
+      "topics": [
+        "Crucifixion of Jesus",
+        "Miracle Traditions (General)",
+        "Pontius Pilate",
+        "Trial of Jesus"
+      ]
+    },
+    {
+      "wpId": "36026",
+      "title": "The Life of Brian and Jesus:  Was Jesus Really Buried on the Day of the Crucifixion?",
+      "topics": [
+        "Burial of Jesus",
+        "Historical Methods (General)",
+        "Life of Brian",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36215",
+      "title": "Back to Whether Jesus Was Really Given a Decent Burial",
+      "topics": [
+        "Burial of Jesus",
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "36219",
+      "title": "Literary Problems with the Gospel Accounts of Jesus’ Burial",
+      "topics": [
+        "Burial of Jesus"
+      ]
+    },
+    {
+      "wpId": "36224",
+      "title": "Did Romans Allow Decent Burials for Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial"
+      ]
+    },
+    {
+      "wpId": "36276",
+      "title": "More Reasons for Thinking Jesus was Not Given a Decent Burial",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36282",
+      "title": "Does It Even Matter If Jesus Was Given a Proper Burial?",
+      "topics": [
+        "Burial of Jesus",
+        "Empty Tomb Traditions"
+      ]
+    },
+    {
+      "wpId": "36389",
+      "title": "Did Romans Show Clemency to Crucified Criminals?",
+      "topics": [
+        "Burial of Jesus",
+        "Pontius Pilate",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36403",
+      "title": "Hey, Stop Trashing the Gospels!",
+      "topics": [
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "36506",
+      "title": "Pontius Pilate, Intransigent Governor, Crucifier of Jesus",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Pontius Pilate"
+      ]
+    },
+    {
+      "wpId": "36599",
+      "title": "How To Be a Consistently Critical Historian, In the Good Sense",
+      "topics": [
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "36616",
+      "title": "Did Jews Always Bury Their Dead on the Day of their Death?  Was Jesus Buried Then?",
+      "topics": [
+        "Burial of Jesus",
+        "Early Judaism (General)",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36709",
+      "title": "Josephus’ One Statement About the Burial of Crucified Victims in Judea",
+      "topics": [
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "36715",
+      "title": "Does Archaeological Evidence Show that Jesus Was Buried on the Day He Died?",
+      "topics": [
+        "Archaeology and Material Evidence",
+        "Burial of Jesus",
+        "Roman Crucifixion and Burial",
+        "Roman World"
+      ]
+    },
+    {
+      "wpId": "38872",
+      "title": "Is That a Portion of a Famous Lost Gospel?",
+      "topics": [
+        "Non-Canonical Gospel Traditions"
+      ]
+    },
+    {
+      "wpId": "40290",
+      "title": "Did Jesus Have Secret Disciples Among the Elite?",
+      "topics": [
+        "Gospel Historical Reliability"
+      ]
+    },
+    {
+      "wpId": "46956",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – by Mark Reichert (Platinum Member Winner)",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "47203",
+      "title": "The Death and Afterlife of Jesus: A Historical Reconstruction Part I – Guest Post by Platinum Member Mark Reichert",
+      "topics": [
+        "Burial of Jesus",
+        "Crucifixion of Jesus",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "47735",
+      "title": "Four Intriguing Topics in the Study of the Historical Jesus",
+      "topics": [
+        "Historical Study of Miracles",
+        "Historical Jesus (General)"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "4042",
+      "title": "Forgery and the Gospel of Peter",
+      "topics": [
+        "Gospel of Peter",
+        "Petrine Authorship and Forgeries"
+      ]
+    },
+    {
+      "wpId": "4893",
+      "title": "Jesus Position Papers",
+      "topics": [
+        "Courses and Teaching"
+      ]
+    },
+    {
+      "wpId": "6647",
+      "title": "Jesus Writes A Letter!",
+      "topics": [
+        "Eusebius of Caesarea",
+        "Jesus and Abgar Legend"
+      ]
+    },
+    {
+      "wpId": "7031",
+      "title": "More Literary-Historical Perspectives on John",
+      "topics": [
+        "Gospel of John"
+      ]
+    },
+    {
+      "wpId": "12319",
+      "title": "The Ending of Mark in the King James Bible",
+      "topics": [
+        "Gospel of Mark",
+        "King James Version"
+      ]
+    },
+    {
+      "wpId": "13189",
+      "title": "An Introduction to the Gospel of John",
+      "topics": [
+        "Gospel of John"
+      ]
+    },
+    {
+      "wpId": "15672",
+      "title": "Do Any Forgeries Claim to be Written by Jesus?",
+      "topics": [
+        "Eusebius of Caesarea",
+        "Forgery (General)",
+        "Jesus and Abgar Legend"
+      ]
+    },
+    {
+      "wpId": "17525",
+      "title": "Guest Post by James Tabor: The Historian and the Supernatural",
+      "topics": [
+        "Historical Methods (General)",
+        "Historical Study of Miracles"
+      ]
+    },
+    {
+      "wpId": "21311",
+      "title": "And Now: The Gospel of Peter!",
+      "topics": [
+        "Gospel of Peter",
+        "Christian Anti-Judaism"
+      ]
+    },
+    {
+      "wpId": "25205",
+      "title": "Do We Have Any of Jesus’ Writings?  (The Answer May Surprise You!)",
+      "topics": [
+        "Eusebius of Caesarea",
+        "Jesus and Abgar Legend"
+      ]
+    },
+    {
+      "wpId": "34912",
+      "title": "The First Actual Account of the Resurrection (Hint: It’s Not in the New Testament)",
+      "topics": [
+        "Gospel of Peter",
+        "Resurrection of Jesus"
+      ]
+    },
+    {
+      "wpId": "40554",
+      "title": "Can We Get Rid of Our Presuppositions?",
+      "topics": [
+        "Historical Study of Miracles",
+        "Miracle Claims and Apologetics"
+      ]
+    },
+    {
+      "wpId": "47109",
+      "title": "More Interesting Questions from Blog Readers",
+      "topics": [
+        "Atonement (General)",
+        "Son of Man",
+        "Translation Issues"
+      ]
+    }
+  ],
+  "addedPosts": []
+}

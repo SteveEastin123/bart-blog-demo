@@ -1,0 +1,629 @@
+{
+  "keyword": "Isaiah",
+  "criterion": "Retain Isaiah when the book, a specific passage, its composition or manuscripts, or its Jewish and Christian interpretation materially supports the post. Remove lists, generic prophetic comparisons, jokes, analogies, and isolated references.",
+  "before": 73,
+  "after": 61,
+  "retained": 61,
+  "removed": 12,
+  "added": 0,
+  "retainedPosts": [
+    {
+      "wpId": "2441",
+      "title": "A Virgin Birth?  The Importance of Context",
+      "topics": [
+        "Gospel of Matthew",
+        "Translation Issues",
+        "Virgin Birth",
+        "Book of Isaiah",
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "2776",
+      "title": "The Need for Context",
+      "topics": [
+        "Textbooks and Teaching Materials",
+        "Comparative Ancient Evidence",
+        "Historical Methods (General)"
+      ]
+    },
+    {
+      "wpId": "2857",
+      "title": "Faith, History, and Isaiah 7",
+      "topics": [
+        "Historical Methods (General)",
+        "Hebrew Bible Prophets",
+        "Book of Isaiah",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "3448",
+      "title": "Matthew’s Fulfillment Citations",
+      "topics": [
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture",
+        "Septuagint",
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "3976",
+      "title": "The Jewish King as God",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)"
+      ]
+    },
+    {
+      "wpId": "8367",
+      "title": "Why Was Jesus Born of a Virgin in Matthew and Luke?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Luke",
+        "Gospel of Matthew",
+        "Translation Issues",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "8401",
+      "title": "Matthew’s Fulfillment of Scripture Citations",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture"
+      ]
+    },
+    {
+      "wpId": "9011",
+      "title": "Illustration of a Textual Change: Did Mark Make a Mistake?",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "9276",
+      "title": "Jesus and the Messianic Prophecies – Did the Old Testament Point to Jesus?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "9418",
+      "title": "Jesus the Suffering Messiah",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "9440",
+      "title": "The Death of the Messiah for Salvation",
+      "topics": [
+        "Atonement (General)",
+        "Messiah",
+        "Salvation (General)"
+      ]
+    },
+    {
+      "wpId": "9513",
+      "title": "What Is Repentance in the Bible?  Is there Repentance in the Bible?",
+      "topics": [
+        "Early Judaism (General)"
+      ]
+    },
+    {
+      "wpId": "10272",
+      "title": "Jesus’ Virgin Birth in Mark (Reader’s Mailbag February 26, 2016)",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Gospel of Mark",
+        "Translation Issues",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "11568",
+      "title": "Paul’s Converted Vision of Himself",
+      "topics": [
+        "Conversion",
+        "Paul's Conversion"
+      ]
+    },
+    {
+      "wpId": "12052",
+      "title": "Why Would Jesus’ Disciples Think He Was The Messiah?",
+      "topics": [
+        "Messiah"
+      ]
+    },
+    {
+      "wpId": "12186",
+      "title": "Manuscripts of the Hebrew Bible",
+      "topics": [
+        "Hebrew Bible Manuscripts",
+        "Translation Issues"
+      ]
+    },
+    {
+      "wpId": "12363",
+      "title": "An Interesting Scribal Change at the Beginning of Mark",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Textual Variants"
+      ]
+    },
+    {
+      "wpId": "12722",
+      "title": "Why Not Believe in a Different Kind of God?",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ]
+    },
+    {
+      "wpId": "12813",
+      "title": "The First Apocalypse: The Book of Daniel",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "12838",
+      "title": "Daniel and a New Doctrine of Resurrection From the Dead",
+      "topics": [
+        "Resurrection of the Dead",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "12903",
+      "title": "Speaking in Tongues and Virgin Births: Readers’ Mailbag September 3, 2017",
+      "topics": [
+        "Miracle Traditions (General)",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "13227",
+      "title": "Are Jews and Christians Monotheists?  Mailbag October 15, 2017",
+      "topics": [
+        "Development of the Trinity",
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "13513",
+      "title": "Paul’s Exalted Self-Image: The Fulfillment of Ancient Prophecy",
+      "topics": [
+        "Paul's Life and Career"
+      ]
+    },
+    {
+      "wpId": "15065",
+      "title": "Who Invented the Idea of a Suffering Messiah?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah",
+        "Crucified Messiah"
+      ]
+    },
+    {
+      "wpId": "15523",
+      "title": "The Afterlife in Revelation",
+      "topics": [
+        "Life After Death (General)",
+        "Book of Revelation"
+      ]
+    },
+    {
+      "wpId": "15694",
+      "title": "Jesus’ Birth as “The Fulfillment of the Prophecies”",
+      "topics": [
+        "Matthew's Use of Scripture",
+        "Septuagint",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "15715",
+      "title": "The Virgin Birth in Matthew and Luke",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Translation Issues",
+        "Virgin Birth",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "16534",
+      "title": "Does Isaiah 53 Predict Jesus’ Suffering and Death or Has Isaiah 53 Been Debunked?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah",
+        "Hebrew Bible Prophets",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "17699",
+      "title": "A Fuller Exposition of the Christ Poem in Philippians",
+      "topics": [
+        "Incarnation Christology",
+        "Philippians 2 Christ Poem",
+        "Angelic Christology",
+        "Exaltation Christology"
+      ]
+    },
+    {
+      "wpId": "20337",
+      "title": "Readers Mailbag:  Does Isaiah 53 Predict the Death and Resurrection of Jesus?",
+      "topics": [
+        "Messiah",
+        "Resurrection of Jesus",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "20867",
+      "title": "How Accurate are our Copies of the Hebrew Bible?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint",
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "21859",
+      "title": "Where Did the Idea of a “Suffering Messiah” Come From?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah",
+        "Crucified Messiah"
+      ]
+    },
+    {
+      "wpId": "22643",
+      "title": "Was The Messiah Supposed to Be Born of a Virgin?",
+      "topics": [
+        "Matthew's Use of Scripture",
+        "Septuagint",
+        "Book of Isaiah",
+        "Gospel of Matthew",
+        "Messiah",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "23001",
+      "title": "Were Ancient Israelites Actually Monotheists?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "23135",
+      "title": "Was the King of Israel Called God??",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "25712",
+      "title": "Other New Testament References to Books Outside the Hebrew Bible: Platinum Guest Post by Doug Wadeson",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "26782",
+      "title": "Prophecies and Saints in the Book of Daniel.  Platinum Guest Post by Daniel Kohanski",
+      "topics": [
+        "Jewish Apocalypticism",
+        "Hebrew Bible Prophets",
+        "Resurrection of the Dead",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "28591",
+      "title": "How Can We Understand the Prophets of the Hebrew Bible?  Isaiah as a Case Study",
+      "topics": [
+        "Hebrew Bible Prophets",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "28646",
+      "title": "Is the Book of Isaiah the Books of Three “Isaiahs”?",
+      "topics": [
+        "Hebrew Bible Composition and Sources",
+        "Hebrew Bible Prophets",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "28655",
+      "title": "The Message of First Isaiah",
+      "topics": [
+        "Hebrew Bible Prophets",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "28663",
+      "title": "The Prophets of Scripture: A Brief Summary of their Message and Mission",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "29861",
+      "title": "Does Isaiah 53 Predict Jesus’ Death and Resurrection?  Most-Commented Blog Posts: #1",
+      "topics": [
+        "Messiah",
+        "Meaning of Jesus' Resurrection",
+        "Book of Isaiah",
+        "Christian Interpretation of Jewish Scripture"
+      ]
+    },
+    {
+      "wpId": "31314",
+      "title": "Why Not Just Believe in a *Different* Kind of God?",
+      "topics": [
+        "Problem of Evil and Suffering"
+      ]
+    },
+    {
+      "wpId": "33275",
+      "title": "An Error in Mark?  Did Scribes Change It?",
+      "topics": [
+        "Gospel of Mark",
+        "Scribal Changes"
+      ]
+    },
+    {
+      "wpId": "33480",
+      "title": "Is It A Sin To Be Transgender? Platinum guest post by Douglas Wadeson MD",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ]
+    },
+    {
+      "wpId": "34231",
+      "title": "Is It A Sin To Be Transgender? Platinum guest post by Douglas Wadeson MD",
+      "topics": [
+        "Sexual and Reproductive Ethics"
+      ]
+    },
+    {
+      "wpId": "35354",
+      "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+      "topics": [
+        "Development of the Trinity"
+      ]
+    },
+    {
+      "wpId": "38093",
+      "title": "What Does It Actually Mean to “Fulfill” Scripture?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Matthew's Use of Scripture",
+        "Gospel of Matthew"
+      ]
+    },
+    {
+      "wpId": "39498",
+      "title": "Two KINDS of Originals.  How Do We Know We Have Either?",
+      "topics": [
+        "Original Text Questions",
+        "Hebrew Bible Composition and Sources"
+      ]
+    },
+    {
+      "wpId": "39865",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "41904",
+      "title": "Twelve Days of Christmas Day 8: Why Was Jesus Born of a Virgin in Matthew and Luke?",
+      "topics": [
+        "Jesus' Birth Narratives",
+        "Translation Issues",
+        "Gospel of Matthew",
+        "Virgin Birth"
+      ]
+    },
+    {
+      "wpId": "47002",
+      "title": "Questions: Did Paul state that Jesus was put in a tomb? Is Jesus like Pagan gods? Is the hope for a messiah like the belief in Santa?",
+      "topics": [
+        "Burial of Jesus",
+        "Messiah",
+        "Exaltation Christology",
+        "Revelation Authorship"
+      ]
+    },
+    {
+      "wpId": "47027",
+      "title": "Did Jesus Come to Bring Peace?",
+      "topics": [
+        "Jesus' Birth Narratives"
+      ]
+    },
+    {
+      "wpId": "47062",
+      "title": "The Gospel of Luke in a Nutshell",
+      "topics": [
+        "Gospel of Luke",
+        "In a Nutshell Series"
+      ]
+    },
+    {
+      "wpId": "47265",
+      "title": "Who Was the Suffering Servant of Isaiah 53?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Messiah",
+        "Hebrew Bible Prophets",
+        "Book of Isaiah"
+      ]
+    },
+    {
+      "wpId": "47269",
+      "title": "The Evolution of Jewish Monotheism–Platinum Post By Daniel Kohanski",
+      "topics": [
+        "Divine Beings in the Hebrew Bible"
+      ]
+    },
+    {
+      "wpId": "48263",
+      "title": "A Gold Nugget Often Overlooked: The Book of Zechariah",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "48695",
+      "title": "Weren’t Jewish Scribes Fully Accurate to the Letter?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Hebrew Bible Manuscripts",
+        "Scribal Changes",
+        "Septuagint"
+      ]
+    },
+    {
+      "wpId": "49968",
+      "title": "Did Paul Have an Exalted View of Himself?",
+      "topics": [
+        "Paul on Jewish Law",
+        "Paul's Life and Career",
+        "Paul's Conversion",
+        "Jewish Law and Torah"
+      ]
+    },
+    {
+      "wpId": "50227",
+      "title": "The King of Israel Was Called … God?",
+      "topics": [
+        "Divine Beings in the Hebrew Bible",
+        "Christology (General)",
+        "How Jesus Became God"
+      ]
+    },
+    {
+      "wpId": "50364",
+      "title": "Prophetic Condemnations of Jews Within Judaism Before Jesus",
+      "topics": [
+        "Christian Anti-Judaism",
+        "Hebrew Bible Prophets",
+        "Jesus' Ethics"
+      ]
+    }
+  ],
+  "removedPosts": [
+    {
+      "wpId": "2161",
+      "title": "At the Beach (3): Thinking Yet More of Books",
+      "topics": [
+        "Personal Reflections"
+      ]
+    },
+    {
+      "wpId": "9477",
+      "title": "Are the Prophecies Being Fulfilled?",
+      "topics": [
+        "Christian Interpretation of Jewish Scripture",
+        "Hebrew Bible Prophets",
+        "Modern End-Times Interpretation"
+      ]
+    },
+    {
+      "wpId": "9497",
+      "title": "The Rise of Apocalypticism",
+      "topics": [
+        "Jewish Apocalypticism"
+      ]
+    },
+    {
+      "wpId": "12239",
+      "title": "What is the Hebrew Bible?",
+      "topics": [
+        "Canon Formation"
+      ]
+    },
+    {
+      "wpId": "28443",
+      "title": "The Famous Short Stories about Daniel",
+      "topics": [
+        "Hebrew Bible Historical Reliability",
+        "Book of Daniel"
+      ]
+    },
+    {
+      "wpId": "28517",
+      "title": "They Ain’t Who You Think:  Prophets in the Old Testament",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "28520",
+      "title": "Aren’t They Predicting the Future?  More on the Prophets of the Old Testament",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "33421",
+      "title": "Do We Have the Original Hebrew Bible (Old Testament)?",
+      "topics": [
+        "Dead Sea Scrolls and Essenes",
+        "Septuagint",
+        "Hebrew Bible Manuscripts"
+      ]
+    },
+    {
+      "wpId": "47215",
+      "title": "Some Interesting Questions of the Week",
+      "topics": [
+        "Hebrew Bible Composition and Sources",
+        "Didache"
+      ]
+    },
+    {
+      "wpId": "48332",
+      "title": "A Heart-Rending Story and Stunning Condemnation: The Prophet Hosea",
+      "topics": [
+        "Hebrew Bible Prophets"
+      ]
+    },
+    {
+      "wpId": "48697",
+      "title": "When Did We Get Chapters and Verses? A Quick Answer",
+      "topics": [
+        "Hebrew Bible Manuscripts",
+        "New Testament Manuscripts"
+      ]
+    },
+    {
+      "wpId": "49472",
+      "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Jesus' Teachings"
+      ]
+    }
+  ],
+  "addedPosts": []
+}
