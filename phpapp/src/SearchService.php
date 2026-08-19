@@ -388,7 +388,7 @@ function ehrman_keyword_suggestions(
     $selectedModes = ehrman_resolve_term_modes($db, $selected, $selectedModes);
     $limitClause = $categorySlug !== '' && $q === '' && $selectedNormalized === [] && $topicSlug === ''
         ? ''
-        : 'LIMIT 48';
+        : ($selectedNormalized !== [] ? 'LIMIT 192' : 'LIMIT 48');
 
     if ($q === '' && $selectedNormalized === [] && $categorySlug === '' && $topicSlug === '') {
         return ehrman_starter_suggestions($db);
@@ -434,6 +434,7 @@ function ehrman_keyword_suggestions(
         );
         $selectedIds = ehrman_intersect_id_sets($selectedIds, $matches);
     }
+    $contextPostCount = $selected !== [] && $selectedIds !== null ? count($selectedIds) : null;
 
     $prefixLike = $q . '%';
     $wordPrefixLike = '% ' . $q . '%';
@@ -538,20 +539,21 @@ function ehrman_keyword_suggestions(
                 ? ($topicDescriptions[ehrman_normalize_keyword((string) $row['label'])] ?? '')
                 : '',
         ];
-        if ($hasTopic && count($topicPosts[$normalized] ?? []) > 0) {
+        $topicCount = count($topicPosts[$normalized] ?? []);
+        if ($hasTopic && $topicCount > 0 && ($contextPostCount === null || $topicCount < $contextPostCount)) {
             $suggestions[] = $base + [
-                'postCount' => count($topicPosts[$normalized]),
+                'postCount' => $topicCount,
                 'mode' => 'topic',
                 'typeRank' => 3,
             ];
         }
-        if ($hasTopic && $hasKeyword) {
+        if ($hasTopic && $hasKeyword && ($contextPostCount === null || $postCount < $contextPostCount)) {
             $suggestions[] = $base + [
                 'postCount' => $postCount,
                 'mode' => 'topic-keyword',
                 'typeRank' => 2,
             ];
-        } elseif (!$hasTopic) {
+        } elseif (!$hasTopic && ($contextPostCount === null || $postCount < $contextPostCount)) {
             $suggestions[] = $base + [
                 'postCount' => $postCount,
                 'mode' => 'keyword',

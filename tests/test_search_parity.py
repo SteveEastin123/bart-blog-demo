@@ -328,6 +328,26 @@ class SearchParityTests(unittest.TestCase):
         self.assertEqual(len(combined_posts), 23)
         self.assertTrue({post["url"] for post in topic_posts}.issubset({post["url"] for post in combined_posts}))
 
+    def test_contextual_suggestions_only_offer_refinements(self) -> None:
+        selected_posts, _ = app.search_posts(
+            ["Colossians"],
+            "ranked",
+            term_modes=["topic-keyword"],
+        )
+        suggestions = json.loads(
+            app.api_keywords(
+                {
+                    "selected": ["Colossians"],
+                    "selected-mode": ["topic-keyword"],
+                }
+            ).decode("utf-8")
+        )
+
+        self.assertTrue(suggestions)
+        self.assertTrue(
+            all(suggestion["postCount"] < len(selected_posts) for suggestion in suggestions)
+        )
+
     def test_keyword_search_page_lists_each_category_once(self) -> None:
         page = app.keyword_search_page().decode("utf-8")
         category = app.keyword_filter_categories()[0]

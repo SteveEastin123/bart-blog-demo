@@ -1389,7 +1389,11 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
     topic_slug = query.get("topic", [""])[0].strip()
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
     allowed_category_topics: list[str] = []
-    limit_clause = "" if category_slug and not q and not selected_normalized and not topic_slug else "LIMIT 48"
+    limit_clause = (
+        ""
+        if category_slug and not q and not selected_normalized and not topic_slug
+        else ("LIMIT 192" if selected_normalized else "LIMIT 48")
+    )
     with get_conn() as conn:
         selected_modes = resolve_term_modes(conn, selected, selected_modes)
         if not q and not selected_normalized and not category_slug and not topic_slug:
@@ -1432,6 +1436,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
         for index, value in enumerate(selected):
             matches = set(find_post_ids_for_term(conn, value, selected_modes[index]).keys())
             selected_ids = matches if selected_ids is None else selected_ids & matches
+        context_post_count = len(selected_ids) if selected and selected_ids is not None else None
         prefix_like = f"{q}%"
         word_prefix_like = f"% {q}%"
         params: list[object] = []
@@ -1535,15 +1540,15 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 ),
             }
             topic_count = len(topic_posts[row["normalized"]])
-            if has_topic and topic_count:
+            if has_topic and topic_count and (context_post_count is None or topic_count < context_post_count):
                 suggestions.append(
                     {**base, "postCount": topic_count, "mode": "topic", "typeRank": 3}
                 )
-            if has_topic and has_keyword:
+            if has_topic and has_keyword and (context_post_count is None or post_count < context_post_count):
                 suggestions.append(
                     {**base, "postCount": post_count, "mode": "topic-keyword", "typeRank": 2}
                 )
-            elif not has_topic:
+            elif not has_topic and (context_post_count is None or post_count < context_post_count):
                 suggestions.append(
                     {**base, "postCount": post_count, "mode": "keyword", "typeRank": 1}
                 )

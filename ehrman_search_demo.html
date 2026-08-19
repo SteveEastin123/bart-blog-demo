@@ -36860,6 +36860,9 @@ const DATA = {
       const selectedContextTerms = new Set(contextTerms);
       const hasContext = contextTerms.length > 0;
       const scopeArticleIndexes = options.scopeArticleIndexes || null;
+      const contextPostCount = hasContext
+        ? keywordMatchCountForTermsInScope(contextTerms, contextModes, scopeArticleIndexes)
+        : null;
       const allowedTopicNormalized = options.allowedTopicNormalized || null;
       const scopeSecondaryKeywordNormalized = options.scopeSecondaryKeywordNormalized || null;
       const scopedSuggestionMode = (normalized, mode) => {
@@ -36898,6 +36901,9 @@ const DATA = {
           if ((hasContext || scopeArticleIndexes) && contextualCount === 0) {
             return;
           }
+          if (hasContext && contextualCount >= contextPostCount) {
+            return;
+          }
           matches.push([label, contextualCount, normalized, scopedMode]);
         });
         sortContextualSuggestions(matches);
@@ -36921,6 +36927,9 @@ const DATA = {
           ? keywordMatchCountForTermsInScope([...contextTerms, normalized], [...contextModes, scopedMode], scopeArticleIndexes)
           : (scopeArticleIndexes ? keywordMatchCountForTermsInScope([normalized], [scopedMode], scopeArticleIndexes) : count);
         if ((hasContext || scopeArticleIndexes) && contextualCount === 0) {
+          return;
+        }
+        if (hasContext && contextualCount >= contextPostCount) {
           return;
         }
         if (isPrefixMatch) {

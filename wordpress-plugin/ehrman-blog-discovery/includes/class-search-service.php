@@ -267,6 +267,7 @@ final class Search_Service {
 		if ( is_array( $eligible ) && empty( $eligible ) ) {
 			return array();
 		}
+		$context_post_count = ! empty( $selected ) && is_array( $eligible ) ? count( $eligible ) : null;
 
 		$where  = array( "normalized <> 'ignore'" );
 		$params = array( $query_normalized, $query_normalized . '%', '% ' . $query_normalized . '%' );
@@ -300,7 +301,7 @@ final class Search_Service {
 
 		$limit = '' !== $category_slug && '' === $query_normalized && empty( $selected ) && '' === $topic_slug
 			? ''
-			: ' LIMIT 48';
+			: ( ! empty( $selected ) ? ' LIMIT 192' : ' LIMIT 48' );
 		$sql   = "SELECT COALESCE(MIN(CASE WHEN kind IN ('topic','alias') THEN label END),MIN(label)) label, "
 			. 'normalized, COUNT(DISTINCT post_id) post_count, '
 			. "MAX(CASE WHEN kind IN ('topic','alias') THEN 1 ELSE 0 END) has_topic, "
@@ -380,7 +381,7 @@ final class Search_Service {
 			);
 			if ( $has_topic ) {
 				$topic_count = count( $topic_posts[ $normalized ] ?? array() );
-				if ( $topic_count > 0 ) {
+				if ( $topic_count > 0 && ( null === $context_post_count || $topic_count < $context_post_count ) ) {
 					$suggestions[] = $base + array(
 						'postCount' => $topic_count,
 						'mode'      => self::TERM_MODE_TOPIC,
@@ -388,13 +389,13 @@ final class Search_Service {
 					);
 				}
 			}
-			if ( $has_topic && $has_keyword ) {
+			if ( $has_topic && $has_keyword && ( null === $context_post_count || $post_count < $context_post_count ) ) {
 				$suggestions[] = $base + array(
 					'postCount' => $post_count,
 					'mode'      => self::TERM_MODE_COMBINED,
 					'typeRank'  => 2,
 				);
-			} elseif ( ! $has_topic ) {
+			} elseif ( ! $has_topic && ( null === $context_post_count || $post_count < $context_post_count ) ) {
 				$suggestions[] = $base + array(
 					'postCount' => $post_count,
 					'mode'      => self::TERM_MODE_KEYWORD,
