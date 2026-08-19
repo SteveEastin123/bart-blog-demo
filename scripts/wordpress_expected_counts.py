@@ -36,6 +36,19 @@ def main() -> None:
     }
     post_topics = sum(len(post.get("topics", [])) for post in posts)
     post_keywords = sum(len(post.get("secondaryKeywords", [])) for post in posts)
+    aliases_by_topic = {
+        topic.get("name", ""): {
+            normalize(alias)
+            for alias in topic.get("aliases", [])
+            if normalize(alias)
+        }
+        for topic in topics
+    }
+    post_aliases = sum(
+        len(aliases_by_topic.get(topic_name, set()))
+        for post in posts
+        for topic_name in post.get("topics", [])
+    )
 
     counts = {
         "browse_paths": 2,
@@ -51,7 +64,7 @@ def main() -> None:
         "topic_categories": sum(len(topic.get("categories", [])) for topic in topics),
         "post_topics": post_topics,
         "post_keywords": post_keywords,
-        "post_search_terms": post_topics + post_keywords,
+        "post_search_terms": post_topics + post_keywords + post_aliases,
     }
     print(json.dumps(counts, sort_keys=True))
 
