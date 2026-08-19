@@ -1,0 +1,146 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Normalize ten secondary keywords for broader topic-plus-keyword search and clean up three labels fully duplicated by topic assignments.",
+  "criterion": "Align labels only when the topic name preserves the keyword's meaning and remains discoverable from the original wording. Remove the secondary keyword when the same post already has the matching topic.",
+  "auditedKeywords": [
+    "Jewish Law and Torah",
+    "Book of Isaiah",
+    "Non-Canonical Gospel Traditions",
+    "Dead Sea Scrolls and Essenes",
+    "Development of the Trinity",
+    "Media Coverage and Reviews",
+    "Miracle Claims and Apologetics",
+    "Free Will and Predestination",
+    "Gospel of Jesus' Wife Fragment",
+    "Athanasius of Alexandria",
+    "Problem of Evil and Suffering",
+    "Biblical Debates on Same-Sex Relations",
+    "Arius and Arianism"
+  ],
+  "broaderSearchChanges": [
+    {
+      "from": "Jewish Law",
+      "to": "Jewish Law and Torah",
+      "before": 69,
+      "renamedAssignments": 63,
+      "removedBecauseTopicMatched": 6,
+      "after": 63
+    },
+    {
+      "from": "Isaiah",
+      "to": "Book of Isaiah",
+      "before": 61,
+      "renamedAssignments": 51,
+      "removedBecauseTopicMatched": 10,
+      "after": 51
+    },
+    {
+      "from": "Non-Canonical Gospels",
+      "to": "Non-Canonical Gospel Traditions",
+      "before": 19,
+      "renamedAssignments": 12,
+      "removedBecauseTopicMatched": 7,
+      "after": 12
+    },
+    {
+      "from": "Dead Sea Scrolls",
+      "to": "Dead Sea Scrolls and Essenes",
+      "before": 25,
+      "renamedAssignments": 24,
+      "removedBecauseTopicMatched": 1,
+      "after": 24
+    },
+    {
+      "from": "Trinity",
+      "to": "Development of the Trinity",
+      "before": 7,
+      "renamedAssignments": 7,
+      "removedBecauseTopicMatched": 0,
+      "after": 7
+    },
+    {
+      "from": "Media Coverage",
+      "to": "Media Coverage and Reviews",
+      "before": 10,
+      "renamedAssignments": 9,
+      "removedBecauseTopicMatched": 1,
+      "after": 9
+    },
+    {
+      "from": "Miracle Claims",
+      "to": "Miracle Claims and Apologetics",
+      "before": 3,
+      "renamedAssignments": 2,
+      "removedBecauseTopicMatched": 1,
+      "after": 2
+    },
+    {
+      "from": "Predestination",
+      "to": "Free Will and Predestination",
+      "before": 1,
+      "renamedAssignments": 1,
+      "removedBecauseTopicMatched": 0,
+      "after": 1
+    },
+    {
+      "from": "Gospel of Jesus' Wife",
+      "to": "Gospel of Jesus' Wife Fragment",
+      "before": 2,
+      "renamedAssignments": 2,
+      "removedBecauseTopicMatched": 0,
+      "after": 2
+    },
+    {
+      "from": "Athanasius",
+      "to": "Athanasius of Alexandria",
+      "before": 1,
+      "renamedAssignments": 1,
+      "removedBecauseTopicMatched": 0,
+      "after": 1
+    }
+  ],
+  "cleanupOnlyChanges": [
+    {
+      "from": "Problem of Evil",
+      "to": "Problem of Evil and Suffering",
+      "before": 2,
+      "renamedAssignments": 0,
+      "removedBecauseTopicMatched": 2,
+      "after": 0
+    },
+    {
+      "from": "Bible and Same-Sex Relations",
+      "to": "Biblical Debates on Same-Sex Relations",
+      "before": 2,
+      "renamedAssignments": 0,
+      "removedBecauseTopicMatched": 2,
+      "after": 0
+    },
+    {
+      "from": "Arius",
+      "to": "Arius and Arianism",
+      "before": 1,
+      "renamedAssignments": 0,
+      "removedBecauseTopicMatched": 1,
+      "after": 0
+    }
+  ],
+  "preservedAlternativeTerms": [
+    "Biblical Discrepancies",
+    "Pericope Adulterae",
+    "New Testament Canon",
+    "Eyewitness Testimony",
+    "Divine Beings",
+    "Debates",
+    "Textual Criticism"
+  ],
+  "summary": {
+    "labelsNormalizedForBroaderSearch": 10,
+    "labelsCleanedUpAsRedundant": 3,
+    "postsChanged": 198,
+    "assignmentsRenamed": 172,
+    "assignmentsRemovedBecauseTopicMatched": 31,
+    "uniqueKeywordsBefore": 911,
+    "uniqueKeywordsAfter": 908
+  }
+}

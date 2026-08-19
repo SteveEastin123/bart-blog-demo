@@ -1,0 +1,107 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Normalize ten broad secondary keywords to the exact names of their matching general topics.",
+  "criterion": "Use one label for the same concept so autocomplete can offer a topic-only result and a broader keyword result. Remove the secondary keyword when the same post already has the matching topic.",
+  "auditedKeywords": [
+    "Historical Jesus (General)",
+    "Early Christianity (General)",
+    "Forgery (General)",
+    "Salvation (General)",
+    "Christology (General)",
+    "Pauline Epistles (General)",
+    "Gnosticism (General)",
+    "Atonement (General)",
+    "Canonical Gospels (General)",
+    "Early Judaism (General)"
+  ],
+  "labelChanges": [
+    {
+      "from": "Historical Jesus",
+      "to": "Historical Jesus (General)",
+      "before": 301,
+      "renamedAssignments": 301,
+      "removedBecauseTopicMatched": 0,
+      "after": 301
+    },
+    {
+      "from": "Early Christianity",
+      "to": "Early Christianity (General)",
+      "before": 241,
+      "renamedAssignments": 241,
+      "removedBecauseTopicMatched": 0,
+      "after": 241
+    },
+    {
+      "from": "Forgery",
+      "to": "Forgery (General)",
+      "before": 178,
+      "renamedAssignments": 141,
+      "removedBecauseTopicMatched": 37,
+      "after": 141
+    },
+    {
+      "from": "Salvation",
+      "to": "Salvation (General)",
+      "before": 141,
+      "renamedAssignments": 141,
+      "removedBecauseTopicMatched": 0,
+      "after": 141
+    },
+    {
+      "from": "Christology",
+      "to": "Christology (General)",
+      "before": 126,
+      "renamedAssignments": 111,
+      "removedBecauseTopicMatched": 15,
+      "after": 111
+    },
+    {
+      "from": "Pauline Epistles",
+      "to": "Pauline Epistles (General)",
+      "before": 92,
+      "renamedAssignments": 92,
+      "removedBecauseTopicMatched": 0,
+      "after": 92
+    },
+    {
+      "from": "Gnosticism",
+      "to": "Gnosticism (General)",
+      "before": 63,
+      "renamedAssignments": 63,
+      "removedBecauseTopicMatched": 0,
+      "after": 63
+    },
+    {
+      "from": "Atonement",
+      "to": "Atonement (General)",
+      "before": 30,
+      "renamedAssignments": 27,
+      "removedBecauseTopicMatched": 3,
+      "after": 27
+    },
+    {
+      "from": "Canonical Gospels",
+      "to": "Canonical Gospels (General)",
+      "before": 19,
+      "renamedAssignments": 15,
+      "removedBecauseTopicMatched": 4,
+      "after": 15
+    },
+    {
+      "from": "Early Judaism",
+      "to": "Early Judaism (General)",
+      "before": 14,
+      "renamedAssignments": 14,
+      "removedBecauseTopicMatched": 0,
+      "after": 14
+    }
+  ],
+  "summary": {
+    "labelsNormalized": 10,
+    "postsChanged": 1047,
+    "assignmentsRenamed": 1146,
+    "assignmentsRemovedBecauseTopicMatched": 59,
+    "uniqueKeywordsBefore": 911,
+    "uniqueKeywordsAfter": 911
+  }
+}

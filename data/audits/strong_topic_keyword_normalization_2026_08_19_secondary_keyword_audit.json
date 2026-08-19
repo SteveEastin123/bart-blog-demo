@@ -1,0 +1,108 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Normalize nine high-confidence secondary-keyword labels to equivalent topic names.",
+  "criterion": "Use one canonical label when the keyword and topic describe the same subject. Remove the secondary keyword when the same post already has the destination topic; otherwise retain it under the canonical label.",
+  "auditedKeywords": [
+    "Church Fathers as Textual Evidence",
+    "General-Audience Books",
+    "Historical Methods (General)",
+    "Jewish Law and Torah",
+    "Marcion",
+    "Visionary Experiences",
+    "Women in Early Christianity",
+    "Writing and Publishing Process"
+  ],
+  "labelChanges": [
+    {
+      "from": "Trade Books",
+      "to": "General-Audience Books",
+      "before": 103,
+      "renamedSupportingAssignments": 39,
+      "removedBecauseTopicMatched": 64,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 39
+    },
+    {
+      "from": "Visions",
+      "to": "Visionary Experiences",
+      "before": 62,
+      "renamedSupportingAssignments": 53,
+      "removedBecauseTopicMatched": 9,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 53
+    },
+    {
+      "from": "Historical Criticism",
+      "to": "Historical Methods (General)",
+      "before": 15,
+      "renamedSupportingAssignments": 5,
+      "removedBecauseTopicMatched": 10,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 5
+    },
+    {
+      "from": "Women in the Church",
+      "to": "Women in Early Christianity",
+      "before": 9,
+      "renamedSupportingAssignments": 3,
+      "removedBecauseTopicMatched": 6,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 3
+    },
+    {
+      "from": "Marcionism",
+      "to": "Marcion",
+      "before": 3,
+      "renamedSupportingAssignments": 2,
+      "removedBecauseTopicMatched": 1,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 7
+    },
+    {
+      "from": "Patristic Evidence",
+      "to": "Church Fathers as Textual Evidence",
+      "before": 3,
+      "renamedSupportingAssignments": 0,
+      "removedBecauseTopicMatched": 3,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 0
+    },
+    {
+      "from": "Torah",
+      "to": "Jewish Law and Torah",
+      "before": 1,
+      "renamedSupportingAssignments": 1,
+      "removedBecauseTopicMatched": 0,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 64
+    },
+    {
+      "from": "Writing a Book",
+      "to": "Writing and Publishing Process",
+      "before": 12,
+      "renamedSupportingAssignments": 0,
+      "removedBecauseTopicMatched": 12,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 3
+    },
+    {
+      "from": "Book Publishing",
+      "to": "Writing and Publishing Process",
+      "before": 8,
+      "renamedSupportingAssignments": 3,
+      "removedBecauseTopicMatched": 5,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 3
+    }
+  ],
+  "summary": {
+    "sourceLabelsNormalized": 9,
+    "canonicalLabels": 8,
+    "postsChanged": 204,
+    "assignmentsRenamed": 106,
+    "assignmentsRemovedBecauseTopicMatched": 110,
+    "assignmentsMergedWithExistingKeyword": 0,
+    "uniqueSecondaryKeywordsBefore": 907,
+    "uniqueSecondaryKeywordsAfter": 903
+  }
+}

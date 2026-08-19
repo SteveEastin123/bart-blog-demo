@@ -105,7 +105,7 @@ CREATE TABLE post_search_terms (
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
     label TEXT NOT NULL,
     normalized TEXT NOT NULL,
-    kind TEXT NOT NULL CHECK (kind IN ('topic', 'secondary')),
+    kind TEXT NOT NULL CHECK (kind IN ('topic', 'alias', 'secondary')),
     weight INTEGER NOT NULL,
     PRIMARY KEY (post_id, normalized, kind)
 );
@@ -279,6 +279,11 @@ def build_database(
     subject_areas_2 = load_subject_areas(subject_areas_2_path)
     topics = load_topics(topics_path)
     posts = load_posts(search_index_path)
+    topic_aliases = {
+        clean_string(topic.get("name")): unique_strings(topic.get("aliases"))
+        for topic in topics
+        if clean_string(topic.get("name"))
+    }
 
     conn = sqlite3.connect(tmp_path)
     conn.row_factory = sqlite3.Row
@@ -457,6 +462,17 @@ def build_database(
                     """,
                     (post_id, topic_name, normalized),
                 )
+                for alias in topic_aliases.get(topic_name, []):
+                    normalized_alias = normalize_keyword(alias)
+                    if not normalized_alias:
+                        continue
+                    conn.execute(
+                        """
+                        INSERT OR IGNORE INTO post_search_terms(post_id, label, normalized, kind, weight)
+                        VALUES (?, ?, ?, 'alias', 6)
+                        """,
+                        (post_id, topic_name, normalized_alias),
+                    )
 
             for keyword in unique_strings(post.get("secondaryKeywords")):
                 keyword_id = insert_keyword(conn, keyword)

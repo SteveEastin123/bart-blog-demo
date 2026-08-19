@@ -1,0 +1,361 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Full local-text review of the 35 posts that used Biblical Discrepancies, New Testament Canon, or Eyewitness Testimony as a secondary keyword without the corresponding canonical topic, plus the Pericope Adulterae alias cleanup.",
+  "criterion": "Add a topic only when it is a primary or major sustained subject; retain a secondary keyword when it is a meaningful supporting subject; remove labels based only on passing mentions or incidental context.",
+  "auditedKeywords": [
+    "Biblical Discrepancies",
+    "New Testament Canon",
+    "Eyewitness Testimony"
+  ],
+  "summary": {
+    "keywordOnlyPostsReviewed": 35,
+    "secondaryKeywordLinksRetained": 32,
+    "secondaryKeywordLinksRemoved": 3,
+    "topicLinksAdded": 13,
+    "pericopeKeywordLinksRemoved": 10,
+    "topicAliasesAdded": 1,
+    "uniqueSecondaryKeywordsBefore": 908,
+    "uniqueSecondaryKeywordsAfter": 907
+  },
+  "aliasChange": {
+    "canonicalTopic": "Woman Caught in Adultery",
+    "alias": "Pericope Adulterae",
+    "behavior": "The alias remains searchable but is no longer exposed as a separate secondary keyword. Autocomplete should display the canonical topic label.",
+    "removedFromPosts": [
+      {
+        "wpId": "20704",
+        "title": "Are Bible Translators Consistent?  Readers’ Mailbag"
+      },
+      {
+        "wpId": "15680",
+        "title": "Did Jesus Write Anything in the New Testament?"
+      },
+      {
+        "wpId": "33796",
+        "title": "Famous Passages that Are Not Original: How Do Modern Translators Deal with Them?"
+      },
+      {
+        "wpId": "26387",
+        "title": "How Do We Know If Jesus Did Something?"
+      },
+      {
+        "wpId": "9008",
+        "title": "Intentional Changes of the Text"
+      },
+      {
+        "wpId": "12328",
+        "title": "Major Scribal Corruptions in the New Revised Standard Version"
+      },
+      {
+        "wpId": "2274",
+        "title": "Q & A with Ben Witherington: Part 5"
+      },
+      {
+        "wpId": "12317",
+        "title": "The Woman Taken in Adultery in the King James Version"
+      },
+      {
+        "wpId": "13419",
+        "title": "Why Do Translators Include Passages They Know Are Not Original?"
+      },
+      {
+        "wpId": "11961",
+        "title": "Why Don’t People See Discrepancies in the Bible?  Readers’ Mailbag October 15, 2016"
+      }
+    ]
+  },
+  "topicLinksAdded": [
+    {
+      "wpId": "8757",
+      "title": "Another Jewish Miracle Worker",
+      "topic": "Eyewitness Reliability",
+      "reason": "The post directly uses a claimed eyewitness report to examine memory and the historical credibility of a Jewish miracle story."
+    },
+    {
+      "wpId": "7491",
+      "title": "Brian and the Apocalyptic Jesus Part 2",
+      "topic": "Eyewitness Reliability",
+      "reason": "The post gives sustained attention to eyewitness memory and transmission when comparing Brian's Jesus with the historical Jesus."
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?",
+      "topic": "Eyewitness Reliability",
+      "reason": "The authorship discussion substantially evaluates whether Luke-Acts came from an eyewitness companion of Paul."
+    },
+    {
+      "wpId": "17501",
+      "title": "Does the Author of Acts Identify Himself?",
+      "topic": "Eyewitness Reliability",
+      "reason": "The argument about the Acts author's identity substantially turns on whether the 'we' passages establish eyewitness participation."
+    },
+    {
+      "wpId": "10711",
+      "title": "Is Acts Historically Reliable?  The Affirmative Argument",
+      "topic": "Eyewitness Reliability",
+      "reason": "The affirmative argument repeatedly relies on the Acts author's claimed eyewitness presence, making eyewitness reliability a major subject."
+    },
+    {
+      "wpId": "10892",
+      "title": "Is Acts Reliable?  The Negative Rebuttal",
+      "topic": "Eyewitness Reliability",
+      "reason": "The rebuttal repeatedly evaluates whether Acts rests on eyewitness knowledge, making eyewitness reliability a major part of the argument."
+    },
+    {
+      "wpId": "38752",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative REBUTTAL of the Affirmative Case",
+      "topic": "Eyewitness Reliability",
+      "reason": "The rebuttal repeatedly evaluates whether Acts rests on eyewitness knowledge, making eyewitness reliability a major part of the argument."
+    },
+    {
+      "wpId": "17480",
+      "title": "Once More on the Credibility of Miracles: Guest post by Darren Slade",
+      "topic": "Eyewitness Reliability",
+      "reason": "The credibility and evidentiary force of eyewitness miracle reports are sustained subjects of the guest post."
+    },
+    {
+      "wpId": "38718",
+      "title": "The Book of Acts IS HISTORICAL!  The Affirmative Argument",
+      "topic": "Eyewitness Reliability",
+      "reason": "The affirmative case repeatedly appeals to the author's claimed eyewitness presence, making eyewitness reliability a major subject."
+    },
+    {
+      "wpId": "16952",
+      "title": "The Quest for the Historical … Judas Iscariot",
+      "topic": "Eyewitness Reliability",
+      "reason": "The historicity of Judas is assessed through source proximity and eyewitness access, making eyewitness reliability a sustained issue."
+    },
+    {
+      "wpId": "20545",
+      "title": "Was Judas Iscariot “Made Up”?",
+      "topic": "Eyewitness Reliability",
+      "reason": "The post gives sustained attention to source proximity and eyewitness access when evaluating whether Judas was invented."
+    },
+    {
+      "wpId": "12413",
+      "title": "What Really Happens With Group Visions",
+      "topic": "Eyewitness Reliability",
+      "reason": "The post directly examines the reliability of group reports, false memory, and claimed eyewitness visions."
+    },
+    {
+      "wpId": "4768",
+      "title": "Who Wrote Luke and Acts?",
+      "topic": "Eyewitness Reliability",
+      "reason": "The authorship discussion substantially turns on whether the 'we' passages establish an eyewitness companion of Paul."
+    }
+  ],
+  "secondaryKeywordLinksRemoved": [
+    {
+      "wpId": "4343",
+      "title": "Historical Problems with the Hebrew Bible: The Conquest of Canaan",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Joshua's lack of eyewitness status is only an opening observation; contradictions, archaeology, and the conquest's historicity dominate the post."
+    },
+    {
+      "wpId": "50150",
+      "title": "The Martyrdom of Polycarp (Another Book of the Apostolic Fathers): In a Nutshell",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The work is merely introduced as an alleged eyewitness account; the post centers on Polycarp's martyrdom narrative and its miraculous features."
+    },
+    {
+      "wpId": "4947",
+      "title": "Constantine and Christianity",
+      "keyword": "New Testament Canon",
+      "reason": "The canon appears only in an opening correction of a Constantine myth; the sustained discussion concerns Constantine, persecution, and conversion."
+    }
+  ],
+  "secondaryKeywordLinksRetained": [
+    {
+      "wpId": "50235",
+      "title": "The Sadness of Beginning to Doubt",
+      "keyword": "Biblical Discrepancies",
+      "reason": "Biblical discrepancies are a meaningful cause in the post's account of doubt, but the post does not sustain an analysis of contradictions."
+    },
+    {
+      "wpId": "8839",
+      "title": "A Fantastic Saying of Jesus in Papias",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Papias's reported chain of oral and eyewitness transmission materially supports the discussion, though the saying and Papias remain central."
+    },
+    {
+      "wpId": "8757",
+      "title": "Another Jewish Miracle Worker",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The post directly uses a claimed eyewitness report to examine memory and the historical credibility of a Jewish miracle story."
+    },
+    {
+      "wpId": "35561",
+      "title": "Being Realistic about How Stories about Jesus Spread before the Gospels",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness access is an important premise in the post's account of how Jesus traditions circulated, while oral transmission remains the dominant subject."
+    },
+    {
+      "wpId": "15133",
+      "title": "Bogus Christian Apologetics and a First-Century Fragment of Mark",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The alleged manuscript's supposed connection to eyewitness testimony is materially addressed, but the post centers on the manuscript claim and apologetic misuse."
+    },
+    {
+      "wpId": "7491",
+      "title": "Brian and the Apocalyptic Jesus Part 2",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The post gives sustained attention to eyewitness memory and transmission when comparing Brian's Jesus with the historical Jesus."
+    },
+    {
+      "wpId": "40554",
+      "title": "Can We Get Rid of Our Presuppositions?",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness reports are a meaningful methodological example in a broader discussion of presuppositions and miracle claims."
+    },
+    {
+      "wpId": "17477",
+      "title": "Did “Luke” Really Write Luke?  And the book of Acts?",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The authorship discussion substantially evaluates whether Luke-Acts came from an eyewitness companion of Paul."
+    },
+    {
+      "wpId": "17501",
+      "title": "Does the Author of Acts Identify Himself?",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The argument about the Acts author's identity substantially turns on whether the 'we' passages establish eyewitness participation."
+    },
+    {
+      "wpId": "6194",
+      "title": "Historians and the Problem of Miracle",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness reports are meaningful evidence within the broader methodological argument about what historians can conclude about miracles."
+    },
+    {
+      "wpId": "10296",
+      "title": "Irritating Amazon Reviews",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The reliability of eyewitness memory is a meaningful issue in the response to reviews of Jesus Before the Gospels, but the post is not chiefly a study of eyewitnesses."
+    },
+    {
+      "wpId": "10711",
+      "title": "Is Acts Historically Reliable?  The Affirmative Argument",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The affirmative argument repeatedly relies on the Acts author's claimed eyewitness presence, making eyewitness reliability a major subject."
+    },
+    {
+      "wpId": "10892",
+      "title": "Is Acts Reliable?  The Negative Rebuttal",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The rebuttal repeatedly evaluates whether Acts rests on eyewitness knowledge, making eyewitness reliability a major part of the argument."
+    },
+    {
+      "wpId": "38752",
+      "title": "Is the Book of Acts Historically Reliable?  The Negative REBUTTAL of the Affirmative Case",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The rebuttal repeatedly evaluates whether Acts rests on eyewitness knowledge, making eyewitness reliability a major part of the argument."
+    },
+    {
+      "wpId": "15366",
+      "title": "More on the Historical Problem of Miracles",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness reports are meaningful evidence within the post's broader historical argument about miracle claims."
+    },
+    {
+      "wpId": "17480",
+      "title": "Once More on the Credibility of Miracles: Guest post by Darren Slade",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The credibility and evidentiary force of eyewitness miracle reports are sustained subjects of the guest post."
+    },
+    {
+      "wpId": "8236",
+      "title": "Our Anonymous Gospels, Starting with Luke",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Luke's claim to rely on eyewitness traditions is materially evaluated within the larger argument for anonymous Gospel authorship."
+    },
+    {
+      "wpId": "9518",
+      "title": "Press Release!  Jesus Before the Gospels",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness testimony is an explicit component of the book's subject and marketing description, while the post primarily announces Jesus Before the Gospels."
+    },
+    {
+      "wpId": "2263",
+      "title": "Q & A with Ben Witherington: Part 4",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Near-eyewitness testimony is meaningful evidence in the exchange, but the post centers on the broader historical case for Jesus."
+    },
+    {
+      "wpId": "26382",
+      "title": "Some Key Evidence for Jesus",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Near-eyewitness testimony from Peter and James supports the evidence for Jesus, but the post's main focus is the historical case for Jesus' existence."
+    },
+    {
+      "wpId": "38718",
+      "title": "The Book of Acts IS HISTORICAL!  The Affirmative Argument",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The affirmative case repeatedly appeals to the author's claimed eyewitness presence, making eyewitness reliability a major subject."
+    },
+    {
+      "wpId": "15332",
+      "title": "The Historian’s Wish List",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness proximity is a meaningful criterion on the historian's ideal-source list, but the post addresses historical evidence more broadly."
+    },
+    {
+      "wpId": "16952",
+      "title": "The Quest for the Historical … Judas Iscariot",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The historicity of Judas is assessed through source proximity and eyewitness access, making eyewitness reliability a sustained issue."
+    },
+    {
+      "wpId": "20545",
+      "title": "Was Judas Iscariot “Made Up”?",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The post gives sustained attention to source proximity and eyewitness access when evaluating whether Judas was invented."
+    },
+    {
+      "wpId": "11999",
+      "title": "What Can We Do About Presuppositions?",
+      "keyword": "Eyewitness Testimony",
+      "reason": "Eyewitness reports are a meaningful example in a broader treatment of presuppositions and historical miracle claims."
+    },
+    {
+      "wpId": "12413",
+      "title": "What Really Happens With Group Visions",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The post directly examines the reliability of group reports, false memory, and claimed eyewitness visions."
+    },
+    {
+      "wpId": "4768",
+      "title": "Who Wrote Luke and Acts?",
+      "keyword": "Eyewitness Testimony",
+      "reason": "The authorship discussion substantially turns on whether the 'we' passages establish an eyewitness companion of Paul."
+    },
+    {
+      "wpId": "2268",
+      "title": "My Apocrypha Seminar at the National Humanities Center: Part 2",
+      "keyword": "New Testament Canon",
+      "reason": "Canon formation is one substantial unit in the seminar description, but the post surveys several forms of Christian apocrypha rather than centering on the canon."
+    },
+    {
+      "wpId": "40572",
+      "title": "Paul and the Anachronistic Origins of Early Christianity – Part 1 by Dr. Robyn Faith Walsh",
+      "keyword": "New Testament Canon",
+      "reason": "The New Testament canon meaningfully frames the argument about reading Paul through later Christian categories, but canon formation is not the main subject."
+    },
+    {
+      "wpId": "37235",
+      "title": "What Is Actually In the Nag Hammadi Library?",
+      "keyword": "New Testament Canon",
+      "reason": "Canon boundaries help explain the Nag Hammadi collection and its concealment, but the post centers on the library and its contents."
+    },
+    {
+      "wpId": "15417",
+      "title": "What Was Discovered in the Nag Hammadi Library?",
+      "keyword": "New Testament Canon",
+      "reason": "The developing canon helps explain why the Nag Hammadi writings may have been hidden, but the discovery and collection remain central."
+    },
+    {
+      "wpId": "15532",
+      "title": "Who Wrote the Book of Revelation?",
+      "keyword": "New Testament Canon",
+      "reason": "Revelation's disputed place in the canon is meaningful evidence in the authorship discussion, but canon formation is not the post's primary subject."
+    }
+  ]
+}

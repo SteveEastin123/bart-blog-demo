@@ -93,7 +93,7 @@ Their responsibilities are:
 | File | Responsibility |
 | --- | --- |
 | `ehrman_post_search_index.json` | External post metadata, descriptions, topics, and secondary keywords |
-| `ehrman_post_topics.json` | Topic descriptions, browser visibility, and category relationships |
+| `ehrman_post_topics.json` | Topic descriptions, browser visibility, category relationships, and hidden search aliases |
 | `ehrman_post_categories.json` | Category descriptions and ordered topic lists |
 | `ehrman_post_subject_areas.json` | Browse Topics 1 hierarchy and ordering |
 | `ehrman_post_subject_areas_2.json` | Browse Topics 2 hierarchy and ordering |
@@ -257,12 +257,16 @@ The WordPress plugin must preserve the approved search behavior.
   not match (`hell` must not match `nutshell`).
 - Identical typed values can resolve to a topic or secondary keyword without
   requiring a mouse selection.
+- A hidden topic alias resolves to the canonical topic and its post set. The
+  alias is shown only after a matching query is typed, and autocomplete displays
+  the canonical topic label rather than a duplicate alias label.
 
 ### Base weights
 
 | Match source | Base weight | Exact normalized bonus |
 | --- | ---: | ---: |
 | Topic | 6 | 2 |
+| Topic alias | 6 | 2 |
 | Secondary keyword | 3 | 2 |
 
 ### Ranking boosts

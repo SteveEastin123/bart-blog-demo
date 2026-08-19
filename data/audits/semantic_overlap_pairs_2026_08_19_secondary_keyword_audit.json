@@ -1,0 +1,193 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Pairwise semantic review of six secondary-keyword/topic label pairs using the completed full-text keyword and topic audits.",
+  "criterion": "Normalize true synonyms, remove a newly identical secondary keyword when the post already has that topic, and preserve broad-versus-narrow labels when they support meaningfully different searches.",
+  "auditedKeywords": [
+    "Biblical Contradictions",
+    "New Testament Canon",
+    "Canon Formation",
+    "Eyewitness Testimony",
+    "Divine Beings",
+    "Debates",
+    "Textual Criticism"
+  ],
+  "normalizedPair": {
+    "keyword": "Biblical Discrepancies",
+    "topic": "Biblical Contradictions",
+    "decision": "normalize_to_topic_label",
+    "reason": "Biblical discrepancies and biblical contradictions describe the same search concept in this collection.",
+    "before": {
+      "keywordPosts": 16,
+      "topicPosts": 88,
+      "both": 15,
+      "keywordOnly": 1,
+      "topicOnly": 73
+    },
+    "after": {
+      "keywordPosts": 1,
+      "topicPosts": 88,
+      "both": 0,
+      "keywordOnly": 1,
+      "topicOnly": 88
+    },
+    "renamedSupportingAssignments": 1,
+    "removedRedundantAssignments": 15,
+    "changedPosts": [
+      {
+        "wpId": "50235",
+        "title": "The Sadness of Beginning to Doubt",
+        "action": "renamed_supporting_keyword"
+      },
+      {
+        "wpId": "12804",
+        "title": "A New Attack on My Views",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12686",
+        "title": "How Biblical Discrepancies Can Be Theologically Liberating for a Christian",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12629",
+        "title": "Why Have I Stopped Explaining How I Lost My Faith?  Readers’ Mailbag June 4, 2017",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12627",
+        "title": "Why It Didn’t Happen that Way.  The Stories of Jesus’ Birth",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12625",
+        "title": "Another “True” Story that Didn’t Happen?  Jesus’ Birth in Luke",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12619",
+        "title": "Is Theological “Truth” More Important than Historical Accuracy?",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12617",
+        "title": "An Example of a True Story that Didn’t Happen: Part 1",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12563",
+        "title": "Finding More Problems in the Old Testament",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "12560",
+        "title": "Finding Problems in the Old Testament",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "5100",
+        "title": "Writers Who Contradict Themselves",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "5090",
+        "title": "Discrepancies *Inside* the Fourth Gospel",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "5075",
+        "title": "Why Are There Contradictions in the New Testament?",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "4972",
+        "title": "My Jesus Class and … Destroying Christianity?",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "4335",
+        "title": "Inconsistencies in the Hebrew Bible",
+        "action": "removed_redundant_keyword"
+      },
+      {
+        "wpId": "3453",
+        "title": "The Infancy Narratives Compared",
+        "action": "removed_redundant_keyword"
+      }
+    ]
+  },
+  "preservedPairs": [
+    {
+      "keyword": "New Testament Canon",
+      "topic": "Canon Formation",
+      "decision": "retain_distinct",
+      "reason": "New Testament Canon identifies the specifically Christian collection or its boundaries, while Canon Formation covers the historical process by which writings became scripture, including the Hebrew Bible canon.",
+      "counts": {
+        "keywordPosts": 23,
+        "topicPosts": 67,
+        "both": 18,
+        "keywordOnly": 5,
+        "topicOnly": 49
+      }
+    },
+    {
+      "keyword": "Eyewitness Testimony",
+      "topic": "Eyewitness Reliability",
+      "decision": "retain_distinct",
+      "reason": "Eyewitness testimony can be meaningful evidence or source context without the post substantially evaluating the reliability and limits of eyewitness memory.",
+      "counts": {
+        "keywordPosts": 67,
+        "topicPosts": 77,
+        "both": 54,
+        "keywordOnly": 13,
+        "topicOnly": 23
+      }
+    },
+    {
+      "keyword": "Divine Beings",
+      "topic": "Divine Beings in the Hebrew Bible",
+      "decision": "retain_distinct",
+      "reason": "Divine Beings also supports posts about Greco-Roman religion, Christology, Gnosticism, and other contexts; the topic is intentionally limited to the Hebrew Bible and ancient Jewish traditions.",
+      "counts": {
+        "keywordPosts": 21,
+        "topicPosts": 24,
+        "both": 2,
+        "keywordOnly": 19,
+        "topicOnly": 22
+      }
+    },
+    {
+      "keyword": "Debates",
+      "topic": "Public Debates",
+      "decision": "retain_distinct",
+      "reason": "Debates includes classroom exercises and sustained scholarly disputes, whereas Public Debates is reserved for public debate events, announcements, rebuttals, and related exchanges.",
+      "counts": {
+        "keywordPosts": 35,
+        "topicPosts": 76,
+        "both": 14,
+        "keywordOnly": 21,
+        "topicOnly": 62
+      }
+    },
+    {
+      "keyword": "Textual Criticism",
+      "topic": "Textual Criticism Methods",
+      "decision": "retain_distinct",
+      "reason": "Textual Criticism is the broader field and can materially support posts on manuscripts, variants, and scribal change; the topic requires sustained attention to the methods used to evaluate readings and reconstruct texts.",
+      "counts": {
+        "keywordPosts": 168,
+        "topicPosts": 33,
+        "both": 19,
+        "keywordOnly": 149,
+        "topicOnly": 14
+      }
+    }
+  ],
+  "summary": {
+    "pairsReviewed": 6,
+    "pairsNormalized": 1,
+    "pairsPreservedAsDistinct": 5,
+    "postsChanged": 16,
+    "uniqueSecondaryKeywordsBefore": 907,
+    "uniqueSecondaryKeywordsAfter": 907
+  }
+}

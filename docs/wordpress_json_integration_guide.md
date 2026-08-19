@@ -232,7 +232,7 @@ Use the JSON order as the default display order unless the site wants alphabetic
 
 ### Purpose
 
-This file defines all topics, their descriptions, the categories they belong to, and whether they should appear in the browser.
+This file defines all topics, their descriptions, the categories they belong to, whether they should appear in the browser, and any hidden search aliases.
 
 ### Top-Level Shape
 
@@ -240,12 +240,15 @@ This file defines all topics, their descriptions, the categories they belong to,
 {
   "topics": [
     {
-      "name": "Acts (General)",
-      "description": "Posts introducing Acts, its literary features, major topics, theology, and account of Christianity's spread from Jerusalem to Rome.",
+      "name": "Woman Caught in Adultery",
+      "description": "Covers the story of the woman caught in adultery, including its narrative, manuscript history, absence from the original Gospel of John, possible historicity, and treatment in Bible translations.",
       "categories": [
-        "Acts and Early Christianity"
+        "Textual Criticism"
       ],
-      "displayInBrowser": true
+      "displayInBrowser": true,
+      "aliases": [
+        "Pericope Adulterae"
+      ]
     }
   ]
 }
@@ -260,12 +263,15 @@ This file defines all topics, their descriptions, the categories they belong to,
 | `topics[].description` | string | yes | One-sentence topic description. |
 | `topics[].categories` | array of strings | yes | Category names from `ehrman_post_categories.json`. May contain more than one category. |
 | `topics[].displayInBrowser` | boolean | yes | If false, the topic should not appear in category/topic browsing. |
+| `topics[].aliases` | array of strings | no | Alternate search phrases that resolve to the canonical topic without appearing as separate autocomplete choices in blank suggestion lists. |
 
 ### Important Topic Rules
 
 - Topic names must match exactly between `ehrman_post_topics.json` and post `topics` arrays in `ehrman_post_search_index.json`.
 - Category names in `topics[].categories` must match category `name` values exactly.
 - A topic can belong to more than one category.
+- Topic aliases must be unique after search normalization and must not duplicate a canonical topic name.
+- An alias is indexed with the same posts and weight as its canonical topic. Autocomplete displays the canonical topic label and description when a reader types the alias.
 - `Ignore` is a valid topic, but it has `displayInBrowser: false` and should not appear in the browsing UI.
 
 ### WordPress Use
@@ -404,6 +410,7 @@ flowchart LR
 The current demo searches against:
 
 - Topic names from each post's `topics` array
+- Hidden topic aliases from `topics[].aliases`
 - Secondary keywords from each post's `secondaryKeywords` array
 
 In production, the topic names should be treated as primary search keywords. The secondary keywords should support narrower searches, autocomplete, and ranking.

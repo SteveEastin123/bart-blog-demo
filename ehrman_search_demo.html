@@ -36368,6 +36368,11 @@ const DATA = {
       const articles = categoryArticles(category);
       const scopeArticleIndexes = articleIndexesForArticleList(articles);
       const allowedTopicNormalized = new Set(category.topics.map(normalizeKeywordSearchValue));
+      Object.entries(DATA.topicAliases || {}).forEach(([aliasNormalized, canonicalTopic]) => {
+        if (category.topics.includes(canonicalTopic)) {
+          allowedTopicNormalized.add(aliasNormalized);
+        }
+      });
       const scopeSecondaryKeywordNormalized = new Set();
       scopeArticleIndexes.forEach(articleIndex => {
         (KEYWORD_INDEX[articleIndex]?.[6] || []).forEach(([, normalized]) => {
@@ -36824,7 +36829,10 @@ const DATA = {
           return starterTopicSuggestions();
         }
         const matches = [];
-        KEYWORD_SUGGESTIONS.forEach(([label, count, normalized, mode]) => {
+        KEYWORD_SUGGESTIONS.forEach(([label, count, normalized, mode, isAlias]) => {
+          if (isAlias) {
+            return;
+          }
           const scopedMode = scopedSuggestionMode(normalized, mode);
           if (scopedMode === null || selectedContextTerms.has(normalized)) {
             return;
@@ -38553,6 +38561,11 @@ const DATA = {
       const articles = categoryArticles(category);
       const scopeArticleIndexes = articleIndexesForArticleList(articles);
       const allowedTopicNormalized = new Set(category.topics.map(normalizeKeywordSearchValue));
+      Object.entries(DATA.topicAliases || {}).forEach(([aliasNormalized, canonicalTopic]) => {
+        if (category.topics.includes(canonicalTopic)) {
+          allowedTopicNormalized.add(aliasNormalized);
+        }
+      });
       const scopeSecondaryKeywordNormalized = new Set();
       scopeArticleIndexes.forEach(articleIndex => {
         (KEYWORD_INDEX[articleIndex]?.[6] || []).forEach(([, normalized]) => {

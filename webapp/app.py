@@ -1103,7 +1103,7 @@ def resolve_term_modes(
     rows = conn.execute(
         f"""
         SELECT normalized,
-               MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS has_topic,
+               MAX(CASE WHEN kind IN ('topic', 'alias') THEN 1 ELSE 0 END) AS has_topic,
                MAX(CASE WHEN kind = 'secondary' THEN 1 ELSE 0 END) AS has_keyword
         FROM post_search_terms
         WHERE normalized IN ({placeholders})
@@ -1140,7 +1140,7 @@ def find_post_ids_for_term(
             """
             SELECT post_id, MAX(weight + 2) AS score
             FROM post_search_terms
-            WHERE normalized = ? AND kind = 'topic'
+            WHERE normalized = ? AND kind IN ('topic', 'alias')
             GROUP BY post_id
             """,
             (normalized,),
@@ -1436,6 +1436,8 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
         word_prefix_like = f"% {q}%"
         params: list[object] = []
         where = "normalized <> 'ignore'"
+        if not q:
+            where += " AND kind <> 'alias'"
         if q:
             where += " AND (normalized LIKE ? OR normalized LIKE ?)"
             params.extend([prefix_like, word_prefix_like])
@@ -1448,10 +1450,10 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
         if category_slug:
             if allowed_category_topics:
                 placeholders = ",".join("?" for _ in allowed_category_topics)
-                where += f" AND (kind <> 'topic' OR label IN ({placeholders}))"
+                where += f" AND (kind NOT IN ('topic', 'alias') OR label IN ({placeholders}))"
                 params.extend(allowed_category_topics)
             else:
-                where += " AND kind <> 'topic'"
+                where += " AND kind NOT IN ('topic', 'alias')"
         if selected_normalized:
             placeholders = ",".join("?" for _ in selected_normalized)
             where += f" AND normalized NOT IN ({placeholders})"
@@ -1460,12 +1462,12 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             f"""
             SELECT
                 COALESCE(
-                    MIN(CASE WHEN kind = 'topic' THEN label END),
+                    MIN(CASE WHEN kind IN ('topic', 'alias') THEN label END),
                     MIN(label)
                 ) AS label,
                 normalized,
                 COUNT(DISTINCT post_id) AS post_count,
-                MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS has_topic,
+                MAX(CASE WHEN kind IN ('topic', 'alias') THEN 1 ELSE 0 END) AS has_topic,
                 MAX(CASE WHEN kind = 'secondary' THEN 1 ELSE 0 END) AS has_keyword,
                 CASE
                     WHEN normalized = ? THEN 3
@@ -1505,7 +1507,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             for candidate in candidate_normalized:
                 if indexed_value == candidate or f" {candidate} " in padded_indexed_value:
                     matching_posts[candidate].add(post_id)
-                if indexed_value == candidate and count_row["kind"] == "topic":
+                if indexed_value == candidate and count_row["kind"] in {"topic", "alias"}:
                     topic_posts[candidate].add(post_id)
 
         topic_description_rows = conn.execute(
@@ -1526,7 +1528,11 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 "label": row["label"],
                 "normalized": row["normalized"],
                 "matchQuality": int(row["match_quality"]),
-                "description": topic_descriptions.get(row["normalized"], "") if has_topic else "",
+                "description": (
+                    topic_descriptions.get(normalize_keyword(row["label"]), "")
+                    if has_topic
+                    else ""
+                ),
             }
             topic_count = len(topic_posts[row["normalized"]])
             if has_topic and topic_count:

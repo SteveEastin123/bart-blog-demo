@@ -159,6 +159,7 @@ def build_demo_data(
 ) -> OrderedDict[str, Any]:
     topics_by_category: dict[str, list[str]] = {}
     topic_descriptions: OrderedDict[str, str] = OrderedDict()
+    topic_aliases: OrderedDict[str, str] = OrderedDict()
     for topic in topics:
         if topic.get("displayInBrowser", True) is False:
             continue
@@ -166,6 +167,10 @@ def build_demo_data(
         if not name:
             continue
         topic_descriptions[name] = clean_string(topic.get("description", ""))
+        for alias in unique_strings(topic.get("aliases", [])):
+            normalized_alias = normalize_keyword(alias)
+            if normalized_alias:
+                topic_aliases[normalized_alias] = name
         for category_name in unique_strings(topic.get("categories", [])):
             topics_by_category.setdefault(category_name, []).append(name)
 
@@ -229,11 +234,20 @@ def build_demo_data(
         )
     ]
     payload["topicDescriptions"] = topic_descriptions
+    payload["topicAliases"] = topic_aliases
     payload["articlesByTopic"] = posts_by_topic
     return payload
 
 
-def build_keyword_index(posts: list[dict[str, Any]]) -> list[list[Any]]:
+def build_keyword_index(
+    posts: list[dict[str, Any]],
+    topics: list[dict[str, Any]] | None = None,
+) -> list[list[Any]]:
+    aliases_by_topic = {
+        clean_string(topic.get("name")): unique_strings(topic.get("aliases", []))
+        for topic in topics or []
+        if clean_string(topic.get("name"))
+    }
     keyword_index: list[list[Any]] = []
     for post in posts:
         title = clean_string(post.get("title", ""))
@@ -244,13 +258,19 @@ def build_keyword_index(posts: list[dict[str, Any]]) -> list[list[Any]]:
         date_sort = clean_string(post.get("dateSort", "")) or date_sort_value(post.get("dateText", ""))
         author = clean_string(post.get("author", ""))
         description = clean_string(post.get("description", ""))
+        topic_pairs: list[list[str]] = keyword_pairs(post.get("topics", []))
+        for topic_name in unique_strings(post.get("topics", [])):
+            for alias in aliases_by_topic.get(topic_name, []):
+                normalized_alias = normalize_keyword(alias)
+                if normalized_alias:
+                    topic_pairs.append([topic_name, normalized_alias, "alias"])
         keyword_index.append([
             title,
             url,
             date_text,
             date_sort,
             author,
-            keyword_pairs(post.get("topics", [])),
+            topic_pairs,
             keyword_pairs(post.get("secondaryKeywords", [])),
             description,
         ])
@@ -262,7 +282,9 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
 
     for article_index, row in enumerate(keyword_index):
         for is_topic, terms in ((True, row[5]), (False, row[6])):
-            for label, normalized in terms:
+            for term_pair in terms:
+                label, normalized = term_pair[:2]
+                is_alias = len(term_pair) > 2 and term_pair[2] == "alias"
                 if not normalized:
                     continue
                 suggestion = suggestions.setdefault(
@@ -272,11 +294,13 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
                         "articleIndexes": set(),
                         "topicIndexes": set(),
                         "keywordIndexes": set(),
+                        "isAlias": is_alias,
                     },
                 )
                 if is_topic:
                     suggestion["label"] = label
                     suggestion["topicIndexes"].add(article_index)
+                    suggestion["isAlias"] = suggestion["isAlias"] or is_alias
                 else:
                     suggestion["keywordIndexes"].add(article_index)
                 suggestion["articleIndexes"].add(article_index)
@@ -292,6 +316,7 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
                 len(suggestion["topicIndexes"]),
                 normalized,
                 "topic",
+                suggestion["isAlias"],
             ])
         if suggestion["topicIndexes"] and suggestion["keywordIndexes"]:
             rows.append([
@@ -299,6 +324,7 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
                 len(suggestion["articleIndexes"]),
                 normalized,
                 "topic-keyword",
+                suggestion["isAlias"],
             ])
         elif suggestion["keywordIndexes"]:
             rows.append([
@@ -306,6 +332,7 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
                 len(suggestion["articleIndexes"]),
                 normalized,
                 "keyword",
+                False,
             ])
     return rows
 
@@ -318,7 +345,7 @@ def build_demo_payloads(
     subject_areas_2: list[dict[str, Any]] | None = None,
 ) -> tuple[OrderedDict[str, Any], list[list[Any]], list[list[Any]]]:
     demo_data = build_demo_data(categories, topics, posts, subject_areas, subject_areas_2)
-    keyword_index = build_keyword_index(posts)
+    keyword_index = build_keyword_index(posts, topics)
     keyword_suggestions = build_keyword_suggestions(keyword_index)
     return demo_data, keyword_index, keyword_suggestions
 

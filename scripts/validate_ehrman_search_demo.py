@@ -169,6 +169,7 @@ def validate_topics(
 ) -> set[str]:
     topic_names: list[str] = []
     linked_topics: set[str] = set()
+    aliases_by_normalized: dict[str, str] = {}
 
     for index, topic in enumerate(topics, start=1):
         label = f"topic #{index}"
@@ -196,6 +197,21 @@ def validate_topics(
             if category_name not in category_names:
                 errors.append(f"{label} links unknown category {category_name!r}")
 
+        aliases = unique_strings(topic.get("aliases", []))
+        if not isinstance(topic.get("aliases", []), list):
+            errors.append(f"{label} has a non-list aliases field")
+        for alias in aliases:
+            normalized_alias = normalize_keyword(alias)
+            if not normalized_alias:
+                errors.append(f"{label} contains an empty normalized alias")
+                continue
+            existing_owner = aliases_by_normalized.get(normalized_alias)
+            if existing_owner and existing_owner != name:
+                errors.append(
+                    f"topic alias {alias!r} is assigned to both {existing_owner!r} and {name!r}"
+                )
+            aliases_by_normalized[normalized_alias] = name
+
         if name:
             linked_topics.add(name)
             if name != "Ignore" and post_topic_counts.get(name, 0) == 0:
@@ -203,6 +219,12 @@ def validate_topics(
 
     if has_case_duplicates(topic_names):
         errors.append("Topic names include duplicates that differ only by case")
+    normalized_topic_names = {normalize_keyword(topic_name) for topic_name in topic_names}
+    alias_topic_collisions = sorted(normalized_topic_names.intersection(aliases_by_normalized))
+    if alias_topic_collisions:
+        errors.append(
+            "Topic aliases collide with canonical topic names: " + ", ".join(alias_topic_collisions)
+        )
     if topic_names != sorted_casefold(topic_names):
         warnings.append("Topic names are not alphabetical")
 

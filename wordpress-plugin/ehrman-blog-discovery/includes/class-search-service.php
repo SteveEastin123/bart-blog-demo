@@ -140,7 +140,7 @@ final class Search_Service {
 
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$sql    = "SELECT normalized,MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) is_topic,"
+		$sql    = "SELECT normalized,MAX(CASE WHEN kind IN ('topic','alias') THEN 1 ELSE 0 END) is_topic,"
 			. "MAX(CASE WHEN kind='secondary' THEN 1 ELSE 0 END) is_keyword "
 			. "FROM {$tables['post_search_terms']} WHERE normalized IN ("
 			. implode( ',', array_fill( 0, count( $normalized_terms ), '%s' ) )
@@ -270,6 +270,9 @@ final class Search_Service {
 
 		$where  = array( "normalized <> 'ignore'" );
 		$params = array( $query_normalized, $query_normalized . '%', '% ' . $query_normalized . '%' );
+		if ( '' === $query_normalized ) {
+			$where[] = "kind <> 'alias'";
+		}
 		if ( '' !== $query_normalized ) {
 			$where[]  = '(normalized LIKE %s OR normalized LIKE %s)';
 			$params[] = $query_normalized . '%';
@@ -282,11 +285,11 @@ final class Search_Service {
 		}
 		if ( '' !== $category_slug ) {
 			if ( ! empty( $allowed_category_topics ) ) {
-				$where[] = "(kind <> 'topic' OR label IN ("
+				$where[] = "(kind NOT IN ('topic','alias') OR label IN ("
 					. implode( ',', array_fill( 0, count( $allowed_category_topics ), '%s' ) ) . '))';
 				array_push( $params, ...$allowed_category_topics );
 			} else {
-				$where[] = "kind <> 'topic'";
+				$where[] = "kind NOT IN ('topic','alias')";
 			}
 		}
 		if ( ! empty( $selected_normalized ) ) {
@@ -298,9 +301,9 @@ final class Search_Service {
 		$limit = '' !== $category_slug && '' === $query_normalized && empty( $selected ) && '' === $topic_slug
 			? ''
 			: ' LIMIT 48';
-		$sql   = "SELECT COALESCE(MIN(CASE WHEN kind='topic' THEN label END),MIN(label)) label, "
+		$sql   = "SELECT COALESCE(MIN(CASE WHEN kind IN ('topic','alias') THEN label END),MIN(label)) label, "
 			. 'normalized, COUNT(DISTINCT post_id) post_count, '
-			. "MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) has_topic, "
+			. "MAX(CASE WHEN kind IN ('topic','alias') THEN 1 ELSE 0 END) has_topic, "
 			. "MAX(CASE WHEN kind='secondary' THEN 1 ELSE 0 END) has_keyword, "
 			. 'CASE WHEN normalized=%s THEN 3 WHEN normalized LIKE %s THEN 2 '
 			. 'WHEN normalized LIKE %s THEN 1 ELSE 1 END match_quality '
@@ -341,7 +344,7 @@ final class Search_Service {
 				if ( $indexed === $candidate || str_contains( " {$indexed} ", " {$candidate} " ) ) {
 					$matching_posts[ $candidate ][ $post_id ] = true;
 				}
-				if ( $indexed === $candidate && 'topic' === Database::text( $count_row['kind'] ?? null ) ) {
+				if ( $indexed === $candidate && in_array( Database::text( $count_row['kind'] ?? null ), array( 'topic', 'alias' ), true ) ) {
 					$topic_posts[ $candidate ][ $post_id ] = true;
 				}
 			}
@@ -371,7 +374,9 @@ final class Search_Service {
 				'label'        => Database::text( $row['label'] ?? null ),
 				'normalized'   => $normalized,
 				'matchQuality' => Database::integer( $row['match_quality'] ?? null ),
-				'description'  => $has_topic ? ( $topic_descriptions[ $normalized ] ?? '' ) : '',
+				'description'  => $has_topic
+					? ( $topic_descriptions[ self::normalize( Database::text( $row['label'] ?? null ) ) ] ?? '' )
+					: '',
 			);
 			if ( $has_topic ) {
 				$topic_count = count( $topic_posts[ $normalized ] ?? array() );
@@ -531,7 +536,7 @@ final class Search_Service {
 		}
 		if ( self::TERM_MODE_TOPIC === $mode ) {
 			$sql  = 'SELECT post_id,MAX(weight+2) score '
-				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind='topic' GROUP BY post_id";
+				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind IN ('topic','alias') GROUP BY post_id";
 			$rows = $wpdb->get_results(
 				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
 				$wpdb->prepare( $sql, $normalized ),

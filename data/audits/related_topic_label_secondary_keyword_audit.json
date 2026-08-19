@@ -1,0 +1,105 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Normalize nine secondary keywords to equivalent topic names while leaving the ambiguous Jude keyword unchanged.",
+  "criterion": "Align labels only when the keyword and topic describe the same person, text, tradition, or subject. Remove the secondary keyword when the same post already has the matching topic.",
+  "auditedKeywords": [
+    "Acts",
+    "Augustine of Hippo",
+    "Enoch Traditions",
+    "Book of Job",
+    "Martyrdom Traditions (General)",
+    "Original Text Questions",
+    "Charity and Altruism",
+    "Textbooks and Teaching Materials",
+    "Jesus' Family Traditions"
+  ],
+  "labelChanges": [
+    {
+      "from": "Acts of the Apostles",
+      "to": "Acts",
+      "before": 218,
+      "renamedAssignments": 218,
+      "removedBecauseTopicMatched": 0,
+      "after": 218
+    },
+    {
+      "from": "Augustine",
+      "to": "Augustine of Hippo",
+      "before": 3,
+      "renamedAssignments": 3,
+      "removedBecauseTopicMatched": 0,
+      "after": 3
+    },
+    {
+      "from": "Enoch",
+      "to": "Enoch Traditions",
+      "before": 47,
+      "renamedAssignments": 40,
+      "removedBecauseTopicMatched": 7,
+      "after": 40
+    },
+    {
+      "from": "Job",
+      "to": "Book of Job",
+      "before": 15,
+      "renamedAssignments": 14,
+      "removedBecauseTopicMatched": 1,
+      "after": 14
+    },
+    {
+      "from": "Martyrdom",
+      "to": "Martyrdom Traditions (General)",
+      "before": 43,
+      "renamedAssignments": 41,
+      "removedBecauseTopicMatched": 2,
+      "after": 41
+    },
+    {
+      "from": "Original Text",
+      "to": "Original Text Questions",
+      "before": 50,
+      "renamedAssignments": 50,
+      "removedBecauseTopicMatched": 0,
+      "after": 50
+    },
+    {
+      "from": "Charity",
+      "to": "Charity and Altruism",
+      "before": 88,
+      "renamedAssignments": 57,
+      "removedBecauseTopicMatched": 31,
+      "after": 57
+    },
+    {
+      "from": "Textbooks",
+      "to": "Textbooks and Teaching Materials",
+      "before": 19,
+      "renamedAssignments": 9,
+      "removedBecauseTopicMatched": 10,
+      "after": 9
+    },
+    {
+      "from": "Jesus' Family",
+      "to": "Jesus' Family Traditions",
+      "before": 11,
+      "renamedAssignments": 8,
+      "removedBecauseTopicMatched": 3,
+      "after": 8
+    }
+  ],
+  "unchanged": [
+    {
+      "keyword": "Jude",
+      "topic": "Letter of Jude",
+      "reason": "Jude can refer to the letter, Jesus' brother, or related Judas traditions and is not equivalent to the Letter of Jude topic."
+    }
+  ],
+  "summary": {
+    "labelsNormalized": 9,
+    "postsChanged": 472,
+    "assignmentsRenamed": 440,
+    "assignmentsRemovedBecauseTopicMatched": 54,
+    "uniqueKeywordsBefore": 911,
+    "uniqueKeywordsAfter": 911
+  }
+}

@@ -313,6 +313,11 @@ final class Importer {
 			}
 		}
 
+		$canonical_topic_labels = array();
+		foreach ( array_keys( $topic_names ) as $topic_name ) {
+			$canonical_topic_labels[ $this->normalize( $topic_name ) ] = $topic_name;
+		}
+		$topic_alias_owners = array();
 		foreach ( $data['topics'] as $index => $topic ) {
 			if ( ! $this->is_record( $topic ) ) {
 				$errors[] = "Topic record {$index} is not an object.";
@@ -322,6 +327,21 @@ final class Importer {
 			$this->require_string_field( $topic, 'description', "topic {$name}", $errors );
 			if ( isset( $topic['displayInBrowser'] ) && ! is_bool( $topic['displayInBrowser'] ) ) {
 				$errors[] = "Topic {$name} has a non-boolean displayInBrowser value.";
+			}
+			$aliases = $this->validate_string_list( $topic['aliases'] ?? array(), "topic {$name} aliases", $errors, true );
+			foreach ( $aliases as $alias ) {
+				$normalized_alias = $this->normalize( $alias );
+				if ( '' === $normalized_alias || $this->length( $alias ) > 191 || $this->length( $normalized_alias ) > 191 ) {
+					$errors[] = "Topic {$name} contains an invalid alias {$alias}.";
+					continue;
+				}
+				if ( isset( $canonical_topic_labels[ $normalized_alias ] ) ) {
+					$errors[] = "Topic {$name} alias {$alias} conflicts with canonical topic {$canonical_topic_labels[ $normalized_alias ]}.";
+				}
+				if ( isset( $topic_alias_owners[ $normalized_alias ] ) && $topic_alias_owners[ $normalized_alias ] !== $name ) {
+					$errors[] = "Topic alias {$alias} is assigned to both {$topic_alias_owners[ $normalized_alias ]} and {$name}.";
+				}
+				$topic_alias_owners[ $normalized_alias ] = $name;
 			}
 			$categories = $this->validate_string_list( $topic['categories'] ?? null, "topic {$name} categories", $errors );
 			if ( empty( $categories ) ) {
@@ -513,9 +533,11 @@ final class Importer {
 			}
 		}
 
-		$topic_slugs = array();
+		$topic_slugs   = array();
+		$topic_aliases = array();
 		foreach ( $data['topics'] as $topic ) {
-			$name = $this->clean( $topic['name'] );
+			$name                   = $this->clean( $topic['name'] );
+			$topic_aliases[ $name ] = $this->string_list( $topic['aliases'] ?? array() );
 			$this->insert_record(
 				$tables['topics'],
 				array(
@@ -590,6 +612,12 @@ final class Importer {
 				$normalized         = $this->normalize( $topic_name );
 				$post_topic_rows[]  = array( $post_id, $topic_ids[ $topic_name ] );
 				$search_term_rows[] = array( $post_id, $topic_name, $normalized, 'topic', 6 );
+				foreach ( $topic_aliases[ $topic_name ] ?? array() as $alias ) {
+					$normalized_alias = $this->normalize( $alias );
+					if ( '' !== $normalized_alias ) {
+						$search_term_rows[] = array( $post_id, $topic_name, $normalized_alias, 'alias', 6 );
+					}
+				}
 			}
 			foreach ( $this->string_list( $post['secondaryKeywords'] ) as $keyword ) {
 				$normalized          = $this->normalize( $keyword );

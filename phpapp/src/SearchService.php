@@ -19,7 +19,7 @@ function ehrman_resolve_term_modes(PDO $db, array $terms, array $requestedModes 
     $normalized = array_map('ehrman_normalize_keyword', $cleanTerms);
     $rows = ehrman_fetch_all(
         $db,
-        'SELECT normalized, MAX(CASE WHEN kind = \'topic\' THEN 1 ELSE 0 END) AS has_topic, '
+        'SELECT normalized, MAX(CASE WHEN kind IN (\'topic\', \'alias\') THEN 1 ELSE 0 END) AS has_topic, '
         . 'MAX(CASE WHEN kind = \'secondary\' THEN 1 ELSE 0 END) AS has_keyword '
         . 'FROM post_search_terms WHERE normalized IN (' . ehrman_placeholders(count($normalized)) . ') '
         . 'GROUP BY normalized',
@@ -55,7 +55,7 @@ function ehrman_find_post_ids_for_term(PDO $db, string $term, string $mode = 'to
             <<<'SQL'
             SELECT post_id, MAX(weight + 2) AS score
             FROM post_search_terms
-            WHERE normalized = ? AND kind = 'topic'
+            WHERE normalized = ? AND kind IN ('topic', 'alias')
             GROUP BY post_id
             SQL,
             [$normalized],
@@ -439,6 +439,9 @@ function ehrman_keyword_suggestions(
     $wordPrefixLike = '% ' . $q . '%';
     $where = "normalized <> 'ignore'";
     $params = [];
+    if ($q === '') {
+        $where .= " AND kind <> 'alias'";
+    }
     if ($q !== '') {
         $where .= ' AND (normalized LIKE ? OR normalized LIKE ?)';
         array_push($params, $prefixLike, $wordPrefixLike);
@@ -454,10 +457,10 @@ function ehrman_keyword_suggestions(
     }
     if ($categorySlug !== '') {
         if ($allowedCategoryTopics !== []) {
-            $where .= " AND (kind <> 'topic' OR label IN (" . ehrman_placeholders(count($allowedCategoryTopics)) . '))';
+            $where .= " AND (kind NOT IN ('topic', 'alias') OR label IN (" . ehrman_placeholders(count($allowedCategoryTopics)) . '))';
             array_push($params, ...$allowedCategoryTopics);
         } else {
-            $where .= " AND kind <> 'topic'";
+            $where .= " AND kind NOT IN ('topic', 'alias')";
         }
     }
     if ($selectedNormalized !== []) {
@@ -467,9 +470,9 @@ function ehrman_keyword_suggestions(
 
     $rows = ehrman_fetch_all(
         $db,
-        'SELECT COALESCE(MIN(CASE WHEN kind = \'topic\' THEN label END), MIN(label)) AS label, '
+        'SELECT COALESCE(MIN(CASE WHEN kind IN (\'topic\', \'alias\') THEN label END), MIN(label)) AS label, '
         . 'normalized, COUNT(DISTINCT post_id) AS post_count, '
-        . "MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS has_topic, "
+        . "MAX(CASE WHEN kind IN ('topic', 'alias') THEN 1 ELSE 0 END) AS has_topic, "
         . "MAX(CASE WHEN kind = 'secondary' THEN 1 ELSE 0 END) AS has_keyword, "
         . 'CASE WHEN normalized = ? THEN 3 WHEN normalized LIKE ? THEN 2 '
         . 'WHEN normalized LIKE ? THEN 1 ELSE 1 END AS match_quality '
@@ -504,7 +507,7 @@ function ehrman_keyword_suggestions(
             if ($indexedValue === $candidate || str_contains(" {$indexedValue} ", " {$candidate} ")) {
                 $matchingPosts[$candidate][$postId] = true;
             }
-            if ($indexedValue === $candidate && (string) $countRow['kind'] === 'topic') {
+            if ($indexedValue === $candidate && in_array((string) $countRow['kind'], ['topic', 'alias'], true)) {
                 $topicPosts[$candidate][$postId] = true;
             }
         }
@@ -531,7 +534,9 @@ function ehrman_keyword_suggestions(
             'label' => (string) $row['label'],
             'normalized' => $normalized,
             'matchQuality' => (int) $row['match_quality'],
-            'description' => $hasTopic ? ($topicDescriptions[$normalized] ?? '') : '',
+            'description' => $hasTopic
+                ? ($topicDescriptions[ehrman_normalize_keyword((string) $row['label'])] ?? '')
+                : '',
         ];
         if ($hasTopic && count($topicPosts[$normalized] ?? []) > 0) {
             $suggestions[] = $base + [

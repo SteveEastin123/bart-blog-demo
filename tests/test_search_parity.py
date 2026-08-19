@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts import search_parity
+from scripts import ehrman_demo_data, search_parity
 from webapp import app
 from webapp.parity import MAX_BATCH_CASES, ParityRequestError, run_batch, source_fingerprints
 
@@ -129,7 +129,74 @@ class SearchParityTests(unittest.TestCase):
                     "SELECT kind, MAX(weight) AS weight FROM post_search_terms GROUP BY kind"
                 ).fetchall()
             }
-        self.assertEqual(weights, {"secondary": 3, "topic": 6})
+        self.assertEqual(weights, {"alias": 6, "secondary": 3, "topic": 6})
+
+    def test_topic_alias_resolves_to_canonical_topic(self) -> None:
+        with app.get_conn() as conn:
+            alias_modes = app.resolve_term_modes(conn, ["Pericope Adulterae"])
+            alias_posts = app.find_post_ids_for_term(
+                conn,
+                "Pericope Adulterae",
+                alias_modes[0],
+            )
+            canonical_posts = app.find_post_ids_for_term(
+                conn,
+                "Woman Caught in Adultery",
+                "topic",
+            )
+
+        self.assertEqual(alias_modes, ["topic"])
+        self.assertEqual(set(alias_posts), set(canonical_posts))
+        self.assertEqual(len(alias_posts), 10)
+
+        suggestions = json.loads(app.api_keywords({"q": ["pericope"]}).decode("utf-8"))
+        alias_suggestion = next(
+            suggestion
+            for suggestion in suggestions
+            if suggestion["normalized"] == "pericope adulterae"
+        )
+        self.assertEqual(alias_suggestion["label"], "Woman Caught in Adultery")
+        self.assertEqual(alias_suggestion["mode"], "topic")
+        self.assertEqual(alias_suggestion["postCount"], 10)
+        self.assertTrue(alias_suggestion["description"])
+
+        category_suggestions = json.loads(
+            app.api_keywords({"category": ["textual-criticism"]}).decode("utf-8")
+        )
+        self.assertNotIn(
+            "pericope adulterae",
+            {suggestion["normalized"] for suggestion in category_suggestions},
+        )
+
+    def test_standalone_payload_indexes_alias_without_duplicate_keyword(self) -> None:
+        topics = ehrman_demo_data.load_topics()
+        posts = ehrman_demo_data.load_posts()
+        keyword_index = ehrman_demo_data.build_keyword_index(posts, topics)
+        suggestions = ehrman_demo_data.build_keyword_suggestions(keyword_index)
+
+        alias_pairs = [
+            pair
+            for row in keyword_index
+            for pair in row[5]
+            if pair[1] == "pericope adulterae"
+        ]
+        alias_keywords = [
+            pair
+            for row in keyword_index
+            for pair in row[6]
+            if pair[1] == "pericope adulterae"
+        ]
+        alias_suggestions = [row for row in suggestions if row[2] == "pericope adulterae"]
+
+        self.assertEqual(len(alias_pairs), 10)
+        self.assertTrue(
+            all(pair == ["Woman Caught in Adultery", "pericope adulterae", "alias"] for pair in alias_pairs)
+        )
+        self.assertEqual(alias_keywords, [])
+        self.assertEqual(
+            alias_suggestions,
+            [["Woman Caught in Adultery", 10, "pericope adulterae", "topic", True]],
+        )
 
     def test_search_batch_returns_ordered_urls(self) -> None:
         response = run_batch(

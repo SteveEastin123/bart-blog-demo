@@ -1,0 +1,68 @@
+{
+  "auditDate": "2026-08-19",
+  "scope": "Normalize five final high-confidence secondary-keyword labels to canonical topic-aligned or personal-name labels.",
+  "criterion": "Use one canonical label when two keywords represent the same search concept. Remove a normalized secondary keyword when its destination label is already a topic on the same post.",
+  "auditedKeywords": [
+    "Arius and Arianism",
+    "Constantin von Tischendorf",
+    "Scribal Changes",
+    "Signs in the Gospel of John"
+  ],
+  "labelChanges": [
+    {
+      "from": "Johannine Signs",
+      "to": "Signs in the Gospel of John",
+      "before": 1,
+      "renamedSupportingAssignments": 1,
+      "removedBecauseTopicMatched": 0,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 1
+    },
+    {
+      "from": "Arian Controversy",
+      "to": "Arius and Arianism",
+      "before": 2,
+      "renamedSupportingAssignments": 0,
+      "removedBecauseTopicMatched": 2,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 0
+    },
+    {
+      "from": "Textual Corruptions",
+      "to": "Scribal Changes",
+      "before": 1,
+      "renamedSupportingAssignments": 0,
+      "removedBecauseTopicMatched": 1,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 1
+    },
+    {
+      "from": "Accidental Changes",
+      "to": "Scribal Changes",
+      "before": 2,
+      "renamedSupportingAssignments": 0,
+      "removedBecauseTopicMatched": 2,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 1
+    },
+    {
+      "from": "Constantine von Tischendorf",
+      "to": "Constantin von Tischendorf",
+      "before": 1,
+      "renamedSupportingAssignments": 1,
+      "removedBecauseTopicMatched": 0,
+      "mergedWithExistingKeyword": 0,
+      "canonicalKeywordPostsAfter": 2
+    }
+  ],
+  "summary": {
+    "sourceLabelsNormalized": 5,
+    "canonicalLabels": 4,
+    "postsChanged": 7,
+    "assignmentsRenamed": 2,
+    "assignmentsRemovedBecauseTopicMatched": 5,
+    "assignmentsMergedWithExistingKeyword": 0,
+    "uniqueSecondaryKeywordsBefore": 903,
+    "uniqueSecondaryKeywordsAfter": 899
+  }
+}
