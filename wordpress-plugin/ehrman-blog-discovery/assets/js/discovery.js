@@ -895,17 +895,18 @@
       const section = name.closest(".ebd-review-area,.ebd-review-category,.ebd-review-topic");
       const description = directChild(section, ".ebd-review-description");
       if (!description?.textContent.trim()) return;
+      const anchor = name.querySelector("span:last-child") || name;
       name.dataset.ebdTooltipReady = "true";
       const show = () => {
         const pageRoot = name.closest(".ebd-discovery") || document;
         if (descriptionMode(pageRoot) === "hover") {
-          showTooltip(name, description.textContent.trim(), "right");
+          showTooltip(anchor, description.textContent.trim(), "right");
         }
       };
-      name.addEventListener("mouseenter", show);
-      name.addEventListener("mouseleave", hideTooltip);
-      name.addEventListener("focus", show);
-      name.addEventListener("blur", hideTooltip);
+      anchor.addEventListener("mouseenter", show);
+      anchor.addEventListener("mouseleave", hideTooltip);
+      anchor.addEventListener("focus", show);
+      anchor.addEventListener("blur", hideTooltip);
     });
   }
 
