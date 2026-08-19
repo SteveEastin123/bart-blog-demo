@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-16",
+  "updatedAt": "2026-08-19",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -224,6 +224,1693 @@
       ],
       "notes": [
         "Created after a full-text review of 70 posts mentioning the passage; 10 treat it as a major subject."
+      ]
+    },
+    {
+      "topic": "Kingdom of God",
+      "auditSequence": 273,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 8,
+      "descriptionBefore": "Covers Jesus' proclamation of the coming Kingdom of God, including its apocalyptic meaning, who would enter it, and its implications for ethics, wealth, miracles, and messianic expectations.",
+      "descriptionRecommendation": "Examines Jesus' proclamation of the coming Kingdom of God, including its imminent apocalyptic arrival, the judgment and reversal it would bring, who would enter it, and how later Gospel traditions reshaped that expectation.",
+      "categoriesBefore": [
+        "Jesus' Teachings and Social World"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "13186",
+          "title": "Jesus’ Teaching About the Kingdom of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13211",
+          "title": "The Preaching of Jesus in a Nutshell",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9311",
+          "title": "The Teaching of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28907",
+          "title": "The Heart of Jesus’ Message",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "28981",
+          "title": "The Messages of Jesus and Paul:  Basically the Same or Fundamentally Different?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The comparison between the messages of Jesus and Paul dominates the post."
+        },
+        {
+          "wpId": "7315",
+          "title": "Jesus and Paul Compared and Contrasted",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The similarities and differences between Jesus and Paul dominate the post."
+        },
+        {
+          "wpId": "14882",
+          "title": "Jesus and Paul: Similarities and Differences",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The similarities and differences between Jesus and Paul dominate the post."
+        },
+        {
+          "wpId": "27343",
+          "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The salvation and future reward of the righteous dominate the post."
+        },
+        {
+          "wpId": "31849",
+          "title": "Did Jesus Insist on Voluntary Poverty?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' teaching about wealth, poverty, and relinquishing possessions dominates the post."
+        },
+        {
+          "wpId": "50249",
+          "title": "The Indifference of Jesus",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Stoic indifference and Jesus' attitude toward society dominate the post."
+        },
+        {
+          "wpId": "50382",
+          "title": "Paying Your Religious Dues:  The Studied Indifference of Jesus",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The temple-tax story and Jesus' attitude toward religious obligations dominate the post."
+        },
+        {
+          "wpId": "50288",
+          "title": "Thoughts on Jesus and Activism.  What Do You Think?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' relationship to political activism and social reform dominates the post."
+        },
+        {
+          "wpId": "50329",
+          "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Taxation, government, and Jesus' attitude toward earthly institutions dominate the post."
+        },
+        {
+          "wpId": "28939",
+          "title": "Are the Teachings of Jesus Realistic?   Platinum guest post by Douglas Wadeson",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Whether Jesus' ethical teachings are realistic dominates the post."
+        },
+        {
+          "wpId": "29786",
+          "title": "Are the Teachings of Jesus Realistic?  Guest Post by Douglas Wadeson",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Whether Jesus' ethical teachings are realistic dominates the post."
+        },
+        {
+          "wpId": "8812",
+          "title": "Why Jesus Does Miracles",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Why Jesus performs miracles in the Synoptic Gospels dominates the post."
+        },
+        {
+          "wpId": "15382",
+          "title": "The Message of Jesus’ Miracles",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The theological meaning of Jesus' miracle traditions dominates the post."
+        },
+        {
+          "wpId": "37655",
+          "title": "What’s the *Point* of Jesus’ Miracles?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The purpose and interpretation of Jesus' miracles dominate the post."
+        },
+        {
+          "wpId": "9333",
+          "title": "Jesus’ Claim to Be the Messiah",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' understanding of his own messiahship dominates the post."
+        },
+        {
+          "wpId": "41368",
+          "title": "Why Should We Think Jesus Called Himself the Messiah?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The historical case that Jesus considered himself the Messiah dominates the post."
+        },
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The triumphal entry, Jesus' public identity, and messiahship dominate the post."
+        },
+        {
+          "wpId": "6541",
+          "title": "The Later De-apocalypticizing of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21114",
+          "title": "How Jesus’ Apocalyptic Teachings Were Changed (even in the NT)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "38334",
+          "title": "How the Gospels Transformed the Apocalyptic Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35324",
+          "title": "Did Jesus Believe The End Would Come Within His Lifetime? Platinum Post by Rizwan Ahmed",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post evaluates whether Jesus expected the end within his generation; the kingdom is supporting apocalyptic context rather than a sustained subject."
+        },
+        {
+          "wpId": "36569",
+          "title": "Did Jesus Believe the End Would Come Within his Lifetime? Maybe Not!  Platinum Post by Rizwan Ahmed",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post evaluates whether Jesus expected the end within his generation; the kingdom is supporting apocalyptic context rather than a sustained subject."
+        },
+        {
+          "wpId": "7301",
+          "title": "The Message of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats the Kingdom of God, its arrival, or its implications as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 94 posts carrying the Kingdom of God keyword; 27 treat the kingdom as a primary or major sustained subject.",
+        "The identically named secondary keyword was removed from the 27 topic posts.",
+        "A conservative follow-up audit removed two assignments that did not treat the topic as a major sustained subject.",
+        "A strict-majority follow-up retained only posts in which the Kingdom of God is the dominant subject; 17 supporting-topic assignments were returned to secondary keywords."
+      ]
+    },
+    {
+      "topic": "Gospel of Philip",
+      "auditSequence": 274,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 7,
+      "descriptionBefore": "Covers the Gospel of Philip, including its Valentinian Gnostic teachings, Nag Hammadi context, portrayal of Mary Magdalene, and the passage describing Jesus kissing her.",
+      "descriptionRecommendation": "Covers the Gospel of Philip, including its Valentinian Gnostic teachings, Nag Hammadi context, portrayal of Mary Magdalene, and the passage describing Jesus kissing her.",
+      "categoriesBefore": [
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Non-Canonical Christian Texts"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "38493",
+          "title": "Jesus and Mary Magdalene Seen Kissing??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37384",
+          "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37380",
+          "title": "The Gospel of Philip: An Example of a Valentinian Gnostic Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23254",
+          "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17615",
+          "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14899",
+          "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6891",
+          "title": "Jesus Kissing Mary Magdalene",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 8 candidate posts; 7 treat the subject as primary or sustained.",
+        "Identically named secondary keywords were removed from the topic posts.",
+        "A conservative follow-up audit confirmed every current assignment."
+      ]
+    },
+    {
+      "topic": "Documentary Hypothesis",
+      "auditSequence": 275,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 11,
+      "descriptionBefore": "Covers the Documentary Hypothesis and related source theories for the composition of the Pentateuch, including JEDP sources, challenges to Mosaic authorship, textual inconsistencies, and recent scholarship.",
+      "descriptionRecommendation": "Covers the Documentary Hypothesis and related source theories for the composition of the Pentateuch, including JEDP sources, challenges to Mosaic authorship, textual inconsistencies, and recent scholarship.",
+      "categoriesBefore": [
+        "Authorship",
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "33426",
+          "title": "Are There Contradictions in the Pentateuch?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25687",
+          "title": "More Recent Scholarship on Who Wrote the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25682",
+          "title": "Who Really Wrote the Pentateuch (if not Moses)?  The JEDP Hypothesis",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25677",
+          "title": "More Inconsistencies in the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25647",
+          "title": "Who Wrote the Pentateuch Anyway?",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post establishes why Moses probably did not write the Pentateuch but does not examine the Documentary Hypothesis or JEDP model."
+        },
+        {
+          "wpId": "24315",
+          "title": "What Are the Sources of the Hebrew Bible?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16802",
+          "title": "Who Wrote the Pentateuch?  The JEDP Hypothesis",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15263",
+          "title": "Sources for the Hebrew Bible: A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11611",
+          "title": "Modern Views of the Authorship of the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11602",
+          "title": "Did Moses Write the Pentateuch?  The JEDP Hypothesis.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11599",
+          "title": "Other Literary Tensions in the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11587",
+          "title": "Who Wrote the Pentateuch?  Early Questions of Authorship.",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post surveys early challenges to Mosaic authorship but does not examine the Documentary Hypothesis or JEDP model."
+        },
+        {
+          "wpId": "11581",
+          "title": "The Name of Saul/Paul and the Sources of the Pentateuch: Weekly Mailbag June 26, 2016",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 15 candidate posts; 13 treat the subject as primary or sustained.",
+        "Identically named secondary keywords were removed from the topic posts.",
+        "A conservative follow-up audit removed two assignments that did not treat the topic as a major sustained subject."
+      ]
+    },
+    {
+      "topic": "Peter and Cephas",
+      "auditSequence": 276,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 5,
+      "descriptionBefore": "Examines whether Peter and Cephas were the same person, including Paul's usage, evidence from Galatians and John, and early Christian traditions that distinguish them.",
+      "descriptionRecommendation": "Examines whether Peter and Cephas were the same person, including Paul's usage, evidence from Galatians and John, and early Christian traditions that distinguish them.",
+      "categoriesBefore": [
+        "New Testament Figures"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "50385",
+          "title": "Did Paul Know that Peter and Cephas were Two Different People?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50251",
+          "title": "Were Peter and Cephas the Same Person?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12120",
+          "title": "Was Cephas Peter?  The Rest of the Argument",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12118",
+          "title": "Cephas and Peter in the Writings of Paul (Who Knew Them)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12112",
+          "title": "Are Cephas and Peter Two Different People?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 5 candidate posts; 5 treat the subject as primary or sustained.",
+        "Identically named secondary keywords were removed from the topic posts.",
+        "A conservative follow-up audit confirmed every current assignment."
+      ]
+    },
+    {
+      "topic": "Origen of Alexandria",
+      "auditSequence": 277,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 6,
+      "descriptionBefore": "Covers Origen of Alexandria's theology, including Christology, preexistent souls, reincarnation, and universal salvation.",
+      "descriptionRecommendation": "Covers Origen of Alexandria's theology, including Christology, preexistent souls, reincarnation, and universal salvation.",
+      "categoriesBefore": [
+        "Church Fathers"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "46936",
+          "title": "Will Everyone be Saved? (Everyone??)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "32072",
+          "title": "How Could Jesus Be BOTH Divine and Human at Once?  An Intriguing Ancient View",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25226",
+          "title": "How Could Christ Be Both God and a Human — At Once?  The Unusual View of Origen",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15755",
+          "title": "Did Early Christians Believe in Reincarnation?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15752",
+          "title": "Did We Exist Before We Were Born?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15748",
+          "title": "Does Everyone Get Saved in the End?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 25 candidates; 6 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Barabbas and the Passover Release",
+      "auditSequence": 278,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 6,
+      "descriptionBefore": "Examines the Gospel story of Barabbas, including the alleged Passover prisoner release, its historical plausibility, the name Jesus Barabbas, and its role in shifting responsibility for Jesus' death.",
+      "descriptionRecommendation": "Examines the Gospel story of Barabbas, including the alleged Passover prisoner release, its historical plausibility, the name Jesus Barabbas, and its role in shifting responsibility for Jesus' death.",
+      "categoriesBefore": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "35760",
+          "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15929",
+          "title": "Pilate Released Barabbas.  Really??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21862",
+          "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20741",
+          "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3101",
+          "title": "Pilate and Barabbas",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11863",
+          "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 18 candidates; 6 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Jesus' Temple Action",
+      "auditSequence": 279,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 5,
+      "descriptionBefore": "Examines Jesus' disruption of the Jerusalem Temple, including its historical plausibility, apocalyptic meaning, relationship to his arrest, and interpretations of it as revolutionary activity.",
+      "descriptionRecommendation": "Examines Jesus' disruption of the Jerusalem Temple, including its historical plausibility, apocalyptic meaning, relationship to his arrest, and interpretations of it as revolutionary activity.",
+      "categoriesBefore": [
+        "Historical Jesus"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "50367",
+          "title": "What Did Jesus’s Violent Action in the Temple Actually Mean?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50347",
+          "title": "Gist and Exaggeration: Jesus and the Cleansing of the Temple",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35746",
+          "title": "Did Jesus Really Cleanse the Temple?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20776",
+          "title": "Doesn’t Jesus’ “Cleansing of the Temple” Show He Wanted a Military Uprising?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6555",
+          "title": "Jesus and the Temple",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 37 candidates; 5 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Parables of Jesus",
+      "auditSequence": 280,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 12,
+      "descriptionBefore": "Covers Jesus' parables, including their historical and literary interpretation, teachings about wealth and judgment, and modern attempts to apply them.",
+      "descriptionRecommendation": "Covers Jesus' parables, including their historical and literary interpretation, teachings about wealth and judgment, and modern attempts to apply them.",
+      "categoriesBefore": [
+        "Jesus' Teachings and Social World"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "49985",
+          "title": "The Most Likely Capitalist Parable of Jesus?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49965",
+          "title": "The Parable of the Sower as Advice for Capitalists",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49955",
+          "title": "The Capitalist Parables of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49836",
+          "title": "These Are Weird Parables.  Do They Make Sense?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40115",
+          "title": "The Parables!  Have You Signed up for the Course?  (This weekend!)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39917",
+          "title": "NEW COURSE!  “The Parables of Jesus” with Amy-Jill Levine",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15539",
+          "title": "Heaven, Hell, and the Parable of Lazarus and the Rich Man",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31173",
+          "title": "Lazarus and the Rich Man: What To Do with Wealth",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31177",
+          "title": "An Even More Unusual Story of What Happens to the Rich…",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15541",
+          "title": "The Fate of the Rich and the Poor: Another Story",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13341",
+          "title": "Did Jesus Mean that Literally?  Rewards and Punishments in the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15475",
+          "title": "Did Jesus Believe Sinners Would Be Annihilated?  The Sheep and the Goats",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 35 candidates; 12 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Love Thy Stranger",
+      "auditSequence": 281,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 11,
+      "descriptionBefore": "Covers Bart's book Love Thy Stranger, including its argument that Jesus' teachings reshaped Western ideas about strangers, charity, forgiveness, and care for people in need.",
+      "descriptionRecommendation": "Covers Bart's book Love Thy Stranger, including its argument that Jesus' teachings reshaped Western ideas about strangers, charity, forgiveness, and care for people in need.",
+      "categoriesBefore": [
+        "Bart's Books"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "50263",
+          "title": "Understanding Jesus:  A Swedish Podcast Interview",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49699",
+          "title": "The Morality of War",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49472",
+          "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49394",
+          "title": "Rethinking Faith Podcast Interview About Love Thy Stranger",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49339",
+          "title": "The Good Done By Christianity to Our World",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49337",
+          "title": "The Dark Side of Christianity: How I (Partially) End My New Book",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49334",
+          "title": "Advance Preview–How I Begin My New Book: Love Thy Stranger",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49071",
+          "title": "Announcing the “Sponsor a Stranger” Campaign",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48919",
+          "title": "Why I Wrote Love Thy Stranger and Significant Benefits that Can Come Your Way",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48737",
+          "title": "Christian Churches Steadfastly Refusing To Help Those in Need….",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48527",
+          "title": "My Interview about Christmas with Nicholas Kristof (New York Times)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 11 candidates; 11 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Gospel of the Ebionites",
+      "auditSequence": 282,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 7,
+      "descriptionBefore": "Examines the fragmentary Gospel of the Ebionites, including its harmonized Gospel traditions, account of Jesus' baptism, and portrayal of John the Baptist's diet.",
+      "descriptionRecommendation": "Examines the fragmentary Gospel of the Ebionites, including its harmonized Gospel traditions, account of Jesus' baptism, and portrayal of John the Baptist's diet.",
+      "categoriesBefore": [
+        "Non-Canonical Christian Texts"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "36829",
+          "title": "About Those Ebionites and Their Peculiar Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36824",
+          "title": "Locusts or Pancakes?  The Dietary Preferences of John the Baptist.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36819",
+          "title": "Contradictions?  What Contradictions?  Harmonizing the Gospels.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34494",
+          "title": "The Voice at Jesus’ Baptism–An Intriguing Version in the Gospel of the Ebionites",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4814",
+          "title": "The Ebionites and their Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4806",
+          "title": "Locusts or Pancakes?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4803",
+          "title": "Harmonizing the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 11 candidates; 7 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Son of God",
+      "auditSequence": 283,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 35,
+      "descriptionBefore": "Examines the meaning and development of the title Son of God, including its use in the Gospels, adoption and exaltation Christologies, resurrection traditions, textual variants, and later Christian debates.",
+      "descriptionRecommendation": "Examines the meaning and development of the title Son of God, including its use in the Gospels, adoption and exaltation Christologies, resurrection traditions, textual variants, and later Christian debates.",
+      "categoriesBefore": [
+        "Christology"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "47113",
+          "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37841",
+          "title": "No Virgin Birth? Was Jesus ADOPTED by God to be His Son?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37091",
+          "title": "Is Christ *Merely* the “Adopted” Son of God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35354",
+          "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33310",
+          "title": "Why Would Scribes Mess with Mark’s Very First Verse?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33309",
+          "title": "Do We Know How Mark Began His Gospel?  Another Scribal Change",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23935",
+          "title": "Does Luke Present Different (Inconsistent!) Views of Christ?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23381",
+          "title": "When Did Jesus Become Divine?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23250",
+          "title": "The Earliest Understanding of Christ?  The Hint in Paul’s Letter to the Romans",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16028",
+          "title": "Jesus “Only” Adopted to be the Son of God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15925",
+          "title": "My Doubts about the Son of God: A Blast from the Past",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post is an autobiographical account of Bart's developing doubts. Son of God appears in the title but is not analyzed as a sustained subject.",
+          "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+        },
+        {
+          "wpId": "15268",
+          "title": "Why Does Luke Appear to Contradict Himself?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13504",
+          "title": "Mark’s Suffering Son of God: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13142",
+          "title": "Is Luke’s Christology Consistent?   A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12408",
+          "title": "Pastor Goranson, the Son of God, and I: A Blast From the Past",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post is a personal account of Bart's ministry and developing doubts rather than a sustained examination of divine sonship.",
+          "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+        },
+        {
+          "wpId": "12375",
+          "title": "The First Textual Variant in the Gospel of Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12373",
+          "title": "Christians Who Thought Jesus Was Adopted by God: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12363",
+          "title": "An Interesting Scribal Change at the Beginning of Mark",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post examines the Mark 1:2 quotation variant and mentions the Mark 1:1 Son of God variant only to introduce the next post.",
+          "secondaryKeywordAction": "not restored because the reference is incidental"
+        },
+        {
+          "wpId": "10270",
+          "title": "Christ as the Adopted Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10261",
+          "title": "Christ as Son of God in Mark’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10049",
+          "title": "The Son of God, the Council of Nicea, and the Da Vinci Code",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9399",
+          "title": "The Resurrection of the Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9264",
+          "title": "Jesus as the Messiah in Mark’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9255",
+          "title": "Jesus as the Son of God in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9220",
+          "title": "Is Luke’s Christology Consistent?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9215",
+          "title": "Did Luke’s Gospel Originally Have the Virgin Birth?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9197",
+          "title": "Adoptionistic Christologies",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9020",
+          "title": "Mark 1:1 as an Intentional Alteration of the Text",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9018",
+          "title": "A Variant in Mark 1:1 — Accidental or Intentional?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7155",
+          "title": "Jesus as the Adopted Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6967",
+          "title": "Jesus’ Death and Resurrection in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6962",
+          "title": "Mark’s Suffering Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6946",
+          "title": "More on the Beginning of Mark’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6942",
+          "title": "The Beginning of Mark’s Gospel/Biography",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4672",
+          "title": "Luke 3:22 — What Luke Himself Would Have Written",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3947",
+          "title": "Pastor Goranson, the Son of God, and I",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The post is a personal account of Bart's ministry and developing doubts rather than a sustained examination of divine sonship.",
+          "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+        },
+        {
+          "wpId": "3816",
+          "title": "Pushing Back the Exaltation",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3795",
+          "title": "Exaltation Christology in an Early Creed",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 215 candidates; 39 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts.",
+        "An extra-conservative full-text follow-up removed four assignments; 35 posts retain the topic because divine sonship drives a substantial part of their argument."
+      ]
+    },
+    {
+      "topic": "Triumphal Entry",
+      "auditSequence": 284,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 7,
+      "descriptionBefore": "Examines Gospel traditions about Jesus' triumphal entry into Jerusalem, including their historical plausibility, development in memory, messianic symbolism, and connection with his arrest.",
+      "descriptionRecommendation": "Examines Gospel traditions about Jesus' triumphal entry into Jerusalem, including their historical plausibility, development in memory, messianic symbolism, and connection with his arrest.",
+      "categoriesBefore": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50319",
+          "title": "The Implausibility of the Triumphal Entry",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35742",
+          "title": "Did the Triumphal Entry Really Happen?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24729",
+          "title": "Fantastic Story.  But History?  Some Doubts about the Triumphal Entry",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24593",
+          "title": "Did Jesus Really Have a “Triumphal Entry” into Jerusalem?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10294",
+          "title": "The Triumphal Entry as a Distorted Memory",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10292",
+          "title": "The Memory of Jesus’ Triumphal Entry",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 12 candidates; 7 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Gospel of Nicodemus",
+      "auditSequence": 285,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 6,
+      "descriptionBefore": "Covers the Gospel of Nicodemus, also associated with the Acts of Pilate tradition, including its expanded trial narrative, descent to Hades, miraculous Roman standards, and later legendary traditions.",
+      "descriptionRecommendation": "Covers the Gospel of Nicodemus, also associated with the Acts of Pilate tradition, including its expanded trial narrative, descent to Hades, miraculous Roman standards, and later legendary traditions.",
+      "categoriesBefore": [
+        "Non-Canonical Christian Texts"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "21368",
+          "title": "The Roman Standards Worship Jesus?  From the Gospel of Nicodemus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21355",
+          "title": "A Gospel of Nicodemus?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20725",
+          "title": "Yet Other Accounts Of the Death of Judas",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15763",
+          "title": "The Happy News!  No One Stays In Hell!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15221",
+          "title": "Two Rather Bizarre Accounts of How Judas Died",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8833",
+          "title": "Other Accounts of the Death of Judas",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of 15 candidates; 6 treat the subject as primary or sustained.",
+        "Identically normalized secondary keywords were removed from topic posts."
+      ]
+    },
+    {
+      "topic": "Mary, Mother of Jesus",
+      "auditSequence": 286,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 11,
+      "descriptionBefore": "Covers Mary, the mother of Jesus, including her Gospel portrayal, virginity and family traditions, apocryphal accounts of her life, questions about Jesus' parentage, and reported visions of Mary.",
+      "descriptionRecommendation": "Covers Mary, the mother of Jesus, including her Gospel portrayal, virginity and family traditions, apocryphal accounts of her life, questions about Jesus' parentage, and reported visions of Mary.",
+      "categoriesBefore": [
+        "Jesus' Birth, Family, and Miracles",
+        "New Testament Figures",
+        "Women, Gender, and Sexuality"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "22529",
+          "title": "A Different Account of Joseph and Mary!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41835",
+          "title": "Twelve Days of Christmas Day 3: A Different Account of Joseph and Mary!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22557",
+          "title": "An Apocryphal Story of Mary’s Conception of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8391",
+          "title": "The Virgin Birth and Jesus’ Brothers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13510",
+          "title": "Jesus’ (Young?) Mother and (Half?) Brothers? The Proto-Gospel of James",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' siblings and competing explanations of their relationship dominate the post."
+        },
+        {
+          "wpId": "37140",
+          "title": "The Gospel Before the Gospel: The Proto-Gospel of James",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14905",
+          "title": "How Was Jesus *Really* Born?  The Proto-Gospel of James",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21016",
+          "title": "A Very Odd Story about the Baby Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4885",
+          "title": "You Won’t Find *This* in the New Testament!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37156",
+          "title": "Were Jesus’ Brothers His … Brothers?  The Proto-Gospel of James",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' siblings and competing explanations of their relationship dominate the post."
+        },
+        {
+          "wpId": "5039",
+          "title": "Jesus’ Brothers?!?  And the Proto-Gospel of James",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' siblings and the Proto-Gospel's explanation of them dominate the post."
+        },
+        {
+          "wpId": "13608",
+          "title": "Jesus’ Mother and Brothers in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36902",
+          "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The broader historical question of Jesus' biological father dominates the post."
+        },
+        {
+          "wpId": "36908",
+          "title": "Was the Father of Jesus … Pantera?  Part II Guest Post by James Tabor",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Pantera traditions and the identity of Jesus' biological father dominate the post."
+        },
+        {
+          "wpId": "36915",
+          "title": "Was Jesus Conceived out of Wedlock by Mary and a Jewish Relative, Pantera?  Part III Guest Post by James Tabor",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Pantera and the identity of Jesus' biological father dominate the post."
+        },
+        {
+          "wpId": "4002",
+          "title": "Visions of Mary",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9677",
+          "title": "Are “Group Hallucinations” Possible?  The Case of Mary.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 103 candidate posts; 17 treat the subject as primary or sustained.",
+        "Excluded general birth narratives, genealogies, Christmas posts, and vision discussions in which Mary is only an example rather than a major subject.",
+        "Identically named secondary keywords were removed from the topic posts.",
+        "A strict-dominance follow-up retained only posts in which the named figure is a dominant, sustained subject; removed assignments were returned to secondary keywords."
+      ]
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "auditSequence": 287,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 7,
+      "descriptionBefore": "Covers Joseph, the father of Jesus in Christian tradition, including his role in canonical and apocryphal accounts, traditions about his age, family, and death, and debates over whether he was Jesus' biological father.",
+      "descriptionRecommendation": "Covers Joseph, the father of Jesus in Christian tradition, including his role in canonical and apocryphal accounts, traditions about his age, family, and death, and debates over whether he was Jesus' biological father.",
+      "categoriesBefore": [
+        "Jesus' Birth, Family, and Miracles",
+        "New Testament Figures"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "48830",
+          "title": "Here’s an Apocryphal Gospel You Probably Don’t Know!  The History of Joseph the Carpenter.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48832",
+          "title": "The Death of Joseph the Carpenter, as Told By Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22529",
+          "title": "A Different Account of Joseph and Mary!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "41835",
+          "title": "Twelve Days of Christmas Day 3: A Different Account of Joseph and Mary!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "22557",
+          "title": "An Apocryphal Story of Mary’s Conception of Jesus",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Mary's conception, Joseph's reaction, and Mary's public vindication dominate the post collectively; Joseph is not the dominant subject."
+        },
+        {
+          "wpId": "37676",
+          "title": "Was Joseph the Actual Father of Jesus?  Announcing a Special Online Christmas Course",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36902",
+          "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36908",
+          "title": "Was the Father of Jesus … Pantera?  Part II Guest Post by James Tabor",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Pantera traditions and the identity of Jesus' biological father dominate the post."
+        },
+        {
+          "wpId": "36915",
+          "title": "Was Jesus Conceived out of Wedlock by Mary and a Jewish Relative, Pantera?  Part III Guest Post by James Tabor",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Pantera and the identity of Jesus' biological father dominate the post."
+        },
+        {
+          "wpId": "34743",
+          "title": "Was the Roman Soldier Pantera Jesus’ Father? His Cousin? Platinum Guest Post by Omar Abur-Robb",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The proposed relationship between Abdes Pantera and Jesus dominates the post."
+        },
+        {
+          "wpId": "34094",
+          "title": "Was the Roman Soldier Pantera Jesus’ Father? His Cousin? Platinum Guest Post by Omar Abur-Robb",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The proposed relationship between Abdes Pantera and Jesus dominates the post."
+        },
+        {
+          "wpId": "13510",
+          "title": "Jesus’ (Young?) Mother and (Half?) Brothers? The Proto-Gospel of James",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' siblings and competing explanations of their relationship dominate the post."
+        },
+        {
+          "wpId": "37156",
+          "title": "Were Jesus’ Brothers His … Brothers?  The Proto-Gospel of James",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' siblings and competing explanations of their relationship dominate the post."
+        },
+        {
+          "wpId": "5039",
+          "title": "Jesus’ Brothers?!?  And the Proto-Gospel of James",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "Jesus' siblings and the Proto-Gospel's explanation of them dominate the post."
+        },
+        {
+          "wpId": "13608",
+          "title": "Jesus’ Mother and Brothers in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Joseph, Father of Jesus as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 102 candidate posts; 15 treat the subject as primary or sustained.",
+        "Excluded general birth narratives, genealogies, contradiction discussions, and infancy stories in which Joseph appears only as a narrative character.",
+        "Identically named secondary keywords were removed from the topic posts.",
+        "A strict-dominance follow-up retained only posts in which the named figure is a dominant, sustained subject; removed assignments were returned to secondary keywords."
+      ]
+    },
+    {
+      "topic": "Greater Questions of Mary",
+      "auditSequence": 288,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 7,
+      "descriptionBefore": "Examines the lost Greater Questions of Mary, Epiphanius's account of its revelation to Mary Magdalene, its alleged use by the Phibionites, and whether the text or the sexual rituals attributed to it ever existed.",
+      "descriptionRecommendation": "Examines the lost Greater Questions of Mary, Epiphanius's account of its revelation to Mary Magdalene, its alleged use by the Phibionites, and whether the text or the sexual rituals attributed to it ever existed.",
+      "categoriesBefore": [
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Non-Canonical Christian Texts"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-08-19",
+      "completedAt": "2026-08-19",
+      "decisions": [
+        {
+          "wpId": "35992",
+          "title": "The (Lost) Greater Questions of Mary (Rated R) (X?)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "29928",
+          "title": "Did Heretics’ Texts Describe Their Incestuous Rituals?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "29925",
+          "title": "Fabrication, Forgery, and Accusations of (Heretical) Christian Licentious Rituals!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20951",
+          "title": "Slurs Against Religious Opponents and Makin’ Stuff Up",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20946",
+          "title": "Did Early Christian Heretics Promote Outrageous Sex Rituals?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12032",
+          "title": "Lost Gospels: The Greater Questions of Mary.  A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3279",
+          "title": "Lost Gospels That Are Still Lost 3: The Greater Questions of Mary",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        }
+      ],
+      "notes": [
+        "Created after a full-text review of 7 candidate posts; 7 treat the subject as primary or sustained.",
+        "All seven keyword posts qualified for the topic.",
+        "Identically named secondary keywords were removed from the topic posts."
       ]
     },
     {

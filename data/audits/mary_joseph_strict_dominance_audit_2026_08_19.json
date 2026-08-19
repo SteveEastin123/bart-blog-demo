@@ -1,0 +1,222 @@
+{
+  "auditDate": "2026-08-19",
+  "standard": "Retain the topic only when Mary or Joseph is a dominant, sustained subject of the full post rather than supporting context for another subject.",
+  "results": [
+    {
+      "topic": "Mary, Mother of Jesus",
+      "postCountBefore": 17,
+      "postCountAfter": 11
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "postCountBefore": 15,
+      "postCountAfter": 7
+    }
+  ],
+  "retained": {
+    "Mary, Mother of Jesus": [
+      {
+        "wpId": "41835",
+        "title": "Twelve Days of Christmas Day 3: A Different Account of Joseph and Mary!"
+      },
+      {
+        "wpId": "37140",
+        "title": "The Gospel Before the Gospel: The Proto-Gospel of James"
+      },
+      {
+        "wpId": "22557",
+        "title": "An Apocryphal Story of Mary’s Conception of Jesus"
+      },
+      {
+        "wpId": "22529",
+        "title": "A Different Account of Joseph and Mary!"
+      },
+      {
+        "wpId": "21016",
+        "title": "A Very Odd Story about the Baby Jesus"
+      },
+      {
+        "wpId": "14905",
+        "title": "How Was Jesus *Really* Born?  The Proto-Gospel of James"
+      },
+      {
+        "wpId": "13608",
+        "title": "Jesus’ Mother and Brothers in Mark"
+      },
+      {
+        "wpId": "9677",
+        "title": "Are “Group Hallucinations” Possible?  The Case of Mary."
+      },
+      {
+        "wpId": "8391",
+        "title": "The Virgin Birth and Jesus’ Brothers"
+      },
+      {
+        "wpId": "4885",
+        "title": "You Won’t Find *This* in the New Testament!"
+      },
+      {
+        "wpId": "4002",
+        "title": "Visions of Mary"
+      }
+    ],
+    "Joseph, Father of Jesus": [
+      {
+        "wpId": "48832",
+        "title": "The Death of Joseph the Carpenter, as Told By Jesus"
+      },
+      {
+        "wpId": "48830",
+        "title": "Here’s an Apocryphal Gospel You Probably Don’t Know!  The History of Joseph the Carpenter."
+      },
+      {
+        "wpId": "41835",
+        "title": "Twelve Days of Christmas Day 3: A Different Account of Joseph and Mary!"
+      },
+      {
+        "wpId": "37676",
+        "title": "Was Joseph the Actual Father of Jesus?  Announcing a Special Online Christmas Course"
+      },
+      {
+        "wpId": "36902",
+        "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor"
+      },
+      {
+        "wpId": "22529",
+        "title": "A Different Account of Joseph and Mary!"
+      },
+      {
+        "wpId": "13608",
+        "title": "Jesus’ Mother and Brothers in Mark"
+      }
+    ]
+  },
+  "removed": [
+    {
+      "topic": "Mary, Mother of Jesus",
+      "wpId": "37156",
+      "title": "Were Jesus’ Brothers His … Brothers?  The Proto-Gospel of James",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' siblings and competing explanations of their relationship dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Mary, Mother of Jesus",
+      "wpId": "36915",
+      "title": "Was Jesus Conceived out of Wedlock by Mary and a Jewish Relative, Pantera?  Part III Guest Post by James Tabor",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Pantera and the identity of Jesus' biological father dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Mary, Mother of Jesus",
+      "wpId": "36908",
+      "title": "Was the Father of Jesus … Pantera?  Part II Guest Post by James Tabor",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Pantera traditions and the identity of Jesus' biological father dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Mary, Mother of Jesus",
+      "wpId": "36902",
+      "title": "Who Was Jesus’ Biological Father? Part I. Guest Post by James Tabor",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The broader historical question of Jesus' biological father dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Mary, Mother of Jesus",
+      "wpId": "13510",
+      "title": "Jesus’ (Young?) Mother and (Half?) Brothers? The Proto-Gospel of James",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' siblings and competing explanations of their relationship dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Mary, Mother of Jesus",
+      "wpId": "5039",
+      "title": "Jesus’ Brothers?!?  And the Proto-Gospel of James",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' siblings and the Proto-Gospel's explanation of them dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "37156",
+      "title": "Were Jesus’ Brothers His … Brothers?  The Proto-Gospel of James",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' siblings and competing explanations of their relationship dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "36915",
+      "title": "Was Jesus Conceived out of Wedlock by Mary and a Jewish Relative, Pantera?  Part III Guest Post by James Tabor",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Pantera and the identity of Jesus' biological father dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "36908",
+      "title": "Was the Father of Jesus … Pantera?  Part II Guest Post by James Tabor",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Pantera traditions and the identity of Jesus' biological father dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "34743",
+      "title": "Was the Roman Soldier Pantera Jesus’ Father? His Cousin? Platinum Guest Post by Omar Abur-Robb",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The proposed relationship between Abdes Pantera and Jesus dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "34094",
+      "title": "Was the Roman Soldier Pantera Jesus’ Father? His Cousin? Platinum Guest Post by Omar Abur-Robb",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The proposed relationship between Abdes Pantera and Jesus dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "22557",
+      "title": "An Apocryphal Story of Mary’s Conception of Jesus",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Mary's conception, Joseph's reaction, and Mary's public vindication dominate the post collectively; Joseph is not the dominant subject.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "13510",
+      "title": "Jesus’ (Young?) Mother and (Half?) Brothers? The Proto-Gospel of James",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' siblings and competing explanations of their relationship dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Joseph, Father of Jesus",
+      "wpId": "5039",
+      "title": "Jesus’ Brothers?!?  And the Proto-Gospel of James",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' siblings and the Proto-Gospel's explanation of them dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    }
+  ]
+}

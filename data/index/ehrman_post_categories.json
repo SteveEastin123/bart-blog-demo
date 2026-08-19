@@ -18,13 +18,13 @@
       "description": "Provides historical background for biblical and early Christian texts, including Roman rule, Greco-Roman religious culture, literacy, archaeology, social class, wealth, crucifixion, and burial practices.",
       "topicOrder": [
         "Roman World",
-        "Roman Persecution of Christians",
         "Greco-Roman Religious Culture",
         "Social Class in Antiquity",
         "Wealth and Poverty in Antiquity",
         "Ancient Literacy",
         "Archaeology and Material Evidence",
-        "Roman Crucifixion and Burial"
+        "Roman Crucifixion and Burial",
+        "Roman Persecution of Christians"
       ]
     },
     {
@@ -40,30 +40,32 @@
       "name": "Authorship",
       "description": "Examines who wrote biblical and early Christian texts, how anonymous or disputed writings received names, how texts were composed and attributed, and how ancient secretaries affect authorship claims.",
       "topicOrder": [
+        "Hebrew Bible Composition and Sources",
+        "Documentary Hypothesis",
         "Gospel Authorship",
         "Luke-Acts Authorship",
         "Pauline Authorship",
         "Non-Pauline Epistle Authorship",
         "Petrine Authorship and Forgeries",
         "Revelation Authorship",
-        "Hebrew Bible Composition and Sources",
-        "Apostolic Fathers Attribution",
-        "Ancient Secretaries and Authorship"
+        "Ancient Secretaries and Authorship",
+        "Apostolic Fathers Attribution"
       ]
     },
     {
       "name": "Bart's Books",
       "description": "Covers Bart's major books, including announcements, excerpts, interviews, reader questions, reviews, responses to critics, and posts developing arguments from those books.",
       "topicOrder": [
-        "Misquoting Jesus",
-        "How Jesus Became God",
-        "Forged",
-        "Jesus Before the Gospels",
-        "Triumph of Christianity",
-        "Heaven and Hell",
         "Armageddon",
+        "Did Jesus Exist?",
+        "Forged",
         "Forgery and Counterforgery",
-        "Did Jesus Exist?"
+        "Heaven and Hell",
+        "How Jesus Became God",
+        "Jesus Before the Gospels",
+        "Love Thy Stranger",
+        "Misquoting Jesus",
+        "Triumph of Christianity"
       ]
     },
     {
@@ -112,14 +114,14 @@
         "Synoptic Problem",
         "Q Source",
         "Gospel of Mark",
-        "Gospel of Matthew",
-        "Gospel of Luke",
-        "Gospel of John",
-        "Acts",
-        "Genealogies of Jesus",
         "Messianic Secret",
+        "Gospel of Matthew",
+        "Matthew's Use of Scripture",
+        "Gospel of Luke",
+        "Genealogies of Jesus",
+        "Gospel of John",
         "Signs in the Gospel of John",
-        "Matthew's Use of Scripture"
+        "Acts"
       ]
     },
     {
@@ -143,6 +145,7 @@
         "Adoptionist Christology",
         "Incarnation Christology",
         "Angelic Christology",
+        "Son of God",
         "Philippians 2 Christ Poem",
         "Arius and Arianism"
       ]
@@ -155,6 +158,7 @@
         "Apostolic Fathers Attribution",
         "Papias",
         "Martyrdom of Polycarp",
+        "Origen of Alexandria",
         "Eusebius of Caesarea",
         "Athanasius of Alexandria",
         "Didymus the Blind",
@@ -176,9 +180,9 @@
       "description": "Covers Jewish groups, law, apocalyptic thought, practices, texts, and historical settings around the time of Jesus and early Christianity, including the Dead Sea Scrolls and Essenes.",
       "topicOrder": [
         "Early Judaism (General)",
+        "Jewish Law and Torah",
         "Jewish Apocalypticism",
         "Enoch Traditions",
-        "Jewish Law and Torah",
         "Dead Sea Scrolls and Essenes"
       ]
     },
@@ -231,17 +235,19 @@
     },
     {
       "name": "Gnosticism, Orthodoxy, and Heresy",
-      "description": "Covers Gnostic movements, Nag Hammadi writings, Marcion, the Gospel of Judas, Mary Magdalene traditions, and early Christian disputes over doctrine, scripture, authority, orthodoxy, and heresy.",
+      "description": "Covers Gnostic movements, Nag Hammadi writings, Marcion, the Gospels of Judas and Philip, Mary Magdalene traditions, and early Christian disputes over doctrine, scripture, authority, orthodoxy, and heresy.",
       "topicOrder": [
         "Early Christian Orthodoxy and Heresy",
-        "Gnostic and Orthodox Conflicts",
         "Gnosticism (General)",
-        "Nag Hammadi",
+        "Gnostic and Orthodox Conflicts",
         "Marcion",
+        "Nag Hammadi",
         "Sethian Gnostics",
         "Valentinian Gnostics",
+        "Gospel of Philip",
         "Gospel of Judas",
-        "Mary Magdalene in Gnostic Traditions"
+        "Mary Magdalene in Gnostic Traditions",
+        "Greater Questions of Mary"
       ]
     },
     {
@@ -257,6 +263,7 @@
         "Book of Job",
         "Ecclesiastes",
         "Hebrew Bible Composition and Sources",
+        "Documentary Hypothesis",
         "Hebrew Bible Historical Reliability",
         "Hebrew Bible Manuscripts",
         "Septuagint",
@@ -270,11 +277,12 @@
       "topicOrder": [
         "Historical Jesus (General)",
         "Methods for Studying the Historical Jesus",
-        "Mythicism",
-        "Nazareth",
         "Apocalyptic Jesus",
+        "Mythicism",
         "Messiah",
         "Son of Man",
+        "Jesus' Temple Action",
+        "Nazareth",
         "Zealot Hypothesis"
       ]
     },
@@ -284,14 +292,14 @@
       "topicOrder": [
         "Historical Methods (General)",
         "Critical Biblical Scholarship",
-        "Methods for Studying the Historical Jesus",
-        "Historical Study of Miracles",
-        "Historical Study and Theology",
         "Dating Ancient Texts",
         "Source Criticism",
         "Redaction Criticism",
-        "Hebrew Bible Historical Reliability",
         "Comparative Ancient Evidence",
+        "Methods for Studying the Historical Jesus",
+        "Historical Study of Miracles",
+        "Hebrew Bible Historical Reliability",
+        "Historical Study and Theology",
         "Demythologizing the New Testament"
       ]
     },
@@ -302,6 +310,8 @@
         "Jesus' Birth Narratives",
         "Virgin Birth",
         "Genealogies of Jesus",
+        "Mary, Mother of Jesus",
+        "Joseph, Father of Jesus",
         "Jesus' Family Traditions",
         "Jesus' Miracle Stories"
       ]
@@ -311,7 +321,9 @@
       "description": "Covers Gospel passion narratives, Jesus' trial, crucifixion, burial, empty tomb traditions, resurrection appearances, apologetic debates, and early interpretations of Jesus' death and resurrection, including Roman crucifixion and burial practices.",
       "topicOrder": [
         "Jesus' Passion Narratives",
+        "Triumphal Entry",
         "Trial of Jesus",
+        "Barabbas and the Passover Release",
         "Crucifixion of Jesus",
         "Crucified Messiah",
         "Roman Crucifixion and Burial",
@@ -325,9 +337,11 @@
     },
     {
       "name": "Jesus' Teachings and Social World",
-      "description": "Covers Jesus' teachings, ethical vision, economic setting, views on wealth and poverty, and traditions involving women in his life and Gospel portrayals.",
+      "description": "Covers Jesus' teachings, proclamation of God's kingdom, ethical vision, economic setting, views on wealth and poverty, and traditions involving women in his life and Gospel portrayals.",
       "topicOrder": [
         "Jesus' Teachings",
+        "Kingdom of God",
+        "Parables of Jesus",
         "Jesus' Ethics",
         "Jesus on Wealth and Poverty",
         "Jesus and Women"
@@ -377,11 +391,14 @@
       "name": "New Testament Figures",
       "description": "Covers prominent people in and around the New Testament narratives, including members of Jesus' family, followers, associates, opponents, and Roman authorities.",
       "topicOrder": [
-        "John the Baptist",
-        "Peter the Apostle",
-        "Mary Magdalene",
         "James the Brother of Jesus",
+        "John the Baptist",
+        "Joseph, Father of Jesus",
         "Judas Iscariot",
+        "Mary Magdalene",
+        "Mary, Mother of Jesus",
+        "Peter the Apostle",
+        "Peter and Cephas",
         "Pontius Pilate"
       ]
     },
@@ -390,21 +407,25 @@
       "description": "Covers early Christian writings outside the New Testament, including non-canonical gospels, infancy traditions, apocalypses, apocryphal acts, church manuals, apostolic writings, miracle stories, and manuscript fragments.",
       "topicOrder": [
         "Non-Canonical Gospel Traditions",
-        "Gospel of Thomas",
-        "Gospel of Peter",
-        "Gospel of Judas",
-        "Gospel of Jesus' Wife Fragment",
-        "Jewish Christian Gospels",
-        "Papyrus Egerton",
-        "Proto-Gospel of James",
-        "Infancy Gospel of Thomas",
-        "Jesus and Abgar Legend",
+        "Acts of Thomas",
         "Apocalypse of Peter",
         "Apocryphal Acts",
-        "Acts of Thomas",
-        "Miracle Stories in Non-Canonical Texts",
         "Didache",
-        "Letter of Barnabas"
+        "Gospel of the Ebionites",
+        "Gospel of Jesus' Wife Fragment",
+        "Gospel of Judas",
+        "Gospel of Nicodemus",
+        "Gospel of Peter",
+        "Gospel of Philip",
+        "Gospel of Thomas",
+        "Greater Questions of Mary",
+        "Infancy Gospel of Thomas",
+        "Jesus and Abgar Legend",
+        "Jewish Christian Gospels",
+        "Letter of Barnabas",
+        "Miracle Stories in Non-Canonical Texts",
+        "Papyrus Egerton",
+        "Proto-Gospel of James"
       ]
     },
     {
@@ -479,9 +500,9 @@
         "Atonement (General)",
         "Atonement in Luke-Acts",
         "Pauline Salvation Models",
+        "Free Will and Predestination",
         "Divine Judgment",
-        "Eternal Punishment",
-        "Free Will and Predestination"
+        "Eternal Punishment"
       ]
     },
     {
@@ -490,8 +511,8 @@
       "topicOrder": [
         "Academic Careers and University Life",
         "Scholarly Research and Publishing",
-        "Bruce Metzger",
         "Scholar Tributes and Memorials",
+        "Bruce Metzger",
         "Public Debates"
       ]
     },
@@ -540,10 +561,10 @@
       "name": "Wealth, Poverty, and Charity",
       "description": "Covers charity, altruism, care for people in need, and ancient, biblical, and early Christian approaches to wealth, poverty, giving, and care for the sick.",
       "topicOrder": [
-        "Charity and Altruism",
+        "Wealth and Poverty in Antiquity",
         "Jesus on Wealth and Poverty",
         "Early Christian Teachings on Wealth",
-        "Wealth and Poverty in Antiquity",
+        "Charity and Altruism",
         "Christian Health Care"
       ]
     },
@@ -553,6 +574,7 @@
       "topicOrder": [
         "Women in Early Christianity",
         "Jesus and Women",
+        "Mary, Mother of Jesus",
         "Mary Magdalene",
         "Women in Pauline Traditions",
         "Biblical Debates on Same-Sex Relations",

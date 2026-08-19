@@ -1,0 +1,266 @@
+{
+  "auditDate": "2026-08-19",
+  "method": "Conservative full-text review; a topic was assigned only when it was a primary or major sustained subject of the post.",
+  "topics": [
+    {
+      "topic": "Origen of Alexandria",
+      "description": "Covers Origen of Alexandria's theology, including Christology, preexistent souls, reincarnation, and universal salvation.",
+      "categories": [
+        "Church Fathers"
+      ],
+      "candidateBasis": "posts containing the Origen of Alexandria keyword",
+      "reviewedCandidateCount": 25,
+      "topicPostCount": 6,
+      "excludedCandidateCount": 19,
+      "decisions": [
+        {
+          "wpId": "46936",
+          "title": "Will Everyone be Saved? (Everyone??)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "32072",
+          "title": "How Could Jesus Be BOTH Divine and Human at Once?  An Intriguing Ancient View",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25226",
+          "title": "How Could Christ Be Both God and a Human — At Once?  The Unusual View of Origen",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15755",
+          "title": "Did Early Christians Believe in Reincarnation?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15752",
+          "title": "Did We Exist Before We Were Born?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15748",
+          "title": "Does Everyone Get Saved in the End?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Origen of Alexandria as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Barabbas and the Passover Release",
+      "description": "Examines the Gospel story of Barabbas, including the alleged Passover prisoner release, its historical plausibility, the name Jesus Barabbas, and its role in shifting responsibility for Jesus' death.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "candidateBasis": "posts containing the Barabbas keyword",
+      "reviewedCandidateCount": 18,
+      "topicPostCount": 6,
+      "excludedCandidateCount": 12,
+      "decisions": [
+        {
+          "wpId": "35760",
+          "title": "Did Pilate Really Release A Dangerous Criminal, Barabbas, at Jesus’ Trial?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15929",
+          "title": "Pilate Released Barabbas.  Really??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21862",
+          "title": "Are the Gospels Right?  Did Pilate Really Release a Prisoner at Passover?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20741",
+          "title": "Did the Gospel Writers Invent Barabbas?   Readers’ Mailbag",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3101",
+          "title": "Pilate and Barabbas",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11863",
+          "title": "Fear of Dying etc.: Weekly Readers Mailbag, September 18, 2016",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Barabbas and the Passover Release as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Jesus' Temple Action",
+      "description": "Examines Jesus' disruption of the Jerusalem Temple, including its historical plausibility, apocalyptic meaning, relationship to his arrest, and interpretations of it as revolutionary activity.",
+      "categories": [
+        "Historical Jesus"
+      ],
+      "candidateBasis": "full-text candidates mentioning the Temple action or cleansing",
+      "reviewedCandidateCount": 37,
+      "topicPostCount": 5,
+      "excludedCandidateCount": 32,
+      "decisions": [
+        {
+          "wpId": "50367",
+          "title": "What Did Jesus’s Violent Action in the Temple Actually Mean?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50347",
+          "title": "Gist and Exaggeration: Jesus and the Cleansing of the Temple",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35746",
+          "title": "Did Jesus Really Cleanse the Temple?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20776",
+          "title": "Doesn’t Jesus’ “Cleansing of the Temple” Show He Wanted a Military Uprising?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6555",
+          "title": "Jesus and the Temple",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Parables of Jesus",
+      "description": "Covers Jesus' parables, including their historical and literary interpretation, teachings about wealth and judgment, and modern attempts to apply them.",
+      "categories": [
+        "Jesus' Teachings and Social World"
+      ],
+      "candidateBasis": "full-text candidates with sustained discussion of parables",
+      "reviewedCandidateCount": 35,
+      "topicPostCount": 12,
+      "excludedCandidateCount": 23,
+      "decisions": [
+        {
+          "wpId": "49985",
+          "title": "The Most Likely Capitalist Parable of Jesus?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49965",
+          "title": "The Parable of the Sower as Advice for Capitalists",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49955",
+          "title": "The Capitalist Parables of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49836",
+          "title": "These Are Weird Parables.  Do They Make Sense?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40115",
+          "title": "The Parables!  Have You Signed up for the Course?  (This weekend!)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "39917",
+          "title": "NEW COURSE!  “The Parables of Jesus” with Amy-Jill Levine",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15539",
+          "title": "Heaven, Hell, and the Parable of Lazarus and the Rich Man",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31173",
+          "title": "Lazarus and the Rich Man: What To Do with Wealth",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "31177",
+          "title": "An Even More Unusual Story of What Happens to the Rich…",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15541",
+          "title": "The Fate of the Rich and the Poor: Another Story",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13341",
+          "title": "Did Jesus Mean that Literally?  Rewards and Punishments in the Afterlife",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15475",
+          "title": "Did Jesus Believe Sinners Would Be Annihilated?  The Sheep and the Goats",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Parables of Jesus as a primary or major sustained subject."
+        }
+      ]
+    }
+  ],
+  "heldCandidate": {
+    "name": "Acts of Paul and Thecla",
+    "decision": "do_not_create",
+    "reason": "Only three posts treat the work as an unequivocal primary subject; the remaining candidates use Thecla or the Acts of Paul as supporting context."
+  }
+}

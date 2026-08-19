@@ -1,0 +1,181 @@
+{
+  "auditDate": "2026-08-19",
+  "topic": "Kingdom of God",
+  "standard": "Retain the topic only when the Kingdom of God itself occupies the majority of the post, rather than serving as context for another dominant subject.",
+  "postCountBefore": 25,
+  "postCountAfter": 8,
+  "descriptionBefore": "Covers Jesus' proclamation of the coming Kingdom of God, including its apocalyptic meaning, who would enter it, and its implications for ethics, wealth, miracles, and messianic expectations.",
+  "descriptionAfter": "Examines Jesus' proclamation of the coming Kingdom of God, including its imminent apocalyptic arrival, the judgment and reversal it would bring, who would enter it, and how later Gospel traditions reshaped that expectation.",
+  "retained": [
+    {
+      "wpId": "38334",
+      "title": "How the Gospels Transformed the Apocalyptic Jesus"
+    },
+    {
+      "wpId": "28907",
+      "title": "The Heart of Jesus’ Message"
+    },
+    {
+      "wpId": "21114",
+      "title": "How Jesus’ Apocalyptic Teachings Were Changed (even in the NT)"
+    },
+    {
+      "wpId": "13211",
+      "title": "The Preaching of Jesus in a Nutshell"
+    },
+    {
+      "wpId": "13186",
+      "title": "Jesus’ Teaching About the Kingdom of God"
+    },
+    {
+      "wpId": "9311",
+      "title": "The Teaching of Jesus"
+    },
+    {
+      "wpId": "7301",
+      "title": "The Message of Jesus"
+    },
+    {
+      "wpId": "6541",
+      "title": "The Later De-apocalypticizing of Jesus"
+    }
+  ],
+  "removed": [
+    {
+      "wpId": "50382",
+      "title": "Paying Your Religious Dues:  The Studied Indifference of Jesus",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The temple-tax story and Jesus' attitude toward religious obligations dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "50329",
+      "title": "Render Unto Caesar: Jesus’s Indifference to Human Governments and Economies",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Taxation, government, and Jesus' attitude toward earthly institutions dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "50317",
+      "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The triumphal entry, Jesus' public identity, and messiahship dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "50288",
+      "title": "Thoughts on Jesus and Activism.  What Do You Think?",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' relationship to political activism and social reform dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "50249",
+      "title": "The Indifference of Jesus",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Stoic indifference and Jesus' attitude toward society dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "41368",
+      "title": "Why Should We Think Jesus Called Himself the Messiah?",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The historical case that Jesus considered himself the Messiah dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "37655",
+      "title": "What’s the *Point* of Jesus’ Miracles?",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The purpose and interpretation of Jesus' miracles dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "31849",
+      "title": "Did Jesus Insist on Voluntary Poverty?",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' teaching about wealth, poverty, and relinquishing possessions dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "29786",
+      "title": "Are the Teachings of Jesus Realistic?  Guest Post by Douglas Wadeson",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Whether Jesus' ethical teachings are realistic dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "28981",
+      "title": "The Messages of Jesus and Paul:  Basically the Same or Fundamentally Different?",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The comparison between the messages of Jesus and Paul dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "28939",
+      "title": "Are the Teachings of Jesus Realistic?   Platinum guest post by Douglas Wadeson",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Whether Jesus' ethical teachings are realistic dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "27343",
+      "title": "On the Flipside: The Glorious Salvation of Saints in the Teachings of Jesus",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The salvation and future reward of the righteous dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "15382",
+      "title": "The Message of Jesus’ Miracles",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The theological meaning of Jesus' miracle traditions dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "14882",
+      "title": "Jesus and Paul: Similarities and Differences",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The similarities and differences between Jesus and Paul dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "9333",
+      "title": "Jesus’ Claim to Be the Messiah",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Jesus' understanding of his own messiahship dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "8812",
+      "title": "Why Jesus Does Miracles",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "Why Jesus performs miracles in the Synoptic Gospels dominates the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "wpId": "7315",
+      "title": "Jesus and Paul Compared and Contrasted",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The similarities and differences between Jesus and Paul dominate the post.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    }
+  ]
+}

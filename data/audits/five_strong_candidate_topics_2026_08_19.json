@@ -1,0 +1,568 @@
+{
+  "auditDate": "2026-08-19",
+  "method": "Conservative full-text review; a topic was assigned only when it was a primary or major sustained subject of the post.",
+  "topics": [
+    {
+      "topic": "Love Thy Stranger",
+      "description": "Covers Bart's book Love Thy Stranger, including its argument that Jesus' teachings reshaped Western ideas about strangers, charity, forgiveness, and care for people in need.",
+      "categories": [
+        "Bart's Books"
+      ],
+      "candidateBasis": "posts whose titles, descriptions, keywords, or full text identify Love Thy Stranger as a major subject",
+      "reviewedCandidateCount": 11,
+      "topicPostCount": 11,
+      "excludedCandidateCount": 0,
+      "decisions": [
+        {
+          "wpId": "50263",
+          "title": "Understanding Jesus:  A Swedish Podcast Interview",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49699",
+          "title": "The Morality of War",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49472",
+          "title": "The Distinctively Jewish Roots of Jesus’ Ethics",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49394",
+          "title": "Rethinking Faith Podcast Interview About Love Thy Stranger",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49339",
+          "title": "The Good Done By Christianity to Our World",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49337",
+          "title": "The Dark Side of Christianity: How I (Partially) End My New Book",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49334",
+          "title": "Advance Preview–How I Begin My New Book: Love Thy Stranger",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "49071",
+          "title": "Announcing the “Sponsor a Stranger” Campaign",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48919",
+          "title": "Why I Wrote Love Thy Stranger and Significant Benefits that Can Come Your Way",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48737",
+          "title": "Christian Churches Steadfastly Refusing To Help Those in Need….",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        },
+        {
+          "wpId": "48527",
+          "title": "My Interview about Christmas with Nicholas Kristof (New York Times)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Love Thy Stranger as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Gospel of the Ebionites",
+      "description": "Examines the fragmentary Gospel of the Ebionites, including its harmonized Gospel traditions, account of Jesus' baptism, and portrayal of John the Baptist's diet.",
+      "categories": [
+        "Non-Canonical Christian Texts"
+      ],
+      "candidateBasis": "posts mentioning the Gospel of the Ebionites or discussing the broader Jewish-Christian Gospel tradition",
+      "reviewedCandidateCount": 11,
+      "topicPostCount": 7,
+      "excludedCandidateCount": 4,
+      "decisions": [
+        {
+          "wpId": "36829",
+          "title": "About Those Ebionites and Their Peculiar Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36824",
+          "title": "Locusts or Pancakes?  The Dietary Preferences of John the Baptist.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "36819",
+          "title": "Contradictions?  What Contradictions?  Harmonizing the Gospels.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "34494",
+          "title": "The Voice at Jesus’ Baptism–An Intriguing Version in the Gospel of the Ebionites",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4814",
+          "title": "The Ebionites and their Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4806",
+          "title": "Locusts or Pancakes?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4803",
+          "title": "Harmonizing the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of the Ebionites as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Son of God",
+      "description": "Examines the meaning and development of the title Son of God, including its use in the Gospels, adoption and exaltation Christologies, resurrection traditions, textual variants, and later Christian debates.",
+      "categories": [
+        "Christology"
+      ],
+      "candidateBasis": "posts containing the Son of God secondary keyword",
+      "reviewedCandidateCount": 215,
+      "topicPostCount": 39,
+      "excludedCandidateCount": 176,
+      "decisions": [
+        {
+          "wpId": "47113",
+          "title": "Did Jesus BECOME the Son of God?  The Christology of Acts",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37841",
+          "title": "No Virgin Birth? Was Jesus ADOPTED by God to be His Son?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37091",
+          "title": "Is Christ *Merely* the “Adopted” Son of God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35354",
+          "title": "The Father and the Son. A Platinum Post by Omar Abur-Robb",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33310",
+          "title": "Why Would Scribes Mess with Mark’s Very First Verse?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "33309",
+          "title": "Do We Know How Mark Began His Gospel?  Another Scribal Change",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23935",
+          "title": "Does Luke Present Different (Inconsistent!) Views of Christ?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23381",
+          "title": "When Did Jesus Become Divine?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23250",
+          "title": "The Earliest Understanding of Christ?  The Hint in Paul’s Letter to the Romans",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16028",
+          "title": "Jesus “Only” Adopted to be the Son of God?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15925",
+          "title": "My Doubts about the Son of God: A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15268",
+          "title": "Why Does Luke Appear to Contradict Himself?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13506",
+          "title": "Jesus’ Death and Resurrection in Mark: Another Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13504",
+          "title": "Mark’s Suffering Son of God: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "13142",
+          "title": "Is Luke’s Christology Consistent?   A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12408",
+          "title": "Pastor Goranson, the Son of God, and I: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12375",
+          "title": "The First Textual Variant in the Gospel of Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12373",
+          "title": "Christians Who Thought Jesus Was Adopted by God: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12363",
+          "title": "An Interesting Scribal Change at the Beginning of Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10270",
+          "title": "Christ as the Adopted Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10261",
+          "title": "Christ as Son of God in Mark’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10049",
+          "title": "The Son of God, the Council of Nicea, and the Da Vinci Code",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9399",
+          "title": "The Resurrection of the Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9264",
+          "title": "Jesus as the Messiah in Mark’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9255",
+          "title": "Jesus as the Son of God in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9220",
+          "title": "Is Luke’s Christology Consistent?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9215",
+          "title": "Did Luke’s Gospel Originally Have the Virgin Birth?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9197",
+          "title": "Adoptionistic Christologies",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9020",
+          "title": "Mark 1:1 as an Intentional Alteration of the Text",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "9018",
+          "title": "A Variant in Mark 1:1 — Accidental or Intentional?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "7155",
+          "title": "Jesus as the Adopted Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6967",
+          "title": "Jesus’ Death and Resurrection in Mark",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6962",
+          "title": "Mark’s Suffering Son of God",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6946",
+          "title": "More on the Beginning of Mark’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6942",
+          "title": "The Beginning of Mark’s Gospel/Biography",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "4672",
+          "title": "Luke 3:22 — What Luke Himself Would Have Written",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3947",
+          "title": "Pastor Goranson, the Son of God, and I",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3816",
+          "title": "Pushing Back the Exaltation",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "3795",
+          "title": "Exaltation Christology in an Early Creed",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Son of God as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Triumphal Entry",
+      "description": "Examines Gospel traditions about Jesus' triumphal entry into Jerusalem, including their historical plausibility, development in memory, messianic symbolism, and connection with his arrest.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "candidateBasis": "posts whose titles, descriptions, or full text discuss the triumphal entry",
+      "reviewedCandidateCount": 12,
+      "topicPostCount": 7,
+      "excludedCandidateCount": 5,
+      "decisions": [
+        {
+          "wpId": "50317",
+          "title": "The Triumphal Entry and Jesus’s Mistaken Identity",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50319",
+          "title": "The Implausibility of the Triumphal Entry",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "35742",
+          "title": "Did the Triumphal Entry Really Happen?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24729",
+          "title": "Fantastic Story.  But History?  Some Doubts about the Triumphal Entry",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24593",
+          "title": "Did Jesus Really Have a “Triumphal Entry” into Jerusalem?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10294",
+          "title": "The Triumphal Entry as a Distorted Memory",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        },
+        {
+          "wpId": "10292",
+          "title": "The Memory of Jesus’ Triumphal Entry",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Triumphal Entry as a primary or major sustained subject."
+        }
+      ]
+    },
+    {
+      "topic": "Gospel of Nicodemus",
+      "description": "Covers the Gospel of Nicodemus, also associated with the Acts of Pilate tradition, including its expanded trial narrative, descent to Hades, miraculous Roman standards, and later legendary traditions.",
+      "categories": [
+        "Non-Canonical Christian Texts"
+      ],
+      "candidateBasis": "posts containing the Gospel of Nicodemus secondary keyword",
+      "reviewedCandidateCount": 15,
+      "topicPostCount": 6,
+      "excludedCandidateCount": 9,
+      "decisions": [
+        {
+          "wpId": "21368",
+          "title": "The Roman Standards Worship Jesus?  From the Gospel of Nicodemus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "21355",
+          "title": "A Gospel of Nicodemus?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "20725",
+          "title": "Yet Other Accounts Of the Death of Judas",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15763",
+          "title": "The Happy News!  No One Stays In Hell!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15221",
+          "title": "Two Rather Bizarre Accounts of How Judas Died",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "8833",
+          "title": "Other Accounts of the Death of Judas",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Nicodemus as a primary or major sustained subject."
+        }
+      ]
+    }
+  ],
+  "heldCandidate": {
+    "name": "Paul and Barnabas",
+    "reviewedCandidateCount": 26,
+    "directPostCount": 4,
+    "decision": "do_not_create",
+    "reason": "Only four posts treat Paul and Barnabas as an unequivocal primary subject, and all four form one guest-post series. Existing topics already provide adequate coverage."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "auditDate": "2026-08-19",
+  "standard": "Retain a topic only when it is a primary or major sustained subject of the full post.",
+  "results": [
+    {
+      "topic": "Kingdom of God",
+      "postCountAfter": 25
+    },
+    {
+      "topic": "Gospel of Philip",
+      "postCountAfter": 7
+    },
+    {
+      "topic": "Documentary Hypothesis",
+      "postCountAfter": 11
+    },
+    {
+      "topic": "Peter and Cephas",
+      "postCountAfter": 5
+    }
+  ],
+  "changes": [
+    {
+      "topic": "Kingdom of God",
+      "wpId": "36569",
+      "title": "Did Jesus Believe the End Would Come Within his Lifetime? Maybe Not!  Platinum Post by Rizwan Ahmed",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post evaluates whether Jesus expected the end within his generation; the kingdom is supporting apocalyptic context rather than a sustained subject.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Kingdom of God",
+      "wpId": "35324",
+      "title": "Did Jesus Believe The End Would Come Within His Lifetime? Platinum Post by Rizwan Ahmed",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post evaluates whether Jesus expected the end within his generation; the kingdom is supporting apocalyptic context rather than a sustained subject.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword"
+    },
+    {
+      "topic": "Documentary Hypothesis",
+      "wpId": "25647",
+      "title": "Who Wrote the Pentateuch Anyway?",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post establishes why Moses probably did not write the Pentateuch but does not examine the Documentary Hypothesis or JEDP model.",
+      "secondaryKeywordAction": "not restored"
+    },
+    {
+      "topic": "Documentary Hypothesis",
+      "wpId": "11587",
+      "title": "Who Wrote the Pentateuch?  Early Questions of Authorship.",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post surveys early challenges to Mosaic authorship but does not examine the Documentary Hypothesis or JEDP model.",
+      "secondaryKeywordAction": "not restored"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "auditDate": "2026-08-19",
+  "topics": [
+    {
+      "topic": "Gospel of Philip",
+      "description": "Covers the Gospel of Philip, including its Valentinian Gnostic teachings, Nag Hammadi context, portrayal of Mary Magdalene, and the passage describing Jesus kissing her.",
+      "categories": [
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Non-Canonical Christian Texts"
+      ],
+      "reviewedKeywordPostCount": 8,
+      "topicPostCount": 7,
+      "decisions": [
+        {
+          "wpId": "38493",
+          "title": "Jesus and Mary Magdalene Seen Kissing??",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37384",
+          "title": "A Bizarre Scene in the Gospel of Philip: Jesus Kissing Mary",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "37380",
+          "title": "The Gospel of Philip: An Example of a Valentinian Gnostic Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "23254",
+          "title": "Jesus, Mary Magadalene, and … Sexual Innuendos?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "17615",
+          "title": "Jesus Kissing Mary Magdalene: A Bizarre Scene in the Gospel of Philip",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "14899",
+          "title": "Jesus Kissing Mary Magdalene: A Blast From the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "6891",
+          "title": "Jesus Kissing Mary Magdalene",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Gospel of Philip as a primary or major sustained subject."
+        },
+        {
+          "wpId": "40302",
+          "title": "A (Modern-Discovered) Gospel That Shows Jesus Was Married With Children?",
+          "reason": "The post critiques claims about Joseph and Aseneth; the Gospel of Philip is comparative context rather than a sustained subject.",
+          "decision": "exclude",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic": "Documentary Hypothesis",
+      "description": "Covers the Documentary Hypothesis and related source theories for the composition of the Pentateuch, including JEDP sources, challenges to Mosaic authorship, textual inconsistencies, and recent scholarship.",
+      "categories": [
+        "Authorship",
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "reviewedKeywordPostCount": 15,
+      "topicPostCount": 13,
+      "decisions": [
+        {
+          "wpId": "33426",
+          "title": "Are There Contradictions in the Pentateuch?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25687",
+          "title": "More Recent Scholarship on Who Wrote the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25682",
+          "title": "Who Really Wrote the Pentateuch (if not Moses)?  The JEDP Hypothesis",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25677",
+          "title": "More Inconsistencies in the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "25647",
+          "title": "Who Wrote the Pentateuch Anyway?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "24315",
+          "title": "What Are the Sources of the Hebrew Bible?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "16802",
+          "title": "Who Wrote the Pentateuch?  The JEDP Hypothesis",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "15263",
+          "title": "Sources for the Hebrew Bible: A Blast from the Past",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11611",
+          "title": "Modern Views of the Authorship of the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11602",
+          "title": "Did Moses Write the Pentateuch?  The JEDP Hypothesis.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11599",
+          "title": "Other Literary Tensions in the Pentateuch",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11587",
+          "title": "Who Wrote the Pentateuch?  Early Questions of Authorship.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11581",
+          "title": "The Name of Saul/Paul and the Sources of the Pentateuch: Weekly Mailbag June 26, 2016",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Documentary Hypothesis as a primary or major sustained subject."
+        },
+        {
+          "wpId": "11643",
+          "title": "Suggestions for Further Reading on the Pentateuch",
+          "reason": "The post is primarily a reading list rather than a sustained treatment of the Documentary Hypothesis.",
+          "decision": "exclude",
+          "confidence": "high"
+        },
+        {
+          "wpId": "2328",
+          "title": "The Hebrew Bible and Its Sources",
+          "reason": "The post primarily recommends introductory resources rather than developing the Documentary Hypothesis as a major subject.",
+          "decision": "exclude",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic": "Peter and Cephas",
+      "description": "Examines whether Peter and Cephas were the same person, including Paul's usage, evidence from Galatians and John, and early Christian traditions that distinguish them.",
+      "categories": [
+        "New Testament Figures"
+      ],
+      "reviewedKeywordPostCount": 5,
+      "topicPostCount": 5,
+      "decisions": [
+        {
+          "wpId": "50385",
+          "title": "Did Paul Know that Peter and Cephas were Two Different People?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50251",
+          "title": "Were Peter and Cephas the Same Person?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12120",
+          "title": "Was Cephas Peter?  The Rest of the Argument",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12118",
+          "title": "Cephas and Peter in the Writings of Paul (Who Knew Them)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "12112",
+          "title": "Are Cephas and Peter Two Different People?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,46 @@
 {
   "topics": [
     {
+      "name": "1 Corinthians",
+      "description": "Covers 1 Corinthians, including the Corinthian community, the crucified messiah, resurrection, Christian love, women in worship, and textual questions.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "1 Peter",
+      "description": "Covers 1 Peter, including its authorship, ancient literacy, possible use of secretaries, relationship to Pauline traditions, and teachings about persecution and suffering.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "1 Thessalonians",
+      "description": "Covers 1 Thessalonians as Paul's earliest surviving letter, including its purpose, expectations of Jesus' return, later rapture interpretations, and textual problems.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "2 Corinthians",
+      "description": "Covers 2 Corinthians, especially its historical setting and arguments that the surviving text combines multiple Pauline letters.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "2 Peter",
+      "description": "Covers 2 Peter, including its authorship, possible pseudepigraphy, disputed canonical status, warnings against false teachers, and expectation of judgment.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "2 Thessalonians",
       "description": "Posts on 2 Thessalonians, including authorship, forgery, apocalyptic expectation, further reading, and later interpretation.",
       "categories": [
@@ -17,14 +57,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Scholarly Research and Publishing",
-      "description": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
-      "categories": [
-        "Academic Life, Scholars, and Public Debate"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Acts",
       "description": "Posts on the book of Acts, including its literary features, historical reliability, major topics, theology, and account of early Christianity's spread.",
       "categories": [
@@ -33,8 +65,24 @@
       "displayInBrowser": true
     },
     {
-      "name": "Life After Death (General)",
-      "description": "Covers broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing afterlife beliefs.",
+      "name": "Acts of Thomas",
+      "description": "Covers the Acts of Thomas, including Thomas's mission to India, identification as Jesus' twin, ascetic teachings, views of wealth, and journeys to the afterlife.",
+      "categories": [
+        "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Adoptionist Christology",
+      "description": "Posts on adoptionist Christology, especially views that Jesus was adopted, appointed, or declared God's Son at baptism, resurrection, or another point.",
+      "categories": [
+        "Christology"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Afterlife Journeys",
+      "description": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
       "categories": [
         "Afterlife"
       ],
@@ -81,19 +129,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Wealth and Poverty in Antiquity",
-      "description": "Covers ancient views of wealth, poverty, charity, contentment, Cynic poverty, and moral arguments about possessions.",
+      "name": "Angelic Christology",
+      "description": "Posts on angelic Christology, especially whether early Christians, including Paul, understood Christ as an angelic or preexistent heavenly being.",
       "categories": [
-        "Ancient World and Social Context",
-        "Wealth, Poverty, and Charity"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Christian Anti-Judaism",
-      "description": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
-      "categories": [
-        "Ethics and Moral Reasoning"
+        "Christology"
       ],
       "displayInBrowser": true
     },
@@ -116,14 +155,6 @@
     {
       "name": "Apocryphal Acts",
       "description": "Covers apocryphal acts attributed to apostles, including legendary missionary stories, miracle traditions, chastity, wealth, and traditions about Peter, Paul, and other apostles.",
-      "categories": [
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Acts of Thomas",
-      "description": "Covers the Acts of Thomas, including Thomas's mission to India, identification as Jesus' twin, ascetic teachings, views of wealth, and journeys to the afterlife.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -203,6 +234,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Atonement in Luke-Acts",
+      "description": "Covers whether Luke and Acts present Jesus' death as atoning, salvific, or significant in a different way, including Luke's Last Supper textual problem.",
+      "categories": [
+        "Salvation, Atonement, and Judgment"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Augustine of Hippo",
       "description": "Covers substantive discussions of Augustine's views on miracles, lying, sexuality, war, and eternal punishment.",
       "categories": [
@@ -219,10 +258,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Biblical Debates on Same-Sex Relations",
-      "description": "Posts on biblical passages, translation issues, webinars, and interpretive debates about same-sex relations and sexual morality.",
+      "name": "Barabbas and the Passover Release",
+      "description": "Examines the Gospel story of Barabbas, including the alleged Passover prisoner release, its historical plausibility, the name Jesus Barabbas, and its role in shifting responsibility for Jesus' death.",
       "categories": [
-        "Women, Gender, and Sexuality"
+        "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
@@ -244,18 +283,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Biblical Inerrancy",
-      "description": "Posts on claims that the Bible is without error, including fundamentalism, contradictions, personal deconversion, and debates over biblical authority.",
+      "name": "Biblical Debates on Same-Sex Relations",
+      "description": "Posts on biblical passages, translation issues, webinars, and interpretive debates about same-sex relations and sexual morality.",
       "categories": [
-        "Biblical Canon, Authority, and Interpretation"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Biblical Numerology",
-      "description": "Covers number symbolism and numerical interpretation in biblical texts, especially 666, gematria, Greek numerals, and Matthew's genealogy.",
-      "categories": [
-        "Biblical Canon, Authority, and Interpretation"
+        "Women, Gender, and Sexuality"
       ],
       "displayInBrowser": true
     },
@@ -268,10 +299,18 @@
       "displayInBrowser": true
     },
     {
-      "name": "Jesus' Birth Narratives",
-      "description": "Covers canonical and non-canonical stories of Jesus' birth and infancy, including Matthew and Luke, Bethlehem, Herod, the census, angels, contradictions, and questions of history and theology.",
+      "name": "Biblical Inerrancy",
+      "description": "Posts on claims that the Bible is without error, including fundamentalism, contradictions, personal deconversion, and debates over biblical authority.",
       "categories": [
-        "Jesus' Birth, Family, and Miracles"
+        "Biblical Canon, Authority, and Interpretation"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Biblical Numerology",
+      "description": "Covers number symbolism and numerical interpretation in biblical texts, especially 666, gematria, Greek numerals, and Matthew's genealogy.",
+      "categories": [
+        "Biblical Canon, Authority, and Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -292,15 +331,38 @@
       "displayInBrowser": true
     },
     {
-      "name": "Woman Caught in Adultery",
-      "description": "Covers the story of the woman caught in adultery, including its narrative, manuscript history, absence from the original Gospel of John, possible historicity, and treatment in Bible translations.",
+      "name": "Book of Daniel",
+      "description": "Covers Daniel's court stories, apocalyptic visions, resurrection teaching, prophecies, and additions to the book.",
       "categories": [
-        "Textual Criticism"
+        "Hebrew Bible Texts and Traditions"
       ],
-      "displayInBrowser": true,
-      "aliases": [
-        "Pericope Adulterae"
-      ]
+      "displayInBrowser": true
+    },
+    {
+      "name": "Book of Isaiah",
+      "description": "Covers the composition and message of Isaiah, Isaiah 7 and 53, the suffering servant, virgin-birth interpretation, and Christian readings of the book.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Book of Job",
+      "description": "Covers Job, including suffering, divine justice, Job's friends, the book's different perspectives, and biblical responses to pain.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions",
+        "Suffering and Evil"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Book of Revelation",
+      "featuredOrder": 5,
+      "description": "Covers the book of Revelation as an ancient apocalypse, including authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
+      "categories": [
+        "Revelation and End-Time Interpretation"
+      ],
+      "displayInBrowser": true
     },
     {
       "name": "Bruce Metzger",
@@ -344,10 +406,19 @@
       "displayInBrowser": true
     },
     {
-      "name": "Angelic Christology",
-      "description": "Posts on angelic Christology, especially whether early Christians, including Paul, understood Christ as an angelic or preexistent heavenly being.",
+      "name": "Christian Anti-Judaism",
+      "description": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
       "categories": [
-        "Christology"
+        "Ethics and Moral Reasoning"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Christian Health Care",
+      "description": "Posts on Christian care for the sick, hospitals, and health care as possible factors in Christianity's spread.",
+      "categories": [
+        "Christian Origins and Expansion",
+        "Wealth, Poverty, and Charity"
       ],
       "displayInBrowser": true
     },
@@ -360,10 +431,43 @@
       "displayInBrowser": true
     },
     {
+      "name": "Christology (General)",
+      "featuredOrder": 24,
+      "description": "Covers broad questions about Jesus' identity, divine status, relationship to God, and the Jewish or ancient background for later Christian claims about Christ.",
+      "categories": [
+        "Christology"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Christology in the Gospels",
       "description": "Covers how canonical and non-canonical Gospels portray Jesus' identity, sonship, divinity, messiahship, humanity, and relationship to God.",
       "categories": [
         "Christology"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Church Fathers as Textual Evidence",
+      "description": "Posts on using quotations in early Christian writers to reconstruct the New Testament text, including the limits, dating, location, and reliability of this evidence.",
+      "categories": [
+        "Textual Criticism"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Codex Sinaiticus",
+      "description": "Covers Codex Sinaiticus, including its discovery, St. Catherine's Monastery, its importance for the New Testament and Septuagint, and Bart's visits or reflections.",
+      "categories": [
+        "Manuscripts and Textual Evidence"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Colossians",
+      "description": "Covers Colossians, including its message, purpose, date, disputed authorship, and arguments that it was written in Paul's name by someone else.",
+      "categories": [
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -376,10 +480,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Codex Sinaiticus",
-      "description": "Covers Codex Sinaiticus, including its discovery, St. Catherine's Monastery, its importance for the New Testament and Septuagint, and Bart's visits or reflections.",
+      "name": "Composite Pauline Letters",
+      "description": "Covers arguments that some Pauline letters, especially 2 Corinthians and Philippians, may combine originally separate letters or fragments.",
       "categories": [
-        "Manuscripts and Textual Evidence"
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -397,6 +501,14 @@
       "description": "Covers why people converted to Christianity, including miracles, fear of hell, social appeal, martyrdom, missions, and ancient accounts of conversion.",
       "categories": [
         "Christian Origins and Expansion"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Courses and Teaching",
+      "description": "Covers teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
+      "categories": [
+        "Teaching, General Books, and Media"
       ],
       "displayInBrowser": true
     },
@@ -433,19 +545,19 @@
       "displayInBrowser": true
     },
     {
+      "name": "Dating the Gospels",
+      "description": "Covers when the canonical Gospels were written, including arguments for post-70 dates and how scholars date the Gospels.",
+      "categories": [
+        "Canonical Gospels and Acts"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Dead Sea Scrolls and Essenes",
       "description": "Covers the Dead Sea Scrolls, the Essenes, Qumran, Jewish sectarian movements, manuscript discoveries, and their significance for early Judaism and Jesus.",
       "categories": [
         "Early Judaism",
         "Manuscripts and Textual Evidence"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Public Debates",
-      "description": "Covers public debates, debate strategy, announcements, rebuttals, and exchanges over biblical history, reliability, miracles, suffering, and faith.",
-      "categories": [
-        "Academic Life, Scholars, and Public Debate"
       ],
       "displayInBrowser": true
     },
@@ -466,10 +578,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Didache",
-      "description": "Covers the Didache, including prayers, church order, ethical instructions, dating, composition, and its place among early Christian writings.",
+      "name": "Development of the Trinity",
+      "description": "Covers the development of the doctrine of the Trinity, including the Father, Son, Spirit, Nicaea, biblical interpretation, and later Christian theology.",
       "categories": [
-        "Non-Canonical Christian Texts"
+        "Early Church History"
       ],
       "displayInBrowser": true
     },
@@ -478,6 +590,14 @@
       "description": "Posts on Bart's book Did Jesus Exist?, including announcements, interviews, video presentations, reader questions, and responses to mythicist criticism.",
       "categories": [
         "Bart's Books"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Didache",
+      "description": "Covers the Didache, including prayers, church order, ethical instructions, dating, composition, and its place among early Christian writings.",
+      "categories": [
+        "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
@@ -514,11 +634,28 @@
       "displayInBrowser": true
     },
     {
+      "name": "Documentary Hypothesis",
+      "description": "Covers the Documentary Hypothesis and related source theories for the composition of the Pentateuch, including JEDP sources, challenges to Mosaic authorship, textual inconsistencies, and recent scholarship.",
+      "categories": [
+        "Authorship",
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Early Christian Diversity",
       "featuredOrder": 23,
       "description": "Covers competing forms of early Christianity, including alternative beliefs, rival groups, unorthodox texts, and the question of which Christianity became dominant.",
       "categories": [
         "Christian Origins and Expansion"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Early Christian Orthodoxy and Heresy",
+      "description": "Covers debates over orthodoxy and heresy in early Christianity, including early Christian diversity, Bauer's thesis, Eusebius, Marcion, adoptionist views, Jewish-Christian texts, and the rise of proto-orthodox Christianity.",
+      "categories": [
+        "Gnosticism, Orthodoxy, and Heresy"
       ],
       "displayInBrowser": true
     },
@@ -543,15 +680,6 @@
       "description": "Covers broad issues in early Christianity, including beliefs, practices, social setting, historical development, and the early Christian movement.",
       "categories": [
         "Christian Origins and Expansion"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Christology (General)",
-      "featuredOrder": 24,
-      "description": "Covers broad questions about Jesus' identity, divine status, relationship to God, and the Jewish or ancient background for later Christian claims about Christ.",
-      "categories": [
-        "Christology"
       ],
       "displayInBrowser": true
     },
@@ -588,6 +716,22 @@
       "displayInBrowser": true
     },
     {
+      "name": "Enoch Traditions",
+      "description": "Covers Enoch and writings attributed to him, including 1-2 Enoch, heavenly journeys, angelic transformation, afterlife traditions, and the use of Enochic writings.",
+      "categories": [
+        "Early Judaism"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Ephesians",
+      "description": "Covers Ephesians, including its message, purpose, writing style, disputed authorship, and possible composition in Paul's name by a later author.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Eternal Punishment",
       "description": "Covers hell, Gehenna, eternal torment, annihilation, the unforgivable sin, degrees of punishment, and Christian debates about divine justice.",
       "categories": [
@@ -607,14 +751,6 @@
     {
       "name": "Exaltation Christology",
       "description": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
-      "categories": [
-        "Christology"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Adoptionist Christology",
-      "description": "Posts on adoptionist Christology, especially views that Jesus was adopted, appointed, or declared God's Son at baptism, resurrection, or another point.",
       "categories": [
         "Christology"
       ],
@@ -687,6 +823,23 @@
       "displayInBrowser": true
     },
     {
+      "name": "Galatians",
+      "description": "Covers Galatians, including Gentile circumcision, Jewish Law, Paul's opponents, relations with the Jerusalem apostles, Christology, and authorship.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Genealogies of Jesus",
+      "description": "Covers the genealogies of Jesus in Matthew and Luke, including differences between them, women in Matthew's genealogy, textual problems, and theological aims.",
+      "categories": [
+        "Canonical Gospels and Acts",
+        "Jesus' Birth, Family, and Miracles"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "General-Audience Books",
       "description": "Covers books written for general readers, including trade books, book ideas, excerpts, publication plans, and efforts to make scholarship accessible.",
       "categories": [
@@ -724,14 +877,6 @@
       "description": "Posts on who wrote the canonical Gospels, why they are anonymous, how titles and traditions developed, and how early Christians connected them with apostolic figures.",
       "categories": [
         "Authorship",
-        "Canonical Gospels and Acts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Dating the Gospels",
-      "description": "Covers when the canonical Gospels were written, including arguments for post-70 dates and how scholars date the Gospels.",
-      "categories": [
         "Canonical Gospels and Acts"
       ],
       "displayInBrowser": true
@@ -803,8 +948,33 @@
       "displayInBrowser": true
     },
     {
+      "name": "Gospel of Nicodemus",
+      "description": "Covers the Gospel of Nicodemus, also associated with the Acts of Pilate tradition, including its expanded trial narrative, descent to Hades, miraculous Roman standards, and later legendary traditions.",
+      "categories": [
+        "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Gospel of Peter",
       "description": "Covers the Gospel of Peter, including its surviving fragment, resurrection scene, connection to Peter, canon questions, and distinctive portrayal of Jesus' death.",
+      "categories": [
+        "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Gospel of Philip",
+      "description": "Covers the Gospel of Philip, including its Valentinian Gnostic teachings, Nag Hammadi context, portrayal of Mary Magdalene, and the passage describing Jesus kissing her.",
+      "categories": [
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Gospel of the Ebionites",
+      "description": "Examines the fragmentary Gospel of the Ebionites, including its harmonized Gospel traditions, account of Jesus' baptism, and portrayal of John the Baptist's diet.",
       "categories": [
         "Non-Canonical Christian Texts"
       ],
@@ -819,19 +989,19 @@
       "displayInBrowser": true
     },
     {
-      "name": "Greco-Roman Religious Culture",
-      "description": "Covers pagan worship, mystery religions, emperor worship, moral philosophy, virtue, benefaction, and the religious culture in which early Christianity developed.",
+      "name": "Greater Questions of Mary",
+      "description": "Examines the lost Greater Questions of Mary, Epiphanius's account of its revelation to Mary Magdalene, its alleged use by the Phibionites, and whether the text or the sexual rituals attributed to it ever existed.",
       "categories": [
-        "Ancient World and Social Context"
+        "Gnosticism, Orthodoxy, and Heresy",
+        "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Christian Health Care",
-      "description": "Posts on Christian care for the sick, hospitals, and health care as possible factors in Christianity's spread.",
+      "name": "Greco-Roman Religious Culture",
+      "description": "Covers pagan worship, mystery religions, emperor worship, moral philosophy, virtue, benefaction, and the religious culture in which early Christianity developed.",
       "categories": [
-        "Christian Origins and Expansion",
-        "Wealth, Poverty, and Charity"
+        "Ancient World and Social Context"
       ],
       "displayInBrowser": true
     },
@@ -849,6 +1019,15 @@
       "description": "Covers ancient and Christian ideas about heaven and hell, including reward, punishment, moral reversal, and connections with Jesus, Paul, Revelation, Jewish traditions, Greek traditions, and Roman traditions.",
       "categories": [
         "Afterlife"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Hebrew Bible Composition and Sources",
+      "description": "Covers the composition and sources of Hebrew Bible writings, including Pentateuchal sources, the Documentary Hypothesis, Isaiah, Genesis, and related scholarly theories.",
+      "categories": [
+        "Authorship",
+        "Hebrew Bible Texts and Traditions"
       ],
       "displayInBrowser": true
     },
@@ -871,11 +1050,18 @@
       "displayInBrowser": true
     },
     {
-      "name": "Hebrew Bible Composition and Sources",
-      "description": "Covers the composition and sources of Hebrew Bible writings, including Pentateuchal sources, the Documentary Hypothesis, Isaiah, Genesis, and related scholarly theories.",
+      "name": "Hebrew Bible Prophets",
+      "description": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
       "categories": [
-        "Authorship",
         "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Hebrews",
+      "description": "Covers Hebrews, including its authorship, date, audience, teachings about Christ and salvation, and questions about Jesus' earthly existence.",
+      "categories": [
+        "Non-Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -889,17 +1075,16 @@
       "displayInBrowser": true
     },
     {
-      "name": "Methods for Studying the Historical Jesus",
-      "description": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
+      "name": "Historical Methods (General)",
+      "description": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "categories": [
-        "Historical and Critical Methods",
-        "Historical Jesus"
+        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Historical Methods (General)",
-      "description": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
+      "name": "Historical Study and Theology",
+      "description": "Covers the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
       "categories": [
         "Historical and Critical Methods"
       ],
@@ -911,14 +1096,6 @@
       "categories": [
         "Historical and Critical Methods",
         "Miracles and Supernatural Claims"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Historical Study and Theology",
-      "description": "Covers the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
-      "categories": [
-        "Historical and Critical Methods"
       ],
       "displayInBrowser": true
     },
@@ -983,15 +1160,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Jesus on Wealth and Poverty",
-      "description": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
-      "categories": [
-        "Jesus' Teachings and Social World",
-        "Wealth, Poverty, and Charity"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Jesus and Women",
       "description": "Covers women in Jesus' life, teaching, social world, and Gospel traditions, including Mary Magdalene and women followers or patrons.",
       "categories": [
@@ -1005,6 +1173,23 @@
       "description": "Posts about memory, oral tradition, eyewitness claims, Gospel transmission, and public discussions connected with Bart's book.",
       "categories": [
         "Bart's Books"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Jesus on Wealth and Poverty",
+      "description": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
+      "categories": [
+        "Jesus' Teachings and Social World",
+        "Wealth, Poverty, and Charity"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Jesus' Birth Narratives",
+      "description": "Covers canonical and non-canonical stories of Jesus' birth and infancy, including Matthew and Luke, Bethlehem, Herod, the census, angels, contradictions, and questions of history and theology.",
+      "categories": [
+        "Jesus' Birth, Family, and Miracles"
       ],
       "displayInBrowser": true
     },
@@ -1026,15 +1211,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Genealogies of Jesus",
-      "description": "Covers the genealogies of Jesus in Matthew and Luke, including differences between them, women in Matthew's genealogy, textual problems, and theological aims.",
-      "categories": [
-        "Canonical Gospels and Acts",
-        "Jesus' Birth, Family, and Miracles"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Jesus' Miracle Stories",
       "description": "Covers miracle stories connected with Jesus, including healings, exorcisms, nature miracles, Gospel summaries, and historical questions about miracle claims.",
       "categories": [
@@ -1044,11 +1220,35 @@
       "displayInBrowser": true
     },
     {
+      "name": "Jesus' Passion Narratives",
+      "description": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Jesus' Resurrection Appearances",
+      "description": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Jesus' Teachings",
       "featuredOrder": 14,
       "description": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categories": [
         "Jesus' Teachings and Social World"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Jesus' Temple Action",
+      "description": "Examines Jesus' disruption of the Jerusalem Temple, including its historical plausibility, apocalyptic meaning, relationship to his arrest, and interpretations of it as revolutionary activity.",
+      "categories": [
+        "Historical Jesus"
       ],
       "displayInBrowser": true
     },
@@ -1077,11 +1277,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Book of Job",
-      "description": "Covers Job, including suffering, divine justice, Job's friends, the book's different perspectives, and biblical responses to pain.",
+      "name": "Johannine Epistles",
+      "description": "Covers 1, 2, and 3 John, including their authorship, community setting, Christology, false teachers, possible pseudepigraphy, textual variants, and interpretation.",
       "categories": [
-        "Hebrew Bible Texts and Traditions",
-        "Suffering and Evil"
+        "Non-Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1089,6 +1288,15 @@
       "name": "John the Baptist",
       "description": "Covers John the Baptist, including his relationship to Jesus, baptism, apocalyptic preaching, Gospel traditions, birth narratives, and historical significance.",
       "categories": [
+        "New Testament Figures"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Joseph, Father of Jesus",
+      "description": "Covers Joseph, the father of Jesus in Christian tradition, including his role in canonical and apocryphal accounts, traditions about his age, family, and death, and debates over whether he was Jesus' biological father.",
+      "categories": [
+        "Jesus' Birth, Family, and Miracles",
         "New Testament Figures"
       ],
       "displayInBrowser": true
@@ -1110,10 +1318,42 @@
       "displayInBrowser": true
     },
     {
+      "name": "Kingdom of God",
+      "description": "Examines Jesus' proclamation of the coming Kingdom of God, including its imminent apocalyptic arrival, the judgment and reversal it would bring, who would enter it, and how later Gospel traditions reshaped that expectation.",
+      "categories": [
+        "Jesus' Teachings and Social World"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Letter of Barnabas",
       "description": "Covers the Letter of Barnabas, including its attribution, date, use of scripture, gematria, and place among early Christian writings.",
       "categories": [
         "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Letter of James",
+      "description": "Covers the Letter of James, including its authorship, relationship to James the brother of Jesus, teachings about faith and works, and possible response to Paul.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Letter of Jude",
+      "description": "Covers the Letter of Jude, including its authorship, possible pseudepigraphy, opposition to false teachers, angelic beings, and use of Jewish apocalyptic traditions.",
+      "categories": [
+        "Non-Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Life After Death (General)",
+      "description": "Covers broad questions about life after death, including death, consciousness, reincarnation, animals, religious belief, and changing afterlife beliefs.",
+      "categories": [
+        "Afterlife"
       ],
       "displayInBrowser": true
     },
@@ -1124,10 +1364,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Atonement in Luke-Acts",
-      "description": "Covers whether Luke and Acts present Jesus' death as atoning, salvific, or significant in a different way, including Luke's Last Supper textual problem.",
+      "name": "Love Thy Stranger",
+      "description": "Covers Bart's book Love Thy Stranger, including its argument that Jesus' teachings reshaped Western ideas about strangers, charity, forgiveness, and care for people in need.",
       "categories": [
-        "Salvation, Atonement, and Judgment"
+        "Bart's Books"
       ],
       "displayInBrowser": true
     },
@@ -1165,14 +1405,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Martyrdom Traditions (General)",
-      "description": "Covers martyrdom as a broad topic, including the value assigned to martyrdom, suffering, conversion, martyr texts, and the memory of the dead.",
-      "categories": [
-        "Persecution and Martyrdom"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Martyrdom of Perpetua",
       "description": "Covers the Martyrdom of Perpetua, especially its afterlife imagery, family conflict, suffering, and later significance for ideas such as purgatory.",
       "categories": [
@@ -1185,6 +1417,14 @@
       "description": "Covers the Martyrdom of Polycarp, including its claims, literary features, martyrdom theology, miracles, and possible forgery.",
       "categories": [
         "Church Fathers",
+        "Persecution and Martyrdom"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Martyrdom Traditions (General)",
+      "description": "Covers martyrdom as a broad topic, including the value assigned to martyrdom, suffering, conversion, martyr texts, and the memory of the dead.",
+      "categories": [
         "Persecution and Martyrdom"
       ],
       "displayInBrowser": true
@@ -1207,11 +1447,29 @@
       "displayInBrowser": true
     },
     {
+      "name": "Mary, Mother of Jesus",
+      "description": "Covers Mary, the mother of Jesus, including her Gospel portrayal, virginity and family traditions, apocryphal accounts of her life, questions about Jesus' parentage, and reported visions of Mary.",
+      "categories": [
+        "Jesus' Birth, Family, and Miracles",
+        "New Testament Figures",
+        "Women, Gender, and Sexuality"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Matthew's Use of Scripture",
       "description": "Posts on Matthew's fulfillment citations and how Matthew presents Jesus as fulfilling scripture.",
       "categories": [
         "Biblical Canon, Authority, and Interpretation",
         "Canonical Gospels and Acts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Meaning of Jesus' Resurrection",
+      "description": "Covers early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
@@ -1257,10 +1515,28 @@
       "displayInBrowser": true
     },
     {
+      "name": "Methods for Studying the Historical Jesus",
+      "description": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
+      "categories": [
+        "Historical and Critical Methods",
+        "Historical Jesus"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Miracle Claims and Apologetics",
       "description": "Covers arguments for and against miracle claims, including eyewitness testimony, signs from God, historical presuppositions, resurrection arguments, and apologetic defenses.",
       "categories": [
         "Miracles and Supernatural Claims"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Miracle Stories in Non-Canonical Texts",
+      "description": "Covers miracle stories in non-canonical Christian texts, including Apocryphal Acts, Infancy Gospel of Thomas, Acts of Thomas, and stories about the young Jesus or apostles.",
+      "categories": [
+        "Miracles and Supernatural Claims",
+        "Non-Canonical Christian Texts"
       ],
       "displayInBrowser": true
     },
@@ -1323,6 +1599,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Moses",
+      "description": "Covers traditions and historical questions about Moses, including the Exodus, Sinai, Mosaic law, death, literacy, and attribution of the Pentateuch.",
+      "categories": [
+        "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Mythicism",
       "featuredOrder": 12,
       "description": "Posts on arguments that Jesus did not exist, Bart's responses to mythicists, evidence for Jesus' existence, and related debates about Nazareth or Jesus' family.",
@@ -1348,6 +1632,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "New Revised Standard Version (NRSV)",
+      "description": "Covers the New Revised Standard Version, including Bart's work on the translation committee, inclusive language, translation decisions, and the role of Bruce Metzger.",
+      "categories": [
+        "Bible Translations and Versions"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "New Testament Manuscripts",
       "description": "Covers Greek New Testament manuscripts, early papyri, manuscript evidence, amulets, copying, and what manuscripts can or cannot show about original texts.",
       "categories": [
@@ -1365,24 +1657,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Miracle Stories in Non-Canonical Texts",
-      "description": "Covers miracle stories in non-canonical Christian texts, including Apocryphal Acts, Infancy Gospel of Thomas, Acts of Thomas, and stories about the young Jesus or apostles.",
-      "categories": [
-        "Miracles and Supernatural Claims",
-        "Non-Canonical Christian Texts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Non-Pauline Epistle Forgeries",
-      "description": "Covers forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
-      "categories": [
-        "Non-Pauline Epistles",
-        "Forgery"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Non-Pauline Epistle Authorship",
       "description": "Posts on authorship questions in Hebrews, Jude, 1 Peter, the Johannine letters, and other New Testament epistles not attributed to Paul.",
       "categories": [
@@ -1392,10 +1666,11 @@
       "displayInBrowser": true
     },
     {
-      "name": "New Revised Standard Version (NRSV)",
-      "description": "Covers the New Revised Standard Version, including Bart's work on the translation committee, inclusive language, translation decisions, and the role of Bruce Metzger.",
+      "name": "Non-Pauline Epistle Forgeries",
+      "description": "Covers forged or pseudepigraphic non-Pauline letters, especially James, Jude, and the Johannine letters.",
       "categories": [
-        "Bible Translations and Versions"
+        "Non-Pauline Epistles",
+        "Forgery"
       ],
       "displayInBrowser": true
     },
@@ -1417,26 +1692,18 @@
       "displayInBrowser": true
     },
     {
+      "name": "Origen of Alexandria",
+      "description": "Covers Origen of Alexandria's theology, including Christology, preexistent souls, reincarnation, and universal salvation.",
+      "categories": [
+        "Church Fathers"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Original Text Questions",
       "description": "Posts on whether the original wording of New Testament writings can be identified, including lost originals, authorial drafts, copied texts, and arguments for reconstruction.",
       "categories": [
         "Textual Criticism"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Early Christian Orthodoxy and Heresy",
-      "description": "Covers debates over orthodoxy and heresy in early Christianity, including early Christian diversity, Bauer's thesis, Eusebius, Marcion, adoptionist views, Jewish-Christian texts, and the rise of proto-orthodox Christianity.",
-      "categories": [
-        "Gnosticism, Orthodoxy, and Heresy"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Afterlife Journeys",
-      "description": "Covers ancient accounts of journeys to heaven, hell, Hades, or the realm of the dead, including Enoch, Paul, the Apocalypse of Peter, the Apocalypse of Paul, and Greco-Roman traditions.",
-      "categories": [
-        "Afterlife"
       ],
       "displayInBrowser": true
     },
@@ -1458,18 +1725,52 @@
       "displayInBrowser": true
     },
     {
-      "name": "Jesus' Passion Narratives",
-      "description": "Covers Gospel passion narratives about Jesus' final days, including the Last Supper, temple curtain, triumphal entry, blasphemy charge, Pilate, anti-Judaism, and narrative shaping.",
+      "name": "Parables of Jesus",
+      "description": "Covers Jesus' parables, including their historical and literary interpretation, teachings about wealth and judgment, and modern attempts to apply them.",
       "categories": [
-        "Jesus' Death, Burial, and Resurrection"
+        "Jesus' Teachings and Social World"
       ],
       "displayInBrowser": true
     },
     {
-      "name": "Church Fathers as Textual Evidence",
-      "description": "Posts on using quotations in early Christian writers to reconstruct the New Testament text, including the limits, dating, location, and reliability of this evidence.",
+      "name": "Pastoral Epistles",
+      "description": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
       "categories": [
-        "Textual Criticism"
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Paul and His Opponents",
+      "description": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
+      "categories": [
+        "Paul's Life, Mission, and Communities"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Paul and Slavery",
+      "description": "Covers Paul, Philemon, Onesimus, and slavery, especially whether Paul's letters challenge or accept slavery.",
+      "categories": [
+        "Ethics and Moral Reasoning",
+        "Pauline Thought and Practice"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Paul as Persecutor and Persecuted",
+      "description": "Covers Paul as both persecutor and persecuted figure, including Acts, Paul's letters, historical reconstruction, and claims about opposition to Paul.",
+      "categories": [
+        "Paul's Life, Mission, and Communities",
+        "Persecution and Martyrdom"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Paul in Acts",
+      "description": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
+      "categories": [
+        "Paul's Life, Mission, and Communities"
       ],
       "displayInBrowser": true
     },
@@ -1490,79 +1791,10 @@
       "displayInBrowser": true
     },
     {
-      "name": "Paul and His Opponents",
-      "description": "Covers conflicts involving Paul, including rival teachers, disputes with other apostles, opposition within Pauline churches, and later challenges to Paul's authority.",
-      "categories": [
-        "Paul's Life, Mission, and Communities"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Paul as Persecutor and Persecuted",
-      "description": "Covers Paul as both persecutor and persecuted figure, including Acts, Paul's letters, historical reconstruction, and claims about opposition to Paul.",
-      "categories": [
-        "Paul's Life, Mission, and Communities",
-        "Persecution and Martyrdom"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Paul on Resurrection",
       "description": "Covers Paul's teaching about resurrection, including Jesus' resurrection, the resurrection of believers, spiritual bodies, and eternal life.",
       "categories": [
         "Pauline Thought and Practice"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Women in Pauline Traditions",
-      "description": "Covers women in Pauline traditions, including Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
-      "categories": [
-        "Pauline Thought and Practice",
-        "Women, Gender, and Sexuality"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Paul in Acts",
-      "description": "Covers Acts' portrayal of Paul, including conversion accounts, missionary work, speeches, chronology, and historical comparison with Paul's letters.",
-      "categories": [
-        "Paul's Life, Mission, and Communities"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Paul's Knowledge of Jesus",
-      "featuredOrder": 21,
-      "description": "Covers what Paul appears to know about Jesus, including Jesus' teachings, death, disciples, family, and traditions cited in Paul's letters.",
-      "categories": [
-        "Paul's Life, Mission, and Communities"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Pauline End-Time Expectations",
-      "description": "Covers Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
-      "categories": [
-        "Pauline Thought and Practice"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Pauline Authorship",
-      "featuredOrder": 25,
-      "description": "Posts on which letters Paul wrote, which letters are disputed, and how scholars use style, theology, historical setting, and comparison with undisputed letters to assess authorship.",
-      "categories": [
-        "Authorship",
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Paul's Life and Career",
-      "description": "Covers Paul's biography, chronology, travel, imprisonment, letters, and the sources used to reconstruct his life and work.",
-      "categories": [
-        "Paul's Life, Mission, and Communities"
       ],
       "displayInBrowser": true
     },
@@ -1583,11 +1815,45 @@
       "displayInBrowser": true
     },
     {
-      "name": "Paul and Slavery",
-      "description": "Covers Paul, Philemon, Onesimus, and slavery, especially whether Paul's letters challenge or accept slavery.",
+      "name": "Paul's Knowledge of Jesus",
+      "featuredOrder": 21,
+      "description": "Covers what Paul appears to know about Jesus, including Jesus' teachings, death, disciples, family, and traditions cited in Paul's letters.",
       "categories": [
-        "Ethics and Moral Reasoning",
+        "Paul's Life, Mission, and Communities"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Paul's Life and Career",
+      "description": "Covers Paul's biography, chronology, travel, imprisonment, letters, and the sources used to reconstruct his life and work.",
+      "categories": [
+        "Paul's Life, Mission, and Communities"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Pauline Authorship",
+      "featuredOrder": 25,
+      "description": "Posts on which letters Paul wrote, which letters are disputed, and how scholars use style, theology, historical setting, and comparison with undisputed letters to assess authorship.",
+      "categories": [
+        "Authorship",
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Pauline End-Time Expectations",
+      "description": "Covers Paul's end-time expectations, including Jesus' return, resurrection, the Spirit, the delay of the end, and later rapture interpretations of Paul's letters.",
+      "categories": [
         "Pauline Thought and Practice"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Pauline Epistles (General)",
+      "description": "Covers Paul's letters as a body of writings, including lost correspondence, their collection and transmission, Pauline style, and questions spanning multiple epistles.",
+      "categories": [
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1596,22 +1862,6 @@
       "description": "Covers letters falsely attributed to Paul, including disputed Pauline letters, pseudepigraphy, motives for forgery, and debates over authenticity.",
       "categories": [
         "Forgery",
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Composite Pauline Letters",
-      "description": "Covers arguments that some Pauline letters, especially 2 Corinthians and Philippians, may combine originally separate letters or fragments.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Pauline Epistles (General)",
-      "description": "Covers Paul's letters as a body of writings, including lost correspondence, their collection and transmission, Pauline style, and questions spanning multiple epistles.",
-      "categories": [
         "Pauline Epistles"
       ],
       "displayInBrowser": true
@@ -1659,6 +1909,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Peter and Cephas",
+      "description": "Examines whether Peter and Cephas were the same person, including Paul's usage, evidence from Galatians and John, and early Christian traditions that distinguish them.",
+      "categories": [
+        "New Testament Figures"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Peter the Apostle",
       "description": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "categories": [
@@ -1672,6 +1930,14 @@
       "categories": [
         "Authorship",
         "Forgery"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Philemon",
+      "description": "Covers Paul's Letter to Philemon, especially Onesimus, slavery, social ethics, apostolic authority, and whether Paul challenged the institution of slavery.",
+      "categories": [
+        "Pauline Epistles"
       ],
       "displayInBrowser": true
     },
@@ -1702,14 +1968,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Public-Facing Scholarship",
-      "description": "Covers efforts to explain biblical scholarship to wider audiences through articles, books, media, public responses, and accessible presentations of academic work.",
-      "categories": [
-        "Teaching, General Books, and Media"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Problem of Evil and Suffering",
       "featuredOrder": 15,
       "description": "Covers suffering as a challenge to belief in a loving and all-powerful God, including debates, proposed answers, apologetic arguments, biblical responses, and personal reflections.",
@@ -1719,18 +1977,26 @@
       "displayInBrowser": true
     },
     {
-      "name": "Hebrew Bible Prophets",
-      "description": "Covers Hebrew Bible prophets, including Isaiah, Hosea, Zechariah, Daniel, prophecy, suffering servant traditions, and prophetic interpretation.",
-      "categories": [
-        "Hebrew Bible Texts and Traditions"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Proto-Gospel of James",
       "description": "Covers the Proto-Gospel of James, including traditions about Mary's background, Jesus' birth, Jesus' brothers, and later Christian infancy stories.",
       "categories": [
         "Non-Canonical Christian Texts"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Public Debates",
+      "description": "Covers public debates, debate strategy, announcements, rebuttals, and exchanges over biblical history, reliability, miracles, suffering, and faith.",
+      "categories": [
+        "Academic Life, Scholars, and Public Debate"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Public-Facing Scholarship",
+      "description": "Covers efforts to explain biblical scholarship to wider audiences through articles, books, media, public responses, and accessible presentations of academic work.",
+      "categories": [
+        "Teaching, General Books, and Media"
       ],
       "displayInBrowser": true
     },
@@ -1775,14 +2041,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Jesus' Resurrection Appearances",
-      "description": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
-      "categories": [
-        "Jesus' Death, Burial, and Resurrection"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Resurrection of Jesus",
       "featuredOrder": 20,
       "description": "Covers Jesus' resurrection broadly, including historical reconstruction, early Christian belief, miracle claims, tomb traditions, and how the resurrection was understood.",
@@ -1796,23 +2054,6 @@
       "description": "Posts on future bodily resurrection, including Jewish origins, Daniel, Maccabean martyrdom, Paul, physical embodiment, personal identity, and resurrection as afterlife hope.",
       "categories": [
         "Afterlife"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Meaning of Jesus' Resurrection",
-      "description": "Covers early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
-      "categories": [
-        "Jesus' Death, Burial, and Resurrection"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Book of Revelation",
-      "featuredOrder": 5,
-      "description": "Covers the book of Revelation as an ancient apocalypse, including authorship, historical setting, symbolism, violence, judgment, 666, afterlife imagery, and modern misreadings.",
-      "categories": [
-        "Revelation and End-Time Interpretation"
       ],
       "displayInBrowser": true
     },
@@ -1861,6 +2102,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Romans",
+      "description": "Covers Paul's Letter to the Romans, including its purpose, mission setting, salvation models, Christology, and women apostles.",
+      "categories": [
+        "Pauline Epistles"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Salvation (General)",
       "description": "Covers who is saved, how salvation happens, whether salvation can be lost, and how Jesus, Paul, or later Christians understood eternal life.",
       "categories": [
@@ -1871,6 +2120,14 @@
     {
       "name": "Scholar Tributes and Memorials",
       "description": "Covers memorials and tributes to scholars and public religious figures, including their work, influence, and significance for biblical or early Christian studies.",
+      "categories": [
+        "Academic Life, Scholars, and Public Debate"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Scholarly Research and Publishing",
+      "description": "Covers scholarly research projects, academic publishing, peer review, journals, reference works, editorial work, and the professional production of scholarship.",
       "categories": [
         "Academic Life, Scholars, and Public Debate"
       ],
@@ -1928,6 +2185,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Son of God",
+      "description": "Examines the meaning and development of the title Son of God, including its use in the Gospels, adoption and exaltation Christologies, resurrection traditions, textual variants, and later Christian debates.",
+      "categories": [
+        "Christology"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Son of Man",
       "description": "Posts on the Son of Man sayings, including what the phrase meant, whether Jesus used it for himself, and its role in apocalyptic traditions.",
       "categories": [
@@ -1957,14 +2222,6 @@
       "description": "Posts on the literary relationships among Matthew, Mark, and Luke, including Markan priority, Q, source theories, and explanations for similarities and differences.",
       "categories": [
         "Canonical Gospels and Acts"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Courses and Teaching",
-      "description": "Covers teaching, courses, lectures, class assignments, online events, and ways biblical studies is presented to students or public audiences.",
-      "categories": [
-        "Teaching, General Books, and Media"
       ],
       "displayInBrowser": true
     },
@@ -2027,18 +2284,18 @@
       "displayInBrowser": true
     },
     {
-      "name": "Development of the Trinity",
-      "description": "Covers the development of the doctrine of the Trinity, including the Father, Son, Spirit, Nicaea, biblical interpretation, and later Christian theology.",
-      "categories": [
-        "Early Church History"
-      ],
-      "displayInBrowser": true
-    },
-    {
       "name": "Triumph of Christianity",
       "description": "Posts about Bart's book The Triumph of Christianity, including writing updates, interviews, lectures, reviews, and discussions of how Christianity spread in the Roman world.",
       "categories": [
         "Bart's Books"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Triumphal Entry",
+      "description": "Examines Gospel traditions about Jesus' triumphal entry into Jerusalem, including their historical plausibility, development in memory, messianic symbolism, and connection with his arrest.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
       ],
       "displayInBrowser": true
     },
@@ -2067,9 +2324,38 @@
       "displayInBrowser": true
     },
     {
+      "name": "Wealth and Poverty in Antiquity",
+      "description": "Covers ancient views of wealth, poverty, charity, contentment, Cynic poverty, and moral arguments about possessions.",
+      "categories": [
+        "Ancient World and Social Context",
+        "Wealth, Poverty, and Charity"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Woman Caught in Adultery",
+      "description": "Covers the story of the woman caught in adultery, including its narrative, manuscript history, absence from the original Gospel of John, possible historicity, and treatment in Bible translations.",
+      "categories": [
+        "Textual Criticism"
+      ],
+      "displayInBrowser": true,
+      "aliases": [
+        "Pericope Adulterae"
+      ]
+    },
+    {
       "name": "Women in Early Christianity",
       "description": "Posts on women's roles, leadership, silence, gender hierarchy, and social status in early Christian texts and communities.",
       "categories": [
+        "Women, Gender, and Sexuality"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Women in Pauline Traditions",
+      "description": "Covers women in Pauline traditions, including Paul's views of women, women associated with Paul, women apostles, interpolation debates, and gender roles in Pauline communities.",
+      "categories": [
+        "Pauline Thought and Practice",
         "Women, Gender, and Sexuality"
       ],
       "displayInBrowser": true
@@ -2087,158 +2373,6 @@
       "description": "Posts on claims that Jesus supported armed resistance to Rome, including the temple incident, zealot interpretations, Roman rule, and Bart's critique of the hypothesis.",
       "categories": [
         "Historical Jesus"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Moses",
-      "description": "Covers traditions and historical questions about Moses, including the Exodus, Sinai, Mosaic law, death, literacy, and attribution of the Pentateuch.",
-      "categories": [
-        "Hebrew Bible Texts and Traditions"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Enoch Traditions",
-      "description": "Covers Enoch and writings attributed to him, including 1-2 Enoch, heavenly journeys, angelic transformation, afterlife traditions, and the use of Enochic writings.",
-      "categories": [
-        "Early Judaism"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Book of Isaiah",
-      "description": "Covers the composition and message of Isaiah, Isaiah 7 and 53, the suffering servant, virgin-birth interpretation, and Christian readings of the book.",
-      "categories": [
-        "Hebrew Bible Texts and Traditions"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Book of Daniel",
-      "description": "Covers Daniel's court stories, apocalyptic visions, resurrection teaching, prophecies, and additions to the book.",
-      "categories": [
-        "Hebrew Bible Texts and Traditions"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Romans",
-      "description": "Covers Paul's Letter to the Romans, including its purpose, mission setting, salvation models, Christology, and women apostles.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "1 Corinthians",
-      "description": "Covers 1 Corinthians, including the Corinthian community, the crucified messiah, resurrection, Christian love, women in worship, and textual questions.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "2 Corinthians",
-      "description": "Covers 2 Corinthians, especially its historical setting and arguments that the surviving text combines multiple Pauline letters.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Galatians",
-      "description": "Covers Galatians, including Gentile circumcision, Jewish Law, Paul's opponents, relations with the Jerusalem apostles, Christology, and authorship.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Ephesians",
-      "description": "Covers Ephesians, including its message, purpose, writing style, disputed authorship, and possible composition in Paul's name by a later author.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Colossians",
-      "description": "Covers Colossians, including its message, purpose, date, disputed authorship, and arguments that it was written in Paul's name by someone else.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "1 Thessalonians",
-      "description": "Covers 1 Thessalonians as Paul's earliest surviving letter, including its purpose, expectations of Jesus' return, later rapture interpretations, and textual problems.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Philemon",
-      "description": "Covers Paul's Letter to Philemon, especially Onesimus, slavery, social ethics, apostolic authority, and whether Paul challenged the institution of slavery.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Pastoral Epistles",
-      "description": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
-      "categories": [
-        "Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Hebrews",
-      "description": "Covers Hebrews, including its authorship, date, audience, teachings about Christ and salvation, and questions about Jesus' earthly existence.",
-      "categories": [
-        "Non-Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Letter of James",
-      "description": "Covers the Letter of James, including its authorship, relationship to James the brother of Jesus, teachings about faith and works, and possible response to Paul.",
-      "categories": [
-        "Non-Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "1 Peter",
-      "description": "Covers 1 Peter, including its authorship, ancient literacy, possible use of secretaries, relationship to Pauline traditions, and teachings about persecution and suffering.",
-      "categories": [
-        "Non-Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "2 Peter",
-      "description": "Covers 2 Peter, including its authorship, possible pseudepigraphy, disputed canonical status, warnings against false teachers, and expectation of judgment.",
-      "categories": [
-        "Non-Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Johannine Epistles",
-      "description": "Covers 1, 2, and 3 John, including their authorship, community setting, Christology, false teachers, possible pseudepigraphy, textual variants, and interpretation.",
-      "categories": [
-        "Non-Pauline Epistles"
-      ],
-      "displayInBrowser": true
-    },
-    {
-      "name": "Letter of Jude",
-      "description": "Covers the Letter of Jude, including its authorship, possible pseudepigraphy, opposition to false teachers, angelic beings, and use of Jewish apocalyptic traditions.",
-      "categories": [
-        "Non-Pauline Epistles"
       ],
       "displayInBrowser": true
     }

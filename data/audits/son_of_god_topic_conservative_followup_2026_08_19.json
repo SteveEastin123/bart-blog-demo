@@ -1,0 +1,53 @@
+{
+  "auditDate": "2026-08-19",
+  "topic": "Son of God",
+  "standard": "Retain the topic only when the meaning, use, textual presence, or development of Son of God drives a substantial part of the post's argument.",
+  "postCountBefore": 39,
+  "postCountAfter": 35,
+  "removedCount": 4,
+  "retainedCount": 35,
+  "changes": [
+    {
+      "wpId": "15925",
+      "title": "My Doubts about the Son of God: A Blast from the Past",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post is an autobiographical account of Bart's developing doubts. Son of God appears in the title but is not analyzed as a sustained subject.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword",
+      "descriptionBefore": "Reposts a personal reflection on doubts about Jesus as Son of God.",
+      "descriptionAfter": "Reposts a personal reflection on doubts about Jesus as Son of God."
+    },
+    {
+      "wpId": "12408",
+      "title": "Pastor Goranson, the Son of God, and I: A Blast From the Past",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post is a personal account of Bart's ministry and developing doubts rather than a sustained examination of divine sonship.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword",
+      "descriptionBefore": "Reposts a personal story connected with belief in Jesus as Son of God.",
+      "descriptionAfter": "Reposts a personal story connected with belief in Jesus as Son of God."
+    },
+    {
+      "wpId": "12363",
+      "title": "An Interesting Scribal Change at the Beginning of Mark",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post examines the Mark 1:2 quotation variant and mentions the Mark 1:1 Son of God variant only to introduce the next post.",
+      "secondaryKeywordAction": "not restored because the reference is incidental",
+      "descriptionBefore": "Explains a scribal change at the beginning of Mark involving Jesus as Son of God.",
+      "descriptionAfter": "Examines a scribal alteration in Mark 1:2 that replaces \"Isaiah the prophet\" with \"the prophets\" to avoid an apparent discrepancy in the Gospel's opening quotation."
+    },
+    {
+      "wpId": "3947",
+      "title": "Pastor Goranson, the Son of God, and I",
+      "decision": "remove",
+      "confidence": "high",
+      "reason": "The post is a personal account of Bart's ministry and developing doubts rather than a sustained examination of divine sonship.",
+      "secondaryKeywordAction": "restored as a meaningful supporting keyword",
+      "descriptionBefore": "Drafts an anecdote about Pastor Goranson and the Son of God for How Jesus Became God.",
+      "descriptionAfter": "Drafts an anecdote about Pastor Goranson and the Son of God for How Jesus Became God."
+    }
+  ],
+  "topicDescriptionChanged": false,
+  "topicDescriptionReason": "The existing topic description accurately describes the 35 retained posts."
+}
