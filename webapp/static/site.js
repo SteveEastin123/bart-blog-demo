@@ -15,11 +15,46 @@
   }
 
   function selectedValues(form, exceptInput) {
-    return uniqueKeywordValues(
-      Array.from(form.querySelectorAll('input[name="keyword"]'))
-        .filter((input) => input !== exceptInput)
-        .map((input) => input.value)
-    );
+    return selectedEntries(form, exceptInput).map((entry) => entry.value);
+  }
+
+  function selectedEntries(form, exceptInput) {
+    const entries = [];
+    const seen = new Set();
+    form.querySelectorAll(".keyword-chip").forEach((chip) => {
+      const input = chip.querySelector('input[name="keyword"]');
+      if (!input || input === exceptInput) return;
+      const value = input.value.trim();
+      const key = value.toLocaleLowerCase();
+      if (!value || seen.has(key)) return;
+      seen.add(key);
+      entries.push({
+        value,
+        mode: termMode(chip.querySelector('input[name="keyword-mode"]')?.value),
+      });
+    });
+    return entries.slice(0, MAX_KEYWORDS);
+  }
+
+  function termMode(value) {
+    return ["topic", "topic-keyword", "keyword"].includes(value) ? value : "keyword";
+  }
+
+  function suggestionMode(suggestion) {
+    if (suggestion?.mode) return termMode(suggestion.mode);
+    return suggestion?.isTopic ? "topic" : "keyword";
+  }
+
+  function termTypeLabel(mode) {
+    if (mode === "topic") return "Topic";
+    return "Keyword";
+  }
+
+  function termTypeRank(mode, order = "topics-first") {
+    if (order === "keywords-first") {
+      return mode === "keyword" ? 3 : (mode === "topic-keyword" ? 2 : 1);
+    }
+    return mode === "topic" ? 3 : (mode === "topic-keyword" ? 2 : 1);
   }
 
   function categoryFilter(form) {
@@ -261,7 +296,10 @@
     if (!query) return null;
     return suggestions
       .filter((suggestion) => suggestion.label.trim().toLocaleLowerCase() === query)
-      .sort((left, right) => Number(right.isTopic) - Number(left.isTopic))[0] || null;
+      .sort((left, right) => {
+        const preferred = (item) => suggestionMode(item) === "topic-keyword" ? 3 : (suggestionMode(item) === "topic" ? 2 : 1);
+        return preferred(right) - preferred(left);
+      })[0] || null;
   }
 
   function chooseKeywordSuggestion(input, suggestion) {
@@ -269,7 +307,7 @@
     const form = input.closest("[data-keyword-form]");
     const list = input.parentElement.querySelector(".keyword-suggestion-list");
     if (!form) return false;
-    const added = addKeywordChip(form, input, suggestion.label);
+    const added = addKeywordChip(form, input, suggestion.label, suggestionMode(suggestion));
     resetKeywordSuggestionList(list);
     if (added) {
       window.location.href = keywordSearchUrl(form, input);
@@ -308,7 +346,10 @@
     }
     const params = new URLSearchParams();
     params.set("q", query);
-    selectedValues(form, input).forEach((value) => params.append("selected", value));
+    selectedEntries(form, input).forEach((entry) => {
+      params.append("selected", entry.value);
+      params.append("selected-mode", entry.mode);
+    });
     if (categorySlug) {
       params.set("category", categorySlug);
     }
@@ -340,13 +381,14 @@
       main.className = "suggestion-main";
       label.className = "suggestion-label";
       appendHighlightedSuggestionText(label, suggestion.label, input.value);
-      type.className = `suggestion-type ${suggestion.isTopic ? "is-topic" : "is-keyword"}`;
-      type.textContent = suggestion.isTopic ? "Topic" : "Keyword";
+      const mode = suggestionMode(suggestion);
+      type.className = `suggestion-type is-${mode}`;
+      type.textContent = termTypeLabel(mode);
       count.className = "suggestion-count";
       count.textContent = `${suggestion.postCount} ${suggestion.postCount === 1 ? "post" : "posts"}`;
       main.append(label, type);
       button.append(main, count);
-      if (suggestion.isTopic && suggestion.description) {
+      if (mode === "topic" && suggestion.description) {
         button.setAttribute("aria-describedby", "keyword-topic-description-tooltip");
         button.addEventListener("mouseenter", () => showTopicTooltip(button, suggestion.description));
         button.addEventListener("mouseleave", hideTopicTooltip);
@@ -371,17 +413,14 @@
     const form = input.closest("[data-keyword-form]");
     const mode = form?.querySelector('input[name="suggestion_order"]:checked')?.value || "popular";
     return [...suggestions].sort((left, right) => {
-      if (mode === "topics-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
-        return Number(right.isTopic) - Number(left.isTopic);
-      }
-      if (mode === "keywords-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
-        return Number(left.isTopic) - Number(right.isTopic);
+      if (mode === "topics-first" || mode === "keywords-first") {
+        const typeDifference = termTypeRank(suggestionMode(right), mode) - termTypeRank(suggestionMode(left), mode);
+        if (typeDifference) return typeDifference;
       }
       const countDifference = Number(right.postCount || 0) - Number(left.postCount || 0);
       if (countDifference) return countDifference;
-      if (Boolean(left.isTopic) !== Boolean(right.isTopic)) {
-        return Number(right.isTopic) - Number(left.isTopic);
-      }
+      const typeDifference = termTypeRank(suggestionMode(right)) - termTypeRank(suggestionMode(left));
+      if (typeDifference) return typeDifference;
       return String(left.label || "").localeCompare(String(right.label || ""));
     });
   }
@@ -434,11 +473,13 @@
     const target = new URL(form.getAttribute("action") || "/keyword-results", window.location.origin);
     const params = target.searchParams;
     params.delete("keyword");
+    params.delete("keyword-mode");
     params.delete("sort");
     params.delete("category");
-    uniqueKeywordValues([...selectedValues(form, input), input.value]).forEach((value) =>
-      params.append("keyword", value)
-    );
+    selectedEntries(form, input).forEach((entry) => {
+      params.append("keyword", entry.value);
+      params.append("keyword-mode", entry.mode);
+    });
     const selectedSort = form.querySelector('input[name="sort"]:checked');
     if (selectedSort && selectedSort.value && selectedSort.value !== "ranked") {
       params.set("sort", selectedSort.value);
@@ -454,7 +495,7 @@
     return target.pathname + (queryString ? `?${queryString}` : "");
   }
 
-  function addKeywordChip(form, input, value) {
+  function addKeywordChip(form, input, value, mode = "keyword") {
     const cleanValue = value.trim();
     if (!cleanValue) return false;
     const currentValues = selectedValues(form, input);
@@ -476,15 +517,22 @@
     hidden.type = "hidden";
     hidden.name = "keyword";
     hidden.value = cleanValue;
+    const hiddenMode = document.createElement("input");
+    hiddenMode.type = "hidden";
+    hiddenMode.name = "keyword-mode";
+    hiddenMode.value = termMode(mode);
     const label = document.createElement("span");
     label.textContent = cleanValue;
+    const type = document.createElement("span");
+    type.className = `selected-term-type is-${termMode(mode)}`;
+    type.textContent = termTypeLabel(termMode(mode));
     const remove = document.createElement("button");
     remove.type = "button";
     remove.className = "keyword-chip-remove";
     remove.dataset.removeKeyword = "";
     remove.setAttribute("aria-label", `Remove ${cleanValue}`);
     remove.textContent = "x";
-    chip.append(hidden, label, remove);
+    chip.append(hidden, hiddenMode, label, type, remove);
     const wrap = keywordEntryWrap(form);
     chipList.insertBefore(chip, wrap || chipList.querySelector(".keyword-empty-slot"));
     input.value = "";

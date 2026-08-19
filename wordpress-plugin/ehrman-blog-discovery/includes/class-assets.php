@@ -50,6 +50,7 @@ final class Assets {
 				'statusUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/status' ) ),
 				'strings'        => array(
 					'topic'         => __( 'Topic', 'ehrman-blog-discovery' ),
+					'topicKeyword'  => __( 'Keyword', 'ehrman-blog-discovery' ),
 					'keyword'       => __( 'Keyword', 'ehrman-blog-discovery' ),
 					'post'          => __( 'post', 'ehrman-blog-discovery' ),
 					'posts'         => __( 'posts', 'ehrman-blog-discovery' ),

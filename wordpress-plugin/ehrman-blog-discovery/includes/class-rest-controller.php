@@ -101,7 +101,8 @@ final class Rest_Controller {
 				$this->bounded_text( $request->get_param( 'q' ) ),
 				$this->terms( $request->get_param( 'selected' ) ),
 				sanitize_title( $this->scalar_text( $request->get_param( 'category' ) ) ),
-				sanitize_title( $this->scalar_text( $request->get_param( 'topic' ) ) )
+				sanitize_title( $this->scalar_text( $request->get_param( 'topic' ) ) ),
+				$this->modes( $request->get_param( 'selectedMode' ) )
 			),
 			200
 		);
@@ -122,7 +123,8 @@ final class Rest_Controller {
 			sanitize_title( $this->scalar_text( $request->get_param( 'category' ) ) ),
 			sanitize_title( $this->scalar_text( $request->get_param( 'topic' ) ) ),
 			max( 1, absint( $this->scalar_text( $request->get_param( 'page' ) ) ) ),
-			Search_Service::POSTS_PER_PAGE
+			Search_Service::POSTS_PER_PAGE,
+			$this->modes( $request->get_param( 'mode' ) )
 		);
 		$response = new WP_REST_Response( $result, 200 );
 		$response->header( 'Cache-Control', 'public, max-age=30' );
@@ -202,6 +204,26 @@ final class Rest_Controller {
 	private function terms( $value ): array {
 		$terms = is_array( $value ) ? $value : ( null === $value || '' === $value ? array() : array( $value ) );
 		return Search_Service::unique_terms( array_values( $terms ) );
+	}
+
+	/**
+	 * Converts a request value into a bounded selected-term mode list.
+	 *
+	 * @param mixed $value Raw request value.
+	 * @return array<int,string> Sanitized modes.
+	 */
+	private function modes( $value ): array {
+		$modes = is_array( $value ) ? $value : ( null === $value || '' === $value ? array() : array( $value ) );
+		return array_slice(
+			array_values(
+				array_map(
+					static fn( $mode ): string => sanitize_key( is_scalar( $mode ) ? (string) $mode : '' ),
+					$modes
+				)
+			),
+			0,
+			Search_Service::MAX_TERMS
+		);
 	}
 
 	/**

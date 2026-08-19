@@ -20,18 +20,46 @@
   }
 
   function values(form, exceptInput) {
+    return termEntries(form, exceptInput).map((entry) => entry.value);
+  }
+
+  function termEntries(form, exceptInput) {
     const found = [];
     const seen = new Set();
-    form.querySelectorAll('input[name="ebd_keyword[]"]').forEach((input) => {
+    form.querySelectorAll(".ebd-keyword-chip").forEach((chip) => {
+      const input = chip.querySelector('input[name="ebd_keyword[]"]');
+      const modeInput = chip.querySelector('input[name="ebd_term_mode[]"]');
+      if (!input) return;
       if (input === exceptInput) return;
       const value = input.value.trim();
       const key = normalized(value);
       if (key && !seen.has(key)) {
         seen.add(key);
-        found.push(value);
+        found.push({ value, mode: termMode(modeInput?.value) });
       }
     });
     return found.slice(0, MAX_TERMS);
+  }
+
+  function termMode(value) {
+    return ["topic", "topic-keyword", "keyword"].includes(value) ? value : "keyword";
+  }
+
+  function suggestionMode(suggestion) {
+    if (suggestion?.mode) return termMode(suggestion.mode);
+    return suggestion?.isTopic ? "topic" : "keyword";
+  }
+
+  function modeLabel(mode) {
+    if (mode === "topic") return strings.topic || "Topic";
+    return strings.keyword || "Keyword";
+  }
+
+  function modeRank(mode, order = "topics-first") {
+    if (order === "keywords-first") {
+      return mode === "keyword" ? 3 : (mode === "topic-keyword" ? 2 : 1);
+    }
+    return mode === "topic" ? 3 : (mode === "topic-keyword" ? 2 : 1);
   }
 
   function activeCategory(form) {
@@ -231,17 +259,14 @@
     const form = input.closest("[data-ebd-search-form]");
     const mode = form?.querySelector('input[name="ebd_suggestion_order"]:checked')?.value || "popular";
     return [...suggestions].sort((left, right) => {
-      if (mode === "topics-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
-        return Number(right.isTopic) - Number(left.isTopic);
-      }
-      if (mode === "keywords-first" && Boolean(left.isTopic) !== Boolean(right.isTopic)) {
-        return Number(left.isTopic) - Number(right.isTopic);
+      if (mode === "topics-first" || mode === "keywords-first") {
+        const typeDifference = modeRank(suggestionMode(right), mode) - modeRank(suggestionMode(left), mode);
+        if (typeDifference) return typeDifference;
       }
       const countDifference = Number(right.postCount || 0) - Number(left.postCount || 0);
       if (countDifference) return countDifference;
-      if (Boolean(left.isTopic) !== Boolean(right.isTopic)) {
-        return Number(right.isTopic) - Number(left.isTopic);
-      }
+      const typeDifference = modeRank(suggestionMode(right)) - modeRank(suggestionMode(left));
+      if (typeDifference) return typeDifference;
       return String(left.label || "").localeCompare(String(right.label || ""));
     });
   }
@@ -264,7 +289,10 @@
     input.ebdAbortController = controller;
     const url = new URL(config.suggestionsUrl, window.location.origin);
     url.searchParams.set("q", query);
-    selected.forEach((value) => url.searchParams.append("selected[]", value));
+    termEntries(form, input).forEach((entry) => {
+      url.searchParams.append("selected[]", entry.value);
+      url.searchParams.append("selectedMode[]", entry.mode);
+    });
     if (category) url.searchParams.set("category", category);
     if (topic) url.searchParams.set("topic", topic);
 
@@ -309,15 +337,16 @@
       main.className = "ebd-suggestion-main";
       label.className = "ebd-suggestion-label";
       label.textContent = suggestion.label;
-      badge.className = `ebd-suggestion-badge ${suggestion.isTopic ? "is-topic" : "is-keyword"}`;
-      badge.textContent = suggestion.isTopic ? (strings.topic || "Topic") : (strings.keyword || "Keyword");
+      const mode = suggestionMode(suggestion);
+      badge.className = `ebd-suggestion-badge is-${mode}`;
+      badge.textContent = modeLabel(mode);
       count.className = "ebd-suggestion-count";
       count.textContent = `${suggestion.postCount} ${postWord(suggestion.postCount)}`;
       main.append(label, badge);
       button.append(main, count);
       button.addEventListener("mousedown", (event) => event.preventDefault());
       button.addEventListener("click", () => selectSuggestion(input, suggestion));
-      if (suggestion.isTopic && suggestion.description) {
+      if (mode === "topic" && suggestion.description) {
         button.addEventListener("mouseenter", () => showTooltip(
           button,
           suggestion.description,
@@ -359,14 +388,14 @@
   function selectSuggestion(input, suggestion) {
     const form = input.closest("[data-ebd-search-form]");
     if (!form || !suggestion) return;
-    if (addChip(form, suggestion.label, suggestion.isTopic)) {
+    if (addChip(form, suggestion.label, suggestionMode(suggestion))) {
       closeSuggestions(input);
       refreshSearch(form);
       searchInput(form)?.focus({ preventScroll: true });
     }
   }
 
-  function addChip(form, value, isTopic = false) {
+  function addChip(form, value, mode = "keyword") {
     const input = searchInput(form);
     const clean = value.trim();
     const current = values(form, input);
@@ -380,14 +409,18 @@
     hidden.type = "hidden";
     hidden.name = "ebd_keyword[]";
     hidden.value = clean;
+    const hiddenMode = document.createElement("input");
+    hiddenMode.type = "hidden";
+    hiddenMode.name = "ebd_term_mode[]";
+    hiddenMode.value = termMode(mode);
     const content = document.createElement("span");
     content.className = "ebd-keyword-chip-content";
     const label = document.createElement("span");
     label.className = "ebd-keyword-chip-label";
     label.textContent = clean;
     const badge = document.createElement("span");
-    const typeLabel = isTopic ? "Topic" : "Keyword";
-    badge.className = `ebd-selected-term-badge ${isTopic ? "is-topic" : "is-keyword"}`;
+    const typeLabel = modeLabel(termMode(mode));
+    badge.className = `ebd-selected-term-badge is-${termMode(mode)}`;
     badge.textContent = typeLabel;
     badge.setAttribute("aria-label", `Term type: ${typeLabel}`);
     content.append(label, badge);
@@ -397,7 +430,7 @@
     remove.dataset.ebdRemove = "";
     remove.setAttribute("aria-label", `Remove ${clean}`);
     remove.innerHTML = "&times;";
-    chip.append(hidden, content, remove);
+    chip.append(hidden, hiddenMode, content, remove);
     const wrap = form.querySelector(".ebd-keyword-input-wrap");
     form.querySelector("[data-ebd-chip-list]")?.insertBefore(chip, wrap);
     if (input) input.value = "";
@@ -431,7 +464,10 @@
 
   function requestUrl(form, page = 1) {
     const url = new URL(config.searchUrl, window.location.origin);
-    values(form, searchInput(form)).forEach((value) => url.searchParams.append("term[]", value));
+    termEntries(form, searchInput(form)).forEach((entry) => {
+      url.searchParams.append("term[]", entry.value);
+      url.searchParams.append("mode[]", entry.mode);
+    });
     const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
     url.searchParams.set("sort", sort);
     const category = activeCategory(form);
@@ -445,9 +481,14 @@
     const url = new URL(form.action, window.location.origin);
     url.searchParams.delete("ebd_keyword[]");
     url.searchParams.delete("ebd_keyword");
+    url.searchParams.delete("ebd_term_mode[]");
+    url.searchParams.delete("ebd_term_mode");
     url.searchParams.delete("ebd_sort");
     url.searchParams.delete("ebd_page");
-    values(form, searchInput(form)).forEach((value) => url.searchParams.append("ebd_keyword[]", value));
+    termEntries(form, searchInput(form)).forEach((entry) => {
+      url.searchParams.append("ebd_keyword[]", entry.value);
+      url.searchParams.append("ebd_term_mode[]", entry.mode);
+    });
     const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
     if (sort !== "ranked") url.searchParams.set("ebd_sort", sort);
     const categoryInput = form.querySelector("[data-ebd-category]");
@@ -812,7 +853,10 @@
         const active = input.ebdSuggestionIndex >= 0 ? current[input.ebdSuggestionIndex] : null;
         const exact = current
           .filter((item) => normalized(item.label) === normalized(input.value))
-          .sort((left, right) => Number(right.isTopic) - Number(left.isTopic))[0];
+          .sort((left, right) => {
+            const preferred = (item) => suggestionMode(item) === "topic-keyword" ? 3 : (suggestionMode(item) === "topic" ? 2 : 1);
+            return preferred(right) - preferred(left);
+          })[0];
         selectSuggestion(input, active || exact);
       } else if (event.key === "Escape") {
         closeSuggestions(input);

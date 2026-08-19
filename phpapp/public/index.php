@@ -94,6 +94,7 @@ function phpapp_keywords_endpoint(): never
         array_map('strval', $query['selected'] ?? []),
         ehrman_query_first($query, 'category'),
         ehrman_query_first($query, 'topic'),
+        array_map('strval', $query['selected-mode'] ?? []),
     ));
 }
 

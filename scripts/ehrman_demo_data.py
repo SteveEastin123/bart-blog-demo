@@ -261,35 +261,53 @@ def build_keyword_suggestions(keyword_index: list[list[Any]]) -> list[list[Any]]
     suggestions: dict[str, dict[str, Any]] = {}
 
     for article_index, row in enumerate(keyword_index):
-        seen_in_article: set[str] = set()
         for is_topic, terms in ((True, row[5]), (False, row[6])):
             for label, normalized in terms:
                 if not normalized:
                     continue
                 suggestion = suggestions.setdefault(
                     normalized,
-                    {"label": label, "articleIndexes": set(), "isTopic": False},
+                    {
+                        "label": label,
+                        "articleIndexes": set(),
+                        "topicIndexes": set(),
+                        "keywordIndexes": set(),
+                    },
                 )
                 if is_topic:
                     suggestion["label"] = label
-                    suggestion["isTopic"] = True
-                if normalized in seen_in_article:
-                    continue
-                seen_in_article.add(normalized)
+                    suggestion["topicIndexes"].add(article_index)
+                else:
+                    suggestion["keywordIndexes"].add(article_index)
                 suggestion["articleIndexes"].add(article_index)
 
-    return [
-        [
-            suggestion["label"],
-            len(suggestion["articleIndexes"]),
-            normalized,
-            suggestion["isTopic"],
-        ]
-        for normalized, suggestion in sorted(
-            suggestions.items(),
-            key=lambda item: (str(item[1]["label"]).casefold(), item[0]),
-        )
-    ]
+    rows: list[list[Any]] = []
+    for normalized, suggestion in sorted(
+        suggestions.items(),
+        key=lambda item: (str(item[1]["label"]).casefold(), item[0]),
+    ):
+        if suggestion["topicIndexes"]:
+            rows.append([
+                suggestion["label"],
+                len(suggestion["topicIndexes"]),
+                normalized,
+                "topic",
+            ])
+        if suggestion["topicIndexes"] and suggestion["keywordIndexes"]:
+            rows.append([
+                suggestion["label"],
+                len(suggestion["articleIndexes"]),
+                normalized,
+                "topic-keyword",
+            ])
+        elif suggestion["keywordIndexes"]:
+            rows.append([
+                suggestion["label"],
+                len(suggestion["articleIndexes"]),
+                normalized,
+                "keyword",
+            ])
+    return rows
 
 
 def build_demo_payloads(

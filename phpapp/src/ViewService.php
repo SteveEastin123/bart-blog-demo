@@ -421,8 +421,10 @@ function ehrman_keyword_panel(
     string $scopeTopicSlug = '',
     ?array $categoryOptions = null,
     string $selectedCategorySlug = '',
+    array $prefillModes = [],
 ): string {
     $values = array_slice(ehrman_unique_terms($prefill), 0, 4);
+    $modes = ehrman_resolve_term_modes(ehrman_db(), $values, $prefillModes);
     $sort = in_array($sort, ['ranked', 'newest', 'oldest'], true) ? $sort : 'ranked';
     $sortOptions = [];
     foreach (['ranked' => 'Best match', 'newest' => 'Newest first', 'oldest' => 'Oldest first'] as $value => $label) {
@@ -430,9 +432,13 @@ function ehrman_keyword_panel(
             . ($value === $sort ? ' checked' : '') . '><span>' . $label . '</span></label>';
     }
     $chips = [];
-    foreach ($values as $value) {
+    foreach ($values as $index => $value) {
+        $mode = $modes[$index] ?? 'keyword';
+        $typeLabel = $mode === 'topic' ? 'Topic' : 'Keyword';
         $chips[] = '<span class="keyword-slot keyword-chip"><input type="hidden" name="keyword" value="'
-            . ehrman_html($value) . '"><span>' . ehrman_html($value) . '</span>'
+            . ehrman_html($value) . '"><input type="hidden" name="keyword-mode" value="'
+            . ehrman_html($mode) . '"><span>' . ehrman_html($value) . '</span><span class="selected-term-type is-'
+            . ehrman_html($mode) . '">' . ehrman_html($typeLabel) . '</span>'
             . '<button type="button" class="keyword-chip-remove" data-remove-keyword aria-label="Remove '
             . ehrman_html($value) . '">x</button></span>';
     }
@@ -600,6 +606,7 @@ function ehrman_keyword_search_page(): string
 function ehrman_keyword_results_page(array $query): string
 {
     $terms = $query['keyword'] ?? [];
+    $termModes = $query['keyword-mode'] ?? [];
     $sort = ehrman_query_first($query, 'sort', 'ranked');
     $requestedCategorySlug = ehrman_query_first($query, 'category');
     $categories = ehrman_keyword_filter_categories();
@@ -612,7 +619,8 @@ function ehrman_keyword_results_page(array $query): string
     }
     $categorySlug = $category === null ? '' : (string) $category['slug'];
     $categoryName = $category === null ? '' : (string) $category['name'];
-    [$posts, $cleanTerms] = ehrman_search_posts($terms, $sort, $categorySlug);
+    [$posts, $cleanTerms] = ehrman_search_posts($terms, $sort, $categorySlug, $termModes);
+    $termModes = ehrman_resolve_term_modes(ehrman_db(), $cleanTerms, $termModes);
     $title = $cleanTerms !== []
         ? 'Keywords: ' . implode(' + ', $cleanTerms)
         : ($categoryName !== '' ? 'Category: ' . $categoryName : 'Keyword Search');
@@ -623,6 +631,7 @@ function ehrman_keyword_results_page(array $query): string
         true,
         categoryOptions: $categories,
         selectedCategorySlug: $categorySlug,
+        prefillModes: $termModes,
     ) . ehrman_results_summary(count($posts), $cleanTerms, $categoryName)
         . ehrman_post_list($posts, $categoryName !== '' ? $categoryName : 'Keyword Search');
     $subtitle = ehrman_pluralize(count($posts), 'post');
@@ -646,7 +655,12 @@ function ehrman_topic_posts_page(string $slug, array $query): ?string
         return null;
     }
     $category = ehrman_topic_context_category($db, (int) $topic['id'], $requestedCategory);
-    [$posts, , $displayTerms] = ehrman_search_topic_posts($db, $topic, $query['keyword'] ?? [], $sort);
+    $requestedTerms = $query['keyword'] ?? [];
+    $requestedModes = $query['keyword-mode'] ?? [];
+    [$posts, , $displayTerms] = ehrman_search_topic_posts($db, $topic, $requestedTerms, $sort, $requestedModes);
+    $displayModes = $requestedTerms === []
+        ? ['topic']
+        : ehrman_resolve_term_modes($db, $displayTerms, $requestedModes);
     $formAction = $category === null
         ? '/topics/' . $topic['slug']
         : ehrman_topic_href($topic, $category, $subjectAreaSlug, $set);
@@ -661,6 +675,7 @@ function ehrman_topic_posts_page(string $slug, array $query): ?string
         true,
         $formAction,
         scopeTopicSlug: (string) $topic['slug'],
+        prefillModes: $displayModes,
     ) . ehrman_results_summary(count($posts), $displayTerms)
         . ehrman_post_list($posts, (string) $topic['name']);
     $body = ehrman_content_page(
@@ -683,7 +698,15 @@ function ehrman_category_posts_page(string $slug, array $query): ?string
     if ($category === null) {
         return null;
     }
-    [$posts, $cleanTerms] = ehrman_search_category_posts($db, $category, $query['keyword'] ?? [], $sort);
+    $requestedModes = $query['keyword-mode'] ?? [];
+    [$posts, $cleanTerms] = ehrman_search_category_posts(
+        $db,
+        $category,
+        $query['keyword'] ?? [],
+        $sort,
+        $requestedModes,
+    );
+    $termModes = ehrman_resolve_term_modes($db, $cleanTerms, $requestedModes);
     $formAction = ehrman_category_posts_href($category, $subjectAreaSlug, $set);
     $inner = ehrman_keyword_panel(
         $cleanTerms,
@@ -693,6 +716,7 @@ function ehrman_category_posts_page(string $slug, array $query): ?string
         formAction: $formAction,
         scopeLabel: (string) $category['name'],
         scopeSlug: (string) $category['slug'],
+        prefillModes: $termModes,
     ) . ehrman_results_summary(count($posts), $cleanTerms, (string) $category['name'])
         . ehrman_post_list($posts, (string) $category['name']);
     $body = ehrman_content_page(

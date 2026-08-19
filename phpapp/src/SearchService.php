@@ -4,22 +4,74 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/bootstrap.php';
 
-function ehrman_find_post_ids_for_term(PDO $db, string $term): array
+function ehrman_clean_term_mode(mixed $mode): string
+{
+    $clean = is_scalar($mode) ? strtolower(trim((string) $mode)) : '';
+    return in_array($clean, ['topic', 'topic-keyword', 'keyword'], true) ? $clean : '';
+}
+
+function ehrman_resolve_term_modes(PDO $db, array $terms, array $requestedModes = []): array
+{
+    $cleanTerms = ehrman_unique_terms($terms);
+    if ($cleanTerms === []) {
+        return [];
+    }
+    $normalized = array_map('ehrman_normalize_keyword', $cleanTerms);
+    $rows = ehrman_fetch_all(
+        $db,
+        'SELECT normalized, MAX(CASE WHEN kind = \'topic\' THEN 1 ELSE 0 END) AS has_topic, '
+        . 'MAX(CASE WHEN kind = \'secondary\' THEN 1 ELSE 0 END) AS has_keyword '
+        . 'FROM post_search_terms WHERE normalized IN (' . ehrman_placeholders(count($normalized)) . ') '
+        . 'GROUP BY normalized',
+        $normalized,
+    );
+    $inferred = [];
+    foreach ($rows as $row) {
+        $hasTopic = (int) $row['has_topic'] === 1;
+        $hasKeyword = (int) $row['has_keyword'] === 1;
+        $inferred[(string) $row['normalized']] = $hasTopic && $hasKeyword
+            ? 'topic-keyword'
+            : ($hasTopic ? 'topic' : 'keyword');
+    }
+    $modes = [];
+    foreach ($cleanTerms as $index => $term) {
+        $requested = ehrman_clean_term_mode($requestedModes[$index] ?? '');
+        $modes[] = $requested !== ''
+            ? $requested
+            : ($inferred[ehrman_normalize_keyword($term)] ?? 'keyword');
+    }
+    return $modes;
+}
+
+function ehrman_find_post_ids_for_term(PDO $db, string $term, string $mode = 'topic-keyword'): array
 {
     $normalized = ehrman_normalize_keyword($term);
     if ($normalized === '') {
         return [];
     }
-    $rows = ehrman_fetch_all(
-        $db,
-        <<<'SQL'
+    if (ehrman_clean_term_mode($mode) === 'topic') {
+        $rows = ehrman_fetch_all(
+            $db,
+            <<<'SQL'
+            SELECT post_id, MAX(weight + 2) AS score
+            FROM post_search_terms
+            WHERE normalized = ? AND kind = 'topic'
+            GROUP BY post_id
+            SQL,
+            [$normalized],
+        );
+    } else {
+        $rows = ehrman_fetch_all(
+            $db,
+            <<<'SQL'
         SELECT post_id, MAX(weight + CASE WHEN normalized = ? THEN 2 ELSE 0 END) AS score
         FROM post_search_terms
         WHERE normalized = ? OR (' ' || normalized || ' ') LIKE ?
         GROUP BY post_id
         SQL,
-        [$normalized, $normalized, "% {$normalized} %"],
-    );
+            [$normalized, $normalized, "% {$normalized} %"],
+        );
+    }
     $matches = [];
     foreach ($rows as $row) {
         $matches[(int) $row['post_id']] = (int) $row['score'];
@@ -148,7 +200,7 @@ function ehrman_sort_posts(array $posts, string $sort, array $rankingTerms, ?arr
     return $posts;
 }
 
-function ehrman_search_posts(array $terms, string $sort, string $categorySlug = ''): array
+function ehrman_search_posts(array $terms, string $sort, string $categorySlug = '', array $termModes = []): array
 {
     $sort = in_array($sort, ['ranked', 'newest', 'oldest'], true) ? $sort : 'ranked';
     $cleanTerms = ehrman_unique_terms($terms);
@@ -157,16 +209,20 @@ function ehrman_search_posts(array $terms, string $sort, string $categorySlug = 
         return [[], []];
     }
     $db = ehrman_db();
+    $termModes = ehrman_resolve_term_modes($db, $cleanTerms, $termModes);
     if ($categorySlug !== '') {
         $category = ehrman_fetch_one($db, 'SELECT * FROM categories WHERE slug = ?', [$categorySlug]);
         if ($category === null) {
             return [[], $cleanTerms];
         }
-        return ehrman_search_category_posts($db, $category, $cleanTerms, $sort);
+        return ehrman_search_category_posts($db, $category, $cleanTerms, $sort, $termModes);
     }
     $matches = null;
-    foreach ($cleanTerms as $term) {
-        $matches = ehrman_intersect_scores($matches, ehrman_find_post_ids_for_term($db, $term));
+    foreach ($cleanTerms as $index => $term) {
+        $matches = ehrman_intersect_scores(
+            $matches,
+            ehrman_find_post_ids_for_term($db, $term, $termModes[$index] ?? 'topic-keyword'),
+        );
     }
     if ($matches === null || $matches === []) {
         return [[], $cleanTerms];
@@ -181,9 +237,10 @@ function ehrman_search_posts(array $terms, string $sort, string $categorySlug = 
     return [ehrman_sort_posts($posts, $sort, $cleanTerms, $matches), $cleanTerms];
 }
 
-function ehrman_search_topic_posts(PDO $db, array $topic, array $terms, string $sort): array
+function ehrman_search_topic_posts(PDO $db, array $topic, array $terms, string $sort, array $termModes = []): array
 {
     $cleanTerms = ehrman_unique_terms($terms);
+    $termModes = ehrman_resolve_term_modes($db, $cleanTerms, $termModes);
     $posts = ehrman_fetch_all(
         $db,
         <<<'SQL'
@@ -196,18 +253,26 @@ function ehrman_search_topic_posts(PDO $db, array $topic, array $terms, string $
         [(int) $topic['id']],
     );
     $topicNormalized = ehrman_normalize_keyword($topic['name']);
-    $filterTerms = array_values(array_filter(
-        $cleanTerms,
-        static fn(string $term): bool => ehrman_normalize_keyword($term) !== $topicNormalized,
-    ));
+    $filterTerms = [];
+    $filterModes = [];
+    foreach ($cleanTerms as $index => $term) {
+        if (ehrman_normalize_keyword($term) === $topicNormalized) {
+            continue;
+        }
+        $filterTerms[] = $term;
+        $filterModes[] = $termModes[$index] ?? 'topic-keyword';
+    }
     $scores = null;
     if ($filterTerms !== []) {
         $scores = [];
         foreach ($posts as $post) {
             $scores[(int) $post['id']] = 0;
         }
-        foreach ($filterTerms as $term) {
-            $scores = ehrman_intersect_scores($scores, ehrman_find_post_ids_for_term($db, $term));
+        foreach ($filterTerms as $index => $term) {
+            $scores = ehrman_intersect_scores(
+                $scores,
+                ehrman_find_post_ids_for_term($db, $term, $filterModes[$index] ?? 'topic-keyword'),
+            );
         }
         $posts = array_values(array_filter(
             $posts,
@@ -218,9 +283,10 @@ function ehrman_search_topic_posts(PDO $db, array $topic, array $terms, string $
     return [ehrman_sort_posts($posts, $sort, $displayTerms, $scores), $cleanTerms, $displayTerms];
 }
 
-function ehrman_search_category_posts(PDO $db, array $category, array $terms, string $sort): array
+function ehrman_search_category_posts(PDO $db, array $category, array $terms, string $sort, array $termModes = []): array
 {
     $cleanTerms = ehrman_unique_terms($terms);
+    $termModes = ehrman_resolve_term_modes($db, $cleanTerms, $termModes);
     $posts = ehrman_fetch_all(
         $db,
         <<<'SQL'
@@ -237,8 +303,11 @@ function ehrman_search_category_posts(PDO $db, array $category, array $terms, st
     foreach ($posts as $post) {
         $scores[(int) $post['id']] = 0;
     }
-    foreach ($cleanTerms as $term) {
-        $scores = ehrman_intersect_scores($scores, ehrman_find_post_ids_for_term($db, $term));
+    foreach ($cleanTerms as $index => $term) {
+        $scores = ehrman_intersect_scores(
+            $scores,
+            ehrman_find_post_ids_for_term($db, $term, $termModes[$index] ?? 'topic-keyword'),
+        );
     }
     if ($cleanTerms !== []) {
         $posts = array_values(array_filter(
@@ -269,7 +338,9 @@ function ehrman_starter_suggestions(PDO $db): array
             'label' => $label,
             'normalized' => ehrman_normalize_keyword($label),
             'postCount' => (int) $row['post_count'],
+            'mode' => 'topic',
             'isTopic' => true,
+            'isCombined' => false,
             'description' => (string) ($row['description'] ?? ''),
         ];
     }
@@ -295,6 +366,7 @@ function ehrman_keyword_suggestions(
     array $selected = [],
     string $categorySlug = '',
     string $topicSlug = '',
+    array $selectedModes = [],
 ): array {
     $db = ehrman_db();
     $q = ehrman_normalize_keyword($queryText);
@@ -313,6 +385,7 @@ function ehrman_keyword_suggestions(
     sort($selectedNormalized, SORT_STRING);
     $categorySlug = trim($categorySlug);
     $topicSlug = trim($topicSlug);
+    $selectedModes = ehrman_resolve_term_modes($db, $selected, $selectedModes);
     $limitClause = $categorySlug !== '' && $q === '' && $selectedNormalized === [] && $topicSlug === ''
         ? ''
         : 'LIMIT 48';
@@ -354,8 +427,11 @@ function ehrman_keyword_suggestions(
         ));
         $selectedIds = ehrman_intersect_id_sets($selectedIds, $topicIds);
     }
-    foreach ($selected as $value) {
-        $matches = array_fill_keys(array_keys(ehrman_find_post_ids_for_term($db, $value)), true);
+    foreach ($selected as $index => $value) {
+        $matches = array_fill_keys(
+            array_keys(ehrman_find_post_ids_for_term($db, $value, $selectedModes[$index] ?? 'topic-keyword')),
+            true,
+        );
         $selectedIds = ehrman_intersect_id_sets($selectedIds, $matches);
     }
 
@@ -393,11 +469,12 @@ function ehrman_keyword_suggestions(
         $db,
         'SELECT COALESCE(MIN(CASE WHEN kind = \'topic\' THEN label END), MIN(label)) AS label, '
         . 'normalized, COUNT(DISTINCT post_id) AS post_count, '
-        . "MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS is_topic, "
+        . "MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS has_topic, "
+        . "MAX(CASE WHEN kind = 'secondary' THEN 1 ELSE 0 END) AS has_keyword, "
         . 'CASE WHEN normalized = ? THEN 3 WHEN normalized LIKE ? THEN 2 '
         . 'WHEN normalized LIKE ? THEN 1 ELSE 1 END AS match_quality '
         . "FROM post_search_terms WHERE {$where} GROUP BY normalized "
-        . 'ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE ' . $limitClause,
+        . 'ORDER BY match_quality DESC, post_count DESC, has_topic DESC, label COLLATE NOCASE ' . $limitClause,
         [$q, $prefixLike, $wordPrefixLike, ...$params],
     );
 
@@ -415,16 +492,20 @@ function ehrman_keyword_suggestions(
     }
     $countRows = ehrman_fetch_all(
         $db,
-        "SELECT DISTINCT post_id, normalized FROM post_search_terms {$countWhere}",
+        "SELECT DISTINCT post_id, normalized, kind FROM post_search_terms {$countWhere}",
         $countParams,
     );
     $matchingPosts = array_fill_keys(array_keys($candidateNormalized), []);
+    $topicPosts = array_fill_keys(array_keys($candidateNormalized), []);
     foreach ($countRows as $countRow) {
         $indexedValue = (string) $countRow['normalized'];
         $postId = (int) $countRow['post_id'];
         foreach ($candidateNormalized as $candidate => $_) {
             if ($indexedValue === $candidate || str_contains(" {$indexedValue} ", " {$candidate} ")) {
                 $matchingPosts[$candidate][$postId] = true;
+            }
+            if ($indexedValue === $candidate && (string) $countRow['kind'] === 'topic') {
+                $topicPosts[$candidate][$postId] = true;
             }
         }
     }
@@ -444,17 +525,37 @@ function ehrman_keyword_suggestions(
         if ($postCount === 0) {
             continue;
         }
-        $suggestions[] = [
+        $hasTopic = (bool) $row['has_topic'];
+        $hasKeyword = (bool) $row['has_keyword'];
+        $base = [
             'label' => (string) $row['label'],
             'normalized' => $normalized,
-            'postCount' => $postCount,
-            'isTopic' => (bool) $row['is_topic'],
             'matchQuality' => (int) $row['match_quality'],
-            'description' => (bool) $row['is_topic'] ? ($topicDescriptions[$normalized] ?? '') : '',
+            'description' => $hasTopic ? ($topicDescriptions[$normalized] ?? '') : '',
         ];
+        if ($hasTopic && count($topicPosts[$normalized] ?? []) > 0) {
+            $suggestions[] = $base + [
+                'postCount' => count($topicPosts[$normalized]),
+                'mode' => 'topic',
+                'typeRank' => 3,
+            ];
+        }
+        if ($hasTopic && $hasKeyword) {
+            $suggestions[] = $base + [
+                'postCount' => $postCount,
+                'mode' => 'topic-keyword',
+                'typeRank' => 2,
+            ];
+        } elseif (!$hasTopic) {
+            $suggestions[] = $base + [
+                'postCount' => $postCount,
+                'mode' => 'keyword',
+                'typeRank' => 1,
+            ];
+        }
     }
     usort($suggestions, static function (array $left, array $right): int {
-        foreach (['matchQuality', 'postCount', 'isTopic'] as $field) {
+        foreach (['matchQuality', 'postCount', 'typeRank'] as $field) {
             $comparison = (int) $right[$field] <=> (int) $left[$field];
             if ($comparison !== 0) {
                 return $comparison;
@@ -462,11 +563,16 @@ function ehrman_keyword_suggestions(
         }
         return strcasecmp((string) $left['label'], (string) $right['label']);
     });
+    if ($limitClause !== '') {
+        $suggestions = array_slice($suggestions, 0, 48);
+    }
     return array_map(static fn(array $suggestion): array => [
         'label' => $suggestion['label'],
         'normalized' => $suggestion['normalized'],
         'postCount' => $suggestion['postCount'],
-        'isTopic' => $suggestion['isTopic'],
+        'mode' => $suggestion['mode'],
+        'isTopic' => $suggestion['mode'] === 'topic',
+        'isCombined' => $suggestion['mode'] === 'topic-keyword',
         'description' => $suggestion['description'],
     ], $suggestions);
 }

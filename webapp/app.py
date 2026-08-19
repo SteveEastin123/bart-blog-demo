@@ -672,8 +672,11 @@ def keyword_panel(
     scope_topic_slug: str = "",
     category_options: list[sqlite3.Row] | None = None,
     selected_category_slug: str = "",
+    prefill_modes: list[str] | None = None,
 ) -> str:
     values = unique_terms(prefill)[:4]
+    with get_conn() as conn:
+        modes = resolve_term_modes(conn, values, prefill_modes)
     options = (
         ("ranked", "Best match"),
         ("newest", "Newest first"),
@@ -694,11 +697,13 @@ def keyword_panel(
         f"""
         <span class="keyword-slot keyword-chip">
           <input type="hidden" name="keyword" value="{esc(value)}">
+          <input type="hidden" name="keyword-mode" value="{esc(modes[index])}">
           <span>{esc(value)}</span>
+          <span class="selected-term-type is-{esc(modes[index])}">{esc('Topic' if modes[index] == 'topic' else 'Keyword')}</span>
           <button type="button" class="keyword-chip-remove" data-remove-keyword aria-label="Remove {esc(value)}">x</button>
         </span>
         """
-        for value in values
+        for index, value in enumerate(values)
     )
     next_index = len(values) + 1
     entry = f"""
@@ -894,8 +899,10 @@ def search_topic_posts(
     topic: sqlite3.Row,
     terms: list[str] | None,
     sort: str,
+    term_modes: list[str] | None = None,
 ) -> tuple[list[sqlite3.Row], list[str], list[str]]:
     clean_terms = unique_terms(terms)
+    resolved_modes = resolve_term_modes(conn, clean_terms, term_modes)
     posts = conn.execute(
         """
         SELECT p.*
@@ -907,16 +914,19 @@ def search_topic_posts(
         (topic["id"],),
     ).fetchall()
     relevance_scores: dict[int, int] | None = None
-    filter_terms = [
-        term
-        for term in clean_terms
-        if normalize_keyword(term) != normalize_keyword(topic["name"])
-    ]
+    filter_terms: list[str] = []
+    filter_modes: list[str] = []
+    topic_normalized = normalize_keyword(topic["name"])
+    for index, term in enumerate(clean_terms):
+        if normalize_keyword(term) == topic_normalized:
+            continue
+        filter_terms.append(term)
+        filter_modes.append(resolved_modes[index])
     if filter_terms:
         scoped_ids = {int(post["id"]) for post in posts}
         relevance_scores = {post_id: 0 for post_id in scoped_ids}
-        for term in filter_terms:
-            term_matches = find_post_ids_for_term(conn, term)
+        for index, term in enumerate(filter_terms):
+            term_matches = find_post_ids_for_term(conn, term, filter_modes[index])
             relevance_scores = {
                 post_id: score + term_matches[post_id]
                 for post_id, score in relevance_scores.items()
@@ -936,8 +946,10 @@ def search_category_posts(
     category: sqlite3.Row,
     terms: list[str] | None,
     sort: str,
+    term_modes: list[str] | None = None,
 ) -> tuple[list[sqlite3.Row], list[str]]:
     clean_terms = unique_terms(terms)
+    resolved_modes = resolve_term_modes(conn, clean_terms, term_modes)
     posts = conn.execute(
         """
         SELECT DISTINCT p.*
@@ -951,8 +963,8 @@ def search_category_posts(
     ).fetchall()
     category_post_ids = {int(post["id"]) for post in posts}
     matches: dict[int, int] = {post_id: 0 for post_id in category_post_ids}
-    for term in clean_terms:
-        term_matches = find_post_ids_for_term(conn, term)
+    for index, term in enumerate(clean_terms):
+        term_matches = find_post_ids_for_term(conn, term, resolved_modes[index])
         matches = {
             post_id: score + term_matches[post_id]
             for post_id, score in matches.items()
@@ -995,6 +1007,13 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
             topic,
             query.get("keyword", []),
             sort,
+            query.get("keyword-mode", []),
+        )
+        requested_terms = query.get("keyword", [])
+        display_modes = (
+            ["topic"]
+            if not requested_terms
+            else resolve_term_modes(conn, display_terms, query.get("keyword-mode", []))
         )
     form_action = topic_href(
         topic,
@@ -1011,6 +1030,7 @@ def posts_for_topic(slug: str, query: dict[str, list[str]]) -> bytes:
         sort_current_page=True,
         form_action=form_action,
         scope_topic_slug=topic["slug"],
+        prefill_modes=display_modes,
     )
     inner = panel + results_summary(len(posts), display_terms) + post_list(posts, topic["name"])
     body = content_page(topic["name"], pluralize(len(posts), "post"), "", inner, breadcrumbs=breadcrumbs)
@@ -1040,7 +1060,9 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
             category,
             query.get("keyword", []),
             sort,
+            query.get("keyword-mode", []),
         )
+        term_modes = resolve_term_modes(conn, clean_terms, query.get("keyword-mode", []))
     form_action = category_posts_href(
         category,
         source,
@@ -1055,6 +1077,7 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
         form_action=form_action,
         scope_label=category["name"],
         scope_slug=category["slug"],
+        prefill_modes=term_modes,
     )
     inner += results_summary(len(posts), clean_terms, category["name"])
     inner += post_list(posts, category["name"])
@@ -1062,20 +1085,77 @@ def posts_for_category(slug: str, query: dict[str, list[str]]) -> bytes:
     return render_page(category["name"], body, active=active_key)
 
 
-def find_post_ids_for_term(conn: sqlite3.Connection, term: str) -> dict[int, int]:
+def clean_term_mode(mode: object) -> str:
+    clean = str(mode or "").strip().lower()
+    return clean if clean in {"topic", "topic-keyword", "keyword"} else ""
+
+
+def resolve_term_modes(
+    conn: sqlite3.Connection,
+    terms: list[str],
+    requested_modes: list[str] | None = None,
+) -> list[str]:
+    clean_terms = unique_terms(terms)
+    if not clean_terms:
+        return []
+    normalized = [normalize_keyword(term) for term in clean_terms]
+    placeholders = ",".join("?" for _ in normalized)
+    rows = conn.execute(
+        f"""
+        SELECT normalized,
+               MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS has_topic,
+               MAX(CASE WHEN kind = 'secondary' THEN 1 ELSE 0 END) AS has_keyword
+        FROM post_search_terms
+        WHERE normalized IN ({placeholders})
+        GROUP BY normalized
+        """,
+        tuple(normalized),
+    ).fetchall()
+    inferred = {
+        row["normalized"]: (
+            "topic-keyword"
+            if row["has_topic"] and row["has_keyword"]
+            else ("topic" if row["has_topic"] else "keyword")
+        )
+        for row in rows
+    }
+    requested_modes = requested_modes or []
+    return [
+        clean_term_mode(requested_modes[index] if index < len(requested_modes) else "")
+        or inferred.get(normalize_keyword(term), "keyword")
+        for index, term in enumerate(clean_terms)
+    ]
+
+
+def find_post_ids_for_term(
+    conn: sqlite3.Connection,
+    term: str,
+    mode: str = "topic-keyword",
+) -> dict[int, int]:
     normalized = normalize_keyword(term)
     if not normalized:
         return {}
-    padded_like = f"% {normalized} %"
-    rows = conn.execute(
-        """
-        SELECT post_id, MAX(weight + CASE WHEN normalized = ? THEN 2 ELSE 0 END) AS score
-        FROM post_search_terms
-        WHERE normalized = ? OR (' ' || normalized || ' ') LIKE ?
-        GROUP BY post_id
-        """,
-        (normalized, normalized, padded_like),
-    ).fetchall()
+    if clean_term_mode(mode) == "topic":
+        rows = conn.execute(
+            """
+            SELECT post_id, MAX(weight + 2) AS score
+            FROM post_search_terms
+            WHERE normalized = ? AND kind = 'topic'
+            GROUP BY post_id
+            """,
+            (normalized,),
+        ).fetchall()
+    else:
+        padded_like = f"% {normalized} %"
+        rows = conn.execute(
+            """
+            SELECT post_id, MAX(weight + CASE WHEN normalized = ? THEN 2 ELSE 0 END) AS score
+            FROM post_search_terms
+            WHERE normalized = ? OR (' ' || normalized || ' ') LIKE ?
+            GROUP BY post_id
+            """,
+            (normalized, normalized, padded_like),
+        ).fetchall()
     return {int(row["post_id"]): int(row["score"]) for row in rows}
 
 
@@ -1183,6 +1263,7 @@ def search_posts(
     terms: list[str],
     sort: str,
     category_slug: str = "",
+    term_modes: list[str] | None = None,
 ) -> tuple[list[sqlite3.Row], list[str]]:
     if sort not in {"ranked", "newest", "oldest"}:
         sort = "ranked"
@@ -1190,6 +1271,7 @@ def search_posts(
     if not clean_terms and not category_slug:
         return [], []
     with get_conn() as conn:
+        resolved_modes = resolve_term_modes(conn, clean_terms, term_modes)
         if category_slug:
             category = conn.execute(
                 "SELECT * FROM categories WHERE slug = ?",
@@ -1197,10 +1279,10 @@ def search_posts(
             ).fetchone()
             if not category:
                 return [], clean_terms
-            return search_category_posts(conn, category, clean_terms, sort)
+            return search_category_posts(conn, category, clean_terms, sort, resolved_modes)
         matches: dict[int, int] | None = None
-        for term in clean_terms:
-            term_matches = find_post_ids_for_term(conn, term)
+        for index, term in enumerate(clean_terms):
+            term_matches = find_post_ids_for_term(conn, term, resolved_modes[index])
             if matches is None:
                 matches = term_matches
             else:
@@ -1235,6 +1317,7 @@ def keyword_search_page() -> bytes:
 
 def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     terms = query.get("keyword", [])
+    requested_modes = query.get("keyword-mode", [])
     sort = query.get("sort", ["ranked"])[0]
     requested_category_slug = query.get("category", [""])[0].strip()
     categories = keyword_filter_categories()
@@ -1244,7 +1327,9 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
     )
     category_slug = category["slug"] if category else ""
     category_name = category["name"] if category else ""
-    posts, clean_terms = search_posts(terms, sort, category_slug)
+    posts, clean_terms = search_posts(terms, sort, category_slug, requested_modes)
+    with get_conn() as conn:
+        term_modes = resolve_term_modes(conn, clean_terms, requested_modes)
     title = (
         "Keywords: " + " + ".join(clean_terms)
         if clean_terms
@@ -1257,6 +1342,7 @@ def keyword_results_page(query: dict[str, list[str]]) -> bytes:
         refresh_on_remove=True,
         category_options=categories,
         selected_category_slug=category_slug,
+        prefill_modes=term_modes,
     )
     inner = (
         panel
@@ -1286,7 +1372,9 @@ def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, obje
             "label": row["label"],
             "normalized": normalize_keyword(row["label"]),
             "postCount": row["post_count"],
+            "mode": "topic",
             "isTopic": True,
+            "isCombined": False,
             "description": row["description"] or "",
         }
         for row in rows
@@ -1296,12 +1384,14 @@ def starter_keyword_suggestions(conn: sqlite3.Connection) -> list[dict[str, obje
 def api_keywords(query: dict[str, list[str]]) -> bytes:
     q = normalize_keyword(query.get("q", [""])[0])
     selected = [value for value in query.get("selected", []) if value.strip()]
+    selected_modes = query.get("selected-mode", [])
     category_slug = query.get("category", [""])[0].strip()
     topic_slug = query.get("topic", [""])[0].strip()
     selected_normalized = sorted({normalize_keyword(value) for value in selected if normalize_keyword(value)})
     allowed_category_topics: list[str] = []
     limit_clause = "" if category_slug and not q and not selected_normalized and not topic_slug else "LIMIT 48"
     with get_conn() as conn:
+        selected_modes = resolve_term_modes(conn, selected, selected_modes)
         if not q and not selected_normalized and not category_slug and not topic_slug:
             return json.dumps(starter_keyword_suggestions(conn), ensure_ascii=False).encode("utf-8")
         selected_ids: set[int] | None = None
@@ -1339,8 +1429,8 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             ).fetchall()
             topic_ids = {int(row["post_id"]) for row in topic_rows}
             selected_ids = topic_ids if selected_ids is None else selected_ids & topic_ids
-        for value in selected:
-            matches = set(find_post_ids_for_term(conn, value).keys())
+        for index, value in enumerate(selected):
+            matches = set(find_post_ids_for_term(conn, value, selected_modes[index]).keys())
             selected_ids = matches if selected_ids is None else selected_ids & matches
         prefix_like = f"{q}%"
         word_prefix_like = f"% {q}%"
@@ -1375,7 +1465,8 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
                 ) AS label,
                 normalized,
                 COUNT(DISTINCT post_id) AS post_count,
-                MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS is_topic,
+                MAX(CASE WHEN kind = 'topic' THEN 1 ELSE 0 END) AS has_topic,
+                MAX(CASE WHEN kind = 'secondary' THEN 1 ELSE 0 END) AS has_keyword,
                 CASE
                     WHEN normalized = ? THEN 3
                     WHEN normalized LIKE ? THEN 2
@@ -1385,7 +1476,7 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             FROM post_search_terms
             WHERE {where}
             GROUP BY normalized
-            ORDER BY match_quality DESC, post_count DESC, is_topic DESC, label COLLATE NOCASE
+            ORDER BY match_quality DESC, post_count DESC, has_topic DESC, label COLLATE NOCASE
             {limit_clause}
             """,
             (q, prefix_like, word_prefix_like, *params),
@@ -1399,13 +1490,14 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             count_params = tuple(sorted(selected_ids))
         count_rows = conn.execute(
             f"""
-            SELECT DISTINCT post_id, normalized
+            SELECT DISTINCT post_id, normalized, kind
             FROM post_search_terms
             {count_where}
             """,
             count_params,
         ).fetchall()
         matching_posts: dict[str, set[int]] = {value: set() for value in candidate_normalized}
+        topic_posts: dict[str, set[int]] = {value: set() for value in candidate_normalized}
         for count_row in count_rows:
             indexed_value = count_row["normalized"]
             padded_indexed_value = f" {indexed_value} "
@@ -1413,6 +1505,8 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             for candidate in candidate_normalized:
                 if indexed_value == candidate or f" {candidate} " in padded_indexed_value:
                     matching_posts[candidate].add(post_id)
+                if indexed_value == candidate and count_row["kind"] == "topic":
+                    topic_posts[candidate].add(post_id)
 
         topic_description_rows = conn.execute(
             "SELECT name, description FROM topics WHERE display_in_browser = 1",
@@ -1426,35 +1520,46 @@ def api_keywords(query: dict[str, list[str]]) -> bytes:
             post_count = len(matching_posts[row["normalized"]])
             if not post_count:
                 continue
-            suggestions.append(
-                {
-                    "label": row["label"],
-                    "normalized": row["normalized"],
-                    "postCount": post_count,
-                    "isTopic": bool(row["is_topic"]),
-                    "matchQuality": int(row["match_quality"]),
-                    "description": (
-                        topic_descriptions.get(row["normalized"], "")
-                        if row["is_topic"]
-                        else ""
-                    ),
-                }
-            )
+            has_topic = bool(row["has_topic"])
+            has_keyword = bool(row["has_keyword"])
+            base = {
+                "label": row["label"],
+                "normalized": row["normalized"],
+                "matchQuality": int(row["match_quality"]),
+                "description": topic_descriptions.get(row["normalized"], "") if has_topic else "",
+            }
+            topic_count = len(topic_posts[row["normalized"]])
+            if has_topic and topic_count:
+                suggestions.append(
+                    {**base, "postCount": topic_count, "mode": "topic", "typeRank": 3}
+                )
+            if has_topic and has_keyword:
+                suggestions.append(
+                    {**base, "postCount": post_count, "mode": "topic-keyword", "typeRank": 2}
+                )
+            elif not has_topic:
+                suggestions.append(
+                    {**base, "postCount": post_count, "mode": "keyword", "typeRank": 1}
+                )
     suggestions.sort(
         key=lambda suggestion: (
             -suggestion["matchQuality"],
             -suggestion["postCount"],
-            -int(suggestion["isTopic"]),
+            -suggestion["typeRank"],
             suggestion["label"].casefold(),
         )
     )
+    if limit_clause:
+        suggestions = suggestions[:48]
     return json.dumps(
         [
             {
                 "label": suggestion["label"],
                 "normalized": suggestion["normalized"],
                 "postCount": suggestion["postCount"],
-                "isTopic": suggestion["isTopic"],
+                "mode": suggestion["mode"],
+                "isTopic": suggestion["mode"] == "topic",
+                "isCombined": suggestion["mode"] == "topic-keyword",
                 "description": suggestion["description"],
             }
             for suggestion in suggestions

@@ -23,6 +23,15 @@ final class Search_Service {
 	/** Maximum stored and requested search-term length. */
 	public const MAX_TERM_LENGTH = 191;
 
+	/** Search only direct topic assignments for a selected label. */
+	public const TERM_MODE_TOPIC = 'topic';
+
+	/** Search the union of topic and secondary-keyword matches. */
+	public const TERM_MODE_COMBINED = 'topic-keyword';
+
+	/** Search a secondary-keyword label using the normal broad term lookup. */
+	public const TERM_MODE_KEYWORD = 'keyword';
+
 	/**
 	 * Searches posts using AND semantics across terms and optional scope.
 	 *
@@ -32,6 +41,7 @@ final class Search_Service {
 	 * @param string            $topic_slug    Optional topic scope.
 	 * @param int               $page          Requested results page.
 	 * @param int               $per_page      Page size, or zero to return every matching post.
+	 * @param array<int,string> $term_modes    Search mode aligned with each term.
 	 * @return array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} Search result payload.
 	 */
 	public function search(
@@ -40,9 +50,11 @@ final class Search_Service {
 		string $category_slug = '',
 		string $topic_slug = '',
 		int $page = 1,
-		int $per_page = 0
+		int $per_page = 0,
+		array $term_modes = array()
 	): array {
 		$terms         = self::unique_terms( $terms );
+		$term_modes    = $this->resolve_term_modes( $terms, $term_modes );
 		$sort          = self::clean_sort( $sort );
 		$category_slug = sanitize_title( $category_slug );
 		$topic_slug    = sanitize_title( $topic_slug );
@@ -70,19 +82,26 @@ final class Search_Service {
 		}
 
 		$filter_terms = $terms;
+		$filter_modes = $term_modes;
 		if ( null !== $topic ) {
 			$topic_normalized = self::normalize( Database::text( $topic['name'] ?? null ) );
-			$filter_terms     = array_values(
-				array_filter(
-					$terms,
-					static fn( string $term ): bool => self::normalize( $term ) !== $topic_normalized
-				)
-			);
+			$filter_terms     = array();
+			$filter_modes     = array();
+			foreach ( $terms as $index => $term ) {
+				if ( self::normalize( $term ) === $topic_normalized ) {
+					continue;
+				}
+				$filter_terms[] = $term;
+				$filter_modes[] = $term_modes[ $index ] ?? self::TERM_MODE_COMBINED;
+			}
 		}
 
 		$scores = null === $eligible ? null : array_fill_keys( array_keys( $eligible ), 0 );
-		foreach ( $filter_terms as $term ) {
-			$scores = self::intersect_scores( $scores, $this->post_scores_for_term( $term ) );
+		foreach ( $filter_terms as $index => $term ) {
+			$scores = self::intersect_scores(
+				$scores,
+				$this->post_scores_for_term( $term, $filter_modes[ $index ] ?? self::TERM_MODE_COMBINED )
+			);
 		}
 
 		if ( null === $scores ) {
@@ -101,8 +120,8 @@ final class Search_Service {
 	/**
 	 * Identifies selected terms as topics or secondary keywords.
 	 *
-	 * When the same normalized label exists in both groups, it is presented as a
-	 * topic to match autocomplete behavior.
+	 * When the same normalized label exists in both groups, it is identified as
+	 * a combined topic-and-keyword search.
 	 *
 	 * @param array<int,string> $terms Selected search terms.
 	 * @return array<string,string> Term types keyed by normalized term.
@@ -121,22 +140,61 @@ final class Search_Service {
 
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$sql    = "SELECT normalized,MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) is_topic "
+		$sql    = "SELECT normalized,MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) is_topic,"
+			. "MAX(CASE WHEN kind='secondary' THEN 1 ELSE 0 END) is_keyword "
 			. "FROM {$tables['post_search_terms']} WHERE normalized IN ("
 			. implode( ',', array_fill( 0, count( $normalized_terms ), '%s' ) )
 			. ') GROUP BY normalized';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Dynamic placeholders are generated internally and prepared here.
 		$rows = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( $sql, $normalized_terms ), ARRAY_A ) );
 
-		$types = array_fill_keys( $normalized_terms, 'keyword' );
+		$types = array_fill_keys( $normalized_terms, self::TERM_MODE_KEYWORD );
 		foreach ( $rows as $row ) {
 			$normalized = Database::text( $row['normalized'] ?? null );
-			if ( isset( $types[ $normalized ] ) && 1 === Database::integer( $row['is_topic'] ?? null ) ) {
-				$types[ $normalized ] = 'topic';
+			if ( ! isset( $types[ $normalized ] ) ) {
+				continue;
+			}
+			$is_topic   = 1 === Database::integer( $row['is_topic'] ?? null );
+			$is_keyword = 1 === Database::integer( $row['is_keyword'] ?? null );
+			if ( $is_topic && $is_keyword ) {
+				$types[ $normalized ] = self::TERM_MODE_COMBINED;
+			} elseif ( $is_topic ) {
+				$types[ $normalized ] = self::TERM_MODE_TOPIC;
 			}
 		}
 
 		return $types;
+	}
+
+	/**
+	 * Resolves requested modes and infers safe modes for legacy URLs.
+	 *
+	 * @param array<int,string> $terms Requested terms.
+	 * @param array<int,string> $modes Requested modes aligned with terms.
+	 * @return array<int,string> Validated modes aligned with terms.
+	 */
+	public function resolve_term_modes( array $terms, array $modes = array() ): array {
+		$terms    = self::unique_terms( $terms );
+		$inferred = $this->term_types( $terms );
+		$resolved = array();
+		foreach ( $terms as $index => $term ) {
+			$requested = sanitize_key( is_scalar( $modes[ $index ] ?? null ) ? (string) $modes[ $index ] : '' );
+			if ( in_array( $requested, self::term_modes(), true ) ) {
+				$resolved[] = $requested;
+				continue;
+			}
+			$resolved[] = $inferred[ self::normalize( $term ) ] ?? self::TERM_MODE_KEYWORD;
+		}
+		return $resolved;
+	}
+
+	/**
+	 * Returns the supported selected-term modes.
+	 *
+	 * @return list<string> Supported selected-term modes.
+	 */
+	public static function term_modes(): array {
+		return array( self::TERM_MODE_TOPIC, self::TERM_MODE_COMBINED, self::TERM_MODE_KEYWORD );
 	}
 
 	/**
@@ -146,19 +204,22 @@ final class Search_Service {
 	 * @param array<int,string> $selected      Previously selected terms.
 	 * @param string            $category_slug Optional category scope.
 	 * @param string            $topic_slug    Optional topic scope.
+	 * @param array<int,string> $selected_modes Search modes aligned with selected terms.
 	 * @return array<int,array<string,mixed>> Ranked topic and keyword suggestions.
 	 */
 	public function suggestions(
 		string $query,
 		array $selected = array(),
 		string $category_slug = '',
-		string $topic_slug = ''
+		string $topic_slug = '',
+		array $selected_modes = array()
 	): array {
 		$wpdb = Database::client();
 
 		$tables              = Database::tables();
 		$query_normalized    = self::normalize( $query );
 		$selected            = self::unique_terms( $selected );
+		$selected_modes      = $this->resolve_term_modes( $selected, $selected_modes );
 		$selected_normalized = array_values(
 			array_unique( array_map( array( self::class, 'normalize' ), $selected ) )
 		);
@@ -194,10 +255,13 @@ final class Search_Service {
 			$eligible = self::intersect_id_sets( $eligible, $this->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
 		}
 
-		foreach ( $selected as $term ) {
+		foreach ( $selected as $index => $term ) {
 			$eligible = self::intersect_id_sets(
 				$eligible,
-				array_fill_keys( array_keys( $this->post_scores_for_term( $term ) ), true )
+				array_fill_keys(
+					array_keys( $this->post_scores_for_term( $term, $selected_modes[ $index ] ?? self::TERM_MODE_COMBINED ) ),
+					true
+				)
 			);
 		}
 		if ( is_array( $eligible ) && empty( $eligible ) ) {
@@ -236,11 +300,12 @@ final class Search_Service {
 			: ' LIMIT 48';
 		$sql   = "SELECT COALESCE(MIN(CASE WHEN kind='topic' THEN label END),MIN(label)) label, "
 			. 'normalized, COUNT(DISTINCT post_id) post_count, '
-			. "MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) is_topic, "
+			. "MAX(CASE WHEN kind='topic' THEN 1 ELSE 0 END) has_topic, "
+			. "MAX(CASE WHEN kind='secondary' THEN 1 ELSE 0 END) has_keyword, "
 			. 'CASE WHEN normalized=%s THEN 3 WHEN normalized LIKE %s THEN 2 '
 			. 'WHEN normalized LIKE %s THEN 1 ELSE 1 END match_quality '
 			. "FROM {$tables['post_search_terms']} WHERE " . implode( ' AND ', $where )
-			. ' GROUP BY normalized ORDER BY match_quality DESC,post_count DESC,is_topic DESC,label ASC'
+			. ' GROUP BY normalized ORDER BY match_quality DESC,post_count DESC,has_topic DESC,label ASC'
 			. $limit;
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Dynamic placeholders are generated internally and prepared here.
 		$rows = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( $sql, $params ), ARRAY_A ) );
@@ -263,17 +328,21 @@ final class Search_Service {
 		}
 		$count_rows     = Database::associative_rows(
 			$wpdb->get_results(
-				"SELECT DISTINCT post_id,normalized FROM {$tables['post_search_terms']}{$count_where}",
+				"SELECT DISTINCT post_id,normalized,kind FROM {$tables['post_search_terms']}{$count_where}",
 				ARRAY_A
 			)
 		);
 		$matching_posts = array_fill_keys( array_keys( $candidate_normalized ), array() );
+		$topic_posts    = array_fill_keys( array_keys( $candidate_normalized ), array() );
 		foreach ( $count_rows as $count_row ) {
 			$indexed = Database::text( $count_row['normalized'] ?? null );
 			$post_id = Database::integer( $count_row['post_id'] ?? null );
 			foreach ( $candidate_normalized as $candidate => $_unused ) {
 				if ( $indexed === $candidate || str_contains( " {$indexed} ", " {$candidate} " ) ) {
 					$matching_posts[ $candidate ][ $post_id ] = true;
+				}
+				if ( $indexed === $candidate && 'topic' === Database::text( $count_row['kind'] ?? null ) ) {
+					$topic_posts[ $candidate ][ $post_id ] = true;
 				}
 			}
 		}
@@ -296,21 +365,43 @@ final class Search_Service {
 			if ( 0 === $post_count ) {
 				continue;
 			}
-			$is_topic      = 1 === Database::integer( $row['is_topic'] ?? null );
-			$suggestions[] = array(
+			$has_topic   = 1 === Database::integer( $row['has_topic'] ?? null );
+			$has_keyword = 1 === Database::integer( $row['has_keyword'] ?? null );
+			$base        = array(
 				'label'        => Database::text( $row['label'] ?? null ),
 				'normalized'   => $normalized,
-				'postCount'    => $post_count,
-				'isTopic'      => $is_topic,
 				'matchQuality' => Database::integer( $row['match_quality'] ?? null ),
-				'description'  => $is_topic ? ( $topic_descriptions[ $normalized ] ?? '' ) : '',
+				'description'  => $has_topic ? ( $topic_descriptions[ $normalized ] ?? '' ) : '',
 			);
+			if ( $has_topic ) {
+				$topic_count = count( $topic_posts[ $normalized ] ?? array() );
+				if ( $topic_count > 0 ) {
+					$suggestions[] = $base + array(
+						'postCount' => $topic_count,
+						'mode'      => self::TERM_MODE_TOPIC,
+						'typeRank'  => 3,
+					);
+				}
+			}
+			if ( $has_topic && $has_keyword ) {
+				$suggestions[] = $base + array(
+					'postCount' => $post_count,
+					'mode'      => self::TERM_MODE_COMBINED,
+					'typeRank'  => 2,
+				);
+			} elseif ( ! $has_topic ) {
+				$suggestions[] = $base + array(
+					'postCount' => $post_count,
+					'mode'      => self::TERM_MODE_KEYWORD,
+					'typeRank'  => 1,
+				);
+			}
 		}
 
 		usort(
 			$suggestions,
 			static function ( array $left, array $right ): int {
-				foreach ( array( 'matchQuality', 'postCount', 'isTopic' ) as $field ) {
+				foreach ( array( 'matchQuality', 'postCount', 'typeRank' ) as $field ) {
 					$comparison = (int) $right[ $field ] <=> (int) $left[ $field ];
 					if ( 0 !== $comparison ) {
 						return $comparison;
@@ -320,12 +411,17 @@ final class Search_Service {
 			}
 		);
 
+		if ( '' !== $limit ) {
+			$suggestions = array_slice( $suggestions, 0, 48 );
+		}
 		return array_map(
 			static fn( array $item ): array => array(
 				'label'       => $item['label'],
 				'normalized'  => $item['normalized'],
 				'postCount'   => $item['postCount'],
-				'isTopic'     => $item['isTopic'],
+				'mode'        => $item['mode'],
+				'isTopic'     => self::TERM_MODE_TOPIC === $item['mode'],
+				'isCombined'  => self::TERM_MODE_COMBINED === $item['mode'],
 				'description' => $item['description'],
 			),
 			$suggestions
@@ -423,23 +519,34 @@ final class Search_Service {
 	 * Returns matching post IDs and index weights for one term.
 	 *
 	 * @param string $term Search term.
+	 * @param string $mode Selected term mode.
 	 * @return array<int,int> Scores keyed by post ID.
 	 */
-	private function post_scores_for_term( string $term ): array {
+	private function post_scores_for_term( string $term, string $mode = self::TERM_MODE_COMBINED ): array {
 		$wpdb       = Database::client();
 		$tables     = Database::tables();
 		$normalized = self::normalize( $term );
 		if ( '' === $normalized ) {
 			return array();
 		}
-		$sql  = 'SELECT post_id,MAX(weight+CASE WHEN normalized=%s THEN 2 ELSE 0 END) score '
-			. "FROM {$tables['post_search_terms']} WHERE normalized=%s "
-			. "OR CONCAT(' ',normalized,' ') LIKE %s GROUP BY post_id";
-		$rows = $wpdb->get_results(
-			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
-			$wpdb->prepare( $sql, $normalized, $normalized, "% {$normalized} %" ),
-			ARRAY_A
-		);
+		if ( self::TERM_MODE_TOPIC === $mode ) {
+			$sql  = 'SELECT post_id,MAX(weight+2) score '
+				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind='topic' GROUP BY post_id";
+			$rows = $wpdb->get_results(
+				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
+				$wpdb->prepare( $sql, $normalized ),
+				ARRAY_A
+			);
+		} else {
+			$sql  = 'SELECT post_id,MAX(weight+CASE WHEN normalized=%s THEN 2 ELSE 0 END) score '
+				. "FROM {$tables['post_search_terms']} WHERE normalized=%s "
+				. "OR CONCAT(' ',normalized,' ') LIKE %s GROUP BY post_id";
+			$rows = $wpdb->get_results(
+				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
+				$wpdb->prepare( $sql, $normalized, $normalized, "% {$normalized} %" ),
+				ARRAY_A
+			);
+		}
 		$matches = array();
 		foreach ( Database::associative_rows( $rows ) as $row ) {
 			$matches[ Database::integer( $row['post_id'] ?? null ) ] = Database::integer( $row['score'] ?? null );

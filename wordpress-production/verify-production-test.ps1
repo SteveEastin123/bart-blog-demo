@@ -100,6 +100,26 @@ if ([int]$search.count -le 0 -or @($search.terms).Count -ne 2) {
     throw 'The representative AND search failed.'
 }
 
+$allColossiansSuggestions = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/suggestions?q=colossians"
+$colossiansSuggestions = @($allColossiansSuggestions.Where({ $_.label -eq 'Colossians' }))
+$colossiansTopicSuggestion = $colossiansSuggestions.Where({ $_.mode -eq 'topic' }, 'First')
+$colossiansCombinedSuggestion = $colossiansSuggestions.Where({ $_.mode -eq 'topic-keyword' }, 'First')
+$colossiansTopic = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/search?term%5B%5D=Colossians&mode%5B%5D=topic&sort=ranked"
+$colossiansCombined = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/search?term%5B%5D=Colossians&mode%5B%5D=topic-keyword&sort=ranked"
+$topicIds = @($colossiansTopic.posts | ForEach-Object { [int]$_.id })
+$combinedIds = @($colossiansCombined.posts | ForEach-Object { [int]$_.id })
+$outsideCombined = @($topicIds | Where-Object { $combinedIds -notcontains $_ })
+if (
+    ($null -eq $colossiansTopicSuggestion) -or
+    ($null -eq $colossiansCombinedSuggestion) -or
+    ([int]$colossiansTopicSuggestion.postCount -ne [int]$colossiansTopic.count) -or
+    ([int]$colossiansCombinedSuggestion.postCount -ne [int]$colossiansCombined.count) -or
+    ([int]$colossiansTopic.count -ge [int]$colossiansCombined.count) -or
+    ($outsideCombined.Count -ne 0)
+) {
+    throw 'The topic-only and combined topic-plus-keyword search modes are inconsistent.'
+}
+
 $pageOne = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/search?term%5B%5D=Textual%20Variants&sort=ranked&page=1"
 $pageTwo = Invoke-RestMethod -Method Get -Uri "http://localhost:$Port/wp-json/ehrman-discovery/v1/search?term%5B%5D=Textual%20Variants&sort=ranked&page=2"
 if (
@@ -134,4 +154,5 @@ Write-Output 'Landing, search, browse, and structure-review pages: OK'
 Write-Output 'Private import and packaged runtime files: OK'
 Write-Output 'Parity route disabled: OK'
 Write-Output 'Representative AND search: OK'
+Write-Output 'Topic-only and topic-plus-keyword modes: OK'
 Write-Output 'REST and server-rendered pagination: OK'

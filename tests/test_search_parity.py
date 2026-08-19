@@ -238,6 +238,29 @@ class SearchParityTests(unittest.TestCase):
         self.assertNotIn('Optionally limit results to one category.', page)
         self.assertNotIn('keyword-category-description', page)
 
+    def test_ambiguous_term_exposes_topic_and_combined_searches(self) -> None:
+        suggestions = json.loads(app.api_keywords({"q": ["colossians"]}).decode("utf-8"))
+        colossians = {
+            suggestion["mode"]: suggestion["postCount"]
+            for suggestion in suggestions
+            if suggestion["label"] == "Colossians"
+        }
+        self.assertEqual(colossians, {"topic": 7, "topic-keyword": 23})
+
+        topic_posts, _ = app.search_posts(
+            ["Colossians"],
+            "ranked",
+            term_modes=["topic"],
+        )
+        combined_posts, _ = app.search_posts(
+            ["Colossians"],
+            "ranked",
+            term_modes=["topic-keyword"],
+        )
+        self.assertEqual(len(topic_posts), 7)
+        self.assertEqual(len(combined_posts), 23)
+        self.assertTrue({post["url"] for post in topic_posts}.issubset({post["url"] for post in combined_posts}))
+
     def test_keyword_search_page_lists_each_category_once(self) -> None:
         page = app.keyword_search_page().decode("utf-8")
         category = app.keyword_filter_categories()[0]

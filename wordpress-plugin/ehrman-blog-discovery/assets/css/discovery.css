@@ -825,10 +825,10 @@
 
 .ebd-selected-term-badge {
   display: inline-flex;
-  flex: 0 0 58px;
+  flex: 0 0 76px;
   align-items: center;
   justify-content: center;
-  width: 58px;
+  width: 76px;
   min-height: 20px;
   padding: 2px 4px;
   border: 1px solid #d8a6a0;
@@ -841,7 +841,8 @@
   text-transform: uppercase;
 }
 
-.ebd-selected-term-badge.is-keyword {
+.ebd-selected-term-badge.is-keyword,
+.ebd-selected-term-badge.is-topic-keyword {
   border-color: #afc8d4;
   background: var(--ebd-keyword-soft);
   color: var(--ebd-keyword);
@@ -917,7 +918,8 @@
   text-transform: uppercase;
 }
 
-.ebd-suggestion-badge.is-keyword {
+.ebd-suggestion-badge.is-keyword,
+.ebd-suggestion-badge.is-topic-keyword {
   border-color: #afc8d4;
   background: var(--ebd-keyword-soft);
   color: var(--ebd-keyword);

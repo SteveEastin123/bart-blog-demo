@@ -829,6 +829,31 @@ a:hover {
   margin-bottom: 14px;
 }
 
+.selected-term-type {
+  align-items: center;
+  background: #f5e7e4;
+  border: 1px solid #d8aaa4;
+  border-radius: 3px;
+  color: var(--maroon);
+  display: inline-flex;
+  flex: 0 0 64px;
+  font-size: 10px;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 16px;
+  padding: 1px 4px;
+  text-transform: uppercase;
+}
+
+.selected-term-type.is-keyword,
+.selected-term-type.is-topic-keyword,
+.suggestion-type.is-keyword,
+.suggestion-type.is-topic-keyword {
+  background: #e9f0f5;
+  border-color: #b8cbd8;
+  color: #3f5665;
+}
+
 .suggestion-order-row {
   margin: 12px 0 14px;
 }
@@ -994,12 +1019,6 @@ a:hover {
   padding: 1px 4px;
   text-transform: uppercase;
   width: 64px;
-}
-
-.suggestion-type.is-keyword {
-  background: #e9f0f5;
-  border-color: #b8cbd8;
-  color: #3f5665;
 }
 
 .suggestion-count {

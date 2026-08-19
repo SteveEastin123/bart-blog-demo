@@ -114,6 +114,7 @@ final class Page_Controller {
 		}
 		Assets::enqueue();
 		$terms         = $this->request_terms();
+		$term_modes    = $this->request_term_modes( $terms );
 		$sort          = $this->request_value( 'ebd_sort', 'ranked' );
 		$page          = $this->request_page();
 		$category_slug = sanitize_title( $this->request_value( 'ebd_category' ) );
@@ -124,7 +125,7 @@ final class Page_Controller {
 		}
 		$has_request = ! empty( $terms ) || '' !== $category_slug;
 		$result      = $has_request
-			? $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE )
+			? $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE, $term_modes )
 			: array(
 				'posts'       => array(),
 				'terms'       => array(),
@@ -139,6 +140,7 @@ final class Page_Controller {
 		return $this->shell(
 			$this->search_panel(
 				$result['terms'],
+				$term_modes,
 				$result['sort'],
 				true,
 				$this->page_url( 'keyword_search' ),
@@ -419,17 +421,19 @@ final class Page_Controller {
 		if ( null === $topic ) {
 			return $this->not_found();
 		}
-		$category = $this->browse->topic_category( Database::integer( $topic['id'] ?? null ), $category_slug );
-		$area     = null === $category
+		$category   = $this->browse->topic_category( Database::integer( $topic['id'] ?? null ), $category_slug );
+		$area       = null === $category
 			? null
 			: $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
-		$terms    = $this->request_terms();
+		$terms      = $this->request_terms();
+		$term_modes = $this->request_term_modes( $terms );
 		if ( empty( $terms ) ) {
-			$terms = array( Database::text( $topic['name'] ?? null ) );
+			$terms      = array( Database::text( $topic['name'] ?? null ) );
+			$term_modes = array( Search_Service::TERM_MODE_TOPIC );
 		}
 		$sort        = $this->request_value( 'ebd_sort', 'ranked' );
 		$page        = $this->request_page();
-		$result      = $this->search->search( $terms, $sort, '', $topic_slug, $page, Search_Service::POSTS_PER_PAGE );
+		$result      = $this->search->search( $terms, $sort, '', $topic_slug, $page, Search_Service::POSTS_PER_PAGE, $term_modes );
 		$breadcrumbs = null === $category
 			? array()
 			: array_merge(
@@ -445,6 +449,7 @@ final class Page_Controller {
 			$this->heading( Database::text( $topic['name'] ?? null ), $this->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
 			. $this->search_panel(
 				$result['terms'],
+				$term_modes,
 				$result['sort'],
 				true,
 				$this->browse_url(
@@ -481,9 +486,10 @@ final class Page_Controller {
 		}
 		$area        = $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
 		$terms       = $this->request_terms();
+		$term_modes  = $this->request_term_modes( $terms );
 		$sort        = $this->request_value( 'ebd_sort', 'ranked' );
 		$page        = $this->request_page();
-		$result      = $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE );
+		$result      = $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE, $term_modes );
 		$breadcrumbs = array_merge(
 			$this->category_breadcrumbs( $path_number, $category, $area ),
 			array( array( __( 'Posts', 'ehrman-blog-discovery' ), '' ) )
@@ -499,6 +505,7 @@ final class Page_Controller {
 			$this->heading( Database::text( $category['name'] ?? null ), $this->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
 			. $this->search_panel(
 				$result['terms'],
+				$term_modes,
 				$result['sort'],
 				true,
 				$this->browse_url( $path_number, $form_args ),
@@ -514,6 +521,7 @@ final class Page_Controller {
 	 * Builds the reusable search controls for keyword and browse views.
 	 *
 	 * @param array<int,string>                   $terms             Selected search terms.
+	 * @param array<int,string>                   $term_modes        Search modes aligned with selected terms.
 	 * @param string                              $sort              Requested sort mode.
 	 * @param bool                                $show_descriptions Whether descriptions are initially visible.
 	 * @param string                              $action            Form action URL.
@@ -525,6 +533,7 @@ final class Page_Controller {
 	 */
 	private function search_panel(
 		array $terms,
+		array $term_modes,
 		string $sort,
 		bool $show_descriptions,
 		string $action,
@@ -538,16 +547,21 @@ final class Page_Controller {
 		$terms      = Search_Service::unique_terms( $terms );
 		$sort       = in_array( $sort, array( 'ranked', 'newest', 'oldest' ), true ) ? $sort : 'ranked';
 		$chips      = array();
-		$term_types = $this->search->term_types( $terms );
-		foreach ( $terms as $term ) {
-			$type       = $term_types[ Search_Service::normalize( $term ) ] ?? 'keyword';
-			$type_label = 'topic' === $type ? __( 'Topic', 'ehrman-blog-discovery' ) : __( 'Keyword', 'ehrman-blog-discovery' );
+		$term_modes = $this->search->resolve_term_modes( $terms, $term_modes );
+		foreach ( $terms as $index => $term ) {
+			$type = $term_modes[ $index ] ?? Search_Service::TERM_MODE_KEYWORD;
+			if ( Search_Service::TERM_MODE_TOPIC === $type ) {
+				$type_label = __( 'Topic', 'ehrman-blog-discovery' );
+			} else {
+				$type_label = __( 'Keyword', 'ehrman-blog-discovery' );
+			}
 			/* translators: %s: selected search term. */
 			$remove_label = sprintf( __( 'Remove %s', 'ehrman-blog-discovery' ), $term );
 			/* translators: %s: search term type, either Topic or Keyword. */
 			$type_accessible_label = sprintf( __( 'Term type: %s', 'ehrman-blog-discovery' ), $type_label );
 			$chips[]               = '<span class="ebd-keyword-slot ebd-keyword-chip"><input type="hidden" name="ebd_keyword[]" value="'
-				. esc_attr( $term ) . '"><span class="ebd-keyword-chip-content"><span class="ebd-keyword-chip-label">'
+				. esc_attr( $term ) . '"><input type="hidden" name="ebd_term_mode[]" value="' . esc_attr( $type )
+				. '"><span class="ebd-keyword-chip-content"><span class="ebd-keyword-chip-label">'
 				. esc_html( $term ) . '</span><span class="ebd-selected-term-badge is-' . esc_attr( $type )
 				. '" aria-label="' . esc_attr( $type_accessible_label ) . '">' . esc_html( $type_label )
 				. '</span></span><button type="button" '
@@ -605,7 +619,7 @@ final class Page_Controller {
 				. esc_html( $label ) . '</span></label>';
 		}
 		$suggestion_order .= '</div>';
-		$compact_summary  = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
+		$compact_summary   = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
 			. '<strong>' . esc_html__( 'Current search:', 'ehrman-blog-discovery' ) . '</strong> '
 			. '<span data-ebd-search-summary></span></p><button type="button" class="ebd-search-edit" '
 			. 'data-ebd-search-edit aria-controls="' . esc_attr( $id ) . '-controls">'
@@ -1003,6 +1017,25 @@ final class Page_Controller {
 		return Search_Service::unique_terms(
 			array_map( static fn( $value ): string => sanitize_text_field( Database::text( $value ) ), $raw )
 		);
+	}
+
+	/**
+	 * Reads selected-term modes and resolves missing legacy values.
+	 *
+	 * @param array<int,string> $terms Sanitized selected terms.
+	 * @return array<int,string> Modes aligned with the selected terms.
+	 */
+	private function request_term_modes( array $terms ): array {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Public read-only values are sanitized below.
+		$raw = isset( $_GET['ebd_term_mode'] ) ? wp_unslash( $_GET['ebd_term_mode'] ) : array();
+		$raw = is_array( $raw ) ? $raw : array( $raw );
+		$raw = array_values(
+			array_map(
+				static fn( $value ): string => sanitize_key( is_scalar( $value ) ? (string) $value : '' ),
+				$raw
+			)
+		);
+		return $this->search->resolve_term_modes( $terms, $raw );
 	}
 
 	/**
