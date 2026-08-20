@@ -45,6 +45,7 @@ final class Page_Controller {
 	/** Registers the plugin's public shortcodes. */
 	public function register(): void {
 		add_shortcode( 'ehrman_keyword_search', array( $this, 'keyword_search_shortcode' ) );
+		add_shortcode( 'ehrman_ask_question', array( $this, 'ask_question_shortcode' ) );
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
 		add_shortcode( 'ehrman_structure_review', array( $this, 'structure_review_shortcode' ) );
 		add_filter( 'wp_robots', array( $this, 'review_page_robots' ) );
@@ -54,6 +55,7 @@ final class Page_Controller {
 	public static function ensure_pages(): void {
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
+			'ask_question'     => array( 'Ask a Question', 'ask-a-question', '[ehrman_ask_question]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
 			'structure_review' => array( 'Structure Review', 'structure-review', '[ehrman_structure_review]' ),
@@ -154,6 +156,105 @@ final class Page_Controller {
 			. '</div>',
 			'keyword-search'
 		);
+	}
+
+	/**
+	 * Renders the AI-assisted natural-language search interface.
+	 *
+	 * @return string Question interpretation and post results markup.
+	 */
+	public function ask_question_shortcode(): string {
+		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
+			return $this->not_ready();
+		}
+		Assets::enqueue();
+		$question   = $this->request_value( 'ebd_question' );
+		$terms      = $this->request_terms();
+		$term_modes = $this->request_term_modes( $terms );
+		$sort       = $this->request_value( 'ebd_sort', 'ranked' );
+		$page       = $this->request_page();
+		$has_terms  = ! empty( $terms );
+		$result     = $has_terms
+			? $this->search->search( $terms, $sort, '', '', $page, Search_Service::POSTS_PER_PAGE, $term_modes )
+			: array(
+				'posts'       => array(),
+				'terms'       => array(),
+				'sort'        => 'ranked',
+				'count'       => 0,
+				'page'        => 1,
+				'per_page'    => Search_Service::POSTS_PER_PAGE,
+				'total_pages' => 0,
+			);
+
+		return $this->shell(
+			$this->question_panel( $question, $result['sort'] )
+			. ( $has_terms
+				? $this->search_panel(
+					$terms,
+					$term_modes,
+					$result['sort'],
+					true,
+					$this->page_url( 'ask_question' ),
+					'',
+					'',
+					null,
+					'',
+					'<input type="hidden" name="ebd_question" value="' . esc_attr( $question ) . '">'
+				)
+				: '<div class="ebd-description-control">' . $this->description_control( 'always', 'posts' ) . '</div>' )
+			. '<div id="ebd-results" class="ebd-results" data-ebd-results>'
+			. ( $has_terms ? $this->results_markup( $result, '' ) : '' )
+			. '</div>',
+			'ask-question'
+		);
+	}
+
+	/**
+	 * Builds the Ask a Question form and interpretation review.
+	 *
+	 * @param string $question Reader question.
+	 * @param string $sort     Selected result order.
+	 * @return string Question form markup.
+	 */
+	private function question_panel( string $question, string $sort ): string {
+		++$this->instance;
+		$id           = 'ebd-question-' . $this->instance;
+		$sort_options = array();
+		foreach ( array(
+			'ranked' => 'Best match',
+			'newest' => 'Newest first',
+			'oldest' => 'Oldest first',
+		) as $value => $label ) {
+			$sort_options[] = '<label class="ebd-sort-choice"><input type="radio" name="ebd_sort" value="' . esc_attr( $value )
+				. '"' . checked( $sort, $value, false ) . '><span>' . esc_html( $label ) . '</span></label>';
+		}
+		$configured_message = AI_Interpreter::is_configured()
+			? ''
+			: '<p class="ebd-question-configuration">' . esc_html__( 'Local AI credentials must be configured before questions can be interpreted.', 'ehrman-blog-discovery' ) . '</p>';
+		$review_markup      = '<section class="ebd-question-review" data-ebd-question-review hidden><h3>'
+			. esc_html__( 'Review the interpreted search', 'ehrman-blog-discovery' ) . '</h3><p>'
+			. esc_html__( 'These are the topics and keywords selected from your question. Remove any that do not reflect what you intended.', 'ehrman-blog-discovery' )
+			. '</p><ul data-ebd-question-terms></ul><div class="ebd-sort-row"><span>'
+			. esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>' . implode( '', $sort_options )
+			. '</div><div class="ebd-question-actions"><button type="submit" class="ebd-question-search" data-ebd-question-search disabled>'
+			. esc_html__( 'Search posts', 'ehrman-blog-discovery' ) . '</button></div></section>';
+
+		return '<form class="ebd-question-panel" action="' . esc_url( $this->page_url( 'ask_question' ) )
+			. '" method="get" data-ebd-question-form><div id="' . esc_attr( $id )
+			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
+			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
+			. esc_html__( 'Ask a question about the subjects covered on Bart\'s blog. The question will be translated into existing topics and keywords.', 'ehrman-blog-discovery' )
+			. '</p><p class="ebd-question-limit">'
+			. esc_html__( 'You can submit up to 10 questions within a five-minute period.', 'ehrman-blog-discovery' )
+			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
+			. 'placeholder="' . esc_attr__( 'Example: What does Luke say about Jesus\' death and atonement?', 'ehrman-blog-discovery' )
+			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
+			. '<button type="button" class="ebd-question-interpret" data-ebd-question-interpret'
+			. ( AI_Interpreter::is_configured() ? '' : ' disabled' ) . '>' . esc_html__( 'Submit', 'ehrman-blog-discovery' )
+			. '</button><button type="button" class="ebd-question-clear" data-ebd-question-clear>'
+			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>' . $configured_message
+			. '<p class="ebd-question-status" data-ebd-question-status aria-live="polite"></p>'
+			. $review_markup . '</div></form>';
 	}
 
 	/**
@@ -529,6 +630,7 @@ final class Page_Controller {
 	 * @param string                              $topic_scope       Fixed topic slug.
 	 * @param array<int,array<string,mixed>>|null $category_options Optional category choices.
 	 * @param string                              $selected_category Selected category slug.
+	 * @param string                              $extra_fields      Additional hidden form fields.
 	 * @return string Search-panel markup.
 	 */
 	private function search_panel(
@@ -540,7 +642,8 @@ final class Page_Controller {
 		string $category_scope = '',
 		string $topic_scope = '',
 		?array $category_options = null,
-		string $selected_category = ''
+		string $selected_category = '',
+		string $extra_fields = ''
 	): string {
 		++$this->instance;
 		$id         = 'ebd-search-' . $this->instance;
@@ -627,7 +730,7 @@ final class Page_Controller {
 		return '<form class="ebd-search-panel" action="' . esc_url( $action ) . '" method="get" data-ebd-search-form '
 			. 'data-category="' . esc_attr( '' !== $category_scope ? $category_scope : $selected_category ) . '" '
 			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-initial-collapse="'
-			. ( $has_search_state ? 'true' : 'false' ) . '">' . $compact_summary
+			. ( $has_search_state ? 'true' : 'false' ) . '">' . $extra_fields . $compact_summary
 			. '<div id="' . esc_attr( $id ) . '-controls" class="ebd-search-controls" data-ebd-search-expanded>' . $scope . $category_filter
 			. '<p class="ebd-search-instructions"><strong>' . esc_html__( 'Select up to four search terms.', 'ehrman-blog-discovery' )
 			. '</strong> ' . esc_html__( 'You can enter topics, keywords, or both. Topics identify a post\'s main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.', 'ehrman-blog-discovery' )

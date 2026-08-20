@@ -646,19 +646,24 @@
 
     .next-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.82fr) 1px minmax(0, 1.55fr);
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .next-divider {
-      width: 1px;
-      height: 100%;
-      background: var(--line);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.35rem;
+      margin-top: 1.5rem;
     }
 
     .next-section {
       min-width: 0;
+      padding: 1rem 1.05rem 0.8rem;
+      border-top: 5px solid var(--maroon);
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .testing-section {
+      border-top-color: var(--blue);
+    }
+
+    .handoff-section {
+      border-top-color: var(--subject);
     }
 
     .next-heading {
@@ -680,8 +685,12 @@
       font-weight: 850;
     }
 
-    .handoff-section .next-number {
+    .testing-section .next-number {
       background: var(--blue);
+    }
+
+    .handoff-section .next-number {
+      background: var(--subject);
     }
 
     .next-heading h3 {
@@ -691,15 +700,20 @@
       line-height: 1.15;
     }
 
-    .handoff-section .next-heading h3 {
+    .testing-section .next-heading h3 {
       color: var(--blue);
     }
 
+    .handoff-section .next-heading h3 {
+      color: var(--subject);
+    }
+
     .next-intro {
-      margin: 0 0 1rem;
+      min-height: 3.8em;
+      margin: 0 0 0.8rem;
       color: var(--muted);
-      font-size: clamp(0.88rem, 1.05vw, 1.08rem);
-      line-height: 1.4;
+      font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+      line-height: 1.34;
     }
 
     .next-list {
@@ -710,11 +724,11 @@
 
     .next-list li {
       position: relative;
-      margin-bottom: 0.68rem;
+      margin-bottom: 0.5rem;
       padding-left: 1.1rem;
       color: var(--ink);
-      font-size: clamp(0.84rem, 1vw, 1.04rem);
-      line-height: 1.36;
+      font-size: clamp(0.8rem, 0.9vw, 0.94rem);
+      line-height: 1.32;
     }
 
     .next-list li::before {
@@ -726,6 +740,24 @@
       border-radius: 50%;
       content: "";
       background: var(--gold);
+    }
+
+    .next-subheading {
+      margin: 0.8rem 0 0.45rem;
+      color: var(--maroon);
+      font-size: clamp(0.92rem, 1.05vw, 1.08rem);
+    }
+
+    .handoff-section .next-subheading {
+      color: var(--subject);
+    }
+
+    .next-message {
+      margin: 1.15rem 0 0;
+      color: var(--maroon);
+      font-size: clamp(0.98rem, 1.15vw, 1.2rem);
+      font-weight: 800;
+      text-align: center;
     }
 
     .handoff-columns {
@@ -1210,11 +1242,11 @@
             <p>Focused groupings of related topics within a subject area.</p>
           </section>
           <section class="definition topic-definition">
-            <h3>Topics (271)</h3>
+            <h3>Topics (286)</h3>
             <p>Major post subjects used for browsing and as search terms.</p>
           </section>
           <section class="definition keyword-definition">
-            <h3>Secondary Keywords (1,051)</h3>
+            <h3>Secondary Keywords (896)</h3>
             <p>Important people, texts, places, and supporting ideas found in posts.</p>
           </section>
         </div>
@@ -1255,22 +1287,22 @@
             <div class="example-flow">
               <div class="example-node subject-node">
                 <span class="example-type">Subject Area</span>
-                <strong class="example-value">Jesus, the Gospels, and Acts (1,219)</strong>
+                <strong class="example-value">Paul and the Epistles (412)</strong>
               </div>
               <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
               <div class="example-node category-node">
                 <span class="example-type">Category</span>
-                <strong class="example-value">Canonical Gospels and Acts (540)</strong>
+                <strong class="example-value">Pauline Epistles (198)</strong>
               </div>
               <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
               <div class="example-node topic-node">
                 <span class="example-type">Topic</span>
-                <strong class="example-value">Gospel Authorship (53)</strong>
+                <strong class="example-value">Romans (13)</strong>
               </div>
               <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
               <div class="example-node post-node">
                 <span class="example-type">Result</span>
-                <strong class="example-result">53 posts</strong>
+                <strong class="example-result">13 posts</strong>
               </div>
             </div>
           </section>
@@ -1282,58 +1314,51 @@
       <div class="slide-inner">
         <p class="eyebrow">Moving Forward</p>
         <h2>Next steps</h2>
-        <p class="lead">Validate the reader experience internally, then give the web development team a tested foundation for production implementation.</p>
+        <p class="lead">Validate the content organization first, refine the reader experience through trusted testing, and then hand off a tested solution for integration.</p>
         <div class="gold-rule"></div>
 
         <div class="next-grid">
-          <section class="next-section internal-section">
+          <section class="next-section review-section">
             <div class="next-heading">
               <span class="next-number">1</span>
-              <h3>Internal testing and feedback</h3>
+              <h3>Bart's content review</h3>
             </div>
-            <p class="next-intro">Confirm that readers can understand the organization and find useful posts efficiently.</p>
+            <p class="next-intro">Confirm that the organization accurately reflects the subjects covered on the blog.</p>
             <ul class="next-list">
-              <li>Test with both new and experienced blog readers.</li>
-              <li>Compare Browse Topics 1 and Browse Topics 2.</li>
-              <li>Evaluate common searches and difficult edge cases.</li>
-              <li>Gather feedback on clarity, relevance, navigation, and mobile use.</li>
-              <li>Select the preferred browse structure and finalize refinements.</li>
+              <li>Validate that no important topics are missing.</li>
+              <li>Confirm that topics are grouped under the correct categories.</li>
+              <li>Choose between the two subject-area options.</li>
             </ul>
           </section>
 
-          <div class="next-divider" aria-hidden="true"></div>
+          <section class="next-section testing-section">
+            <div class="next-heading">
+              <span class="next-number">2</span>
+              <h3>Inner-circle testing</h3>
+            </div>
+            <p class="next-intro">Use feedback from trusted readers to perfect search and browsing before handoff.</p>
+            <ul class="next-list">
+              <li>Test Keyword Search and Browse Topics.</li>
+              <li>Use both methods to find subjects of interest and confirm that each is easy to use.</li>
+              <li>Identify parts of the experience that are not intuitive.</li>
+              <li>Suggest ways to improve usability.</li>
+            </ul>
+          </section>
 
           <section class="next-section handoff-section">
             <div class="next-heading">
-              <span class="next-number">2</span>
-              <h3>Handoff to the web development team</h3>
+              <span class="next-number">3</span>
+              <h3>Development-team handoff</h3>
             </div>
-            <p class="next-intro">Transfer the reviewed data, demonstrated behavior, and implementation guidance needed to reproduce the experience on Bart's blog.</p>
-
-            <div class="handoff-columns">
-              <section class="handoff-column">
-                <h4>What we provide</h4>
-                <ul class="next-list">
-                  <li>Installable WordPress plugin and PHP source code providing the Keyword Search and Browse by Topic pages.</li>
-                  <li>Topics, keywords, categories, and subject areas linked to existing posts.</li>
-                  <li>Database schema, import tools, indexing scripts, and update process.</li>
-                  <li>Validation tests and integration documentation.</li>
-                </ul>
-              </section>
-
-              <section class="handoff-column">
-                <h4>What they do</h4>
-                <ul class="next-list">
-                  <li>Review and install the plugin in staging.</li>
-                  <li>Verify post mappings and import the metadata.</li>
-                  <li>Integrate navigation and adapt styling to the production site.</li>
-                  <li>Configure indexing and caching; test security, accessibility, mobile use, and performance.</li>
-                  <li>Complete acceptance testing, deploy, monitor, and maintain the implementation.</li>
-                </ul>
-              </section>
-            </div>
+            <p class="next-intro">Give the developers a tested solution that is ready to integrate into Bart's blog.</p>
+            <ul class="next-list">
+              <li>Provide the tested WordPress plugin and organized search data.</li>
+              <li>Provide import scripts and integration documentation.</li>
+              <li>Have the development team integrate the functionality and apply the production design.</li>
+            </ul>
           </section>
         </div>
+        <p class="next-message">Validate the organization, perfect the reader experience, and then integrate.</p>
       </div>
     </section>
 
@@ -1341,7 +1366,6 @@
       <div class="slide-inner">
         <p class="eyebrow">See It in Action</p>
         <h2>Explore the demo</h2>
-        <p class="closing-copy">Try the two ways of finding posts, compare the alternative browsing structures, and share feedback on which experience works best.</p>
 
         <div class="closing-band">
           <span>Live Demo</span>
@@ -1350,7 +1374,7 @@
 
         <div class="closing-actions" aria-label="Suggested demo activities">
           <span>Try Keyword Search</span>
-          <span>Compare Browse Topics 1 and 2</span>
+          <span>Try Browse Topics</span>
           <span>Share feedback</span>
         </div>
       </div>

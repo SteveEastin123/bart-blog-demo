@@ -4,6 +4,12 @@ This isolated Docker Compose environment runs the WordPress/MySQL version of
 the Ehrman Blog Discovery demo. It runs alongside the
 existing standalone HTML, PHP/SQLite, and Python/SQLite implementations.
 
+The optional **Ask a Question** proof of concept maps a natural-language
+question to the existing controlled topics and secondary keywords. To enable
+it locally, set `OPENAI_API_KEY` in `wordpress-demo/.env`; the key remains
+server-side and must not be committed. The optional
+`EHRMAN_DISCOVERY_AI_MODEL` value defaults to `gpt-5.4-mini`.
+
 ## Services
 
 - WordPress with Apache and PHP 8.3

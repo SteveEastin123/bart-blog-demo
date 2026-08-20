@@ -28,9 +28,17 @@ final class Rest_Controller {
 	 */
 	private Search_Service $search;
 
+	/**
+	 * Natural-language interpretation service.
+	 *
+	 * @var AI_Interpreter
+	 */
+	private AI_Interpreter $interpreter;
+
 	/** Creates the REST controller and its search service. */
 	public function __construct() {
-		$this->search = new Search_Service();
+		$this->search      = new Search_Service();
+		$this->interpreter = new AI_Interpreter();
 	}
 
 	/** Registers all public and test-only REST routes. */
@@ -73,6 +81,58 @@ final class Rest_Controller {
 				'permission_callback' => '__return_true',
 			)
 		);
+		register_rest_route(
+			self::REST_NAMESPACE,
+			'/interpret',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'interpret' ),
+				'permission_callback' => '__return_true',
+			)
+		);
+	}
+
+	/**
+	 * Converts a natural-language question into approved search terms.
+	 *
+	 * @param WP_REST_Request $request REST request instance.
+	 * @return WP_REST_Response|WP_Error Interpretation response or error.
+	 */
+	public function interpret( WP_REST_Request $request ) {
+		if ( 'local' !== wp_get_environment_type() ) {
+			$rate_key = 'ebd_ai_rate_' . hash( 'sha256', $this->request_address() );
+			$count    = Database::integer( get_transient( $rate_key ) );
+			if ( $count >= 10 ) {
+				return new WP_Error( 'ehrman_ai_rate_limit', __( 'Too many questions were submitted. Please wait a few minutes and try again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
+			}
+			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
+		}
+		$result = $this->interpreter->interpret( $this->question_text( $request->get_param( 'question' ) ) );
+		if ( is_wp_error( $result ) ) {
+			return $result;
+		}
+		$response = new WP_REST_Response( $result, 200 );
+		$response->header( 'Cache-Control', 'no-store' );
+		return $response;
+	}
+
+	/**
+	 * Returns a bounded natural-language question.
+	 *
+	 * @param mixed $value Raw question value.
+	 * @return string Sanitized, length-limited question.
+	 */
+	private function question_text( $value ): string {
+		$text = sanitize_text_field( $this->scalar_text( $value ) );
+		return function_exists( 'mb_substr' ) ? mb_substr( $text, 0, 800 ) : substr( $text, 0, 800 );
+	}
+
+	/** Returns a non-identifying request-address value for short-lived rate limiting. */
+	private function request_address(): string {
+		$address = isset( $_SERVER['REMOTE_ADDR'] ) && is_scalar( $_SERVER['REMOTE_ADDR'] )
+			? sanitize_text_field( wp_unslash( (string) $_SERVER['REMOTE_ADDR'] ) )
+			: 'unknown';
+		return '' === $address ? 'unknown' : $address;
 	}
 
 	/**

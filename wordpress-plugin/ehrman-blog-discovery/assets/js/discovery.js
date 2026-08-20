@@ -1262,7 +1262,139 @@
     });
   }
 
+  function questionTermElement(term) {
+    const item = document.createElement("li");
+    const label = document.createElement("span");
+    const badge = document.createElement("span");
+    const termInput = document.createElement("input");
+    const modeInput = document.createElement("input");
+    const remove = document.createElement("button");
+    const mode = termMode(term?.mode);
+
+    item.className = "ebd-question-term";
+    item.dataset.ebdQuestionTerm = "";
+    label.textContent = String(term?.label || "");
+    badge.className = `ebd-selected-term-badge is-${mode}`;
+    badge.textContent = modeLabel(mode);
+    termInput.type = "hidden";
+    termInput.name = "ebd_keyword[]";
+    termInput.value = String(term?.label || "");
+    modeInput.type = "hidden";
+    modeInput.name = "ebd_term_mode[]";
+    modeInput.value = mode;
+    remove.type = "button";
+    remove.dataset.ebdQuestionRemove = "";
+    remove.setAttribute("aria-label", `Remove ${termInput.value}`);
+    remove.innerHTML = "&times;";
+    item.append(label, badge, termInput, modeInput, remove);
+    return item;
+  }
+
+  function updateQuestionReview(form) {
+    const terms = form.querySelectorAll("[data-ebd-question-term]");
+    const review = form.querySelector("[data-ebd-question-review]");
+    const search = form.querySelector("[data-ebd-question-search]");
+    if (review) review.hidden = terms.length === 0;
+    if (search) search.disabled = terms.length === 0;
+  }
+
+  function setupQuestionForm(form) {
+    const input = form.querySelector("[data-ebd-question-input]");
+    const interpret = form.querySelector("[data-ebd-question-interpret]");
+    const status = form.querySelector("[data-ebd-question-status]");
+    const termList = form.querySelector("[data-ebd-question-terms]");
+    const review = form.querySelector("[data-ebd-question-review]");
+    const search = form.querySelector("[data-ebd-question-search]");
+    const expanded = form.querySelector("[data-ebd-question-expanded]");
+    const compact = form.querySelector("[data-ebd-question-compact]");
+    if (!input || !interpret || !status || !termList || !review) return;
+
+    const setCollapsed = (collapsed) => {
+      if (expanded) expanded.hidden = collapsed;
+      if (compact) compact.hidden = !collapsed;
+      form.classList.toggle("is-collapsed", collapsed);
+    };
+
+    const interpretQuestion = async () => {
+      if (interpret.disabled || form.classList.contains("is-loading")) return;
+      const question = input.value.trim();
+      if (!question) {
+        status.textContent = "Enter a question before asking for an interpretation.";
+        input.focus();
+        return;
+      }
+      interpret.disabled = true;
+      form.classList.add("is-loading");
+      status.textContent = "Interpreting your question...";
+      try {
+        const response = await fetch(config.interpretUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question }),
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload?.message || "The question could not be interpreted.");
+        }
+        termList.innerHTML = "";
+        (payload.terms || []).forEach((term) => termList.appendChild(questionTermElement(term)));
+        updateQuestionReview(form);
+        if (!termList.querySelector("[data-ebd-question-term]")) {
+          status.textContent = "No matching topics or keywords were found. Try revising the question.";
+          return;
+        }
+        status.textContent = "Searching posts...";
+        form.requestSubmit(search || undefined);
+      } catch (error) {
+        status.textContent = error?.message || "The question could not be interpreted. Please try again.";
+      } finally {
+        form.classList.remove("is-loading");
+        interpret.disabled = false;
+      }
+    };
+
+    interpret.addEventListener("click", interpretQuestion);
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
+      event.preventDefault();
+      interpretQuestion();
+    });
+
+    form.addEventListener("click", (event) => {
+      if (event.target.closest("[data-ebd-question-clear]")) {
+        input.value = "";
+        status.textContent = "";
+        input.focus({ preventScroll: true });
+        return;
+      }
+      if (event.target.closest("[data-ebd-question-expand]")) {
+        setCollapsed(false);
+        input.focus({ preventScroll: true });
+        return;
+      }
+      const remove = event.target.closest("[data-ebd-question-remove]");
+      if (remove) {
+        remove.closest("[data-ebd-question-term]")?.remove();
+        updateQuestionReview(form);
+        return;
+      }
+      if (event.target.closest("[data-ebd-question-edit]")) {
+        setCollapsed(false);
+        input.focus({ preventScroll: true });
+        input.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+
+    input.addEventListener("input", () => {
+      status.textContent = "";
+    });
+    updateQuestionReview(form);
+    setCollapsed(Boolean(compact && !compact.hidden));
+  }
+
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
+  document.querySelectorAll("[data-ebd-question-form]").forEach(setupQuestionForm);
   document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);
   document.querySelectorAll(".ebd-view-structure-review").forEach(setupStructureReview);
   setupTitleTooltips(document);

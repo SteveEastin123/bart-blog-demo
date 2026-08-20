@@ -40,6 +40,8 @@ services:
       WORDPRESS_ADMIN_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD:-ehrman-admin-production-test-only}
       WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_EMAIL:-admin@example.test}
       EHRMAN_DISCOVERY_PARITY_TOKEN: ${EHRMAN_DISCOVERY_PARITY_TOKEN:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      EHRMAN_DISCOVERY_AI_MODEL: ${EHRMAN_DISCOVERY_AI_MODEL:-gpt-5.4-mini}
       WORDPRESS_CONFIG_EXTRA: |
         define( 'WP_ENVIRONMENT_TYPE', 'local' );
         define( 'EHRMAN_DISCOVERY_IMPORT_DIR', '/opt/ehrman-import' );

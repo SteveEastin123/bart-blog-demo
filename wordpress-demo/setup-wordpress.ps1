@@ -110,6 +110,7 @@ try {
     Write-Host "Admin: $siteUrl/wp-admin/"
     Write-Host "Plugin status: $siteUrl/ehrman-discovery-status/"
     Write-Host "Keyword Search: $siteUrl/keyword-search/"
+    Write-Host "Ask a Question: $siteUrl/ask-a-question/"
     Write-Host "Browse Topics 1: $siteUrl/browse-topics-1/"
     Write-Host "Browse Topics 2: $siteUrl/browse-topics-2/"
     Write-Host "REST status: $siteUrl/wp-json/ehrman-discovery/v1/status"

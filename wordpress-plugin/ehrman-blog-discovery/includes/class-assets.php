@@ -47,6 +47,7 @@ final class Assets {
 			array(
 				'suggestionsUrl' => esc_url_raw( rest_url( 'ehrman-discovery/v1/suggestions' ) ),
 				'searchUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/search' ) ),
+				'interpretUrl'   => esc_url_raw( rest_url( 'ehrman-discovery/v1/interpret' ) ),
 				'statusUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/status' ) ),
 				'strings'        => array(
 					'topic'         => __( 'Topic', 'ehrman-blog-discovery' ),

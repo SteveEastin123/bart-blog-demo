@@ -267,7 +267,7 @@ final class Search_Service {
 		if ( is_array( $eligible ) && empty( $eligible ) ) {
 			return array();
 		}
-		$context_post_count = ! empty( $selected ) && is_array( $eligible ) ? count( $eligible ) : null;
+		$context_post_count = ! empty( $selected ) ? count( $eligible ) : null;
 
 		$where  = array( "normalized <> 'ignore'" );
 		$params = array( $query_normalized, $query_normalized . '%', '% ' . $query_normalized . '%' );
