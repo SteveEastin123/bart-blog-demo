@@ -19,7 +19,7 @@ final class AI_Interpreter {
 	private const DEFAULT_MODEL    = 'gpt-5.4-mini';
 	private const MAX_QUESTION_LEN = 800;
 	private const CACHE_SECONDS    = DAY_IN_SECONDS;
-	private const PROMPT_VERSION   = '14';
+	private const PROMPT_VERSION   = '15';
 
 	/**
 	 * Returns whether server-side AI credentials are available.
@@ -51,16 +51,16 @@ final class AI_Interpreter {
 			'sha256',
 			Search_Service::normalize( $question ) . '|' . self::model() . '|' . self::PROMPT_VERSION . '|' . ( is_scalar( $import_checksum ) ? (string) $import_checksum : '' )
 		);
+		$vocabulary      = $this->vocabulary();
 		$cached          = get_transient( $cache_key );
 		$cached          = $this->cached_result( $cached );
 		if ( null !== $cached ) {
-			$cached['terms'] = $this->compatible_terms( $cached['terms'] );
+			$cached['terms'] = $this->compatible_terms( $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] ) );
 			return $cached;
 		}
 
-		$vocabulary = $this->vocabulary();
-		$request    = $this->request_payload( $question, $vocabulary );
-		$body_json  = wp_json_encode( $request );
+		$request   = $this->request_payload( $question, $vocabulary );
+		$body_json = wp_json_encode( $request );
 		if ( ! is_string( $body_json ) ) {
 			return new WP_Error( 'ehrman_ai_request_error', __( 'The question could not be prepared for interpretation.', 'ehrman-blog-discovery' ), array( 'status' => 500 ) );
 		}
@@ -102,7 +102,7 @@ final class AI_Interpreter {
 
 		$entities = $this->validated_entities( $decoded['named_entities'] ?? array(), $vocabulary['keywords'] );
 		$terms    = $this->validated_terms( $decoded['terms'] ?? array(), $vocabulary );
-		$terms    = $this->merge_terms( $entities, $terms );
+		$terms    = $this->prefer_topic_labels( $this->merge_terms( $entities, $terms ), $vocabulary['topics'] );
 		$result   = array(
 			'question' => $question,
 			'terms'    => $this->compatible_terms( $terms ),
@@ -370,6 +370,29 @@ final class AI_Interpreter {
 			}
 		}
 		return $merged;
+	}
+
+	/**
+	 * Promotes a selected keyword to topic mode when an identical topic exists.
+	 *
+	 * @param list<array{label:string,mode:string}>                         $terms  Selected terms.
+	 * @param list<array{name:string,description:string,categories:string}> $topics Approved topics.
+	 * @return list<array{label:string,mode:string}> Topic-preferred terms.
+	 */
+	private function prefer_topic_labels( array $terms, array $topics ): array {
+		$topic_labels = array();
+		foreach ( $topics as $topic ) {
+			$topic_labels[ Search_Service::normalize( $topic['name'] ) ] = $topic['name'];
+		}
+		foreach ( $terms as &$term ) {
+			$normalized = Search_Service::normalize( $term['label'] );
+			if ( isset( $topic_labels[ $normalized ] ) ) {
+				$term['label'] = $topic_labels[ $normalized ];
+				$term['mode']  = Search_Service::TERM_MODE_TOPIC;
+			}
+		}
+		unset( $term );
+		return $terms;
 	}
 
 	/**
