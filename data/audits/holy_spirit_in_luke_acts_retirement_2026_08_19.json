@@ -1,0 +1,39 @@
+{
+  "auditDate": "2026-08-19",
+  "retiredTopic": "Holy Spirit in Luke-Acts",
+  "replacementKeyword": "Holy Spirit",
+  "affectedPosts": [
+    {
+      "wpId": "25906",
+      "title": "The Coming of the Spirit on the Day of Pentecost",
+      "topicsAfter": [
+        "Acts"
+      ],
+      "secondaryKeywordsAfter": [
+        "Messiah",
+        "Prophets",
+        "Repentance",
+        "Salvation (General)",
+        "Visionary Experiences",
+        "Peter the Apostle",
+        "Holy Spirit"
+      ]
+    },
+    {
+      "wpId": "26011",
+      "title": "The Spirit in the Life of Jesus",
+      "topicsAfter": [
+        "Development of the Trinity"
+      ],
+      "secondaryKeywordsAfter": [
+        "Acts",
+        "Gospel of Mark",
+        "Kingdom of God",
+        "Gospel of Luke",
+        "Hebrew Bible / Old Testament",
+        "Paul",
+        "Holy Spirit"
+      ]
+    }
+  ]
+}

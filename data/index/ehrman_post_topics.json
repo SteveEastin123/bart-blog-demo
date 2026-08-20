@@ -1100,12 +1100,6 @@
       "displayInBrowser": true
     },
     {
-      "name": "Holy Spirit in Luke-Acts",
-      "description": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
-      "categories": [],
-      "displayInBrowser": true
-    },
-    {
       "name": "How Jesus Became God",
       "description": "Covers Bart's book How Jesus Became God, including its development, central arguments about early Christology and Jesus' divinity, related courses, interviews, debates, and scholarly responses.",
       "categories": [
@@ -1357,14 +1351,14 @@
       ],
       "displayInBrowser": true
     },
-  {
-    "name": "Life of Brian",
-    "description": "Posts using Monty Python's Life of Brian to explore the historical Jesus, apocalypticism, Roman rule, burial, and public teaching.",
-    "categories": [
-      "Historical Jesus"
-    ],
-    "displayInBrowser": true
-  },
+    {
+      "name": "Life of Brian",
+      "description": "Posts using Monty Python's Life of Brian to explore the historical Jesus, apocalypticism, Roman rule, burial, and public teaching.",
+      "categories": [
+        "Historical Jesus"
+      ],
+      "displayInBrowser": true
+    },
     {
       "name": "Love Thy Stranger",
       "description": "Covers Bart's book Love Thy Stranger, including its argument that Jesus' teachings reshaped Western ideas about strangers, charity, forgiveness, and care for people in need.",

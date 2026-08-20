@@ -66305,31 +66305,32 @@
       "auditSequence": 270,
       "status": "completed",
       "postCountBefore": 2,
-      "postCountAfter": 2,
+      "postCountAfter": 0,
       "descriptionBefore": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
-      "descriptionRecommendation": "Posts on the Holy Spirit in Luke-Acts, including Jesus' empowerment by the Spirit and Pentecost in Acts.",
+      "descriptionRecommendation": "Retire the topic and preserve Holy Spirit as a secondary keyword.",
       "categoriesBefore": [],
-      "categoryRecommendation": "Retain current category placement.",
+      "categoryRecommendation": "Retire the unlinked two-post topic.",
       "startedAt": "2026-08-01",
-      "completedAt": "2026-08-01",
+      "completedAt": "2026-08-19",
       "decisions": [
         {
           "wpId": "26011",
           "title": "The Spirit in the Life of Jesus",
-          "decision": "retain",
+          "decision": "remove",
           "confidence": "high",
-          "reason": "The full post treats Holy Spirit in Luke-Acts as a primary or major sustained subject."
+          "reason": "The small unlinked topic was retired; Holy Spirit remains a secondary keyword for search."
         },
         {
           "wpId": "25906",
           "title": "The Coming of the Spirit on the Day of Pentecost",
-          "decision": "retain",
+          "decision": "remove",
           "confidence": "high",
-          "reason": "The full post treats Holy Spirit in Luke-Acts as a primary or major sustained subject."
+          "reason": "The small unlinked topic was retired; Holy Spirit remains a secondary keyword for search."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Retired the topic, added Holy Spirit as a secondary keyword to both posts, and assigned Acts to the Pentecost post."
       ]
     }
   ]
