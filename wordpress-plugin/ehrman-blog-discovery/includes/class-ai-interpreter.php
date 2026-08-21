@@ -41,10 +41,11 @@ final class AI_Interpreter {
 	/**
 	 * Interprets a question as no more than four approved search terms.
 	 *
-	 * @param string $question Reader's natural-language question.
-	 * @return array{question:string,terms:list<array{label:string,mode:string}>}|WP_Error Interpretation or error.
+	 * @param string $question   Reader's natural-language question.
+	 * @param string $request_id Correlation identifier for analytics.
+	 * @return array{question:string,terms:list<array{label:string,mode:string}>,cache_hit:bool}|WP_Error Interpretation or error.
 	 */
-	public function interpret( string $question ) {
+	public function interpret( string $question, string $request_id = '' ) {
 		$question = sanitize_text_field( $question );
 		$question = function_exists( 'mb_substr' )
 			? mb_substr( $question, 0, self::MAX_QUESTION_LEN )
@@ -65,15 +66,16 @@ final class AI_Interpreter {
 		$cached          = get_transient( $cache_key );
 		$cached          = $this->cached_result( $cached );
 		if ( null !== $cached ) {
-			AI_Usage::record_cache_hit( self::model() );
-			$cached['terms'] = $this->compatible_terms( $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] ) );
+			AI_Usage::record_cache_hit( self::model(), $request_id );
+			$cached['terms']     = $this->compatible_terms( $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] ) );
+			$cached['cache_hit'] = true;
 			return $cached;
 		}
 
 		$request   = $this->request_payload( $question, $vocabulary );
 		$body_json = wp_json_encode( $request );
 		if ( ! is_string( $body_json ) ) {
-			AI_Usage::record_failure( self::model(), 'request_error' );
+			AI_Usage::record_failure( self::model(), 'request_error', $request_id );
 			return new WP_Error( 'ehrman_ai_request_error', __( 'The question could not be prepared for interpretation.', 'ehrman-blog-discovery' ), array( 'status' => 500 ) );
 		}
 		$response = wp_remote_post(
@@ -88,14 +90,14 @@ final class AI_Interpreter {
 			)
 		);
 		if ( is_wp_error( $response ) ) {
-			AI_Usage::record_failure( self::model(), 'unavailable' );
+			AI_Usage::record_failure( self::model(), 'unavailable', $request_id );
 			return new WP_Error( 'ehrman_ai_unavailable', __( 'The question could not be interpreted. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 
 		$status = wp_remote_retrieve_response_code( $response );
 		$body   = json_decode( wp_remote_retrieve_body( $response ), true );
 		if ( ! is_array( $body ) ) {
-			AI_Usage::record_failure( self::model(), 'response_error' );
+			AI_Usage::record_failure( self::model(), 'response_error', $request_id );
 			return new WP_Error( 'ehrman_ai_response_error', __( 'The question could not be interpreted. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 		/**
@@ -104,12 +106,12 @@ final class AI_Interpreter {
 		 * @var array<string,mixed> $body
 		 */
 		if ( $status < 200 || $status >= 300 ) {
-			AI_Usage::record_response( $body, false, 'response_error' );
+			AI_Usage::record_response( $body, false, 'response_error', $request_id );
 			return new WP_Error( 'ehrman_ai_response_error', __( 'The question could not be interpreted. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 		$decoded = json_decode( $this->output_text( $body ), true );
 		if ( ! is_array( $decoded ) ) {
-			AI_Usage::record_response( $body, false, 'invalid_output' );
+			AI_Usage::record_response( $body, false, 'invalid_output', $request_id );
 			return new WP_Error( 'ehrman_ai_invalid_output', __( 'The interpretation service returned an invalid response.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 		/**
@@ -122,15 +124,18 @@ final class AI_Interpreter {
 		$terms    = $this->validated_terms( $decoded['terms'] ?? array(), $vocabulary );
 		$terms    = $this->prefer_topic_labels( $this->merge_terms( $entities, $terms ), $vocabulary['topics'] );
 		$result   = array(
-			'question' => $question,
-			'terms'    => $this->compatible_terms( $terms ),
+			'question'  => $question,
+			'terms'     => $this->compatible_terms( $terms ),
+			'cache_hit' => false,
 		);
 		if ( empty( $result['terms'] ) ) {
-			AI_Usage::record_response( $body, false, 'no_terms' );
+			AI_Usage::record_response( $body, false, 'no_terms', $request_id );
 			return new WP_Error( 'ehrman_ai_no_terms', __( 'No matching topics or keywords were identified. Try rephrasing the question.', 'ehrman-blog-discovery' ), array( 'status' => 422 ) );
 		}
-		AI_Usage::record_response( $body, true );
-		set_transient( $cache_key, $result, self::CACHE_SECONDS );
+		AI_Usage::record_response( $body, true, '', $request_id );
+		$cached_result = $result;
+		unset( $cached_result['cache_hit'] );
+		set_transient( $cache_key, $cached_result, self::CACHE_SECONDS );
 		return $result;
 	}
 

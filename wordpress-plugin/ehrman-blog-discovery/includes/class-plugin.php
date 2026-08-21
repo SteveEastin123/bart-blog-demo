@@ -71,6 +71,7 @@ final class Plugin {
 		add_action( 'rest_api_init', array( $this->rest_controller, 'register_routes' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		add_action( 'admin_post_ehrman_discovery_import', array( $this, 'handle_admin_import' ) );
+		AI_Analytics_Page::register();
 		add_shortcode( 'ehrman_discovery_status', array( $this, 'render_status_shortcode' ) );
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -102,10 +103,9 @@ final class Plugin {
 			return;
 		}
 
-		$status   = self::status_data();
-		$usage    = AI_Usage::report();
-		$feedback = AI_Feedback::report();
-		$notice   = get_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
+		$status = self::status_data();
+		$usage  = AI_Usage::report();
+		$notice = get_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
 		if ( false !== $notice ) {
 			delete_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
 		}
@@ -223,38 +223,7 @@ final class Plugin {
 					</tbody>
 				</table>
 			<?php endif; ?>
-			<h2><?php echo esc_html__( 'Ask AI search feedback', 'ehrman-blog-discovery' ); ?></h2>
-			<p><?php echo esc_html__( 'Anonymous feedback is retained for 90 days. No IP address or user identity is stored with these responses.', 'ehrman-blog-discovery' ); ?></p>
-			<table class="widefat striped" style="max-width: 760px">
-				<tbody>
-					<tr><th scope="row"><?php echo esc_html__( 'Responses', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['total'] ) ); ?></td></tr>
-					<tr><th scope="row"><?php echo esc_html__( 'Yes', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['helpful'] ) ); ?></td></tr>
-					<tr><th scope="row"><?php echo esc_html__( 'No', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['not_helpful'] ) ); ?></td></tr>
-					<tr><th scope="row"><?php echo esc_html__( 'Helpful rate', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['helpful_rate'], 1 ) . '%' ); ?></td></tr>
-				</tbody>
-			</table>
-			<?php if ( ! empty( $feedback['recent_negative'] ) ) : ?>
-				<h3><?php echo esc_html__( 'Recent No responses', 'ehrman-blog-discovery' ); ?></h3>
-				<table class="widefat striped">
-					<thead><tr><th><?php echo esc_html__( 'Date', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Selected terms', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Model / prompt', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-					<tbody>
-					<?php foreach ( $feedback['recent_negative'] as $raw_feedback_row ) : ?>
-						<?php
-						$feedback_row  = Database::associative_row( $raw_feedback_row ) ?? array();
-						$decoded_terms = json_decode( Database::text( $feedback_row['selected_terms'] ?? '' ), true );
-						$term_labels   = is_array( $decoded_terms ) ? array_filter( $decoded_terms, 'is_string' ) : array();
-						?>
-						<tr>
-							<td><?php echo esc_html( Database::text( $feedback_row['created_at'] ?? '' ) ); ?></td>
-							<td><?php echo esc_html( Database::text( $feedback_row['question'] ?? '' ) ); ?></td>
-							<td><?php echo esc_html( implode( ' + ', $term_labels ) ); ?></td>
-							<td><?php echo esc_html( number_format_i18n( Database::integer( $feedback_row['result_count'] ?? 0 ) ) ); ?></td>
-							<td><?php echo esc_html( Database::text( $feedback_row['model'] ?? '' ) . ' / ' . Database::text( $feedback_row['prompt_version'] ?? '' ) ); ?></td>
-						</tr>
-					<?php endforeach; ?>
-					</tbody>
-				</table>
-			<?php endif; ?>
+			<p><a class="button" href="<?php echo esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ); ?>"><?php echo esc_html__( 'View Ask AI analytics', 'ehrman-blog-discovery' ); ?></a></p>
 			<h2><?php echo esc_html__( 'Authoritative JSON import', 'ehrman-blog-discovery' ); ?></h2>
 			<p>
 				<?php

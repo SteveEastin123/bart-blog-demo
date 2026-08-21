@@ -22,9 +22,10 @@ final class AI_Usage {
 	 * Records an interpretation served from the WordPress cache.
 	 *
 	 * @param string $model Configured model identifier.
+	 * @param string $request_id Correlation identifier.
 	 */
-	public static function record_cache_hit( string $model ): void {
-		self::insert( $model, 0, 0, 0, 0.0, true, true, '' );
+	public static function record_cache_hit( string $model, string $request_id = '' ): void {
+		self::insert( $model, 0, 0, 0, 0.0, true, true, '', $request_id );
 	}
 
 	/**
@@ -33,8 +34,9 @@ final class AI_Usage {
 	 * @param array<string,mixed> $response_body Decoded Responses API body.
 	 * @param bool                $succeeded     Whether the interpretation was usable.
 	 * @param string              $error_code    Stable local error code.
+	 * @param string              $request_id    Correlation identifier.
 	 */
-	public static function record_response( array $response_body, bool $succeeded, string $error_code = '' ): void {
+	public static function record_response( array $response_body, bool $succeeded, string $error_code = '', string $request_id = '' ): void {
 		$usage          = is_array( $response_body['usage'] ?? null ) ? $response_body['usage'] : array();
 		$details        = is_array( $usage['input_tokens_details'] ?? null ) ? $usage['input_tokens_details'] : array();
 		$input_tokens   = self::nonnegative_integer( $usage['input_tokens'] ?? 0 );
@@ -43,7 +45,7 @@ final class AI_Usage {
 		$model          = is_scalar( $response_body['model'] ?? null ) ? sanitize_text_field( (string) $response_body['model'] ) : '';
 		$estimated_cost = self::estimate_cost( $input_tokens, $cached_tokens, $output_tokens );
 
-		self::insert( $model, $input_tokens, $cached_tokens, $output_tokens, $estimated_cost, false, $succeeded, $error_code );
+		self::insert( $model, $input_tokens, $cached_tokens, $output_tokens, $estimated_cost, false, $succeeded, $error_code, $request_id );
 	}
 
 	/**
@@ -51,9 +53,10 @@ final class AI_Usage {
 	 *
 	 * @param string $model      Configured model identifier.
 	 * @param string $error_code Stable local error code.
+	 * @param string $request_id Correlation identifier.
 	 */
-	public static function record_failure( string $model, string $error_code ): void {
-		self::insert( $model, 0, 0, 0, 0.0, false, false, $error_code );
+	public static function record_failure( string $model, string $error_code, string $request_id = '' ): void {
+		self::insert( $model, 0, 0, 0, 0.0, false, false, $error_code, $request_id );
 	}
 
 	/**
@@ -144,8 +147,9 @@ final class AI_Usage {
 	 * @param bool   $cache_hit      Whether WordPress served the interpretation from cache.
 	 * @param bool   $succeeded      Whether the interpretation succeeded.
 	 * @param string $error_code     Stable local error code.
+	 * @param string $request_id     Correlation identifier.
 	 */
-	private static function insert( string $model, int $input_tokens, int $cached_tokens, int $output_tokens, float $cost, bool $cache_hit, bool $succeeded, string $error_code ): void {
+	private static function insert( string $model, int $input_tokens, int $cached_tokens, int $output_tokens, float $cost, bool $cache_hit, bool $succeeded, string $error_code, string $request_id ): void {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ai_usage'];
 		$wpdb->insert(
@@ -161,8 +165,9 @@ final class AI_Usage {
 				'request_succeeded'   => $succeeded ? 1 : 0,
 				'error_code'          => sanitize_key( $error_code ),
 				'pricing_version'     => self::PRICING_VERSION,
+				'request_id'          => sanitize_text_field( $request_id ),
 			),
-			array( '%s', '%s', '%d', '%d', '%d', '%s', '%d', '%d', '%s', '%s' )
+			array( '%s', '%s', '%d', '%d', '%d', '%s', '%d', '%d', '%s', '%s', '%s' )
 		);
 	}
 

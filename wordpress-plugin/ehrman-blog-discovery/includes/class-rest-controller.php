@@ -121,14 +121,8 @@ final class Rest_Controller {
 		if ( ! is_bool( $raw_helpful ) ) {
 			return new WP_Error( 'ehrman_feedback_invalid', __( 'The feedback response was invalid.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 		}
-		$helpful = $raw_helpful;
-		$terms   = $this->terms( $request->get_param( 'terms' ) );
-		$stored  = AI_Feedback::record(
-			$this->question_text( $request->get_param( 'question' ) ),
-			$terms,
-			$helpful,
-			absint( $this->scalar_text( $request->get_param( 'result_count' ) ) )
-		);
+		$request_id = sanitize_text_field( $this->scalar_text( $request->get_param( 'request_id' ) ) );
+		$stored     = AI_Requests::set_feedback( $request_id, $raw_helpful );
 		if ( ! $stored ) {
 			return new WP_Error( 'ehrman_feedback_invalid', __( 'The feedback could not be saved.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 		}
@@ -150,11 +144,16 @@ final class Rest_Controller {
 			}
 			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
 		}
-		$result = $this->interpreter->interpret( $this->question_text( $request->get_param( 'question' ) ) );
+		$question   = $this->question_text( $request->get_param( 'question' ) );
+		$request_id = AI_Requests::request_id();
+		$result     = $this->interpreter->interpret( $question, $request_id );
 		if ( is_wp_error( $result ) ) {
+			AI_Requests::record( $request_id, $question, array(), false, false, (string) $result->get_error_code() );
 			return $result;
 		}
-		$response = new WP_REST_Response( $result, 200 );
+		AI_Requests::record( $request_id, $question, $result['terms'], $result['cache_hit'], true );
+		$result['request_id'] = $request_id;
+		$response             = new WP_REST_Response( $result, 200 );
 		$response->header( 'Cache-Control', 'no-store' );
 		return $response;
 	}

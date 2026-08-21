@@ -169,6 +169,7 @@ final class Page_Controller {
 		}
 		Assets::enqueue();
 		$question   = $this->request_value( 'ebd_question' );
+		$request_id = sanitize_text_field( $this->request_value( 'ebd_ai_request' ) );
 		$terms      = $this->request_terms();
 		$term_modes = $this->request_term_modes( $terms );
 		$sort       = $this->request_value( 'ebd_sort', 'ranked' );
@@ -185,6 +186,9 @@ final class Page_Controller {
 				'per_page'    => Search_Service::POSTS_PER_PAGE,
 				'total_pages' => 0,
 			);
+		if ( $has_terms && '' !== $request_id ) {
+			AI_Requests::set_result_count( $request_id, Database::integer( $result['count'] ) );
+		}
 
 		return $this->shell(
 			$this->question_panel( $question, $result['sort'] )
@@ -199,12 +203,12 @@ final class Page_Controller {
 					'',
 					null,
 					'',
-					'<input type="hidden" name="ebd_question" value="' . esc_attr( $question ) . '">',
+					'<input type="hidden" name="ebd_question" value="' . esc_attr( $question ) . '"><input type="hidden" name="ebd_ai_request" value="' . esc_attr( $request_id ) . '">',
 					true
 				)
 				: '<div class="ebd-description-control">' . $this->description_control( 'always', 'posts' ) . '</div>' )
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results>'
-			. ( $has_terms ? $this->results_markup( $result, '', $question ) : '' )
+			. ( $has_terms ? $this->results_markup( $result, '', $question, $request_id ) : '' )
 			. '</div>',
 			'ask-question'
 		);
@@ -241,7 +245,7 @@ final class Page_Controller {
 			. esc_html__( 'Search posts', 'ehrman-blog-discovery' ) . '</button></div></section>';
 
 		return '<form class="ebd-question-panel" action="' . esc_url( $this->page_url( 'ask_question' ) )
-			. '" method="get" data-ebd-question-form><div id="' . esc_attr( $id )
+			. '" method="get" data-ebd-question-form><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><div id="' . esc_attr( $id )
 			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
 			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
 			. esc_html__( 'Ask a question. AI will identify relevant topics and keywords to find matching posts on Bart\'s blog. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
@@ -809,9 +813,10 @@ final class Page_Controller {
 	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} $result Search result payload.
 	 * @param string                                                                                                                $context Topic or category context.
 	 * @param string                                                                                                                $question Ask AI question, when applicable.
+	 * @param string                                                                                                                $request_id Ask AI request identifier.
 	 * @return string Result markup.
 	 */
-	private function results_markup( array $result, string $context, string $question = '' ): string {
+	private function results_markup( array $result, string $context, string $question = '', string $request_id = '' ): string {
 		$terms         = $result['terms'];
 		$count         = $result['count'];
 		$page          = max( 1, Database::integer( $result['page'] ) );
@@ -849,22 +854,18 @@ final class Page_Controller {
 		$back_to_top = count( $result['posts'] ) >= self::BACK_TO_TOP_THRESHOLD
 			? $this->back_to_top_markup()
 			: '';
-		$feedback    = '' !== trim( $question ) ? $this->feedback_markup( $question, $terms, $count ) : '';
+		$feedback    = '' !== trim( $question ) && '' !== $request_id ? $this->feedback_markup( $request_id ) : '';
 		return $summary . $guidance . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
 	}
 
 	/**
 	 * Builds the Ask AI interpretation feedback control.
 	 *
-	 * @param string       $question Original reader question.
-	 * @param array<mixed> $terms    Interpreted search terms.
-	 * @param int          $count    Matching post count.
+	 * @param string $request_id Ask AI request identifier.
 	 * @return string Feedback control markup.
 	 */
-	private function feedback_markup( string $question, array $terms, int $count ): string {
-		return '<section class="ebd-ai-feedback" data-ebd-ai-feedback data-question="' . esc_attr( $question )
-			. '" data-terms="' . esc_attr( (string) wp_json_encode( array_values( $terms ) ) )
-			. '" data-result-count="' . esc_attr( (string) $count ) . '"><span>'
+	private function feedback_markup( string $request_id ): string {
+		return '<section class="ebd-ai-feedback" data-ebd-ai-feedback data-request-id="' . esc_attr( $request_id ) . '"><span>'
 			. esc_html__( 'Were these search results helpful?', 'ehrman-blog-discovery' )
 			. '</span><button type="button" data-ebd-feedback-value="yes">' . esc_html__( 'Yes', 'ehrman-blog-discovery' )
 			. '</button><button type="button" data-ebd-feedback-value="no">' . esc_html__( 'No', 'ehrman-blog-discovery' )

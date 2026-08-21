@@ -671,7 +671,8 @@
     }
     if (guidance.textContent) container.append(guidance);
     const question = form.querySelector('input[name="ebd_question"]')?.value || "";
-    if (question && terms.length) container.append(feedbackControl(question, terms, count));
+    const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
+    if (question && requestId && terms.length) container.append(feedbackControl(requestId));
     if (!Array.isArray(result.posts) || !result.posts.length) {
       const empty = document.createElement("p");
       empty.className = "ebd-empty";
@@ -720,15 +721,13 @@
     setupTitleTooltips(container);
   }
 
-  function feedbackControl(question, terms, resultCount) {
+  function feedbackControl(requestId) {
     const section = document.createElement("section");
     const prompt = document.createElement("span");
     const status = document.createElement("span");
     section.className = "ebd-ai-feedback";
     section.dataset.ebdAiFeedback = "true";
-    section.dataset.question = question;
-    section.dataset.terms = JSON.stringify(terms);
-    section.dataset.resultCount = String(resultCount);
+    section.dataset.requestId = requestId;
     prompt.textContent = "Were these search results helpful?";
     section.append(prompt);
     ["Yes", "No"].forEach((label) => {
@@ -758,10 +757,8 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          question: section.dataset.question || "",
-          terms: JSON.parse(section.dataset.terms || "[]"),
+          request_id: section.dataset.requestId || "",
           helpful: button.dataset.ebdFeedbackValue === "yes",
-          result_count: Number(section.dataset.resultCount || 0),
         }),
       });
       if (!response.ok) throw new Error("Feedback request failed");
@@ -1373,6 +1370,7 @@
     const search = form.querySelector("[data-ebd-question-search]");
     const expanded = form.querySelector("[data-ebd-question-expanded]");
     const compact = form.querySelector("[data-ebd-question-compact]");
+    const requestId = form.querySelector("[data-ebd-ai-request]");
     if (!input || !interpret || !status || !termList || !review) return;
 
     const setCollapsed = (collapsed) => {
@@ -1409,6 +1407,7 @@
         }
         termList.innerHTML = "";
         (payload.terms || []).forEach((term) => termList.appendChild(questionTermElement(term)));
+        if (requestId) requestId.value = String(payload.request_id || "");
         updateQuestionReview(form);
         if (!termList.querySelector("[data-ebd-question-term]")) {
           status.textContent = "No matching topics or keywords were found. Try revising the question.";

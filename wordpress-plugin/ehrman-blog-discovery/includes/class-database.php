@@ -37,6 +37,7 @@ final class Database {
 			'post_keywords'           => $base . 'post_keywords',
 			'post_search_terms'       => $base . 'post_search_terms',
 			'ai_usage'                => $base . 'ai_usage',
+			'ai_requests'             => $base . 'ai_requests',
 			'ai_feedback'             => $base . 'ai_feedback',
 		);
 	}
@@ -178,11 +179,35 @@ CREATE TABLE {$tables['ai_usage']} (
   request_succeeded tinyint(1) unsigned NOT NULL DEFAULT 0,
   error_code varchar(100) NOT NULL DEFAULT '',
   pricing_version varchar(32) NOT NULL DEFAULT '',
+  request_id char(36) NOT NULL DEFAULT '',
   PRIMARY KEY  (id),
   KEY idx_ai_usage_created (created_at),
   KEY idx_ai_usage_model (model),
   KEY idx_ai_usage_cache_hit (cache_hit),
-  KEY idx_ai_usage_succeeded (request_succeeded)
+  KEY idx_ai_usage_succeeded (request_succeeded),
+  KEY idx_ai_usage_request (request_id)
+) {$collate};
+
+CREATE TABLE {$tables['ai_requests']} (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  request_id char(36) NOT NULL,
+  created_at datetime NOT NULL,
+  question text NOT NULL,
+  selected_terms text NOT NULL,
+  result_count int(10) unsigned NOT NULL DEFAULT 0,
+  result_recorded tinyint(1) unsigned NOT NULL DEFAULT 0,
+  model varchar(100) NOT NULL,
+  prompt_version varchar(32) NOT NULL,
+  cache_hit tinyint(1) unsigned NOT NULL DEFAULT 0,
+  request_succeeded tinyint(1) unsigned NOT NULL DEFAULT 0,
+  error_code varchar(100) NOT NULL DEFAULT '',
+  feedback tinyint(1) unsigned DEFAULT NULL,
+  feedback_at datetime DEFAULT NULL,
+  PRIMARY KEY  (id),
+  UNIQUE KEY uq_ai_requests_request (request_id),
+  KEY idx_ai_requests_created (created_at),
+  KEY idx_ai_requests_feedback (feedback,created_at),
+  KEY idx_ai_requests_succeeded (request_succeeded,created_at)
 ) {$collate};
 
 CREATE TABLE {$tables['ai_feedback']} (
