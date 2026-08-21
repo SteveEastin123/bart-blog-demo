@@ -648,6 +648,14 @@
   color: #7c1d18;
 }
 
+.ebd-question-actions .ebd-question-edit:hover,
+.ebd-question-actions .ebd-question-edit:focus-visible,
+.ebd-question-actions .ebd-question-clear:hover,
+.ebd-question-actions .ebd-question-clear:focus-visible {
+  background: #f7eeee;
+  color: #5f1512;
+}
+
 .ebd-question-status,
 .ebd-question-configuration {
   margin: 12px 0 0;
