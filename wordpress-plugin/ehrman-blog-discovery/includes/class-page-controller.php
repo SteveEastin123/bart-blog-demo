@@ -199,11 +199,12 @@ final class Page_Controller {
 					'',
 					null,
 					'',
-					'<input type="hidden" name="ebd_question" value="' . esc_attr( $question ) . '">'
+					'<input type="hidden" name="ebd_question" value="' . esc_attr( $question ) . '">',
+					true
 				)
 				: '<div class="ebd-description-control">' . $this->description_control( 'always', 'posts' ) . '</div>' )
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results>'
-			. ( $has_terms ? $this->results_markup( $result, '' ) : '' )
+			. ( $has_terms ? $this->results_markup( $result, '', $question ) : '' )
 			. '</div>',
 			'ask-question'
 		);
@@ -243,9 +244,10 @@ final class Page_Controller {
 			. '" method="get" data-ebd-question-form><div id="' . esc_attr( $id )
 			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
 			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question about the subjects covered on Bart\'s blog. The question will be translated into existing topics and keywords.', 'ehrman-blog-discovery' )
+			. esc_html__( 'Ask a question in everyday language. AI will identify relevant topics and keywords and use them to find posts on Bart\'s blog. It does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
 			. '</p><p class="ebd-question-limit">'
 			. esc_html__( 'You can submit up to 10 questions within a five-minute period.', 'ehrman-blog-discovery' )
+			. ' ' . esc_html__( 'Questions and feedback may be reviewed for up to 90 days to improve search accuracy.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
 			. 'placeholder="' . esc_attr__( 'Example: What does Luke say about Jesus\' death and atonement?', 'ehrman-blog-discovery' )
 			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
@@ -631,6 +633,7 @@ final class Page_Controller {
 	 * @param array<int,array<string,mixed>>|null $category_options Optional category choices.
 	 * @param string                              $selected_category Selected category slug.
 	 * @param string                              $extra_fields      Additional hidden form fields.
+	 * @param bool                                $ai_interpretation Whether terms came from Ask AI.
 	 * @return string Search-panel markup.
 	 */
 	private function search_panel(
@@ -643,7 +646,8 @@ final class Page_Controller {
 		string $topic_scope = '',
 		?array $category_options = null,
 		string $selected_category = '',
-		string $extra_fields = ''
+		string $extra_fields = '',
+		bool $ai_interpretation = false
 	): string {
 		++$this->instance;
 		$id         = 'ebd-search-' . $this->instance;
@@ -722,11 +726,13 @@ final class Page_Controller {
 				. esc_html( $label ) . '</span></label>';
 		}
 		$suggestion_order .= '</div>';
+		$summary_label     = $ai_interpretation ? __( 'Interpreted as:', 'ehrman-blog-discovery' ) : __( 'Current search:', 'ehrman-blog-discovery' );
+		$edit_label        = $ai_interpretation ? __( 'Adjust search', 'ehrman-blog-discovery' ) : __( 'Edit search', 'ehrman-blog-discovery' );
 		$compact_summary   = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
-			. '<strong>' . esc_html__( 'Current search:', 'ehrman-blog-discovery' ) . '</strong> '
+			. '<strong>' . esc_html( $summary_label ) . '</strong> '
 			. '<span data-ebd-search-summary></span></p><button type="button" class="ebd-search-edit" '
 			. 'data-ebd-search-edit aria-controls="' . esc_attr( $id ) . '-controls">'
-			. esc_html__( 'Edit search', 'ehrman-blog-discovery' ) . '</button></div>';
+			. esc_html( $edit_label ) . '</button></div>';
 		return '<form class="ebd-search-panel" action="' . esc_url( $action ) . '" method="get" data-ebd-search-form '
 			. 'data-category="' . esc_attr( '' !== $category_scope ? $category_scope : $selected_category ) . '" '
 			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-initial-collapse="'
@@ -805,9 +811,10 @@ final class Page_Controller {
 	 *
 	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} $result Search result payload.
 	 * @param string                                                                                                                $context Topic or category context.
+	 * @param string                                                                                                                $question Ask AI question, when applicable.
 	 * @return string Result markup.
 	 */
-	private function results_markup( array $result, string $context ): string {
+	private function results_markup( array $result, string $context, string $question = '' ): string {
 		$terms         = $result['terms'];
 		$count         = $result['count'];
 		$page          = max( 1, Database::integer( $result['page'] ) );
@@ -841,10 +848,49 @@ final class Page_Controller {
 				. esc_html( implode( ' + ', $terms ) ) . '</strong>';
 		}
 		$summary    .= '.</p>';
+		$guidance    = $this->results_guidance( $count, count( $terms ) );
 		$back_to_top = count( $result['posts'] ) >= self::BACK_TO_TOP_THRESHOLD
 			? $this->back_to_top_markup()
 			: '';
-		return $summary . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+		$feedback    = '' !== trim( $question ) ? $this->feedback_markup( $question, $terms, $count ) : '';
+		return $summary . $guidance . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+	}
+
+	/**
+	 * Builds the Ask AI interpretation feedback control.
+	 *
+	 * @param string       $question Original reader question.
+	 * @param array<mixed> $terms    Interpreted search terms.
+	 * @param int          $count    Matching post count.
+	 * @return string Feedback control markup.
+	 */
+	private function feedback_markup( string $question, array $terms, int $count ): string {
+		return '<section class="ebd-ai-feedback" data-ebd-ai-feedback data-question="' . esc_attr( $question )
+			. '" data-terms="' . esc_attr( (string) wp_json_encode( array_values( $terms ) ) )
+			. '" data-result-count="' . esc_attr( (string) $count ) . '"><span>'
+			. esc_html__( 'Were these search results helpful?', 'ehrman-blog-discovery' )
+			. '</span><button type="button" data-ebd-feedback-value="yes">' . esc_html__( 'Yes', 'ehrman-blog-discovery' )
+			. '</button><button type="button" data-ebd-feedback-value="no">' . esc_html__( 'No', 'ehrman-blog-discovery' )
+			. '</button><span class="ebd-ai-feedback-status" data-ebd-feedback-status aria-live="polite"></span></section>';
+	}
+
+	/**
+	 * Provides a next step only when a result set is unusually broad or narrow.
+	 *
+	 * @param int $count      Matching post count.
+	 * @param int $term_count Number of selected search terms.
+	 * @return string Contextual search guidance markup.
+	 */
+	private function results_guidance( int $count, int $term_count ): string {
+		$message = '';
+		if ( $count > 100 ) {
+			$message = __( 'Many posts match. Add another topic or keyword to narrow the results.', 'ehrman-blog-discovery' );
+		} elseif ( 0 === $count && $term_count > 0 ) {
+			$message = __( 'No posts match all the selected terms. Remove a term or try a different search.', 'ehrman-blog-discovery' );
+		} elseif ( $count <= 3 && $term_count > 1 ) {
+			$message = __( 'Only a few posts match all the selected terms. Remove a term to broaden the results.', 'ehrman-blog-discovery' );
+		}
+		return '' === $message ? '' : '<p class="ebd-results-guidance">' . esc_html( $message ) . '</p>';
 	}
 
 	/**

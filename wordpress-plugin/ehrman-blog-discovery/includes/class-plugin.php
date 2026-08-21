@@ -102,8 +102,10 @@ final class Plugin {
 			return;
 		}
 
-		$status = self::status_data();
-		$notice = get_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
+		$status   = self::status_data();
+		$usage    = AI_Usage::report();
+		$feedback = AI_Feedback::report();
+		$notice   = get_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
 		if ( false !== $notice ) {
 			delete_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
 		}
@@ -149,6 +151,110 @@ final class Plugin {
 					</tr>
 				</tbody>
 			</table>
+			<h2><?php echo esc_html__( 'AI interpretation usage', 'ehrman-blog-discovery' ); ?></h2>
+			<p><?php echo esc_html__( 'Estimated costs use the pricing recorded by this plugin. Confirm billed amounts in the OpenAI usage dashboard.', 'ehrman-blog-discovery' ); ?></p>
+			<table class="widefat striped" style="max-width: 760px">
+				<tbody>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Questions submitted', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( number_format_i18n( $usage['submissions'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'OpenAI requests', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( number_format_i18n( $usage['api_requests'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Cache hits', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( number_format_i18n( $usage['cache_hits'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Failed interpretations', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( number_format_i18n( $usage['failures'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Estimated cost today', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( self::format_usd( $usage['today_cost'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Estimated cost this month', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( self::format_usd( $usage['month_cost'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Estimated lifetime cost', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( self::format_usd( $usage['total_cost'] ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Average cost per OpenAI request', 'ehrman-blog-discovery' ); ?></th>
+						<td><?php echo esc_html( self::format_usd( $usage['average_cost'], 5 ) ); ?></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th>
+						<td>
+							<?php
+							echo esc_html(
+								sprintf(
+									/* translators: 1: input tokens, 2: cached input tokens, 3: output tokens */
+									__( '%1$s input (%2$s cached) | %3$s output', 'ehrman-blog-discovery' ),
+									number_format_i18n( $usage['input_tokens'] ),
+									number_format_i18n( $usage['cached_input_tokens'] ),
+									number_format_i18n( $usage['output_tokens'] )
+								)
+							);
+							?>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<?php if ( ! empty( $usage['models'] ) ) : ?>
+				<h3><?php echo esc_html__( 'Usage by model', 'ehrman-blog-discovery' ); ?></h3>
+				<table class="widefat striped" style="max-width: 760px">
+					<thead><tr><th><?php echo esc_html__( 'Model', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'OpenAI requests', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Input tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Output tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+					<tbody>
+					<?php foreach ( $usage['models'] as $raw_model_row ) : ?>
+						<?php $model_row = Database::associative_row( $raw_model_row ) ?? array(); ?>
+						<tr>
+							<td><?php echo esc_html( Database::text( $model_row['model'] ?? '' ) ); ?></td>
+							<td><?php echo esc_html( number_format_i18n( Database::integer( $model_row['api_requests'] ?? 0 ) ) ); ?></td>
+							<td><?php echo esc_html( number_format_i18n( Database::integer( $model_row['input_tokens'] ?? 0 ) ) ); ?></td>
+							<td><?php echo esc_html( number_format_i18n( Database::integer( $model_row['output_tokens'] ?? 0 ) ) ); ?></td>
+							<td><?php echo esc_html( self::format_usd( (float) Database::text( $model_row['total_cost'] ?? 0 ) ) ); ?></td>
+						</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+			<?php endif; ?>
+			<h2><?php echo esc_html__( 'Ask AI search feedback', 'ehrman-blog-discovery' ); ?></h2>
+			<p><?php echo esc_html__( 'Anonymous feedback is retained for 90 days. No IP address or user identity is stored with these responses.', 'ehrman-blog-discovery' ); ?></p>
+			<table class="widefat striped" style="max-width: 760px">
+				<tbody>
+					<tr><th scope="row"><?php echo esc_html__( 'Responses', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['total'] ) ); ?></td></tr>
+					<tr><th scope="row"><?php echo esc_html__( 'Yes', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['helpful'] ) ); ?></td></tr>
+					<tr><th scope="row"><?php echo esc_html__( 'No', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['not_helpful'] ) ); ?></td></tr>
+					<tr><th scope="row"><?php echo esc_html__( 'Helpful rate', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( number_format_i18n( $feedback['helpful_rate'], 1 ) . '%' ); ?></td></tr>
+				</tbody>
+			</table>
+			<?php if ( ! empty( $feedback['recent_negative'] ) ) : ?>
+				<h3><?php echo esc_html__( 'Recent No responses', 'ehrman-blog-discovery' ); ?></h3>
+				<table class="widefat striped">
+					<thead><tr><th><?php echo esc_html__( 'Date', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Selected terms', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Model / prompt', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+					<tbody>
+					<?php foreach ( $feedback['recent_negative'] as $raw_feedback_row ) : ?>
+						<?php
+						$feedback_row  = Database::associative_row( $raw_feedback_row ) ?? array();
+						$decoded_terms = json_decode( Database::text( $feedback_row['selected_terms'] ?? '' ), true );
+						$term_labels   = is_array( $decoded_terms ) ? array_filter( $decoded_terms, 'is_string' ) : array();
+						?>
+						<tr>
+							<td><?php echo esc_html( Database::text( $feedback_row['created_at'] ?? '' ) ); ?></td>
+							<td><?php echo esc_html( Database::text( $feedback_row['question'] ?? '' ) ); ?></td>
+							<td><?php echo esc_html( implode( ' + ', $term_labels ) ); ?></td>
+							<td><?php echo esc_html( number_format_i18n( Database::integer( $feedback_row['result_count'] ?? 0 ) ) ); ?></td>
+							<td><?php echo esc_html( Database::text( $feedback_row['model'] ?? '' ) . ' / ' . Database::text( $feedback_row['prompt_version'] ?? '' ) ); ?></td>
+						</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+			<?php endif; ?>
 			<h2><?php echo esc_html__( 'Authoritative JSON import', 'ehrman-blog-discovery' ); ?></h2>
 			<p>
 				<?php
@@ -310,5 +416,15 @@ final class Plugin {
 	 */
 	private static function scalar_string( $value, string $fallback = '' ): string {
 		return is_scalar( $value ) ? (string) $value : $fallback;
+	}
+
+	/**
+	 * Formats a small estimated US-dollar amount without rounding it to zero.
+	 *
+	 * @param float $amount   US-dollar amount.
+	 * @param int   $decimals Number of decimal places.
+	 */
+	private static function format_usd( float $amount, int $decimals = 4 ): string {
+		return '$' . number_format_i18n( $amount, $decimals );
 	}
 }

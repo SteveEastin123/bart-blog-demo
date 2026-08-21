@@ -660,6 +660,18 @@
     }
     summary.append(document.createTextNode("."));
     container.append(summary);
+    const guidance = document.createElement("p");
+    guidance.className = "ebd-results-guidance";
+    if (count > 100) {
+      guidance.textContent = strings.manyResults || "Many posts match. Add another topic or keyword to narrow the results.";
+    } else if (count === 0 && terms.length > 0) {
+      guidance.textContent = strings.zeroResults || "No posts match all the selected terms. Remove a term or try a different search.";
+    } else if (count <= 3 && terms.length > 1) {
+      guidance.textContent = strings.fewResults || "Only a few posts match all the selected terms. Remove a term to broaden the results.";
+    }
+    if (guidance.textContent) container.append(guidance);
+    const question = form.querySelector('input[name="ebd_question"]')?.value || "";
+    if (question && terms.length) container.append(feedbackControl(question, terms, count));
     if (!Array.isArray(result.posts) || !result.posts.length) {
       const empty = document.createElement("p");
       empty.className = "ebd-empty";
@@ -707,6 +719,60 @@
     applyDescriptionMode(container.closest(".ebd-discovery") || document);
     setupTitleTooltips(container);
   }
+
+  function feedbackControl(question, terms, resultCount) {
+    const section = document.createElement("section");
+    const prompt = document.createElement("span");
+    const status = document.createElement("span");
+    section.className = "ebd-ai-feedback";
+    section.dataset.ebdAiFeedback = "true";
+    section.dataset.question = question;
+    section.dataset.terms = JSON.stringify(terms);
+    section.dataset.resultCount = String(resultCount);
+    prompt.textContent = "Were these search results helpful?";
+    section.append(prompt);
+    ["Yes", "No"].forEach((label) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.ebdFeedbackValue = label.toLowerCase();
+      button.textContent = label;
+      section.append(button);
+    });
+    status.className = "ebd-ai-feedback-status";
+    status.dataset.ebdFeedbackStatus = "true";
+    status.setAttribute("aria-live", "polite");
+    section.append(status);
+    return section;
+  }
+
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-ebd-feedback-value]");
+    if (!button || !config.feedbackUrl) return;
+    const section = button.closest("[data-ebd-ai-feedback]");
+    const status = section?.querySelector("[data-ebd-feedback-status]");
+    if (!section || !status || section.dataset.submitted === "true") return;
+    const buttons = section.querySelectorAll("[data-ebd-feedback-value]");
+    buttons.forEach((item) => { item.disabled = true; });
+    try {
+      const response = await fetch(config.feedbackUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: section.dataset.question || "",
+          terms: JSON.parse(section.dataset.terms || "[]"),
+          helpful: button.dataset.ebdFeedbackValue === "yes",
+          result_count: Number(section.dataset.resultCount || 0),
+        }),
+      });
+      if (!response.ok) throw new Error("Feedback request failed");
+      section.dataset.submitted = "true";
+      button.classList.add("is-selected");
+      status.textContent = strings.feedbackThanks || "Thank you. Your feedback will help improve the search.";
+    } catch (error) {
+      buttons.forEach((item) => { item.disabled = false; });
+      status.textContent = strings.feedbackFailed || "The feedback could not be saved. Please try again.";
+    }
+  });
 
   function setupCategory(form) {
     const box = form.querySelector("[data-ebd-category-combobox]");
@@ -1323,8 +1389,13 @@
         input.focus();
         return;
       }
+      const originalLabel = interpret.textContent;
+      let submitted = false;
       interpret.disabled = true;
+      interpret.textContent = "Interpreting...";
+      interpret.setAttribute("aria-busy", "true");
       form.classList.add("is-loading");
+      status.classList.add("is-loading");
       status.textContent = "Interpreting your question...";
       try {
         const response = await fetch(config.interpretUrl, {
@@ -1344,12 +1415,18 @@
           return;
         }
         status.textContent = "Searching posts...";
+        submitted = true;
         form.requestSubmit(search || undefined);
       } catch (error) {
         status.textContent = error?.message || "The question could not be interpreted. Please try again.";
       } finally {
-        form.classList.remove("is-loading");
-        interpret.disabled = false;
+        if (!submitted) {
+          form.classList.remove("is-loading");
+          status.classList.remove("is-loading");
+          interpret.disabled = false;
+          interpret.textContent = originalLabel;
+          interpret.removeAttribute("aria-busy");
+        }
       }
     };
 
@@ -1364,8 +1441,10 @@
     form.addEventListener("click", (event) => {
       if (event.target.closest("[data-ebd-question-clear]")) {
         input.value = "";
+        termList.innerHTML = "";
+        updateQuestionReview(form);
         status.textContent = "";
-        input.focus({ preventScroll: true });
+        window.location.assign(form.action);
         return;
       }
       if (event.target.closest("[data-ebd-question-expand]")) {

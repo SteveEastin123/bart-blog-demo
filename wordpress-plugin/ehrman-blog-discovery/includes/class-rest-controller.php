@@ -90,6 +90,49 @@ final class Rest_Controller {
 				'permission_callback' => '__return_true',
 			)
 		);
+		register_rest_route(
+			self::REST_NAMESPACE,
+			'/feedback',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'feedback' ),
+				'permission_callback' => '__return_true',
+			)
+		);
+	}
+
+	/**
+	 * Records anonymous feedback about an interpreted search.
+	 *
+	 * @param WP_REST_Request $request REST request instance.
+	 * @return WP_REST_Response|WP_Error Storage response or error.
+	 */
+	public function feedback( WP_REST_Request $request ) {
+		if ( 'local' !== wp_get_environment_type() ) {
+			$rate_key = 'ebd_feedback_rate_' . hash( 'sha256', $this->request_address() );
+			$count    = Database::integer( get_transient( $rate_key ) );
+			if ( $count >= 20 ) {
+				return new WP_Error( 'ehrman_feedback_rate_limit', __( 'Too much feedback was submitted. Please wait a few minutes and try again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
+			}
+			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
+		}
+
+		$raw_helpful = $request->get_param( 'helpful' );
+		if ( ! is_bool( $raw_helpful ) ) {
+			return new WP_Error( 'ehrman_feedback_invalid', __( 'The feedback response was invalid.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
+		}
+		$helpful = $raw_helpful;
+		$terms   = $this->terms( $request->get_param( 'terms' ) );
+		$stored  = AI_Feedback::record(
+			$this->question_text( $request->get_param( 'question' ) ),
+			$terms,
+			$helpful,
+			absint( $this->scalar_text( $request->get_param( 'result_count' ) ) )
+		);
+		if ( ! $stored ) {
+			return new WP_Error( 'ehrman_feedback_invalid', __( 'The feedback could not be saved.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
+		}
+		return new WP_REST_Response( array( 'saved' => true ), 201 );
 	}
 
 	/**

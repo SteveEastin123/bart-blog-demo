@@ -19,7 +19,17 @@ final class AI_Interpreter {
 	private const DEFAULT_MODEL    = 'gpt-5.4-mini';
 	private const MAX_QUESTION_LEN = 800;
 	private const CACHE_SECONDS    = DAY_IN_SECONDS;
-	private const PROMPT_VERSION   = '15';
+	private const PROMPT_VERSION   = '16';
+
+	/** Returns the configured model identifier for reporting. */
+	public static function model_id(): string {
+		return self::model();
+	}
+
+	/** Returns the interpretation prompt version for reporting. */
+	public static function prompt_version(): string {
+		return self::PROMPT_VERSION;
+	}
 
 	/**
 	 * Returns whether server-side AI credentials are available.
@@ -55,6 +65,7 @@ final class AI_Interpreter {
 		$cached          = get_transient( $cache_key );
 		$cached          = $this->cached_result( $cached );
 		if ( null !== $cached ) {
+			AI_Usage::record_cache_hit( self::model() );
 			$cached['terms'] = $this->compatible_terms( $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] ) );
 			return $cached;
 		}
@@ -62,6 +73,7 @@ final class AI_Interpreter {
 		$request   = $this->request_payload( $question, $vocabulary );
 		$body_json = wp_json_encode( $request );
 		if ( ! is_string( $body_json ) ) {
+			AI_Usage::record_failure( self::model(), 'request_error' );
 			return new WP_Error( 'ehrman_ai_request_error', __( 'The question could not be prepared for interpretation.', 'ehrman-blog-discovery' ), array( 'status' => 500 ) );
 		}
 		$response = wp_remote_post(
@@ -76,12 +88,14 @@ final class AI_Interpreter {
 			)
 		);
 		if ( is_wp_error( $response ) ) {
+			AI_Usage::record_failure( self::model(), 'unavailable' );
 			return new WP_Error( 'ehrman_ai_unavailable', __( 'The question could not be interpreted. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 
 		$status = wp_remote_retrieve_response_code( $response );
 		$body   = json_decode( wp_remote_retrieve_body( $response ), true );
-		if ( $status < 200 || $status >= 300 || ! is_array( $body ) ) {
+		if ( ! is_array( $body ) ) {
+			AI_Usage::record_failure( self::model(), 'response_error' );
 			return new WP_Error( 'ehrman_ai_response_error', __( 'The question could not be interpreted. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 		/**
@@ -89,9 +103,13 @@ final class AI_Interpreter {
 		 *
 		 * @var array<string,mixed> $body
 		 */
-
+		if ( $status < 200 || $status >= 300 ) {
+			AI_Usage::record_response( $body, false, 'response_error' );
+			return new WP_Error( 'ehrman_ai_response_error', __( 'The question could not be interpreted. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
+		}
 		$decoded = json_decode( $this->output_text( $body ), true );
 		if ( ! is_array( $decoded ) ) {
+			AI_Usage::record_response( $body, false, 'invalid_output' );
 			return new WP_Error( 'ehrman_ai_invalid_output', __( 'The interpretation service returned an invalid response.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
 		/**
@@ -108,8 +126,10 @@ final class AI_Interpreter {
 			'terms'    => $this->compatible_terms( $terms ),
 		);
 		if ( empty( $result['terms'] ) ) {
+			AI_Usage::record_response( $body, false, 'no_terms' );
 			return new WP_Error( 'ehrman_ai_no_terms', __( 'No matching topics or keywords were identified. Try rephrasing the question.', 'ehrman-blog-discovery' ), array( 'status' => 422 ) );
 		}
+		AI_Usage::record_response( $body, true );
 		set_transient( $cache_key, $result, self::CACHE_SECONDS );
 		return $result;
 	}
@@ -143,22 +163,19 @@ final class AI_Interpreter {
 	/**
 	 * Builds the approved topic and keyword vocabulary.
 	 *
-	 * @return array{topics:list<array{name:string,description:string,categories:string}>,keywords:list<string>}
+	 * @return array{topics:list<array{name:string,description:string}>,keywords:list<string>}
 	 */
 	private function vocabulary(): array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$sql    = "SELECT t.name,t.description,GROUP_CONCAT(DISTINCT c.name ORDER BY c.name SEPARATOR ', ') categories "
-			. "FROM {$tables['topics']} t LEFT JOIN {$tables['topic_categories']} tc ON tc.topic_id=t.id "
-			. "LEFT JOIN {$tables['categories']} c ON c.id=tc.category_id "
-			. "WHERE t.display_in_browser=1 AND t.name<>'Ignore' GROUP BY t.id,t.name,t.description ORDER BY t.name";
+		$sql    = "SELECT t.name,t.description FROM {$tables['topics']} t "
+			. "WHERE t.display_in_browser=1 AND t.name<>'Ignore' ORDER BY t.name";
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifiers are generated internally.
 		$topic_rows  = Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
 		$topics      = array_map(
 			static fn( array $row ): array => array(
 				'name'        => Database::text( $row['name'] ?? null ),
 				'description' => Database::text( $row['description'] ?? null ),
-				'categories'  => Database::text( $row['categories'] ?? null ),
 			),
 			$topic_rows
 		);
@@ -174,8 +191,8 @@ final class AI_Interpreter {
 	/**
 	 * Creates a structured-output Responses API request.
 	 *
-	 * @param string                                                                                            $question Reader question.
-	 * @param array{topics:list<array{name:string,description:string,categories:string}>,keywords:list<string>} $vocabulary Approved vocabulary.
+	 * @param string                                                                          $question Reader question.
+	 * @param array{topics:list<array{name:string,description:string}>,keywords:list<string>} $vocabulary Approved vocabulary.
 	 * @return array<string,mixed>
 	 */
 	private function request_payload( string $question, array $vocabulary ): array {
@@ -268,8 +285,8 @@ final class AI_Interpreter {
 	/**
 	 * Validates model-selected terms against exact database labels.
 	 *
-	 * @param mixed                                                                                             $raw Raw terms.
-	 * @param array{topics:list<array{name:string,description:string,categories:string}>,keywords:list<string>} $vocabulary Approved vocabulary.
+	 * @param mixed                                                                           $raw Raw terms.
+	 * @param array{topics:list<array{name:string,description:string}>,keywords:list<string>} $vocabulary Approved vocabulary.
 	 * @return list<array{label:string,mode:string}>
 	 */
 	private function validated_terms( $raw, array $vocabulary ): array {
@@ -375,8 +392,8 @@ final class AI_Interpreter {
 	/**
 	 * Promotes a selected keyword to topic mode when an identical topic exists.
 	 *
-	 * @param list<array{label:string,mode:string}>                         $terms  Selected terms.
-	 * @param list<array{name:string,description:string,categories:string}> $topics Approved topics.
+	 * @param list<array{label:string,mode:string}>       $terms  Selected terms.
+	 * @param list<array{name:string,description:string}> $topics Approved topics.
 	 * @return list<array{label:string,mode:string}> Topic-preferred terms.
 	 */
 	private function prefer_topic_labels( array $terms, array $topics ): array {

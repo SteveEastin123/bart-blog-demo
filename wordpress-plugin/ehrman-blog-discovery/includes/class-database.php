@@ -36,6 +36,8 @@ final class Database {
 			'post_topics'             => $base . 'post_topics',
 			'post_keywords'           => $base . 'post_keywords',
 			'post_search_terms'       => $base . 'post_search_terms',
+			'ai_usage'                => $base . 'ai_usage',
+			'ai_feedback'             => $base . 'ai_feedback',
 		);
 	}
 
@@ -162,6 +164,40 @@ CREATE TABLE {$tables['post_search_terms']} (
   KEY idx_search_terms_normalized_post (normalized,post_id),
   KEY idx_search_terms_label (label),
   KEY idx_search_terms_kind_normalized (kind,normalized,post_id)
+) {$collate};
+
+CREATE TABLE {$tables['ai_usage']} (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  created_at datetime NOT NULL,
+  model varchar(100) NOT NULL,
+  input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  cached_input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  output_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  estimated_cost_usd decimal(14,8) unsigned NOT NULL DEFAULT 0,
+  cache_hit tinyint(1) unsigned NOT NULL DEFAULT 0,
+  request_succeeded tinyint(1) unsigned NOT NULL DEFAULT 0,
+  error_code varchar(100) NOT NULL DEFAULT '',
+  pricing_version varchar(32) NOT NULL DEFAULT '',
+  PRIMARY KEY  (id),
+  KEY idx_ai_usage_created (created_at),
+  KEY idx_ai_usage_model (model),
+  KEY idx_ai_usage_cache_hit (cache_hit),
+  KEY idx_ai_usage_succeeded (request_succeeded)
+) {$collate};
+
+CREATE TABLE {$tables['ai_feedback']} (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  created_at datetime NOT NULL,
+  question text NOT NULL,
+  selected_terms text NOT NULL,
+  helpful tinyint(1) unsigned NOT NULL,
+  result_count int(10) unsigned NOT NULL DEFAULT 0,
+  model varchar(100) NOT NULL,
+  prompt_version varchar(32) NOT NULL,
+  PRIMARY KEY  (id),
+  KEY idx_ai_feedback_created (created_at),
+  KEY idx_ai_feedback_helpful (helpful,created_at),
+  KEY idx_ai_feedback_model (model)
 ) {$collate};
 ";
 
