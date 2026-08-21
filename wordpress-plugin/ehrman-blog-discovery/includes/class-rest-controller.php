@@ -146,7 +146,7 @@ final class Rest_Controller {
 			$rate_key = 'ebd_ai_rate_' . hash( 'sha256', $this->request_address() );
 			$count    = Database::integer( get_transient( $rate_key ) );
 			if ( $count >= 10 ) {
-				return new WP_Error( 'ehrman_ai_rate_limit', __( 'Too many questions were submitted. Please wait a few minutes and try again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
+				return new WP_Error( 'ehrman_ai_rate_limit', __( 'You\'ve reached the temporary question limit. Please wait a few minutes before trying again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
 			}
 			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
 		}

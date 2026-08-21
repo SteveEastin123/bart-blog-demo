@@ -244,10 +244,7 @@ final class Page_Controller {
 			. '" method="get" data-ebd-question-form><div id="' . esc_attr( $id )
 			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
 			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question in everyday language. AI will identify relevant topics and keywords and use them to find posts on Bart\'s blog. It does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
-			. '</p><p class="ebd-question-limit">'
-			. esc_html__( 'You can submit up to 10 questions within a five-minute period.', 'ehrman-blog-discovery' )
-			. ' ' . esc_html__( 'Questions and feedback may be reviewed for up to 90 days to improve search accuracy.', 'ehrman-blog-discovery' )
+			. esc_html__( 'Ask a question. AI will identify relevant topics and keywords to find matching posts on Bart\'s blog. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
 			. 'placeholder="' . esc_attr__( 'Example: What does Luke say about Jesus\' death and atonement?', 'ehrman-blog-discovery' )
 			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
