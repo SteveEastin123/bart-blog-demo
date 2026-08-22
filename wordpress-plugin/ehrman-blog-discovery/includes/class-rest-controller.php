@@ -92,6 +92,15 @@ final class Rest_Controller {
 		);
 		register_rest_route(
 			self::REST_NAMESPACE,
+			'/refine',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'refine' ),
+				'permission_callback' => '__return_true',
+			)
+		);
+		register_rest_route(
+			self::REST_NAMESPACE,
 			'/feedback',
 			array(
 				'methods'             => 'POST',
@@ -154,6 +163,70 @@ final class Rest_Controller {
 		AI_Requests::record( $request_id, $question, $result['terms'], $result['cache_hit'], true );
 		$result['request_id'] = $request_id;
 		$response             = new WP_REST_Response( $result, 200 );
+		$response->header( 'Cache-Control', 'no-store' );
+		return $response;
+	}
+
+	/**
+	 * Uses post titles and descriptions to narrow an interpreted search.
+	 *
+	 * @param WP_REST_Request $request REST request instance.
+	 * @return WP_REST_Response|WP_Error Refined search response or error.
+	 */
+	public function refine( WP_REST_Request $request ) {
+		if ( 'local' !== wp_get_environment_type() ) {
+			$rate_key = 'ebd_ai_rate_' . hash( 'sha256', $this->request_address() );
+			$count    = Database::integer( get_transient( $rate_key ) );
+			if ( $count >= 10 ) {
+				return new WP_Error( 'ehrman_ai_rate_limit', __( 'You\'ve reached the temporary question limit. Please wait a few minutes before trying again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
+			}
+			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
+		}
+
+		$question   = $this->question_text( $request->get_param( 'question' ) );
+		$request_id = sanitize_text_field( $this->scalar_text( $request->get_param( 'request_id' ) ) );
+		if ( ! preg_match( '/^[a-f0-9-]{36}$/', $request_id ) ) {
+			$request_id = '';
+		}
+		$terms      = $this->terms( $request->get_param( 'term' ) );
+		$term_modes = $this->modes( $request->get_param( 'mode' ) );
+		if ( empty( $terms ) ) {
+			return new WP_Error( 'ehrman_ai_refine_empty', __( 'There are no search results to refine.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
+		}
+
+		$original   = $this->search->search( $terms, 'ranked', '', '', 1, 0, $term_modes );
+		$refinement = $this->interpreter->refine( $question, $original['posts'], $request_id );
+		if ( is_wp_error( $refinement ) ) {
+			return $refinement;
+		}
+
+		$posts_by_id = array();
+		foreach ( $original['posts'] as $post ) {
+			$posts_by_id[ Database::text( $post['id'] ?? null ) ] = $post;
+		}
+		$posts = array();
+		foreach ( $refinement['post_ids'] as $id ) {
+			if ( isset( $posts_by_id[ $id ] ) ) {
+				$posts[] = $posts_by_id[ $id ];
+			}
+		}
+
+		$response = new WP_REST_Response(
+			array(
+				'posts'           => $posts,
+				'terms'           => $original['terms'],
+				'sort'            => 'ranked',
+				'count'           => count( $posts ),
+				'page'            => 1,
+				'per_page'        => count( $posts ),
+				'total_pages'     => empty( $posts ) ? 0 : 1,
+				'refined'         => true,
+				'original_count'  => Database::integer( $original['count'] ),
+				'candidate_count' => $refinement['candidate_count'],
+				'cache_hit'       => $refinement['cache_hit'],
+			),
+			200
+		);
 		$response->header( 'Cache-Control', 'no-store' );
 		return $response;
 	}

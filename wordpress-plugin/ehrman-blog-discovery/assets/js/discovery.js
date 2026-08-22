@@ -643,16 +643,20 @@
     summary.className = "ebd-results-summary";
     summary.setAttribute("aria-live", "polite");
     const countStrong = document.createElement("strong");
-    countStrong.textContent = resultSummaryLabel(result);
+    if (result.refined) {
+      countStrong.textContent = `${count} ${count === 1 ? "post" : "posts"} selected from ${Number(result.original_count || 0)} matching posts`;
+    } else {
+      countStrong.textContent = resultSummaryLabel(result);
+    }
     summary.append(countStrong);
     const contextIsTerm = terms.some((term) => normalized(term) === normalized(context));
-    if (context && !contextIsTerm) {
+    if (!result.refined && context && !contextIsTerm) {
       summary.append(document.createTextNode(" in "));
       const contextStrong = document.createElement("strong");
       contextStrong.textContent = context;
       summary.append(contextStrong);
     }
-    if (terms.length) {
+    if (!result.refined && terms.length) {
       summary.append(document.createTextNode(` ${count === 1 ? "matches" : "match"} `));
       const termStrong = document.createElement("strong");
       termStrong.textContent = terms.join(" + ");
@@ -672,7 +676,10 @@
     if (guidance.textContent) container.append(guidance);
     const question = form.querySelector('input[name="ebd_question"]')?.value || "";
     const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
-    if (question && requestId && terms.length) container.append(feedbackControl(requestId));
+    if (question && requestId && terms.length) {
+      if (count > 1 || result.refined) container.append(refineControl(Boolean(result.refined)));
+      container.append(feedbackControl(requestId));
+    }
     if (!Array.isArray(result.posts) || !result.posts.length) {
       const empty = document.createElement("p");
       empty.className = "ebd-empty";
@@ -720,6 +727,73 @@
     applyDescriptionMode(container.closest(".ebd-discovery") || document);
     setupTitleTooltips(container);
   }
+
+  function refineControl(refined) {
+    const wrapper = document.createElement("div");
+    const button = document.createElement("button");
+    const status = document.createElement("span");
+    wrapper.className = "ebd-ai-refine";
+    wrapper.dataset.ebdAiRefine = "true";
+    button.type = "button";
+    if (refined) {
+      button.dataset.ebdShowOriginal = "true";
+      button.textContent = strings.showOriginal || "Show Original Results";
+    } else {
+      button.dataset.ebdRefineSearch = "true";
+      button.textContent = strings.refineSearch || "Refine Results with AI";
+    }
+    status.dataset.ebdRefineStatus = "true";
+    status.setAttribute("aria-live", "polite");
+    wrapper.append(button, status);
+    return wrapper;
+  }
+
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-ebd-refine-search],[data-ebd-show-original]");
+    if (!button) return;
+    const discovery = button.closest(".ebd-discovery");
+    const form = discovery?.querySelector("[data-ebd-search-form]");
+    const results = discovery?.querySelector("[data-ebd-results]");
+    const status = button.closest("[data-ebd-ai-refine]")?.querySelector("[data-ebd-refine-status]");
+    if (!form || !results) return;
+
+    button.disabled = true;
+    if (button.matches("[data-ebd-show-original]")) {
+      if (status) status.textContent = "Loading original results...";
+      await refreshSearch(form);
+      return;
+    }
+    if (!config.refineUrl) return;
+
+    const entries = termEntries(form, searchInput(form));
+    const question = form.querySelector('input[name="ebd_question"]')?.value || "";
+    const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
+    const originalLabel = button.textContent;
+    button.textContent = strings.refining || "Refining...";
+    button.setAttribute("aria-busy", "true");
+    if (status) status.textContent = "AI is reviewing the matching post titles and descriptions...";
+    try {
+      const response = await fetch(config.refineUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question,
+          request_id: requestId,
+          term: entries.map((entry) => entry.value),
+          mode: entries.map((entry) => entry.mode),
+        }),
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload?.message || strings.refineFailed || "The results could not be refined.");
+      renderResults(results, payload, form);
+      results.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (error) {
+      button.disabled = false;
+      button.textContent = originalLabel;
+      button.removeAttribute("aria-busy");
+      if (status) status.textContent = error?.message || strings.refineFailed || "The results could not be refined. Please try again.";
+    }
+  });
 
   function feedbackControl(requestId) {
     const section = document.createElement("section");

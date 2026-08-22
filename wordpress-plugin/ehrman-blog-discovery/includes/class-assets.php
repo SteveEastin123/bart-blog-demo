@@ -48,6 +48,7 @@ final class Assets {
 				'suggestionsUrl' => esc_url_raw( rest_url( 'ehrman-discovery/v1/suggestions' ) ),
 				'searchUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/search' ) ),
 				'interpretUrl'   => esc_url_raw( rest_url( 'ehrman-discovery/v1/interpret' ) ),
+				'refineUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/refine' ) ),
 				'feedbackUrl'    => esc_url_raw( rest_url( 'ehrman-discovery/v1/feedback' ) ),
 				'statusUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/status' ) ),
 				'strings'        => array(
@@ -69,6 +70,10 @@ final class Assets {
 					'unknownAuthor'  => __( 'unknown author', 'ehrman-blog-discovery' ),
 					'feedbackThanks' => __( 'Thank you. Your feedback will help improve the search.', 'ehrman-blog-discovery' ),
 					'feedbackFailed' => __( 'The feedback could not be saved. Please try again.', 'ehrman-blog-discovery' ),
+					'refineSearch'   => __( 'Refine Results with AI', 'ehrman-blog-discovery' ),
+					'refining'       => __( 'Refining...', 'ehrman-blog-discovery' ),
+					'showOriginal'   => __( 'Show Original Results', 'ehrman-blog-discovery' ),
+					'refineFailed'   => __( 'The results could not be refined. Please try again.', 'ehrman-blog-discovery' ),
 				),
 			)
 		);

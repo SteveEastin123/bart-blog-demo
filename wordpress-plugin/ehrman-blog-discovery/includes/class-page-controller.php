@@ -248,7 +248,7 @@ final class Page_Controller {
 			. '" method="get" data-ebd-question-form><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><div id="' . esc_attr( $id )
 			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
 			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question. AI will identify relevant topics and keywords to find matching posts on Bart\'s blog. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
+			. esc_html__( 'Ask a question or make a request. AI will identify relevant topics and keywords to find matching posts on Bart\'s blog. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
 			. 'placeholder="' . esc_attr__( 'Example: What does Luke say about Jesus\' death and atonement?', 'ehrman-blog-discovery' )
 			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
@@ -854,8 +854,18 @@ final class Page_Controller {
 		$back_to_top = count( $result['posts'] ) >= self::BACK_TO_TOP_THRESHOLD
 			? $this->back_to_top_markup()
 			: '';
+		$refine      = '' !== trim( $question ) && '' !== $request_id && $count > 1
+			? $this->refine_markup()
+			: '';
 		$feedback    = '' !== trim( $question ) && '' !== $request_id ? $this->feedback_markup( $request_id ) : '';
-		return $summary . $guidance . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+		return $summary . $guidance . $refine . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+	}
+
+	/** Builds the optional Ask AI post-refinement control. */
+	private function refine_markup(): string {
+		return '<div class="ebd-ai-refine" data-ebd-ai-refine><button type="button" data-ebd-refine-search>'
+			. esc_html__( 'Refine Results with AI', 'ehrman-blog-discovery' )
+			. '</button><span data-ebd-refine-status aria-live="polite"></span></div>';
 	}
 
 	/**

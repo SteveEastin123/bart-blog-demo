@@ -1626,6 +1626,43 @@
     scroll-behavior: auto !important;
   }
 }
+.ebd-ai-refine {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: 14px 0 10px;
+}
+
+.ebd-ai-refine button {
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid #8a1d16;
+  border-radius: 3px;
+  background: #8a1d16;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ebd-ai-refine button:hover,
+.ebd-ai-refine button:focus-visible {
+  border-color: #65140f;
+  background: #65140f;
+  color: #fff;
+}
+
+.ebd-ai-refine button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.ebd-ai-refine [data-ebd-refine-status] {
+  color: var(--ebd-maroon);
+  font-size: 15px;
+}
+
 .ebd-ai-feedback {
   display: flex;
   align-items: center;

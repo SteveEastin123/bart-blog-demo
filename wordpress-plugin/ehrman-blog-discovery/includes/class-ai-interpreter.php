@@ -15,11 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Maps a reader's question to the plugin's controlled search vocabulary. */
 final class AI_Interpreter {
-	private const API_URL          = 'https://api.openai.com/v1/responses';
-	private const DEFAULT_MODEL    = 'gpt-5.4-mini';
-	private const MAX_QUESTION_LEN = 800;
-	private const CACHE_SECONDS    = DAY_IN_SECONDS;
-	private const PROMPT_VERSION   = '16';
+	private const API_URL               = 'https://api.openai.com/v1/responses';
+	private const DEFAULT_MODEL         = 'gpt-5.4-mini';
+	private const MAX_QUESTION_LEN      = 800;
+	private const CACHE_SECONDS         = DAY_IN_SECONDS;
+	private const PROMPT_VERSION        = '18';
+	private const REFINE_PROMPT_VERSION = '1';
+	private const MAX_REFINE_POSTS      = 200;
+	private const MAX_REFINED_RESULTS   = 25;
 
 	/** Returns the configured model identifier for reporting. */
 	public static function model_id(): string {
@@ -50,6 +53,7 @@ final class AI_Interpreter {
 		$question = function_exists( 'mb_substr' )
 			? mb_substr( $question, 0, self::MAX_QUESTION_LEN )
 			: substr( $question, 0, self::MAX_QUESTION_LEN );
+		$question = $this->normalize_question_phrasing( $question );
 		if ( '' === trim( $question ) ) {
 			return new WP_Error( 'ehrman_ai_empty_question', __( 'Enter a question to interpret.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 		}
@@ -140,6 +144,162 @@ final class AI_Interpreter {
 	}
 
 	/**
+	 * Selects the posts that most directly address a reader's question.
+	 *
+	 * @param string                    $question   Reader's original question.
+	 * @param list<array<string,mixed>> $posts      Posts returned by the interpreted search.
+	 * @param string                    $request_id Correlation identifier for analytics.
+	 * @return array{post_ids:list<string>,candidate_count:int,cache_hit:bool}|WP_Error Refined post identifiers or error.
+	 */
+	public function refine( string $question, array $posts, string $request_id = '' ) {
+		$question = sanitize_text_field( $question );
+		$question = function_exists( 'mb_substr' )
+			? mb_substr( $question, 0, self::MAX_QUESTION_LEN )
+			: substr( $question, 0, self::MAX_QUESTION_LEN );
+		if ( '' === trim( $question ) || empty( $posts ) ) {
+			return new WP_Error( 'ehrman_ai_refine_empty', __( 'There are no search results to refine.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
+		}
+		if ( ! self::is_configured() ) {
+			return new WP_Error( 'ehrman_ai_not_configured', __( 'AI search refinement is not configured on this site.', 'ehrman-blog-discovery' ), array( 'status' => 503 ) );
+		}
+
+		$candidates = array();
+		foreach ( array_slice( $posts, 0, self::MAX_REFINE_POSTS ) as $post ) {
+			$id          = Database::text( $post['id'] ?? null );
+			$title       = sanitize_text_field( Database::text( $post['title'] ?? null ) );
+			$description = sanitize_text_field( Database::text( $post['description'] ?? null ) );
+			if ( '' === $id || '' === $title ) {
+				continue;
+			}
+			$candidates[] = array(
+				'id'          => $id,
+				'title'       => $title,
+				'description' => $description,
+			);
+		}
+		if ( empty( $candidates ) ) {
+			return new WP_Error( 'ehrman_ai_refine_empty', __( 'There are no search results to refine.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
+		}
+
+		$cache_key = 'ebd_ai_refine_' . hash(
+			'sha256',
+			Search_Service::normalize( $question ) . '|' . (string) wp_json_encode( $candidates ) . '|' . self::model() . '|' . self::REFINE_PROMPT_VERSION
+		);
+		$cached    = get_transient( $cache_key );
+		if ( is_array( $cached ) && is_array( $cached['post_ids'] ?? null ) ) {
+			AI_Usage::record_cache_hit( self::model(), $request_id );
+			return array(
+				'post_ids'        => Database::strings( $cached['post_ids'] ),
+				'candidate_count' => count( $candidates ),
+				'cache_hit'       => true,
+			);
+		}
+
+		$payload = $this->refine_payload( $question, $candidates );
+		$encoded = wp_json_encode( $payload );
+		if ( ! is_string( $encoded ) ) {
+			AI_Usage::record_failure( self::model(), 'refine_request_error', $request_id );
+			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be prepared for refinement.', 'ehrman-blog-discovery' ), array( 'status' => 500 ) );
+		}
+		$response = wp_remote_post(
+			self::API_URL,
+			array(
+				'timeout' => 60,
+				'headers' => array(
+					'Authorization' => 'Bearer ' . self::api_key(),
+					'Content-Type'  => 'application/json',
+				),
+				'body'    => $encoded,
+			)
+		);
+		if ( is_wp_error( $response ) ) {
+			AI_Usage::record_failure( self::model(), 'refine_unavailable', $request_id );
+			return new WP_Error( 'ehrman_ai_refine_unavailable', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
+		}
+
+		$status = wp_remote_retrieve_response_code( $response );
+		$body   = json_decode( wp_remote_retrieve_body( $response ), true );
+		if ( ! is_array( $body ) ) {
+			AI_Usage::record_failure( self::model(), 'refine_response_error', $request_id );
+			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
+		}
+		/**
+		 * Decoded API response.
+		 *
+		 * @var array<string,mixed> $body
+		 */
+		if ( $status < 200 || $status >= 300 ) {
+			AI_Usage::record_response( $body, false, 'refine_response_error', $request_id );
+			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
+		}
+		$decoded = json_decode( $this->output_text( $body ), true );
+		if ( ! is_array( $decoded ) || ! is_array( $decoded['selected_ids'] ?? null ) ) {
+			AI_Usage::record_response( $body, false, 'refine_invalid_output', $request_id );
+			return new WP_Error( 'ehrman_ai_refine_invalid', __( 'The refinement service returned an invalid response.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
+		}
+
+		$allowed  = array_fill_keys( array_column( $candidates, 'id' ), true );
+		$post_ids = array();
+		foreach ( $decoded['selected_ids'] as $id ) {
+			$id = is_scalar( $id ) ? sanitize_text_field( (string) $id ) : '';
+			if ( '' !== $id && isset( $allowed[ $id ] ) && ! in_array( $id, $post_ids, true ) ) {
+				$post_ids[] = $id;
+			}
+			if ( count( $post_ids ) >= self::MAX_REFINED_RESULTS ) {
+				break;
+			}
+		}
+		AI_Usage::record_response( $body, true, '', $request_id );
+		set_transient( $cache_key, array( 'post_ids' => $post_ids ), self::CACHE_SECONDS );
+		return array(
+			'post_ids'        => $post_ids,
+			'candidate_count' => count( $candidates ),
+			'cache_hit'       => false,
+		);
+	}
+
+	/**
+	 * Builds the structured post-refinement request.
+	 *
+	 * @param string                                                 $question   Reader question.
+	 * @param list<array{id:string,title:string,description:string}> $candidates Candidate post metadata.
+	 * @return array<string,mixed> Responses API payload.
+	 */
+	private function refine_payload( string $question, array $candidates ): array {
+		$instructions = 'Filter blog posts for direct relevance to the reader\'s exact question. '
+			. 'Use only the supplied titles and descriptions. Retain a post only when its metadata indicates that a substantial part of the post directly addresses the requested subject. '
+			. 'Exclude posts that merely mention the subject, provide surrounding background, address one incidental detail, or match only a broad vocabulary label. '
+			. 'For a request for a summary or overview, retain only posts that broadly cover the requested text or subject; exclude posts limited to authorship, one passage, one episode, one textual variant, or one narrow theological issue. '
+			. 'Prefer precision over quantity. Select no more than 25 posts, ordered from most to least relevant. Return only supplied post IDs.';
+		return array(
+			'model'             => self::model(),
+			'reasoning'         => array( 'effort' => 'low' ),
+			'instructions'      => $instructions,
+			'input'             => "Reader question:\n{$question}\n\nCandidate posts:\n" . wp_json_encode( $candidates ),
+			'max_output_tokens' => 800,
+			'text'              => array(
+				'format' => array(
+					'type'   => 'json_schema',
+					'name'   => 'ehrman_refined_posts',
+					'strict' => true,
+					'schema' => array(
+						'type'                 => 'object',
+						'additionalProperties' => false,
+						'required'             => array( 'selected_ids' ),
+						'properties'           => array(
+							'selected_ids' => array(
+								'type'     => 'array',
+								'maxItems' => self::MAX_REFINED_RESULTS,
+								'items'    => array( 'type' => 'string' ),
+							),
+						),
+					),
+				),
+			),
+		);
+	}
+
+	/**
 	 * Validates a cached interpretation payload.
 	 *
 	 * @param mixed $cached Raw cached value.
@@ -203,10 +363,12 @@ final class AI_Interpreter {
 	private function request_payload( string $question, array $vocabulary ): array {
 		$instructions = 'You interpret questions for a curated biblical-studies blog search. '
 			. 'Resolve obvious spelling errors from context before selecting vocabulary labels. '
+			. 'When a question explicitly names two people or texts and asks about their comparison, relationship, agreement, disagreement, or influence, preserve both named subjects as separate search requirements. Do not replace them with a broader methodological topic. Do not add a methodological topic unless the question explicitly names that method. '
+			. 'When Matthew, Mark, Luke, or John are used as shorthand for their Gospels in such a literary relationship, select the corresponding Gospel topics and do not repeat the shorthand names in named_entities. '
 			. 'Copy every person or text explicitly named in the question into named_entities when an exact keyword label exists. Never substitute a broader topic for an explicit named entity. '
 			. 'For example, a question asking what Paul said, knew, or believed must include Paul in named_entities when Paul is an approved keyword. Apply the same rule to every explicitly named person or text. '
 			. 'Select the smallest number of additional terms needed. Across named_entities and terms, use no more than four total vocabulary labels. '
-			. 'Select no more than one primary topic. Represent additional supporting concepts with keywords when appropriate. '
+			. 'Normally select no more than one primary topic. A relational question explicitly involving two named subjects may use two specific topics when each topic directly represents one of those subjects. Represent other supporting concepts with keywords when appropriate. '
 			. 'List terms from most to least important. Every additional term must express a distinct requirement in the question; do not add broad background topics. '
 			. 'Prefer a topic when it directly represents a major subject in the question. '
 			. 'Use keywords for important supporting people, texts, places, or ideas. Do not repeat named_entities in terms. '
@@ -262,6 +424,24 @@ final class AI_Interpreter {
 	}
 
 	/**
+	 * Corrects a common omitted-preposition form before caching and interpretation.
+	 *
+	 * @param string $question Sanitized reader question.
+	 */
+	private function normalize_question_phrasing( string $question ): string {
+		if ( ! preg_match( '/\bwhat\s+changes\s+did\b/i', $question ) ) {
+			return $question;
+		}
+		$corrected = preg_replace(
+			'/\bmake\s+(?:to\s+)?(?:the\s+)?(?:gospel\s+of\s+)?(matthew|mark|luke|john)\b/i',
+			'make to $1',
+			$question,
+			1
+		);
+		return is_string( $corrected ) ? $corrected : $question;
+	}
+
+	/**
 	 * Extracts text from a Responses API payload.
 	 *
 	 * @param array<string,mixed> $body Decoded API response body.
@@ -303,9 +483,9 @@ final class AI_Interpreter {
 		foreach ( $vocabulary['keywords'] as $keyword ) {
 			$keywords[ Search_Service::normalize( $keyword ) ] = $keyword;
 		}
-		$terms          = array();
-		$seen           = array();
-		$topic_selected = false;
+		$terms       = array();
+		$seen        = array();
+		$topic_count = 0;
 		foreach ( is_array( $raw ) ? $raw : array() as $term ) {
 			if ( ! is_array( $term ) || ! is_scalar( $term['label'] ?? null ) ) {
 				continue;
@@ -315,14 +495,14 @@ final class AI_Interpreter {
 				continue;
 			}
 			if ( isset( $topics[ $normalized ] ) ) {
-				if ( $topic_selected ) {
+				if ( $topic_count >= 2 ) {
 					continue;
 				}
-				$terms[]        = array(
+				$terms[] = array(
 					'label' => $topics[ $normalized ],
 					'mode'  => Search_Service::TERM_MODE_TOPIC,
 				);
-				$topic_selected = true;
+				++$topic_count;
 			} elseif ( isset( $keywords[ $normalized ] ) ) {
 				$terms[] = array(
 					'label' => $keywords[ $normalized ],
