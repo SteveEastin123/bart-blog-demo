@@ -104,7 +104,6 @@ final class Plugin {
 		}
 
 		$status = self::status_data();
-		$usage  = AI_Usage::report();
 		$notice = get_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
 		if ( false !== $notice ) {
 			delete_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
@@ -151,79 +150,9 @@ final class Plugin {
 					</tr>
 				</tbody>
 			</table>
-			<h2><?php echo esc_html__( 'AI interpretation usage', 'ehrman-blog-discovery' ); ?></h2>
-			<p><?php echo esc_html__( 'Estimated costs use the pricing recorded by this plugin. Confirm billed amounts in the OpenAI usage dashboard.', 'ehrman-blog-discovery' ); ?></p>
-			<table class="widefat striped" style="max-width: 760px">
-				<tbody>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Questions submitted', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( number_format_i18n( $usage['submissions'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'OpenAI requests', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( number_format_i18n( $usage['api_requests'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Cache hits', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( number_format_i18n( $usage['cache_hits'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Failed interpretations', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( number_format_i18n( $usage['failures'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Estimated cost today', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( self::format_usd( $usage['today_cost'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Estimated cost this month', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( self::format_usd( $usage['month_cost'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Estimated lifetime cost', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( self::format_usd( $usage['total_cost'] ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Average cost per OpenAI request', 'ehrman-blog-discovery' ); ?></th>
-						<td><?php echo esc_html( self::format_usd( $usage['average_cost'], 5 ) ); ?></td>
-					</tr>
-					<tr>
-						<th scope="row"><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th>
-						<td>
-							<?php
-							echo esc_html(
-								sprintf(
-									/* translators: 1: input tokens, 2: cached input tokens, 3: output tokens */
-									__( '%1$s input (%2$s cached) | %3$s output', 'ehrman-blog-discovery' ),
-									number_format_i18n( $usage['input_tokens'] ),
-									number_format_i18n( $usage['cached_input_tokens'] ),
-									number_format_i18n( $usage['output_tokens'] )
-								)
-							);
-							?>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<?php if ( ! empty( $usage['models'] ) ) : ?>
-				<h3><?php echo esc_html__( 'Usage by model', 'ehrman-blog-discovery' ); ?></h3>
-				<table class="widefat striped" style="max-width: 760px">
-					<thead><tr><th><?php echo esc_html__( 'Model', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'OpenAI requests', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Input tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Output tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-					<tbody>
-					<?php foreach ( $usage['models'] as $raw_model_row ) : ?>
-						<?php $model_row = Database::associative_row( $raw_model_row ) ?? array(); ?>
-						<tr>
-							<td><?php echo esc_html( Database::text( $model_row['model'] ?? '' ) ); ?></td>
-							<td><?php echo esc_html( number_format_i18n( Database::integer( $model_row['api_requests'] ?? 0 ) ) ); ?></td>
-							<td><?php echo esc_html( number_format_i18n( Database::integer( $model_row['input_tokens'] ?? 0 ) ) ); ?></td>
-							<td><?php echo esc_html( number_format_i18n( Database::integer( $model_row['output_tokens'] ?? 0 ) ) ); ?></td>
-							<td><?php echo esc_html( self::format_usd( (float) Database::text( $model_row['total_cost'] ?? 0 ) ) ); ?></td>
-						</tr>
-					<?php endforeach; ?>
-					</tbody>
-				</table>
-			<?php endif; ?>
-			<p><a class="button" href="<?php echo esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ); ?>"><?php echo esc_html__( 'View Ask AI analytics', 'ehrman-blog-discovery' ); ?></a></p>
+			<h2><?php echo esc_html__( 'AI analytics', 'ehrman-blog-discovery' ); ?></h2>
+			<p><?php echo esc_html__( 'Questions, feedback, token usage, refinement activity, and estimated costs are consolidated on the Ask AI Analytics page.', 'ehrman-blog-discovery' ); ?></p>
+			<p><a class="button" href="<?php echo esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ); ?>"><?php echo esc_html__( 'Open Ask AI Analytics', 'ehrman-blog-discovery' ); ?></a></p>
 			<h2><?php echo esc_html__( 'Authoritative JSON import', 'ehrman-blog-discovery' ); ?></h2>
 			<p>
 				<?php

@@ -72,7 +72,7 @@ final class AI_Refinements {
 		$usage  = "SELECT request_id,SUM(input_tokens) input_tokens,SUM(cached_input_tokens) cached_input_tokens,SUM(output_tokens) output_tokens,SUM(estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_usage']} WHERE request_id<>'' GROUP BY request_id";
 		$sql    = Database::client()->prepare(
 			"SELECT r.*,COALESCE(u.input_tokens,r.input_tokens) input_tokens,COALESCE(u.cached_input_tokens,r.cached_input_tokens) cached_input_tokens,COALESCE(u.output_tokens,r.output_tokens) output_tokens,COALESCE(u.estimated_cost_usd,r.estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_refinements']} r LEFT JOIN ({$usage}) u ON u.request_id=r.refinement_id ORDER BY r.id DESC LIMIT %d",
-			max( 1, min( 500, $limit ) )
+			max( 1, min( 5000, $limit ) )
 		);
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifiers are generated internally and limit is prepared.
 		return Database::associative_rows( Database::client()->get_results( $sql, ARRAY_A ) );
