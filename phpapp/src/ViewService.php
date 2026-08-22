@@ -562,7 +562,7 @@ function ehrman_post_list(array $posts, string $contextTopic = ''): string
         }
         $description = ehrman_html($post['description']);
         $items[] = '<li class="post-item"><a class="post-title" href="' . ehrman_html($post['url'])
-            . '" target="_blank" rel="noopener" data-description="' . $description . '">'
+            . '" data-description="' . $description . '">'
             . ehrman_html($post['title']) . '</a><p class="post-meta">' . implode(' | ', $meta) . '</p>'
             . '<p class="post-description" hidden>' . $description . '</p></li>';
     }

@@ -353,8 +353,8 @@ The implementation will use:
 - Environment variables for parity tokens and deployment secrets
 - No credentials committed to Git
 
-External links will use `target="_blank"` and `rel="noopener"`, matching the
-current approved behavior.
+Post links open in the current tab so navigation matches the behavior readers
+will experience on Bart's blog.
 
 ## Performance Plan
 

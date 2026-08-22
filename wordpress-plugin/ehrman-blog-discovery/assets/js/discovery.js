@@ -697,8 +697,6 @@
       item.className = "ebd-post-item";
       title.className = "ebd-post-title";
       title.href = post.url;
-      title.target = "_blank";
-      title.rel = "noopener";
       title.textContent = post.title;
       title.dataset.description = post.description || "";
       meta.className = "ebd-post-meta";

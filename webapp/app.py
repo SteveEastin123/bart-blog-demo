@@ -854,7 +854,7 @@ def post_list(posts: list[sqlite3.Row], context_topic: str = "") -> str:
         items.append(
             f"""
             <li class="post-item">
-              <a class="post-title" href="{esc(post['url'])}" target="_blank" rel="noopener" data-description="{description}">{esc(post['title'])}</a>
+              <a class="post-title" href="{esc(post['url'])}" data-description="{description}">{esc(post['title'])}</a>
               <p class="post-meta">{" | ".join(meta_parts)}</p>
               <p class="post-description" hidden>{description}</p>
             </li>

@@ -38677,7 +38677,7 @@ const DATA = {
       const tooltip = description
         ? `<span class="article-tooltip-text" role="tooltip">${escapeHtml(description)}</span>`
         : '';
-      return `<span class="article-tooltip"><a class="article-link" href="${escapeHtml(article.url)}" target="_blank" rel="noopener noreferrer"${ariaLabel}>${escapeHtml(article.title)}</a>${tooltip}</span>`;
+      return `<span class="article-tooltip"><a class="article-link" href="${escapeHtml(article.url)}"${ariaLabel}>${escapeHtml(article.title)}</a>${tooltip}</span>`;
     }
 
     function descriptionToggleMarkup(checked = false, scope = 'browse') {

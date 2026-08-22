@@ -55,7 +55,7 @@ final class Page_Controller {
 	public static function ensure_pages(): void {
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'ask_question'     => array( 'Ask a Question', 'ask-a-question', '[ehrman_ask_question]' ),
+			'ask_question'     => array( 'Ask AI', 'ask-a-question', '[ehrman_ask_question]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
 			'structure_review' => array( 'Structure Review', 'structure-review', '[ehrman_structure_review]' ),
@@ -65,10 +65,12 @@ final class Page_Controller {
 			$option  = 'ehrman_discovery_page_' . $key;
 			$page_id = Database::integer( get_option( $option, 0 ) );
 			if ( $page_id > 0 && 'trash' !== get_post_status( $page_id ) ) {
+				self::update_managed_page_title( $key, $page_id, $title );
 				continue;
 			}
 			$existing = get_page_by_path( $slug, OBJECT, 'page' );
 			if ( $existing instanceof \WP_Post ) {
+				self::update_managed_page_title( $key, $existing->ID, $title );
 				update_option( $option, $existing->ID, false );
 				continue;
 			}
@@ -88,6 +90,26 @@ final class Page_Controller {
 			}
 		}
 		update_option( 'ehrman_discovery_pages_version', EHRMAN_DISCOVERY_VERSION, false );
+	}
+
+	/**
+	 * Applies title migrations to plugin-managed pages without overwriting other
+	 * page titles that site administrators may have customized.
+	 *
+	 * @param string $key     Managed page key.
+	 * @param int    $page_id WordPress page ID.
+	 * @param string $title   Current canonical title.
+	 */
+	private static function update_managed_page_title( string $key, int $page_id, string $title ): void {
+		if ( 'ask_question' !== $key || get_the_title( $page_id ) === $title ) {
+			return;
+		}
+		wp_update_post(
+			array(
+				'ID'         => $page_id,
+				'post_title' => $title,
+			)
+		);
 	}
 
 	/**
@@ -997,7 +1019,7 @@ final class Page_Controller {
 				$meta[] = $context;
 			}
 			$items[] = '<li class="ebd-post-item"><a class="ebd-post-title" href="' . esc_url( Database::text( $post['url'] ?? null ) )
-				. '" target="_blank" rel="noopener" data-description="' . esc_attr( $description ) . '">'
+				. '" data-description="' . esc_attr( $description ) . '">'
 				. esc_html( Database::text( $post['title'] ?? null ) ) . '</a><p class="ebd-post-meta">' . esc_html( implode( ' | ', $meta ) )
 				. '</p><p class="ebd-post-description">' . esc_html( $description ) . '</p></li>';
 		}
