@@ -40,6 +40,7 @@ final class AI_Analytics_Page {
 		$filters     = self::filters();
 		$page        = max( 1, absint( self::query_value( 'paged', '1' ) ) );
 		$report      = AI_Requests::analytics( $filters, $page, self::PAGE_SIZE );
+		$refinements = AI_Refinements::recent();
 		$total_pages = max( 1, (int) ceil( $report['total'] / self::PAGE_SIZE ) );
 		$export_url  = wp_nonce_url(
 			add_query_arg( array_merge( array( 'action' => 'ehrman_ai_analytics_csv' ), $filters ), admin_url( 'admin-post.php' ) ),
@@ -56,6 +57,7 @@ final class AI_Analytics_Page {
 				<?php self::metric( __( 'Not provided', 'ehrman-blog-discovery' ), number_format_i18n( $report['unanswered'] ) ); ?>
 				<?php self::metric( __( 'Response rate', 'ehrman-blog-discovery' ), number_format_i18n( $report['response_rate'], 1 ) . '%' ); ?>
 				<?php self::metric( __( 'Helpful rate', 'ehrman-blog-discovery' ), number_format_i18n( $report['helpful_rate'], 1 ) . '%' ); ?>
+				<?php self::metric( __( 'Refinements', 'ehrman-blog-discovery' ), number_format_i18n( AI_Refinements::count() ) ); ?>
 			</div>
 			<?php self::filter_form( $filters ); ?>
 			<p><a class="button" href="<?php echo esc_url( $export_url ); ?>"><?php echo esc_html__( 'Export filtered CSV', 'ehrman-blog-discovery' ); ?></a></p>
@@ -72,6 +74,20 @@ final class AI_Analytics_Page {
 				</tbody>
 			</table>
 			<?php self::pagination( $page, $total_pages, $filters ); ?>
+			<h2 style="margin-top:32px"><?php echo esc_html__( 'Recent refinement requests', 'ehrman-blog-discovery' ); ?></h2>
+			<p><?php echo esc_html__( 'Refinement events are linked to their original question but report their own token usage and estimated cost.', 'ehrman-blog-discovery' ); ?></p>
+			<table class="widefat striped">
+				<thead><tr><th><?php echo esc_html__( 'Date', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Retained posts', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Status', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+				<tbody>
+				<?php if ( empty( $refinements ) ) : ?>
+					<tr><td colspan="8"><?php echo esc_html__( 'No refinement requests have been recorded.', 'ehrman-blog-discovery' ); ?></td></tr>
+				<?php else : ?>
+					<?php foreach ( $refinements as $refinement ) : ?>
+						<?php self::refinement_row( $refinement ); ?>
+					<?php endforeach; ?>
+				<?php endif; ?>
+				</tbody>
+			</table>
 		</div>
 		<?php
 	}
@@ -167,6 +183,32 @@ final class AI_Analytics_Page {
 		$tokens = Database::integer( $row['input_tokens'] ?? 0 ) + Database::integer( $row['output_tokens'] ?? 0 );
 		?>
 		<tr><td><?php echo esc_html( Database::text( $row['created_at'] ?? '' ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( self::term_text( $row ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( self::feedback_label( $row ) ); ?></td><td><?php echo esc_html( 1 === Database::integer( $row['cache_hit'] ?? 0 ) ? __( 'Cache', 'ehrman-blog-discovery' ) : Database::text( $row['model'] ?? '' ) ); ?></td><td><?php echo esc_html( number_format_i18n( $tokens ) ); ?></td><td><?php echo esc_html( '$' . number_format( (float) Database::text( $row['estimated_cost_usd'] ?? 0 ), 5 ) ); ?></td></tr>
+		<?php
+	}
+
+	/**
+	 * Renders one post-result refinement event.
+	 *
+	 * @param array<string,mixed> $row Refinement event row.
+	 */
+	private static function refinement_row( array $row ): void {
+		$tokens = Database::integer( $row['input_tokens'] ?? 0 ) + Database::integer( $row['output_tokens'] ?? 0 );
+		$posts  = json_decode( Database::text( $row['selected_posts'] ?? '' ), true );
+		$titles = array();
+		if ( is_array( $posts ) ) {
+			foreach ( $posts as $post ) {
+				if ( is_array( $post ) && is_scalar( $post['title'] ?? null ) ) {
+					$titles[] = sanitize_text_field( (string) $post['title'] );
+				}
+			}
+		}
+		$source = 1 === Database::integer( $row['cache_hit'] ?? 0 ) ? __( 'Cache', 'ehrman-blog-discovery' ) : Database::text( $row['model'] ?? '' );
+		$status = 1 === Database::integer( $row['request_succeeded'] ?? 0 ) ? __( 'Success', 'ehrman-blog-discovery' ) : __( 'Failed', 'ehrman-blog-discovery' );
+		if ( 'Failed' === $status && '' !== Database::text( $row['error_code'] ?? '' ) ) {
+			$status .= ': ' . Database::text( $row['error_code'] );
+		}
+		?>
+		<tr><td><?php echo esc_html( Database::text( $row['created_at'] ?? '' ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['original_count'] ?? 0 ) ) . ' → ' . number_format_i18n( Database::integer( $row['refined_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( implode( ' | ', $titles ) ); ?></td><td><?php echo esc_html( $source ); ?></td><td><?php echo esc_html( number_format_i18n( $tokens ) ); ?></td><td><?php echo esc_html( '$' . number_format( (float) Database::text( $row['estimated_cost_usd'] ?? 0 ), 5 ) ); ?></td><td><?php echo esc_html( $status ); ?></td></tr>
 		<?php
 	}
 

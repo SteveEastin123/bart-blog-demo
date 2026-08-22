@@ -34,6 +34,11 @@ final class AI_Interpreter {
 		return self::PROMPT_VERSION;
 	}
 
+	/** Returns the refinement prompt version for analytics. */
+	public static function refine_prompt_version(): string {
+		return self::REFINE_PROMPT_VERSION;
+	}
+
 	/**
 	 * Returns whether server-side AI credentials are available.
 	 */
@@ -149,7 +154,7 @@ final class AI_Interpreter {
 	 * @param string                    $question   Reader's original question.
 	 * @param list<array<string,mixed>> $posts      Posts returned by the interpreted search.
 	 * @param string                    $request_id Correlation identifier for analytics.
-	 * @return array{post_ids:list<string>,candidate_count:int,cache_hit:bool}|WP_Error Refined post identifiers or error.
+	 * @return array{post_ids:list<string>,candidate_count:int,cache_hit:bool,usage:array<string,mixed>}|WP_Error Refined post identifiers or error.
 	 */
 	public function refine( string $question, array $posts, string $request_id = '' ) {
 		$question = sanitize_text_field( $question );
@@ -192,6 +197,7 @@ final class AI_Interpreter {
 				'post_ids'        => Database::strings( $cached['post_ids'] ),
 				'candidate_count' => count( $candidates ),
 				'cache_hit'       => true,
+				'usage'           => array(),
 			);
 		}
 
@@ -255,6 +261,7 @@ final class AI_Interpreter {
 			'post_ids'        => $post_ids,
 			'candidate_count' => count( $candidates ),
 			'cache_hit'       => false,
+			'usage'           => AI_Usage::response_metrics( $body ),
 		);
 	}
 

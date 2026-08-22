@@ -194,9 +194,22 @@ final class Rest_Controller {
 			return new WP_Error( 'ehrman_ai_refine_empty', __( 'There are no search results to refine.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 		}
 
-		$original   = $this->search->search( $terms, 'ranked', '', '', 1, 0, $term_modes );
-		$refinement = $this->interpreter->refine( $question, $original['posts'], $request_id );
+		$original      = $this->search->search( $terms, 'ranked', '', '', 1, 0, $term_modes );
+		$refinement_id = AI_Requests::request_id();
+		$refinement    = $this->interpreter->refine( $question, $original['posts'], $refinement_id );
 		if ( is_wp_error( $refinement ) ) {
+			AI_Refinements::record(
+				array(
+					'refinement_id'   => $refinement_id,
+					'request_id'      => $request_id,
+					'question'        => $question,
+					'original_count'  => Database::integer( $original['count'] ),
+					'candidate_count' => min( count( $original['posts'] ), 200 ),
+					'succeeded'       => false,
+					'error_code'      => (string) $refinement->get_error_code(),
+				),
+				array()
+			);
 			return $refinement;
 		}
 
@@ -210,6 +223,19 @@ final class Rest_Controller {
 				$posts[] = $posts_by_id[ $id ];
 			}
 		}
+		AI_Refinements::record(
+			array(
+				'refinement_id'   => $refinement_id,
+				'request_id'      => $request_id,
+				'question'        => $question,
+				'original_count'  => Database::integer( $original['count'] ),
+				'candidate_count' => $refinement['candidate_count'],
+				'cache_hit'       => $refinement['cache_hit'],
+				'succeeded'       => true,
+				'usage'           => $refinement['usage'],
+			),
+			$posts
+		);
 
 		$response = new WP_REST_Response(
 			array(
@@ -224,6 +250,7 @@ final class Rest_Controller {
 				'original_count'  => Database::integer( $original['count'] ),
 				'candidate_count' => $refinement['candidate_count'],
 				'cache_hit'       => $refinement['cache_hit'],
+				'refinement_id'   => $refinement_id,
 			),
 			200
 		);

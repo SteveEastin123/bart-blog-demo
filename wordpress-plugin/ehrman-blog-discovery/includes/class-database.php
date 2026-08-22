@@ -38,6 +38,7 @@ final class Database {
 			'post_search_terms'       => $base . 'post_search_terms',
 			'ai_usage'                => $base . 'ai_usage',
 			'ai_requests'             => $base . 'ai_requests',
+			'ai_refinements'          => $base . 'ai_refinements',
 			'ai_feedback'             => $base . 'ai_feedback',
 		);
 	}
@@ -208,6 +209,32 @@ CREATE TABLE {$tables['ai_requests']} (
   KEY idx_ai_requests_created (created_at),
   KEY idx_ai_requests_feedback (feedback,created_at),
   KEY idx_ai_requests_succeeded (request_succeeded,created_at)
+) {$collate};
+
+CREATE TABLE {$tables['ai_refinements']} (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  refinement_id char(36) NOT NULL,
+  request_id char(36) NOT NULL DEFAULT '',
+  created_at datetime NOT NULL,
+  question text NOT NULL,
+  original_count int(10) unsigned NOT NULL DEFAULT 0,
+  candidate_count int(10) unsigned NOT NULL DEFAULT 0,
+  refined_count int(10) unsigned NOT NULL DEFAULT 0,
+  selected_posts longtext NOT NULL,
+  model varchar(100) NOT NULL,
+  prompt_version varchar(32) NOT NULL,
+  cache_hit tinyint(1) unsigned NOT NULL DEFAULT 0,
+  request_succeeded tinyint(1) unsigned NOT NULL DEFAULT 0,
+  error_code varchar(100) NOT NULL DEFAULT '',
+  input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  cached_input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  output_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  estimated_cost_usd decimal(14,8) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY  (id),
+  UNIQUE KEY uq_ai_refinements_id (refinement_id),
+  KEY idx_ai_refinements_request (request_id),
+  KEY idx_ai_refinements_created (created_at),
+  KEY idx_ai_refinements_succeeded (request_succeeded,created_at)
 ) {$collate};
 
 CREATE TABLE {$tables['ai_feedback']} (
