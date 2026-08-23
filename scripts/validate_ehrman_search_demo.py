@@ -373,6 +373,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS_PATH)
     parser.add_argument("--search-index", "--keywords", dest="search_index", type=Path, default=DEFAULT_SEARCH_INDEX_PATH)
     parser.add_argument("--html", type=Path, default=DEFAULT_DEMO_PATH)
+    parser.add_argument(
+        "--data-only",
+        action="store_true",
+        help="Validate canonical JSON data without checking generated HTML payloads.",
+    )
     return parser.parse_args()
 
 
@@ -442,7 +447,8 @@ def main() -> int:
     if unlinked_topics:
         warnings.append("Topics used by posts but not linked to a category: " + ", ".join(unlinked_topics))
 
-    validate_html(args.html, categories, subject_areas, subject_areas_2, topics, posts, errors)
+    if not args.data_only:
+        validate_html(args.html, categories, subject_areas, subject_areas_2, topics, posts, errors)
 
     if errors:
         print("Validation failed:")
@@ -461,6 +467,8 @@ def main() -> int:
     print(f"Categories: {len(categories):,}")
     print(f"Unique post topics: {len(all_post_topics):,}")
     print(f"Topic metadata records: {len(linked_topics):,}")
+    if args.data_only:
+        print("Generated HTML validation: skipped")
     if warnings:
         print("Warnings:")
         for warning in warnings:

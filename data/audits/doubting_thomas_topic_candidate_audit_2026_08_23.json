@@ -1,0 +1,41 @@
+{
+  "auditDate": "2026-08-23",
+  "candidateTopic": "Doubting Thomas",
+  "method": "Reviewed the full local text of posts that mention Doubting Thomas, Thomas's doubt, Jesus's wounds, or John 20:24-29.",
+  "topicDecision": {
+    "createTopic": false,
+    "reason": "Only two posts focus primarily on Thomas himself. Most candidates use the episode as one example within broader discussions of resurrection doubt, resurrection appearances, Christology, or Jesus's resurrected body."
+  },
+  "secondaryKeywordDecision": {
+    "keyword": "Thomas the Apostle",
+    "retainedPostIds": [
+      "35786",
+      "35338",
+      "16873",
+      "6376",
+      "3079"
+    ],
+    "addedPosts": [
+      {
+        "wpId": "47136",
+        "title": "New Course Announcement: The Other Doubting Thomases"
+      },
+      {
+        "wpId": "11921",
+        "title": "The Inerrancy of the Bible?  And Those Who Doubt.  Readers’ Mailbag October 2, 2016"
+      },
+      {
+        "wpId": "9395",
+        "title": "Did Some Disciples Not Believe in the Resurrection?"
+      },
+      {
+        "wpId": "7185",
+        "title": "The Disciples who Doubted the Resurrection"
+      }
+    ],
+    "postCountAfter": 9,
+    "reason": "These posts treat Thomas as a meaningful supporting figure while remaining centered on broader resurrection subjects."
+  },
+  "descriptionChanges": [],
+  "categoryChanges": []
+}

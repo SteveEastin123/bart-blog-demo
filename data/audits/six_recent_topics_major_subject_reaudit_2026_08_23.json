@@ -1,0 +1,57 @@
+{
+  "auditDate": "2026-08-23",
+  "method": "Full-text re-audit requiring each topic to be a primary or major sustained subject rather than an incidental passage, supporting example, or surrounding context.",
+  "results": [
+    {
+      "topic": "Baptism of Jesus",
+      "postCountBefore": 10,
+      "postCountAfter": 10,
+      "decision": "retain_all",
+      "descriptionChange": false
+    },
+    {
+      "topic": "Last Supper",
+      "postCountBefore": 14,
+      "postCountAfter": 14,
+      "decision": "retain_all",
+      "descriptionChange": false
+    },
+    {
+      "topic": "Rich Man and Lazarus",
+      "postCountBefore": 5,
+      "postCountAfter": 5,
+      "decision": "retain_all",
+      "descriptionChange": false
+    },
+    {
+      "topic": "Jairus' Daughter",
+      "postCountBefore": 18,
+      "postCountAfter": 12,
+      "decision": "remove_six_broader_debate_posts",
+      "removedWpIds": [
+        "31498",
+        "16923",
+        "16165",
+        "16151",
+        "16130",
+        "16054"
+      ],
+      "secondaryKeywordAddedToRemovedPosts": true,
+      "descriptionChange": false
+    },
+    {
+      "topic": "Sermon on the Mount",
+      "postCountBefore": 5,
+      "postCountAfter": 5,
+      "decision": "retain_all",
+      "descriptionChange": false
+    },
+    {
+      "topic": "Raising of Lazarus",
+      "postCountBefore": 4,
+      "postCountAfter": 4,
+      "decision": "retain_all",
+      "descriptionChange": false
+    }
+  ]
+}

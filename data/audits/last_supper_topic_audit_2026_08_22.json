@@ -1,0 +1,95 @@
+{
+  "auditDate": "2026-08-22",
+  "method": "Conservative full-text review requiring the Last Supper, the Lord's Supper, or Luke 22:19-20 to be a primary or major sustained subject of each post.",
+  "topic": {
+    "name": "Last Supper",
+    "description": "Examines traditions about Jesus' final meal and the Lord's Supper, especially the wording of Luke 22:19-20, its manuscript variants, its relationship to atonement, and Paul's account in 1 Corinthians.",
+    "category": "Jesus' Death, Burial, and Resurrection",
+    "postCount": 14,
+    "includedWpIds": [
+      "48982",
+      "48977",
+      "47159",
+      "31763",
+      "31760",
+      "31755",
+      "14988",
+      "14986",
+      "13137",
+      "9190",
+      "9187",
+      "9167",
+      "9165",
+      "9159"
+    ],
+    "excludedNearMisses": [
+      {
+        "wpId": "48970",
+        "reason": "Uses the Last Supper verse only as one example in a reflection on scholarly language."
+      },
+      {
+        "wpId": "48151",
+        "reason": "Focuses on prayers in the Didache rather than the Last Supper itself."
+      },
+      {
+        "wpId": "48122",
+        "reason": "Focuses broadly on church practices in the Didache."
+      },
+      {
+        "wpId": "11640",
+        "reason": "The Lord's Supper is only one of three unrelated mailbag questions."
+      },
+      {
+        "wpId": "49293",
+        "reason": "Uses Paul's treatment of the Lord's Supper as an example in an argument about lost letters."
+      },
+      {
+        "wpId": "8563",
+        "reason": "Uses Paul's treatment of the Lord's Supper as an example in an argument about lost letters."
+      },
+      {
+        "wpId": "28131",
+        "reason": "Treats the Last Supper as one component of Paul's broader knowledge of Jesus' death."
+      },
+      {
+        "wpId": "7326",
+        "reason": "Treats the Last Supper as one component of Paul's broader knowledge of Jesus' life."
+      },
+      {
+        "wpId": "9175",
+        "reason": "Mentions the meal briefly while focusing on Luke's portrayal of Jesus as a rejected prophet."
+      }
+    ],
+    "keywordCleanup": {
+      "wpIds": [
+        "9165",
+        "9159"
+      ],
+      "removedSecondaryKeyword": "Last Supper",
+      "reason": "A post should not retain a secondary keyword that is identically normalized to one of its topics."
+    },
+    "supportingKeywordAdditions": {
+      "keyword": "Last Supper",
+      "postCount": 16,
+      "wpIds": [
+        "49293",
+        "8563",
+        "24800",
+        "48151",
+        "47189",
+        "40576",
+        "34088",
+        "28135",
+        "7340",
+        "28131",
+        "7326",
+        "12025",
+        "4255",
+        "12656",
+        "11640",
+        "7845"
+      ],
+      "reason": "The Last Supper is a meaningful supporting subject in each post but is not the post's primary or dominant topic."
+    }
+  }
+}

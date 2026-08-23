@@ -1,0 +1,47 @@
+{
+  "auditDate": "2026-08-22",
+  "method": "Conservative full-text review requiring Lost Christianities or its reception to be a primary or sustained subject of each post.",
+  "topic": {
+    "name": "Lost Christianities",
+    "description": "Covers Bart's trade book Lost Christianities, including its presentation of competing early Christian groups and writings, the emergence of proto-orthodox Christianity and the New Testament canon, and the book's interviews and media reception.",
+    "category": "Bart's Books",
+    "postCount": 5,
+    "decisions": [
+      {
+        "wpId": "40011",
+        "title": "Lost Christianities",
+        "decision": "add",
+        "confidence": "high"
+      },
+      {
+        "wpId": "40016",
+        "title": "More Lost Christianities",
+        "decision": "add",
+        "confidence": "high"
+      },
+      {
+        "wpId": "27875",
+        "title": "The Massive Diversity of Early Christianity. My Book: Lost Christianities",
+        "decision": "add",
+        "confidence": "high"
+      },
+      {
+        "wpId": "27880",
+        "title": "Time Magazine Cover Story on Lost Christianities.  Kind Of….",
+        "decision": "add",
+        "confidence": "high"
+      },
+      {
+        "wpId": "8837",
+        "title": "NC Bookwatch: Lost Christianities",
+        "decision": "add",
+        "confidence": "high"
+      }
+    ],
+    "keywordCleanup": {
+      "wpId": "8837",
+      "removedSecondaryKeyword": "Lost Christianities",
+      "reason": "A post should not retain a secondary keyword that is identically normalized to one of its topics."
+    }
+  }
+}

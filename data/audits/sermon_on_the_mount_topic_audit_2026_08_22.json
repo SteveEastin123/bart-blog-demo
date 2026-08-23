@@ -1,0 +1,47 @@
+{
+  "auditDate": "2026-08-22",
+  "method": "Conservative full-text review requiring the Sermon on the Mount or one of its defining sections to be a primary or major sustained subject of each post.",
+  "topic": {
+    "name": "Sermon on the Mount",
+    "description": "Examines Matthew's Sermon on the Mount, including its composition, relationship to Luke's Sermon on the Plain, the Beatitudes, the Golden Rule, and its interpretation of Jewish law and ethics.",
+    "categories": [
+      "Canonical Gospels and Acts",
+      "Jesus' Teachings and Social World"
+    ],
+    "postCount": 6,
+    "includedWpIds": [
+      "33196",
+      "33124",
+      "33221",
+      "20822",
+      "4428",
+      "4455"
+    ],
+    "excludedNearMisses": [
+      {
+        "wpId": "14982",
+        "reason": "The Golden Rule is central, but the post's controlling question concerns the Didache's wording and use of Matthew rather than the Sermon on the Mount."
+      },
+      {
+        "wpId": "13927",
+        "reason": "The Lord's Prayer is central, but the post focuses on Pope Francis's translation proposal rather than the sermon as a literary or teaching unit."
+      },
+      {
+        "wpId": "29786",
+        "reason": "The sermon supplies several examples, but the post evaluates the practicality of Jesus' teachings across a wider range of Gospel traditions."
+      },
+      {
+        "wpId": "28939",
+        "reason": "The sermon supplies several examples, but the post evaluates the practicality of Jesus' teachings across a wider range of Gospel traditions."
+      },
+      {
+        "wpId": "8613",
+        "reason": "The post compares Matthew and Paul on Jewish law; the Sermon on the Mount provides supporting evidence but is not its dominant subject."
+      },
+      {
+        "wpId": "47108",
+        "reason": "The sermon is one lecture in a broader overview of an eight-lecture course on the Gospel of Matthew."
+      }
+    ]
+  }
+}

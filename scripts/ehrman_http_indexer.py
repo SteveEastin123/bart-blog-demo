@@ -1,5 +1,6 @@
 import argparse
 import csv
+import getpass
 import json
 import math
 import os
@@ -76,8 +77,10 @@ class Options:
     from_date: date | None
     to_date: date | None
     skip_login: bool
+    prompt_credentials: bool
     debug_login: bool
     reset: bool
+    raw_only: bool
     delay: float
 
 
@@ -237,7 +240,14 @@ def month_overlaps_range(month: dict, options: Options) -> bool:
     return True
 
 
-def load_credentials() -> tuple[str, str]:
+def load_credentials(*, prompt: bool = False) -> tuple[str, str]:
+    if prompt:
+        username = getpass.getpass("Ehrman Blog username: ").strip()
+        password = getpass.getpass("Ehrman Blog password: ")
+        if not username or not password:
+            raise RuntimeError("Username and password are required.")
+        return username, password
+
     values = dict(os.environ)
     if CREDENTIALS_PATH.exists():
         for line in CREDENTIALS_PATH.read_text(encoding="utf-8").splitlines():
@@ -582,8 +592,18 @@ def parse_args() -> Options:
     parser.add_argument("--from-date", help="Only download posts on or after this date. Accepts YYYY-MM-DD, M/D/YYYY, or 'Month D, YYYY'.")
     parser.add_argument("--to-date", help="Only download posts on or before this date. Accepts YYYY-MM-DD, M/D/YYYY, or 'Month D, YYYY'.")
     parser.add_argument("--skip-login", action="store_true")
+    parser.add_argument(
+        "--prompt-credentials",
+        action="store_true",
+        help="Prompt for credentials for this run instead of reading environment variables or a credentials file.",
+    )
     parser.add_argument("--debug-login", action="store_true", help="Print non-secret login diagnostics and exit.")
     parser.add_argument("--reset", action="store_true", help="Delete generated index files before running.")
+    parser.add_argument(
+        "--raw-only",
+        action="store_true",
+        help="Download raw archive data without rebuilding the legacy JSON and CSV indexes.",
+    )
     parser.add_argument("--delay", type=float, default=0.25)
     args = parser.parse_args()
     from_date = parse_required_date(args.from_date, "--from-date")
@@ -596,8 +616,10 @@ def parse_args() -> Options:
         from_date,
         to_date,
         args.skip_login,
+        args.prompt_credentials,
         args.debug_login,
         args.reset,
+        args.raw_only,
         args.delay,
     )
 
@@ -612,31 +634,38 @@ def main() -> None:
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
     if options.debug_login:
-        username, password = load_credentials()
+        username, password = load_credentials(prompt=options.prompt_credentials)
         print(json.dumps(debug_login(session, username, password), indent=2))
         return
     if not options.skip_login:
-        username, password = load_credentials()
+        username, password = load_credentials(prompt=options.prompt_credentials)
         login(session, username, password)
     months = discover_months(session)
     post_urls = discover_post_urls(session, options)
     posts = scrape_posts(session, options)
-    index = build_index()
+    index = None if options.raw_only else build_index()
     print(
         json.dumps(
             {
                 "months": len(months),
                 "discoveredPostUrls": len(post_urls),
                 "scrapedPosts": len(posts),
-                "indexRows": len(index),
+                "indexRows": len(index) if index is not None else None,
+                "rawOnly": options.raw_only,
                 "fromDate": options.from_date.isoformat() if options.from_date else None,
                 "toDate": options.to_date.isoformat() if options.to_date else None,
                 "files": {
                     "months": str(MONTHS_PATH),
                     "postUrls": str(POST_URLS_PATH),
                     "posts": str(POSTS_JSONL_PATH),
-                    "indexJson": str(INDEX_JSON_PATH),
-                    "indexCsv": str(INDEX_CSV_PATH),
+                    **(
+                        {}
+                        if options.raw_only
+                        else {
+                            "indexJson": str(INDEX_JSON_PATH),
+                            "indexCsv": str(INDEX_CSV_PATH),
+                        }
+                    ),
                 },
             },
             indent=2,

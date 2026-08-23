@@ -1,0 +1,28 @@
+{
+  "auditDate": "2026-08-23",
+  "method": "Conservative full-text re-audit requiring the Sermon on the Mount or one of its defining sections to be a primary or major sustained subject of each post.",
+  "topic": {
+    "name": "Sermon on the Mount",
+    "descriptionBefore": "Examines Matthew's Sermon on the Mount, including its composition, relationship to Luke's Sermon on the Plain, the Beatitudes, the Golden Rule, and its interpretation of Jewish law and ethics.",
+    "descriptionAfter": "Examines Matthew's Sermon on the Mount, including its composition, relationship to Luke's Sermon on the Plain, the Beatitudes, the Golden Rule, and its interpretation of Jewish law and ethics.",
+    "postCountBefore": 6,
+    "postCountAfter": 5,
+    "retainedWpIds": [
+      "33196",
+      "33124",
+      "33221",
+      "20822",
+      "4428"
+    ],
+    "removed": [
+      {
+        "wpId": "4455",
+        "title": "The Jewish Emphases of Matthew’s Gospel: Part 3",
+        "reason": "The Sermon on the Mount supplies one supporting example, but the post's broader subject is Matthew's understanding of Jewish law.",
+        "secondaryKeywordAdded": "Golden Rule"
+      }
+    ],
+    "addedWpIds": [],
+    "categoryChanges": []
+  }
+}

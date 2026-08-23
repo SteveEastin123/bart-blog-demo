@@ -8,6 +8,7 @@
         "Ancient Jewish Afterlife Beliefs",
         "Resurrection of the Dead",
         "Heaven and Hell Beliefs",
+        "Rich Man and Lazarus",
         "Eternal Punishment",
         "Purgatory",
         "Afterlife Journeys"
@@ -63,6 +64,7 @@
         "Heaven and Hell",
         "How Jesus Became God",
         "Jesus Before the Gospels",
+        "Lost Christianities",
         "Love Thy Stranger",
         "Misquoting Jesus",
         "Triumph of Christianity"
@@ -104,7 +106,7 @@
     },
     {
       "name": "Canonical Gospels and Acts",
-      "description": "Covers the canonical Gospels and Acts, including authorship, dating, sources, historical reliability, Synoptic relationships, distinctive literary features, and Acts as Luke's account of early Christianity.",
+      "description": "Covers the canonical Gospels and Acts, including their authorship, dating, sources, historical reliability, Synoptic relationships, accounts of Jesus' baptism, the Sermon on the Mount, distinctive literary features, and Acts as Luke's account of early Christianity.",
       "topicOrder": [
         "Canonical Gospels (General)",
         "Gospel Authorship",
@@ -113,9 +115,11 @@
         "Gospel Historical Reliability",
         "Synoptic Problem",
         "Q Source",
+        "Baptism of Jesus",
         "Gospel of Mark",
         "Messianic Secret",
         "Gospel of Matthew",
+        "Sermon on the Mount",
         "Matthew's Use of Scripture",
         "Gospel of Luke",
         "Genealogies of Jesus",
@@ -273,10 +277,11 @@
     },
     {
       "name": "Historical Jesus",
-      "description": "Covers historical reconstruction of Jesus' life and public activity, including his existence, apocalyptic message, messiahship, Son of Man sayings, Nazareth, Roman political context, and the methods scholars use to assess the evidence.",
+      "description": "Covers historical reconstruction of Jesus' life and public activity, including evidence for his existence, his baptism by John, his apocalyptic message, messiahship, Son of Man sayings, Nazareth, Roman political context, and the methods scholars use to assess the evidence.",
       "topicOrder": [
         "Historical Jesus (General)",
         "Methods for Studying the Historical Jesus",
+        "Baptism of Jesus",
         "Apocalyptic Jesus",
         "Mythicism",
         "Messiah",
@@ -314,15 +319,18 @@
         "Mary, Mother of Jesus",
         "Joseph, Father of Jesus",
         "Jesus' Family Traditions",
-        "Jesus' Miracle Stories"
+        "Jesus' Miracle Stories",
+        "Jairus' Daughter",
+        "Raising of Lazarus"
       ]
     },
     {
       "name": "Jesus' Death, Burial, and Resurrection",
-      "description": "Covers Gospel passion narratives, Jesus' trial, crucifixion, burial, empty tomb traditions, resurrection appearances, apologetic debates, and early interpretations of Jesus' death and resurrection, including Roman crucifixion and burial practices.",
+      "description": "Covers Gospel passion narratives, including the Last Supper, Jesus' trial, crucifixion, burial, empty tomb traditions, resurrection appearances, apologetic debates, and early interpretations of Jesus' death and resurrection, including Roman crucifixion and burial practices.",
       "topicOrder": [
         "Jesus' Passion Narratives",
         "Triumphal Entry",
+        "Last Supper",
         "Trial of Jesus",
         "Barabbas and the Passover Release",
         "Crucifixion of Jesus",
@@ -338,11 +346,13 @@
     },
     {
       "name": "Jesus' Teachings and Social World",
-      "description": "Covers Jesus' teachings, proclamation of God's kingdom, ethical vision, economic setting, views on wealth and poverty, and traditions involving women in his life and Gospel portrayals.",
+      "description": "Covers Jesus' teachings, including the Sermon on the Mount, proclamation of God's kingdom, ethical vision, economic setting, views on wealth and poverty, and traditions involving women in his life and Gospel portrayals.",
       "topicOrder": [
         "Jesus' Teachings",
+        "Sermon on the Mount",
         "Kingdom of God",
         "Parables of Jesus",
+        "Rich Man and Lazarus",
         "Jesus' Ethics",
         "Jesus on Wealth and Poverty",
         "Jesus and Women"
@@ -382,6 +392,8 @@
         "Miracle Claims and Apologetics",
         "Ancient Miracle Workers",
         "Jesus' Miracle Stories",
+        "Jairus' Daughter",
+        "Raising of Lazarus",
         "Signs in the Gospel of John",
         "Visionary Experiences",
         "Miraculous Martyrdom Traditions",
@@ -564,6 +576,7 @@
       "topicOrder": [
         "Wealth and Poverty in Antiquity",
         "Jesus on Wealth and Poverty",
+        "Rich Man and Lazarus",
         "Early Christian Teachings on Wealth",
         "Charity and Altruism",
         "Christian Health Care"

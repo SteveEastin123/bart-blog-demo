@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-19",
+  "updatedAt": "2026-08-23",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -629,7 +629,7 @@
       "auditSequence": 276,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 5,
+      "postCountAfter": 7,
       "descriptionBefore": "Examines whether Peter and Cephas were the same person, including Paul's usage, evidence from Galatians and John, and early Christian traditions that distinguish them.",
       "descriptionRecommendation": "Examines whether Peter and Cephas were the same person, including Paul's usage, evidence from Galatians and John, and early Christian traditions that distinguish them.",
       "categoriesBefore": [
@@ -673,12 +673,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post treats Peter and Cephas as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50394",
+          "title": "Flipping a Coin. Cephas and Peter: One Person or Two?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50389",
+          "title": "Other Suggestions That Peter and Cephas Were Two Different People",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Created after a full-text review of 5 candidate posts; 5 treat the subject as primary or sustained.",
         "Identically named secondary keywords were removed from the topic posts.",
-        "A conservative follow-up audit confirmed every current assignment."
+        "A conservative follow-up audit confirmed every current assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -1918,7 +1933,7 @@
       "auditSequence": null,
       "status": "excluded",
       "postCountBefore": 437,
-      "postCountAfter": 425,
+      "postCountAfter": 426,
       "descriptionBefore": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [],
@@ -1932,6 +1947,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50447",
+          "title": "September 2026 Gold Q&A",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -1943,7 +1965,8 @@
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -9451,7 +9474,7 @@
       "auditSequence": 11,
       "status": "completed",
       "postCountBefore": 74,
-      "postCountAfter": 81,
+      "postCountAfter": 83,
       "descriptionBefore": "Posts offering personal reflections on belief, doubt, ethics, suffering, public issues, holidays, or life experience.",
       "descriptionRecommendation": "Posts offering personal reflections on belief, doubt, ethics, suffering, public issues, holidays, or life experience.",
       "categoriesBefore": [
@@ -10020,6 +10043,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is a sustained personal reflection on Yeats's poem, Christian imagery, modern culture, and religious literacy."
+        },
+        {
+          "wpId": "50438",
+          "title": "The Moral Benefits of Capitalism",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50415",
+          "title": "Is Capitalism Anti-Christian?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -10033,7 +10070,8 @@
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Final post-by-post audit validation assigned this topic to a formerly topicless post."
+        "Final post-by-post audit validation assigned this topic to a formerly topicless post.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -28677,7 +28715,7 @@
       "auditSequence": 52,
       "status": "completed",
       "postCountBefore": 42,
-      "postCountAfter": 43,
+      "postCountAfter": 44,
       "descriptionBefore": "Covers letters falsely attributed to Paul, including disputed Pauline letters, pseudepigraphy, motives for forgery, and debates over authenticity.",
       "descriptionRecommendation": "Covers letters falsely attributed to Paul, including disputed Pauline letters, pseudepigraphy, motives for forgery, and debates over authenticity.",
       "categoriesBefore": [
@@ -28995,13 +29033,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A major sustained section centers on 2 Thessalonians as a possible Pauline forgery before the post surveys other New Testament cases."
+        },
+        {
+          "wpId": "50418",
+          "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 42 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment."
+        "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -39700,7 +39746,7 @@
       "auditSequence": 90,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 39,
+      "postCountAfter": 40,
       "descriptionBefore": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "descriptionRecommendation": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "categoriesBefore": [
@@ -39976,6 +40022,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50415",
+          "title": "Is Capitalism Anti-Christian?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -39987,7 +40040,8 @@
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -40438,7 +40492,7 @@
       "auditSequence": 93,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 33,
+      "postCountAfter": 34,
       "descriptionBefore": "Posts on how textual critics evaluate readings, weigh evidence, identify variants, reconstruct texts, and debate the aims and limits of the discipline.",
       "descriptionRecommendation": "Posts on how textual critics evaluate readings, weigh evidence, identify variants, reconstruct texts, and debate the aims and limits of the discipline.",
       "categoriesBefore": [
@@ -40699,6 +40753,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The answer reconstructs the Gospels' earlier form by comparing independent Greek manuscripts, ancient translations, and patristic quotations."
+        },
+        {
+          "wpId": "50418",
+          "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -40706,7 +40767,8 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -44411,7 +44473,7 @@
       "auditSequence": 110,
       "status": "completed",
       "postCountBefore": 25,
-      "postCountAfter": 29,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "descriptionRecommendation": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "categoriesBefore": [
@@ -44623,13 +44685,28 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50394",
+          "title": "Flipping a Coin. Cephas and Peter: One Person or Two?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50389",
+          "title": "Other Suggestions That Peter and Cephas Were Two Different People",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -46377,7 +46454,7 @@
       "auditSequence": 119,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 30,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "descriptionRecommendation": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "categoriesBefore": [
@@ -46597,6 +46674,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Much of the post reflects on Jesus' teaching about peace, wealth, poverty, marginalization, and care for others."
+        },
+        {
+          "wpId": "50415",
+          "title": "Is Capitalism Anti-Christian?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46604,7 +46688,8 @@
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -56709,7 +56794,7 @@
       "auditSequence": 176,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 19,
+      "postCountAfter": 20,
       "descriptionBefore": "Covers ethical reasoning, altruism, lying, war, Stoic moral thought, happiness, contentment, and broader questions about how people should live.",
       "descriptionRecommendation": "Covers ethical reasoning, altruism, lying, war, Stoic moral thought, happiness, contentment, and broader questions about how people should live.",
       "categoriesBefore": [
@@ -56858,12 +56943,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally explains why moral conduct and concern for others do not require belief in God or an afterlife."
+        },
+        {
+          "wpId": "50438",
+          "title": "The Moral Benefits of Capitalism",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -57381,7 +57474,7 @@
       "auditSequence": 181,
       "status": "completed",
       "postCountBefore": 14,
-      "postCountAfter": 16,
+      "postCountAfter": 17,
       "descriptionBefore": "Covers ancient secretarial practices and how they affect authorship claims, including whether secretaries could compose texts, explain differences in style, or account for writings attributed to apostles.",
       "descriptionRecommendation": "Covers ancient secretarial practices and how they affect authorship claims, including whether secretaries could compose texts, explain differences in style, or account for writings attributed to apostles.",
       "categoriesBefore": [
@@ -57502,11 +57595,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Each of the post's three questions receives sustained treatment: the meaning of Paraclete, Isaiah 7:14 and virgin-birth language, and whether professional scribes composed writings for illiterate authors."
+        },
+        {
+          "wpId": "50418",
+          "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 201-300 updated this assignment."
+        "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -60990,7 +61091,7 @@
       "auditSequence": 210,
       "status": "completed",
       "postCountBefore": 11,
-      "postCountAfter": 11,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers the Martyrdom of Polycarp, including its claims, literary features, martyrdom theology, miracles, and possible forgery.",
       "descriptionRecommendation": "Covers the Martyrdom of Polycarp, including its claims, literary features, martyrdom theology, miracles, and possible forgery.",
       "categoriesBefore": [
@@ -61077,10 +61178,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Martyrdom of Polycarp as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50418",
+          "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -63402,7 +63511,7 @@
       "auditSequence": 231,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 12,
+      "postCountAfter": 13,
       "descriptionBefore": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
       "descriptionRecommendation": "Covers 1 Timothy, 2 Timothy, and Titus, including authorship, historical setting, church organization, false teaching, women, and later proto-orthodox concerns.",
       "categoriesBefore": [
@@ -63495,11 +63604,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centers on 1 Timothy's use of Genesis to require women's silence and submission in Christian communities."
+        },
+        {
+          "wpId": "50418",
+          "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -64100,7 +64217,7 @@
       "auditSequence": 239,
       "status": "completed",
       "postCountBefore": 8,
-      "postCountAfter": 8,
+      "postCountAfter": 9,
       "descriptionBefore": "Covers miraculous elements in martyrdom traditions, including painless torture, Polycarp, apostolic deaths, and Christian claims about suffering and divine power.",
       "descriptionRecommendation": "Covers miraculous elements in martyrdom traditions, including painless torture, Polycarp, apostolic deaths, and Christian claims about suffering and divine power.",
       "categoriesBefore": [
@@ -64166,10 +64283,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Miraculous Martyrdom Traditions as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50418",
+          "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
       ]
     },
     {
@@ -66331,6 +66456,603 @@
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Retired the topic, added Holy Spirit as a secondary keyword to both posts, and assigned Acts to the Pentecost post."
+      ]
+    },
+    {
+      "topic": "Lost Christianities",
+      "auditSequence": 289,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 5,
+      "descriptionBefore": "Covers Bart's trade book Lost Christianities, including its presentation of competing early Christian groups and writings, the emergence of proto-orthodox Christianity and the New Testament canon, and the book's interviews and media reception.",
+      "descriptionRecommendation": "Covers Bart's trade book Lost Christianities, including its presentation of competing early Christian groups and writings, the emergence of proto-orthodox Christianity and the New Testament canon, and the book's interviews and media reception.",
+      "categoriesBefore": [
+        "Bart's Books"
+      ],
+      "categoryRecommendation": "Place under Bart's Books in alphabetical order.",
+      "startedAt": "2026-08-22",
+      "completedAt": "2026-08-22",
+      "decisions": [
+        {
+          "wpId": "40011",
+          "title": "Lost Christianities",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces the book and its treatment of competing early Christian beliefs and writings."
+        },
+        {
+          "wpId": "40016",
+          "title": "More Lost Christianities",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post continues the book discussion through non-canonical writings, canon formation, and the emergence of proto-orthodox Christianity."
+        },
+        {
+          "wpId": "27875",
+          "title": "The Massive Diversity of Early Christianity. My Book: Lost Christianities",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post explicitly presents the book and reproduces material explaining its central argument about early Christian diversity."
+        },
+        {
+          "wpId": "27880",
+          "title": "Time Magazine Cover Story on Lost Christianities.  Kind Of….",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on media coverage and publicity connected with the book."
+        },
+        {
+          "wpId": "8837",
+          "title": "NC Bookwatch: Lost Christianities",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post shares an interview devoted to the book and its central argument about early Christian diversity."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of five candidate posts; all five treat the book or its reception as a primary or sustained subject.",
+        "Removed the identically normalized Lost Christianities secondary keyword from wpId 8837."
+      ]
+    },
+    {
+      "topic": "Last Supper",
+      "auditSequence": 290,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 14,
+      "descriptionBefore": "Examines traditions about Jesus' final meal and the Lord's Supper, especially the wording of Luke 22:19-20, its manuscript variants, its relationship to atonement, and Paul's account in 1 Corinthians.",
+      "descriptionRecommendation": "Examines traditions about Jesus' final meal and the Lord's Supper, especially the wording of Luke 22:19-20, its manuscript variants, its relationship to atonement, and Paul's account in 1 Corinthians.",
+      "categoriesBefore": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "categoryRecommendation": "Place after Triumphal Entry and before Trial of Jesus in the narrative topic order.",
+      "startedAt": "2026-08-22",
+      "completedAt": "2026-08-22",
+      "decisions": [
+        {
+          "wpId": "48982",
+          "title": "Has Luke Gotten Rid of the Idea That Jesus Died for Your Sins?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Luke's Last Supper wording is central evidence for the post's argument about atonement."
+        },
+        {
+          "wpId": "48977",
+          "title": "The Controversy Over Jesus’ Last Supper in Luke (Did He Speak of Dying “For you”?)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to the textual problem in Luke's Last Supper account."
+        },
+        {
+          "wpId": "47159",
+          "title": "Do We Have the Lord’s Supper All Wrong?  Platinum Post by Douglas Wadeson MD",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The entire post examines the origin and meaning of the Lord's Supper."
+        },
+        {
+          "wpId": "31763",
+          "title": "Does Luke Get Rid of the Atonement?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "Luke's Last Supper wording is central evidence for the post's argument about atonement."
+        },
+        {
+          "wpId": "31760",
+          "title": "How Do You Decide What an Author Actually Wrote?  The Last Supper",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses Luke's Last Supper as its sustained textual case study."
+        },
+        {
+          "wpId": "31755",
+          "title": "What Did Jesus Say at the Last Supper?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially examines Luke's wording of the Last Supper."
+        },
+        {
+          "wpId": "14988",
+          "title": "Scribes Who Injected the Idea of Atonement into Luke’s Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on the textual alteration of Luke's Last Supper account."
+        },
+        {
+          "wpId": "14986",
+          "title": "What Happened at the Last Supper?  A Textual Problem in Luke",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to the Last Supper textual problem in Luke."
+        },
+        {
+          "wpId": "13137",
+          "title": "Did Luke Have a Doctrine of the Atonement?  Mailbag September 24, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The response substantially analyzes Luke's Last Supper wording and manuscript evidence."
+        },
+        {
+          "wpId": "9190",
+          "title": "Luke’s Last Supper and Orthodox Corruptions of Scripture",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post concludes a sustained analysis of the Last Supper textual variant."
+        },
+        {
+          "wpId": "9187",
+          "title": "The Striking Conclusion: Jesus’ Last Supper in Luke",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to determining the original form of Luke's Last Supper account."
+        },
+        {
+          "wpId": "9167",
+          "title": "Luke’s View of Jesus’ Death",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The Last Supper passage supplies central evidence for Luke's understanding of Jesus' death."
+        },
+        {
+          "wpId": "9165",
+          "title": "Why Would a Scribe Change Luke’s Account of the Last Supper?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The entire post evaluates why Luke's Last Supper account may have been changed."
+        },
+        {
+          "wpId": "9159",
+          "title": "The Last Supper in Luke: An Important Textual Problem",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post introduces and analyzes the Last Supper textual problem in Luke."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review; posts using the Last Supper only as an incidental example were excluded.",
+        "Removed the identically normalized Last Supper secondary keyword from wpIds 9165 and 9159.",
+        "Added Last Supper as a secondary keyword to 16 posts where it is a meaningful supporting subject but not a core topic.",
+        "Updated the Jesus' Death, Burial, and Resurrection category description to mention the Last Supper explicitly."
+      ]
+    },
+    {
+      "topic": "Baptism of Jesus",
+      "auditSequence": 291,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 10,
+      "descriptionBefore": "Examines Jesus' baptism by John, its historical and apocalyptic significance, differences among the Gospel accounts, and textual and Christological debates surrounding the heavenly voice.",
+      "descriptionRecommendation": "Examines Jesus' baptism by John, its historical and apocalyptic significance, differences among the Gospel accounts, and textual and Christological debates surrounding the heavenly voice.",
+      "categoriesBefore": [
+        "Canonical Gospels and Acts",
+        "Historical Jesus"
+      ],
+      "categoryRecommendation": "Place in both Canonical Gospels and Acts and Historical Jesus because the qualified posts examine both the Gospel traditions and the event's historical significance.",
+      "startedAt": "2026-08-22",
+      "completedAt": "2026-08-22",
+      "decisions": [
+        {
+          "wpId": "4660",
+          "title": "Church Fathers and the Voice at Jesus’ Baptism",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to patristic evidence for the wording of the heavenly voice at Jesus' baptism."
+        },
+        {
+          "wpId": "4667",
+          "title": "More Arguments over Luke 3:22",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially evaluates the competing readings of the heavenly voice in Luke's baptism account."
+        },
+        {
+          "wpId": "4672",
+          "title": "Luke 3:22 — What Luke Himself Would Have Written",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on the original wording and Christological meaning of Jesus' baptism in Luke."
+        },
+        {
+          "wpId": "4678",
+          "title": "Luke 3:22 — More on What Luke Would Have Written",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post continues a sustained analysis of Luke's portrayal of what occurred at Jesus' baptism."
+        },
+        {
+          "wpId": "4683",
+          "title": "A Final Post (!) on Luke 3:22",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post concludes the argument about the heavenly voice and the significance Luke assigns to Jesus' baptism."
+        },
+        {
+          "wpId": "9211",
+          "title": "Scribes Who Changed the Voice at Jesus Baptism?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to a textual change in the heavenly voice at Jesus' baptism."
+        },
+        {
+          "wpId": "9297",
+          "title": "The Baptism of Jesus as an Apocalyptic Event",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on the baptism's historical credibility and its significance for Jesus' apocalyptic message."
+        },
+        {
+          "wpId": "23386",
+          "title": "The Oldest View of Christ:  Found in Only One Greek Manuscript of Luke!",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post uses Luke's baptism account as its sustained textual and Christological case study."
+        },
+        {
+          "wpId": "34494",
+          "title": "The Voice at Jesus’ Baptism–An Intriguing Version in the Gospel of the Ebionites",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the heavenly voices in the canonical Gospels and the Gospel of the Ebionites."
+        },
+        {
+          "wpId": "37841",
+          "title": "No Virgin Birth? Was Jesus ADOPTED by God to be His Son?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post gives sustained attention to Luke's baptism account as the possible moment of Jesus' adoption and empowerment."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review; posts using the baptism only as supporting evidence for another subject were excluded.",
+        "Removed the identically normalized Baptism of Jesus secondary keyword from wpId 9297.",
+        "Updated both linked category descriptions to identify Jesus' baptism explicitly."
+      ]
+    },
+    {
+      "topic": "Rich Man and Lazarus",
+      "auditSequence": 292,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 5,
+      "descriptionBefore": "Examines Luke's parable of the rich man and Lazarus, including its treatment of wealth and poverty, postmortem reversal, Hades, possible Egyptian parallels, and whether the story originated with Jesus.",
+      "descriptionRecommendation": "Examines Luke's parable of the rich man and Lazarus, including its treatment of wealth and poverty, postmortem reversal, Hades, possible Egyptian parallels, and whether the story originated with Jesus.",
+      "categoriesBefore": [
+        "Afterlife",
+        "Jesus' Teachings and Social World",
+        "Wealth, Poverty, and Charity"
+      ],
+      "categoryRecommendation": "Place under Afterlife, Jesus' Teachings and Social World, and Wealth, Poverty, and Charity because the qualified posts substantially examine all three dimensions of the parable.",
+      "startedAt": "2026-08-22",
+      "completedAt": "2026-08-22",
+      "decisions": [
+        {
+          "wpId": "15539",
+          "title": "Heaven, Hell, and the Parable of Lazarus and the Rich Man",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to Luke's parable and its depiction of immediate postmortem reward and punishment."
+        },
+        {
+          "wpId": "15541",
+          "title": "The Fate of the Rich and the Poor: Another Story",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the parable with an Egyptian story of reversed fortunes after death."
+        },
+        {
+          "wpId": "15543",
+          "title": "What’s the Story of Lazarus and the Rich Man All About?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post is devoted to interpreting the parable's teachings about wealth, poverty, and afterlife judgment."
+        },
+        {
+          "wpId": "31173",
+          "title": "Lazarus and the Rich Man: What To Do with Wealth",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post centers on the parable's contrast between wealth and poverty and its consequences after death."
+        },
+        {
+          "wpId": "31177",
+          "title": "An Even More Unusual Story of What Happens to the Rich…",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post gives sustained attention to the parable while comparing it with an Egyptian afterlife tale."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of posts mentioning Luke 16, Lazarus, or the rich man.",
+        "Excluded posts using the parable only as a passing example, transition, source-list entry, or supporting reference."
+      ]
+    },
+    {
+      "topic": "Sermon on the Mount",
+      "auditSequence": 293,
+      "status": "completed",
+      "postCountBefore": 6,
+      "postCountAfter": 5,
+      "descriptionBefore": "Examines Matthew's Sermon on the Mount, including its composition, relationship to Luke's Sermon on the Plain, the Beatitudes, the Golden Rule, and its interpretation of Jewish law and ethics.",
+      "descriptionRecommendation": "Examines Matthew's Sermon on the Mount, including its composition, relationship to Luke's Sermon on the Plain, the Beatitudes, the Golden Rule, and its interpretation of Jewish law and ethics.",
+      "categoriesBefore": [
+        "Canonical Gospels and Acts",
+        "Jesus' Teachings and Social World"
+      ],
+      "categoryRecommendation": "Place under both Canonical Gospels and Acts and Jesus' Teachings and Social World because the qualified posts examine the sermon as both a Matthean literary unit and a major collection of Jesus' teachings.",
+      "startedAt": "2026-08-23",
+      "completedAt": "2026-08-23",
+      "decisions": [
+        {
+          "wpId": "33196",
+          "title": "Did Jesus Give the Sermon on the Mount?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The Sermon on the Mount or one of its defining sections is a primary or major sustained subject of the post."
+        },
+        {
+          "wpId": "33124",
+          "title": "Little Known Aspects of The Golden Rule as Found in the Sermon on the Mount",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The Sermon on the Mount or one of its defining sections is a primary or major sustained subject of the post."
+        },
+        {
+          "wpId": "33221",
+          "title": "Is it Possible Jesus Didn’t Teach the Golden Rule?",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The Sermon on the Mount or one of its defining sections is a primary or major sustained subject of the post."
+        },
+        {
+          "wpId": "20822",
+          "title": "How Do We Interpret the Beatitudes?  Guest Post by Julius-Kei Kato",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The Sermon on the Mount or one of its defining sections is a primary or major sustained subject of the post."
+        },
+        {
+          "wpId": "4428",
+          "title": "The Jewish Emphases of Matthew: Part 2",
+          "decision": "retain",
+          "confidence": "high",
+          "reason": "The Sermon on the Mount or one of its defining sections is a primary or major sustained subject of the post."
+        },
+        {
+          "wpId": "4455",
+          "title": "The Jewish Emphases of Matthew’s Gospel: Part 3",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The Sermon on the Mount supplies one supporting example, but the post's broader subject is Matthew's understanding of Jewish law."
+        }
+      ],
+      "notes": [
+        "A conservative full-text re-audit retained five of the six linked posts.",
+        "Removed the topic from wpId 4455 because the sermon is supporting evidence for a broader discussion of Jewish law in Matthew.",
+        "Added Golden Rule as a secondary keyword to wpId 4455 to preserve its meaningful supporting subject.",
+        "The topic description and both category assignments remain accurate."
+      ]
+    },
+    {
+      "topic": "Jairus' Daughter",
+      "auditSequence": 294,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 12,
+      "descriptionBefore": "Examines the Gospel accounts of Jesus raising Jairus' daughter, including differences between Mark and Matthew over when she dies, the Aramaic command \"Talitha cumi,\" oral transmission, and comparisons with the raising of Lazarus in John.",
+      "descriptionRecommendation": "Examines the Gospel accounts of Jesus raising Jairus' daughter, including differences between Mark and Matthew over when she dies, the Aramaic command \"Talitha cumi,\" oral transmission, and comparisons with the raising of Lazarus in John.",
+      "categoriesBefore": [
+        "Jesus' Birth, Family, and Miracles",
+        "Miracles and Supernatural Claims"
+      ],
+      "categoryRecommendation": "Place after Jesus' Miracle Stories in both linked categories because the topic is a specific canonical miracle tradition examined through historical, literary, and comparative questions.",
+      "startedAt": "2026-08-23",
+      "completedAt": "2026-08-23",
+      "decisions": [
+        {
+          "wpId": "47096",
+          "title": "John Versus the Synoptics:  How Does Jesus Raise the Dead?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post directly compares the raising of Jairus' daughter in Mark with the raising of Lazarus in John."
+        },
+        {
+          "wpId": "35436",
+          "title": "More Problems with Thinking Jesus’ Followers Memorized the Stories about Him",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The story is the post's sustained test case for whether Jesus traditions were memorized and transmitted without significant change."
+        },
+        {
+          "wpId": "31511",
+          "title": "Yeah, Those Are Contradictions.  My Response to Firth.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post devotes a major section to the wording, chronology, and narrative compression of the story in Mark and Matthew."
+        },
+        {
+          "wpId": "31505",
+          "title": "There Are No Contradictions in the Gospels!  The Response by Matthew Firth",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post devotes a major section to reconciling the different forms of the story in Mark and Matthew."
+        },
+        {
+          "wpId": "31498",
+          "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The story is one of several examples in a broader debate over Gospel contradictions rather than a major sustained subject. It remains a secondary keyword."
+        },
+        {
+          "wpId": "17818",
+          "title": "Is This the Same Jesus?  John and the Synoptics (part 2)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the raising of Jairus' daughter with the raising of Lazarus to explain differences between Mark and John."
+        },
+        {
+          "wpId": "16923",
+          "title": "A New Way of Explaining Contradictions in an “Inerrant” Bible",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The story briefly illustrates a broader evaluation of inerrancy and ancient biography. It remains a secondary keyword."
+        },
+        {
+          "wpId": "16165",
+          "title": "When You Feel Like You’re Talking to a Wall",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The story supports a broader reflection on debate and harmonization but is not the post's major sustained subject. It remains a secondary keyword."
+        },
+        {
+          "wpId": "16151",
+          "title": "Being Willing to Accept the Truth",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The story is one example in a broader reflection on evidence, bias, and contradictions. It remains a secondary keyword."
+        },
+        {
+          "wpId": "16149",
+          "title": "Do My Biases Mean I *Have* to Find Contradictions?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The story is the post's principal example in its reflection on bias and recognition of Gospel contradictions."
+        },
+        {
+          "wpId": "16130",
+          "title": "Contradictions in the Gospels – Rev Matthew Firth’s Final Response",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The story occupies one response section among several disputed Gospel passages and is not the post's major sustained subject. It remains a secondary keyword."
+        },
+        {
+          "wpId": "16109",
+          "title": "Contradictions and Contradictions: Final Response to Matt Firth",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post devotes a major section to the chronology, Greek grammar, and narrative forms of the story."
+        },
+        {
+          "wpId": "16100",
+          "title": "Contradictions in the Gospels – Rev Matthew Firth’s Second Response",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post gives sustained attention to attempts to reconcile the accounts in Mark, Matthew, and Luke."
+        },
+        {
+          "wpId": "16088",
+          "title": "Are These Really Contradictions?  My Response to Matt Firth",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post devotes a major section to the Greek wording and narrative differences in Mark and Matthew."
+        },
+        {
+          "wpId": "16063",
+          "title": "Contradictions in the Gospels – Rev Matthew Firth’s Response",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The story is one of the post's principal cases, with sustained discussion of Greek wording and Matthew's narrative compression."
+        },
+        {
+          "wpId": "16054",
+          "title": "Contradictions in the Gospels",
+          "decision": "remove",
+          "confidence": "high",
+          "reason": "The story is one of several examples opening a general debate over Gospel contradictions. It remains a secondary keyword."
+        },
+        {
+          "wpId": "13201",
+          "title": "Jesus’ Miracles in John and the Synoptics",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the raising of Jairus' daughter with the raising of Lazarus to explain the different portrayals of Jesus' miracles."
+        },
+        {
+          "wpId": "7051",
+          "title": "More on John from a Comparative Perspective",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the raising of Jairus' daughter with the raising of Lazarus in John."
+        }
+      ],
+      "notes": [
+        "Created after a conservative full-text review of references to Jairus, his daughter, Talitha cumi, Mark 5:21-43, and Matthew 9:18-26.",
+        "A stricter major-subject re-audit retained 12 topic links and moved six broader debate posts to the identically named secondary keyword.",
+        "Renamed the Jairus secondary keyword to Jairus' Daughter and removed it from the 12 posts retaining the identically named topic.",
+        "Retained Jairus' Daughter as a supporting secondary keyword on eleven broader posts, producing a 23-post union when the keyword is selected.",
+        "Existing category descriptions already cover miracle and healing traditions and required no changes."
+      ]
+    },
+    {
+      "topic": "Raising of Lazarus",
+      "auditSequence": 295,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 4,
+      "descriptionBefore": "Examines John's account of Jesus raising Lazarus, especially its comparison with the Synoptic raising of Jairus' daughter and what the story reveals about John's portrayal of Jesus' signs and identity.",
+      "descriptionRecommendation": "Examines John's account of Jesus raising Lazarus, especially its comparison with the Synoptic raising of Jairus' daughter and what the story reveals about John's portrayal of Jesus' signs and identity.",
+      "categoriesBefore": [
+        "Jesus' Birth, Family, and Miracles",
+        "Miracles and Supernatural Claims"
+      ],
+      "categoryRecommendation": "Place immediately after Jairus' Daughter under both Jesus' Birth, Family, and Miracles and Miracles and Supernatural Claims.",
+      "startedAt": "2026-08-23",
+      "completedAt": "2026-08-23",
+      "decisions": [
+        {
+          "wpId": "47096",
+          "title": "John Versus the Synoptics:  How Does Jesus Raise the Dead?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The raising of Lazarus is one of the post's two principal narratives, directly compared with the raising of Jairus' daughter."
+        },
+        {
+          "wpId": "17818",
+          "title": "Is This the Same Jesus?  John and the Synoptics (part 2)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the raising of Lazarus with the raising of Jairus' daughter to explain differences between John and the Synoptics."
+        },
+        {
+          "wpId": "13201",
+          "title": "Jesus’ Miracles in John and the Synoptics",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the raising of Lazarus with the raising of Jairus' daughter to explain John's distinctive portrayal of Jesus' miracles."
+        },
+        {
+          "wpId": "7051",
+          "title": "More on John from a Comparative Perspective",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post substantially compares the raising of Lazarus with the raising of Jairus' daughter in its analysis of John and the Synoptics."
+        }
+      ],
+      "notes": [
+        "All four posts substantially compare the raising of Lazarus with the raising of Jairus' daughter.",
+        "The posts are closely related versions of the same underlying discussion, but the subject is central in each.",
+        "Posts about the rich man and Lazarus, Mary and Martha, Gospel authorship, or the Signs Source were excluded unless the raising itself was a major sustained subject.",
+        "The broader Lazarus secondary keyword remains unchanged."
       ]
     }
   ]

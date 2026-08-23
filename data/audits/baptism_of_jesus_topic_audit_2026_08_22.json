@@ -1,0 +1,74 @@
+{
+  "auditDate": "2026-08-22",
+  "method": "Conservative full-text review requiring Jesus' baptism by John, the Gospel baptism accounts, or the heavenly voice at the baptism to be a primary or major sustained subject of each post.",
+  "topic": {
+    "name": "Baptism of Jesus",
+    "description": "Examines Jesus' baptism by John, its historical and apocalyptic significance, differences among the Gospel accounts, and textual and Christological debates surrounding the heavenly voice.",
+    "categories": [
+      "Canonical Gospels and Acts",
+      "Historical Jesus"
+    ],
+    "postCount": 10,
+    "includedWpIds": [
+      "4660",
+      "4667",
+      "4672",
+      "4678",
+      "4683",
+      "9211",
+      "9297",
+      "23386",
+      "34494",
+      "37841"
+    ],
+    "excludedNearMisses": [
+      {
+        "wpId": "37087",
+        "reason": "Jesus' baptism supports the post's larger argument about an earlier edition of Luke without a birth narrative."
+      },
+      {
+        "wpId": "4689",
+        "reason": "The baptism is supporting evidence in a post primarily concerned with whether Luke originally included chapters 1-2."
+      },
+      {
+        "wpId": "16146",
+        "reason": "The baptism accounts are one case study in a broader argument about the development of Jesus' sinlessness."
+      },
+      {
+        "wpId": "9255",
+        "reason": "The baptism is one element in a broader analysis of Mark's presentation of Jesus as the Son of God."
+      },
+      {
+        "wpId": "13222",
+        "reason": "The baptism is discussed only as one component of the larger question of Jesus' age and length of ministry."
+      },
+      {
+        "wpId": "23831",
+        "reason": "The baptism is discussed only as one component of the larger question of Jesus' age and length of ministry."
+      },
+      {
+        "wpId": "37845",
+        "reason": "The baptism is supporting evidence in a broader argument about the possible addition of Luke's virgin-birth narrative."
+      }
+    ],
+    "keywordCleanup": {
+      "wpId": "9297",
+      "removedSecondaryKeyword": "Baptism of Jesus",
+      "reason": "A post should not retain a secondary keyword that is identically normalized to one of its topics."
+    },
+    "supportingKeywordAdditions": {
+      "keyword": "Baptism of Jesus",
+      "postCount": 7,
+      "wpIds": [
+        "37087",
+        "4689",
+        "16146",
+        "9255",
+        "13222",
+        "23831",
+        "37845"
+      ],
+      "reason": "Jesus' baptism is a meaningful supporting subject in each post but is not the post's primary or dominant topic. The keyword was already present on post 13222 and was added to the other six posts."
+    }
+  }
+}

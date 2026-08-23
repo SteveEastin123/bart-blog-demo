@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-23T12:35:08.466324+00:00",
+  "runId": "20260817-20260823-20260823T122659Z",
+  "dateRange": {
+    "from": "2026-08-17",
+    "to": "2026-08-23"
+  },
+  "purpose": "Documents full-text editorial review of newly downloaded posts before canonical ingestion.",
+  "auditedKeywords": [
+    "1 Corinthians",
+    "Aramaic",
+    "Authorship",
+    "Capitalism",
+    "Cephas",
+    "Economic Growth",
+    "Forgery (General)",
+    "Galatians",
+    "Gospel of John",
+    "Gospel of Matthew",
+    "Greek Language",
+    "James the Brother of Jesus",
+    "Jesus' Resurrection Appearances",
+    "Jesus' Teachings",
+    "Marxism",
+    "Paul",
+    "Polycarp",
+    "Poverty",
+    "Protestant Reformation",
+    "Socialism",
+    "Textual Criticism",
+    "Wealth"
+  ],
+  "newKeywords": [
+    "Economic Growth"
+  ],
+  "posts": [
+    {
+      "wpId": "50438",
+      "title": "The Moral Benefits of Capitalism",
+      "url": "https://ehrmanblog.org/the-moral-benefits-of-capitalism/",
+      "dateText": "August 23, 2026",
+      "author": "BDEhrman",
+      "description": "Argues that broadly shared economic growth under capitalism can promote moral progress by reducing poverty and fostering opportunity, tolerance, and social mobility, while stagnation and extreme inequality produce the opposite effects.",
+      "topics": [
+        "Moral Philosophy",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Capitalism",
+        "Poverty",
+        "Socialism",
+        "Wealth",
+        "Economic Growth"
+      ]
+    },
+    {
+      "wpId": "50415",
+      "title": "Is Capitalism Anti-Christian?",
+      "url": "https://ehrmanblog.org/is-capitalism-anti-christian/",
+      "dateText": "August 22, 2026",
+      "author": "BDEhrman",
+      "description": "Reconsiders whether capitalism is inherently anti-Christian, arguing that Jesus could not have opposed a modern economic system and that his moral teachings bear more directly on how people behave within it.",
+      "topics": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Personal Reflections"
+      ],
+      "secondaryKeywords": [
+        "Capitalism",
+        "Jesus' Teachings",
+        "Marxism",
+        "Poverty",
+        "Socialism",
+        "Wealth"
+      ]
+    },
+    {
+      "wpId": "50447",
+      "title": "September 2026 Gold Q&A",
+      "url": "https://ehrmanblog.org/september-2026-gold-qa/",
+      "dateText": "August 21, 2026",
+      "author": "jennao",
+      "description": "Announces the September 2026 Gold and Platinum member Q&A and provides details for submitting questions and joining the live Zoom session.",
+      "topics": [
+        "Ignore"
+      ],
+      "secondaryKeywords": []
+    },
+    {
+      "wpId": "50418",
+      "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+      "url": "https://ehrmanblog.org/martyrs-forgers-and-textual-scholars-intriguing-questions-for-readers/",
+      "dateText": "August 20, 2026",
+      "author": "BDEhrman",
+      "description": "Answers reader questions about miraculous portrayals of Christian martyrs, whether ancient secretaries can explain the authorship of the Pastoral Epistles, and the likely future of New Testament textual criticism.",
+      "topics": [
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions",
+        "Ancient Secretaries and Authorship",
+        "Pastoral Epistles",
+        "Pauline Forgeries",
+        "Textual Criticism Methods"
+      ],
+      "secondaryKeywords": [
+        "Authorship",
+        "Forgery (General)",
+        "Paul",
+        "Polycarp",
+        "Textual Criticism"
+      ]
+    },
+    {
+      "wpId": "50394",
+      "title": "Flipping a Coin. Cephas and Peter: One Person or Two?",
+      "url": "https://ehrmanblog.org/flipping-a-coin-cephas-and-peter-one-person-or-two/",
+      "dateText": "August 19, 2026",
+      "author": "BDEhrman",
+      "description": "Reconsiders the argument that Peter and Cephas were different early Christians, weighing Pauline evidence and early tradition against the difficulty that both men would have borne versions of the same previously unknown nickname.",
+      "topics": [
+        "Peter and Cephas",
+        "Peter the Apostle"
+      ],
+      "secondaryKeywords": [
+        "Aramaic",
+        "Cephas",
+        "Gospel of John",
+        "Gospel of Matthew",
+        "Greek Language",
+        "Paul",
+        "Protestant Reformation"
+      ]
+    },
+    {
+      "wpId": "50389",
+      "title": "Other Suggestions That Peter and Cephas Were Two Different People",
+      "url": "https://ehrmanblog.org/other-suggestions-that-peter-and-cephas-were-two-different-people/",
+      "dateText": "August 18, 2026",
+      "author": "BDEhrman",
+      "description": "Argues from Paul's wording in 1 Corinthians 15 that Cephas may have been a convert who received a resurrection appearance rather than Peter, one of Jesus' Twelve.",
+      "topics": [
+        "Peter and Cephas",
+        "Peter the Apostle"
+      ],
+      "secondaryKeywords": [
+        "1 Corinthians",
+        "Cephas",
+        "Galatians",
+        "James the Brother of Jesus",
+        "Jesus' Resurrection Appearances",
+        "Paul"
+      ]
+    }
+  ],
+  "heldPosts": []
+}

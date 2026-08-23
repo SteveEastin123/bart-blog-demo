@@ -258,6 +258,15 @@
       "displayInBrowser": true
     },
     {
+      "name": "Baptism of Jesus",
+      "description": "Examines Jesus' baptism by John, its historical and apocalyptic significance, differences among the Gospel accounts, and textual and Christological debates surrounding the heavenly voice.",
+      "categories": [
+        "Canonical Gospels and Acts",
+        "Historical Jesus"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Barabbas and the Passover Release",
       "description": "Examines the Gospel story of Barabbas, including the alleged Passover prisoner release, its historical plausibility, the name Jesus Barabbas, and its role in shifting responsibility for Jesus' death.",
       "categories": [
@@ -1138,6 +1147,15 @@
       "displayInBrowser": true
     },
     {
+      "name": "Jairus' Daughter",
+      "description": "Examines the Gospel accounts of Jesus raising Jairus' daughter, including differences between Mark and Matthew over when she dies, the Aramaic command \"Talitha cumi,\" oral transmission, and comparisons with the raising of Lazarus in John.",
+      "categories": [
+        "Jesus' Birth, Family, and Miracles",
+        "Miracles and Supernatural Claims"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "James the Brother of Jesus",
       "description": "Covers James, the brother of Jesus, including his role in early Christianity, traditions about Jesus' family, mythicist arguments, and authorship questions involving James and Jude.",
       "categories": [
@@ -1320,6 +1338,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Last Supper",
+      "description": "Examines traditions about Jesus' final meal and the Lord's Supper, especially the wording of Luke 22:19-20, its manuscript variants, its relationship to atonement, and Paul's account in 1 Corinthians.",
+      "categories": [
+        "Jesus' Death, Burial, and Resurrection"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Letter of Barnabas",
       "description": "Covers the Letter of Barnabas, including its attribution, date, use of scripture, gematria, and place among early Christian writings.",
       "categories": [
@@ -1356,6 +1382,14 @@
       "description": "Posts using Monty Python's Life of Brian to explore the historical Jesus, apocalypticism, Roman rule, burial, and public teaching.",
       "categories": [
         "Historical Jesus"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Lost Christianities",
+      "description": "Covers Bart's trade book Lost Christianities, including its presentation of competing early Christian groups and writings, the emergence of proto-orthodox Christianity and the New Testament canon, and the book's interviews and media reception.",
+      "categories": [
+        "Bart's Books"
       ],
       "displayInBrowser": true
     },
@@ -2021,6 +2055,15 @@
       "displayInBrowser": true
     },
     {
+      "name": "Raising of Lazarus",
+      "description": "Examines John's account of Jesus raising Lazarus, especially its comparison with the Synoptic raising of Jairus' daughter and what the story reveals about John's portrayal of Jesus' signs and identity.",
+      "categories": [
+        "Jesus' Birth, Family, and Miracles",
+        "Miracles and Supernatural Claims"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Redaction Criticism",
       "description": "Covers redaction criticism, especially how Gospel writers shaped, edited, and interpreted inherited traditions for their own theological or literary purposes.",
       "categories": [
@@ -2059,6 +2102,16 @@
       "categories": [
         "Authorship",
         "Revelation and End-Time Interpretation"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Rich Man and Lazarus",
+      "description": "Examines Luke's parable of the rich man and Lazarus, including its treatment of wealth and poverty, postmortem reversal, Hades, possible Egyptian parallels, and whether the story originated with Jesus.",
+      "categories": [
+        "Afterlife",
+        "Jesus' Teachings and Social World",
+        "Wealth, Poverty, and Charity"
       ],
       "displayInBrowser": true
     },
@@ -2144,6 +2197,15 @@
       "categories": [
         "Bible Translations and Versions",
         "Hebrew Bible Texts and Traditions"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Sermon on the Mount",
+      "description": "Examines Matthew's Sermon on the Mount, including its composition, relationship to Luke's Sermon on the Plain, the Beatitudes, the Golden Rule, and its interpretation of Jewish law and ethics.",
+      "categories": [
+        "Canonical Gospels and Acts",
+        "Jesus' Teachings and Social World"
       ],
       "displayInBrowser": true
     },

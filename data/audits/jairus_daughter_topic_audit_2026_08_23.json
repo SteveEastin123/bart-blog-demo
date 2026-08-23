@@ -1,0 +1,72 @@
+{
+  "auditDate": "2026-08-23",
+  "method": "Conservative full-text review, followed by a stricter re-audit requiring the raising of Jairus' daughter or substantive differences among its Gospel forms to be a major sustained subject rather than one example in a broader debate.",
+  "topic": {
+    "name": "Jairus' Daughter",
+    "description": "Examines the Gospel accounts of Jesus raising Jairus' daughter, including differences between Mark and Matthew over when she dies, the Aramaic command \"Talitha cumi,\" oral transmission, and comparisons with the raising of Lazarus in John.",
+    "categories": [
+      "Jesus' Birth, Family, and Miracles",
+      "Miracles and Supernatural Claims"
+    ],
+    "postCount": 12,
+    "includedWpIds": [
+      "47096",
+      "35436",
+      "31511",
+      "31505",
+      "17818",
+      "16149",
+      "16109",
+      "16100",
+      "16088",
+      "16063",
+      "13201",
+      "7051"
+    ],
+    "removedAfterReaudit": [
+      {
+        "wpId": "31498",
+        "title": "Gospel Contradictions: My Debate with Rev. Matthew Firth"
+      },
+      {
+        "wpId": "16923",
+        "title": "A New Way of Explaining Contradictions in an “Inerrant” Bible"
+      },
+      {
+        "wpId": "16165",
+        "title": "When You Feel Like You’re Talking to a Wall"
+      },
+      {
+        "wpId": "16151",
+        "title": "Being Willing to Accept the Truth"
+      },
+      {
+        "wpId": "16130",
+        "title": "Contradictions in the Gospels – Rev Matthew Firth’s Final Response"
+      },
+      {
+        "wpId": "16054",
+        "title": "Contradictions in the Gospels"
+      }
+    ]
+  },
+  "keywordNormalization": {
+    "from": "Jairus",
+    "to": "Jairus' Daughter",
+    "removedFromTopicPosts": 12,
+    "retainedAsSupportingKeywordWpIds": [
+      "31498",
+      "16923",
+      "16165",
+      "16151",
+      "16130",
+      "16054",
+      "11992",
+      "9516",
+      "4893",
+      "4388",
+      "4071"
+    ],
+    "broaderUnionPostCount": 23
+  }
+}

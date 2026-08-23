@@ -1,0 +1,55 @@
+{
+  "auditDate": "2026-08-23",
+  "keyword": "Nicodemus",
+  "scope": "Focused full-text review of the Nicodemus secondary keyword and its suitability as a standalone topic",
+  "criterion": "Retain Nicodemus when the Johannine figure, his dialogue with Jesus, his historical plausibility, or his role in a narrative is a meaningful supporting subject. Remove the keyword when the name merely locates a passage or appears incidentally in a broader literary argument.",
+  "topicRecommendation": {
+    "createTopic": false,
+    "reason": "Only one post treats Nicodemus as a dominant subject. The remaining relevant posts use him within broader discussions of the Gospel of John, historical reliability, secret disciples, burial traditions, or modern forgeries. The existing Gospel of Nicodemus topic concerns a separate non-canonical text."
+  },
+  "resultingCount": 13,
+  "removedPosts": [
+    {
+      "wpId": "27544",
+      "title": "What Do I Think of the New Revised Standard Version?"
+    },
+    {
+      "wpId": "17830",
+      "title": "The Most Intriguing Evidence that John Used Sources"
+    },
+    {
+      "wpId": "15272",
+      "title": "Internal Discrepancies in the Gospel of John"
+    },
+    {
+      "wpId": "8814",
+      "title": "Some Evidence for a Signs Source in John"
+    },
+    {
+      "wpId": "7071",
+      "title": "More on John from a Redactional Perspective"
+    },
+    {
+      "wpId": "7042",
+      "title": "The Gospel of John from a Thematic Perspective"
+    },
+    {
+      "wpId": "5090",
+      "title": "Discrepancies *Inside* the Fourth Gospel"
+    },
+    {
+      "wpId": "2676",
+      "title": "Problems with the NRSV (Part I)"
+    }
+  ],
+  "addedPosts": [
+    {
+      "wpId": "49923",
+      "title": "More Criticisms of the Criticisms of the Gospel of John (by John! Spong)"
+    },
+    {
+      "wpId": "49914",
+      "title": "Controversies About the Gospel of John: The Views of John Spong"
+    }
+  ]
+}

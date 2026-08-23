@@ -1,0 +1,47 @@
+{
+  "auditDate": "2026-08-22",
+  "method": "Conservative full-text review requiring Luke's parable of the rich man and Lazarus to be a primary or major sustained subject of each post.",
+  "topic": {
+    "name": "Rich Man and Lazarus",
+    "description": "Examines Luke's parable of the rich man and Lazarus, including its treatment of wealth and poverty, postmortem reversal, Hades, possible Egyptian parallels, and whether the story originated with Jesus.",
+    "categories": [
+      "Afterlife",
+      "Jesus' Teachings and Social World",
+      "Wealth, Poverty, and Charity"
+    ],
+    "postCount": 5,
+    "includedWpIds": [
+      "15539",
+      "15541",
+      "15543",
+      "31173",
+      "31177"
+    ],
+    "excludedNearMisses": [
+      {
+        "wpId": "13605",
+        "reason": "The parable introduces a broader argument about Luke's rejection theme before the post turns to Jesus' rejection at Nazareth."
+      },
+      {
+        "wpId": "30857",
+        "reason": "The parable is one example in a broader discussion of Jewish and Christian concern for the poor."
+      },
+      {
+        "wpId": "25330",
+        "reason": "The parable is used briefly in a broader argument about women's influence on Jesus."
+      },
+      {
+        "wpId": "15466",
+        "reason": "The post only previews a later discussion of the parable while focusing on Jesus and eternal punishment."
+      },
+      {
+        "wpId": "49836",
+        "reason": "The post examines the Rich Fool and Dishonest Steward rather than the rich man and Lazarus."
+      },
+      {
+        "wpId": "47086",
+        "reason": "Luke 16 appears only in a source-sequence list used to support the argument for Q."
+      }
+    ]
+  }
+}

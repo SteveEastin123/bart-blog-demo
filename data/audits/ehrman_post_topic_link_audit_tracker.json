@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-08-16",
-  "auditScope": "All 4401 posts in the canonical search index",
+  "updatedAt": "2026-08-23",
+  "auditScope": "All 4407 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,7 +10,7 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4401,
+  "reviewedPostCount": 4407,
   "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
@@ -84783,8 +84783,136 @@
       "topicsAdded": [],
       "topicsRemoved": [],
       "reason": null
+    },
+    {
+      "auditSequence": 4402,
+      "sourceIndex": 0,
+      "wpId": "50438",
+      "dateText": "August 23, 2026",
+      "title": "The Moral Benefits of Capitalism",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Moral Philosophy",
+        "Personal Reflections"
+      ],
+      "topicsAdded": [
+        "Moral Philosophy",
+        "Personal Reflections"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-23"
+    },
+    {
+      "auditSequence": 4403,
+      "sourceIndex": 1,
+      "wpId": "50415",
+      "dateText": "August 22, 2026",
+      "title": "Is Capitalism Anti-Christian?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Personal Reflections"
+      ],
+      "topicsAdded": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Personal Reflections"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-23"
+    },
+    {
+      "auditSequence": 4404,
+      "sourceIndex": 2,
+      "wpId": "50447",
+      "dateText": "August 21, 2026",
+      "title": "September 2026 Gold Q&A",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Ignore"
+      ],
+      "topicsAdded": [
+        "Ignore"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-23"
+    },
+    {
+      "auditSequence": 4405,
+      "sourceIndex": 3,
+      "wpId": "50418",
+      "dateText": "August 20, 2026",
+      "title": "Martyrs, Forgers, and Textual Scholars:  Intriguing Questions From Readers",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions",
+        "Ancient Secretaries and Authorship",
+        "Pastoral Epistles",
+        "Pauline Forgeries",
+        "Textual Criticism Methods"
+      ],
+      "topicsAdded": [
+        "Martyrdom of Polycarp",
+        "Miraculous Martyrdom Traditions",
+        "Ancient Secretaries and Authorship",
+        "Pastoral Epistles",
+        "Pauline Forgeries",
+        "Textual Criticism Methods"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-23"
+    },
+    {
+      "auditSequence": 4406,
+      "sourceIndex": 4,
+      "wpId": "50394",
+      "dateText": "August 19, 2026",
+      "title": "Flipping a Coin. Cephas and Peter: One Person or Two?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Peter and Cephas",
+        "Peter the Apostle"
+      ],
+      "topicsAdded": [
+        "Peter and Cephas",
+        "Peter the Apostle"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-23"
+    },
+    {
+      "auditSequence": 4407,
+      "sourceIndex": 5,
+      "wpId": "50389",
+      "dateText": "August 18, 2026",
+      "title": "Other Suggestions That Peter and Cephas Were Two Different People",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Peter and Cephas",
+        "Peter the Apostle"
+      ],
+      "topicsAdded": [
+        "Peter and Cephas",
+        "Peter the Apostle"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-23"
     }
   ],
-  "appliedChangeCount": 627,
+  "appliedChangeCount": 633,
   "pendingDescriptionRecommendations": []
 }
