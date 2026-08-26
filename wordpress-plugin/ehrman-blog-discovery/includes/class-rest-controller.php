@@ -21,6 +21,9 @@ final class Rest_Controller {
 	/** REST namespace shared by all plugin routes. */
 	private const REST_NAMESPACE = 'ehrman-discovery/v1';
 
+	/** Maximum AI interpretation and refinement requests per five-minute window. */
+	private const AI_RATE_LIMIT = 20;
+
 	/**
 	 * Search service used by public REST callbacks.
 	 *
@@ -148,7 +151,7 @@ final class Rest_Controller {
 		if ( 'local' !== wp_get_environment_type() ) {
 			$rate_key = 'ebd_ai_rate_' . hash( 'sha256', $this->request_address() );
 			$count    = Database::integer( get_transient( $rate_key ) );
-			if ( $count >= 10 ) {
+			if ( $count >= self::AI_RATE_LIMIT ) {
 				return new WP_Error( 'ehrman_ai_rate_limit', __( 'You\'ve reached the temporary question limit. Please wait a few minutes before trying again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
 			}
 			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
@@ -177,7 +180,7 @@ final class Rest_Controller {
 		if ( 'local' !== wp_get_environment_type() ) {
 			$rate_key = 'ebd_ai_rate_' . hash( 'sha256', $this->request_address() );
 			$count    = Database::integer( get_transient( $rate_key ) );
-			if ( $count >= 10 ) {
+			if ( $count >= self::AI_RATE_LIMIT ) {
 				return new WP_Error( 'ehrman_ai_rate_limit', __( 'You\'ve reached the temporary question limit. Please wait a few minutes before trying again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
 			}
 			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );

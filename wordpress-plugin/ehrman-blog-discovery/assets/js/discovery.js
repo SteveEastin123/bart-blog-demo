@@ -1541,6 +1541,7 @@
     });
     updateQuestionReview(form);
     setCollapsed(Boolean(compact && !compact.hidden));
+    if (!input.value.trim()) input.focus({ preventScroll: true });
   }
 
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
