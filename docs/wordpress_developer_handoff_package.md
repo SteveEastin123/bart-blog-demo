@@ -19,7 +19,7 @@ Provide the five authoritative JSON files:
 - `ehrman_post_subject_areas.json`
 - `ehrman_post_subject_areas_2.json`
 
-The data includes post metadata, descriptions, secondary keywords, organizational structures, and relationships among posts, topics, categories, and subject areas. It does not include the full text of Bart's posts.
+The data includes post metadata, concise descriptions, optional AI-refinement summaries, secondary keywords, organizational structures, and relationships among posts, topics, categories, and subject areas. It does not include the full text of Bart's posts.
 
 ## 3. Integration and Maintenance Guide
 

@@ -168,7 +168,7 @@ final class Rest_Controller {
 	}
 
 	/**
-	 * Uses post titles and descriptions to narrow an interpreted search.
+	 * Uses post titles and search summaries to narrow an interpreted search.
 	 *
 	 * @param WP_REST_Request $request REST request instance.
 	 * @return WP_REST_Response|WP_Error Refined search response or error.

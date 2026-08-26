@@ -108,6 +108,7 @@ CREATE TABLE {$tables['external_posts']} (
   date_text varchar(64) NOT NULL DEFAULT '',
   published_at datetime DEFAULT NULL,
   description text NOT NULL,
+  search_summary text DEFAULT NULL,
   PRIMARY KEY  (id),
   UNIQUE KEY uq_external_posts_source_wp_id (source_wp_id),
   UNIQUE KEY uq_external_posts_url_hash (url_hash),

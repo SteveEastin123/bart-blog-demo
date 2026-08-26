@@ -251,6 +251,7 @@ def validate_posts(
         date_text = clean_string(post.get("dateText", ""))
         author = clean_string(post.get("author", ""))
         description = clean_string(post.get("description", ""))
+        search_summary_value = post.get("searchSummary")
 
         if url:
             if url in urls:
@@ -270,6 +271,20 @@ def validate_posts(
             errors.append(f"Post {title!r} description contains a line break")
         elif len(description) > 360:
             warnings.append(f"Post {title!r} has a long description ({len(description)} characters)")
+        if "searchSummary" in post:
+            if not isinstance(search_summary_value, str):
+                errors.append(f"Post {title!r} has a non-string searchSummary")
+            else:
+                search_summary = search_summary_value.strip()
+                if not search_summary:
+                    errors.append(f"Post {title!r} has an empty searchSummary")
+                elif "\n" in search_summary or "\r" in search_summary:
+                    errors.append(f"Post {title!r} searchSummary contains a line break")
+                elif len(search_summary) > 1200:
+                    warnings.append(
+                        f"Post {title!r} has a long searchSummary "
+                        f"({len(search_summary)} characters)"
+                    )
 
         topics = unique_strings(post.get("topics", []))
         secondary_keywords = unique_strings(post.get("secondaryKeywords", []))

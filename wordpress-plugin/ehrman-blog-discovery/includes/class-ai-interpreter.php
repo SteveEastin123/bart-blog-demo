@@ -19,8 +19,8 @@ final class AI_Interpreter {
 	private const DEFAULT_MODEL         = 'gpt-5.4-mini';
 	private const MAX_QUESTION_LEN      = 800;
 	private const CACHE_SECONDS         = DAY_IN_SECONDS;
-	private const PROMPT_VERSION        = '18';
-	private const REFINE_PROMPT_VERSION = '1';
+	private const PROMPT_VERSION        = '19';
+	private const REFINE_PROMPT_VERSION = '2';
 	private const MAX_REFINE_POSTS      = 200;
 	private const MAX_REFINED_RESULTS   = 25;
 
@@ -76,7 +76,9 @@ final class AI_Interpreter {
 		$cached          = $this->cached_result( $cached );
 		if ( null !== $cached ) {
 			AI_Usage::record_cache_hit( self::model(), $request_id );
-			$cached['terms']     = $this->compatible_terms( $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] ) );
+			$cached_terms        = $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] );
+			$cached_terms        = $this->reconcile_gospel_comparison( $question, $cached_terms, $vocabulary['topics'] );
+			$cached['terms']     = $this->compatible_terms( $cached_terms );
 			$cached['cache_hit'] = true;
 			return $cached;
 		}
@@ -132,6 +134,7 @@ final class AI_Interpreter {
 		$entities = $this->validated_entities( $decoded['named_entities'] ?? array(), $vocabulary['keywords'] );
 		$terms    = $this->validated_terms( $decoded['terms'] ?? array(), $vocabulary );
 		$terms    = $this->prefer_topic_labels( $this->merge_terms( $entities, $terms ), $vocabulary['topics'] );
+		$terms    = $this->reconcile_gospel_comparison( $question, $terms, $vocabulary['topics'] );
 		$result   = array(
 			'question'  => $question,
 			'terms'     => $this->compatible_terms( $terms ),
@@ -170,16 +173,19 @@ final class AI_Interpreter {
 
 		$candidates = array();
 		foreach ( array_slice( $posts, 0, self::MAX_REFINE_POSTS ) as $post ) {
-			$id          = Database::text( $post['id'] ?? null );
-			$title       = sanitize_text_field( Database::text( $post['title'] ?? null ) );
-			$description = sanitize_text_field( Database::text( $post['description'] ?? null ) );
+			$id      = Database::text( $post['id'] ?? null );
+			$title   = sanitize_text_field( Database::text( $post['title'] ?? null ) );
+			$summary = sanitize_text_field( Database::text( $post['search_summary'] ?? null ) );
+			if ( '' === $summary ) {
+				$summary = sanitize_text_field( Database::text( $post['description'] ?? null ) );
+			}
 			if ( '' === $id || '' === $title ) {
 				continue;
 			}
 			$candidates[] = array(
-				'id'          => $id,
-				'title'       => $title,
-				'description' => $description,
+				'id'      => $id,
+				'title'   => $title,
+				'summary' => $summary,
 			);
 		}
 		if ( empty( $candidates ) ) {
@@ -268,13 +274,13 @@ final class AI_Interpreter {
 	/**
 	 * Builds the structured post-refinement request.
 	 *
-	 * @param string                                                 $question   Reader question.
-	 * @param list<array{id:string,title:string,description:string}> $candidates Candidate post metadata.
+	 * @param string                                             $question   Reader question.
+	 * @param list<array{id:string,title:string,summary:string}> $candidates Candidate post metadata.
 	 * @return array<string,mixed> Responses API payload.
 	 */
 	private function refine_payload( string $question, array $candidates ): array {
 		$instructions = 'Filter blog posts for direct relevance to the reader\'s exact question. '
-			. 'Use only the supplied titles and descriptions. Retain a post only when its metadata indicates that a substantial part of the post directly addresses the requested subject. '
+			. 'Use only the supplied titles and summaries. Retain a post only when its metadata indicates that a substantial part of the post directly addresses the requested subject. '
 			. 'Exclude posts that merely mention the subject, provide surrounding background, address one incidental detail, or match only a broad vocabulary label. '
 			. 'For a request for a summary or overview, retain only posts that broadly cover the requested text or subject; exclude posts limited to authorship, one passage, one episode, one textual variant, or one narrow theological issue. '
 			. 'Prefer precision over quantity. Select no more than 25 posts, ordered from most to least relevant. Return only supplied post IDs.';
@@ -602,6 +608,90 @@ final class AI_Interpreter {
 		}
 		unset( $term );
 		return $terms;
+	}
+
+	/**
+	 * Makes explicit literary comparisons between named Gospels deterministic.
+	 *
+	 * The model may reasonably choose a broad method topic for these questions,
+	 * but readers get more predictable results when both named Gospel texts are
+	 * retained as the search requirements.
+	 *
+	 * @param string                                      $question Reader question.
+	 * @param list<array{label:string,mode:string}>       $terms    Interpreted terms.
+	 * @param list<array{name:string,description:string}> $topics   Approved topics.
+	 * @return list<array{label:string,mode:string}> Reconciled terms.
+	 */
+	private function reconcile_gospel_comparison( string $question, array $terms, array $topics ): array {
+		$relationship_pattern = '/\b(?:compare|compared|compares|comparing|differ|differed|differs|differing|different|differently|difference|differences|agree|agreed|agrees|agreeing|disagree|disagreed|disagrees|disagreeing|change|changed|changes|changing|alter|altered|alters|altering|edit|edited|edits|editing|rewrite|rewrites|rewriting|rewritten|copy|copied|copies|copying|use|used|uses|using|depend|depended|depends|depending|borrow|borrowed|borrows|borrowing|influence|influenced|influences|influencing|relationship|relationships|source|sources)\b/i';
+		if ( ! preg_match( $relationship_pattern, $question ) ) {
+			return $terms;
+		}
+
+		$topic_labels = array();
+		foreach ( $topics as $topic ) {
+			$topic_labels[ Search_Service::normalize( $topic['name'] ) ] = $topic['name'];
+		}
+
+		$gospels = array(
+			'matthew' => 'Gospel of Matthew',
+			'mark'    => 'Gospel of Mark',
+			'luke'    => 'Gospel of Luke',
+			'john'    => 'Gospel of John',
+		);
+		$named   = array();
+		foreach ( $gospels as $short_name => $topic_name ) {
+			if ( ! preg_match( '/\b(?:gospel\s+of\s+)?' . preg_quote( $short_name, '/' ) . '\b/i', $question, $match, PREG_OFFSET_CAPTURE ) ) {
+				continue;
+			}
+			$normalized = Search_Service::normalize( $topic_name );
+			if ( isset( $topic_labels[ $normalized ] ) ) {
+				$named[] = array(
+					'offset' => (int) $match[0][1],
+					'label'  => $topic_labels[ $normalized ],
+				);
+			}
+		}
+		if ( count( $named ) < 2 ) {
+			return $terms;
+		}
+
+		usort(
+			$named,
+			static fn( array $left, array $right ): int => $left['offset'] <=> $right['offset']
+		);
+		$reconciled = array();
+		$seen       = array();
+		foreach ( $named as $gospel ) {
+			$normalized          = Search_Service::normalize( $gospel['label'] );
+			$reconciled[]        = array(
+				'label' => $gospel['label'],
+				'mode'  => Search_Service::TERM_MODE_TOPIC,
+			);
+			$seen[ $normalized ] = true;
+		}
+
+		$method_topics       = array_map(
+			array( Search_Service::class, 'normalize' ),
+			array( 'Historical Methods (General)', 'Methods for Studying the Historical Jesus', 'Redaction Criticism', 'Source Criticism', 'Synoptic Problem' )
+		);
+		$normalized_question = Search_Service::normalize( $question );
+		foreach ( $terms as $term ) {
+			$normalized = Search_Service::normalize( $term['label'] );
+			if ( isset( $seen[ $normalized ] ) ) {
+				continue;
+			}
+			if ( in_array( $normalized, $method_topics, true ) && ! str_contains( $normalized_question, $normalized ) ) {
+				continue;
+			}
+			$reconciled[]        = $term;
+			$seen[ $normalized ] = true;
+			if ( count( $reconciled ) >= Search_Service::MAX_TERMS ) {
+				break;
+			}
+		}
+
+		return $reconciled;
 	}
 
 	/**

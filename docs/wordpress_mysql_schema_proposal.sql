@@ -61,6 +61,7 @@ CREATE TABLE wp_ehrman_external_posts (
     date_text VARCHAR(64) NOT NULL DEFAULT '',
     published_at DATETIME NULL,
     description TEXT NOT NULL,
+    search_summary TEXT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY uq_external_posts_source_wp_id (source_wp_id),
     UNIQUE KEY uq_external_posts_url_hash (url_hash),

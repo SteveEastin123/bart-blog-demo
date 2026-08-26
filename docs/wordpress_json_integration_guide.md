@@ -302,7 +302,7 @@ ehrman_topic_categories
 
 ### Purpose
 
-This is the post-level search index. It contains post metadata, post descriptions, topic assignments, and secondary keywords.
+This is the post-level search index. It contains post metadata, concise display descriptions, optional search summaries, topic assignments, and secondary keywords.
 
 Despite the earlier working filename, this is not merely a keyword file. It is the main post search index.
 
@@ -319,6 +319,7 @@ This file is a top-level array of post records:
     "dateText": "July 9, 2026",
     "author": "BDEhrman",
     "description": "Examines whether early Christian forgers could justify deception as a noble lie, contrasting that view with Augustine's rejection of all lying.",
+    "searchSummary": "Explains the post's main argument and supporting evidence in enough detail for optional AI-assisted result refinement.",
     "topics": [
       "Forgery (General)",
       "Moral Philosophy"
@@ -346,6 +347,7 @@ This file is a top-level array of post records:
 | `dateText` | string | yes | Human-readable date, such as `July 9, 2026`. |
 | `author` | string | yes | Author display name. |
 | `description` | string | yes | Brief post description for result pages and hover/display states. |
+| `searchSummary` | string | no | Longer search-oriented summary used for AI-assisted result refinement. The concise description is used as a fallback when this field is absent. |
 | `topics` | array of strings | yes | Primary topic topics. Values must match `ehrman_post_topics.json`. |
 | `secondaryKeywords` | array of strings | yes | Supporting search keywords. May be empty. |
 
@@ -368,6 +370,7 @@ ehrman_post_index
 - author
 - date_text
 - description
+- search_summary
 
 ehrman_post_topics
 - wp_post_id
@@ -379,10 +382,11 @@ ehrman_post_secondary_keywords
 - normalized_keyword
 ```
 
-The `description` field could also be stored as post meta, for example:
+The description fields could also be stored as post meta, for example:
 
 ```text
 _ehrman_search_description
+_ehrman_search_summary
 ```
 
 ## Import Order

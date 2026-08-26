@@ -769,7 +769,7 @@
     const originalLabel = button.textContent;
     button.textContent = strings.refining || "Refining...";
     button.setAttribute("aria-busy", "true");
-    if (status) status.textContent = "AI is reviewing the matching post titles and descriptions...";
+    if (status) status.textContent = "AI is reviewing the matching post titles and summaries...";
     try {
       const response = await fetch(config.refineUrl, {
         method: "POST",

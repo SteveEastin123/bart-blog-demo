@@ -7536,7 +7536,7 @@
       "auditSequence": 8,
       "status": "completed",
       "postCountBefore": 83,
-      "postCountAfter": 95,
+      "postCountAfter": 96,
       "descriptionBefore": "Posts focused on the Gospel of Mark, including Markan priority, the Messianic Secret, textual issues, the portrayal of Jesus, and distinctive narrative features.",
       "descriptionRecommendation": "Posts focused on the Gospel of Mark, including Markan priority, the Messianic Secret, textual issues, the portrayal of Jesus, and distinctive narrative features.",
       "categoriesBefore": [
@@ -7546,6 +7546,13 @@
       "startedAt": "2026-07-31",
       "completedAt": "2026-07-31",
       "decisions": [
+        {
+          "wpId": "47072",
+          "title": "Gospel Problems:  Does Matthew Ever “Correct” Mark?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post closely compares Mark 10:17–19 with Matthew 19:16–17 and repeatedly uses Mark to explain Matthew's editorial changes and Markan priority."
+        },
         {
           "wpId": "49965",
           "title": "The Parable of the Sower as Advice for Capitalists",

@@ -400,6 +400,17 @@ final class Importer {
 			$date_text = $this->required_string( $post['dateText'] ?? null, "{$context} dateText", $errors );
 			$author    = $this->required_string( $post['author'] ?? null, "{$context} author", $errors );
 			$this->require_string_field( $post, 'description', "{$context} description", $errors );
+			if ( array_key_exists( 'searchSummary', $post ) ) {
+				if ( ! is_string( $post['searchSummary'] ) ) {
+					$errors[] = "The searchSummary field for {$context} must be a string.";
+				} elseif ( '' === trim( $post['searchSummary'] ) ) {
+					$errors[] = "{$context} searchSummary cannot be empty when supplied.";
+				} elseif ( str_contains( $post['searchSummary'], "\n" ) || str_contains( $post['searchSummary'], "\r" ) ) {
+					$errors[] = "{$context} searchSummary cannot contain a line break.";
+				} elseif ( $this->length( trim( $post['searchSummary'] ) ) > 1200 ) {
+					$warnings[] = "{$context} searchSummary exceeds 1,200 characters.";
+				}
+			}
 
 			if ( ! ctype_digit( $wp_id ) || (int) $wp_id < 1 ) {
 				$errors[] = "{$context} has invalid wpId {$wp_id}.";
@@ -594,16 +605,17 @@ final class Importer {
 			$this->insert_record(
 				$tables['external_posts'],
 				array(
-					'source_wp_id' => (int) $this->clean( $post['wpId'] ),
-					'title'        => $this->clean( $post['title'] ),
-					'url'          => $url,
-					'url_hash'     => hash( 'sha256', $url, true ),
-					'author'       => $this->clean( $post['author'] ),
-					'date_text'    => $date['display'],
-					'published_at' => $date['published'],
-					'description'  => $this->clean( $post['description'] ),
+					'source_wp_id'   => (int) $this->clean( $post['wpId'] ),
+					'title'          => $this->clean( $post['title'] ),
+					'url'            => $url,
+					'url_hash'       => hash( 'sha256', $url, true ),
+					'author'         => $this->clean( $post['author'] ),
+					'date_text'      => $date['display'],
+					'published_at'   => $date['published'],
+					'description'    => $this->clean( $post['description'] ),
+					'search_summary' => $this->clean( $post['searchSummary'] ?? '' ),
 				),
-				array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ),
+				array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ),
 				'post ' . $this->clean( $post['wpId'] )
 			);
 			$post_id = (int) $wpdb->insert_id;
