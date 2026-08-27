@@ -19,10 +19,13 @@ final class AI_Interpreter {
 	private const DEFAULT_MODEL         = 'gpt-5.4-mini';
 	private const MAX_QUESTION_LEN      = 800;
 	private const CACHE_SECONDS         = DAY_IN_SECONDS;
-	private const PROMPT_VERSION        = '19';
+	private const PROMPT_VERSION        = '21';
 	private const REFINE_PROMPT_VERSION = '2';
 	private const MAX_REFINE_POSTS      = 200;
 	private const MAX_REFINED_RESULTS   = 25;
+	private const FOCUSED_MAX_TERMS     = 2;
+	private const STRATEGY_FOCUSED      = 'focused';
+	private const STRATEGY_LEGACY       = 'legacy';
 
 	/** Returns the configured model identifier for reporting. */
 	public static function model_id(): string {
@@ -31,7 +34,16 @@ final class AI_Interpreter {
 
 	/** Returns the interpretation prompt version for reporting. */
 	public static function prompt_version(): string {
-		return self::PROMPT_VERSION;
+		return self::PROMPT_VERSION . '-' . self::term_strategy();
+	}
+
+	/** Returns the configured interpretation strategy. */
+	public static function term_strategy(): string {
+		if ( defined( 'EHRMAN_DISCOVERY_AI_TERM_STRATEGY' ) ) {
+			$strategy = constant( 'EHRMAN_DISCOVERY_AI_TERM_STRATEGY' );
+			return is_scalar( $strategy ) ? self::sanitize_term_strategy( (string) $strategy ) : self::STRATEGY_FOCUSED;
+		}
+		return self::sanitize_term_strategy( (string) getenv( 'EHRMAN_DISCOVERY_AI_TERM_STRATEGY' ) );
 	}
 
 	/** Returns the refinement prompt version for analytics. */
@@ -47,7 +59,7 @@ final class AI_Interpreter {
 	}
 
 	/**
-	 * Interprets a question as no more than four approved search terms.
+	 * Interprets a question using approved search terms.
 	 *
 	 * @param string $question   Reader's natural-language question.
 	 * @param string $request_id Correlation identifier for analytics.
@@ -69,7 +81,7 @@ final class AI_Interpreter {
 		$import_checksum = get_option( 'ehrman_discovery_import_checksum', '' );
 		$cache_key       = 'ebd_ai_' . hash(
 			'sha256',
-			Search_Service::normalize( $question ) . '|' . self::model() . '|' . self::PROMPT_VERSION . '|' . ( is_scalar( $import_checksum ) ? (string) $import_checksum : '' )
+			Search_Service::normalize( $question ) . '|' . self::model() . '|' . self::prompt_version() . '|' . ( is_scalar( $import_checksum ) ? (string) $import_checksum : '' )
 		);
 		$vocabulary      = $this->vocabulary();
 		$cached          = get_transient( $cache_key );
@@ -78,7 +90,7 @@ final class AI_Interpreter {
 			AI_Usage::record_cache_hit( self::model(), $request_id );
 			$cached_terms        = $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] );
 			$cached_terms        = $this->reconcile_gospel_comparison( $question, $cached_terms, $vocabulary['topics'] );
-			$cached['terms']     = $this->compatible_terms( $cached_terms );
+			$cached['terms']     = $this->bounded_terms( $this->compatible_terms( $cached_terms ) );
 			$cached['cache_hit'] = true;
 			return $cached;
 		}
@@ -137,7 +149,7 @@ final class AI_Interpreter {
 		$terms    = $this->reconcile_gospel_comparison( $question, $terms, $vocabulary['topics'] );
 		$result   = array(
 			'question'  => $question,
-			'terms'     => $this->compatible_terms( $terms ),
+			'terms'     => $this->bounded_terms( $this->compatible_terms( $terms ) ),
 			'cache_hit' => false,
 		);
 		if ( empty( $result['terms'] ) ) {
@@ -374,30 +386,74 @@ final class AI_Interpreter {
 	 * @return array<string,mixed>
 	 */
 	private function request_payload( string $question, array $vocabulary ): array {
-		$instructions = 'You interpret questions for a curated biblical-studies blog search. '
-			. 'Resolve obvious spelling errors from context before selecting vocabulary labels. '
-			. 'When a question explicitly names two people or texts and asks about their comparison, relationship, agreement, disagreement, or influence, preserve both named subjects as separate search requirements. Do not replace them with a broader methodological topic. Do not add a methodological topic unless the question explicitly names that method. '
-			. 'When Matthew, Mark, Luke, or John are used as shorthand for their Gospels in such a literary relationship, select the corresponding Gospel topics and do not repeat the shorthand names in named_entities. '
-			. 'Copy every person or text explicitly named in the question into named_entities when an exact keyword label exists. Never substitute a broader topic for an explicit named entity. '
-			. 'For example, a question asking what Paul said, knew, or believed must include Paul in named_entities when Paul is an approved keyword. Apply the same rule to every explicitly named person or text. '
-			. 'Select the smallest number of additional terms needed. Across named_entities and terms, use no more than four total vocabulary labels. '
-			. 'Normally select no more than one primary topic. A relational question explicitly involving two named subjects may use two specific topics when each topic directly represents one of those subjects. Represent other supporting concepts with keywords when appropriate. '
-			. 'List terms from most to least important. Every additional term must express a distinct requirement in the question; do not add broad background topics. '
-			. 'Prefer a topic when it directly represents a major subject in the question. '
-			. 'Use keywords for important supporting people, texts, places, or ideas. Do not repeat named_entities in terms. '
-			. 'Do not select a topic and keyword that express substantially the same search concept. '
-			. 'Treat broad and narrow topics about the same aspect of the question as alternatives, not separate requirements. Choose the most specific topic whose description directly covers the question; do not combine it with a broader topic covering the same concept. '
-			. 'Select a topic only when the reader question falls within the scope stated in its description. Do not select a topic merely because its name contains a related person or term. Topic descriptions define firm selection boundaries. '
-			. 'Never invent, rename, or alter a label. '
-			. 'If the same label exists as both a topic and keyword, select it as a topic. '
-			. 'Return only labels copied exactly from the vocabulary.';
+		$focused      = self::STRATEGY_FOCUSED === self::term_strategy();
+		$max_terms    = self::max_interpreted_terms();
+		$instructions = $focused
+			? 'You interpret questions for a curated biblical-studies blog search that uses AND semantics. '
+				. 'Resolve obvious spelling errors from context before selecting vocabulary labels. '
+				. 'Select no more than two vocabulary labels total, ordered from most to least important. Use one label whenever one specific topic and its description capture the reader\'s request. '
+				. 'Add a second label only when it represents a separate, essential subject that matching posts must also address. Do not add a broad background topic, a merely helpful ranking concept, or a named person or text already implied by the selected topic. '
+				. 'For a comparison or relationship between two explicitly named people or texts, preserve both specific subjects unless one existing topic directly covers the complete relationship. '
+				. 'When Matthew, Mark, Luke, or John are shorthand for their Gospels in a literary comparison, select the corresponding Gospel topics. Do not add a methodological topic unless the question explicitly asks about that method. '
+				. 'Prefer a topic when its description directly covers a major subject in the question. Use a keyword only for an essential person, text, place, or idea not already represented by a selected topic. '
+				. 'When one topic description explicitly covers both the named subject and the issue being asked about, choose that topic instead of a source text, person keyword, or broader contextual topic that might also contain relevant evidence. For example, use Women in Pauline Traditions for a question about Paul\'s teaching on women in church, and Judas Iscariot for a question about Judas\' betrayal or death. '
+				. 'Do not select a topic and keyword that express substantially the same concept. Treat broad and narrow topics about the same aspect as alternatives and choose the most specific applicable topic. '
+				. 'Topic descriptions define firm selection boundaries; do not select a topic merely because its name contains a related word. '
+				. 'Never invent, rename, or alter a label. If the same label exists as both a topic and keyword, select it as a topic. Return only labels copied exactly from the vocabulary.'
+			: 'You interpret questions for a curated biblical-studies blog search. '
+				. 'Resolve obvious spelling errors from context before selecting vocabulary labels. '
+				. 'When a question explicitly names two people or texts and asks about their comparison, relationship, agreement, disagreement, or influence, preserve both named subjects as separate search requirements. Do not replace them with a broader methodological topic. Do not add a methodological topic unless the question explicitly names that method. '
+				. 'When Matthew, Mark, Luke, or John are used as shorthand for their Gospels in such a literary relationship, select the corresponding Gospel topics and do not repeat the shorthand names in named_entities. '
+				. 'Copy every person or text explicitly named in the question into named_entities when an exact keyword label exists. Never substitute a broader topic for an explicit named entity. '
+				. 'For example, a question asking what Paul said, knew, or believed must include Paul in named_entities when Paul is an approved keyword. Apply the same rule to every explicitly named person or text. '
+				. 'Select the smallest number of additional terms needed. Across named_entities and terms, use no more than four total vocabulary labels. '
+				. 'Normally select no more than one primary topic. A relational question explicitly involving two named subjects may use two specific topics when each topic directly represents one of those subjects. Represent other supporting concepts with keywords when appropriate. '
+				. 'List terms from most to least important. Every additional term must express a distinct requirement in the question; do not add broad background topics. '
+				. 'Prefer a topic when it directly represents a major subject in the question. '
+				. 'Use keywords for important supporting people, texts, places, or ideas. Do not repeat named_entities in terms. '
+				. 'Do not select a topic and keyword that express substantially the same search concept. '
+				. 'Treat broad and narrow topics about the same aspect of the question as alternatives, not separate requirements. Choose the most specific topic whose description directly covers the question; do not combine it with a broader topic covering the same concept. '
+				. 'Select a topic only when the reader question falls within the scope stated in its description. Do not select a topic merely because its name contains a related person or term. Topic descriptions define firm selection boundaries. '
+				. 'Never invent, rename, or alter a label. '
+				. 'If the same label exists as both a topic and keyword, select it as a topic. '
+				. 'Return only labels copied exactly from the vocabulary.';
 		$input        = "Controlled vocabulary:\n" . wp_json_encode( $vocabulary ) . "\n\nReader question:\n{$question}";
+		$properties   = array(
+			'terms' => array(
+				'type'     => 'array',
+				'maxItems' => $max_terms,
+				'items'    => array(
+					'type'                 => 'object',
+					'additionalProperties' => false,
+					'required'             => array( 'label', 'type' ),
+					'properties'           => array(
+						'label' => array( 'type' => 'string' ),
+						'type'  => array(
+							'type' => 'string',
+							'enum' => array( 'topic', 'keyword' ),
+						),
+					),
+				),
+			),
+		);
+		$required     = array( 'terms' );
+		if ( ! $focused ) {
+			$properties = array(
+				'named_entities' => array(
+					'type'     => 'array',
+					'maxItems' => $max_terms,
+					'items'    => array( 'type' => 'string' ),
+				),
+				'terms'          => $properties['terms'],
+			);
+			$required   = array( 'named_entities', 'terms' );
+		}
 		return array(
 			'model'             => self::model(),
 			'reasoning'         => array( 'effort' => 'low' ),
 			'instructions'      => $instructions,
 			'input'             => $input,
-			'max_output_tokens' => 500,
+			'max_output_tokens' => $focused ? 350 : 500,
 			'text'              => array(
 				'format' => array(
 					'type'   => 'json_schema',
@@ -406,30 +462,8 @@ final class AI_Interpreter {
 					'schema' => array(
 						'type'                 => 'object',
 						'additionalProperties' => false,
-						'required'             => array( 'named_entities', 'terms' ),
-						'properties'           => array(
-							'named_entities' => array(
-								'type'     => 'array',
-								'maxItems' => Search_Service::MAX_TERMS,
-								'items'    => array( 'type' => 'string' ),
-							),
-							'terms'          => array(
-								'type'     => 'array',
-								'maxItems' => Search_Service::MAX_TERMS,
-								'items'    => array(
-									'type'                 => 'object',
-									'additionalProperties' => false,
-									'required'             => array( 'label', 'type' ),
-									'properties'           => array(
-										'label' => array( 'type' => 'string' ),
-										'type'  => array(
-											'type' => 'string',
-											'enum' => array( 'topic', 'keyword' ),
-										),
-									),
-								),
-							),
-						),
+						'required'             => $required,
+						'properties'           => $properties,
 					),
 				),
 			),
@@ -525,7 +559,7 @@ final class AI_Interpreter {
 				continue;
 			}
 			$seen[ $normalized ] = true;
-			if ( count( $terms ) >= Search_Service::MAX_TERMS ) {
+			if ( count( $terms ) >= self::max_interpreted_terms() ) {
 				break;
 			}
 		}
@@ -559,6 +593,9 @@ final class AI_Interpreter {
 				'mode'  => Search_Service::TERM_MODE_KEYWORD,
 			);
 			$seen[ $normalized ] = true;
+			if ( count( $entities ) >= self::max_interpreted_terms() ) {
+				break;
+			}
 		}
 		return $entities;
 	}
@@ -580,7 +617,7 @@ final class AI_Interpreter {
 			}
 			$merged[]            = $term;
 			$seen[ $normalized ] = true;
-			if ( count( $merged ) >= Search_Service::MAX_TERMS ) {
+			if ( count( $merged ) >= self::max_interpreted_terms() ) {
 				break;
 			}
 		}
@@ -686,7 +723,7 @@ final class AI_Interpreter {
 			}
 			$reconciled[]        = $term;
 			$seen[ $normalized ] = true;
-			if ( count( $reconciled ) >= Search_Service::MAX_TERMS ) {
+			if ( count( $reconciled ) >= self::max_interpreted_terms() ) {
 				break;
 			}
 		}
@@ -724,6 +761,30 @@ final class AI_Interpreter {
 		}
 
 		return $accepted;
+	}
+
+	/**
+	 * Applies the configured AI interpretation limit without changing search limits.
+	 *
+	 * @param list<array{label:string,mode:string}> $terms Validated terms.
+	 * @return list<array{label:string,mode:string}> Bounded terms.
+	 */
+	private function bounded_terms( array $terms ): array {
+		return array_slice( $terms, 0, self::max_interpreted_terms() );
+	}
+
+	/** Returns the interpretation term limit for the configured strategy. */
+	private static function max_interpreted_terms(): int {
+		return self::STRATEGY_FOCUSED === self::term_strategy() ? self::FOCUSED_MAX_TERMS : Search_Service::MAX_TERMS;
+	}
+
+	/**
+	 * Normalizes the strategy switch and defaults safely to focused mode.
+	 *
+	 * @param string $strategy Configured strategy value.
+	 */
+	private static function sanitize_term_strategy( string $strategy ): string {
+		return self::STRATEGY_LEGACY === strtolower( trim( $strategy ) ) ? self::STRATEGY_LEGACY : self::STRATEGY_FOCUSED;
 	}
 
 	/** Returns the API key without exposing it to the browser. */

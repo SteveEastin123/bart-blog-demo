@@ -21,8 +21,14 @@ final class Rest_Controller {
 	/** REST namespace shared by all plugin routes. */
 	private const REST_NAMESPACE = 'ehrman-discovery/v1';
 
-	/** Maximum AI interpretation and refinement requests per five-minute window. */
+	/** Maximum submitted questions per five-minute window. */
 	private const AI_RATE_LIMIT = 20;
+
+	/** Separate abuse limit for the automatic refinement step. */
+	private const AI_REFINE_RATE_LIMIT = 40;
+
+	/** Maximum Ask AI 2 requests per five-minute window. */
+	private const AI_SEMANTIC_RATE_LIMIT = 20;
 
 	/**
 	 * Search service used by public REST callbacks.
@@ -38,10 +44,18 @@ final class Rest_Controller {
 	 */
 	private AI_Interpreter $interpreter;
 
+	/**
+	 * Semantic title-and-summary retrieval service.
+	 *
+	 * @var Semantic_Search_Service
+	 */
+	private Semantic_Search_Service $semantic;
+
 	/** Creates the REST controller and its search service. */
 	public function __construct() {
 		$this->search      = new Search_Service();
 		$this->interpreter = new AI_Interpreter();
+		$this->semantic    = new Semantic_Search_Service();
 	}
 
 	/** Registers all public and test-only REST routes. */
@@ -99,6 +113,15 @@ final class Rest_Controller {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'refine' ),
+				'permission_callback' => '__return_true',
+			)
+		);
+		register_rest_route(
+			self::REST_NAMESPACE,
+			'/semantic-search',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'semantic_search' ),
 				'permission_callback' => '__return_true',
 			)
 		);
@@ -178,10 +201,10 @@ final class Rest_Controller {
 	 */
 	public function refine( WP_REST_Request $request ) {
 		if ( 'local' !== wp_get_environment_type() ) {
-			$rate_key = 'ebd_ai_rate_' . hash( 'sha256', $this->request_address() );
+			$rate_key = 'ebd_ai_refine_rate_' . hash( 'sha256', $this->request_address() );
 			$count    = Database::integer( get_transient( $rate_key ) );
-			if ( $count >= self::AI_RATE_LIMIT ) {
-				return new WP_Error( 'ehrman_ai_rate_limit', __( 'You\'ve reached the temporary question limit. Please wait a few minutes before trying again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
+			if ( $count >= self::AI_REFINE_RATE_LIMIT ) {
+				return new WP_Error( 'ehrman_ai_refine_rate_limit', __( 'AI refinement is temporarily busy. Please wait a few minutes and try again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
 			}
 			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
 		}
@@ -226,6 +249,10 @@ final class Rest_Controller {
 				$posts[] = $posts_by_id[ $id ];
 			}
 		}
+		$broader_count       = Database::integer( $original['count'] );
+		$broader_per_page    = Search_Service::POSTS_PER_PAGE;
+		$broader_posts       = array_slice( $original['posts'], 0, $broader_per_page );
+		$broader_total_pages = $broader_count > 0 ? (int) ceil( $broader_count / $broader_per_page ) : 0;
 		AI_Refinements::record(
 			array(
 				'refinement_id'   => $refinement_id,
@@ -239,6 +266,9 @@ final class Rest_Controller {
 			),
 			$posts
 		);
+		if ( '' !== $request_id && ! empty( $posts ) ) {
+			AI_Requests::set_result_count( $request_id, count( $posts ), true );
+		}
 
 		$response = new WP_REST_Response(
 			array(
@@ -254,11 +284,181 @@ final class Rest_Controller {
 				'candidate_count' => $refinement['candidate_count'],
 				'cache_hit'       => $refinement['cache_hit'],
 				'refinement_id'   => $refinement_id,
+				'broader'         => array(
+					'posts'       => $broader_posts,
+					'terms'       => $original['terms'],
+					'sort'        => 'ranked',
+					'count'       => $broader_count,
+					'page'        => 1,
+					'per_page'    => $broader_per_page,
+					'total_pages' => $broader_total_pages,
+				),
 			),
 			200
 		);
 		$response->header( 'Cache-Control', 'no-store' );
 		return $response;
+	}
+
+	/**
+	 * Retrieves title-and-summary matches and immediately refines them with AI.
+	 *
+	 * @param WP_REST_Request $request REST request instance.
+	 * @return WP_REST_Response|WP_Error Semantic search response or error.
+	 */
+	public function semantic_search( WP_REST_Request $request ) {
+		if ( 'local' !== wp_get_environment_type() ) {
+			$rate_key = 'ebd_ai_semantic_rate_' . hash( 'sha256', $this->request_address() );
+			$count    = Database::integer( get_transient( $rate_key ) );
+			if ( $count >= self::AI_SEMANTIC_RATE_LIMIT ) {
+				return new WP_Error( 'ehrman_ai_semantic_rate_limit', __( 'You\'ve reached the temporary question limit. Please wait a few minutes before trying again.', 'ehrman-blog-discovery' ), array( 'status' => 429 ) );
+			}
+			set_transient( $rate_key, $count + 1, 5 * MINUTE_IN_SECONDS );
+		}
+
+		$question   = $this->question_text( $request->get_param( 'question' ) );
+		$request_id = AI_Requests::request_id();
+		$candidates = $this->semantic->search( $question, $request_id );
+		if ( is_wp_error( $candidates ) ) {
+			AI_Requests::record(
+				$request_id,
+				$question,
+				array(),
+				false,
+				false,
+				(string) $candidates->get_error_code(),
+				'semantic',
+				AI_Interpreter::model_id(),
+				Semantic_Search_Service::PIPELINE_VERSION
+			);
+			return $candidates;
+		}
+
+		AI_Requests::record(
+			$request_id,
+			$question,
+			array(),
+			$candidates['cache_hit'],
+			true,
+			'',
+			'semantic',
+			AI_Interpreter::model_id(),
+			Semantic_Search_Service::PIPELINE_VERSION
+		);
+		$broader       = $candidates['posts'];
+		$broader_count = count( $broader );
+		$refinement_id = AI_Requests::request_id();
+		$refinement    = $this->interpreter->refine( $question, $broader, $refinement_id );
+		if ( is_wp_error( $refinement ) ) {
+			AI_Refinements::record(
+				array(
+					'refinement_id'   => $refinement_id,
+					'request_id'      => $request_id,
+					'question'        => $question,
+					'original_count'  => $broader_count,
+					'candidate_count' => $broader_count,
+					'succeeded'       => false,
+					'error_code'      => (string) $refinement->get_error_code(),
+				),
+				array()
+			);
+			AI_Requests::set_result_count( $request_id, $broader_count, true );
+			$response = new WP_REST_Response(
+				$this->semantic_response(
+					array_slice( $broader, 0, Search_Service::POSTS_PER_PAGE ),
+					$broader,
+					$request_id,
+					$refinement_id,
+					false,
+					__( 'AI refinement was unavailable, so the broader semantic matches are shown.', 'ehrman-blog-discovery' )
+				),
+				200
+			);
+			$response->header( 'Cache-Control', 'no-store' );
+			return $response;
+		}
+
+		$posts_by_id = array();
+		foreach ( $broader as $post ) {
+			$posts_by_id[ Database::text( $post['id'] ?? null ) ] = $post;
+		}
+		$posts = array();
+		foreach ( $refinement['post_ids'] as $id ) {
+			if ( isset( $posts_by_id[ $id ] ) ) {
+				$posts[] = $posts_by_id[ $id ];
+			}
+		}
+		AI_Refinements::record(
+			array(
+				'refinement_id'   => $refinement_id,
+				'request_id'      => $request_id,
+				'question'        => $question,
+				'original_count'  => $broader_count,
+				'candidate_count' => $refinement['candidate_count'],
+				'cache_hit'       => $refinement['cache_hit'],
+				'succeeded'       => true,
+				'usage'           => $refinement['usage'],
+			),
+			$posts
+		);
+		$refined = ! empty( $posts );
+		$count   = $refined ? count( $posts ) : $broader_count;
+		AI_Requests::set_result_count( $request_id, $count, true );
+		$response = new WP_REST_Response(
+			$this->semantic_response(
+				$refined ? $posts : array_slice( $broader, 0, Search_Service::POSTS_PER_PAGE ),
+				$broader,
+				$request_id,
+				$refinement_id,
+				$refined,
+				$refined ? '' : __( 'AI did not select a narrower set, so the broader semantic matches are shown.', 'ehrman-blog-discovery' )
+			),
+			200
+		);
+		$response->header( 'Cache-Control', 'no-store' );
+		return $response;
+	}
+
+	/**
+	 * Builds the shared Ask AI 2 REST response.
+	 *
+	 * @param list<array<string,mixed>> $posts         Initially displayed posts.
+	 * @param list<array<string,mixed>> $broader       Semantic candidate posts.
+	 * @param string                    $request_id    Parent request identifier.
+	 * @param string                    $refinement_id Refinement identifier.
+	 * @param bool                      $refined       Whether the displayed set was refined.
+	 * @param string                    $notice        Optional fallback notice.
+	 * @return array<string,mixed> Response payload.
+	 */
+	private function semantic_response( array $posts, array $broader, string $request_id, string $refinement_id, bool $refined, string $notice ): array {
+		$broader_count = count( $broader );
+		$count         = $refined ? count( $posts ) : $broader_count;
+		return array(
+			'posts'           => array_values( $posts ),
+			'terms'           => array(),
+			'sort'            => 'ranked',
+			'count'           => $count,
+			'page'            => 1,
+			'per_page'        => $refined ? count( $posts ) : Search_Service::POSTS_PER_PAGE,
+			'total_pages'     => $refined ? ( empty( $posts ) ? 0 : 1 ) : (int) ceil( $broader_count / Search_Service::POSTS_PER_PAGE ),
+			'refined'         => $refined,
+			'semantic'        => true,
+			'original_count'  => $broader_count,
+			'candidate_count' => $broader_count,
+			'request_id'      => $request_id,
+			'refinement_id'   => $refinement_id,
+			'notice'          => $notice,
+			'broader'         => array(
+				'posts'       => array_values( $broader ),
+				'terms'       => array(),
+				'sort'        => 'ranked',
+				'count'       => $broader_count,
+				'page'        => 1,
+				'per_page'    => Search_Service::POSTS_PER_PAGE,
+				'total_pages' => (int) ceil( $broader_count / Search_Service::POSTS_PER_PAGE ),
+				'semantic'    => true,
+			),
+		);
 	}
 
 	/**

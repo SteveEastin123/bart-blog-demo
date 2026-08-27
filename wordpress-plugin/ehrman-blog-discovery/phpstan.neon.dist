@@ -24,3 +24,4 @@ parameters:
                 - includes/class-importer.php
                 - includes/class-parity-service.php
                 - includes/class-search-service.php
+                - includes/class-semantic-search-service.php

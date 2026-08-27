@@ -46,6 +46,7 @@ final class Page_Controller {
 	public function register(): void {
 		add_shortcode( 'ehrman_keyword_search', array( $this, 'keyword_search_shortcode' ) );
 		add_shortcode( 'ehrman_ask_question', array( $this, 'ask_question_shortcode' ) );
+		add_shortcode( 'ehrman_ask_ai_2', array( $this, 'ask_ai_2_shortcode' ) );
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
 		add_shortcode( 'ehrman_structure_review', array( $this, 'structure_review_shortcode' ) );
 		add_filter( 'wp_robots', array( $this, 'review_page_robots' ) );
@@ -56,6 +57,7 @@ final class Page_Controller {
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
 			'ask_question'     => array( 'Ask AI', 'ask-a-question', '[ehrman_ask_question]' ),
+			'ask_ai_2'         => array( 'Ask AI 2', 'ask-ai-2', '[ehrman_ask_ai_2]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
 			'structure_review' => array( 'Structure Review', 'structure-review', '[ehrman_structure_review]' ),
@@ -211,6 +213,10 @@ final class Page_Controller {
 		if ( $has_terms && '' !== $request_id ) {
 			AI_Requests::set_result_count( $request_id, Database::integer( $result['count'] ) );
 		}
+		$auto_refine = $has_terms
+			&& Database::integer( $result['count'] ) > 0
+			&& '' !== trim( $question )
+			&& 1 === preg_match( '/^[a-f0-9-]{36}$/', $request_id );
 
 		return $this->shell(
 			$this->question_panel( $question, $result['sort'] )
@@ -230,9 +236,33 @@ final class Page_Controller {
 				)
 				: '<div class="ebd-description-control">' . $this->description_control( 'always', 'posts' ) . '</div>' )
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results>'
-			. ( $has_terms ? $this->results_markup( $result, '', $question, $request_id ) : '' )
+			. ( $auto_refine
+				? $this->automatic_refinement_markup()
+				: ( $has_terms ? $this->results_markup( $result, '', $question, $request_id ) : '' ) )
 			. '</div>',
 			'ask-question'
+		);
+	}
+
+	/**
+	 * Renders semantic title-and-summary retrieval followed by AI refinement.
+	 *
+	 * @return string Ask AI 2 markup.
+	 */
+	public function ask_ai_2_shortcode(): string {
+		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
+			return $this->not_ready();
+		}
+		Assets::enqueue();
+		$question = $this->request_value( 'ebd_question' );
+		$sort     = $this->request_value( 'ebd_sort', 'ranked' );
+		$status   = ( new Semantic_Search_Service() )->status();
+
+		return $this->shell(
+			$this->semantic_question_panel( $question, $sort, $status )
+			. '<div class="ebd-description-control">' . $this->description_control( 'always', 'posts' ) . '</div>'
+			. '<div id="ebd-results" class="ebd-results" data-ebd-results></div>',
+			'ask-ai-2'
 		);
 	}
 
@@ -280,6 +310,50 @@ final class Page_Controller {
 			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>' . $configured_message
 			. '<p class="ebd-question-status" data-ebd-question-status aria-live="polite"></p>'
 			. $review_markup . '</div></form>';
+	}
+
+	/**
+	 * Builds the streamlined Ask AI 2 question form.
+	 *
+	 * @param string                                                                 $question Reader question.
+	 * @param string                                                                 $sort     Selected result order.
+	 * @param array{eligible:int,indexed:int,ready:bool,model:string,dimensions:int} $status   Semantic index status.
+	 * @return string Question form markup.
+	 */
+	private function semantic_question_panel( string $question, string $sort, array $status ): string {
+		++$this->instance;
+		$id           = 'ebd-semantic-question-' . $this->instance;
+		$sort_options = array();
+		foreach ( array(
+			'ranked' => 'Best match',
+			'newest' => 'Newest first',
+			'oldest' => 'Oldest first',
+		) as $value => $label ) {
+			$sort_options[] = '<label class="ebd-sort-choice"><input type="radio" name="ebd_sort" value="' . esc_attr( $value )
+				. '"' . checked( $sort, $value, false ) . '><span>' . esc_html( $label ) . '</span></label>';
+		}
+		$configured = AI_Interpreter::is_configured() && Embedding_Service::is_configured() && $status['ready'];
+		$message    = '';
+		if ( ! AI_Interpreter::is_configured() || ! Embedding_Service::is_configured() ) {
+			$message = __( 'Local AI credentials must be configured before semantic search can run.', 'ehrman-blog-discovery' );
+		} elseif ( ! $status['ready'] ) {
+			$message = __( 'The semantic post index must be built before Ask AI 2 can run.', 'ehrman-blog-discovery' );
+		}
+
+		return '<form class="ebd-question-panel ebd-semantic-panel" action="' . esc_url( $this->page_url( 'ask_ai_2' ) )
+			. '" method="get" data-ebd-semantic-form' . ( '' !== trim( $question ) ? ' data-ebd-auto-run="true"' : '' )
+			. '><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><label for="' . esc_attr( $id ) . '"><strong>'
+			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
+			. esc_html__( 'Ask a question or make a request. AI compares it with post titles and summaries, then reviews the strongest matches. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
+			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required placeholder="'
+			. esc_attr__( 'Example: Did the story of Nicodemus being born again really happen?', 'ehrman-blog-discovery' )
+			. '" data-ebd-semantic-question>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
+			. '<button type="submit" class="ebd-question-interpret" data-ebd-semantic-submit' . ( $configured ? '' : ' disabled' ) . '>'
+			. esc_html__( 'Submit', 'ehrman-blog-discovery' ) . '</button><button type="button" class="ebd-question-clear" data-ebd-semantic-clear>'
+			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>'
+			. ( '' === $message ? '' : '<p class="ebd-question-configuration">' . esc_html( $message ) . '</p>' )
+			. '<p class="ebd-question-status" data-ebd-semantic-status aria-live="polite"></p><div class="ebd-sort-row ebd-semantic-sort"><span>'
+			. esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>' . implode( '', $sort_options ) . '</div></form>';
 	}
 
 	/**
@@ -876,18 +950,16 @@ final class Page_Controller {
 		$back_to_top = count( $result['posts'] ) >= self::BACK_TO_TOP_THRESHOLD
 			? $this->back_to_top_markup()
 			: '';
-		$refine      = '' !== trim( $question ) && '' !== $request_id && $count > 1
-			? $this->refine_markup()
-			: '';
 		$feedback    = '' !== trim( $question ) && '' !== $request_id ? $this->feedback_markup( $request_id ) : '';
-		return $summary . $guidance . $refine . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+		return $summary . $guidance . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
 	}
 
-	/** Builds the optional Ask AI post-refinement control. */
-	private function refine_markup(): string {
-		return '<div class="ebd-ai-refine" data-ebd-ai-refine><button type="button" data-ebd-refine-search>'
-			. esc_html__( 'Refine Results with AI', 'ehrman-blog-discovery' )
-			. '</button><span data-ebd-refine-status aria-live="polite"></span></div>';
+	/** Builds the pending state shown while Ask AI refines broader matches. */
+	private function automatic_refinement_markup(): string {
+		return '<div class="ebd-ai-refine is-loading" data-ebd-ai-refine data-ebd-auto-refine aria-live="polite">'
+			. '<span data-ebd-refine-status>'
+			. esc_html__( 'AI is reviewing the matching post titles and summaries...', 'ehrman-blog-discovery' )
+			. '</span></div>';
 	}
 
 	/**

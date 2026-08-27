@@ -74,5 +74,61 @@ final class Cli_Command {
 		foreach ( $status['counts'] as $name => $count ) {
 			\WP_CLI::line( "{$name}: {$count}" );
 		}
+		$semantic = ( new Semantic_Search_Service() )->status();
+		\WP_CLI::line( 'Semantic embeddings: ' . $semantic['indexed'] . ' of ' . $semantic['eligible'] );
+	}
+
+	/**
+	 * Build or refresh title-and-summary embeddings for Ask AI 2.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--force]
+	 * : Regenerate embeddings even when the post content is unchanged.
+	 *
+	 * [--batch-size=<number>]
+	 * : Number of posts sent in each embeddings request. Default: 50.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ehrman-discovery embeddings
+	 *     wp ehrman-discovery embeddings --force --batch-size=50
+	 *
+	 * @param array<int,string>   $args       Positional command arguments.
+	 * @param array<string,mixed> $assoc_args Named command arguments.
+	 */
+	public function embeddings( array $args, array $assoc_args ): void {
+		unset( $args );
+		$batch_size = is_numeric( $assoc_args['batch-size'] ?? null ) ? (int) $assoc_args['batch-size'] : 50;
+		$progress   = null;
+		$bar        = null;
+		$last       = 0;
+		$service    = new Semantic_Search_Service();
+		$status     = $service->status();
+		if ( $status['eligible'] > 0 ) {
+			$bar      = \WP_CLI\Utils\make_progress_bar( 'Building semantic post embeddings', $status['eligible'] );
+			$progress = static function ( int $processed, int $total ) use ( $bar, &$last ): void {
+				unset( $total );
+				$bar->tick( max( 0, $processed - $last ) );
+				$last = $processed;
+			};
+		}
+		$result = $service->build_index( isset( $assoc_args['force'] ), $batch_size, $progress );
+		if ( null !== $bar ) {
+			$bar->finish();
+		}
+		if ( is_wp_error( $result ) ) {
+			\WP_CLI::error( $result->get_error_message() );
+			return;
+		}
+		\WP_CLI::success(
+			sprintf(
+				'Indexed %d eligible posts: %d generated, %d unchanged, and %d obsolete embeddings removed.',
+				$result['eligible'],
+				$result['generated'],
+				$result['unchanged'],
+				$result['removed']
+			)
+		);
 	}
 }

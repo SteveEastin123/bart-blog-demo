@@ -36,6 +36,7 @@ final class Database {
 			'post_topics'             => $base . 'post_topics',
 			'post_keywords'           => $base . 'post_keywords',
 			'post_search_terms'       => $base . 'post_search_terms',
+			'post_embeddings'         => $base . 'post_embeddings',
 			'ai_usage'                => $base . 'ai_usage',
 			'ai_requests'             => $base . 'ai_requests',
 			'ai_refinements'          => $base . 'ai_refinements',
@@ -169,6 +170,18 @@ CREATE TABLE {$tables['post_search_terms']} (
   KEY idx_search_terms_kind_normalized (kind,normalized,post_id)
 ) {$collate};
 
+CREATE TABLE {$tables['post_embeddings']} (
+  source_wp_id bigint(20) unsigned NOT NULL,
+  content_hash char(64) NOT NULL,
+  model varchar(100) NOT NULL,
+  dimensions smallint(5) unsigned NOT NULL,
+  embedding longblob NOT NULL,
+  embedding_norm double unsigned NOT NULL,
+  updated_at datetime NOT NULL,
+  PRIMARY KEY  (source_wp_id),
+  KEY idx_post_embeddings_model (model,dimensions)
+) {$collate};
+
 CREATE TABLE {$tables['ai_usage']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   created_at datetime NOT NULL,
@@ -194,6 +207,7 @@ CREATE TABLE {$tables['ai_requests']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   request_id char(36) NOT NULL,
   created_at datetime NOT NULL,
+  request_type varchar(32) NOT NULL DEFAULT 'taxonomy',
   question text NOT NULL,
   selected_terms text NOT NULL,
   result_count int(10) unsigned NOT NULL DEFAULT 0,
@@ -208,6 +222,7 @@ CREATE TABLE {$tables['ai_requests']} (
   PRIMARY KEY  (id),
   UNIQUE KEY uq_ai_requests_request (request_id),
   KEY idx_ai_requests_created (created_at),
+  KEY idx_ai_requests_type (request_type,created_at),
   KEY idx_ai_requests_feedback (feedback,created_at),
   KEY idx_ai_requests_succeeded (request_succeeded,created_at)
 ) {$collate};

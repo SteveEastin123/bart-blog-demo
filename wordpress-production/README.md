@@ -21,6 +21,14 @@ The script builds the exact WordPress image intended for staging, starts a
 fresh MySQL service, installs WordPress when necessary, activates the plugin
 and theme, configures permalinks, and imports the authoritative index.
 
+Ask AI uses the focused two-term interpretation strategy by default. Set
+`EHRMAN_DISCOVERY_AI_TERM_STRATEGY=legacy` to restore the previous four-term
+interpreter; this switch does not affect regular Keyword Search.
+
+Ask AI 2 combines semantic similarity with exact title, summary, topic, and
+keyword signals. Set `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=semantic` to restore
+semantic-only candidate ranking without changing the stored embeddings.
+
 Validate the running stack with the bundled Python runtime path when `python`
 is not on `PATH`:
 

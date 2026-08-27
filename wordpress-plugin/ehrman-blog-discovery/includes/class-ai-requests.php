@@ -29,8 +29,11 @@ final class AI_Requests {
 	 * @param bool                      $cache_hit   Whether interpretation came from cache.
 	 * @param bool                      $succeeded   Whether interpretation succeeded.
 	 * @param string                    $error_code  Stable error code when unsuccessful.
+	 * @param string                    $request_type Search pipeline identifier.
+	 * @param string                    $model         Optional pipeline model identifier.
+	 * @param string                    $prompt_version Optional pipeline prompt version.
 	 */
-	public static function record( string $request_id, string $question, array $terms, bool $cache_hit, bool $succeeded, string $error_code = '' ): void {
+	public static function record( string $request_id, string $question, array $terms, bool $cache_hit, bool $succeeded, string $error_code = '', string $request_type = 'taxonomy', string $model = '', string $prompt_version = '' ): void {
 		self::delete_expired();
 		$wpdb     = Database::client();
 		$table    = Database::tables()['ai_requests'];
@@ -41,16 +44,17 @@ final class AI_Requests {
 			array(
 				'request_id'        => sanitize_text_field( $request_id ),
 				'created_at'        => current_time( 'mysql', true ),
+				'request_type'      => 'semantic' === $request_type ? 'semantic' : 'taxonomy',
 				'question'          => $question,
 				'selected_terms'    => (string) wp_json_encode( self::terms( $terms ) ),
 				'result_count'      => 0,
-				'model'             => AI_Interpreter::model_id(),
-				'prompt_version'    => AI_Interpreter::prompt_version(),
+				'model'             => '' !== $model ? sanitize_text_field( $model ) : AI_Interpreter::model_id(),
+				'prompt_version'    => '' !== $prompt_version ? sanitize_text_field( $prompt_version ) : AI_Interpreter::prompt_version(),
 				'cache_hit'         => $cache_hit ? 1 : 0,
 				'request_succeeded' => $succeeded ? 1 : 0,
 				'error_code'        => sanitize_key( $error_code ),
 			),
-			array( '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%d', '%d', '%s' )
+			array( '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%d', '%d', '%s' )
 		);
 	}
 
@@ -59,10 +63,17 @@ final class AI_Requests {
 	 *
 	 * @param string $request_id Correlation identifier.
 	 * @param int    $count      Matching post count.
+	 * @param bool   $overwrite  Whether to replace a previously recorded broader count.
 	 */
-	public static function set_result_count( string $request_id, int $count ): void {
+	public static function set_result_count( string $request_id, int $count, bool $overwrite = false ): void {
 		if ( ! self::valid_id( $request_id ) ) {
 			return;
+		}
+		$where        = array( 'request_id' => $request_id );
+		$where_format = array( '%s' );
+		if ( ! $overwrite ) {
+			$where['result_recorded'] = 0;
+			$where_format[]           = '%d';
 		}
 		Database::client()->update(
 			Database::tables()['ai_requests'],
@@ -70,12 +81,9 @@ final class AI_Requests {
 				'result_count'    => max( 0, $count ),
 				'result_recorded' => 1,
 			),
-			array(
-				'request_id'      => $request_id,
-				'result_recorded' => 0,
-			),
+			$where,
 			array( '%d', '%d' ),
-			array( '%s', '%d' )
+			$where_format
 		);
 	}
 

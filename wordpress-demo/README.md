@@ -9,6 +9,13 @@ question to the existing controlled topics and secondary keywords. To enable
 it locally, set `OPENAI_API_KEY` in `wordpress-demo/.env`; the key remains
 server-side and must not be committed. The optional
 `EHRMAN_DISCOVERY_AI_MODEL` value defaults to `gpt-5.4-mini`.
+Ask AI defaults to the focused interpretation strategy, which selects no more
+than two essential terms. Set `EHRMAN_DISCOVERY_AI_TERM_STRATEGY=legacy` to
+restore the previous four-term interpretation behavior without changing the
+regular Keyword Search limit.
+Ask AI 2 defaults to hybrid retrieval across semantic similarity, post text,
+and assigned metadata. Set `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=semantic` to
+restore semantic-only candidate ranking.
 
 ## Services
 

@@ -496,6 +496,10 @@
       url.searchParams.delete("ebd_category");
       if (categoryInput.value) url.searchParams.set("ebd_category", categoryInput.value);
     }
+    const question = form.querySelector('[name="ebd_question"]')?.value || "";
+    const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
+    if (question) url.searchParams.set("ebd_question", question);
+    if (requestId) url.searchParams.set("ebd_ai_request", requestId);
     if (page > 1) {
       url.searchParams.set("ebd_page", String(page));
       url.hash = "ebd-results";
@@ -508,10 +512,18 @@
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
   }
 
-  async function refreshSearch(form, page = 1) {
+  async function refreshSearch(form, page = 1, options = {}) {
     const results = form.parentElement?.querySelector("[data-ebd-results]")
       || form.closest(".ebd-discovery")?.querySelector("[data-ebd-results]");
     if (!results || !config.searchUrl) return;
+    if (!options.preserveRefined) {
+      form.ebdRefineController?.abort();
+      form.ebdRefineController = null;
+      form.ebdRefinedResult = null;
+      form.ebdBroaderResult = null;
+      form.ebdShowingBroader = false;
+    }
+    if (options.notice) form.ebdResultsNotice = options.notice;
     if (form.ebdSearchController) form.ebdSearchController.abort();
     const controller = new AbortController();
     form.ebdSearchController = controller;
@@ -522,6 +534,10 @@
       if (!response.ok) throw new Error("Search request failed");
       const result = await response.json();
       if (form.ebdSearchController !== controller) return;
+      if (options.preserveRefined) {
+        form.ebdBroaderResult = result;
+        form.ebdShowingBroader = true;
+      }
       renderResults(results, result, form);
       updateSearchControlsSummary(form);
       const headingCount = form.closest(".ebd-discovery")?.querySelector("[data-ebd-result-count]");
@@ -631,6 +647,20 @@
       next.textContent = strings.next || "Next";
       nav.append(next);
     }
+    if (form.matches("[data-ebd-semantic-form]")) {
+      nav.addEventListener("click", (event) => {
+        const link = event.target.closest(".ebd-pagination-link[href]");
+        if (!link || !form.ebdBroaderResult || !form.ebdShowingBroader) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const page = Number(new URL(link.href).searchParams.get("ebd_page") || 1);
+        const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
+        form.ebdBroaderResult = semanticPageResult(form.ebdBroaderResult, page, sort);
+        renderResults(container, form.ebdBroaderResult, form);
+        updateBrowserUrl(form, page);
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
     container.append(nav);
   }
 
@@ -644,7 +674,8 @@
     summary.setAttribute("aria-live", "polite");
     const countStrong = document.createElement("strong");
     if (result.refined) {
-      countStrong.textContent = `${count} ${count === 1 ? "post" : "posts"} selected from ${Number(result.original_count || 0)} matching posts`;
+      const sourceLabel = result.semantic ? "semantic candidates" : "matching posts";
+      countStrong.textContent = `${count} ${count === 1 ? "post" : "posts"} selected from ${Number(result.original_count || 0)} ${sourceLabel}`;
     } else {
       countStrong.textContent = resultSummaryLabel(result);
     }
@@ -664,6 +695,13 @@
     }
     summary.append(document.createTextNode("."));
     container.append(summary);
+    if (form.ebdResultsNotice) {
+      const notice = document.createElement("p");
+      notice.className = "ebd-results-guidance ebd-ai-results-notice";
+      notice.textContent = form.ebdResultsNotice;
+      container.append(notice);
+      form.ebdResultsNotice = "";
+    }
     const guidance = document.createElement("p");
     guidance.className = "ebd-results-guidance";
     if (count > 100) {
@@ -674,10 +712,14 @@
       guidance.textContent = strings.fewResults || "Only a few posts match all the selected terms. Remove a term to broaden the results.";
     }
     if (guidance.textContent) container.append(guidance);
-    const question = form.querySelector('input[name="ebd_question"]')?.value || "";
+    const question = form.querySelector('[name="ebd_question"]')?.value || "";
     const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
-    if (question && requestId && terms.length) {
-      if (count > 1 || result.refined) container.append(refineControl(Boolean(result.refined)));
+    if (question && requestId && (terms.length || result.semantic)) {
+      if (result.refined && Number(result.original_count || 0) > count) {
+        container.append(resultViewControl("broader"));
+      } else if (!result.refined && form.ebdRefinedResult) {
+        container.append(resultViewControl("refined"));
+      }
       container.append(feedbackControl(requestId));
     }
     if (!Array.isArray(result.posts) || !result.posts.length) {
@@ -726,19 +768,19 @@
     setupTitleTooltips(container);
   }
 
-  function refineControl(refined) {
+  function resultViewControl(target) {
     const wrapper = document.createElement("div");
     const button = document.createElement("button");
     const status = document.createElement("span");
     wrapper.className = "ebd-ai-refine";
     wrapper.dataset.ebdAiRefine = "true";
     button.type = "button";
-    if (refined) {
-      button.dataset.ebdShowOriginal = "true";
-      button.textContent = strings.showOriginal || "Show Original Results";
+    if (target === "broader") {
+      button.dataset.ebdShowBroader = "true";
+      button.textContent = strings.showBroader || "Show broader results";
     } else {
-      button.dataset.ebdRefineSearch = "true";
-      button.textContent = strings.refineSearch || "Refine Results with AI";
+      button.dataset.ebdShowRefined = "true";
+      button.textContent = strings.showRefined || "Show refined results";
     }
     status.dataset.ebdRefineStatus = "true";
     status.setAttribute("aria-live", "polite");
@@ -746,30 +788,58 @@
     return wrapper;
   }
 
-  document.addEventListener("click", async (event) => {
-    const button = event.target.closest("[data-ebd-refine-search],[data-ebd-show-original]");
-    if (!button) return;
-    const discovery = button.closest(".ebd-discovery");
-    const form = discovery?.querySelector("[data-ebd-search-form]");
-    const results = discovery?.querySelector("[data-ebd-results]");
-    const status = button.closest("[data-ebd-ai-refine]")?.querySelector("[data-ebd-refine-status]");
-    if (!form || !results) return;
+  function sortedRefinedResult(result, sort) {
+    if (!result || sort === "ranked") return result;
+    const posts = [...(result.posts || [])].sort((left, right) => {
+      const comparison = String(left.published_at || "").localeCompare(String(right.published_at || ""));
+      return sort === "oldest" ? comparison : -comparison;
+    });
+    return { ...result, posts, sort };
+  }
 
-    button.disabled = true;
-    if (button.matches("[data-ebd-show-original]")) {
-      if (status) status.textContent = "Loading original results...";
-      await refreshSearch(form);
+  function semanticPageResult(result, page = 1, sort = "ranked") {
+    if (!result) return result;
+    const rankedPosts = Array.isArray(result.ranked_posts)
+      ? result.ranked_posts
+      : [...(result.posts || [])];
+    const ordered = [...rankedPosts];
+    if (sort !== "ranked") {
+      ordered.sort((left, right) => {
+        const comparison = String(left.published_at || "").localeCompare(String(right.published_at || ""));
+        return sort === "oldest" ? comparison : -comparison;
+      });
+    }
+    const perPage = Math.max(1, Number(result.per_page || 25));
+    const count = rankedPosts.length;
+    const totalPages = count ? Math.ceil(count / perPage) : 0;
+    const current = totalPages ? Math.min(Math.max(1, page), totalPages) : 1;
+    return {
+      ...result,
+      ranked_posts: rankedPosts,
+      posts: ordered.slice((current - 1) * perPage, current * perPage),
+      count,
+      page: current,
+      per_page: perPage,
+      total_pages: totalPages,
+      sort,
+      semantic: true,
+    };
+  }
+
+  async function refineSearch(form, results) {
+    if (!form || !results || !config.refineUrl) {
+      if (form && results) {
+        await refreshSearch(form, 1, { notice: strings.refineFallback || "AI refinement was unavailable, so the broader matches are shown." });
+      }
       return;
     }
-    if (!config.refineUrl) return;
-
     const entries = termEntries(form, searchInput(form));
     const question = form.querySelector('input[name="ebd_question"]')?.value || "";
     const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
-    const originalLabel = button.textContent;
-    button.textContent = strings.refining || "Refining...";
-    button.setAttribute("aria-busy", "true");
-    if (status) status.textContent = "AI is reviewing the matching post titles and summaries...";
+    form.ebdRefineController?.abort();
+    const controller = new AbortController();
+    form.ebdRefineController = controller;
+    results.setAttribute("aria-busy", "true");
     try {
       const response = await fetch(config.refineUrl, {
         method: "POST",
@@ -780,17 +850,75 @@
           term: entries.map((entry) => entry.value),
           mode: entries.map((entry) => entry.mode),
         }),
+        signal: controller.signal,
       });
       const payload = await response.json();
+      if (form.ebdRefineController !== controller) return;
       if (!response.ok) throw new Error(payload?.message || strings.refineFailed || "The results could not be refined.");
+      form.ebdBroaderResult = payload.broader || null;
+      if (!Array.isArray(payload.posts) || !payload.posts.length) {
+        form.ebdRefinedResult = null;
+        form.ebdShowingBroader = true;
+        if (form.ebdBroaderResult) {
+          form.ebdResultsNotice = strings.noRefinedPosts || "AI did not select a narrower set, so the broader matches are shown.";
+          renderResults(results, form.ebdBroaderResult, form);
+        } else {
+          await refreshSearch(form, 1, { notice: strings.noRefinedPosts || "AI did not select a narrower set, so the broader matches are shown." });
+        }
+        return;
+      }
+      form.ebdRefinedResult = payload;
+      form.ebdShowingBroader = false;
       renderResults(results, payload, form);
-      results.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (error) {
-      button.disabled = false;
-      button.textContent = originalLabel;
-      button.removeAttribute("aria-busy");
-      if (status) status.textContent = error?.message || strings.refineFailed || "The results could not be refined. Please try again.";
+      if (error.name === "AbortError") return;
+      form.ebdRefinedResult = null;
+      form.ebdShowingBroader = true;
+      const notice = strings.refineFallback || "AI refinement was unavailable, so the broader matches are shown.";
+      if (form.ebdBroaderResult) {
+        form.ebdResultsNotice = notice;
+        renderResults(results, form.ebdBroaderResult, form);
+      } else {
+        await refreshSearch(form, 1, { notice });
+      }
+    } finally {
+      if (form.ebdRefineController === controller) {
+        form.ebdRefineController = null;
+        results.removeAttribute("aria-busy");
+      }
     }
+  }
+
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-ebd-show-broader],[data-ebd-show-refined]");
+    if (!button) return;
+    const discovery = button.closest(".ebd-discovery");
+    const form = discovery?.querySelector("[data-ebd-search-form],[data-ebd-semantic-form]");
+    const results = discovery?.querySelector("[data-ebd-results]");
+    if (!form || !results) return;
+
+    button.disabled = true;
+    if (button.matches("[data-ebd-show-refined]") && form.ebdRefinedResult) {
+      form.ebdShowingBroader = false;
+      const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
+      renderResults(results, sortedRefinedResult(form.ebdRefinedResult, sort), form);
+      updateBrowserUrl(form);
+      return;
+    }
+    form.ebdShowingBroader = true;
+    const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
+    if (form.matches("[data-ebd-semantic-form]") && form.ebdBroaderResult) {
+      form.ebdBroaderResult = semanticPageResult(form.ebdBroaderResult, 1, sort);
+      renderResults(results, form.ebdBroaderResult, form);
+      updateBrowserUrl(form);
+      return;
+    }
+    if (form.ebdBroaderResult && form.ebdBroaderResult.sort === sort) {
+      renderResults(results, form.ebdBroaderResult, form);
+      updateBrowserUrl(form, Number(form.ebdBroaderResult.page || 1));
+      return;
+    }
+    await refreshSearch(form, 1, { preserveRefined: true });
   });
 
   function feedbackControl(requestId) {
@@ -945,7 +1073,15 @@
     form.querySelectorAll('input[name="ebd_sort"]').forEach((radio) => {
       radio.addEventListener("change", () => {
         updateSearchControlsSummary(form);
-        refreshSearch(form);
+        if (form.ebdRefinedResult && !form.ebdShowingBroader) {
+          const results = form.closest(".ebd-discovery")?.querySelector("[data-ebd-results]");
+          if (results) {
+            renderResults(results, sortedRefinedResult(form.ebdRefinedResult, radio.value), form);
+            updateBrowserUrl(form);
+          }
+          return;
+        }
+        refreshSearch(form, 1, { preserveRefined: Boolean(form.ebdRefinedResult) });
       });
     });
     form.querySelectorAll('input[name="ebd_suggestion_order"]').forEach((radio) => {
@@ -1544,13 +1680,132 @@
     if (!input.value.trim()) input.focus({ preventScroll: true });
   }
 
+  function setupSemanticForm(form) {
+    const input = form.querySelector("[data-ebd-semantic-question]");
+    const submit = form.querySelector("[data-ebd-semantic-submit]");
+    const clear = form.querySelector("[data-ebd-semantic-clear]");
+    const status = form.querySelector("[data-ebd-semantic-status]");
+    const requestId = form.querySelector("[data-ebd-ai-request]");
+    const results = form.closest(".ebd-discovery")?.querySelector("[data-ebd-results]");
+    if (!input || !submit || !status || !results) return;
+    form.ebdSemantic = true;
+
+    const run = async () => {
+      if (submit.disabled || form.classList.contains("is-loading") || !config.semanticUrl) return;
+      const question = input.value.trim();
+      if (!question) {
+        status.textContent = "Enter a question before searching.";
+        input.focus();
+        return;
+      }
+      const originalLabel = submit.textContent;
+      submit.disabled = true;
+      submit.textContent = "Searching...";
+      submit.setAttribute("aria-busy", "true");
+      form.classList.add("is-loading");
+      results.setAttribute("aria-busy", "true");
+      status.classList.add("is-loading");
+      status.textContent = "Comparing your question with post summaries and reviewing the strongest matches...";
+      try {
+        const response = await fetch(config.semanticUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question }),
+        });
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload?.message || "The semantic search could not be completed.");
+        if (requestId) requestId.value = String(payload.request_id || "");
+        const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
+        form.ebdBroaderResult = semanticPageResult(payload.broader, 1, sort);
+        form.ebdRefinedResult = payload.refined ? payload : null;
+        form.ebdShowingBroader = !payload.refined;
+        form.ebdResultsNotice = String(payload.notice || "");
+        const displayed = payload.refined
+          ? sortedRefinedResult(payload, sort)
+          : form.ebdBroaderResult;
+        renderResults(results, displayed, form);
+        updateBrowserUrl(form);
+        status.textContent = "";
+        results.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (error) {
+        status.textContent = error?.message || "The semantic search could not be completed. Please try again.";
+      } finally {
+        form.classList.remove("is-loading");
+        results.removeAttribute("aria-busy");
+        status.classList.remove("is-loading");
+        submit.disabled = false;
+        submit.textContent = originalLabel;
+        submit.removeAttribute("aria-busy");
+      }
+    };
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      run();
+    });
+    input.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
+      event.preventDefault();
+      run();
+    });
+    input.addEventListener("input", () => {
+      status.textContent = "";
+    });
+    clear?.addEventListener("click", () => {
+      input.value = "";
+      window.location.assign(form.action);
+    });
+    form.querySelectorAll('input[name="ebd_sort"]').forEach((radio) => {
+      radio.addEventListener("change", () => {
+        if (form.ebdRefinedResult && !form.ebdShowingBroader) {
+          renderResults(results, sortedRefinedResult(form.ebdRefinedResult, radio.value), form);
+        } else if (form.ebdBroaderResult) {
+          form.ebdBroaderResult = semanticPageResult(form.ebdBroaderResult, 1, radio.value);
+          renderResults(results, form.ebdBroaderResult, form);
+        }
+        updateBrowserUrl(form);
+      });
+    });
+    if (!input.value.trim()) input.focus({ preventScroll: true });
+    if (form.dataset.ebdAutoRun === "true" && input.value.trim()) run();
+  }
+
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
   document.querySelectorAll("[data-ebd-question-form]").forEach(setupQuestionForm);
+  document.querySelectorAll("[data-ebd-semantic-form]").forEach(setupSemanticForm);
   document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);
   document.querySelectorAll(".ebd-view-structure-review").forEach(setupStructureReview);
   setupTitleTooltips(document);
 
+  document.querySelectorAll("[data-ebd-auto-refine]").forEach((pending) => {
+    const discovery = pending.closest(".ebd-discovery");
+    const form = discovery?.querySelector("[data-ebd-search-form],[data-ebd-semantic-form]");
+    const results = discovery?.querySelector("[data-ebd-results]");
+    if (form && results) refineSearch(form, results);
+  });
+
   document.addEventListener("click", (event) => {
+    const pagination = event.target.closest(".ebd-pagination-link[href]");
+    const discovery = pagination?.closest(".ebd-discovery");
+    const form = discovery?.querySelector("[data-ebd-search-form],[data-ebd-semantic-form]");
+    if (pagination && form?.matches("[data-ebd-semantic-form]") && form.ebdBroaderResult && form.ebdShowingBroader) {
+      event.preventDefault();
+      const page = Number(new URL(pagination.href).searchParams.get("ebd_page") || 1);
+      const sort = form.querySelector('input[name="ebd_sort"]:checked')?.value || "ranked";
+      form.ebdBroaderResult = semanticPageResult(form.ebdBroaderResult, page, sort);
+      const results = discovery.querySelector("[data-ebd-results]");
+      if (results) renderResults(results, form.ebdBroaderResult, form);
+      updateBrowserUrl(form, page);
+      results?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    if (pagination && form?.ebdRefinedResult && form.ebdShowingBroader) {
+      event.preventDefault();
+      const page = Number(new URL(pagination.href).searchParams.get("ebd_page") || 1);
+      refreshSearch(form, page, { preserveRefined: true });
+      discovery.querySelector("[data-ebd-results]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     if (event.target.closest("[data-ebd-back-to-top]")) {
       const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? "auto" : "smooth" });

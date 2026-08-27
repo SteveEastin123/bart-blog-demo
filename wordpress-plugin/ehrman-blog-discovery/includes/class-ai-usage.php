@@ -17,6 +17,7 @@ final class AI_Usage {
 	private const INPUT_RATE      = 0.75;
 	private const CACHED_RATE     = 0.075;
 	private const OUTPUT_RATE     = 4.50;
+	private const EMBEDDING_RATE  = 0.02;
 
 	/**
 	 * Records an interpretation served from the WordPress cache.
@@ -40,6 +41,23 @@ final class AI_Usage {
 		$metrics = self::response_metrics( $response_body );
 
 		self::insert( $metrics['model'], $metrics['input_tokens'], $metrics['cached_input_tokens'], $metrics['output_tokens'], $metrics['estimated_cost_usd'], false, $succeeded, $error_code, $request_id );
+	}
+
+	/**
+	 * Records an embeddings response and its input-token cost.
+	 *
+	 * @param array<string,mixed> $response_body Decoded Embeddings API body.
+	 * @param bool                $succeeded     Whether usable vectors were returned.
+	 * @param string              $error_code    Stable local error code.
+	 * @param string              $request_id    Correlation identifier.
+	 */
+	public static function record_embedding_response( array $response_body, bool $succeeded, string $error_code = '', string $request_id = '' ): void {
+		$usage        = is_array( $response_body['usage'] ?? null ) ? $response_body['usage'] : array();
+		$input_tokens = self::nonnegative_integer( $usage['prompt_tokens'] ?? $usage['input_tokens'] ?? 0 );
+		$model        = is_scalar( $response_body['model'] ?? null ) ? sanitize_text_field( (string) $response_body['model'] ) : '';
+		$cost         = ( $input_tokens * self::EMBEDDING_RATE ) / 1000000;
+
+		self::insert( $model, $input_tokens, 0, 0, $cost, false, $succeeded, $error_code, $request_id );
 	}
 
 	/**

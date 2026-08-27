@@ -3,7 +3,7 @@
  * Plugin Name: Ehrman Blog Discovery
  * Plugin URI:  https://github.com/SteveEastin123/bart-blog-demo
  * Description: WordPress foundation for browsing and searching the Ehrman Blog index.
- * Version:     0.5.9
+ * Version:     0.7.0
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author:      Steve Eastin
@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EHRMAN_DISCOVERY_VERSION', '0.5.9' );
-define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.5.0' );
+define( 'EHRMAN_DISCOVERY_VERSION', '0.7.0' );
+define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.6.0' );
 define( 'EHRMAN_DISCOVERY_PLUGIN_FILE', __FILE__ );
 define( 'EHRMAN_DISCOVERY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EHRMAN_DISCOVERY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -34,6 +34,8 @@ require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-requests.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-refinements.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-analytics-page.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-interpreter.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-embedding-service.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-semantic-search-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-feedback.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-parity-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-assets.php';

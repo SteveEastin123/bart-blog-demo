@@ -84,10 +84,10 @@ final class AI_Analytics_Page {
 			<?php self::filter_form( $filters ); ?>
 			<p><a class="button" href="<?php echo esc_url( $export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinement_export_url ); ?>"><?php echo esc_html__( 'Export refinements CSV', 'ehrman-blog-discovery' ); ?></a></p>
 			<table class="widefat striped">
-				<thead><tr><th><?php echo esc_html__( 'Date', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Topics and keywords', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Interpretation cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+				<thead><tr><th><?php echo esc_html__( 'Date', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Method', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Topics and keywords', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Retrieval cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 				<tbody>
 				<?php if ( empty( $report['rows'] ) ) : ?>
-					<tr><td colspan="8"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
+					<tr><td colspan="9"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
 				<?php else : ?>
 					<?php foreach ( $report['rows'] as $row ) : ?>
 						<?php self::row( $row ); ?>
@@ -131,12 +131,13 @@ final class AI_Analytics_Page {
 		if ( false === $output ) {
 			wp_die( esc_html__( 'The CSV export could not be created.', 'ehrman-blog-discovery' ) );
 		}
-		fputcsv( $output, array( 'Date', 'Question', 'Topics and keywords', 'Results', 'Feedback', 'Model', 'Prompt version', 'Cache hit', 'Input tokens', 'Cached input tokens', 'Output tokens', 'Estimated cost USD', 'Status', 'Error code' ) );
+		fputcsv( $output, array( 'Date', 'Method', 'Question', 'Topics and keywords', 'Results', 'Feedback', 'Model', 'Prompt version', 'Cache hit', 'Input tokens', 'Cached input tokens', 'Output tokens', 'Estimated cost USD', 'Status', 'Error code' ) );
 		foreach ( $report['rows'] as $row ) {
 			fputcsv(
 				$output,
 				array(
 					Database::text( $row['created_at'] ?? '' ),
+					self::request_type_label( $row ),
 					Database::text( $row['question'] ?? '' ),
 					self::term_text( $row ),
 					Database::integer( $row['result_count'] ?? 0 ),
@@ -362,7 +363,7 @@ final class AI_Analytics_Page {
 	private static function row( array $row ): void {
 		$tokens = Database::integer( $row['input_tokens'] ?? 0 ) + Database::integer( $row['output_tokens'] ?? 0 );
 		?>
-		<tr><td><?php echo esc_html( Database::text( $row['created_at'] ?? '' ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( self::term_text( $row ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( self::feedback_label( $row ) ); ?></td><td><?php echo esc_html( 1 === Database::integer( $row['cache_hit'] ?? 0 ) ? __( 'Cache', 'ehrman-blog-discovery' ) : Database::text( $row['model'] ?? '' ) ); ?></td><td><?php echo esc_html( number_format_i18n( $tokens ) ); ?></td><td><?php echo esc_html( self::cents( (float) Database::text( $row['estimated_cost_usd'] ?? 0 ) ) ); ?></td></tr>
+		<tr><td><?php echo esc_html( Database::text( $row['created_at'] ?? '' ) ); ?></td><td><?php echo esc_html( self::request_type_label( $row ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( self::term_text( $row ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( self::feedback_label( $row ) ); ?></td><td><?php echo esc_html( 1 === Database::integer( $row['cache_hit'] ?? 0 ) ? __( 'Cache', 'ehrman-blog-discovery' ) : Database::text( $row['model'] ?? '' ) ); ?></td><td><?php echo esc_html( number_format_i18n( $tokens ) ); ?></td><td><?php echo esc_html( self::cents( (float) Database::text( $row['estimated_cost_usd'] ?? 0 ) ) ); ?></td></tr>
 		<?php
 	}
 
@@ -535,6 +536,9 @@ final class AI_Analytics_Page {
 	 * @param array<string,mixed> $row Request row.
 	 */
 	private static function term_text( array $row ): string {
+		if ( 'semantic' === Database::text( $row['request_type'] ?? '' ) ) {
+			return __( 'Not used', 'ehrman-blog-discovery' );
+		}
 		$decoded = json_decode( Database::text( $row['selected_terms'] ?? '' ), true );
 		if ( ! is_array( $decoded ) ) {
 			return '';
@@ -546,6 +550,17 @@ final class AI_Analytics_Page {
 			}
 		}
 		return implode( ' | ', $labels );
+	}
+
+	/**
+	 * Returns a readable search-pipeline name.
+	 *
+	 * @param array<string,mixed> $row Request row.
+	 */
+	private static function request_type_label( array $row ): string {
+		return 'semantic' === Database::text( $row['request_type'] ?? '' )
+			? __( 'Ask AI 2', 'ehrman-blog-discovery' )
+			: __( 'Ask AI', 'ehrman-blog-discovery' );
 	}
 
 	/**

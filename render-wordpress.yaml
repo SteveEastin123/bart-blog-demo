@@ -66,6 +66,10 @@ services:
         generateValue: true
       - key: WORDPRESS_ADMIN_EMAIL
         sync: false
+      - key: EHRMAN_DISCOVERY_AI_TERM_STRATEGY
+        value: focused
+      - key: EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL
+        value: hybrid
       - key: WORDPRESS_CONFIG_EXTRA
         value: |
           define( 'WP_ENVIRONMENT_TYPE', 'staging' );
