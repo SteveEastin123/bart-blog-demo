@@ -25,6 +25,10 @@ Ask AI uses the focused two-term interpretation strategy by default. Set
 `EHRMAN_DISCOVERY_AI_TERM_STRATEGY=legacy` to restore the previous four-term
 interpreter; this switch does not affect regular Keyword Search.
 
+AI-refined results are grouped into direct answers, strongly related posts, and
+supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
+restore the previous flat relevance-ordered result list.
+
 Ask AI 2 combines semantic similarity with exact title, summary, topic, and
 keyword signals. Set `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=semantic` to restore
 semantic-only candidate ranking without changing the stored embeddings.

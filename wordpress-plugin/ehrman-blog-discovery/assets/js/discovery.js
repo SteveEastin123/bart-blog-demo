@@ -729,9 +729,32 @@
       container.append(empty);
       return;
     }
+    const grouped = result.refined
+      && (result.sort || "ranked") === "ranked"
+      && renderRelevanceGroups(container, result.posts, context);
+    if (!grouped) container.append(postList(result.posts, context));
+    if (result.posts.length >= BACK_TO_TOP_THRESHOLD) {
+      const wrapper = document.createElement("p");
+      const button = document.createElement("button");
+      const arrow = document.createElement("span");
+      wrapper.className = "ebd-back-to-top";
+      button.type = "button";
+      button.dataset.ebdBackToTop = "true";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "\u2191";
+      button.append(arrow, document.createTextNode(" Back to top"));
+      wrapper.append(button);
+      container.append(wrapper);
+    }
+    renderPagination(container, result, form);
+    applyDescriptionMode(container.closest(".ebd-discovery") || document);
+    setupTitleTooltips(container);
+  }
+
+  function postList(posts, context) {
     const list = document.createElement("ul");
     list.className = "ebd-post-list";
-    result.posts.forEach((post) => {
+    posts.forEach((post) => {
       const item = document.createElement("li");
       const title = document.createElement("a");
       const meta = document.createElement("p");
@@ -749,23 +772,33 @@
       item.append(title, meta, description);
       list.append(item);
     });
-    container.append(list);
-    if (result.posts.length >= BACK_TO_TOP_THRESHOLD) {
-      const wrapper = document.createElement("p");
-      const button = document.createElement("button");
-      const arrow = document.createElement("span");
-      wrapper.className = "ebd-back-to-top";
-      button.type = "button";
-      button.dataset.ebdBackToTop = "true";
-      arrow.setAttribute("aria-hidden", "true");
-      arrow.textContent = "\u2191";
-      button.append(arrow, document.createTextNode(" Back to top"));
-      wrapper.append(button);
-      container.append(wrapper);
-    }
-    renderPagination(container, result, form);
-    applyDescriptionMode(container.closest(".ebd-discovery") || document);
-    setupTitleTooltips(container);
+    return list;
+  }
+
+  function renderRelevanceGroups(container, posts, context) {
+    const definitions = [
+      ["direct", strings.directAnswers || "Directly answers the question"],
+      ["related", strings.stronglyRelated || "Strongly related"],
+      ["background", strings.supporting || "Supporting background"],
+    ];
+    const validTiers = new Set(definitions.map(([tier]) => tier));
+    if (!posts.length || !posts.every((post) => validTiers.has(post.relevance_tier))) return false;
+    definitions.forEach(([tier, label]) => {
+      const matches = posts.filter((post) => post.relevance_tier === tier);
+      if (!matches.length) return;
+      const section = document.createElement("section");
+      const heading = document.createElement("h3");
+      const count = document.createElement("span");
+      section.className = `ebd-relevance-group is-${tier}`;
+      heading.className = "ebd-relevance-heading";
+      heading.append(document.createTextNode(label));
+      count.className = "ebd-relevance-count";
+      count.textContent = `${matches.length} ${matches.length === 1 ? "post" : "posts"}`;
+      heading.append(count);
+      section.append(heading, postList(matches, context));
+      container.append(section);
+    });
+    return true;
   }
 
   function resultViewControl(target) {

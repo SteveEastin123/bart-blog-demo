@@ -35,7 +35,7 @@
             <span class="is-disabled" aria-disabled="true"><?php esc_html_e('Join!', 'ehrman-discovery-demo'); ?></span>
             <span class="is-disabled" aria-disabled="true"><?php esc_html_e('Recent Posts', 'ehrman-discovery-demo'); ?></span>
             <a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"<?php echo is_page('keyword-search') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a>
-            <a href="<?php echo esc_url(ehrman_demo_page_url('ask-a-question')); ?>"<?php echo is_page('ask-a-question') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI', 'ehrman-discovery-demo'); ?></a>
+            <a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai')); ?>"<?php echo is_page('ask-ai') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai-2')); ?>"<?php echo is_page('ask-ai-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI 2', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-1')); ?>"<?php echo is_page('browse-topics-1') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 1', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-2')); ?>"<?php echo is_page('browse-topics-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 2', 'ehrman-discovery-demo'); ?></a>

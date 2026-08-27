@@ -246,7 +246,11 @@ final class Rest_Controller {
 		$posts = array();
 		foreach ( $refinement['post_ids'] as $id ) {
 			if ( isset( $posts_by_id[ $id ] ) ) {
-				$posts[] = $posts_by_id[ $id ];
+				$post = $posts_by_id[ $id ];
+				if ( isset( $refinement['post_tiers'][ $id ] ) ) {
+					$post['relevance_tier'] = $refinement['post_tiers'][ $id ];
+				}
+				$posts[] = $post;
 			}
 		}
 		$broader_count       = Database::integer( $original['count'] );
@@ -385,7 +389,11 @@ final class Rest_Controller {
 		$posts = array();
 		foreach ( $refinement['post_ids'] as $id ) {
 			if ( isset( $posts_by_id[ $id ] ) ) {
-				$posts[] = $posts_by_id[ $id ];
+				$post = $posts_by_id[ $id ];
+				if ( isset( $refinement['post_tiers'][ $id ] ) ) {
+					$post['relevance_tier'] = $refinement['post_tiers'][ $id ];
+				}
+				$posts[] = $post;
 			}
 		}
 		AI_Refinements::record(

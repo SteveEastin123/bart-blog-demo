@@ -94,7 +94,7 @@ try {
 
         $phase4Pages = [ordered]@{
             'Keyword Search' = '/keyword-search/'
-            'Ask a Question' = '/ask-a-question/'
+            'Ask AI' = '/ask-ai/'
             'Browse Topics 1' = '/browse-topics-1/'
             'Browse Topics 2' = '/browse-topics-2/'
         }

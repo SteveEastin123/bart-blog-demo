@@ -68,6 +68,8 @@ services:
         sync: false
       - key: EHRMAN_DISCOVERY_AI_TERM_STRATEGY
         value: focused
+      - key: EHRMAN_DISCOVERY_AI_RESULT_GROUPING
+        value: tiers
       - key: EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL
         value: hybrid
       - key: WORDPRESS_CONFIG_EXTRA

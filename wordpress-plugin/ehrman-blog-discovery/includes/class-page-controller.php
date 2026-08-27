@@ -50,13 +50,14 @@ final class Page_Controller {
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
 		add_shortcode( 'ehrman_structure_review', array( $this, 'structure_review_shortcode' ) );
 		add_filter( 'wp_robots', array( $this, 'review_page_robots' ) );
+		add_action( 'template_redirect', array( $this, 'redirect_legacy_ask_ai' ), 5 );
 	}
 
 	/** Creates or reconnects the public discovery pages. */
 	public static function ensure_pages(): void {
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'ask_question'     => array( 'Ask AI', 'ask-a-question', '[ehrman_ask_question]' ),
+			'ask_question'     => array( 'Ask AI', 'ask-ai', '[ehrman_ask_question]' ),
 			'ask_ai_2'         => array( 'Ask AI 2', 'ask-ai-2', '[ehrman_ask_ai_2]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
@@ -67,14 +68,22 @@ final class Page_Controller {
 			$option  = 'ehrman_discovery_page_' . $key;
 			$page_id = Database::integer( get_option( $option, 0 ) );
 			if ( $page_id > 0 && 'trash' !== get_post_status( $page_id ) ) {
-				self::update_managed_page_title( $key, $page_id, $title );
+				self::update_managed_page( $key, $page_id, $title, $slug );
 				continue;
 			}
 			$existing = get_page_by_path( $slug, OBJECT, 'page' );
 			if ( $existing instanceof \WP_Post ) {
-				self::update_managed_page_title( $key, $existing->ID, $title );
+				self::update_managed_page( $key, $existing->ID, $title, $slug );
 				update_option( $option, $existing->ID, false );
 				continue;
+			}
+			if ( 'ask_question' === $key ) {
+				$legacy = get_page_by_path( 'ask-a-question', OBJECT, 'page' );
+				if ( $legacy instanceof \WP_Post ) {
+					self::update_managed_page( $key, $legacy->ID, $title, $slug );
+					update_option( $option, $legacy->ID, false );
+					continue;
+				}
 			}
 			$page_id = wp_insert_post(
 				array(
@@ -95,23 +104,47 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Applies title migrations to plugin-managed pages without overwriting other
-	 * page titles that site administrators may have customized.
+	 * Applies title and slug migrations to plugin-managed pages.
 	 *
 	 * @param string $key     Managed page key.
 	 * @param int    $page_id WordPress page ID.
 	 * @param string $title   Current canonical title.
+	 * @param string $slug    Current canonical slug.
 	 */
-	private static function update_managed_page_title( string $key, int $page_id, string $title ): void {
-		if ( 'ask_question' !== $key || get_the_title( $page_id ) === $title ) {
+	private static function update_managed_page( string $key, int $page_id, string $title, string $slug ): void {
+		if ( 'ask_question' !== $key ) {
 			return;
 		}
-		wp_update_post(
-			array(
-				'ID'         => $page_id,
-				'post_title' => $title,
-			)
-		);
+		$changes = array( 'ID' => $page_id );
+		if ( get_the_title( $page_id ) !== $title ) {
+			$changes['post_title'] = $title;
+		}
+		if ( get_post_field( 'post_name', $page_id ) !== $slug ) {
+			$changes['post_name'] = $slug;
+		}
+		if ( count( $changes ) > 1 ) {
+			wp_update_post( $changes );
+		}
+	}
+
+	/** Permanently redirects the former Ask AI path to its canonical URL. */
+	public function redirect_legacy_ask_ai(): void {
+		if ( is_admin() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
+			return;
+		}
+		$request_uri  = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		$request_path = wp_parse_url( $request_uri, PHP_URL_PATH );
+		$legacy_path  = wp_parse_url( home_url( '/ask-a-question/' ), PHP_URL_PATH );
+		if ( ! is_string( $request_path ) || ! is_string( $legacy_path ) || untrailingslashit( $request_path ) !== untrailingslashit( $legacy_path ) ) {
+			return;
+		}
+
+		// Preserve interpreted-search arguments in old bookmarks and shared links.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only redirect parameters.
+		$query_args = map_deep( wp_unslash( $_GET ), 'sanitize_text_field' );
+		$target     = empty( $query_args ) ? $this->page_url( 'ask_question' ) : add_query_arg( $query_args, $this->page_url( 'ask_question' ) );
+		wp_safe_redirect( $target, 301, 'Ehrman Blog Discovery' );
+		exit;
 	}
 
 	/**
@@ -267,7 +300,7 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Builds the Ask a Question form and interpretation review.
+	 * Builds the Ask AI form and interpretation review.
 	 *
 	 * @param string $question Reader question.
 	 * @param string $sort     Selected result order.
@@ -299,10 +332,10 @@ final class Page_Controller {
 		return '<form class="ebd-question-panel" action="' . esc_url( $this->page_url( 'ask_question' ) )
 			. '" method="get" data-ebd-question-form><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><div id="' . esc_attr( $id )
 			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
-			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or make a request. AI will identify relevant topics and keywords to find matching posts on Bart\'s blog. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
+			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
+			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review. It does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
-			. 'placeholder="' . esc_attr__( 'Example: What does Luke say about Jesus\' death and atonement?', 'ehrman-blog-discovery' )
+			. 'placeholder="' . esc_attr__( 'Example: How do the teachings of Paul differ from those of Jesus?', 'ehrman-blog-discovery' )
 			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
 			. '<button type="button" class="ebd-question-interpret" data-ebd-question-interpret'
 			. ( AI_Interpreter::is_configured() ? '' : ' disabled' ) . '>' . esc_html__( 'Submit', 'ehrman-blog-discovery' )
@@ -343,10 +376,10 @@ final class Page_Controller {
 		return '<form class="ebd-question-panel ebd-semantic-panel" action="' . esc_url( $this->page_url( 'ask_ai_2' ) )
 			. '" method="get" data-ebd-semantic-form' . ( '' !== trim( $question ) ? ' data-ebd-auto-run="true"' : '' )
 			. '><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><label for="' . esc_attr( $id ) . '"><strong>'
-			. esc_html__( 'What would you like to find?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or make a request. AI compares it with post titles and summaries, then reviews the strongest matches. It searches the blog but does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
+			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
+			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review. It does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required placeholder="'
-			. esc_attr__( 'Example: Did the story of Nicodemus being born again really happen?', 'ehrman-blog-discovery' )
+			. esc_attr__( 'Example: How does Luke change Mark?', 'ehrman-blog-discovery' )
 			. '" data-ebd-semantic-question>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
 			. '<button type="submit" class="ebd-question-interpret" data-ebd-semantic-submit' . ( $configured ? '' : ' disabled' ) . '>'
 			. esc_html__( 'Submit', 'ehrman-blog-discovery' ) . '</button><button type="button" class="ebd-question-clear" data-ebd-semantic-clear>'

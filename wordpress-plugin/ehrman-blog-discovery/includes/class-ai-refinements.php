@@ -29,10 +29,15 @@ final class AI_Refinements {
 			$id    = Database::text( $post['id'] ?? null );
 			$title = sanitize_text_field( Database::text( $post['title'] ?? null ) );
 			if ( '' !== $id && '' !== $title ) {
-				$kept[] = array(
+				$selected = array(
 					'id'    => $id,
 					'title' => $title,
 				);
+				$tier     = sanitize_key( Database::text( $post['relevance_tier'] ?? null ) );
+				if ( in_array( $tier, array( 'direct', 'related', 'background' ), true ) ) {
+					$selected['relevance_tier'] = $tier;
+				}
+				$kept[] = $selected;
 			}
 		}
 		Database::client()->insert(

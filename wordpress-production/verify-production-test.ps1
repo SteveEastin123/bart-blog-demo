@@ -41,7 +41,7 @@ foreach ($property in $expected.PSObject.Properties) {
     }
 }
 
-$pages = @('/', '/keyword-search/', '/browse-topics-1/', '/browse-topics-2/', '/structure-review/')
+$pages = @('/', '/keyword-search/', '/ask-ai/', '/ask-ai-2/', '/browse-topics-1/', '/browse-topics-2/', '/structure-review/')
 foreach ($path in $pages) {
     $response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:$Port$path"
     if ($response.StatusCode -ne 200) {

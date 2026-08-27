@@ -4,7 +4,7 @@ This isolated Docker Compose environment runs the WordPress/MySQL version of
 the Ehrman Blog Discovery demo. It runs alongside the
 existing standalone HTML, PHP/SQLite, and Python/SQLite implementations.
 
-The optional **Ask a Question** proof of concept maps a natural-language
+The optional **Ask AI** proof of concept maps a natural-language
 question to the existing controlled topics and secondary keywords. To enable
 it locally, set `OPENAI_API_KEY` in `wordpress-demo/.env`; the key remains
 server-side and must not be committed. The optional
@@ -13,6 +13,9 @@ Ask AI defaults to the focused interpretation strategy, which selects no more
 than two essential terms. Set `EHRMAN_DISCOVERY_AI_TERM_STRATEGY=legacy` to
 restore the previous four-term interpretation behavior without changing the
 regular Keyword Search limit.
+AI-refined results are grouped into direct answers, strongly related posts, and
+supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
+restore the previous flat relevance-ordered result list.
 Ask AI 2 defaults to hybrid retrieval across semantic similarity, post text,
 and assigned metadata. Set `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=semantic` to
 restore semantic-only candidate ranking.
