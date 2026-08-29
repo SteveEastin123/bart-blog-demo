@@ -1303,6 +1303,23 @@
   function reviewCsvRows(root, tree) {
     const view = reviewViewLabel(root);
     const rows = [];
+    if (tree.classList.contains("is-topic-index")) {
+      tree.querySelectorAll("[data-ebd-review-topic-item]").forEach((topic) => {
+        rows.push([
+          view,
+          "",
+          "",
+          "",
+          String(topic.dataset.ebdReviewCategories || ""),
+          "",
+          "",
+          reviewName(topic),
+          reviewDescription(topic),
+          reviewPostCount(topic),
+        ]);
+      });
+      return rows;
+    }
     const addCategory = (category, area = null) => {
       const topics = Array.from(directChild(category, ".ebd-review-topic-list")?.children || [])
         .filter((item) => item.matches(".ebd-review-topic"));
@@ -1451,6 +1468,11 @@
         .forEach((topic) => addSection(topic, 2));
     };
 
+    if (tree.classList.contains("is-topic-index")) {
+      tree.querySelectorAll("[data-ebd-review-topic-item]").forEach((topic) => addSection(topic, 1));
+      return entries;
+    }
+
     const areas = Array.from(tree.children).filter((item) => item.matches(".ebd-review-area"));
     if (areas.length) {
       areas.forEach((area) => {
@@ -1563,6 +1585,32 @@
     });
     root.querySelector("[data-ebd-review-csv]")?.addEventListener("click", () => {
       downloadReviewCsv(root, tree);
+    });
+
+    const topicSearch = root.querySelector("[data-ebd-review-topic-search]");
+    const topicClear = root.querySelector("[data-ebd-review-topic-clear]");
+    const topicStatus = root.querySelector("[data-ebd-review-topic-status]");
+    const topicItems = Array.from(tree.querySelectorAll("[data-ebd-review-topic-item]"));
+    const topicGroups = Array.from(tree.querySelectorAll("[data-ebd-review-topic-group]"));
+    const filterTopics = () => {
+      const query = normalized(topicSearch?.value || "");
+      let visible = 0;
+      topicItems.forEach((item) => {
+        const matches = !query || normalized(item.dataset.ebdReviewSearch || "").includes(query);
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      topicGroups.forEach((group) => {
+        group.hidden = !Array.from(group.querySelectorAll("[data-ebd-review-topic-item]")).some((item) => !item.hidden);
+      });
+      if (topicClear) topicClear.disabled = !query;
+      if (topicStatus) topicStatus.textContent = `${visible.toLocaleString()} ${visible === 1 ? "topic" : "topics"} shown`;
+    };
+    topicSearch?.addEventListener("input", filterTopics);
+    topicClear?.addEventListener("click", () => {
+      topicSearch.value = "";
+      filterTopics();
+      topicSearch.focus();
     });
   }
 

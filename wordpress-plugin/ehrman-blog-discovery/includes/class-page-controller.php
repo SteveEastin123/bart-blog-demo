@@ -436,15 +436,26 @@ final class Page_Controller {
 		}
 		Assets::enqueue();
 		$path_number    = '2' === $this->request_value( 'ebd_path' ) ? 2 : 1;
-		$category_index = 'categories' === sanitize_key( $this->request_value( 'ebd_view' ) );
-		$areas          = $category_index ? array() : $this->browse->subject_areas( $path_number );
+		$review_view    = sanitize_key( $this->request_value( 'ebd_view' ) );
+		$category_index = 'categories' === $review_view;
+		$topic_index    = 'topics' === $review_view;
+		$areas          = $category_index || $topic_index ? array() : $this->browse->subject_areas( $path_number );
 		$sections       = array();
+		$topics         = array();
+		$heading        = __( 'Category and Topic Review', 'ehrman-blog-discovery' );
 
-		if ( $category_index ) {
+		if ( $topic_index ) {
+			$topics   = $this->browse->topics();
+			$sections = $this->structure_review_topics( $topics );
+			$meta     = $this->plural( count( $topics ), 'topic' );
+			$intro    = __( 'Review every topic alphabetically, including its assigned category and post count.', 'ehrman-blog-discovery' );
+			$heading  = __( 'All Topics', 'ehrman-blog-discovery' );
+		} elseif ( $category_index ) {
 			$categories = $this->browse->categories();
 			$sections   = $this->structure_review_categories( $categories );
 			$meta       = $this->plural( count( $categories ), 'category', 'categories' );
 			$intro      = __( 'Expand a category to review its assigned topics and post counts.', 'ehrman-blog-discovery' );
+			$heading    = __( 'All Categories', 'ehrman-blog-discovery' );
 		} else {
 			foreach ( $areas as $area ) {
 				$categories        = $this->browse->subject_area_categories( Database::integer( $area['id'] ?? null ) );
@@ -464,27 +475,32 @@ final class Page_Controller {
 			$intro = __( 'Expand a subject area and its categories to review where topics are currently assigned.', 'ehrman-blog-discovery' );
 		}
 
-		$path_links = '<nav class="ebd-review-paths" aria-label="' . esc_attr__( 'Browse Topics structure', 'ehrman-blog-discovery' ) . '">'
-			. $this->structure_review_path_link( 1, 1 === $path_number && ! $category_index )
-			. $this->structure_review_path_link( 2, 2 === $path_number && ! $category_index )
+		$path_links  = '<nav class="ebd-review-paths" aria-label="' . esc_attr__( 'Browse Topics structure', 'ehrman-blog-discovery' ) . '">'
+			. $this->structure_review_path_link( 1, 1 === $path_number && ! $category_index && ! $topic_index )
+			. $this->structure_review_path_link( 2, 2 === $path_number && ! $category_index && ! $topic_index )
 			. $this->structure_review_category_link( $category_index )
+			. $this->structure_review_topic_link( $topic_index )
 			. '</nav>';
-		$controls   = '<div class="ebd-review-controls"><button type="button" data-ebd-review-expand>'
-			. esc_html__( 'Expand all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-collapse>'
-			. esc_html__( 'Collapse all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-pdf>'
+		$topic_tools = $topic_index ? $this->structure_review_topic_tools( $topics ) : '';
+		$controls    = '<div class="ebd-review-controls">'
+			. ( $topic_index ? '' : '<button type="button" data-ebd-review-expand>'
+				. esc_html__( 'Expand all', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-collapse>'
+				. esc_html__( 'Collapse all', 'ehrman-blog-discovery' ) . '</button>' )
+			. '<button type="button" data-ebd-review-pdf>'
 			. esc_html__( 'Download PDF', 'ehrman-blog-discovery' ) . '</button><button type="button" data-ebd-review-csv>'
 			. esc_html__( 'Download CSV', 'ehrman-blog-discovery' ) . '</button>'
 			. $this->description_control( 'hover', 'review' ) . '</div>';
 
 		return $this->shell(
 			$this->heading(
-				__( 'Category and Topic Review', 'ehrman-blog-discovery' ),
+				$heading,
 				$meta
 			)
 			. '<p class="ebd-review-intro">'
 			. esc_html( $intro )
-			. '</p>' . $path_links . $controls . '<div class="ebd-review-tree'
-			. ( $category_index ? ' is-category-index' : '' ) . '" data-ebd-review-tree>'
+			. '</p>' . $path_links . $topic_tools . $controls . '<div class="ebd-review-tree'
+			. ( $category_index ? ' is-category-index' : '' )
+			. ( $topic_index ? ' is-topic-index' : '' ) . '" data-ebd-review-tree>'
 			. implode( '', $sections ) . '</div>',
 			'structure-review'
 		);
@@ -1386,7 +1402,7 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Builds the all-categories selector for the structure-review page.
+	 * Builds the categories selector for the structure-review page.
 	 *
 	 * @param bool $active Whether the category index is active.
 	 * @return string Category-index link markup.
@@ -1395,7 +1411,20 @@ final class Page_Controller {
 		$url = add_query_arg( 'ebd_view', 'categories', $this->page_url( 'structure_review' ) );
 		return '<a class="ebd-review-path is-category-link' . ( $active ? ' is-active' : '' ) . '" href="'
 			. esc_url( $url ) . '"' . ( $active ? ' aria-current="page"' : '' ) . '>'
-			. esc_html__( 'All Categories', 'ehrman-blog-discovery' ) . '</a>';
+			. esc_html__( 'Categories', 'ehrman-blog-discovery' ) . '</a>';
+	}
+
+	/**
+	 * Builds the topics selector for the structure-review page.
+	 *
+	 * @param bool $active Whether the topic index is active.
+	 * @return string Topic-index link markup.
+	 */
+	private function structure_review_topic_link( bool $active ): string {
+		$url = add_query_arg( 'ebd_view', 'topics', $this->page_url( 'structure_review' ) );
+		return '<a class="ebd-review-path is-topic-link' . ( $active ? ' is-active' : '' ) . '" href="'
+			. esc_url( $url ) . '"' . ( $active ? ' aria-current="page"' : '' ) . '>'
+			. esc_html__( 'Topics', 'ehrman-blog-discovery' ) . '</a>';
 	}
 
 	/**
@@ -1428,6 +1457,81 @@ final class Page_Controller {
 				. implode( '', $topic_items ) . '</ul></details>';
 		}
 		return $sections;
+	}
+
+	/**
+	 * Builds alphabetical topic groups for the all-topics review index.
+	 *
+	 * @param array<int,array<string,mixed>> $topics Topic records, categories, and counts.
+	 * @return array<int,string> Topic-group markup.
+	 */
+	private function structure_review_topics( array $topics ): array {
+		$groups = array();
+		foreach ( $topics as $topic ) {
+			$name            = Database::text( $topic['name'] ?? null );
+			$description     = Database::text( $topic['description'] ?? null );
+			$category_names  = array_values( array_filter( explode( '||', Database::text( $topic['category_names'] ?? null ) ) ) );
+			$category_count  = count( $category_names );
+			$category_text   = empty( $category_names ) ? __( 'No category', 'ehrman-blog-discovery' ) : implode( ', ', $category_names );
+			$category_prefix = 1 === $category_count ? __( 'Category:', 'ehrman-blog-discovery' ) : __( 'Categories:', 'ehrman-blog-discovery' );
+			$letter          = $this->structure_review_topic_letter( $name );
+			$meta            = $category_prefix . ' ' . $category_text . ' &bull; '
+				. $this->plural( Database::integer( $topic['post_count'] ?? null ), 'post' );
+			$search_text     = implode( ' ', array( $name, $description, $category_text ) );
+
+			$groups[ $letter ][] = '<li class="ebd-review-topic ebd-review-topic-index-item" data-ebd-review-topic-item data-ebd-review-search="'
+				. esc_attr( $search_text ) . '" data-ebd-review-categories="' . esc_attr( $category_text )
+				. '"><div class="ebd-review-topic-row"><span class="ebd-review-name ebd-review-topic-name">'
+				. '<span class="ebd-review-badge is-topic">' . esc_html__( 'Topic', 'ehrman-blog-discovery' ) . '</span><span>'
+				. esc_html( $name ) . '</span></span><span class="ebd-review-meta">' . wp_kses_post( $meta )
+				. '</span></div><p class="ebd-review-description" hidden>' . esc_html( $description ) . '</p></li>';
+		}
+
+		$sections = array();
+		foreach ( $groups as $letter => $items ) {
+			$anchor     = 'ebd-review-topics-' . sanitize_title( $letter );
+			$sections[] = '<section class="ebd-review-topic-group" id="' . esc_attr( $anchor )
+				. '" data-ebd-review-topic-group><h2>' . esc_html( $letter )
+				. '</h2><ul class="ebd-review-topic-list">' . implode( '', $items ) . '</ul></section>';
+		}
+		return $sections;
+	}
+
+	/**
+	 * Builds the search field and available-letter index for all topics.
+	 *
+	 * @param array<int,array<string,mixed>> $topics Topic records.
+	 * @return string Topic-index tools markup.
+	 */
+	private function structure_review_topic_tools( array $topics ): string {
+		$letters = array();
+		foreach ( $topics as $topic ) {
+			$letter             = $this->structure_review_topic_letter( Database::text( $topic['name'] ?? null ) );
+			$letters[ $letter ] = true;
+		}
+		$links = array();
+		foreach ( array_keys( $letters ) as $letter ) {
+			$links[] = '<a href="#ebd-review-topics-' . esc_attr( sanitize_title( $letter ) ) . '">' . esc_html( $letter ) . '</a>';
+		}
+
+		return '<div class="ebd-review-topic-tools"><div class="ebd-review-topic-filter"><label for="ebd-review-topic-filter">'
+			. esc_html__( 'Filter topics', 'ehrman-blog-discovery' ) . '</label><input id="ebd-review-topic-filter" type="search" '
+			. 'placeholder="' . esc_attr__( 'Search by topic or category', 'ehrman-blog-discovery' )
+			. '" data-ebd-review-topic-search><button type="button" data-ebd-review-topic-clear disabled>'
+			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button><span class="ebd-review-topic-status" aria-live="polite" data-ebd-review-topic-status>'
+			. esc_html( $this->plural( count( $topics ), 'topic' ) . ' ' . __( 'shown', 'ehrman-blog-discovery' ) )
+			. '</span></div><nav class="ebd-review-topic-letters" aria-label="' . esc_attr__( 'Topic letters', 'ehrman-blog-discovery' )
+			. '">' . implode( '', $links ) . '</nav></div>';
+	}
+
+	/**
+	 * Returns the alphabetical review group for a topic name.
+	 *
+	 * @param string $name Topic name.
+	 */
+	private function structure_review_topic_letter( string $name ): string {
+		$first = strtoupper( substr( trim( $name ), 0, 1 ) );
+		return 1 === preg_match( '/^[A-Z]$/', $first ) ? $first : '0-9';
 	}
 
 	/**
