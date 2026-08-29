@@ -60,10 +60,11 @@
   <path class="arrow" d="M1340 482 L1340 517"/>
 
   <rect class="box terms" x="150" y="517" width="620" height="100" rx="12"/>
-  <text class="label" x="460" y="577" text-anchor="middle">AI Matches Topics and Keywords</text>
+  <text class="label" x="460" y="577" text-anchor="middle">AI Identifies Relevant Topics and Keywords</text>
 
   <rect class="box semantic" x="1030" y="517" width="620" height="100" rx="12"/>
-  <text class="label" x="1340" y="577" text-anchor="middle">Semantic Search Uses Titles and Summaries</text>
+  <text class="label-small" x="1340" y="562" text-anchor="middle">Semantic Database Search</text>
+  <text class="label-small" x="1340" y="592" text-anchor="middle">Matches Titles and Summaries</text>
 
   <path class="arrow" d="M460 617 L460 652"/>
   <path class="arrow" d="M1340 617 L1340 652"/>
@@ -76,10 +77,10 @@
   <path class="arrow" d="M460 752 L460 787"/>
   <path class="arrow" d="M1340 752 L1340 787"/>
 
-  <rect class="box review" x="150" y="787" width="620" height="100" rx="12"/>
-  <rect class="box review" x="1030" y="787" width="620" height="100" rx="12"/>
-  <text class="label" x="460" y="847" text-anchor="middle">AI Reviews the Candidates</text>
-  <text class="label" x="1340" y="847" text-anchor="middle">AI Reviews the Candidates</text>
+  <rect class="box terms" x="150" y="787" width="620" height="100" rx="12"/>
+  <rect class="box terms" x="1030" y="787" width="620" height="100" rx="12"/>
+  <text class="label" x="460" y="847" text-anchor="middle">AI Reviews Candidates</text>
+  <text class="label" x="1340" y="847" text-anchor="middle">AI Reviews Candidates</text>
 
   <path class="arrow" d="M460 887 L460 922"/>
   <path class="arrow" d="M1340 887 L1340 922"/>

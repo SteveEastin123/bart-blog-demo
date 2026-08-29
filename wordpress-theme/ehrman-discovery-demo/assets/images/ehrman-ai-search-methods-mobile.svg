@@ -51,15 +51,16 @@
   <path class="arrow" d="M190 420 L190 455"/>
 
   <rect class="box terms" x="45" y="455" width="290" height="90" rx="10"/>
-  <text class="label-small" x="190" y="510" text-anchor="middle">AI Matches Topics and Keywords</text>
+  <text class="label-small" x="190" y="497" text-anchor="middle">AI Identifies Relevant</text>
+  <text class="label-small" x="190" y="524" text-anchor="middle">Topics and Keywords</text>
   <path class="arrow" d="M190 545 L190 580"/>
 
   <rect class="box candidate" x="45" y="580" width="290" height="90" rx="10"/>
   <text class="label" x="190" y="635" text-anchor="middle">Matching Posts</text>
   <path class="arrow" d="M190 670 L190 705"/>
 
-  <rect class="box review" x="45" y="705" width="290" height="90" rx="10"/>
-  <text class="label-small" x="190" y="760" text-anchor="middle">AI Reviews the Candidates</text>
+  <rect class="box terms" x="45" y="705" width="290" height="90" rx="10"/>
+  <text class="label-small" x="190" y="760" text-anchor="middle">AI Reviews Candidates</text>
   <path class="arrow" d="M190 795 L190 830"/>
 
   <rect class="box post" x="45" y="830" width="290" height="90" rx="10"/>
@@ -78,16 +79,16 @@
   <path class="arrow" d="M190 1360 L190 1395"/>
 
   <rect class="box semantic" x="45" y="1395" width="290" height="90" rx="10"/>
-  <text class="label-small" x="190" y="1438" text-anchor="middle">Semantic Search Uses</text>
-  <text class="label-small" x="190" y="1465" text-anchor="middle">Titles and Summaries</text>
+  <text class="label-small" x="190" y="1438" text-anchor="middle">Semantic Database Search</text>
+  <text class="label-small" x="190" y="1465" text-anchor="middle">Matches Titles and Summaries</text>
   <path class="arrow" d="M190 1485 L190 1520"/>
 
   <rect class="box candidate" x="45" y="1520" width="290" height="90" rx="10"/>
   <text class="label" x="190" y="1575" text-anchor="middle">Matching Posts</text>
   <path class="arrow" d="M190 1610 L190 1645"/>
 
-  <rect class="box review" x="45" y="1645" width="290" height="90" rx="10"/>
-  <text class="label-small" x="190" y="1700" text-anchor="middle">AI Reviews the Candidates</text>
+  <rect class="box terms" x="45" y="1645" width="290" height="90" rx="10"/>
+  <text class="label-small" x="190" y="1700" text-anchor="middle">AI Reviews Candidates</text>
   <path class="arrow" d="M190 1735 L190 1770"/>
 
   <rect class="box post" x="45" y="1770" width="290" height="90" rx="10"/>

@@ -152,7 +152,7 @@ final class Semantic_Search_Service {
 			return new WP_Error( 'ehrman_semantic_empty', __( 'Enter a question to search.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 		}
 		$limit     = max( 1, min( self::CANDIDATE_LIMIT, $limit ) );
-		$cache_key = 'ebd_semantic_query_' . hash( 'sha256', Search_Service::normalize( $question ) . '|' . Embedding_Service::model_id() . '|' . Embedding_Service::dimensions() );
+		$cache_key = 'ebd_semantic_query_' . hash( 'sha256', Search_Service::normalize( $question ) . '|' . Embedding_Service::model_id() . '|' . Embedding_Service::dimensions() . '|' . AI_Usage::cache_version() );
 		$cached    = get_transient( $cache_key );
 		$cache_hit = is_array( $cached ) && count( $cached ) === Embedding_Service::dimensions();
 		if ( $cache_hit ) {

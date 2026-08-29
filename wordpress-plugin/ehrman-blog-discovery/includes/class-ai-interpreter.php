@@ -96,7 +96,7 @@ final class AI_Interpreter {
 		$import_checksum = get_option( 'ehrman_discovery_import_checksum', '' );
 		$cache_key       = 'ebd_ai_' . hash(
 			'sha256',
-			Search_Service::normalize( $question ) . '|' . self::model() . '|' . self::prompt_version() . '|' . ( is_scalar( $import_checksum ) ? (string) $import_checksum : '' )
+			Search_Service::normalize( $question ) . '|' . self::model() . '|' . self::prompt_version() . '|' . ( is_scalar( $import_checksum ) ? (string) $import_checksum : '' ) . '|' . AI_Usage::cache_version()
 		);
 		$vocabulary      = $this->vocabulary();
 		$cached          = get_transient( $cache_key );
@@ -221,7 +221,7 @@ final class AI_Interpreter {
 
 		$cache_key = 'ebd_ai_refine_' . hash(
 			'sha256',
-			Search_Service::normalize( $question ) . '|' . (string) wp_json_encode( $candidates ) . '|' . self::model() . '|' . self::refine_prompt_version()
+			Search_Service::normalize( $question ) . '|' . (string) wp_json_encode( $candidates ) . '|' . self::model() . '|' . self::refine_prompt_version() . '|' . AI_Usage::cache_version()
 		);
 		$cached    = get_transient( $cache_key );
 		if ( is_array( $cached ) && is_array( $cached['post_ids'] ?? null ) ) {

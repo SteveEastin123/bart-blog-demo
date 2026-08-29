@@ -20,6 +20,7 @@ final class AI_Analytics_Page {
 	public static function register(): void {
 		add_action( 'admin_menu', array( self::class, 'add_page' ) );
 		add_action( 'admin_post_ehrman_ai_analytics_csv', array( self::class, 'export_csv' ) );
+		add_action( 'admin_post_ehrman_ai_analytics_reset', array( self::class, 'reset_test_analytics' ) );
 	}
 
 	/** Adds the analytics page under Tools. */
@@ -44,6 +45,7 @@ final class AI_Analytics_Page {
 		$all_report            = AI_Requests::analytics( $filters, 1, 0 );
 		$request_ids           = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $all_report['rows'] ), true );
 		$refinements           = self::filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
+		$refinement_costs      = self::refinement_costs_by_request( $refinements );
 		$summary               = self::summary( $all_report['rows'], $refinements );
 		$usage                 = AI_Usage::report();
 		$semantic_index_usage  = AI_Usage::semantic_index_report();
@@ -70,6 +72,9 @@ final class AI_Analytics_Page {
 		?>
 		<div class="wrap">
 			<h1><?php echo esc_html__( 'AI Search Analytics', 'ehrman-blog-discovery' ); ?></h1>
+			<?php if ( '1' === self::query_value( 'analytics_reset' ) ) : ?>
+				<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Test analytics and AI search caches were reset. The semantic post index and its preparation history were preserved.', 'ehrman-blog-discovery' ); ?></p></div>
+			<?php endif; ?>
 			<p><?php echo esc_html__( 'Detailed questions are retained for 90 days. Dates are displayed in Eastern time; timestamps remain stored in UTC. No account, IP address, or browser identifier is stored with a request.', 'ehrman-blog-discovery' ); ?></p>
 			<?php self::view_tabs( $filters ); ?>
 			<?php if ( 'comparison' === $filters['view'] ) : ?>
@@ -97,13 +102,13 @@ final class AI_Analytics_Page {
 				<?php self::filter_form( $filters ); ?>
 			<p><a class="button" href="<?php echo esc_url( $export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinement_export_url ); ?>"><?php echo esc_html__( 'Export refinements CSV', 'ehrman-blog-discovery' ); ?></a></p>
 			<table class="widefat striped">
-				<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Method', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Topics and keywords', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Retrieval cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+				<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Method', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Topics and keywords', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 				<tbody>
 				<?php if ( empty( $report['rows'] ) ) : ?>
 					<tr><td colspan="9"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
 				<?php else : ?>
 					<?php foreach ( $report['rows'] as $row ) : ?>
-						<?php self::row( $row ); ?>
+						<?php self::row( $row, $refinement_costs[ Database::text( $row['request_id'] ?? '' ) ] ?? 0.0 ); ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
 				</tbody>
@@ -124,8 +129,49 @@ final class AI_Analytics_Page {
 				</tbody>
 			</table>
 			<?php endif; ?>
+			<?php self::reset_controls( $export_url, $refinement_export_url, $filters['view'] ); ?>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Clears test questions and costs while preserving the reusable semantic index.
+	 *
+	 * @throws \RuntimeException When a database transaction operation fails.
+	 */
+	public static function reset_test_analytics(): void {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'You are not allowed to reset AI search analytics.', 'ehrman-blog-discovery' ) );
+		}
+		check_admin_referer( 'ehrman_ai_analytics_reset' );
+
+		$view = self::posted_view();
+		$wpdb = Database::client();
+		try {
+			if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
+				throw new \RuntimeException( 'The analytics reset transaction could not be started.' );
+			}
+			self::delete_test_analytics();
+			if ( false === $wpdb->query( 'COMMIT' ) ) {
+				throw new \RuntimeException( 'The analytics reset transaction could not be committed.' );
+			}
+		} catch ( \Throwable ) {
+			$wpdb->query( 'ROLLBACK' );
+			wp_die( esc_html__( 'The test analytics could not be reset. No analytics records were intentionally removed.', 'ehrman-blog-discovery' ) );
+		}
+
+		AI_Usage::invalidate_search_caches();
+		wp_safe_redirect(
+			add_query_arg(
+				array(
+					'page'            => 'ehrman-ai-analytics',
+					'view'            => $view,
+					'analytics_reset' => '1',
+				),
+				admin_url( 'tools.php' )
+			)
+		);
+		exit;
 	}
 
 	/** Exports all filtered rows as a protected CSV download. */
@@ -576,13 +622,75 @@ final class AI_Analytics_Page {
 	}
 
 	/**
+	 * Renders the administrator-only test-data reset controls.
+	 *
+	 * @param string $questions_export_url  Filtered question export URL.
+	 * @param string $refinements_export_url Filtered refinement export URL.
+	 * @param string $view                  Active analytics view.
+	 */
+	private static function reset_controls( string $questions_export_url, string $refinements_export_url, string $view ): void {
+		$confirmation = __( 'Permanently clear recorded test questions, refinements, feedback, question costs, and AI search caches? The semantic post index and its preparation history will be preserved.', 'ehrman-blog-discovery' );
+		?>
+		<hr style="margin:32px 0 24px">
+		<h2><?php echo esc_html__( 'Reset test analytics', 'ehrman-blog-discovery' ); ?></h2>
+		<p><?php echo esc_html__( 'Export any records you want to retain before resetting. This action does not remove post embeddings or discovery search data.', 'ehrman-blog-discovery' ); ?></p>
+		<p><a class="button" href="<?php echo esc_url( $questions_export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinements_export_url ); ?>"><?php echo esc_html__( 'Export refinements CSV', 'ehrman-blog-discovery' ); ?></a></p>
+		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return window.confirm('<?php echo esc_js( $confirmation ); ?>');">
+			<input type="hidden" name="action" value="ehrman_ai_analytics_reset">
+			<input type="hidden" name="view" value="<?php echo esc_attr( $view ); ?>">
+			<?php wp_nonce_field( 'ehrman_ai_analytics_reset' ); ?>
+			<?php submit_button( __( 'Reset Test Analytics', 'ehrman-blog-discovery' ), 'delete', 'submit', false ); ?>
+		</form>
+		<?php
+	}
+
+	/**
+	 * Deletes test analytics while preserving semantic-index preparation usage.
+	 *
+	 * @throws \RuntimeException When an analytics table cannot be cleared.
+	 */
+	private static function delete_test_analytics(): void {
+		$tables = Database::tables();
+		self::delete_all_rows( $tables['ai_feedback'] );
+		self::delete_all_rows( $tables['ai_refinements'] );
+		self::delete_all_rows( $tables['ai_requests'] );
+
+		$sql = "DELETE FROM {$tables['ai_usage']} WHERE request_id<>''";
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally and no external values are used.
+		if ( false === Database::client()->query( $sql ) ) {
+			throw new \RuntimeException( 'Question usage records could not be deleted.' );
+		}
+	}
+
+	/**
+	 * Deletes every row from one internally named analytics table.
+	 *
+	 * @param string $table Fully qualified table name.
+	 * @throws \RuntimeException When the analytics table cannot be cleared.
+	 */
+	private static function delete_all_rows( string $table ): void {
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally.
+		if ( false === Database::client()->query( "DELETE FROM {$table}" ) ) {
+			throw new \RuntimeException( 'An analytics table could not be cleared.' );
+		}
+	}
+
+	/** Returns a valid analytics view posted by the reset form. */
+	private static function posted_view(): string {
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- The caller verifies the reset nonce before this value is used.
+		$value = isset( $_POST['view'] ) && is_scalar( $_POST['view'] ) ? sanitize_key( wp_unslash( (string) $_POST['view'] ) ) : 'combined';
+		return in_array( $value, array( 'combined', 'ask-ai', 'ask-ai-2', 'comparison' ), true ) ? $value : 'combined';
+	}
+
+	/**
 	 * Renders one request row.
 	 *
-	 * @param array<string,mixed> $row Request row.
+	 * @param array<string,mixed> $row             Request row.
+	 * @param float               $refinement_cost Cost of AI review calls linked to the request.
 	 */
-	private static function row( array $row ): void {
+	private static function row( array $row, float $refinement_cost ): void {
 		?>
-		<tr><td><?php echo esc_html( self::display_datetime( $row ) ); ?></td><td><?php echo esc_html( self::request_type_label( $row ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( self::term_text( $row ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( self::feedback_label( $row ) ); ?></td><td><?php self::source_details( $row ); ?></td><td><?php self::token_details( $row ); ?></td><td><?php echo esc_html( self::cents( (float) Database::text( $row['estimated_cost_usd'] ?? 0 ) ) ); ?></td></tr>
+		<tr><td><?php echo esc_html( self::display_datetime( $row ) ); ?></td><td><?php echo esc_html( self::request_type_label( $row ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( self::term_text( $row ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( self::feedback_label( $row ) ); ?></td><td><?php self::source_details( $row ); ?></td><td><?php self::token_details( $row ); ?></td><td><?php self::request_cost_details( $row, $refinement_cost ); ?></td></tr>
 		<?php
 	}
 
@@ -615,6 +723,39 @@ final class AI_Analytics_Page {
 				static fn( array $row ): bool => isset( $request_ids[ Database::text( $row['request_id'] ?? '' ) ] )
 			)
 		);
+	}
+
+	/**
+	 * Totals AI review costs by their parent question identifier.
+	 *
+	 * @param list<array<string,mixed>> $rows Refinement rows.
+	 * @return array<string,float> Refinement costs keyed by parent request identifier.
+	 */
+	private static function refinement_costs_by_request( array $rows ): array {
+		$costs = array();
+		foreach ( $rows as $row ) {
+			$request_id = Database::text( $row['request_id'] ?? '' );
+			if ( '' === $request_id ) {
+				continue;
+			}
+			$costs[ $request_id ] = ( $costs[ $request_id ] ?? 0.0 ) + (float) Database::text( $row['estimated_cost_usd'] ?? 0 );
+		}
+		return $costs;
+	}
+
+	/**
+	 * Renders total question cost first, followed by its two components.
+	 *
+	 * @param array<string,mixed> $row             Request row.
+	 * @param float               $refinement_cost Cost of linked AI review calls.
+	 */
+	private static function request_cost_details( array $row, float $refinement_cost ): void {
+		$initial_cost = (float) Database::text( $row['estimated_cost_usd'] ?? 0 );
+		$total_cost   = $initial_cost + $refinement_cost;
+		?>
+		<strong><?php echo esc_html( self::cents( $total_cost ) ); ?></strong>
+		<br><small><?php echo esc_html( sprintf( /* translators: 1: initial-call cost, 2: AI-review cost. */ __( 'Initial: %1$s; AI review: %2$s', 'ehrman-blog-discovery' ), self::cents( $initial_cost ), self::cents( $refinement_cost ) ) ); ?></small>
+		<?php
 	}
 
 	/**

@@ -13,11 +13,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Records privacy-conscious AI usage and provides aggregate reporting. */
 final class AI_Usage {
-	private const PRICING_VERSION = '2026-08-21';
-	private const INPUT_RATE      = 0.75;
-	private const CACHED_RATE     = 0.075;
-	private const OUTPUT_RATE     = 4.50;
-	private const EMBEDDING_RATE  = 0.02;
+	private const CACHE_VERSION_OPTION = 'ehrman_discovery_ai_cache_version';
+	private const PRICING_VERSION      = '2026-08-21';
+	private const INPUT_RATE           = 0.75;
+	private const CACHED_RATE          = 0.075;
+	private const OUTPUT_RATE          = 4.50;
+	private const EMBEDDING_RATE       = 0.02;
+
+	/** Returns the namespace version shared by all AI search caches. */
+	public static function cache_version(): int {
+		return max( 1, Database::integer( get_option( self::CACHE_VERSION_OPTION, 1 ) ) );
+	}
+
+	/** Invalidates cached interpretations, refinements, and semantic query vectors. */
+	public static function invalidate_search_caches(): void {
+		update_option( self::CACHE_VERSION_OPTION, self::cache_version() + 1, false );
+	}
 
 	/**
 	 * Records an interpretation served from the WordPress cache.
