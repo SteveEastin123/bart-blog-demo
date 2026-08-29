@@ -74,9 +74,9 @@ final class AI_Refinements {
 	public static function recent( int $limit = 100 ): array {
 		self::delete_expired();
 		$tables = Database::tables();
-		$usage  = "SELECT request_id,SUM(input_tokens) input_tokens,SUM(cached_input_tokens) cached_input_tokens,SUM(output_tokens) output_tokens,SUM(estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_usage']} WHERE request_id<>'' GROUP BY request_id";
+		$usage  = "SELECT request_id,MAX(response_id) response_id,MAX(service_tier) service_tier,MAX(pricing_version) pricing_version,SUM(input_tokens) input_tokens,SUM(cached_input_tokens) cached_input_tokens,SUM(cache_write_tokens) cache_write_tokens,SUM(output_tokens) output_tokens,SUM(reasoning_tokens) reasoning_tokens,SUM(total_tokens) total_tokens,SUM(estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_usage']} WHERE request_id<>'' GROUP BY request_id";
 		$sql    = Database::client()->prepare(
-			"SELECT r.*,COALESCE(u.input_tokens,r.input_tokens) input_tokens,COALESCE(u.cached_input_tokens,r.cached_input_tokens) cached_input_tokens,COALESCE(u.output_tokens,r.output_tokens) output_tokens,COALESCE(u.estimated_cost_usd,r.estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_refinements']} r LEFT JOIN ({$usage}) u ON u.request_id=r.refinement_id ORDER BY r.id DESC LIMIT %d",
+			"SELECT r.*,u.response_id,u.service_tier,u.pricing_version,COALESCE(u.input_tokens,r.input_tokens) input_tokens,COALESCE(u.cached_input_tokens,r.cached_input_tokens) cached_input_tokens,COALESCE(u.cache_write_tokens,0) cache_write_tokens,COALESCE(u.output_tokens,r.output_tokens) output_tokens,COALESCE(u.reasoning_tokens,0) reasoning_tokens,COALESCE(u.total_tokens,r.input_tokens+r.output_tokens) total_tokens,COALESCE(u.estimated_cost_usd,r.estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_refinements']} r LEFT JOIN ({$usage}) u ON u.request_id=r.refinement_id ORDER BY r.id DESC LIMIT %d",
 			max( 1, min( 5000, $limit ) )
 		);
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifiers are generated internally and limit is prepared.

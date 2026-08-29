@@ -120,12 +120,14 @@ final class AI_Requests {
 	 */
 	public static function analytics( array $filters, int $page = 1, int $per_page = 50 ): array {
 		self::delete_expired();
-		$rows     = self::rows();
-		$filtered = array_values( array_filter( $rows, static fn( array $row ): bool => self::matches( $row, $filters ) ) );
-		$total    = count( $filtered );
-		$yes      = count( array_filter( $filtered, static fn( array $row ): bool => '1' === Database::text( $row['feedback'] ?? null ) ) );
-		$no       = count( array_filter( $filtered, static fn( array $row ): bool => '0' === Database::text( $row['feedback'] ?? null ) ) );
-		$answered = $yes + $no;
+		$filters['date_from_utc'] = self::eastern_boundary( $filters['date_from'] ?? '', false );
+		$filters['date_to_utc']   = self::eastern_boundary( $filters['date_to'] ?? '', true );
+		$rows                     = self::rows();
+		$filtered                 = array_values( array_filter( $rows, static fn( array $row ): bool => self::matches( $row, $filters ) ) );
+		$total                    = count( $filtered );
+		$yes                      = count( array_filter( $filtered, static fn( array $row ): bool => '1' === Database::text( $row['feedback'] ?? null ) ) );
+		$no                       = count( array_filter( $filtered, static fn( array $row ): bool => '0' === Database::text( $row['feedback'] ?? null ) ) );
+		$answered                 = $yes + $no;
 		if ( 0 < $per_page ) {
 			$filtered = array_slice( $filtered, ( max( 1, $page ) - 1 ) * $per_page, $per_page );
 		}
@@ -148,8 +150,8 @@ final class AI_Requests {
 	private static function rows(): array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$usage  = "SELECT request_id,SUM(input_tokens) input_tokens,SUM(cached_input_tokens) cached_input_tokens,SUM(output_tokens) output_tokens,SUM(estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_usage']} WHERE request_id<>'' GROUP BY request_id";
-		$sql    = "SELECT r.*,u.input_tokens,u.cached_input_tokens,u.output_tokens,u.estimated_cost_usd FROM {$tables['ai_requests']} r LEFT JOIN ({$usage}) u ON u.request_id=r.request_id ORDER BY r.id DESC LIMIT 5000";
+		$usage  = "SELECT request_id,MAX(response_id) response_id,MAX(model) usage_model,MAX(service_tier) service_tier,MAX(pricing_version) pricing_version,SUM(input_tokens) input_tokens,SUM(cached_input_tokens) cached_input_tokens,SUM(cache_write_tokens) cache_write_tokens,SUM(output_tokens) output_tokens,SUM(reasoning_tokens) reasoning_tokens,SUM(total_tokens) total_tokens,SUM(estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_usage']} WHERE request_id<>'' GROUP BY request_id";
+		$sql    = "SELECT r.*,u.response_id,u.usage_model,u.service_tier,u.pricing_version,u.input_tokens,u.cached_input_tokens,u.cache_write_tokens,u.output_tokens,u.reasoning_tokens,u.total_tokens,u.estimated_cost_usd FROM {$tables['ai_requests']} r LEFT JOIN ({$usage}) u ON u.request_id=r.request_id ORDER BY r.id DESC LIMIT 5000";
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- All table identifiers are generated internally.
 		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
 	}
@@ -161,6 +163,14 @@ final class AI_Requests {
 	 * @param array<string,string> $filters Administrator filters.
 	 */
 	private static function matches( array $row, array $filters ): bool {
+		$interface = $filters['interface'] ?? 'all';
+		$type      = Database::text( $row['request_type'] ?? 'taxonomy' );
+		if ( 'taxonomy' === $interface && 'semantic' === $type ) {
+			return false;
+		}
+		if ( 'semantic' === $interface && 'semantic' !== $type ) {
+			return false;
+		}
 		$feedback = $filters['feedback'] ?? 'all';
 		$value    = Database::text( $row['feedback'] ?? null );
 		if ( 'yes' === $feedback && '1' !== $value ) {
@@ -176,15 +186,34 @@ final class AI_Requests {
 			return false;
 		}
 		$created = Database::text( $row['created_at'] ?? '' );
-		if ( '' !== ( $filters['date_from'] ?? '' ) && $created < $filters['date_from'] . ' 00:00:00' ) {
+		if ( '' !== ( $filters['date_from_utc'] ?? '' ) && $created < $filters['date_from_utc'] ) {
 			return false;
 		}
-		if ( '' !== ( $filters['date_to'] ?? '' ) && $created > $filters['date_to'] . ' 23:59:59' ) {
+		if ( '' !== ( $filters['date_to_utc'] ?? '' ) && $created > $filters['date_to_utc'] ) {
 			return false;
 		}
 		$needle   = Search_Service::normalize( $filters['search'] ?? '' );
 		$haystack = Search_Service::normalize( Database::text( $row['question'] ?? '' ) . ' ' . Database::text( $row['selected_terms'] ?? '' ) );
 		return '' === $needle || str_contains( $haystack, $needle );
+	}
+
+	/**
+	 * Converts an Eastern calendar-date boundary to its stored UTC value.
+	 *
+	 * @param string $date Date in YYYY-MM-DD format.
+	 * @param bool   $end  Whether to return the end of the day.
+	 */
+	private static function eastern_boundary( string $date, bool $end ): string {
+		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ) {
+			return '';
+		}
+		try {
+			$clock = $end ? '23:59:59' : '00:00:00';
+			$value = new \DateTimeImmutable( $date . ' ' . $clock, new \DateTimeZone( 'America/New_York' ) );
+			return $value->setTimezone( new \DateTimeZone( 'UTC' ) )->format( 'Y-m-d H:i:s' );
+		} catch ( \Exception $exception ) {
+			return '';
+		}
 	}
 
 	/**

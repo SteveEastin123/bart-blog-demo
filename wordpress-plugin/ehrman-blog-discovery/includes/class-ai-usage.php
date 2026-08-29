@@ -26,7 +26,7 @@ final class AI_Usage {
 	 * @param string $request_id Correlation identifier.
 	 */
 	public static function record_cache_hit( string $model, string $request_id = '' ): void {
-		self::insert( $model, 0, 0, 0, 0.0, true, true, '', $request_id );
+		self::insert( self::empty_metrics( $model ), true, true, '', $request_id );
 	}
 
 	/**
@@ -40,7 +40,7 @@ final class AI_Usage {
 	public static function record_response( array $response_body, bool $succeeded, string $error_code = '', string $request_id = '' ): void {
 		$metrics = self::response_metrics( $response_body );
 
-		self::insert( $metrics['model'], $metrics['input_tokens'], $metrics['cached_input_tokens'], $metrics['output_tokens'], $metrics['estimated_cost_usd'], false, $succeeded, $error_code, $request_id );
+		self::insert( $metrics, false, $succeeded, $error_code, $request_id );
 	}
 
 	/**
@@ -54,32 +54,56 @@ final class AI_Usage {
 	public static function record_embedding_response( array $response_body, bool $succeeded, string $error_code = '', string $request_id = '' ): void {
 		$usage        = is_array( $response_body['usage'] ?? null ) ? $response_body['usage'] : array();
 		$input_tokens = self::nonnegative_integer( $usage['prompt_tokens'] ?? $usage['input_tokens'] ?? 0 );
-		$model        = is_scalar( $response_body['model'] ?? null ) ? sanitize_text_field( (string) $response_body['model'] ) : '';
-		$cost         = ( $input_tokens * self::EMBEDDING_RATE ) / 1000000;
+		$model        = self::response_text( $response_body, 'model', 100 );
+		$metrics      = array(
+			'response_id'         => self::response_text( $response_body, 'id', 191 ),
+			'model'               => $model,
+			'service_tier'        => sanitize_key( self::response_text( $response_body, 'service_tier', 32 ) ),
+			'input_tokens'        => $input_tokens,
+			'cached_input_tokens' => 0,
+			'cache_write_tokens'  => 0,
+			'output_tokens'       => 0,
+			'reasoning_tokens'    => 0,
+			'total_tokens'        => self::nonnegative_integer( $usage['total_tokens'] ?? $input_tokens ),
+			'estimated_cost_usd'  => ( $input_tokens * self::EMBEDDING_RATE ) / 1000000,
+		);
 
-		self::insert( $model, $input_tokens, 0, 0, $cost, false, $succeeded, $error_code, $request_id );
+		self::insert( $metrics, false, $succeeded, $error_code, $request_id );
 	}
 
 	/**
 	 * Extracts token and estimated-cost details from a Responses API body.
 	 *
 	 * @param array<string,mixed> $response_body Decoded Responses API body.
-	 * @return array{model:string,input_tokens:int,cached_input_tokens:int,output_tokens:int,estimated_cost_usd:float}
+	 * @return array{
+	 *   response_id:string,model:string,service_tier:string,input_tokens:int,
+	 *   cached_input_tokens:int,cache_write_tokens:int,output_tokens:int,
+	 *   reasoning_tokens:int,total_tokens:int,estimated_cost_usd:float
+	 * }
 	 */
 	public static function response_metrics( array $response_body ): array {
 		$usage          = is_array( $response_body['usage'] ?? null ) ? $response_body['usage'] : array();
-		$details        = is_array( $usage['input_tokens_details'] ?? null ) ? $usage['input_tokens_details'] : array();
+		$input_details  = is_array( $usage['input_tokens_details'] ?? null ) ? $usage['input_tokens_details'] : array();
+		$output_details = is_array( $usage['output_tokens_details'] ?? null ) ? $usage['output_tokens_details'] : array();
 		$input_tokens   = self::nonnegative_integer( $usage['input_tokens'] ?? 0 );
-		$cached_tokens  = min( $input_tokens, self::nonnegative_integer( $details['cached_tokens'] ?? 0 ) );
+		$cached_tokens  = min( $input_tokens, self::nonnegative_integer( $input_details['cached_tokens'] ?? 0 ) );
+		$write_tokens   = min( $input_tokens, self::nonnegative_integer( $input_details['cache_write_tokens'] ?? 0 ) );
 		$output_tokens  = self::nonnegative_integer( $usage['output_tokens'] ?? 0 );
-		$model          = is_scalar( $response_body['model'] ?? null ) ? sanitize_text_field( (string) $response_body['model'] ) : '';
+		$reasoning      = min( $output_tokens, self::nonnegative_integer( $output_details['reasoning_tokens'] ?? 0 ) );
+		$total_tokens   = self::nonnegative_integer( $usage['total_tokens'] ?? ( $input_tokens + $output_tokens ) );
+		$model          = self::response_text( $response_body, 'model', 100 );
 		$estimated_cost = self::estimate_cost( $input_tokens, $cached_tokens, $output_tokens );
 
 		return array(
+			'response_id'         => self::response_text( $response_body, 'id', 191 ),
 			'model'               => $model,
+			'service_tier'        => sanitize_key( self::response_text( $response_body, 'service_tier', 32 ) ),
 			'input_tokens'        => $input_tokens,
 			'cached_input_tokens' => $cached_tokens,
+			'cache_write_tokens'  => $write_tokens,
 			'output_tokens'       => $output_tokens,
+			'reasoning_tokens'    => $reasoning,
+			'total_tokens'        => $total_tokens,
 			'estimated_cost_usd'  => $estimated_cost,
 		);
 	}
@@ -92,7 +116,7 @@ final class AI_Usage {
 	 * @param string $request_id Correlation identifier.
 	 */
 	public static function record_failure( string $model, string $error_code, string $request_id = '' ): void {
-		self::insert( $model, 0, 0, 0, 0.0, false, false, $error_code, $request_id );
+		self::insert( self::empty_metrics( $model ), false, false, $error_code, $request_id );
 	}
 
 	/**
@@ -100,7 +124,8 @@ final class AI_Usage {
 	 *
 	 * @return array{
 	 *   submissions:int,api_requests:int,cache_hits:int,failures:int,
-	 *   input_tokens:int,cached_input_tokens:int,output_tokens:int,
+	 *   input_tokens:int,cached_input_tokens:int,cache_write_tokens:int,
+	 *   output_tokens:int,reasoning_tokens:int,total_tokens:int,
 	 *   total_cost:float,month_cost:float,today_cost:float,average_cost:float,
 	 *   models:list<array<string,mixed>>
 	 * } Aggregate usage values.
@@ -122,7 +147,10 @@ final class AI_Usage {
 			SUM(CASE WHEN request_succeeded=0 THEN 1 ELSE 0 END) AS failures,
 			SUM(input_tokens) AS input_tokens,
 			SUM(cached_input_tokens) AS cached_input_tokens,
+			SUM(cache_write_tokens) AS cache_write_tokens,
 			SUM(output_tokens) AS output_tokens,
+			SUM(reasoning_tokens) AS reasoning_tokens,
+			SUM(CASE WHEN total_tokens=0 THEN input_tokens+output_tokens ELSE total_tokens END) AS total_tokens,
 			SUM(estimated_cost_usd) AS total_cost,
 			SUM(CASE WHEN created_at >= %s THEN estimated_cost_usd ELSE 0 END) AS month_cost,
 			SUM(CASE WHEN created_at >= %s THEN estimated_cost_usd ELSE 0 END) AS today_cost
@@ -138,9 +166,14 @@ final class AI_Usage {
 
 		$api_requests = Database::integer( $row['api_requests'] ?? 0 );
 		$total_cost   = (float) Database::text( $row['total_cost'] ?? 0 );
-		$model_sql    = 'SELECT model,COUNT(*) AS submissions,SUM(CASE WHEN cache_hit=0 THEN 1 ELSE 0 END) AS api_requests,'
-			. 'SUM(input_tokens) AS input_tokens,SUM(output_tokens) AS output_tokens,SUM(estimated_cost_usd) AS total_cost '
-			. "FROM {$table} GROUP BY model ORDER BY total_cost DESC,model";
+		$model_sql    = 'SELECT model,service_tier,pricing_version,COUNT(*) AS submissions,'
+			. 'SUM(CASE WHEN cache_hit=0 THEN 1 ELSE 0 END) AS api_requests,'
+			. 'SUM(input_tokens) AS input_tokens,SUM(cached_input_tokens) AS cached_input_tokens,'
+			. 'SUM(cache_write_tokens) AS cache_write_tokens,SUM(output_tokens) AS output_tokens,'
+			. 'SUM(reasoning_tokens) AS reasoning_tokens,'
+			. 'SUM(CASE WHEN total_tokens=0 THEN input_tokens+output_tokens ELSE total_tokens END) AS total_tokens,'
+			. 'SUM(estimated_cost_usd) AS total_cost '
+			. "FROM {$table} WHERE cache_hit=0 GROUP BY model,service_tier,pricing_version ORDER BY total_cost DESC,model";
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally.
 		$model_rows = Database::associative_rows( $wpdb->get_results( $model_sql, ARRAY_A ) );
 
@@ -151,12 +184,43 @@ final class AI_Usage {
 			'failures'            => Database::integer( $row['failures'] ?? 0 ),
 			'input_tokens'        => Database::integer( $row['input_tokens'] ?? 0 ),
 			'cached_input_tokens' => Database::integer( $row['cached_input_tokens'] ?? 0 ),
+			'cache_write_tokens'  => Database::integer( $row['cache_write_tokens'] ?? 0 ),
 			'output_tokens'       => Database::integer( $row['output_tokens'] ?? 0 ),
+			'reasoning_tokens'    => Database::integer( $row['reasoning_tokens'] ?? 0 ),
+			'total_tokens'        => Database::integer( $row['total_tokens'] ?? 0 ),
 			'total_cost'          => $total_cost,
 			'month_cost'          => (float) Database::text( $row['month_cost'] ?? 0 ),
 			'today_cost'          => (float) Database::text( $row['today_cost'] ?? 0 ),
 			'average_cost'        => $api_requests > 0 ? $total_cost / $api_requests : 0.0,
 			'models'              => $model_rows,
+		);
+	}
+
+	/**
+	 * Returns semantic-index embedding usage that is not tied to a question.
+	 *
+	 * @return array{calls:int,input_tokens:int,total_cost:float} Index-build usage values.
+	 */
+	public static function semantic_index_report(): array {
+		$wpdb  = Database::client();
+		$table = Database::tables()['ai_usage'];
+		if ( ! Database::table_exists( $table ) ) {
+			return array(
+				'calls'        => 0,
+				'input_tokens' => 0,
+				'total_cost'   => 0.0,
+			);
+		}
+		$sql = $wpdb->prepare(
+			"SELECT COUNT(*) calls,SUM(input_tokens) input_tokens,SUM(estimated_cost_usd) total_cost FROM {$table} WHERE request_id='' AND model LIKE %s",
+			'text-embedding-%'
+		);
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally and the value is prepared.
+		$row = Database::associative_row( $wpdb->get_row( $sql, ARRAY_A ) );
+		return array(
+			'calls'        => Database::integer( $row['calls'] ?? 0 ),
+			'input_tokens' => Database::integer( $row['input_tokens'] ?? 0 ),
+			'total_cost'   => (float) Database::text( $row['total_cost'] ?? 0 ),
 		);
 	}
 
@@ -175,36 +239,74 @@ final class AI_Usage {
 	/**
 	 * Inserts one privacy-conscious usage event.
 	 *
-	 * @param string $model         Model identifier.
-	 * @param int    $input_tokens  Total input tokens.
-	 * @param int    $cached_tokens Cached input tokens.
-	 * @param int    $output_tokens Output tokens.
-	 * @param float  $cost          Estimated US-dollar cost.
-	 * @param bool   $cache_hit      Whether WordPress served the interpretation from cache.
-	 * @param bool   $succeeded      Whether the interpretation succeeded.
-	 * @param string $error_code     Stable local error code.
-	 * @param string $request_id     Correlation identifier.
+	 * @param array<string,int|float|string> $metrics    API response metrics.
+	 * @param bool                           $cache_hit  Whether WordPress served the interpretation from cache.
+	 * @param bool                           $succeeded  Whether the interpretation succeeded.
+	 * @param string                         $error_code Stable local error code.
+	 * @param string                         $request_id Correlation identifier.
 	 */
-	private static function insert( string $model, int $input_tokens, int $cached_tokens, int $output_tokens, float $cost, bool $cache_hit, bool $succeeded, string $error_code, string $request_id ): void {
+	private static function insert( array $metrics, bool $cache_hit, bool $succeeded, string $error_code, string $request_id ): void {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ai_usage'];
 		$wpdb->insert(
 			$table,
 			array(
 				'created_at'          => current_time( 'mysql', true ),
-				'model'               => sanitize_text_field( $model ),
-				'input_tokens'        => $input_tokens,
-				'cached_input_tokens' => $cached_tokens,
-				'output_tokens'       => $output_tokens,
-				'estimated_cost_usd'  => number_format( $cost, 8, '.', '' ),
+				'response_id'         => sanitize_text_field( Database::text( $metrics['response_id'] ?? '' ) ),
+				'model'               => sanitize_text_field( Database::text( $metrics['model'] ?? '' ) ),
+				'service_tier'        => sanitize_key( Database::text( $metrics['service_tier'] ?? '' ) ),
+				'input_tokens'        => self::nonnegative_integer( $metrics['input_tokens'] ?? 0 ),
+				'cached_input_tokens' => self::nonnegative_integer( $metrics['cached_input_tokens'] ?? 0 ),
+				'cache_write_tokens'  => self::nonnegative_integer( $metrics['cache_write_tokens'] ?? 0 ),
+				'output_tokens'       => self::nonnegative_integer( $metrics['output_tokens'] ?? 0 ),
+				'reasoning_tokens'    => self::nonnegative_integer( $metrics['reasoning_tokens'] ?? 0 ),
+				'total_tokens'        => self::nonnegative_integer( $metrics['total_tokens'] ?? 0 ),
+				'estimated_cost_usd'  => number_format( (float) Database::text( $metrics['estimated_cost_usd'] ?? 0 ), 8, '.', '' ),
 				'cache_hit'           => $cache_hit ? 1 : 0,
 				'request_succeeded'   => $succeeded ? 1 : 0,
 				'error_code'          => sanitize_key( $error_code ),
 				'pricing_version'     => self::PRICING_VERSION,
 				'request_id'          => sanitize_text_field( $request_id ),
 			),
-			array( '%s', '%s', '%d', '%d', '%d', '%s', '%d', '%d', '%s', '%s', '%s' )
+			array( '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%s', '%d', '%d', '%s', '%s', '%s' )
 		);
+	}
+
+	/**
+	 * Returns a zero-token metric set for cache hits and local failures.
+	 *
+	 * @param string $model Configured model identifier.
+	 * @return array{
+	 *   response_id:string,model:string,service_tier:string,input_tokens:int,
+	 *   cached_input_tokens:int,cache_write_tokens:int,output_tokens:int,
+	 *   reasoning_tokens:int,total_tokens:int,estimated_cost_usd:float
+	 * }
+	 */
+	private static function empty_metrics( string $model ): array {
+		return array(
+			'response_id'         => '',
+			'model'               => $model,
+			'service_tier'        => '',
+			'input_tokens'        => 0,
+			'cached_input_tokens' => 0,
+			'cache_write_tokens'  => 0,
+			'output_tokens'       => 0,
+			'reasoning_tokens'    => 0,
+			'total_tokens'        => 0,
+			'estimated_cost_usd'  => 0.0,
+		);
+	}
+
+	/**
+	 * Returns one sanitized scalar field from an API response.
+	 *
+	 * @param array<string,mixed> $response_body Decoded API response.
+	 * @param string              $key           Response field.
+	 * @param int                 $length        Maximum stored length.
+	 */
+	private static function response_text( array $response_body, string $key, int $length ): string {
+		$value = is_scalar( $response_body[ $key ] ?? null ) ? sanitize_text_field( (string) $response_body[ $key ] ) : '';
+		return substr( $value, 0, $length );
 	}
 
 	/**
@@ -221,7 +323,8 @@ final class AI_Usage {
 	 *
 	 * @return array{
 	 *   submissions:int,api_requests:int,cache_hits:int,failures:int,
-	 *   input_tokens:int,cached_input_tokens:int,output_tokens:int,
+	 *   input_tokens:int,cached_input_tokens:int,cache_write_tokens:int,
+	 *   output_tokens:int,reasoning_tokens:int,total_tokens:int,
 	 *   total_cost:float,month_cost:float,today_cost:float,average_cost:float,
 	 *   models:list<array<string,mixed>>
 	 * } Empty aggregate report.
@@ -234,7 +337,10 @@ final class AI_Usage {
 			'failures'            => 0,
 			'input_tokens'        => 0,
 			'cached_input_tokens' => 0,
+			'cache_write_tokens'  => 0,
 			'output_tokens'       => 0,
+			'reasoning_tokens'    => 0,
+			'total_tokens'        => 0,
 			'total_cost'          => 0.0,
 			'month_cost'          => 0.0,
 			'today_cost'          => 0.0,

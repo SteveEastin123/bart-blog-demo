@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1320" viewBox="0 0 1800 1320" role="img" aria-labelledby="title description">
   <title id="title">Ways to find posts on the Bart Ehrman Blog</title>
-  <desc id="description">A symmetrical comparison of Keyword Search and Browse Topics. Keyword Search combines topics and secondary keywords into search terms and results. Browse Topics moves from subject areas to categories and topics. Both paths end with posts.</desc>
+  <desc id="description">A symmetrical comparison of Browse Topics and Keyword Search. Browse Topics moves from subject areas to categories and topics. Keyword Search combines topics and secondary keywords into search terms and results. Both paths end with posts.</desc>
   <defs>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
       <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#392d20" flood-opacity="0.10"/>
@@ -24,7 +24,7 @@
       .label { font: 700 29px Arial, Helvetica, sans-serif; fill: #171512; }
       .label-small { font: 700 24px Arial, Helvetica, sans-serif; fill: #171512; }
       .count { font: 400 22px Arial, Helvetica, sans-serif; fill: #57514a; }
-      .note { font: 600 21px Arial, Helvetica, sans-serif; fill: #7d201a; }
+      .note { font: 600 26px Arial, Helvetica, sans-serif; fill: #7d201a; }
       .definition-title { font: 700 26px Arial, Helvetica, sans-serif; fill: #6f1d18; }
       .definition { font: 400 22px Arial, Helvetica, sans-serif; fill: #45413c; }
       .arrow { fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }
@@ -37,57 +37,57 @@
   <rect class="panel" x="60" y="45" width="800" height="865" rx="16"/>
   <rect class="panel" x="940" y="45" width="800" height="865" rx="16"/>
 
-  <text class="heading" x="105" y="115">Keyword Search</text>
+  <text class="heading" x="105" y="115">Browse Topics</text>
   <line class="accent" x1="105" y1="143" x2="205" y2="143"/>
-  <text class="subheading" x="105" y="185">Combine up to four topics or secondary keywords</text>
-  <text class="subheading" x="105" y="217">to find relevant posts.</text>
+  <text class="subheading" x="105" y="185">Explore posts through one of two subject-area</text>
+  <text class="subheading" x="105" y="217">structures.</text>
 
-  <text class="heading" x="985" y="115">Browse Topics</text>
+  <text class="heading" x="985" y="115">Keyword Search</text>
   <line class="accent" x1="985" y1="143" x2="1085" y2="143"/>
-  <text class="subheading" x="985" y="185">Explore posts through one of two subject-area</text>
-  <text class="subheading" x="985" y="217">structures.</text>
+  <text class="subheading" x="985" y="185">Combine up to four topics or secondary keywords</text>
+  <text class="subheading" x="985" y="217">to find relevant posts.</text>
 
   <text class="stage" x="145" y="258">START WITH</text>
   <text class="stage" x="1025" y="258">START WITH</text>
 
-  <rect class="box topic" x="145" y="275" width="315" height="120" rx="12"/>
-  <rect class="box keyword" x="460" y="275" width="315" height="120" rx="12"/>
-  <text class="label" x="302" y="323" text-anchor="middle">Topics</text>
-  <text class="count" x="302" y="361" text-anchor="middle">293 topics</text>
-  <text class="label-small" x="617" y="320" text-anchor="middle">Secondary Keywords</text>
-  <text class="count" x="617" y="361" text-anchor="middle">897 keywords</text>
+  <rect class="box subject" x="145" y="275" width="315" height="120" rx="12"/>
+  <rect class="box subject" x="460" y="275" width="315" height="120" rx="12"/>
+  <text class="label-small" x="302" y="323" text-anchor="middle">Browse Topics 1</text>
+  <text class="count" x="302" y="361" text-anchor="middle">10 subject areas</text>
+  <text class="label-small" x="617" y="323" text-anchor="middle">Browse Topics 2</text>
+  <text class="count" x="617" y="361" text-anchor="middle">9 subject areas</text>
 
-  <rect class="box subject" x="1025" y="275" width="315" height="120" rx="12"/>
-  <rect class="box subject" x="1340" y="275" width="315" height="120" rx="12"/>
-  <text class="label-small" x="1182" y="323" text-anchor="middle">Browse Topics 1</text>
-  <text class="count" x="1182" y="361" text-anchor="middle">10 subject areas</text>
-  <text class="label-small" x="1497" y="323" text-anchor="middle">Browse Topics 2</text>
-  <text class="count" x="1497" y="361" text-anchor="middle">9 subject areas</text>
+  <rect class="box topic" x="1025" y="275" width="315" height="120" rx="12"/>
+  <rect class="box keyword" x="1340" y="275" width="315" height="120" rx="12"/>
+  <text class="label" x="1182" y="323" text-anchor="middle">Topics</text>
+  <text class="count" x="1182" y="361" text-anchor="middle">293 topics</text>
+  <text class="label-small" x="1497" y="320" text-anchor="middle">Secondary Keywords</text>
+  <text class="count" x="1497" y="361" text-anchor="middle">897 keywords</text>
 
-  <path class="arrow" d="M460 395 L460 529"/>
-  <path class="arrow" d="M1340 395 L1340 448"/>
+  <path class="arrow" d="M460 395 L460 448"/>
+  <path class="arrow" d="M1340 395 L1340 529"/>
 
-  <rect class="box process" x="145" y="529" width="630" height="105" rx="12"/>
-  <text class="label" x="460" y="571" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="460" y="608" text-anchor="middle">Topics, secondary keywords, or both</text>
+  <rect class="box category" x="145" y="448" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="490" text-anchor="middle">Categories</text>
+  <text class="count" x="460" y="527" text-anchor="middle">41 categories</text>
 
-  <rect class="box category" x="1025" y="448" width="630" height="105" rx="12"/>
-  <text class="label" x="1340" y="490" text-anchor="middle">Categories</text>
-  <text class="count" x="1340" y="527" text-anchor="middle">41 categories</text>
+  <rect class="box process" x="1025" y="529" width="630" height="105" rx="12"/>
+  <text class="label" x="1340" y="571" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="1340" y="608" text-anchor="middle">Topics, secondary keywords, or both</text>
 
-  <path class="arrow" d="M1340 553 L1340 610"/>
+  <path class="arrow" d="M460 553 L460 610"/>
 
-  <rect class="box topic" x="1025" y="610" width="630" height="105" rx="12"/>
-  <text class="label" x="1340" y="652" text-anchor="middle">Topics</text>
-  <text class="count" x="1340" y="689" text-anchor="middle">293 topics</text>
+  <rect class="box topic" x="145" y="610" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="652" text-anchor="middle">Topics</text>
+  <text class="count" x="460" y="689" text-anchor="middle">293 topics</text>
 
-  <path class="arrow" d="M460 634 L460 772"/>
-  <path class="arrow" d="M1340 715 L1340 772"/>
+  <path class="arrow" d="M460 715 L460 772"/>
+  <path class="arrow" d="M1340 634 L1340 772"/>
 
   <rect class="box post" x="145" y="772" width="630" height="88" rx="12"/>
   <rect class="box post" x="1025" y="772" width="630" height="88" rx="12"/>
-  <text class="label" x="460" y="826" text-anchor="middle">Posts (4,407)</text>
-  <text class="label" x="1340" y="826" text-anchor="middle">Posts (4,407)</text>
+  <text class="label" x="460" y="826" text-anchor="middle">Posts</text>
+  <text class="label" x="1340" y="826" text-anchor="middle">Posts</text>
 
   <text class="note" x="900" y="970" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
 

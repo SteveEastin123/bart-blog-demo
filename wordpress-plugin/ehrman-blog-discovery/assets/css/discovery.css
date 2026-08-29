@@ -596,6 +596,7 @@
   display: block;
   width: min(100%, 780px);
   min-height: 112px;
+  margin-top: 10px;
   padding: 13px 15px;
   resize: vertical;
   border: 1px solid #cdbb99;

@@ -151,8 +151,8 @@ final class Plugin {
 				</tbody>
 			</table>
 			<h2><?php echo esc_html__( 'AI analytics', 'ehrman-blog-discovery' ); ?></h2>
-			<p><?php echo esc_html__( 'Questions, feedback, token usage, refinement activity, and estimated costs are consolidated on the Ask AI Analytics page.', 'ehrman-blog-discovery' ); ?></p>
-			<p><a class="button" href="<?php echo esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ); ?>"><?php echo esc_html__( 'Open Ask AI Analytics', 'ehrman-blog-discovery' ); ?></a></p>
+			<p><?php echo esc_html__( 'Questions, feedback, token usage, refinement activity, and estimated costs are consolidated on the AI Search Analytics page.', 'ehrman-blog-discovery' ); ?></p>
+			<p><a class="button" href="<?php echo esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ); ?>"><?php echo esc_html__( 'Open AI Search Analytics', 'ehrman-blog-discovery' ); ?></a></p>
 			<h2><?php echo esc_html__( 'Authoritative JSON import', 'ehrman-blog-discovery' ); ?></h2>
 			<p>
 				<?php

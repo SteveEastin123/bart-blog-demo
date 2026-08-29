@@ -57,7 +57,7 @@ final class Page_Controller {
 	public static function ensure_pages(): void {
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'ask_question'     => array( 'Ask AI', 'ask-ai', '[ehrman_ask_question]' ),
+			'ask_question'     => array( 'Ask AI 1', 'ask-ai', '[ehrman_ask_question]' ),
 			'ask_ai_2'         => array( 'Ask AI 2', 'ask-ai-2', '[ehrman_ask_ai_2]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
@@ -333,7 +333,7 @@ final class Page_Controller {
 			. '" method="get" data-ebd-question-form><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><div id="' . esc_attr( $id )
 			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
 			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review. It does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
+			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
 			. 'placeholder="' . esc_attr__( 'Example: How do the teachings of Paul differ from those of Jesus?', 'ehrman-blog-discovery' )
 			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
@@ -377,7 +377,7 @@ final class Page_Controller {
 			. '" method="get" data-ebd-semantic-form' . ( '' !== trim( $question ) ? ' data-ebd-auto-run="true"' : '' )
 			. '><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><label for="' . esc_attr( $id ) . '"><strong>'
 			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review. It does not generate answers or summarize Bart\'s views.', 'ehrman-blog-discovery' )
+			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review.', 'ehrman-blog-discovery' )
 			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required placeholder="'
 			. esc_attr__( 'Example: How does Luke change Mark?', 'ehrman-blog-discovery' )
 			. '" data-ebd-semantic-question>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
