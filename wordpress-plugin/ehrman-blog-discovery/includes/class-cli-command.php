@@ -75,11 +75,16 @@ final class Cli_Command {
 			\WP_CLI::line( "{$name}: {$count}" );
 		}
 		$semantic = ( new Semantic_Search_Service() )->status();
-		\WP_CLI::line( 'Semantic embeddings: ' . $semantic['indexed'] . ' of ' . $semantic['eligible'] );
+		\WP_CLI::line( 'Semantic retrieval strategy: ' . $semantic['strategy'] );
+		\WP_CLI::line( 'Content embeddings: ' . $semantic['indexed'] . ' of ' . $semantic['eligible'] );
+		\WP_CLI::line( 'Metadata embeddings: ' . $semantic['metadata']['current'] . ' of ' . $semantic['metadata']['eligible'] );
+		foreach ( $semantic['metadata']['kinds'] as $kind => $counts ) {
+			\WP_CLI::line( "  {$kind}: {$counts['current']} of {$counts['eligible']}" );
+		}
 	}
 
 	/**
-	 * Build or refresh title-and-summary embeddings for Ask AI 2.
+	 * Build or refresh the embeddings required by the active Ask AI 2 strategy.
 	 *
 	 * ## OPTIONS
 	 *
@@ -89,10 +94,14 @@ final class Cli_Command {
 	 * [--batch-size=<number>]
 	 * : Number of posts sent in each embeddings request. Default: 50.
 	 *
+	 * [--purge-metadata]
+	 * : Delete optional topic, alias, and secondary-keyword vectors after building the content index.
+	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp ehrman-discovery embeddings
 	 *     wp ehrman-discovery embeddings --force --batch-size=50
+	 *     wp ehrman-discovery embeddings --purge-metadata
 	 *
 	 * @param array<int,string>   $args       Positional command arguments.
 	 * @param array<string,mixed> $assoc_args Named command arguments.
@@ -121,13 +130,59 @@ final class Cli_Command {
 			\WP_CLI::error( $result->get_error_message() );
 			return;
 		}
-		\WP_CLI::success(
+		\WP_CLI::line(
 			sprintf(
-				'Indexed %d eligible posts: %d generated, %d unchanged, and %d obsolete embeddings removed.',
+				'Content index: %d eligible posts, %d generated, %d unchanged, and %d obsolete embeddings removed.',
 				$result['eligible'],
 				$result['generated'],
 				$result['unchanged'],
 				$result['removed']
+			)
+		);
+
+		if ( isset( $assoc_args['purge-metadata'] ) ) {
+			$removed = $service->clear_metadata_index();
+			\WP_CLI::success(
+				sprintf(
+					'Content index ready; %d optional metadata embeddings removed.',
+					$removed
+				)
+			);
+			return;
+		}
+
+		if ( 'hybrid-metadata' !== $status['strategy'] ) {
+			\WP_CLI::success( 'Content index ready; optional metadata embeddings were not built for the active retrieval strategy.' );
+			return;
+		}
+
+		$metadata_status   = $service->status()['metadata'];
+		$metadata_bar      = null;
+		$metadata_last     = 0;
+		$metadata_progress = null;
+		if ( $metadata_status['eligible'] > 0 ) {
+			$metadata_bar      = \WP_CLI\Utils\make_progress_bar( 'Building semantic metadata embeddings', $metadata_status['eligible'] );
+			$metadata_progress = static function ( int $processed, int $total ) use ( $metadata_bar, &$metadata_last ): void {
+				unset( $total );
+				$metadata_bar->tick( max( 0, $processed - $metadata_last ) );
+				$metadata_last = $processed;
+			};
+		}
+		$metadata_result = $service->build_metadata_index( isset( $assoc_args['force'] ), $batch_size, $metadata_progress );
+		if ( null !== $metadata_bar ) {
+			$metadata_bar->finish();
+		}
+		if ( is_wp_error( $metadata_result ) ) {
+			\WP_CLI::error( $metadata_result->get_error_message() );
+			return;
+		}
+		\WP_CLI::success(
+			sprintf(
+				'Metadata index: %d eligible vectors, %d generated, %d unchanged, and %d obsolete embeddings removed.',
+				$metadata_result['eligible'],
+				$metadata_result['generated'],
+				$metadata_result['unchanged'],
+				$metadata_result['removed']
 			)
 		);
 	}

@@ -29,9 +29,11 @@ AI-refined results are grouped into direct answers, strongly related posts, and
 supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
 restore the previous flat relevance-ordered result list.
 
-Ask AI 2 combines semantic similarity with exact title, summary, topic, and
-keyword signals. Set `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=semantic` to restore
-semantic-only candidate ranking without changing the stored embeddings.
+Ask AI 2 uses the selected single-vector `hybrid` retrieval strategy, combining
+title-and-summary similarity with lexical and exact metadata signals. The
+experimental topic, alias, and secondary-keyword vectors are disabled unless
+`EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=hybrid-metadata` is explicitly selected.
+Use `semantic` to test title-and-summary similarity alone.
 
 Validate the running stack with the bundled Python runtime path when `python`
 is not on `PATH`:
@@ -84,6 +86,28 @@ temporary database and backup.
 - `/healthz` does not depend on WordPress installation state.
 - The protected parity route is disabled unless a test token is explicitly set.
 - WordPress file editing is disabled so deployed code continues to come from Git.
+
+## Ask AI 2 Index
+
+Ask AI 2 uses one title-and-summary vector per eligible post. After deploying a
+plugin or data update, refresh the semantic index from the WordPress service
+shell. The command does not build optional metadata vectors while `hybrid` is
+active:
+
+```bash
+wp ehrman-discovery embeddings --allow-root --path=/var/www/html
+```
+
+On a Render database that previously contained experimental topic, alias, or
+secondary-keyword vectors, rebuild the content index and remove those rows with:
+
+```bash
+wp ehrman-discovery embeddings --purge-metadata --allow-root --path=/var/www/html
+```
+
+The empty metadata table remains part of the plugin schema so the experiment can
+still be run locally, but no metadata vectors are stored or loaded in the
+selected Render configuration.
 
 ## Render Blueprint
 

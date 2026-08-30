@@ -348,9 +348,9 @@ final class Page_Controller {
 	/**
 	 * Builds the streamlined Ask AI 2 question form.
 	 *
-	 * @param string                                                                 $question Reader question.
-	 * @param string                                                                 $sort     Selected result order.
-	 * @param array{eligible:int,indexed:int,ready:bool,model:string,dimensions:int} $status   Semantic index status.
+	 * @param string              $question Reader question.
+	 * @param string              $sort     Selected result order.
+	 * @param array<string,mixed> $status   Semantic index status.
 	 * @return string Question form markup.
 	 */
 	private function semantic_question_panel( string $question, string $sort, array $status ): string {
@@ -873,7 +873,7 @@ final class Page_Controller {
 		}
 		$suggestion_order .= '</div>';
 		$summary_label     = $ai_interpretation ? __( 'Interpreted as:', 'ehrman-blog-discovery' ) : __( 'Current search:', 'ehrman-blog-discovery' );
-		$edit_label        = $ai_interpretation ? __( 'Adjust search', 'ehrman-blog-discovery' ) : __( 'Edit search', 'ehrman-blog-discovery' );
+		$edit_label        = $ai_interpretation ? __( 'Review or adjust search terms', 'ehrman-blog-discovery' ) : __( 'Edit search', 'ehrman-blog-discovery' );
 		$compact_summary   = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
 			. '<strong>' . esc_html( $summary_label ) . '</strong> '
 			. '<span data-ebd-search-summary></span></p><button type="button" class="ebd-search-edit" '
@@ -881,7 +881,8 @@ final class Page_Controller {
 			. esc_html( $edit_label ) . '</button></div>';
 		return '<form class="ebd-search-panel" action="' . esc_url( $action ) . '" method="get" data-ebd-search-form '
 			. 'data-category="' . esc_attr( '' !== $category_scope ? $category_scope : $selected_category ) . '" '
-			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-initial-collapse="'
+			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-force-initial-collapse="'
+			. ( $ai_interpretation ? 'true' : 'false' ) . '" data-ebd-initial-collapse="'
 			. ( $has_search_state ? 'true' : 'false' ) . '">' . $extra_fields . $compact_summary
 			. '<div id="' . esc_attr( $id ) . '-controls" class="ebd-search-controls" data-ebd-search-expanded>' . $scope . $category_filter
 			. '<p class="ebd-search-instructions"><strong>' . esc_html__( 'Select up to four search terms.', 'ehrman-blog-discovery' )

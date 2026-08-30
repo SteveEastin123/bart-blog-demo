@@ -16,9 +16,11 @@ regular Keyword Search limit.
 AI-refined results are grouped into direct answers, strongly related posts, and
 supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
 restore the previous flat relevance-ordered result list.
-Ask AI 2 defaults to hybrid retrieval across semantic similarity, post text,
-and assigned metadata. Set `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=semantic` to
-restore semantic-only candidate ranking.
+Ask AI 2 defaults to the selected single-vector `hybrid` retrieval strategy,
+which combines title-and-summary similarity with lexical and exact metadata
+signals. The experimental topic, alias, and secondary-keyword vectors are used
+only when `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=hybrid-metadata` is explicitly
+set. Use `semantic` to test title-and-summary similarity alone.
 
 ## Services
 

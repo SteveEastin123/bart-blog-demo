@@ -1,13 +1,25 @@
 <?php
 
-class WP_CLI {
-	public static function add_command( string $name, string $class_name ): void {}
+namespace {
+	class WP_CLI {
+		public static function add_command( string $name, string $class_name ): void {}
 
-	public static function error( string $message ): void {}
+		public static function error( string $message ): void {}
 
-	public static function line( string $message ): void {}
+		public static function line( string $message ): void {}
 
-	public static function success( string $message ): void {}
+		public static function success( string $message ): void {}
 
-	public static function warning( string $message ): void {}
+		public static function warning( string $message ): void {}
+	}
+
+	class Ehrman_WP_CLI_Progress_Bar {
+		public function tick( int $increment = 1 ): void {}
+
+		public function finish(): void {}
+	}
+}
+
+namespace WP_CLI\Utils {
+	function make_progress_bar( string $message, int $count ): \Ehrman_WP_CLI_Progress_Bar {}
 }

@@ -134,10 +134,14 @@
     const hasState = searchHasState(form);
     const preference = searchControlsPreference();
     const initialCollapse = form.dataset.ebdInitialCollapse === "true";
+    const forceInitialCollapse = form.dataset.ebdForceInitialCollapse === "true";
     updateSearchControlsSummary(form);
     setSearchControlsCollapsed(
       form,
-      hasState && preference !== "expanded" && (preference === "collapsed" || initialCollapse),
+      hasState && (
+        forceInitialCollapse
+        || (preference !== "expanded" && (preference === "collapsed" || initialCollapse))
+      ),
       false
     );
     form.querySelector("[data-ebd-search-collapse]")?.addEventListener("click", () => {

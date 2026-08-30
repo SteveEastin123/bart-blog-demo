@@ -333,7 +333,7 @@ final class Rest_Controller {
 				(string) $candidates->get_error_code(),
 				'semantic',
 				AI_Interpreter::model_id(),
-				Semantic_Search_Service::PIPELINE_VERSION
+				Semantic_Search_Service::pipeline_version()
 			);
 			return $candidates;
 		}
@@ -347,7 +347,7 @@ final class Rest_Controller {
 			'',
 			'semantic',
 			AI_Interpreter::model_id(),
-			Semantic_Search_Service::PIPELINE_VERSION
+			Semantic_Search_Service::pipeline_version()
 		);
 		$broader       = $candidates['posts'];
 		$broader_count = count( $broader );

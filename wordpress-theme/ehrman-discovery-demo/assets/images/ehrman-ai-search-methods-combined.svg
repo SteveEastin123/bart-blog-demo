@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1390" viewBox="0 0 1800 1390" role="img" aria-labelledby="title description">
+  <title id="title">Ask AI: two approaches under evaluation</title>
+  <desc id="description">A shared Ask AI workflow branches into two search approaches. Ask AI 1 uses AI to identify relevant topics and keywords, then searches the database with those terms. Ask AI 2 uses an embedding model to convert the question or request into a vector, then performs a semantic database search of post titles and summaries. Both approaches produce candidate posts that AI reviews and ranks.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#392d20" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#7d201a"/>
+    </marker>
+    <style>
+      .page { fill: #f6f3ed; }
+      .panel { fill: #fffefa; stroke: #d8cfbe; stroke-width: 2; filter: url(#shadow); }
+      .box { stroke-width: 2; }
+      .question { fill: #fffefa; stroke: #bcae91; }
+      .ai-step { fill: #edf6fb; stroke: #3982a5; }
+      .database { fill: #f5f0f7; stroke: #876f93; }
+      .candidate { fill: #fff9e9; stroke: #c39a42; }
+      .post { fill: #edf7eb; stroke: #559657; }
+      .page-heading { font: 700 44px Arial, Helvetica, sans-serif; fill: #6f1d18; }
+      .page-subheading { font: 400 24px Arial, Helvetica, sans-serif; fill: #45413c; }
+      .method { font: 700 27px Georgia, "Times New Roman", serif; letter-spacing: 0; fill: #6f1d18; }
+      .method-number { font-size: 33px; }
+      .method-title-bg { fill: #fffefa; }
+      .label { font: 700 27px Arial, Helvetica, sans-serif; fill: #171512; }
+      .label-small { font: 700 27px Arial, Helvetica, sans-serif; fill: #171512; }
+      .note { font: 600 26px Arial, Helvetica, sans-serif; fill: #7d201a; }
+      .arrow { fill: none; stroke: #7d201a; stroke-width: 3; }
+      .arrow-end { marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="page" width="100%" height="100%"/>
+  <text class="page-heading" x="900" y="68" text-anchor="middle">Ask AI: Two Approaches Under Evaluation</text>
+  <text class="page-subheading" x="900" y="108" text-anchor="middle">Both begin with a reader's question or request and end with AI-ranked posts.</text>
+
+  <rect class="panel" x="70" y="145" width="1660" height="1125" rx="16"/>
+
+  <rect class="box question" x="590" y="195" width="620" height="100" rx="12"/>
+  <text class="label" x="900" y="255" text-anchor="middle">Question or Request</text>
+
+  <path class="arrow" d="M900 295 L900 345"/>
+  <path class="arrow arrow-end" d="M900 345 L460 345 L460 430"/>
+  <path class="arrow arrow-end" d="M900 345 L1340 345 L1340 430"/>
+
+  <rect class="method-title-bg" x="350" y="365" width="220" height="45" rx="4"/>
+  <text class="method" x="460" y="397" text-anchor="middle">Ask AI <tspan class="method-number">1</tspan></text>
+  <rect class="box ai-step" x="150" y="430" width="620" height="110" rx="12"/>
+  <text class="label-small" x="460" y="478" text-anchor="middle">AI Identifies Relevant</text>
+  <text class="label-small" x="460" y="510" text-anchor="middle">Topics and Keywords</text>
+
+  <rect class="method-title-bg" x="1230" y="365" width="220" height="45" rx="4"/>
+  <text class="method" x="1340" y="397" text-anchor="middle">Ask AI <tspan class="method-number">2</tspan></text>
+  <rect class="box ai-step" x="1030" y="430" width="620" height="110" rx="12"/>
+  <text class="label-small" x="1340" y="478" text-anchor="middle">AI Creates</text>
+  <text class="label-small" x="1340" y="510" text-anchor="middle">a Semantic Vector</text>
+
+  <path class="arrow arrow-end" d="M460 540 L460 590"/>
+  <path class="arrow arrow-end" d="M1340 540 L1340 590"/>
+
+  <rect class="box database" x="150" y="590" width="620" height="110" rx="12"/>
+  <text class="label-small" x="460" y="635" text-anchor="middle">Database Search Uses</text>
+  <text class="label-small" x="460" y="667" text-anchor="middle">Topics and Keywords</text>
+
+  <rect class="box database" x="1030" y="590" width="620" height="110" rx="12"/>
+  <text class="label-small" x="1340" y="635" text-anchor="middle">Semantic Search Compares Vector with</text>
+  <text class="label-small" x="1340" y="667" text-anchor="middle">Post Titles and Summaries</text>
+
+  <path class="arrow" d="M460 700 L460 745 L900 745"/>
+  <path class="arrow" d="M1340 700 L1340 745 L900 745"/>
+  <path class="arrow arrow-end" d="M900 745 L900 785"/>
+
+  <rect class="box candidate" x="590" y="785" width="620" height="95" rx="12"/>
+  <text class="label" x="900" y="842" text-anchor="middle">Candidate Posts</text>
+
+  <path class="arrow arrow-end" d="M900 880 L900 950"/>
+
+  <rect class="box ai-step" x="590" y="950" width="620" height="100" rx="12"/>
+  <text class="label" x="900" y="994" text-anchor="middle">AI Evaluates Titles and</text>
+  <text class="label" x="900" y="1026" text-anchor="middle">Summaries for Relevance</text>
+
+  <path class="arrow arrow-end" d="M900 1050 L900 1120"/>
+
+  <rect class="box post" x="590" y="1120" width="620" height="100" rx="12"/>
+  <text class="label" x="900" y="1180" text-anchor="middle">Ranked Relevant Posts</text>
+
+  <text class="note" x="900" y="1340" text-anchor="middle">Both approaches are being tested; the one that produces the most relevant and accurate results will be selected.</text>
+</svg>

@@ -25,22 +25,23 @@ final class Database {
 		$base = $wpdb->prefix . 'ehrman_';
 
 		return array(
-			'browse_paths'            => $base . 'browse_paths',
-			'subject_areas'           => $base . 'subject_areas',
-			'categories'              => $base . 'categories',
-			'topics'                  => $base . 'topics',
-			'external_posts'          => $base . 'external_posts',
-			'keywords'                => $base . 'keywords',
-			'subject_area_categories' => $base . 'subject_area_categories',
-			'topic_categories'        => $base . 'topic_categories',
-			'post_topics'             => $base . 'post_topics',
-			'post_keywords'           => $base . 'post_keywords',
-			'post_search_terms'       => $base . 'post_search_terms',
-			'post_embeddings'         => $base . 'post_embeddings',
-			'ai_usage'                => $base . 'ai_usage',
-			'ai_requests'             => $base . 'ai_requests',
-			'ai_refinements'          => $base . 'ai_refinements',
-			'ai_feedback'             => $base . 'ai_feedback',
+			'browse_paths'             => $base . 'browse_paths',
+			'subject_areas'            => $base . 'subject_areas',
+			'categories'               => $base . 'categories',
+			'topics'                   => $base . 'topics',
+			'external_posts'           => $base . 'external_posts',
+			'keywords'                 => $base . 'keywords',
+			'subject_area_categories'  => $base . 'subject_area_categories',
+			'topic_categories'         => $base . 'topic_categories',
+			'post_topics'              => $base . 'post_topics',
+			'post_keywords'            => $base . 'post_keywords',
+			'post_search_terms'        => $base . 'post_search_terms',
+			'post_embeddings'          => $base . 'post_embeddings',
+			'post_metadata_embeddings' => $base . 'post_metadata_embeddings',
+			'ai_usage'                 => $base . 'ai_usage',
+			'ai_requests'              => $base . 'ai_requests',
+			'ai_refinements'           => $base . 'ai_refinements',
+			'ai_feedback'              => $base . 'ai_feedback',
 		);
 	}
 
@@ -180,6 +181,19 @@ CREATE TABLE {$tables['post_embeddings']} (
   updated_at datetime NOT NULL,
   PRIMARY KEY  (source_wp_id),
   KEY idx_post_embeddings_model (model,dimensions)
+) {$collate};
+
+CREATE TABLE {$tables['post_metadata_embeddings']} (
+  source_wp_id bigint(20) unsigned NOT NULL,
+  kind varchar(16) NOT NULL,
+  content_hash char(64) NOT NULL,
+  model varchar(100) NOT NULL,
+  dimensions smallint(5) unsigned NOT NULL,
+  embedding longblob NOT NULL,
+  embedding_norm double unsigned NOT NULL,
+  updated_at datetime NOT NULL,
+  PRIMARY KEY  (source_wp_id,kind),
+  KEY idx_post_metadata_embeddings_kind_model (kind,model,dimensions)
 ) {$collate};
 
 CREATE TABLE {$tables['ai_usage']} (

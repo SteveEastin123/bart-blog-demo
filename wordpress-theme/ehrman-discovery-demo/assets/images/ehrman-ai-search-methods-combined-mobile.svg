@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="1300" viewBox="0 0 380 1300" role="img" aria-labelledby="title description">
+  <title id="title">Ask AI: two approaches under evaluation</title>
+  <desc id="description">A shared Ask AI workflow branches into two search approaches. Ask AI 1 uses AI to identify relevant topics and keywords, then searches the database with those terms. Ask AI 2 uses an embedding model to convert the question or request into a vector, then performs a semantic database search of post titles and summaries. Both approaches produce candidate posts that AI reviews and ranks.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#392d20" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7d201a"/>
+    </marker>
+    <style>
+      .page { fill: #f6f3ed; }
+      .panel { fill: #fffefa; stroke: #d8cfbe; stroke-width: 2; filter: url(#shadow); }
+      .box { stroke-width: 2; }
+      .question { fill: #fffefa; stroke: #bcae91; }
+      .ai-step { fill: #edf6fb; stroke: #3982a5; }
+      .database { fill: #f5f0f7; stroke: #876f93; }
+      .candidate { fill: #fff9e9; stroke: #c39a42; }
+      .post { fill: #edf7eb; stroke: #559657; }
+      .page-heading { font: 700 27px Arial, Helvetica, sans-serif; fill: #6f1d18; }
+      .page-subheading { font: 400 15px Arial, Helvetica, sans-serif; fill: #45413c; }
+      .method { font: 700 20px Georgia, "Times New Roman", serif; letter-spacing: 0; fill: #6f1d18; }
+      .method-number { font-size: 25px; }
+      .method-title-bg { fill: #fffefa; }
+      .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #171512; }
+      .label-small { font: 700 20px Arial, Helvetica, sans-serif; fill: #171512; }
+      .note { font: 600 17px Arial, Helvetica, sans-serif; fill: #7d201a; }
+      .arrow { fill: none; stroke: #7d201a; stroke-width: 2.5; }
+      .arrow-end { marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="page" width="100%" height="100%"/>
+  <text class="page-heading" x="190" y="36" text-anchor="middle">Ask AI: Two Approaches</text>
+  <text class="page-heading" x="190" y="66" text-anchor="middle">Under Evaluation</text>
+  <text class="page-subheading" x="190" y="94" text-anchor="middle">Both begin with a question or request</text>
+  <text class="page-subheading" x="190" y="115" text-anchor="middle">and end with AI-ranked posts.</text>
+
+  <rect class="panel" x="12" y="140" width="356" height="1020" rx="12"/>
+
+  <rect class="box question" x="45" y="175" width="290" height="82" rx="10"/>
+  <text class="label" x="190" y="225" text-anchor="middle">Question or Request</text>
+
+  <path class="arrow" d="M190 257 L190 295"/>
+  <path class="arrow arrow-end" d="M190 295 L99 295 L99 372"/>
+  <path class="arrow arrow-end" d="M190 295 L281 295 L281 372"/>
+
+  <rect class="method-title-bg" x="43" y="315" width="112" height="37" rx="4"/>
+  <text class="method" x="99" y="341" text-anchor="middle">Ask AI <tspan class="method-number">1</tspan></text>
+  <rect class="box ai-step" x="18" y="372" width="162" height="145" rx="10"/>
+  <text class="label-small" x="99" y="418" text-anchor="middle">AI Identifies</text>
+  <text class="label-small" x="99" y="442" text-anchor="middle">Relevant Topics</text>
+  <text class="label-small" x="99" y="466" text-anchor="middle">and Keywords</text>
+
+  <rect class="method-title-bg" x="225" y="315" width="112" height="37" rx="4"/>
+  <text class="method" x="281" y="341" text-anchor="middle">Ask AI <tspan class="method-number">2</tspan></text>
+  <rect class="box ai-step" x="200" y="372" width="162" height="145" rx="10"/>
+  <text class="label-small" x="281" y="418" text-anchor="middle">AI Creates</text>
+  <text class="label-small" x="281" y="442" text-anchor="middle">a Semantic</text>
+  <text class="label-small" x="281" y="466" text-anchor="middle">Vector</text>
+
+  <path class="arrow arrow-end" d="M99 517 L99 555"/>
+  <path class="arrow arrow-end" d="M281 517 L281 555"/>
+
+  <rect class="box database" x="18" y="555" width="162" height="145" rx="10"/>
+  <text class="label-small" x="99" y="598" text-anchor="middle">Database</text>
+  <text class="label-small" x="99" y="622" text-anchor="middle">Search Uses</text>
+  <text class="label-small" x="99" y="646" text-anchor="middle">Topics and</text>
+  <text class="label-small" x="99" y="670" text-anchor="middle">Keywords</text>
+
+  <rect class="box database" x="200" y="555" width="162" height="145" rx="10"/>
+  <text class="label-small" x="281" y="574" text-anchor="middle">Semantic</text>
+  <text class="label-small" x="281" y="594" text-anchor="middle">Search</text>
+  <text class="label-small" x="281" y="614" text-anchor="middle">Compares</text>
+  <text class="label-small" x="281" y="634" text-anchor="middle">Vector with</text>
+  <text class="label-small" x="281" y="654" text-anchor="middle">Post Titles</text>
+  <text class="label-small" x="281" y="674" text-anchor="middle">and Summaries</text>
+
+  <path class="arrow" d="M99 700 L99 740 L190 740"/>
+  <path class="arrow" d="M281 700 L281 740 L190 740"/>
+  <path class="arrow arrow-end" d="M190 740 L190 775"/>
+
+  <rect class="box candidate" x="45" y="775" width="290" height="82" rx="10"/>
+  <text class="label" x="190" y="825" text-anchor="middle">Candidate Posts</text>
+
+  <path class="arrow arrow-end" d="M190 857 L190 900"/>
+
+  <rect class="box ai-step" x="45" y="900" width="290" height="82" rx="10"/>
+  <text class="label" x="190" y="937" text-anchor="middle">AI Evaluates Titles and</text>
+  <text class="label" x="190" y="961" text-anchor="middle">Summaries for Relevance</text>
+
+  <path class="arrow arrow-end" d="M190 982 L190 1025"/>
+
+  <rect class="box post" x="45" y="1025" width="290" height="82" rx="10"/>
+  <text class="label" x="190" y="1075" text-anchor="middle">Ranked Relevant Posts</text>
+
+  <text class="note" x="190" y="1205" text-anchor="middle">Both approaches are being tested.</text>
+  <text class="note" x="190" y="1228" text-anchor="middle">The one that produces the most</text>
+  <text class="note" x="190" y="1251" text-anchor="middle">relevant and accurate results</text>
+  <text class="note" x="190" y="1274" text-anchor="middle">will be selected.</text>
+</svg>
