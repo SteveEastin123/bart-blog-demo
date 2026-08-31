@@ -55,9 +55,9 @@
   <rect class="method-title-bg" x="225" y="315" width="112" height="37" rx="4"/>
   <text class="method" x="281" y="341" text-anchor="middle">Ask AI <tspan class="method-number">2</tspan></text>
   <rect class="box ai-step" x="200" y="372" width="162" height="145" rx="10"/>
-  <text class="label-small" x="281" y="418" text-anchor="middle">AI Creates</text>
-  <text class="label-small" x="281" y="442" text-anchor="middle">a Semantic</text>
-  <text class="label-small" x="281" y="466" text-anchor="middle">Vector</text>
+  <text class="label-small" x="281" y="418" text-anchor="middle">AI Converts</text>
+  <text class="label-small" x="281" y="442" text-anchor="middle">Query into</text>
+  <text class="label-small" x="281" y="466" text-anchor="middle">Semantic Vector</text>
 
   <path class="arrow arrow-end" d="M99 517 L99 555"/>
   <path class="arrow arrow-end" d="M281 517 L281 555"/>
@@ -70,11 +70,11 @@
 
   <rect class="box database" x="200" y="555" width="162" height="145" rx="10"/>
   <text class="label-small" x="281" y="574" text-anchor="middle">Semantic</text>
-  <text class="label-small" x="281" y="594" text-anchor="middle">Search</text>
-  <text class="label-small" x="281" y="614" text-anchor="middle">Compares</text>
-  <text class="label-small" x="281" y="634" text-anchor="middle">Vector with</text>
-  <text class="label-small" x="281" y="654" text-anchor="middle">Post Titles</text>
-  <text class="label-small" x="281" y="674" text-anchor="middle">and Summaries</text>
+  <text class="label-small" x="281" y="594" text-anchor="middle">Search Matches</text>
+  <text class="label-small" x="281" y="614" text-anchor="middle">Query Vector</text>
+  <text class="label-small" x="281" y="634" text-anchor="middle">to Post</text>
+  <text class="label-small" x="281" y="654" text-anchor="middle">Title-and-</text>
+  <text class="label-small" x="281" y="674" text-anchor="middle">Summary Vectors</text>
 
   <path class="arrow" d="M99 700 L99 740 L190 740"/>
   <path class="arrow" d="M281 700 L281 740 L190 740"/>

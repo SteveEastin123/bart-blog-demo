@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-08-23",
-  "auditScope": "All 4407 posts in the canonical search index",
+  "updatedAt": "2026-08-30",
+  "auditScope": "All 4413 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,7 +10,7 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4407,
+  "reviewedPostCount": 4413,
   "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
@@ -84913,8 +84913,128 @@
       "topicsRemoved": [],
       "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
       "appliedAt": "2026-08-23"
+    },
+    {
+      "auditSequence": 4408,
+      "sourceIndex": 0,
+      "wpId": "50470",
+      "dateText": "August 30, 2026",
+      "title": "More on Jesus’ Upbringing",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Historical Jesus (General)",
+        "Jesus' Family Traditions",
+        "Ancient Literacy"
+      ],
+      "topicsAdded": [
+        "Historical Jesus (General)",
+        "Jesus' Family Traditions",
+        "Ancient Literacy"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-30"
+    },
+    {
+      "auditSequence": 4409,
+      "sourceIndex": 1,
+      "wpId": "50467",
+      "dateText": "August 29, 2026",
+      "title": "The Early Life of Jesus",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Historical Jesus (General)",
+        "Methods for Studying the Historical Jesus",
+        "Nazareth"
+      ],
+      "topicsAdded": [
+        "Historical Jesus (General)",
+        "Methods for Studying the Historical Jesus",
+        "Nazareth"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-30"
+    },
+    {
+      "auditSequence": 4410,
+      "sourceIndex": 2,
+      "wpId": "50512",
+      "dateText": "August 28, 2026",
+      "title": "Platinum Lecture on September 20",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Ignore"
+      ],
+      "topicsAdded": [
+        "Ignore"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-30"
+    },
+    {
+      "auditSequence": 4411,
+      "sourceIndex": 3,
+      "wpId": "50460",
+      "dateText": "August 27, 2026",
+      "title": "My Odd Situation, Writing this Book…",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Writing and Publishing Process"
+      ],
+      "topicsAdded": [
+        "Writing and Publishing Process"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-30"
+    },
+    {
+      "auditSequence": 4412,
+      "sourceIndex": 4,
+      "wpId": "50440",
+      "dateText": "August 26, 2026",
+      "title": "How the World Was Created in 4004 BCE",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Fundamentalism",
+        "Genesis"
+      ],
+      "topicsAdded": [
+        "Fundamentalism",
+        "Genesis"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-30"
+    },
+    {
+      "auditSequence": 4413,
+      "sourceIndex": 5,
+      "wpId": "50443",
+      "dateText": "August 25, 2026",
+      "title": "Hebrew Bible/English Old Testament: Charting Their Differences",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Canon Formation",
+        "Old Testament Apocrypha"
+      ],
+      "topicsAdded": [
+        "Canon Formation",
+        "Old Testament Apocrypha"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-08-30"
     }
   ],
-  "appliedChangeCount": 633,
+  "appliedChangeCount": 639,
   "pendingDescriptionRecommendations": []
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-23",
+  "updatedAt": "2026-08-30",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -1933,7 +1933,7 @@
       "auditSequence": null,
       "status": "excluded",
       "postCountBefore": 437,
-      "postCountAfter": 426,
+      "postCountAfter": 427,
       "descriptionBefore": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [],
@@ -1954,6 +1954,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50512",
+          "title": "Platinum Lecture on September 20",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -1966,7 +1973,8 @@
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Newly downloaded August 2026 posts were reviewed in full.",
-        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -12433,7 +12441,7 @@
       "auditSequence": 16,
       "status": "completed",
       "postCountBefore": 67,
-      "postCountAfter": 81,
+      "postCountAfter": 82,
       "descriptionBefore": "Covers writing habits, reading and research methods for books, trade-book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
       "descriptionRecommendation": "Covers writing habits, reading and research methods for books, trade-book production, publishing, titles, agents, reviews, and bringing scholarship to readers.",
       "categoriesBefore": [
@@ -12967,6 +12975,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post compares the publishing economics of scholarly books, textbooks, and trade books for authors."
+        },
+        {
+          "wpId": "50460",
+          "title": "My Odd Situation, Writing this Book…",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -12980,7 +12995,8 @@
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -20078,7 +20094,7 @@
       "auditSequence": 32,
       "status": "completed",
       "postCountBefore": 53,
-      "postCountAfter": 67,
+      "postCountAfter": 68,
       "descriptionBefore": "Posts on how writings became scripture, including early canon lists, disputed books, books included or excluded, and the formation of the New Testament and Hebrew Bible canons.",
       "descriptionRecommendation": "Posts on how writings became scripture, including early canon lists, disputed books, books included or excluded, and the formation of the New Testament and Hebrew Bible canons.",
       "categoriesBefore": [
@@ -20514,6 +20530,13 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "Canon formation is one item in a broad list of seminar sessions rather than a primary or sustained subject of this overview post."
+        },
+        {
+          "wpId": "50443",
+          "title": "Hebrew Bible/English Old Testament: Charting Their Differences",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -20528,7 +20551,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -26462,7 +26486,7 @@
       "auditSequence": 47,
       "status": "completed",
       "postCountBefore": 43,
-      "postCountAfter": 62,
+      "postCountAfter": 63,
       "descriptionBefore": "Covers fundamentalist Christianity, including biblical inerrancy, evangelical apologetics, Bart's early religious background, and critiques of fundamentalist approaches to the Bible.",
       "descriptionRecommendation": "Covers fundamentalist Christianity, including biblical inerrancy, evangelical apologetics, Bart's early religious background, and critiques of fundamentalist approaches to the Bible.",
       "categoriesBefore": [
@@ -26905,6 +26929,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A sustained part examines conflicts between critical biblical scholarship and fundamentalist commitments in evangelical institutions."
+        },
+        {
+          "wpId": "50440",
+          "title": "How the World Was Created in 4004 BCE",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -26916,7 +26947,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -29879,7 +29911,7 @@
       "auditSequence": 55,
       "status": "completed",
       "postCountBefore": 38,
-      "postCountAfter": 37,
+      "postCountAfter": 38,
       "descriptionBefore": "Posts on reading, writing, literacy rates, education, secretaries, and whether figures such as Jesus, Peter, or early Christians could read or write.",
       "descriptionRecommendation": "Posts on reading, writing, literacy rates, education, secretaries, and whether figures such as Jesus, Peter, or early Christians could read or write.",
       "categoriesBefore": [
@@ -30161,13 +30193,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The central subject is oral reading and performance of written Christian texts in largely illiterate congregations; Didymus is supporting evidence."
+        },
+        {
+          "wpId": "50470",
+          "title": "More on Jesus’ Upbringing",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 38 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -45118,7 +45158,7 @@
       "auditSequence": 113,
       "status": "completed",
       "postCountBefore": 24,
-      "postCountAfter": 34,
+      "postCountAfter": 35,
       "descriptionBefore": "Covers traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
       "descriptionRecommendation": "Covers traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
       "categoriesBefore": [
@@ -45372,13 +45412,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post argues that Jesus was unmarried on the basis of his apocalyptic ethics; women are not a sustained subject."
+        },
+        {
+          "wpId": "50470",
+          "title": "More on Jesus’ Upbringing",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -46210,7 +46258,7 @@
       "auditSequence": 118,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 32,
+      "postCountAfter": 34,
       "descriptionBefore": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "descriptionRecommendation": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "categoriesBefore": [
@@ -46443,6 +46491,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post directly evaluates the historical question of whether Jesus could read using ancient literacy evidence and Gospel accounts."
+        },
+        {
+          "wpId": "50470",
+          "title": "More on Jesus’ Upbringing",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50467",
+          "title": "The Early Life of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46453,7 +46515,8 @@
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3151-3400 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -46704,7 +46767,7 @@
       "auditSequence": 120,
       "status": "completed",
       "postCountBefore": 26,
-      "postCountAfter": 30,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "descriptionRecommendation": "Covers methods scholars use to evaluate what Jesus said and did, including criteria, evidence, apocalyptic interpretation, and historical plausibility.",
       "categoriesBefore": [
@@ -46924,6 +46987,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post explains multiple attestation as a method for evaluating traditions about Jesus."
+        },
+        {
+          "wpId": "50467",
+          "title": "The Early Life of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46931,7 +47001,8 @@
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -47302,7 +47373,7 @@
       "auditSequence": 123,
       "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": 27,
+      "postCountAfter": 28,
       "descriptionBefore": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "descriptionRecommendation": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "categoriesBefore": [
@@ -47500,13 +47571,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses the two creation accounts in Genesis 1-3 as its sustained case study for understanding the Bible's composition and strangeness."
+        },
+        {
+          "wpId": "50440",
+          "title": "How the World Was Created in 4004 BCE",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -53207,7 +53286,7 @@
       "auditSequence": 154,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 19,
+      "postCountAfter": 20,
       "descriptionBefore": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "descriptionRecommendation": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "categoriesBefore": [
@@ -53349,11 +53428,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is devoted to Mark's story of Jesus' rejection by the people of his hometown, explicitly identified as Nazareth."
+        },
+        {
+          "wpId": "50467",
+          "title": "The Early Life of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment."
+        "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {
@@ -56971,7 +57058,7 @@
       "auditSequence": 177,
       "status": "completed",
       "postCountBefore": 15,
-      "postCountAfter": 15,
+      "postCountAfter": 16,
       "descriptionBefore": "Covers Jewish apocryphal writings outside the Protestant Old Testament, including Tobit, Judith, Sirach, Wisdom of Solomon, 1-2 Maccabees, additions to Daniel, and related texts.",
       "descriptionRecommendation": "Covers Jewish apocryphal writings outside the Protestant Old Testament, including Tobit, Judith, Sirach, Wisdom of Solomon, 1-2 Maccabees, additions to Daniel, and related texts.",
       "categoriesBefore": [
@@ -57085,10 +57172,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Old Testament Apocrypha as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50443",
+          "title": "Hebrew Bible/English Old Testament: Charting Their Differences",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
       ]
     },
     {

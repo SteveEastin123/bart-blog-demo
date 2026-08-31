@@ -125,14 +125,14 @@ def desktop_svg(counts: dict[str, int]) -> str:
   <rect class="box keyword" x="460" y="275" width="315" height="120" rx="12"/>
   <text class="label" x="302" y="323" text-anchor="middle">Topics</text>
   <text class="count" x="302" y="361" text-anchor="middle">{topics} topics</text>
-  <text class="label-small" x="617" y="320" text-anchor="middle">Secondary Keywords</text>
+  <text class="label" x="617" y="323" text-anchor="middle">Secondary Keywords</text>
   <text class="count" x="617" y="361" text-anchor="middle">{keywords} keywords</text>
 
   <rect class="box subject" x="1025" y="275" width="315" height="120" rx="12"/>
   <rect class="box subject" x="1340" y="275" width="315" height="120" rx="12"/>
-  <text class="label-small" x="1182" y="323" text-anchor="middle">Browse Topics 1</text>
+  <text class="label" x="1182" y="323" text-anchor="middle">Browse Topics 1</text>
   <text class="count" x="1182" y="361" text-anchor="middle">{areas_1} subject areas</text>
-  <text class="label-small" x="1497" y="323" text-anchor="middle">Browse Topics 2</text>
+  <text class="label" x="1497" y="323" text-anchor="middle">Browse Topics 2</text>
   <text class="count" x="1497" y="361" text-anchor="middle">{areas_2} subject areas</text>
 
   <path class="arrow" d="M460 395 L460 529"/>
@@ -202,6 +202,7 @@ def mobile_svg(counts: dict[str, int]) -> str:
     .stage {{ font-size: 11px; letter-spacing: 1px; }}
     .label {{ font-size: 21px; }}
     .label-small {{ font-size: 17px; }}
+    .label-fit {{ font-size: 18px; }}
     .count {{ font-size: 16px; }}
     .note {{ font-size: 15px; }}
     .definition {{ font-size: 18px; }}
@@ -214,13 +215,12 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <text class="subheading" x="35" y="95">Combine up to four topics or secondary</text>
   <text class="subheading" x="35" y="118">keywords to find relevant posts.</text>
   <text class="stage" x="35" y="145">START WITH</text>
-  <rect class="box topic" x="35" y="155" width="155" height="100" rx="12"/>
-  <rect class="box keyword" x="190" y="155" width="155" height="100" rx="12"/>
-  <text class="label" x="112" y="197" text-anchor="middle">Topics</text>
-  <text class="count" x="112" y="228" text-anchor="middle">{topics} topics</text>
-  <text class="label-small" x="267" y="190" text-anchor="middle">Secondary</text>
-  <text class="label-small" x="267" y="212" text-anchor="middle">Keywords</text>
-  <text class="count" x="267" y="238" text-anchor="middle">{keywords} keywords</text>
+  <rect class="box topic" x="35" y="155" width="115" height="100" rx="12"/>
+  <rect class="box keyword" x="150" y="155" width="195" height="100" rx="12"/>
+  <text class="label" x="92" y="197" text-anchor="middle">Topics</text>
+  <text class="count" x="92" y="228" text-anchor="middle">{topics} topics</text>
+  <text class="label-small label-fit" x="247" y="197" text-anchor="middle">Secondary Keywords</text>
+  <text class="count" x="247" y="228" text-anchor="middle">{keywords} keywords</text>
   <path class="arrow" d="M190 255 L190 350"/>
   <rect class="box process" x="45" y="350" width="290" height="75" rx="12"/>
   <text class="label-small" x="190" y="381" text-anchor="middle">Up to Four Search Terms</text>
@@ -237,9 +237,9 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <text class="stage" x="35" y="875">START WITH</text>
   <rect class="box subject" x="35" y="885" width="155" height="100" rx="12"/>
   <rect class="box subject" x="190" y="885" width="155" height="100" rx="12"/>
-  <text class="label-small" x="112" y="925" text-anchor="middle">Browse Topics 1</text>
+  <text class="label-small label-fit" x="112" y="925" text-anchor="middle">Browse Topics 1</text>
   <text class="count" x="112" y="958" text-anchor="middle">{areas_1} subject areas</text>
-  <text class="label-small" x="267" y="925" text-anchor="middle">Browse Topics 2</text>
+  <text class="label-small label-fit" x="267" y="925" text-anchor="middle">Browse Topics 2</text>
   <text class="count" x="267" y="958" text-anchor="middle">{areas_2} subject areas</text>
   <path class="arrow" d="M190 985 L190 1035"/>
   <rect class="box category" x="45" y="1035" width="290" height="75" rx="12"/>
