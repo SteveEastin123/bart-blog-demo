@@ -27,6 +27,12 @@
       --line: #d8c9a7;
       --white: #ffffff;
       --shadow: 0 24px 70px rgba(24, 18, 12, 0.22);
+      --font-title: 54px;
+      --font-section: 26px;
+      --font-body: 20px;
+      --font-note: 18px;
+      --section-gap: 32px;
+      --slide-padding: 56px 80px 72px;
     }
 
     * {
@@ -47,6 +53,8 @@
       background: #191613;
       color: var(--ink);
       font-family: Aptos, "Segoe UI", Arial, sans-serif;
+      font-size: var(--font-body);
+      line-height: 1.4;
     }
 
     button {
@@ -54,6 +62,9 @@
     }
 
     .deck {
+      --slide-scale: 1;
+      --slide-left: 0px;
+      --slide-top: 0px;
       position: relative;
       width: min(96vw, calc(92vh * 16 / 9), 1600px);
       aspect-ratio: 16 / 9;
@@ -62,11 +73,23 @@
       box-shadow: var(--shadow);
     }
 
+    .deck:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      aspect-ratio: auto;
+      background: #191613;
+    }
+
     .slide {
       position: absolute;
-      inset: 0;
+      top: var(--slide-top);
+      left: var(--slide-left);
+      width: 1600px;
+      height: 900px;
       display: none;
       overflow: hidden;
+      transform: scale(var(--slide-scale));
+      transform-origin: top left;
     }
 
     .slide.active {
@@ -75,46 +98,66 @@
     }
 
     @keyframes reveal {
-      from { opacity: 0; transform: translateX(12px); }
-      to { opacity: 1; transform: translateX(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .slide-inner {
       position: relative;
       z-index: 1;
       height: 100%;
-      padding: 4.7% 5.5% 7%;
+      padding: var(--slide-padding);
     }
 
     .eyebrow {
-      margin: 0 0 0.7rem;
+      margin: 0 0 12px;
       color: var(--maroon);
-      font-size: clamp(0.72rem, 1vw, 1.05rem);
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-size: var(--font-note);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
     h1,
     h2,
     h3,
+    h4,
     p {
       margin-top: 0;
     }
 
     h2 {
-      margin-bottom: 0.55rem;
-      font-size: clamp(2rem, 3.5vw, 4rem);
-      line-height: 1.05;
+      margin-bottom: 12px;
+      font-size: var(--font-title);
+      line-height: 1.1;
       letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    strong {
+      font-weight: 700;
+    }
+
+    .slide-header {
+      flex-shrink: 0;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .slide-header > :last-child {
+      margin-bottom: 0;
     }
 
     .lead {
       max-width: 72rem;
       margin-bottom: 0;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.45vw, 1.55rem);
-      line-height: 1.45;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.4;
     }
 
     .gold-rule {
@@ -141,7 +184,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 7% 7% 6.5%;
+      padding: 112px 112px 104px;
     }
 
     .hero .eyebrow {
@@ -151,7 +194,7 @@
     .hero h1 {
       max-width: 64rem;
       margin-bottom: 2.4rem;
-      font-size: clamp(2.6rem, 4.2vw, 4.9rem);
+      font-size: 76px;
       line-height: 1.04;
       letter-spacing: 0;
       text-wrap: balance;
@@ -161,8 +204,8 @@
       display: block;
       margin-top: 0.6rem;
       color: #f0cf89;
-      font-size: 0.58em;
-      font-weight: 650;
+      font-size: 36px;
+      font-weight: 600;
       line-height: 1.15;
     }
 
@@ -208,35 +251,52 @@
     }
 
     .methods {
-      background: var(--cream);
+      background: var(--paper);
+    }
+
+    .methods .slide-inner,
+    .next-steps .slide-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--section-gap);
     }
 
     .comparison {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-      gap: 3.5%;
-      margin-top: 1.6rem;
-    }
-
-    .vertical-rule {
-      height: 100%;
-      background: var(--line);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 0;
+      align-items: start;
+      flex: 1;
     }
 
     .method {
       min-width: 0;
+      padding: 0 24px;
+    }
+
+    .method:first-child {
+      padding-left: 0;
+    }
+
+    .method:last-child {
+      padding-right: 0;
+    }
+
+    .method + .method {
+      border-left: 1px solid var(--line);
     }
 
     .method-number {
       display: inline-grid;
       place-items: center;
-      width: 2.25rem;
-      height: 2.25rem;
-      margin-right: 0.65rem;
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
       border-radius: 50%;
       color: var(--white);
-      background: var(--maroon);
-      font-weight: 800;
+      background: var(--blue);
+      font-weight: 700;
       vertical-align: middle;
     }
 
@@ -244,15 +304,23 @@
       background: var(--blue);
     }
 
+    .method.ai .method-number {
+      background: var(--blue);
+    }
+
     .method h3 {
       display: inline;
-      color: var(--maroon);
-      font-size: clamp(1.45rem, 2vw, 2.25rem);
-      line-height: 1.15;
+      color: var(--ink);
+      font-size: var(--font-section);
+      line-height: 1.2;
     }
 
     .method.browse h3 {
-      color: var(--blue);
+      color: var(--ink);
+    }
+
+    .method.ai h3 {
+      color: var(--ink);
     }
 
     .method-copy {
@@ -263,11 +331,12 @@
     }
 
     .best-for {
-      margin: 0.85rem 0 1rem;
-      padding: 0.65rem 0 0.65rem 0.9rem;
-      border-left: 5px solid var(--maroon);
+      min-height: 132px;
+      margin: 28px 0 24px;
+      padding: 12px 0 12px 16px;
+      border-left: 3px solid var(--blue);
       color: var(--ink);
-      font-size: clamp(1rem, 1.18vw, 1.22rem);
+      font-size: var(--font-body);
       line-height: 1.4;
     }
 
@@ -275,12 +344,24 @@
       border-left-color: var(--blue);
     }
 
+    .method.ai .best-for {
+      border-left-color: var(--blue);
+    }
+
     .best-for strong {
-      color: var(--maroon);
+      color: var(--ink);
     }
 
     .method.browse .best-for strong {
-      color: var(--blue);
+      color: var(--ink);
+    }
+
+    .method.ai .best-for strong {
+      color: var(--ink);
+    }
+
+    .method.ai .tradeoff strong {
+      color: var(--keyword);
     }
 
     .feature-list {
@@ -291,11 +372,11 @@
 
     .feature-list li {
       position: relative;
-      margin: 0 0 0.55rem;
+      margin: 0 0 16px;
       padding-left: 1.15rem;
       color: var(--ink);
-      font-size: clamp(0.94rem, 1.12vw, 1.16rem);
-      line-height: 1.35;
+      font-size: var(--font-body);
+      line-height: 1.4;
     }
 
     .feature-list li::before {
@@ -520,6 +601,567 @@
       line-height: 1.45;
     }
 
+    .diagram-slide {
+      background: var(--paper);
+    }
+
+    .landing-diagram-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3.4fr) minmax(15rem, 1fr);
+      align-items: center;
+      gap: 1.35rem;
+      height: 100%;
+    }
+
+    .landing-diagram-frame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      height: 100%;
+      margin: 0;
+    }
+
+    .landing-diagram-frame img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .diagram-copy {
+      min-width: 0;
+      padding-left: 0.35rem;
+    }
+
+    .diagram-copy h2 {
+      margin-bottom: 12px;
+      font-size: var(--font-title);
+      line-height: 1.1;
+    }
+
+    .diagram-copy > p:not(.eyebrow) {
+      margin-bottom: 1.15rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.25vw, 1.28rem);
+      line-height: 1.45;
+    }
+
+    .diagram-points {
+      border-top: 1px solid var(--line);
+    }
+
+    .diagram-point {
+      margin: 0;
+      padding: 0.8rem 0;
+      color: var(--ink);
+      font-size: clamp(0.94rem, 1.12vw, 1.16rem);
+      line-height: 1.42;
+    }
+
+    .diagram-point + .diagram-point {
+      border-top: 1px solid var(--line);
+    }
+
+    .diagram-point strong {
+      color: var(--maroon);
+    }
+
+    .ai-diagram-slide .diagram-point strong {
+      color: var(--keyword);
+    }
+
+    .diagram-point.evaluation-point {
+      padding-left: 0.75rem;
+      border-left: 5px solid var(--gold);
+      color: var(--maroon);
+      font-weight: 700;
+    }
+
+    .building-blocks-slide {
+      --topic-accent: #146b58;
+    }
+
+    .building-blocks-slide .landing-diagram-layout {
+      display: block;
+      height: 100%;
+    }
+
+    .building-blocks-slide .landing-diagram-frame {
+      display: none;
+    }
+
+    .building-blocks-slide .diagram-copy {
+      display: flex;
+      height: 100%;
+      padding-left: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .building-blocks-slide .diagram-copy > * {
+      flex-shrink: 0;
+    }
+
+    .building-blocks-slide h2 {
+      margin-bottom: 12px;
+    }
+
+    .building-blocks-slide .slide-header {
+      padding-bottom: 16px;
+    }
+
+    .building-concepts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 44px;
+    }
+
+    .building-concept {
+      min-width: 0;
+      padding-left: 20px;
+      border-left: 4px solid var(--topic-accent);
+    }
+
+    .building-concept.secondary-concept {
+      border-left: 3px solid var(--keyword);
+    }
+
+    .building-concept-heading {
+      display: flex;
+      min-height: 40px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 4px 18px;
+      margin-bottom: 10px;
+    }
+
+    .building-concept h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    .building-concept-count {
+      color: var(--ink);
+      font-size: var(--font-note);
+      font-weight: 700;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .building-concept-points li {
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .building-concept-points li:last-child {
+      margin-bottom: 0;
+    }
+
+    .building-searches {
+      display: flex;
+      flex-grow: 0;
+      flex-direction: column;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .building-searches > * {
+      flex-shrink: 0;
+    }
+
+    .building-usage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 44px;
+    }
+
+    .building-use {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding-left: 16px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .building-use > * {
+      flex-shrink: 0;
+    }
+
+    .building-use h3 {
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-size: var(--font-section);
+      line-height: 1.2;
+    }
+
+    .building-use .feature-list li {
+      margin-bottom: 8px;
+    }
+
+    .building-use .feature-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .building-flow {
+      min-width: 0;
+      max-width: 100%;
+      margin: auto 0 0;
+      padding-top: 20px;
+    }
+
+    .building-flow-diagram {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 660 / 128;
+      text-anchor: middle;
+    }
+
+    .building-flow-diagram .flow-box {
+      stroke-width: 1.5;
+    }
+
+    .building-flow-diagram .flow-subject {
+      fill: #fff3cf;
+      stroke: #bb8b29;
+    }
+
+    .building-flow-diagram .flow-category {
+      fill: #fff9e9;
+      stroke: #c39a42;
+    }
+
+    .building-flow-diagram .flow-topic {
+      fill: #edf6fb;
+      stroke: #3982a5;
+    }
+
+    .building-flow-diagram .flow-keyword {
+      fill: #f5f0f7;
+      stroke: #876f93;
+    }
+
+    .building-flow-diagram .flow-process {
+      fill: #fffefa;
+      stroke: #bcae91;
+    }
+
+    .building-flow-diagram .flow-post {
+      fill: #edf7eb;
+      stroke: #559657;
+    }
+
+    .building-flow-diagram .flow-label {
+      fill: var(--ink);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .building-flow-diagram .flow-count {
+      fill: var(--ink);
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .building-flow-diagram .flow-connector {
+      fill: none;
+      stroke: var(--maroon);
+      stroke-width: 2;
+    }
+
+    .building-flow-diagram .flow-arrowhead {
+      fill: var(--maroon);
+    }
+
+    .ai-comparison-slide .landing-diagram-layout {
+      display: block;
+      height: 100%;
+    }
+
+    .ai-comparison-slide .landing-diagram-frame {
+      display: none;
+    }
+
+    .ai-comparison-header {
+      margin-bottom: calc(var(--section-gap) * 2);
+    }
+
+    .ai-comparison-header h2 {
+      margin-bottom: 0;
+      font-size: var(--font-title);
+      line-height: 1.1;
+    }
+
+    .ai-comparison-content {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .ai-comparison-content > * {
+      flex-shrink: 0;
+    }
+
+    .ai-section {
+      display: grid;
+      grid-template-columns: 176px minmax(0, 1fr);
+      gap: var(--section-gap);
+      align-items: start;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .ai-workflow-section {
+      margin-bottom: calc(var(--section-gap) * 2);
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .ai-methods-section {
+      flex-grow: 1;
+      padding-bottom: 24px;
+    }
+
+    .ai-workflow-section,
+    .ai-section.ai-results-grid {
+      align-items: center;
+    }
+
+    .ai-comparison-lead {
+      margin: 0 0 0.15rem;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.2vw, 1.24rem);
+      line-height: 1.42;
+    }
+
+    .ai-section-label {
+      margin: 0;
+      color: var(--ink);
+      font-size: var(--font-body);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .ai-methods-heading {
+      display: block;
+      align-self: center;
+    }
+
+    .ai-method-choice {
+      margin: 12px 0 0;
+      color: var(--ink);
+      font-size: var(--font-note);
+      line-height: 1.4;
+    }
+
+    .ai-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr);
+      align-items: stretch;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .ai-flow-box {
+      display: flex;
+      min-height: 72px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .ai-flow-box.ai-step {
+      border-color: #7ba3ba;
+      background: var(--blue-soft);
+    }
+
+    .ai-flow-box.results-step {
+      border-color: #75a08c;
+      background: var(--post-soft);
+    }
+
+    .ai-flow-box strong {
+      color: var(--ink);
+      font-size: var(--font-section);
+      line-height: 1.2;
+    }
+
+    .ai-flow-box.ai-step strong {
+      color: var(--blue);
+    }
+
+    .ai-flow-box.results-step strong {
+      color: var(--post);
+    }
+
+    .ai-flow-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .ai-method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--section-gap);
+      row-gap: 0;
+      padding: 0;
+      align-self: center;
+    }
+
+    .ai-method-summary {
+      min-width: 0;
+      padding-left: 16px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .ai-method-summary h4 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: var(--font-section);
+      line-height: 1.2;
+    }
+
+    .ai-method-summary p {
+      margin-bottom: 0;
+      color: var(--ink);
+      font-size: var(--font-body);
+      line-height: 1.35;
+    }
+
+    .ai-common-step {
+      grid-column: 1 / -1;
+      margin: 20px 0 0;
+      color: var(--ink);
+      font-size: var(--font-body);
+      font-weight: 400;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .ai-results-grid {
+      margin-top: 0;
+    }
+
+    .ai-results-content {
+      width: 1024px;
+      max-width: 100%;
+    }
+
+    .ai-win-bar {
+      display: flex;
+      width: 100%;
+      min-height: 3.25rem;
+      overflow: hidden;
+      border-radius: 5px;
+      color: var(--white);
+      font-size: clamp(0.76rem, 0.92vw, 0.94rem);
+      font-weight: 800;
+      line-height: 1.12;
+      text-align: center;
+    }
+
+    .ai-win-segment {
+      display: grid;
+      place-items: center;
+      padding: 0.35rem;
+    }
+
+    .ai-win-segment.ai-one {
+      width: 19%;
+      background: var(--keyword);
+    }
+
+    .ai-win-segment.tie {
+      width: 14.5%;
+      color: var(--ink);
+      background: #e8cf91;
+    }
+
+    .ai-win-segment.ai-two {
+      width: 66.5%;
+      background: var(--blue);
+    }
+
+    .ai-win-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: clamp(0.78rem, 0.9vw, 0.92rem);
+      line-height: 1.3;
+    }
+
+    .ai-metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--font-body);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    .ai-metrics-table th,
+    .ai-metrics-table td {
+      padding: 4px 8px;
+      border-bottom: 1px solid rgba(216, 201, 167, 0.72);
+      text-align: right;
+    }
+
+    .ai-metrics-table th:first-child,
+    .ai-metrics-table td:first-child {
+      width: 54%;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .ai-metrics-table th:nth-child(2),
+    .ai-metrics-table th:nth-child(3),
+    .ai-metrics-table td:nth-child(2),
+    .ai-metrics-table td:nth-child(3) {
+      width: 23%;
+    }
+
+    .ai-metrics-table th {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .ai-metrics-table .preferred {
+      color: var(--post);
+      font-weight: 700;
+    }
+
+    .ai-metrics-table .lower-cost {
+      color: var(--post);
+      font-weight: 700;
+    }
+
+    .ai-tie-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: clamp(0.82rem, 0.96vw, 0.98rem);
+      font-style: italic;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .ai-test-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+      line-height: 1.3;
+      text-align: center;
+    }
+
     .examples {
       background: var(--cream);
     }
@@ -647,42 +1289,48 @@
     .next-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.35rem;
-      margin-top: 1.5rem;
+      gap: 0;
+      margin-top: 0;
+      flex: 1;
+      align-items: start;
     }
 
     .next-section {
       min-width: 0;
-      padding: 1rem 1.05rem 0.8rem;
-      border-top: 5px solid var(--maroon);
-      background: rgba(255, 255, 255, 0.66);
+      padding: 0 24px;
+      background: transparent;
     }
 
-    .testing-section {
-      border-top-color: var(--blue);
+    .next-section:first-child {
+      padding-left: 0;
     }
 
-    .handoff-section {
-      border-top-color: var(--subject);
+    .next-section:last-child {
+      padding-right: 0;
+    }
+
+    .next-section + .next-section {
+      border-left: 1px solid var(--line);
     }
 
     .next-heading {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.85rem;
+      gap: 12px;
+      min-height: 64px;
+      margin-bottom: 24px;
     }
 
     .next-number {
       display: inline-grid;
       flex: 0 0 auto;
       place-items: center;
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       color: var(--white);
-      background: var(--maroon);
-      font-weight: 850;
+      background: var(--blue);
+      font-weight: 700;
     }
 
     .testing-section .next-number {
@@ -690,30 +1338,30 @@
     }
 
     .handoff-section .next-number {
-      background: var(--subject);
+      background: var(--blue);
     }
 
     .next-heading h3 {
       margin: 0;
-      color: var(--maroon);
-      font-size: clamp(1.25rem, 1.65vw, 1.75rem);
-      line-height: 1.15;
+      color: var(--ink);
+      font-size: var(--font-section);
+      line-height: 1.2;
     }
 
     .testing-section .next-heading h3 {
-      color: var(--blue);
+      color: var(--ink);
     }
 
     .handoff-section .next-heading h3 {
-      color: var(--subject);
+      color: var(--ink);
     }
 
     .next-intro {
-      min-height: 3.8em;
-      margin: 0 0 0.8rem;
-      color: var(--muted);
-      font-size: clamp(0.82rem, 0.95vw, 0.98rem);
-      line-height: 1.34;
+      min-height: 112px;
+      margin: 0 0 24px;
+      color: var(--ink);
+      font-size: var(--font-body);
+      line-height: 1.4;
     }
 
     .next-list {
@@ -724,11 +1372,11 @@
 
     .next-list li {
       position: relative;
-      margin-bottom: 0.5rem;
+      margin-bottom: 16px;
       padding-left: 1.1rem;
       color: var(--ink);
-      font-size: clamp(0.8rem, 0.9vw, 0.94rem);
-      line-height: 1.32;
+      font-size: var(--font-body);
+      line-height: 1.4;
     }
 
     .next-list li::before {
@@ -794,15 +1442,15 @@
     }
 
     .closing {
-      background: var(--cream);
+      background: var(--paper);
     }
 
     .closing .slide-inner {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 5.5%;
-      padding-bottom: 9%;
+      padding-top: 80px;
+      padding-bottom: 96px;
     }
 
     .closing .eyebrow {
@@ -812,8 +1460,8 @@
 
     .closing h2 {
       color: var(--maroon-dark);
-      font-size: clamp(3.4rem, 6.2vw, 6.5rem);
-      line-height: 0.98;
+      font-size: 72px;
+      line-height: 1.1;
       text-align: center;
     }
 
@@ -827,10 +1475,10 @@
     }
 
     .closing-band {
-      margin: 2.2rem -6.2% 0;
-      padding: 1.8rem 6.2%;
-      border-top: 5px solid var(--gold);
-      border-bottom: 5px solid var(--gold);
+      margin: 40px -80px 0;
+      padding: 28px 80px;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
       background: var(--maroon);
       text-align: center;
     }
@@ -839,16 +1487,16 @@
       display: block;
       margin-bottom: 0.55rem;
       color: #f4dfac;
-      font-size: clamp(0.78rem, 0.95vw, 1rem);
-      font-weight: 850;
-      letter-spacing: 0.08em;
+      font-size: var(--font-note);
+      font-weight: 600;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
     .demo-url {
       color: var(--white);
-      font-size: clamp(1.35rem, 2.25vw, 2.35rem);
-      font-weight: 850;
+      font-size: 36px;
+      font-weight: 700;
       line-height: 1.2;
       text-decoration-color: var(--gold);
       text-decoration-thickness: 2px;
@@ -863,19 +1511,20 @@
     }
 
     .closing-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      color: var(--maroon);
-      font-size: clamp(0.9rem, 1.08vw, 1.12rem);
-      font-weight: 750;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 960px;
+      max-width: 100%;
+      gap: 20px 48px;
+      margin: 40px auto 0;
+      color: var(--ink);
+      font-size: var(--font-body);
+      font-weight: 600;
+      text-align: center;
     }
 
     .closing-actions span + span::before {
-      margin-right: 1.5rem;
-      color: var(--gold);
-      content: "\2022";
+      content: none;
     }
 
     .controls {
@@ -949,12 +1598,25 @@
       font-weight: 700;
     }
 
+    .hero.active ~ .slide-count {
+      color: var(--white);
+    }
+
+    .hero.active ~ .progress button {
+      border-color: var(--white);
+    }
+
+    .hero.active ~ .progress button.active {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+
     .hero ~ .controls .control-button,
     .hero.active ~ .controls .control-button {
       color: var(--maroon);
     }
 
-    @media (max-width: 760px) {
+    @media screen and (max-width: 760px) {
       body {
         display: block;
         overflow: auto;
@@ -971,18 +1633,32 @@
 
       .slide {
         position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
         min-height: 100dvh;
         overflow: visible;
+        transform: none;
       }
 
       .slide-inner,
       .hero .slide-inner {
+        height: auto;
         min-height: 100dvh;
-        padding: 4.5rem 1.4rem 6rem;
+        padding: 32px 24px 80px;
       }
 
       .hero h1 {
-        font-size: clamp(2.7rem, 13vw, 4.2rem);
+        font-size: 44px;
+      }
+
+      .hero h1 span {
+        font-size: 28px;
+      }
+
+      .slide-header h2 {
+        font-size: 36px;
       }
 
       .hero-copy {
@@ -1010,12 +1686,31 @@
       .comparison {
         height: auto;
         gap: 2rem;
-        padding-bottom: 5rem;
+        padding-bottom: 0;
       }
 
-      .vertical-rule {
-        width: 100%;
-        height: 1px;
+      .method {
+        padding: 0;
+      }
+
+      .method + .method {
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .next-grid {
+        gap: 2rem;
+      }
+
+      .next-section {
+        padding: 0;
+      }
+
+      .next-section + .next-section {
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
+        border-left: 0;
       }
 
       .hierarchy {
@@ -1065,9 +1760,28 @@
       }
 
       .closing-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.55rem;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .closing h2 {
+        font-size: 44px;
+      }
+
+      .closing-band {
+        margin: 32px -24px 0;
+        padding: 24px;
+      }
+
+      .demo-url {
+        font-size: 24px;
+        overflow-wrap: anywhere;
+      }
+
+      .best-for,
+      .next-heading,
+      .next-intro {
+        min-height: 0;
       }
 
       .closing-actions span + span::before {
@@ -1077,6 +1791,111 @@
 
       .definition {
         padding: 1rem;
+      }
+
+      .building-blocks-slide .slide-inner {
+        padding: 32px 24px 80px;
+      }
+
+      .building-blocks-slide .landing-diagram-layout {
+        display: block;
+        height: auto;
+      }
+
+      .building-blocks-slide .diagram-copy {
+        height: auto;
+      }
+
+      .building-concept {
+        padding-left: 16px;
+      }
+
+      .building-concept-heading {
+        min-height: 0;
+      }
+
+      .building-concepts,
+      .building-usage {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .building-flow {
+        overflow-x: auto;
+        padding-bottom: 6px;
+      }
+
+      .building-flow-diagram {
+        min-width: 660px;
+      }
+
+      .diagram-slide .slide-inner {
+        padding: 32px 24px 80px;
+      }
+
+      .landing-diagram-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .landing-diagram-frame {
+        height: auto;
+      }
+
+      .diagram-copy {
+        padding-left: 0;
+      }
+
+      .ai-section,
+      .ai-method-grid,
+      .ai-results-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .ai-comparison-content,
+      .ai-comparison-slide .landing-diagram-layout {
+        height: auto;
+      }
+
+      .ai-comparison-content {
+        gap: 40px;
+      }
+
+      .ai-comparison-header,
+      .ai-workflow-section {
+        margin-bottom: 0;
+      }
+
+      .ai-methods-section {
+        flex-grow: 0;
+        padding-bottom: 0;
+      }
+
+      .ai-methods-heading,
+      .ai-method-grid {
+        align-self: start;
+      }
+
+      .ai-results-content {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .ai-metrics-table {
+        min-width: 440px;
+      }
+
+      .ai-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .ai-comparison-slide .slide-inner {
+        padding: 32px 24px 80px;
       }
 
       .shared-data {
@@ -1112,7 +1931,7 @@
 
     @media print {
       @page {
-        size: 13.333in 7.5in;
+        size: 1280px 720px;
         margin: 0;
       }
 
@@ -1123,16 +1942,23 @@
       }
 
       .deck {
-        width: 13.333in;
+        width: 1280px;
+        height: auto;
+        aspect-ratio: auto;
+        overflow: visible;
         box-shadow: none;
       }
 
       .slide,
       .slide.active {
         position: relative;
+        top: auto;
+        left: auto;
         display: block;
-        width: 13.333in;
-        height: 7.5in;
+        width: 1600px;
+        height: 900px;
+        transform: none;
+        zoom: 0.8;
         break-after: page;
         animation: none;
       }
@@ -1150,172 +1976,240 @@
     <section class="slide hero active" data-title="Helping Readers Find and Explore Posts" aria-hidden="false">
       <div class="slide-inner">
         <p class="eyebrow">Ehrman Blog Search Demo</p>
-        <h1>Helping Readers Find and Explore Posts <span>New Search and Browsing Tools</span></h1>
+        <h1>Helping Readers Find and Explore Posts <span>Browse, Keyword, and AI-Assisted Search</span></h1>
       </div>
     </section>
 
-    <section class="slide methods" data-title="Two Ways to Find Relevant Posts" aria-hidden="true">
+    <section class="slide methods" data-title="Three Ways to Find Relevant Posts" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">Reader Experience</p>
-        <h2>Two ways to find relevant posts</h2>
-        <p class="lead">Readers can search directly when they know what they want, or browse from broad subject areas when they want to explore.</p>
-        <div class="gold-rule"></div>
+        <header class="slide-header">
+          <p class="eyebrow">Reader Experience</p>
+          <h2>Three ways to find relevant posts</h2>
+          <p class="lead">Readers can explore organized subjects, search with specific terms, or describe what they want to find in everyday language.</p>
+        </header>
 
         <div class="comparison">
-          <article class="method">
-            <span class="method-number">1</span><h3>Keyword Search</h3>
-            <p class="best-for"><strong>Best for:</strong> readers who already know what they want to find.</p>
-            <ul class="feature-list">
-              <li>Combine up to four topics or secondary keywords.</li>
-              <li>Use every additional term to narrow the results.</li>
-              <li>Limit results to a category when useful.</li>
-              <li>Rank by relevance or sort by date.</li>
-            </ul>
-            <div class="tradeoffs">
-              <p class="tradeoff"><strong>Why choose it:</strong> The fastest path to a known target.</p>
-              <p class="tradeoff"><strong>Consider:</strong> Works best when readers know useful search terms.</p>
-            </div>
-          </article>
-
-          <div class="vertical-rule" aria-hidden="true"></div>
-
           <article class="method browse">
-            <span class="method-number">2</span><h3>Browse Topics</h3>
-            <p class="best-for"><strong>Best for:</strong> new readers and anyone exploring the blog.</p>
+            <span class="method-number">1</span><h3>Browse Topics</h3>
+            <p class="best-for"><strong>Best for:</strong> readers exploring a subject or new to the blog.</p>
             <ul class="feature-list">
-              <li>Start with a broad subject area.</li>
-              <li>Move through categories and focused topics.</li>
-              <li>See descriptions and post counts along the way.</li>
-              <li>Reach the same posts without entering search terms.</li>
+              <li>Move from broad Subject Areas to focused Topics.</li>
+              <li>Review descriptions and post counts while exploring.</li>
             </ul>
-            <div class="tradeoffs">
-              <p class="tradeoff"><strong>Why choose it:</strong> Supports discovery and provides useful context.</p>
-              <p class="tradeoff"><strong>Consider:</strong> Adds a navigation layer; two alternative structures are being tested.</p>
-            </div>
+          </article>
+
+          <article class="method">
+            <span class="method-number">2</span><h3>Keyword Search</h3>
+            <p class="best-for"><strong>Best for:</strong> readers who already know the subject they want to find.</p>
+            <ul class="feature-list">
+              <li>Combine up to four Topics or Secondary Keywords.</li>
+              <li>Selecting a Category automatically displays related Topics and Secondary Keywords.</li>
+            </ul>
+          </article>
+
+          <article class="method ai">
+            <span class="method-number">3</span><h3>AI-Assisted Search</h3>
+            <p class="best-for"><strong>Best for:</strong> readers who prefer to ask a question or describe what they want to explore.</p>
+            <ul class="feature-list">
+              <li>Enter a question or request in everyday language.</li>
+              <li>Receive posts reviewed and ranked by AI for relevance.</li>
+            </ul>
           </article>
         </div>
 
-        <p class="shared-data">The methods complement one another: Keyword Search supports precision; Browse Topics supports discovery.</p>
       </div>
     </section>
 
-    <section class="slide organization" data-title="How the Demo Organizes and Finds Posts" aria-hidden="true">
+    <section class="slide diagram-slide building-blocks-slide" data-title="Browse Topics and Keyword Search" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">Shared Organization</p>
-        <h2>How the demo organizes and finds posts</h2>
-        <p class="lead">Browsing and search use the same organized content to guide readers from broad interests or specific terms to relevant posts.</p>
-        <div class="gold-rule"></div>
+        <div class="landing-diagram-layout">
+          <figure class="landing-diagram-frame">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAwIiBoZWlnaHQ9IjEzMjAiIHZpZXdCb3g9IjAgMCAxODAwIDEzMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjcmlwdGlvbiI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+V2F5cyB0byBmaW5kIHBvc3RzIG9uIHRoZSBCYXJ0IEVocm1hbiBCbG9nPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzY3JpcHRpb24iPkEgc3ltbWV0cmljYWwgY29tcGFyaXNvbiBvZiBCcm93c2UgVG9waWNzIGFuZCBLZXl3b3JkIFNlYXJjaC4gQnJvd3NlIFRvcGljcyBtb3ZlcyBmcm9tIHN1YmplY3QgYXJlYXMgdG8gY2F0ZWdvcmllcyBhbmQgdG9waWNzLiBLZXl3b3JkIFNlYXJjaCBjb21iaW5lcyB0b3BpY3MgYW5kIHNlY29uZGFyeSBrZXl3b3JkcyBpbnRvIHNlYXJjaCB0ZXJtcyBhbmQgcmVzdWx0cy4gQm90aCBwYXRocyBlbmQgd2l0aCBwb3N0cy48L2Rlc2M+CiAgPGRlZnM+CiAgICA8ZmlsdGVyIGlkPSJzaGFkb3ciIHg9Ii0xMCUiIHk9Ii0xMCUiIHdpZHRoPSIxMjAlIiBoZWlnaHQ9IjEzMCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iNCIgc3RkRGV2aWF0aW9uPSI3IiBmbG9vZC1jb2xvcj0iIzM5MmQyMCIgZmxvb2Qtb3BhY2l0eT0iMC4xMCIvPgogICAgPC9maWx0ZXI+CiAgICA8bWFya2VyIGlkPSJhcnJvdyIgbWFya2VyV2lkdGg9IjkiIG1hcmtlckhlaWdodD0iOSIgcmVmWD0iOCIgcmVmWT0iNC41IiBvcmllbnQ9ImF1dG8iIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxwYXRoIGQ9Ik0wLDAgTDksNC41IEwwLDkgeiIgZmlsbD0iIzdkMjAxYSIvPgogICAgPC9tYXJrZXI+CiAgICA8c3R5bGU+CiAgICAgIC5wYWdlIHsgZmlsbDogI2Y2ZjNlZDsgfQogICAgICAucGFuZWwgeyBmaWxsOiAjZmZmZWZhOyBzdHJva2U6ICNkOGNmYmU7IHN0cm9rZS13aWR0aDogMjsgZmlsdGVyOiB1cmwoI3NoYWRvdyk7IH0KICAgICAgLmJveCB7IHN0cm9rZS13aWR0aDogMjsgfQogICAgICAucHJvY2VzcyB7IGZpbGw6ICNmZmZlZmE7IHN0cm9rZTogI2JjYWU5MTsgfQogICAgICAudG9waWMgeyBmaWxsOiAjZWRmNmZiOyBzdHJva2U6ICMzOTgyYTU7IH0KICAgICAgLmtleXdvcmQgeyBmaWxsOiAjZjVmMGY3OyBzdHJva2U6ICM4NzZmOTM7IH0KICAgICAgLnN1YmplY3QgeyBmaWxsOiAjZmZmM2NmOyBzdHJva2U6ICNiYjhiMjk7IH0KICAgICAgLmNhdGVnb3J5IHsgZmlsbDogI2ZmZjllOTsgc3Ryb2tlOiAjYzM5YTQyOyB9CiAgICAgIC5wb3N0IHsgZmlsbDogI2VkZjdlYjsgc3Ryb2tlOiAjNTU5NjU3OyB9CiAgICAgIC5oZWFkaW5nIHsgZm9udDogNzAwIDQ0cHggQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsgZmlsbDogIzZmMWQxODsgfQogICAgICAuc3ViaGVhZGluZyB7IGZvbnQ6IDQwMCAyOHB4IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7IGZpbGw6ICM0NTQxM2M7IH0KICAgICAgLnN0YWdlIHsgZm9udDogNzAwIDE1cHggQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsgbGV0dGVyLXNwYWNpbmc6IDEuNXB4OyBmaWxsOiAjNzY2YzVmOyB9CiAgICAgIC5sYWJlbCB7IGZvbnQ6IDcwMCAyOXB4IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7IGZpbGw6ICMxNzE1MTI7IH0KICAgICAgLmxhYmVsLXNtYWxsIHsgZm9udDogNzAwIDI0cHggQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsgZmlsbDogIzE3MTUxMjsgfQogICAgICAuY291bnQgeyBmb250OiA0MDAgMjJweCBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOyBmaWxsOiAjNTc1MTRhOyB9CiAgICAgIC5ub3RlIHsgZm9udDogNjAwIDI2cHggQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsgZmlsbDogIzdkMjAxYTsgfQogICAgICAuZGVmaW5pdGlvbi10aXRsZSB7IGZvbnQ6IDcwMCAyN3B4IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7IGZpbGw6ICM2ZjFkMTg7IH0KICAgICAgLmRlZmluaXRpb24geyBmb250OiA0MDAgMjZweCBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOyBmaWxsOiAjNDU0MTNjOyB9CiAgICAgIC5hcnJvdyB7IGZpbGw6IG5vbmU7IHN0cm9rZTogIzdkMjAxYTsgc3Ryb2tlLXdpZHRoOiAzOyBtYXJrZXItZW5kOiB1cmwoI2Fycm93KTsgfQogICAgICAuYWNjZW50IHsgc3Ryb2tlOiAjN2QyMDFhOyBzdHJva2Utd2lkdGg6IDU7IHN0cm9rZS1saW5lY2FwOiByb3VuZDsgfQogICAgICAuZGl2aWRlciB7IHN0cm9rZTogI2RkZDRjNDsgc3Ryb2tlLXdpZHRoOiAxLjU7IH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJwYWdlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+CgogIDxyZWN0IGNsYXNzPSJwYW5lbCIgeD0iNjAiIHk9IjQ1IiB3aWR0aD0iODAwIiBoZWlnaHQ9Ijg2NSIgcng9IjE2Ii8+CiAgPHJlY3QgY2xhc3M9InBhbmVsIiB4PSI5NDAiIHk9IjQ1IiB3aWR0aD0iODAwIiBoZWlnaHQ9Ijg2NSIgcng9IjE2Ii8+CgogIDx0ZXh0IGNsYXNzPSJoZWFkaW5nIiB4PSIxMDUiIHk9IjExNSI+QnJvd3NlIFRvcGljczwvdGV4dD4KICA8bGluZSBjbGFzcz0iYWNjZW50IiB4MT0iMTA1IiB5MT0iMTQzIiB4Mj0iMjA1IiB5Mj0iMTQzIi8+CiAgPHRleHQgY2xhc3M9InN1YmhlYWRpbmciIHg9IjEwNSIgeT0iMTg1Ij5FeHBsb3JlIHBvc3RzIHRocm91Z2ggb25lIG9mIHR3byBzdWJqZWN0LWFyZWE8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YmhlYWRpbmciIHg9IjEwNSIgeT0iMjE3Ij5zdHJ1Y3R1cmVzLjwvdGV4dD4KCiAgPHRleHQgY2xhc3M9ImhlYWRpbmciIHg9Ijk4NSIgeT0iMTE1Ij5LZXl3b3JkIFNlYXJjaDwvdGV4dD4KICA8bGluZSBjbGFzcz0iYWNjZW50IiB4MT0iOTg1IiB5MT0iMTQzIiB4Mj0iMTA4NSIgeTI9IjE0MyIvPgogIDx0ZXh0IGNsYXNzPSJzdWJoZWFkaW5nIiB4PSI5ODUiIHk9IjE4NSI+Q29tYmluZSB1cCB0byBmb3VyIHRvcGljcyBvciBzZWNvbmRhcnkga2V5d29yZHM8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YmhlYWRpbmciIHg9Ijk4NSIgeT0iMjE3Ij50byBmaW5kIHJlbGV2YW50IHBvc3RzLjwvdGV4dD4KCiAgPHRleHQgY2xhc3M9InN0YWdlIiB4PSIxNDUiIHk9IjI1OCI+U1RBUlQgV0lUSDwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3RhZ2UiIHg9IjEwMjUiIHk9IjI1OCI+U1RBUlQgV0lUSDwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9ImJveCBzdWJqZWN0IiB4PSIxNDUiIHk9IjI3NSIgd2lkdGg9IjMxNSIgaGVpZ2h0PSIxMjAiIHJ4PSIxMiIvPgogIDxyZWN0IGNsYXNzPSJib3ggc3ViamVjdCIgeD0iNDYwIiB5PSIyNzUiIHdpZHRoPSIzMTUiIGhlaWdodD0iMTIwIiByeD0iMTIiLz4KICA8dGV4dCBjbGFzcz0ibGFiZWwiIHg9IjMwMiIgeT0iMzIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Ccm93c2UgVG9waWNzIDE8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImNvdW50IiB4PSIzMDIiIHk9IjM2MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTAgc3ViamVjdCBhcmVhczwvdGV4dD4KICA8dGV4dCBjbGFzcz0ibGFiZWwiIHg9IjYxNyIgeT0iMzIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Ccm93c2UgVG9waWNzIDI8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImNvdW50IiB4PSI2MTciIHk9IjM2MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+OSBzdWJqZWN0IGFyZWFzPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IHRvcGljIiB4PSIxMDI1IiB5PSIyNzUiIHdpZHRoPSIzMTUiIGhlaWdodD0iMTIwIiByeD0iMTIiLz4KICA8cmVjdCBjbGFzcz0iYm94IGtleXdvcmQiIHg9IjEzNDAiIHk9IjI3NSIgd2lkdGg9IjMxNSIgaGVpZ2h0PSIxMjAiIHJ4PSIxMiIvPgogIDx0ZXh0IGNsYXNzPSJsYWJlbCIgeD0iMTE4MiIgeT0iMzIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Ub3BpY3M8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImNvdW50IiB4PSIxMTgyIiB5PSIzNjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjI5MyB0b3BpY3M8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSIxNDk3IiB5PSIzMjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNlY29uZGFyeSBLZXl3b3JkczwvdGV4dD4KICA8dGV4dCBjbGFzcz0iY291bnQiIHg9IjE0OTciIHk9IjM2MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+ODk3IGtleXdvcmRzPC90ZXh0PgoKICA8cGF0aCBjbGFzcz0iYXJyb3ciIGQ9Ik00NjAgMzk1IEw0NjAgNDQ4Ii8+CiAgPHBhdGggY2xhc3M9ImFycm93IiBkPSJNMTM0MCAzOTUgTDEzNDAgNTI5Ii8+CgogIDxyZWN0IGNsYXNzPSJib3ggY2F0ZWdvcnkiIHg9IjE0NSIgeT0iNDQ4IiB3aWR0aD0iNjMwIiBoZWlnaHQ9IjEwNSIgcng9IjEyIi8+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI0NjAiIHk9IjQ5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2F0ZWdvcmllczwvdGV4dD4KICA8dGV4dCBjbGFzcz0iY291bnQiIHg9IjQ2MCIgeT0iNTI3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj40MSBjYXRlZ29yaWVzPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IHByb2Nlc3MiIHg9IjEwMjUiIHk9IjUyOSIgd2lkdGg9IjYzMCIgaGVpZ2h0PSIxMDUiIHJ4PSIxMiIvPgogIDx0ZXh0IGNsYXNzPSJsYWJlbCIgeD0iMTM0MCIgeT0iNTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VcCB0byBGb3VyIFNlYXJjaCBUZXJtczwvdGV4dD4KICA8dGV4dCBjbGFzcz0iY291bnQiIHg9IjEzNDAiIHk9IjYwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VG9waWNzLCBzZWNvbmRhcnkga2V5d29yZHMsIG9yIGJvdGg8L3RleHQ+CgogIDxwYXRoIGNsYXNzPSJhcnJvdyIgZD0iTTQ2MCA1NTMgTDQ2MCA2MTAiLz4KCiAgPHJlY3QgY2xhc3M9ImJveCB0b3BpYyIgeD0iMTQ1IiB5PSI2MTAiIHdpZHRoPSI2MzAiIGhlaWdodD0iMTA1IiByeD0iMTIiLz4KICA8dGV4dCBjbGFzcz0ibGFiZWwiIHg9IjQ2MCIgeT0iNjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Ub3BpY3M8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImNvdW50IiB4PSI0NjAiIHk9IjY4OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MjkzIHRvcGljczwvdGV4dD4KCiAgPHBhdGggY2xhc3M9ImFycm93IiBkPSJNNDYwIDcxNSBMNDYwIDc3MiIvPgogIDxwYXRoIGNsYXNzPSJhcnJvdyIgZD0iTTEzNDAgNjM0IEwxMzQwIDc3MiIvPgoKICA8cmVjdCBjbGFzcz0iYm94IHBvc3QiIHg9IjE0NSIgeT0iNzcyIiB3aWR0aD0iNjMwIiBoZWlnaHQ9Ijg4IiByeD0iMTIiLz4KICA8cmVjdCBjbGFzcz0iYm94IHBvc3QiIHg9IjEwMjUiIHk9Ijc3MiIgd2lkdGg9IjYzMCIgaGVpZ2h0PSI4OCIgcng9IjEyIi8+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI0NjAiIHk9IjgyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UG9zdHM8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSIxMzQwIiB5PSI4MjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBvc3RzPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0ibm90ZSIgeD0iOTAwIiB5PSI5NzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRvcGljIHBvc3QgbGlzdHMgYW5kIHNlYXJjaCByZXN1bHRzIGNhbiBiZSBuYXJyb3dlZCB3aXRoIGFkZGl0aW9uYWwgc2VhcmNoIHRlcm1zLjwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9InBhbmVsIiB4PSI2MCIgeT0iMTAxNSIgd2lkdGg9IjE2ODAiIGhlaWdodD0iMjQ1IiByeD0iMTYiLz4KICA8bGluZSBjbGFzcz0iZGl2aWRlciIgeDE9IjQ4MCIgeTE9IjEwNTAiIHgyPSI0ODAiIHkyPSIxMjI1Ii8+CiAgPGxpbmUgY2xhc3M9ImRpdmlkZXIiIHgxPSI5MDAiIHkxPSIxMDUwIiB4Mj0iOTAwIiB5Mj0iMTIyNSIvPgogIDxsaW5lIGNsYXNzPSJkaXZpZGVyIiB4MT0iMTMyMCIgeTE9IjEwNTAiIHgyPSIxMzIwIiB5Mj0iMTIyNSIvPgoKICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbi10aXRsZSIgeD0iOTAiIHk9IjEwNzUiPlN1YmplY3QgQXJlYXM6PC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJkZWZpbml0aW9uIiB4PSI5MCIgeT0iMTEyMCI+QnJvYWQgZW50cnkgcG9pbnRzIHRoYXQ8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImRlZmluaXRpb24iIHg9IjkwIiB5PSIxMTUyIj5vcmdhbml6ZSByZWxhdGVkIGNhdGVnb3JpZXMuPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbi10aXRsZSIgeD0iNTEwIiB5PSIxMDc1Ij5DYXRlZ29yaWVzOjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbiIgeD0iNTEwIiB5PSIxMTIwIj5Gb2N1c2VkIGdyb3VwaW5ncyBvZjwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbiIgeD0iNTEwIiB5PSIxMTUyIj5yZWxhdGVkIHRvcGljcy48L3RleHQ+CgogIDx0ZXh0IGNsYXNzPSJkZWZpbml0aW9uLXRpdGxlIiB4PSI5MzAiIHk9IjEwNzUiPlRvcGljczo8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImRlZmluaXRpb24iIHg9IjkzMCIgeT0iMTEyMCI+TWFqb3Igc3ViamVjdHMgY292ZXJlZDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbiIgeD0iOTMwIiB5PSIxMTUyIj5pbiBwb3N0cyBhbmQgdXNlZCB0byBncm91cDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbiIgeD0iOTMwIiB5PSIxMTg0Ij5yZWxhdGVkIHBvc3RzLjwvdGV4dD4KCiAgPHRleHQgY2xhc3M9ImRlZmluaXRpb24tdGl0bGUiIHg9IjEzNTAiIHk9IjEwNzUiPlNlY29uZGFyeSBLZXl3b3Jkczo8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImRlZmluaXRpb24iIHg9IjEzNTAiIHk9IjExMjAiPkltcG9ydGFudCBwZW9wbGUsIHRleHRzLDwvdGV4dD4KICA8dGV4dCBjbGFzcz0iZGVmaW5pdGlvbiIgeD0iMTM1MCIgeT0iMTE1MiI+cGxhY2VzLCBvciBzdXBwb3J0aW5nIGlkZWFzPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJkZWZpbml0aW9uIiB4PSIxMzUwIiB5PSIxMTg0Ij5kaXNjdXNzZWQgaW4gcG9zdHMuPC90ZXh0PgoKPC9zdmc+Cg==" alt="Diagram comparing Browse Topics and Keyword Search workflows">
+          </figure>
+          <div class="diagram-copy">
+            <header class="slide-header building-header">
+              <p class="eyebrow">Search Methods 1 and 2</p>
+              <h2>Browse Topics and Keyword Search</h2>
+              <p class="lead">Topics and Secondary Keywords are the building blocks for these two search methods.</p>
+            </header>
 
-        <div class="organization-map" aria-label="How browsing and keyword search use the content organization">
-          <div class="organization-row search-row">
-            <div class="organization-label"><span>Keyword</span><span>Search</span></div>
-            <div class="organization-flow">
-              <div class="flow-node topic-node"><strong>Topics</strong><span>major subjects</span></div>
-              <span class="organization-plus" aria-hidden="true">+</span>
-              <div class="flow-node keyword-node"><strong>Secondary Keywords</strong><span>supporting terms</span></div>
-              <span class="organization-arrow" aria-hidden="true">&rarr;</span>
-              <div class="flow-node post-node"><strong>Posts</strong><span>ranked matches</span></div>
+            <div class="building-concepts">
+              <section class="building-concept topic-concept">
+                <div class="building-concept-heading">
+                  <h3>Topics</h3>
+                  <span class="building-concept-count">296 Topics</span>
+                </div>
+                <ul class="feature-list building-concept-points">
+                  <li>Topics identify major subjects central to a post.</li>
+                  <li>All posts are assigned one or more Topics.</li>
+                </ul>
+              </section>
+              <section class="building-concept secondary-concept">
+                <div class="building-concept-heading">
+                  <h3>Secondary Keywords</h3>
+                  <span class="building-concept-count">897 Secondary Keywords</span>
+                </div>
+                <ul class="feature-list building-concept-points">
+                  <li>Secondary Keywords identify important people, texts, places, events, or ideas discussed meaningfully in the post.</li>
+                  <li>All posts are assigned Secondary Keywords.</li>
+                </ul>
+              </section>
             </div>
-          </div>
 
-          <div class="organization-row browse-row">
-            <div class="organization-label"><span>Browse</span><span>Topics</span></div>
-            <div class="organization-flow">
-              <div class="flow-node subject-node"><strong>Subject Areas</strong><span>broad entry points</span></div>
-              <span class="organization-arrow" aria-hidden="true">&rarr;</span>
-              <div class="flow-node category-node"><strong>Categories</strong><span>related topics</span></div>
-              <span class="organization-arrow" aria-hidden="true">&rarr;</span>
-              <div class="flow-node topic-node"><strong>Topics</strong><span>major subjects</span></div>
-              <span class="organization-arrow" aria-hidden="true">&rarr;</span>
-              <div class="flow-node post-node"><strong>Posts</strong><span>matching content</span></div>
-            </div>
+            <section class="building-searches">
+              <div class="building-usage">
+                <section class="building-use">
+                  <h3>Browse Topics</h3>
+                  <ul class="feature-list">
+                    <li>Browse Topics guides readers from Subject Areas to Categories, Topics, and related posts.</li>
+                    <li>Categories group related Topics; Subject Areas group related Categories.</li>
+                    <li>Two paths use different Subject Areas. Only one will be selected for the final version.</li>
+                  </ul>
+                  <figure class="building-flow">
+                    <svg class="building-flow-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 128" role="img" aria-labelledby="slide3-browse-flow-title slide3-browse-flow-desc">
+                      <title id="slide3-browse-flow-title">Browse Topics workflow</title>
+                      <desc id="slide3-browse-flow-desc">Browse Topics 1 starts with 10 Subject Areas and Browse Topics 2 starts with 9 Subject Areas. Either path leads through 41 Categories and Topics to Posts.</desc>
+                      <defs>
+                        <marker id="slide3-browse-flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                          <path class="flow-arrowhead" d="M0 0 L8 4 L0 8 Z"/>
+                        </marker>
+                      </defs>
+                      <path class="flow-connector" d="M190 30 H208 V98 H190"/>
+                      <path class="flow-connector" d="M208 64 H222" marker-end="url(#slide3-browse-flow-arrow)"/>
+                      <path class="flow-connector" d="M358 64 H390" marker-end="url(#slide3-browse-flow-arrow)"/>
+                      <path class="flow-connector" d="M498 64 H530" marker-end="url(#slide3-browse-flow-arrow)"/>
+                      <rect class="flow-box flow-subject" x="2" y="2" width="188" height="56" rx="6"/>
+                      <text class="flow-label" x="96" y="25">Browse Topics 1</text>
+                      <text class="flow-count" x="96" y="46">10 Subject Areas</text>
+                      <rect class="flow-box flow-subject" x="2" y="70" width="188" height="56" rx="6"/>
+                      <text class="flow-label" x="96" y="93">Browse Topics 2</text>
+                      <text class="flow-count" x="96" y="114">9 Subject Areas</text>
+                      <rect class="flow-box flow-category" x="226" y="34" width="132" height="60" rx="6"/>
+                      <text class="flow-label" x="292" y="58">Categories</text>
+                      <text class="flow-count" x="292" y="79">41 Categories</text>
+                      <rect class="flow-box flow-topic" x="394" y="34" width="104" height="60" rx="6"/>
+                      <text class="flow-label" x="446" y="71">Topics</text>
+                      <rect class="flow-box flow-post" x="534" y="34" width="124" height="60" rx="6"/>
+                      <text class="flow-label" x="596" y="71">Posts</text>
+                    </svg>
+                  </figure>
+                </section>
+                <section class="building-use keyword-use">
+                  <h3>Keyword Search</h3>
+                  <ul class="feature-list">
+                    <li>Readers can combine up to four Topics, Secondary Keywords, or both to narrow results.</li>
+                  </ul>
+                  <figure class="building-flow">
+                    <svg class="building-flow-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 128" role="img" aria-labelledby="slide3-keyword-flow-title slide3-keyword-flow-desc">
+                      <title id="slide3-keyword-flow-title">Keyword Search workflow</title>
+                      <desc id="slide3-keyword-flow-desc">Choose from Topics and Secondary Keywords. Combine up to four Topics, Secondary Keywords, or both to find matching Posts.</desc>
+                      <defs>
+                        <marker id="slide3-keyword-flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                          <path class="flow-arrowhead" d="M0 0 L8 4 L0 8 Z"/>
+                        </marker>
+                      </defs>
+                      <path class="flow-connector" d="M232 30 H250 V98 H232"/>
+                      <path class="flow-connector" d="M250 64 H264" marker-end="url(#slide3-keyword-flow-arrow)"/>
+                      <path class="flow-connector" d="M518 64 H550" marker-end="url(#slide3-keyword-flow-arrow)"/>
+                      <rect class="flow-box flow-topic" x="2" y="2" width="230" height="56" rx="6"/>
+                      <text class="flow-label" x="117" y="37">Topics</text>
+                      <rect class="flow-box flow-keyword" x="2" y="70" width="230" height="56" rx="6"/>
+                      <text class="flow-label" x="117" y="105">Secondary Keywords</text>
+                      <rect class="flow-box flow-process" x="268" y="20" width="250" height="88" rx="6"/>
+                      <text class="flow-label" x="393" y="45">Up to Four Search Terms</text>
+                      <text class="flow-count" x="393" y="69">Topics, Secondary Keywords,</text>
+                      <text class="flow-count" x="393" y="89">or both</text>
+                      <rect class="flow-box flow-post" x="554" y="34" width="104" height="60" rx="6"/>
+                      <text class="flow-label" x="606" y="71">Posts</text>
+                    </svg>
+                  </figure>
+                </section>
+              </div>
+            </section>
           </div>
         </div>
-
-        <div class="definition-grid">
-          <section class="definition subject-definition">
-            <h3>Subject Areas (9-10)</h3>
-            <p>Broad groupings that provide a starting point for exploration.</p>
-          </section>
-          <section class="definition category-definition">
-            <h3>Categories (41)</h3>
-            <p>Focused groupings of related topics within a subject area.</p>
-          </section>
-          <section class="definition topic-definition">
-            <h3>Topics (286)</h3>
-            <p>Major post subjects used for browsing and as search terms.</p>
-          </section>
-          <section class="definition keyword-definition">
-            <h3>Secondary Keywords (896)</h3>
-            <p>Important people, texts, places, and supporting ideas found in posts.</p>
-          </section>
-        </div>
-
       </div>
     </section>
 
-    <section class="slide examples" data-title="Two Paths in Practice" aria-hidden="true">
+    <section class="slide diagram-slide ai-diagram-slide ai-comparison-slide" data-title="One experience, two approaches" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">Examples</p>
-        <h2>Two paths in practice</h2>
-        <p class="lead">Search combines selected terms, while browsing follows the organized content hierarchy. Both paths lead readers to relevant posts.</p>
-        <div class="gold-rule"></div>
+        <div class="landing-diagram-layout">
+          <figure class="landing-diagram-frame">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAwIiBoZWlnaHQ9IjEzOTAiIHZpZXdCb3g9IjAgMCAxODAwIDEzOTAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjcmlwdGlvbiI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+QXNrIEFJOiB0d28gYXBwcm9hY2hlcyB1bmRlciBldmFsdWF0aW9uPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzY3JpcHRpb24iPkEgc2hhcmVkIEFzayBBSSB3b3JrZmxvdyBicmFuY2hlcyBpbnRvIHR3byBzZWFyY2ggYXBwcm9hY2hlcy4gQXNrIEFJIDEgdXNlcyBBSSB0byBpZGVudGlmeSByZWxldmFudCB0b3BpY3MgYW5kIGtleXdvcmRzLCB0aGVuIHNlYXJjaGVzIHRoZSBkYXRhYmFzZSB3aXRoIHRob3NlIHRlcm1zLiBBc2sgQUkgMiB1c2VzIGFuIGVtYmVkZGluZyBtb2RlbCB0byBjb252ZXJ0IHRoZSBxdWVzdGlvbiBvciByZXF1ZXN0IGludG8gYSB2ZWN0b3IsIHRoZW4gcGVyZm9ybXMgYSBzZW1hbnRpYyBkYXRhYmFzZSBzZWFyY2ggb2YgcG9zdCB0aXRsZXMgYW5kIHN1bW1hcmllcy4gQm90aCBhcHByb2FjaGVzIHByb2R1Y2UgY2FuZGlkYXRlIHBvc3RzIHRoYXQgQUkgcmV2aWV3cyBhbmQgcmFua3MuPC9kZXNjPgogIDxkZWZzPgogICAgPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMTAlIiB5PSItMTAlIiB3aWR0aD0iMTIwJSIgaGVpZ2h0PSIxMzAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjQiIHN0ZERldmlhdGlvbj0iNyIgZmxvb2QtY29sb3I9IiMzOTJkMjAiIGZsb29kLW9wYWNpdHk9IjAuMTAiLz4KICAgIDwvZmlsdGVyPgogICAgPG1hcmtlciBpZD0iYXJyb3ciIG1hcmtlcldpZHRoPSI5IiBtYXJrZXJIZWlnaHQ9IjkiIHJlZlg9IjgiIHJlZlk9IjQuNSIgb3JpZW50PSJhdXRvIiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNMCwwIEw5LDQuNSBMMCw5IHoiIGZpbGw9IiM3ZDIwMWEiLz4KICAgIDwvbWFya2VyPgogICAgPHN0eWxlPgogICAgICAucGFnZSB7IGZpbGw6ICNmNmYzZWQ7IH0KICAgICAgLnBhbmVsIHsgZmlsbDogI2ZmZmVmYTsgc3Ryb2tlOiAjZDhjZmJlOyBzdHJva2Utd2lkdGg6IDI7IGZpbHRlcjogdXJsKCNzaGFkb3cpOyB9CiAgICAgIC5ib3ggeyBzdHJva2Utd2lkdGg6IDI7IH0KICAgICAgLnF1ZXN0aW9uIHsgZmlsbDogI2ZmZmVmYTsgc3Ryb2tlOiAjYmNhZTkxOyB9CiAgICAgIC5haS1zdGVwIHsgZmlsbDogI2VkZjZmYjsgc3Ryb2tlOiAjMzk4MmE1OyB9CiAgICAgIC5kYXRhYmFzZSB7IGZpbGw6ICNmNWYwZjc7IHN0cm9rZTogIzg3NmY5MzsgfQogICAgICAuY2FuZGlkYXRlIHsgZmlsbDogI2ZmZjllOTsgc3Ryb2tlOiAjYzM5YTQyOyB9CiAgICAgIC5wb3N0IHsgZmlsbDogI2VkZjdlYjsgc3Ryb2tlOiAjNTU5NjU3OyB9CiAgICAgIC5wYWdlLWhlYWRpbmcgeyBmb250OiA3MDAgNDRweCBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOyBmaWxsOiAjNmYxZDE4OyB9CiAgICAgIC5wYWdlLXN1YmhlYWRpbmcgeyBmb250OiA0MDAgMjRweCBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmOyBmaWxsOiAjNDU0MTNjOyB9CiAgICAgIC5tZXRob2QgeyBmb250OiA3MDAgMjdweCBHZW9yZ2lhLCAiVGltZXMgTmV3IFJvbWFuIiwgc2VyaWY7IGxldHRlci1zcGFjaW5nOiAwOyBmaWxsOiAjNmYxZDE4OyB9CiAgICAgIC5tZXRob2QtbnVtYmVyIHsgZm9udC1zaXplOiAzM3B4OyB9CiAgICAgIC5tZXRob2QtdGl0bGUtYmcgeyBmaWxsOiAjZmZmZWZhOyB9CiAgICAgIC5sYWJlbCB7IGZvbnQ6IDcwMCAyN3B4IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7IGZpbGw6ICMxNzE1MTI7IH0KICAgICAgLmxhYmVsLXNtYWxsIHsgZm9udDogNzAwIDI3cHggQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsgZmlsbDogIzE3MTUxMjsgfQogICAgICAubm90ZSB7IGZvbnQ6IDYwMCAyNnB4IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7IGZpbGw6ICM3ZDIwMWE7IH0KICAgICAgLmFycm93IHsgZmlsbDogbm9uZTsgc3Ryb2tlOiAjN2QyMDFhOyBzdHJva2Utd2lkdGg6IDM7IH0KICAgICAgLmFycm93LWVuZCB7IG1hcmtlci1lbmQ6IHVybCgjYXJyb3cpOyB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KCiAgPHJlY3QgY2xhc3M9InBhZ2UiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz4KICA8dGV4dCBjbGFzcz0icGFnZS1oZWFkaW5nIiB4PSI5MDAiIHk9IjY4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Bc2sgQUk6IFR3byBBcHByb2FjaGVzIFVuZGVyIEV2YWx1YXRpb248L3RleHQ+CiAgPHRleHQgY2xhc3M9InBhZ2Utc3ViaGVhZGluZyIgeD0iOTAwIiB5PSIxMDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJvdGggYmVnaW4gd2l0aCBhIHJlYWRlcidzIHF1ZXN0aW9uIG9yIHJlcXVlc3QgYW5kIGVuZCB3aXRoIEFJLXJhbmtlZCBwb3N0cy48L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJwYW5lbCIgeD0iNzAiIHk9IjE0NSIgd2lkdGg9IjE2NjAiIGhlaWdodD0iMTEyNSIgcng9IjE2Ii8+CgogIDxyZWN0IGNsYXNzPSJib3ggcXVlc3Rpb24iIHg9IjU5MCIgeT0iMTk1IiB3aWR0aD0iNjIwIiBoZWlnaHQ9IjEwMCIgcng9IjEyIi8+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI5MDAiIHk9IjI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UXVlc3Rpb24gb3IgUmVxdWVzdDwvdGV4dD4KCiAgPHBhdGggY2xhc3M9ImFycm93IiBkPSJNOTAwIDI5NSBMOTAwIDM0NSIvPgogIDxwYXRoIGNsYXNzPSJhcnJvdyBhcnJvdy1lbmQiIGQ9Ik05MDAgMzQ1IEw0NjAgMzQ1IEw0NjAgNDMwIi8+CiAgPHBhdGggY2xhc3M9ImFycm93IGFycm93LWVuZCIgZD0iTTkwMCAzNDUgTDEzNDAgMzQ1IEwxMzQwIDQzMCIvPgoKICA8cmVjdCBjbGFzcz0ibWV0aG9kLXRpdGxlLWJnIiB4PSIzNTAiIHk9IjM2NSIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI0NSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibWV0aG9kIiB4PSI0NjAiIHk9IjM5NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QXNrIEFJIDx0c3BhbiBjbGFzcz0ibWV0aG9kLW51bWJlciI+MTwvdHNwYW4+PC90ZXh0PgogIDxyZWN0IGNsYXNzPSJib3ggYWktc3RlcCIgeD0iMTUwIiB5PSI0MzAiIHdpZHRoPSI2MjAiIGhlaWdodD0iMTEwIiByeD0iMTIiLz4KICA8dGV4dCBjbGFzcz0ibGFiZWwtc21hbGwiIHg9IjQ2MCIgeT0iNDc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BSSBJZGVudGlmaWVzIFJlbGV2YW50PC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJsYWJlbC1zbWFsbCIgeD0iNDYwIiB5PSI1MTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRvcGljcyBhbmQgS2V5d29yZHM8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJtZXRob2QtdGl0bGUtYmciIHg9IjEyMzAiIHk9IjM2NSIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI0NSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibWV0aG9kIiB4PSIxMzQwIiB5PSIzOTciIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFzayBBSSA8dHNwYW4gY2xhc3M9Im1ldGhvZC1udW1iZXIiPjI8L3RzcGFuPjwvdGV4dD4KICA8cmVjdCBjbGFzcz0iYm94IGFpLXN0ZXAiIHg9IjEwMzAiIHk9IjQzMCIgd2lkdGg9IjYyMCIgaGVpZ2h0PSIxMTAiIHJ4PSIxMiIvPgogIDx0ZXh0IGNsYXNzPSJsYWJlbC1zbWFsbCIgeD0iMTM0MCIgeT0iNDc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BSSBDb252ZXJ0cyBRdWVyeSBpbnRvPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJsYWJlbC1zbWFsbCIgeD0iMTM0MCIgeT0iNTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TZW1hbnRpYyBWZWN0b3I8L3RleHQ+CgogIDxwYXRoIGNsYXNzPSJhcnJvdyBhcnJvdy1lbmQiIGQ9Ik00NjAgNTQwIEw0NjAgNTkwIi8+CiAgPHBhdGggY2xhc3M9ImFycm93IGFycm93LWVuZCIgZD0iTTEzNDAgNTQwIEwxMzQwIDU5MCIvPgoKICA8cmVjdCBjbGFzcz0iYm94IGRhdGFiYXNlIiB4PSIxNTAiIHk9IjU5MCIgd2lkdGg9IjYyMCIgaGVpZ2h0PSIxMTAiIHJ4PSIxMiIvPgogIDx0ZXh0IGNsYXNzPSJsYWJlbC1zbWFsbCIgeD0iNDYwIiB5PSI2MzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRhdGFiYXNlIFNlYXJjaCBVc2VzPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJsYWJlbC1zbWFsbCIgeD0iNDYwIiB5PSI2NjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRvcGljcyBhbmQgS2V5d29yZHM8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggZGF0YWJhc2UiIHg9IjEwMzAiIHk9IjU5MCIgd2lkdGg9IjYyMCIgaGVpZ2h0PSIxMTAiIHJ4PSIxMiIvPgogIDx0ZXh0IGNsYXNzPSJsYWJlbC1zbWFsbCIgeD0iMTM0MCIgeT0iNjM1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TZW1hbnRpYyBTZWFyY2ggTWF0Y2hlcyBRdWVyeSBWZWN0b3IgdG88L3RleHQ+CiAgPHRleHQgY2xhc3M9ImxhYmVsLXNtYWxsIiB4PSIxMzQwIiB5PSI2NjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBvc3QgVGl0bGUtYW5kLVN1bW1hcnkgVmVjdG9yczwvdGV4dD4KCiAgPHBhdGggY2xhc3M9ImFycm93IiBkPSJNNDYwIDcwMCBMNDYwIDc0NSBMOTAwIDc0NSIvPgogIDxwYXRoIGNsYXNzPSJhcnJvdyIgZD0iTTEzNDAgNzAwIEwxMzQwIDc0NSBMOTAwIDc0NSIvPgogIDxwYXRoIGNsYXNzPSJhcnJvdyBhcnJvdy1lbmQiIGQ9Ik05MDAgNzQ1IEw5MDAgNzg1Ii8+CgogIDxyZWN0IGNsYXNzPSJib3ggY2FuZGlkYXRlIiB4PSI1OTAiIHk9Ijc4NSIgd2lkdGg9IjYyMCIgaGVpZ2h0PSI5NSIgcng9IjEyIi8+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI5MDAiIHk9Ijg0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2FuZGlkYXRlIFBvc3RzPC90ZXh0PgoKICA8cGF0aCBjbGFzcz0iYXJyb3cgYXJyb3ctZW5kIiBkPSJNOTAwIDg4MCBMOTAwIDk1MCIvPgoKICA8cmVjdCBjbGFzcz0iYm94IGFpLXN0ZXAiIHg9IjU5MCIgeT0iOTUwIiB3aWR0aD0iNjIwIiBoZWlnaHQ9IjEwMCIgcng9IjEyIi8+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI5MDAiIHk9Ijk5NCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QUkgRXZhbHVhdGVzIFRpdGxlcyBhbmQ8L3RleHQ+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI5MDAiIHk9IjEwMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlN1bW1hcmllcyBmb3IgUmVsZXZhbmNlPC90ZXh0PgoKICA8cGF0aCBjbGFzcz0iYXJyb3cgYXJyb3ctZW5kIiBkPSJNOTAwIDEwNTAgTDkwMCAxMTIwIi8+CgogIDxyZWN0IGNsYXNzPSJib3ggcG9zdCIgeD0iNTkwIiB5PSIxMTIwIiB3aWR0aD0iNjIwIiBoZWlnaHQ9IjEwMCIgcng9IjEyIi8+CiAgPHRleHQgY2xhc3M9ImxhYmVsIiB4PSI5MDAiIHk9IjExODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlJhbmtlZCBSZWxldmFudCBQb3N0czwvdGV4dD4KCiAgPHRleHQgY2xhc3M9Im5vdGUiIHg9IjkwMCIgeT0iMTM0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Qm90aCBhcHByb2FjaGVzIGFyZSBiZWluZyB0ZXN0ZWQ7IHRoZSBvbmUgdGhhdCBwcm9kdWNlcyB0aGUgbW9zdCByZWxldmFudCBhbmQgYWNjdXJhdGUgcmVzdWx0cyB3aWxsIGJlIHNlbGVjdGVkLjwvdGV4dD4KPC9zdmc+Cg==" alt="Diagram comparing Ask AI 1 and Ask AI 2 workflows">
+          </figure>
+          <div class="ai-comparison-content">
+            <header class="slide-header ai-comparison-header">
+              <div>
+                <p class="eyebrow">AI-Assisted Search</p>
+                <h2>One experience, two approaches</h2>
+              </div>
+            </header>
 
-        <div class="example-layout">
-          <section class="example-path search-example" aria-label="Keyword Search example">
-            <h3 class="example-label"><span>Keyword</span><span>Search</span></h3>
-            <div class="example-flow">
-              <div class="example-node topic-node">
-                <span class="example-type">Topic</span>
-                <strong class="example-value">Textual Variants (102)</strong>
+            <section class="ai-section ai-workflow-section" aria-labelledby="ai-workflow-label">
+              <h3 class="ai-section-label" id="ai-workflow-label">Reader workflow</h3>
+              <div class="ai-flow" aria-label="Question or request flows through AI-assisted search to ranked relevant posts">
+                <div class="ai-flow-box">
+                  <strong>Question or Request</strong>
+                </div>
+                <div class="ai-flow-arrow" aria-hidden="true">&rarr;</div>
+                <div class="ai-flow-box ai-step">
+                  <strong>AI-Assisted Search</strong>
+                </div>
+                <div class="ai-flow-arrow" aria-hidden="true">&rarr;</div>
+                <div class="ai-flow-box results-step">
+                  <strong>Ranked Relevant Posts</strong>
+                </div>
               </div>
-              <span class="example-connector" aria-hidden="true">+</span>
-              <div class="example-node keyword-node">
-                <span class="example-type">Secondary Keyword</span>
-                <strong class="example-value">Christology (16)</strong>
-              </div>
-              <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
-              <div class="example-node post-node">
-                <span class="example-type">Result</span>
-                <strong class="example-result">16 posts</strong>
-              </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="example-path browse-example" aria-label="Browse Topics example">
-            <h3 class="example-label"><span>Browse</span><span>Topics</span></h3>
-            <div class="example-flow">
-              <div class="example-node subject-node">
-                <span class="example-type">Subject Area</span>
-                <strong class="example-value">Paul and the Epistles (412)</strong>
+            <section class="ai-section ai-methods-section" aria-labelledby="ai-methods-label">
+              <div class="ai-methods-heading">
+                <h3 class="ai-section-label" id="ai-methods-label">Two search methods</h3>
+                <p class="ai-method-choice">Both methods are being tested; only one will be included in the final version.</p>
               </div>
-              <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
-              <div class="example-node category-node">
-                <span class="example-type">Category</span>
-                <strong class="example-value">Pauline Epistles (198)</strong>
+              <div class="ai-method-grid">
+                <section class="ai-method-summary">
+                  <h4>Ask AI 1: Topics and Secondary Keywords</h4>
+                  <p>Uses AI to identify Topics and Secondary Keywords, then searches for matching posts.</p>
+                </section>
+                <section class="ai-method-summary semantic">
+                  <h4>Ask AI 2: Semantic Search</h4>
+                  <p>Uses semantic search to compare the query vector with a title-and-summary vector for each post.</p>
+                </section>
+                <p class="ai-common-step"><strong>Shared final step:</strong> AI evaluates each candidate's title and summary against the query, then ranks the most relevant posts.</p>
               </div>
-              <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
-              <div class="example-node topic-node">
-                <span class="example-type">Topic</span>
-                <strong class="example-value">Romans (13)</strong>
+            </section>
+
+            <section class="ai-section ai-results-grid" aria-labelledby="ai-results-label">
+              <div>
+                <h3 class="ai-section-label" id="ai-results-label">Comparison across 200 questions</h3>
               </div>
-              <span class="example-connector arrow" aria-hidden="true">&rarr;</span>
-              <div class="example-node post-node">
-                <span class="example-type">Result</span>
-                <strong class="example-result">13 posts</strong>
+              <div class="ai-results-content">
+                <table class="ai-metrics-table">
+                  <thead>
+                    <tr><th>Measurement</th><th>Ask AI 1</th><th>Ask AI 2</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Questions with better-ranked results (14% tied)</td><td>19%</td><td class="preferred">67%</td></tr>
+                    <tr><td>Relevant posts among the top five results</td><td>78%</td><td class="preferred">81%</td></tr>
+                    <tr><td>Average response time</td><td>5.0 seconds</td><td class="preferred">3.9 seconds</td></tr>
+                    <tr><td>Average cost per question</td><td class="lower-cost">0.54&cent;</td><td>1.00&cent;</td></tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="slide next-steps" data-title="Next Steps" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">Moving Forward</p>
-        <h2>Next steps</h2>
-        <p class="lead">Validate the content organization first, refine the reader experience through trusted testing, and then hand off a tested solution for integration.</p>
-        <div class="gold-rule"></div>
+        <header class="slide-header">
+          <p class="eyebrow">Moving Forward</p>
+          <h2>Next steps</h2>
+          <p class="lead">Finalize the content organization, test the reader experience, and prepare the project for development.</p>
+        </header>
 
         <div class="next-grid">
           <section class="next-section review-section">
@@ -1325,9 +2219,9 @@
             </div>
             <p class="next-intro">Confirm that the organization accurately reflects the subjects covered on the blog.</p>
             <ul class="next-list">
-              <li>Validate that no important topics are missing.</li>
-              <li>Confirm that topics are grouped under the correct categories.</li>
-              <li>Choose between the two subject-area options.</li>
+              <li>Validate that no important Topics are missing.</li>
+              <li>Confirm that Topics are grouped under the correct Categories.</li>
+              <li>Choose between Browse Topics 1 and Browse Topics 2.</li>
             </ul>
           </section>
 
@@ -1336,12 +2230,11 @@
               <span class="next-number">2</span>
               <h3>Inner-circle testing</h3>
             </div>
-            <p class="next-intro">Use feedback from trusted readers to perfect search and browsing before handoff.</p>
+            <p class="next-intro">Use feedback from trusted readers to evaluate the methods and refine the experience before handoff.</p>
             <ul class="next-list">
-              <li>Test Keyword Search and Browse Topics.</li>
-              <li>Use both methods to find subjects of interest and confirm that each is easy to use.</li>
-              <li>Identify parts of the experience that are not intuitive.</li>
-              <li>Suggest ways to improve usability.</li>
+              <li>Use Browse Topics, Keyword Search, and both AI approaches to find subjects of genuine interest.</li>
+              <li>Compare Ask AI 1 and Ask AI 2 for relevance, ranking, and consistency.</li>
+              <li>Suggest improvements to make the search experience clearer and easier to use.</li>
             </ul>
           </section>
 
@@ -1350,15 +2243,14 @@
               <span class="next-number">3</span>
               <h3>Development-team handoff</h3>
             </div>
-            <p class="next-intro">Give the developers a tested solution that is ready to integrate into Bart's blog.</p>
+            <p class="next-intro">Provide a tested solution ready for integration into Bart's blog.</p>
             <ul class="next-list">
               <li>Provide the tested WordPress plugin and organized search data.</li>
               <li>Provide import scripts and integration documentation.</li>
-              <li>Have the development team integrate the functionality and apply the production design.</li>
+              <li>The development team will integrate the search tools into the live site and style them to match the rest of the blog.</li>
             </ul>
           </section>
         </div>
-        <p class="next-message">Validate the organization, perfect the reader experience, and then integrate.</p>
       </div>
     </section>
 
@@ -1373,9 +2265,10 @@
         </div>
 
         <div class="closing-actions" aria-label="Suggested demo activities">
-          <span>Try Keyword Search</span>
           <span>Try Browse Topics</span>
-          <span>Share feedback</span>
+          <span>Try Keyword Search</span>
+          <span>Compare Ask AI 1 and Ask AI 2</span>
+          <span>Report Feedback</span>
         </div>
       </div>
     </section>
@@ -1409,6 +2302,18 @@
       const fullscreen = document.querySelector(".fullscreen");
       let current = 0;
       let touchStartX = null;
+
+      // Keep the type hierarchy and spacing proportional to the whole slide.
+      function sizeSlides() {
+        const scale = Math.min(deck.clientWidth / 1600, deck.clientHeight / 900);
+        deck.style.setProperty("--slide-scale", String(scale));
+        deck.style.setProperty("--slide-left", `${Math.max(0, (deck.clientWidth - 1600 * scale) / 2)}px`);
+        deck.style.setProperty("--slide-top", `${Math.max(0, (deck.clientHeight - 900 * scale) / 2)}px`);
+      }
+
+      const slideResizeObserver = new ResizeObserver(sizeSlides);
+      slideResizeObserver.observe(deck);
+      sizeSlides();
 
       function showSlide(index, updateHash = true) {
         current = Math.max(0, Math.min(index, slides.length - 1));

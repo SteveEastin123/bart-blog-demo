@@ -59,7 +59,7 @@ def fmt(value: int) -> str:
 def svg_document(width: int, height: int, body: str) -> str:
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title description">
   <title id="title">Ways to find posts on the Bart Ehrman Blog</title>
-  <desc id="description">A symmetrical comparison of Keyword Search and Browse Topics. Keyword Search combines topics and secondary keywords into search terms and results. Browse Topics moves from subject areas to categories and topics. Both paths end with posts.</desc>
+  <desc id="description">A symmetrical comparison of Browse Topics and Keyword Search. Browse Topics moves from subject areas to categories and topics. Keyword Search combines topics and secondary keywords into search terms and results. Both paths end with posts.</desc>
   <defs>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
       <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#392d20" flood-opacity="0.10"/>
@@ -78,14 +78,14 @@ def svg_document(width: int, height: int, body: str) -> str:
       .category {{ fill: #fff9e9; stroke: #c39a42; }}
       .post {{ fill: #edf7eb; stroke: #559657; }}
       .heading {{ font: 700 44px Arial, Helvetica, sans-serif; fill: #6f1d18; }}
-      .subheading {{ font: 400 24px Arial, Helvetica, sans-serif; fill: #45413c; }}
+      .subheading {{ font: 400 28px Arial, Helvetica, sans-serif; fill: #45413c; }}
       .stage {{ font: 700 15px Arial, Helvetica, sans-serif; letter-spacing: 1.5px; fill: #766c5f; }}
       .label {{ font: 700 29px Arial, Helvetica, sans-serif; fill: #171512; }}
       .label-small {{ font: 700 24px Arial, Helvetica, sans-serif; fill: #171512; }}
       .count {{ font: 400 22px Arial, Helvetica, sans-serif; fill: #57514a; }}
-      .note {{ font: 600 21px Arial, Helvetica, sans-serif; fill: #7d201a; }}
-      .definition-title {{ font: 700 26px Arial, Helvetica, sans-serif; fill: #6f1d18; }}
-      .definition {{ font: 400 22px Arial, Helvetica, sans-serif; fill: #45413c; }}
+      .note {{ font: 600 26px Arial, Helvetica, sans-serif; fill: #7d201a; }}
+      .definition-title {{ font: 700 27px Arial, Helvetica, sans-serif; fill: #6f1d18; }}
+      .definition {{ font: 400 26px Arial, Helvetica, sans-serif; fill: #45413c; }}
       .arrow {{ fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }}
       .accent {{ stroke: #7d201a; stroke-width: 5; stroke-linecap: round; }}
       .divider {{ stroke: #ddd4c4; stroke-width: 1.5; }}
@@ -98,7 +98,6 @@ def svg_document(width: int, height: int, body: str) -> str:
 
 
 def desktop_svg(counts: dict[str, int]) -> str:
-    posts = fmt(counts["posts"])
     topics = fmt(counts["topics"])
     keywords = fmt(counts["secondary_keywords"])
     categories = fmt(counts["categories"])
@@ -108,57 +107,57 @@ def desktop_svg(counts: dict[str, int]) -> str:
   <rect class="panel" x="60" y="45" width="800" height="865" rx="16"/>
   <rect class="panel" x="940" y="45" width="800" height="865" rx="16"/>
 
-  <text class="heading" x="105" y="115">Keyword Search</text>
+  <text class="heading" x="105" y="115">Browse Topics</text>
   <line class="accent" x1="105" y1="143" x2="205" y2="143"/>
-  <text class="subheading" x="105" y="185">Combine up to four topics or secondary keywords</text>
-  <text class="subheading" x="105" y="217">to find relevant posts.</text>
+  <text class="subheading" x="105" y="185">Explore posts through one of two subject-area</text>
+  <text class="subheading" x="105" y="217">structures.</text>
 
-  <text class="heading" x="985" y="115">Browse Topics</text>
+  <text class="heading" x="985" y="115">Keyword Search</text>
   <line class="accent" x1="985" y1="143" x2="1085" y2="143"/>
-  <text class="subheading" x="985" y="185">Explore posts through one of two subject-area</text>
-  <text class="subheading" x="985" y="217">structures.</text>
+  <text class="subheading" x="985" y="185">Combine up to four topics or secondary keywords</text>
+  <text class="subheading" x="985" y="217">to find relevant posts.</text>
 
   <text class="stage" x="145" y="258">START WITH</text>
   <text class="stage" x="1025" y="258">START WITH</text>
 
-  <rect class="box topic" x="145" y="275" width="315" height="120" rx="12"/>
-  <rect class="box keyword" x="460" y="275" width="315" height="120" rx="12"/>
-  <text class="label" x="302" y="323" text-anchor="middle">Topics</text>
-  <text class="count" x="302" y="361" text-anchor="middle">{topics} topics</text>
-  <text class="label" x="617" y="323" text-anchor="middle">Secondary Keywords</text>
-  <text class="count" x="617" y="361" text-anchor="middle">{keywords} keywords</text>
+  <rect class="box subject" x="145" y="275" width="315" height="120" rx="12"/>
+  <rect class="box subject" x="460" y="275" width="315" height="120" rx="12"/>
+  <text class="label" x="302" y="323" text-anchor="middle">Browse Topics 1</text>
+  <text class="count" x="302" y="361" text-anchor="middle">{areas_1} subject areas</text>
+  <text class="label" x="617" y="323" text-anchor="middle">Browse Topics 2</text>
+  <text class="count" x="617" y="361" text-anchor="middle">{areas_2} subject areas</text>
 
-  <rect class="box subject" x="1025" y="275" width="315" height="120" rx="12"/>
-  <rect class="box subject" x="1340" y="275" width="315" height="120" rx="12"/>
-  <text class="label" x="1182" y="323" text-anchor="middle">Browse Topics 1</text>
-  <text class="count" x="1182" y="361" text-anchor="middle">{areas_1} subject areas</text>
-  <text class="label" x="1497" y="323" text-anchor="middle">Browse Topics 2</text>
-  <text class="count" x="1497" y="361" text-anchor="middle">{areas_2} subject areas</text>
+  <rect class="box topic" x="1025" y="275" width="315" height="120" rx="12"/>
+  <rect class="box keyword" x="1340" y="275" width="315" height="120" rx="12"/>
+  <text class="label" x="1182" y="323" text-anchor="middle">Topics</text>
+  <text class="count" x="1182" y="361" text-anchor="middle">{topics} topics</text>
+  <text class="label" x="1497" y="323" text-anchor="middle">Secondary Keywords</text>
+  <text class="count" x="1497" y="361" text-anchor="middle">{keywords} keywords</text>
 
-  <path class="arrow" d="M460 395 L460 529"/>
-  <path class="arrow" d="M1340 395 L1340 448"/>
+  <path class="arrow" d="M460 395 L460 448"/>
+  <path class="arrow" d="M1340 395 L1340 529"/>
 
-  <rect class="box process" x="145" y="529" width="630" height="105" rx="12"/>
-  <text class="label" x="460" y="571" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="460" y="608" text-anchor="middle">Topics, secondary keywords, or both</text>
+  <rect class="box category" x="145" y="448" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="490" text-anchor="middle">Categories</text>
+  <text class="count" x="460" y="527" text-anchor="middle">{categories} categories</text>
 
-  <rect class="box category" x="1025" y="448" width="630" height="105" rx="12"/>
-  <text class="label" x="1340" y="490" text-anchor="middle">Categories</text>
-  <text class="count" x="1340" y="527" text-anchor="middle">{categories} categories</text>
+  <rect class="box process" x="1025" y="529" width="630" height="105" rx="12"/>
+  <text class="label" x="1340" y="571" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="1340" y="608" text-anchor="middle">Topics, secondary keywords, or both</text>
 
-  <path class="arrow" d="M1340 553 L1340 610"/>
+  <path class="arrow" d="M460 553 L460 610"/>
 
-  <rect class="box topic" x="1025" y="610" width="630" height="105" rx="12"/>
-  <text class="label" x="1340" y="652" text-anchor="middle">Topics</text>
-  <text class="count" x="1340" y="689" text-anchor="middle">{topics} topics</text>
+  <rect class="box topic" x="145" y="610" width="630" height="105" rx="12"/>
+  <text class="label" x="460" y="652" text-anchor="middle">Topics</text>
+  <text class="count" x="460" y="689" text-anchor="middle">{topics} topics</text>
 
-  <path class="arrow" d="M460 634 L460 772"/>
-  <path class="arrow" d="M1340 715 L1340 772"/>
+  <path class="arrow" d="M460 715 L460 772"/>
+  <path class="arrow" d="M1340 634 L1340 772"/>
 
   <rect class="box post" x="145" y="772" width="630" height="88" rx="12"/>
   <rect class="box post" x="1025" y="772" width="630" height="88" rx="12"/>
-  <text class="label" x="460" y="826" text-anchor="middle">Posts ({posts})</text>
-  <text class="label" x="1340" y="826" text-anchor="middle">Posts ({posts})</text>
+  <text class="label" x="460" y="826" text-anchor="middle">Posts</text>
+  <text class="label" x="1340" y="826" text-anchor="middle">Posts</text>
 
   <text class="note" x="900" y="970" text-anchor="middle">Topic post lists and search results can be narrowed with additional search terms.</text>
 
@@ -189,7 +188,6 @@ def desktop_svg(counts: dict[str, int]) -> str:
 
 
 def mobile_svg(counts: dict[str, int]) -> str:
-    posts = fmt(counts["posts"])
     topics = fmt(counts["topics"])
     keywords = fmt(counts["secondary_keywords"])
     categories = fmt(counts["categories"])
@@ -198,63 +196,63 @@ def mobile_svg(counts: dict[str, int]) -> str:
     body = f'''
   <style>
     .heading {{ font-size: 30px; }}
-    .subheading {{ font-size: 17px; }}
+    .subheading {{ font-size: 20px; }}
     .stage {{ font-size: 11px; letter-spacing: 1px; }}
     .label {{ font-size: 21px; }}
     .label-small {{ font-size: 17px; }}
     .label-fit {{ font-size: 18px; }}
     .count {{ font-size: 16px; }}
-    .note {{ font-size: 15px; }}
-    .definition {{ font-size: 18px; }}
-    .definition-title {{ font-size: 20px; }}
+    .note {{ font-size: 18px; }}
+    .definition {{ font-size: 20px; }}
+    .definition-title {{ font-size: 22px; }}
     .accent {{ stroke-width: 4; }}
   </style>
   <rect class="panel" x="15" y="15" width="350" height="700" rx="12"/>
-  <text class="heading" x="35" y="60">Keyword Search</text>
+  <text class="heading" x="35" y="60">Browse Topics</text>
   <line class="accent" x1="35" y1="74" x2="95" y2="74"/>
-  <text class="subheading" x="35" y="95">Combine up to four topics or secondary</text>
-  <text class="subheading" x="35" y="118">keywords to find relevant posts.</text>
+  <text class="subheading" x="35" y="95">Explore posts through one of two</text>
+  <text class="subheading" x="35" y="118">subject-area structures.</text>
   <text class="stage" x="35" y="145">START WITH</text>
-  <rect class="box topic" x="35" y="155" width="115" height="100" rx="12"/>
-  <rect class="box keyword" x="150" y="155" width="195" height="100" rx="12"/>
-  <text class="label" x="92" y="197" text-anchor="middle">Topics</text>
-  <text class="count" x="92" y="228" text-anchor="middle">{topics} topics</text>
-  <text class="label-small label-fit" x="247" y="197" text-anchor="middle">Secondary Keywords</text>
-  <text class="count" x="247" y="228" text-anchor="middle">{keywords} keywords</text>
-  <path class="arrow" d="M190 255 L190 350"/>
-  <rect class="box process" x="45" y="350" width="290" height="75" rx="12"/>
-  <text class="label-small" x="190" y="381" text-anchor="middle">Up to Four Search Terms</text>
-  <text class="count" x="190" y="408" text-anchor="middle">Topics, keywords, or both</text>
-  <path class="arrow" d="M190 425 L190 555"/>
+  <rect class="box subject" x="35" y="155" width="155" height="100" rx="12"/>
+  <rect class="box subject" x="190" y="155" width="155" height="100" rx="12"/>
+  <text class="label-small label-fit" x="112" y="195" text-anchor="middle">Browse Topics 1</text>
+  <text class="count" x="112" y="228" text-anchor="middle">{areas_1} subject areas</text>
+  <text class="label-small label-fit" x="267" y="195" text-anchor="middle">Browse Topics 2</text>
+  <text class="count" x="267" y="228" text-anchor="middle">{areas_2} subject areas</text>
+  <path class="arrow" d="M190 255 L190 305"/>
+  <rect class="box category" x="45" y="305" width="290" height="75" rx="12"/>
+  <text class="label" x="190" y="336" text-anchor="middle">Categories</text>
+  <text class="count" x="190" y="364" text-anchor="middle">{categories} categories</text>
+  <path class="arrow" d="M190 380 L190 430"/>
+  <rect class="box topic" x="45" y="430" width="290" height="75" rx="12"/>
+  <text class="label" x="190" y="461" text-anchor="middle">Topics</text>
+  <text class="count" x="190" y="489" text-anchor="middle">{topics} topics</text>
+  <path class="arrow" d="M190 505 L190 555"/>
   <rect class="box post" x="45" y="555" width="290" height="75" rx="12"/>
-  <text class="label" x="190" y="602" text-anchor="middle">Posts ({posts})</text>
+  <text class="label" x="190" y="602" text-anchor="middle">Posts</text>
 
   <rect class="panel" x="15" y="745" width="350" height="700" rx="12"/>
-  <text class="heading" x="35" y="790">Browse Topics</text>
+  <text class="heading" x="35" y="790">Keyword Search</text>
   <line class="accent" x1="35" y1="804" x2="95" y2="804"/>
-  <text class="subheading" x="35" y="825">Explore posts through one of two</text>
-  <text class="subheading" x="35" y="848">subject-area structures.</text>
+  <text class="subheading" x="35" y="825">Combine up to four topics or secondary</text>
+  <text class="subheading" x="35" y="848">keywords to find relevant posts.</text>
   <text class="stage" x="35" y="875">START WITH</text>
-  <rect class="box subject" x="35" y="885" width="155" height="100" rx="12"/>
-  <rect class="box subject" x="190" y="885" width="155" height="100" rx="12"/>
-  <text class="label-small label-fit" x="112" y="925" text-anchor="middle">Browse Topics 1</text>
-  <text class="count" x="112" y="958" text-anchor="middle">{areas_1} subject areas</text>
-  <text class="label-small label-fit" x="267" y="925" text-anchor="middle">Browse Topics 2</text>
-  <text class="count" x="267" y="958" text-anchor="middle">{areas_2} subject areas</text>
-  <path class="arrow" d="M190 985 L190 1035"/>
-  <rect class="box category" x="45" y="1035" width="290" height="75" rx="12"/>
-  <text class="label" x="190" y="1066" text-anchor="middle">Categories</text>
-  <text class="count" x="190" y="1094" text-anchor="middle">{categories} categories</text>
-  <path class="arrow" d="M190 1110 L190 1160"/>
-  <rect class="box topic" x="45" y="1160" width="290" height="75" rx="12"/>
-  <text class="label" x="190" y="1191" text-anchor="middle">Topics</text>
-  <text class="count" x="190" y="1219" text-anchor="middle">{topics} topics</text>
-  <path class="arrow" d="M190 1235 L190 1285"/>
+  <rect class="box topic" x="35" y="885" width="115" height="100" rx="12"/>
+  <rect class="box keyword" x="150" y="885" width="195" height="100" rx="12"/>
+  <text class="label" x="92" y="927" text-anchor="middle">Topics</text>
+  <text class="count" x="92" y="958" text-anchor="middle">{topics} topics</text>
+  <text class="label-small label-fit" x="247" y="927" text-anchor="middle">Secondary Keywords</text>
+  <text class="count" x="247" y="958" text-anchor="middle">{keywords} keywords</text>
+  <path class="arrow" d="M190 985 L190 1080"/>
+  <rect class="box process" x="45" y="1080" width="290" height="75" rx="12"/>
+  <text class="label-small" x="190" y="1111" text-anchor="middle">Up to Four Search Terms</text>
+  <text class="count" x="190" y="1138" text-anchor="middle">Topics, keywords, or both</text>
+  <path class="arrow" d="M190 1155 L190 1285"/>
   <rect class="box post" x="45" y="1285" width="290" height="75" rx="12"/>
-  <text class="label" x="190" y="1332" text-anchor="middle">Posts ({posts})</text>
+  <text class="label" x="190" y="1332" text-anchor="middle">Posts</text>
 
-  <text class="note" x="190" y="1500" text-anchor="middle">Post lists and search results can be</text>
-  <text class="note" x="190" y="1522" text-anchor="middle">narrowed with additional search terms.</text>
+  <text class="note" x="190" y="1498" text-anchor="middle">Post lists and search results can be</text>
+  <text class="note" x="190" y="1525" text-anchor="middle">narrowed with additional search terms.</text>
 
   <rect class="panel" x="15" y="1570" width="350" height="465" rx="12"/>
   <text class="definition" x="35" y="1610"><tspan class="definition-title">Subject Areas:</tspan></text>

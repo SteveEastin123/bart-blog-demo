@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "updated": "2026-08-31",
+  "benchmark": "Ask AI 1 vs. Ask AI 2 full-text relevance",
+  "protocol": {
+    "judgedDepth": 10,
+    "relevantGrades": [
+      2,
+      3
+    ],
+    "tieThresholdNdcg": 0.03,
+    "blinded": true,
+    "source": "Complete local post text"
+  },
+  "cumulative": {
+    "runs": 4,
+    "questions": 200,
+    "wins": {
+      "askAi1": 38,
+      "askAi2": 133,
+      "ties": 29
+    },
+    "weightedMeanMetrics": {
+      "askAi1": {
+        "precisionAt5": 0.7763,
+        "precisionAt10": 0.754,
+        "averageGradeAt5": 2.312,
+        "averageGradeAt10": 2.2416,
+        "recallAt10": 0.5426,
+        "ndcgAt10": 0.6566
+      },
+      "askAi2": {
+        "precisionAt5": 0.8062,
+        "precisionAt10": 0.736,
+        "averageGradeAt5": 2.4238,
+        "averageGradeAt10": 2.2282,
+        "recallAt10": 0.8229,
+        "ndcgAt10": 0.888
+      }
+    },
+    "retrievalCostUsd": {
+      "askAi1": {
+        "total": 1.08096585,
+        "averagePerQuestion": 0.00540483
+      },
+      "askAi2": {
+        "total": 2.0037004,
+        "averagePerQuestion": 0.0100185
+      }
+    },
+    "gradingCostUsd": 2.9000415,
+    "benchmarkExecutionOverheadCostUsd": 0.02183145
+  },
+  "runs": [
+    {
+      "runNumber": 1,
+      "runId": "ask_ai1_vs_ask_ai2_same50_full_text_evaluation_2026-08-31",
+      "date": "2026-08-31",
+      "questionSet": "Same frozen questions used in the August 29 Ask AI 2 vs. Ask AI 3 evaluation",
+      "questionCount": 50,
+      "questionFile": "data/evaluations/ask_ai2_vs_ask_ai3_new_questions_2026-08-29.json",
+      "detailFile": "data/evaluations/ask_ai1_vs_ask_ai2_same50_full_text_evaluation_2026-08-31.json",
+      "reportFile": "docs/ask_ai1_vs_ask_ai2_same50_full_text_evaluation_2026-08-31.md",
+      "wins": {
+        "askAi1": 13,
+        "askAi2": 32,
+        "ties": 5
+      },
+      "metrics": {
+        "askAi1": {
+          "precisionAt5": 0.729,
+          "precisionAt10": 0.7179,
+          "averageGradeAt5": 2.18,
+          "averageGradeAt10": 2.1494,
+          "recallAt10": 0.5556,
+          "ndcgAt10": 0.6254
+        },
+        "askAi2": {
+          "precisionAt5": 0.7143,
+          "precisionAt10": 0.6764,
+          "averageGradeAt5": 2.2167,
+          "averageGradeAt10": 2.0861,
+          "recallAt10": 0.8491,
+          "ndcgAt10": 0.8597
+        }
+      },
+      "resultCoverage": {
+        "askAi1AverageDisplayed": 4.2,
+        "askAi2AverageDisplayed": 9.12,
+        "askAi1ZeroResultQuestions": 5,
+        "askAi2ZeroResultQuestions": 0
+      },
+      "meanTopTenOverlap": 2.46,
+      "latencySeconds": {
+        "askAi1": {
+          "meanSeconds": 4.681,
+          "medianSeconds": 4.309,
+          "p95Seconds": 8.465,
+          "minimumSeconds": 2.821,
+          "maximumSeconds": 9.907
+        },
+        "askAi2": {
+          "meanSeconds": 3.943,
+          "medianSeconds": 3.562,
+          "p95Seconds": 7.648,
+          "minimumSeconds": 2.101,
+          "maximumSeconds": 9.93
+        }
+      },
+      "retrievalCostUsd": {
+        "askAi1": {
+          "total": 0.25316715,
+          "averagePerQuestion": 0.00506334
+        },
+        "askAi2": {
+          "total": 0.49943275,
+          "averagePerQuestion": 0.00998866
+        }
+      },
+      "grading": {
+        "candidatePairs": 442,
+        "reusedGrades": 324,
+        "freshGrades": 118,
+        "freshCalls": 40,
+        "inputTokens": 191549,
+        "cachedInputTokens": 0,
+        "outputTokens": 20054,
+        "estimatedCostUsd": 0.23390475
+      },
+      "benchmarkExecutionOverhead": {
+        "estimatedCostUsd": 0.0,
+        "note": "Not separately recorded for this run."
+      }
+    },
+    {
+      "runNumber": 2,
+      "runId": "ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run02",
+      "date": "2026-08-31",
+      "questionSet": "Fifty new questions unique from prior stored benchmark sets",
+      "questionCount": 50,
+      "questionFile": "data/evaluations/ask_ai1_vs_ask_ai2_new50_questions_2026-08-31_run02.json",
+      "detailFile": "data/evaluations/ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run02.json",
+      "reportFile": "docs/ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run02.md",
+      "wins": {
+        "askAi1": 10,
+        "askAi2": 35,
+        "ties": 5
+      },
+      "metrics": {
+        "askAi1": {
+          "precisionAt5": 0.822,
+          "precisionAt10": 0.8037,
+          "averageGradeAt5": 2.403,
+          "averageGradeAt10": 2.3486,
+          "recallAt10": 0.5419,
+          "ndcgAt10": 0.6612
+        },
+        "askAi2": {
+          "precisionAt5": 0.8733,
+          "precisionAt10": 0.7942,
+          "averageGradeAt5": 2.5787,
+          "averageGradeAt10": 2.3528,
+          "recallAt10": 0.8676,
+          "ndcgAt10": 0.9089
+        }
+      },
+      "resultCoverage": {
+        "askAi1AverageDisplayed": 5.88,
+        "askAi2AverageDisplayed": 11.46,
+        "askAi1ZeroResultQuestions": 0,
+        "askAi2ZeroResultQuestions": 0
+      },
+      "meanTopTenOverlap": 3.5,
+      "latencySeconds": {
+        "askAi1": {
+          "meanSeconds": 4.74,
+          "medianSeconds": 3.809,
+          "p95Seconds": 6.771,
+          "minimumSeconds": 2.266,
+          "maximumSeconds": 22.846
+        },
+        "askAi2": {
+          "meanSeconds": 3.221,
+          "medianSeconds": 2.937,
+          "p95Seconds": 5.128,
+          "minimumSeconds": 1.797,
+          "maximumSeconds": 6.398
+        }
+      },
+      "retrievalCostUsd": {
+        "askAi1": {
+          "total": 0.2798238,
+          "averagePerQuestion": 0.00559648
+        },
+        "askAi2": {
+          "total": 0.50051259,
+          "averagePerQuestion": 0.01001025
+        }
+      },
+      "grading": {
+        "candidatePairs": 524,
+        "reusedGrades": 0,
+        "freshGrades": 524,
+        "freshCalls": 78,
+        "inputTokens": 810914,
+        "cachedInputTokens": 0,
+        "outputTokens": 67850,
+        "estimatedCostUsd": 0.9135105
+      },
+      "benchmarkExecutionOverhead": {
+        "requests": {
+          "records": 7,
+          "estimatedCostUsd": 0.01871085,
+          "input_tokens": 99439,
+          "cached_input_tokens": 96768,
+          "output_tokens": 2100,
+          "reasoning_tokens": 2039,
+          "total_tokens": 101539
+        },
+        "refinements": {
+          "records": 0,
+          "estimatedCostUsd": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_tokens": 0,
+          "total_tokens": 0
+        },
+        "estimatedCostUsd": 0.01871085
+      }
+    },
+    {
+      "runNumber": 3,
+      "runId": "ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run03",
+      "date": "2026-08-31",
+      "questionSet": "Fifty new questions unique from prior stored benchmark sets",
+      "questionCount": 50,
+      "questionFile": "data/evaluations/ask_ai1_vs_ask_ai2_new50_questions_2026-08-31_run03.json",
+      "detailFile": "data/evaluations/ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run03.json",
+      "reportFile": "docs/ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run03.md",
+      "wins": {
+        "askAi1": 9,
+        "askAi2": 31,
+        "ties": 10
+      },
+      "metrics": {
+        "askAi1": {
+          "precisionAt5": 0.8893,
+          "precisionAt10": 0.8545,
+          "averageGradeAt5": 2.579,
+          "averageGradeAt10": 2.4625,
+          "recallAt10": 0.6072,
+          "ndcgAt10": 0.719
+        },
+        "askAi2": {
+          "precisionAt5": 0.8813,
+          "precisionAt10": 0.8124,
+          "averageGradeAt5": 2.607,
+          "averageGradeAt10": 2.4239,
+          "recallAt10": 0.7948,
+          "ndcgAt10": 0.8902
+        }
+      },
+      "resultCoverage": {
+        "askAi1AverageDisplayed": 7,
+        "askAi2AverageDisplayed": 10.72,
+        "askAi1ZeroResultQuestions": 1,
+        "askAi2ZeroResultQuestions": 0
+      },
+      "meanTopTenOverlap": 3.62,
+      "latencySeconds": {
+        "askAi1": {
+          "meanSeconds": 5.023,
+          "medianSeconds": 4.556,
+          "p95Seconds": 7.494,
+          "minimumSeconds": 2.931,
+          "maximumSeconds": 22.555
+        },
+        "askAi2": {
+          "meanSeconds": 4.34,
+          "medianSeconds": 3.889,
+          "p95Seconds": 7.582,
+          "minimumSeconds": 2.263,
+          "maximumSeconds": 9.579
+        }
+      },
+      "retrievalCostUsd": {
+        "askAi1": {
+          "total": 0.26802075,
+          "averagePerQuestion": 0.00536042
+        },
+        "askAi2": {
+          "total": 0.50263978,
+          "averagePerQuestion": 0.0100528
+        }
+      },
+      "grading": {
+        "candidatePairs": 528,
+        "reusedGrades": 0,
+        "freshGrades": 528,
+        "freshCalls": 77,
+        "inputTokens": 831947,
+        "cachedInputTokens": 0,
+        "outputTokens": 63234,
+        "estimatedCostUsd": 0.90851325
+      },
+      "benchmarkExecutionOverhead": {
+        "requests": {
+          "databaseRows": 1,
+          "records": 0,
+          "estimatedCostUsd": 0.0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_tokens": 0,
+          "total_tokens": 0
+        },
+        "refinements": {
+          "databaseRows": 0,
+          "records": 0,
+          "estimatedCostUsd": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_tokens": 0,
+          "total_tokens": 0
+        },
+        "estimatedCostUsd": 0.0
+      }
+    },
+    {
+      "runNumber": 4,
+      "runId": "ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run04",
+      "date": "2026-08-31",
+      "questionSet": "Fifty new questions unique from prior stored benchmark sets",
+      "questionCount": 50,
+      "questionFile": "data/evaluations/ask_ai1_vs_ask_ai2_new50_questions_2026-08-31_run04.json",
+      "detailFile": "data/evaluations/ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run04.json",
+      "reportFile": "docs/ask_ai1_vs_ask_ai2_new50_full_text_evaluation_2026-08-31_run04.md",
+      "wins": {
+        "askAi1": 6,
+        "askAi2": 35,
+        "ties": 9
+      },
+      "metrics": {
+        "askAi1": {
+          "precisionAt5": 0.665,
+          "precisionAt10": 0.6398,
+          "averageGradeAt5": 2.086,
+          "averageGradeAt10": 2.0059,
+          "recallAt10": 0.4657,
+          "ndcgAt10": 0.621
+        },
+        "askAi2": {
+          "precisionAt5": 0.7557,
+          "precisionAt10": 0.6609,
+          "averageGradeAt5": 2.2927,
+          "averageGradeAt10": 2.05,
+          "recallAt10": 0.78,
+          "ndcgAt10": 0.8933
+        }
+      },
+      "resultCoverage": {
+        "askAi1AverageDisplayed": 4.86,
+        "askAi2AverageDisplayed": 9.34,
+        "askAi1ZeroResultQuestions": 1,
+        "askAi2ZeroResultQuestions": 0
+      },
+      "meanTopTenOverlap": 2.7,
+      "latencySeconds": {
+        "askAi1": {
+          "meanSeconds": 5.741,
+          "medianSeconds": 4.861,
+          "p95Seconds": 9.629,
+          "minimumSeconds": 3.174,
+          "maximumSeconds": 25.6
+        },
+        "askAi2": {
+          "meanSeconds": 4.065,
+          "medianSeconds": 3.655,
+          "p95Seconds": 7.077,
+          "minimumSeconds": 2.437,
+          "maximumSeconds": 8.508
+        }
+      },
+      "retrievalCostUsd": {
+        "askAi1": {
+          "total": 0.27995415,
+          "averagePerQuestion": 0.00559908
+        },
+        "askAi2": {
+          "total": 0.50111528,
+          "averagePerQuestion": 0.01002231
+        }
+      },
+      "grading": {
+        "candidatePairs": 469,
+        "reusedGrades": 0,
+        "freshGrades": 469,
+        "freshCalls": 66,
+        "inputTokens": 746926,
+        "cachedInputTokens": 0,
+        "outputTokens": 63093,
+        "estimatedCostUsd": 0.844113
+      },
+      "benchmarkExecutionOverhead": {
+        "requests": {
+          "databaseRows": 2,
+          "records": 1,
+          "estimatedCostUsd": 0.0031206,
+          "input_tokens": 16576,
+          "cached_input_tokens": 16128,
+          "output_tokens": 350,
+          "reasoning_tokens": 325,
+          "total_tokens": 16926
+        },
+        "refinements": {
+          "databaseRows": 0,
+          "records": 0,
+          "estimatedCostUsd": 0,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_tokens": 0,
+          "total_tokens": 0
+        },
+        "estimatedCostUsd": 0.0031206
+      }
+    }
+  ]
+}

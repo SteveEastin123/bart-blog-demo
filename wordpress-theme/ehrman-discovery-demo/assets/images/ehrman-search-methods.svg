@@ -19,14 +19,14 @@
       .category { fill: #fff9e9; stroke: #c39a42; }
       .post { fill: #edf7eb; stroke: #559657; }
       .heading { font: 700 44px Arial, Helvetica, sans-serif; fill: #6f1d18; }
-      .subheading { font: 400 24px Arial, Helvetica, sans-serif; fill: #45413c; }
+      .subheading { font: 400 28px Arial, Helvetica, sans-serif; fill: #45413c; }
       .stage { font: 700 15px Arial, Helvetica, sans-serif; letter-spacing: 1.5px; fill: #766c5f; }
       .label { font: 700 29px Arial, Helvetica, sans-serif; fill: #171512; }
       .label-small { font: 700 24px Arial, Helvetica, sans-serif; fill: #171512; }
       .count { font: 400 22px Arial, Helvetica, sans-serif; fill: #57514a; }
       .note { font: 600 26px Arial, Helvetica, sans-serif; fill: #7d201a; }
-      .definition-title { font: 700 26px Arial, Helvetica, sans-serif; fill: #6f1d18; }
-      .definition { font: 400 22px Arial, Helvetica, sans-serif; fill: #45413c; }
+      .definition-title { font: 700 27px Arial, Helvetica, sans-serif; fill: #6f1d18; }
+      .definition { font: 400 26px Arial, Helvetica, sans-serif; fill: #45413c; }
       .arrow { fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }
       .accent { stroke: #7d201a; stroke-width: 5; stroke-linecap: round; }
       .divider { stroke: #ddd4c4; stroke-width: 1.5; }

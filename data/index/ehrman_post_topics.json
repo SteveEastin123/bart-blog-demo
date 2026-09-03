@@ -440,6 +440,14 @@
       "displayInBrowser": true
     },
     {
+      "name": "Christianity and Capitalism",
+      "description": "Examines capitalism in relation to Jesus' teachings, Christian ethics, Protestant theology, economic history, and modern interpretations of biblical traditions.",
+      "categories": [
+        "Wealth, Poverty, and Charity"
+      ],
+      "displayInBrowser": true
+    },
+    {
       "name": "Christology (General)",
       "featuredOrder": 24,
       "description": "Covers broad questions about Jesus' identity, divine status, relationship to God, and the Jewish or ancient background for Christian claims about Christ, rather than claims attributed to Jesus in particular Gospel accounts.",
@@ -1244,6 +1252,14 @@
       "description": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
       "categories": [
         "Jesus' Death, Burial, and Resurrection"
+      ],
+      "displayInBrowser": true
+    },
+    {
+      "name": "Jesus' Spoken Language",
+      "description": "Examines which languages Jesus probably spoke, especially Aramaic and Greek, and how linguistic evidence informs the reconstruction of his teachings and interactions.",
+      "categories": [
+        "Historical Jesus"
       ],
       "displayInBrowser": true
     },
