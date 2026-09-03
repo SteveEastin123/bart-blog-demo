@@ -60,7 +60,7 @@
   <rect class="box topic" x="1025" y="275" width="315" height="120" rx="12"/>
   <rect class="box keyword" x="1340" y="275" width="315" height="120" rx="12"/>
   <text class="label" x="1182" y="323" text-anchor="middle">Topics</text>
-  <text class="count" x="1182" y="361" text-anchor="middle">293 topics</text>
+  <text class="count" x="1182" y="361" text-anchor="middle">295 topics</text>
   <text class="label" x="1497" y="323" text-anchor="middle">Secondary Keywords</text>
   <text class="count" x="1497" y="361" text-anchor="middle">897 keywords</text>
 
@@ -79,7 +79,7 @@
 
   <rect class="box topic" x="145" y="610" width="630" height="105" rx="12"/>
   <text class="label" x="460" y="652" text-anchor="middle">Topics</text>
-  <text class="count" x="460" y="689" text-anchor="middle">293 topics</text>
+  <text class="count" x="460" y="689" text-anchor="middle">295 topics</text>
 
   <path class="arrow" d="M460 715 L460 772"/>
   <path class="arrow" d="M1340 634 L1340 772"/>
