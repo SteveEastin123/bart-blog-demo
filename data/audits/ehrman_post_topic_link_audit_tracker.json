@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-08-30",
-  "auditScope": "All 4413 posts in the canonical search index",
+  "updatedAt": "2026-09-07",
+  "auditScope": "All 4418 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,7 +10,7 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4413,
+  "reviewedPostCount": 4418,
   "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
@@ -85033,8 +85033,108 @@
       "topicsRemoved": [],
       "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
       "appliedAt": "2026-08-30"
+    },
+    {
+      "auditSequence": 4414,
+      "sourceIndex": 0,
+      "wpId": "50524",
+      "dateText": "September 6, 2026",
+      "title": "Committed Apologists and Serious Historians",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Historical Methods (General)",
+        "Gospel Historical Reliability",
+        "Miracle Claims and Apologetics"
+      ],
+      "topicsAdded": [
+        "Historical Methods (General)",
+        "Gospel Historical Reliability",
+        "Miracle Claims and Apologetics"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-07"
+    },
+    {
+      "auditSequence": 4415,
+      "sourceIndex": 1,
+      "wpId": "50502",
+      "dateText": "September 5, 2026",
+      "title": "Two Intrigues About Noah’s Flood",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Genesis",
+        "Comparative Ancient Evidence"
+      ],
+      "topicsAdded": [
+        "Genesis",
+        "Comparative Ancient Evidence"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-07"
+    },
+    {
+      "auditSequence": 4416,
+      "sourceIndex": 2,
+      "wpId": "50499",
+      "dateText": "September 3, 2026",
+      "title": "Angels Seducing Women and the Rite of Circumcision: Two Peculiarities of Genesis",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Genesis",
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "topicsAdded": [
+        "Genesis",
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-07"
+    },
+    {
+      "auditSequence": 4417,
+      "sourceIndex": 3,
+      "wpId": "50472",
+      "dateText": "September 2, 2026",
+      "title": "How Old Was Jesus When He Was Baptized?  And When He Died?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Baptism of Jesus",
+        "Historical Jesus (General)"
+      ],
+      "topicsAdded": [
+        "Baptism of Jesus",
+        "Historical Jesus (General)"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-07"
+    },
+    {
+      "auditSequence": 4418,
+      "sourceIndex": 4,
+      "wpId": "50456",
+      "dateText": "September 1, 2026",
+      "title": "My Interview with James Carville",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Media Interviews and Videos"
+      ],
+      "topicsAdded": [
+        "Media Interviews and Videos"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-07"
     }
   ],
-  "appliedChangeCount": 639,
+  "appliedChangeCount": 644,
   "pendingDescriptionRecommendations": []
 }

@@ -3,7 +3,7 @@ Contributors: steveeastin
 Tags: search, topics, discovery
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 0.4.0
+Stable tag: 0.9.0
 License: GPLv2 or later
 
 WordPress foundation for browsing and searching the Ehrman Blog index.
@@ -14,6 +14,12 @@ This plugin verifies the WordPress/MySQL runtime and imports the authoritative
 post, topic, category, subject-area, and secondary-keyword indexes into
 dedicated MySQL tables. It provides scoped keyword search, autocomplete, and
 two alternative topic-browsing paths.
+
+Administrators can also prepare full posts in a protected ingestion workflow.
+It uses a dedicated OpenAI project to draft descriptions, search summaries,
+topics, and secondary keywords for review. Approval remains disabled while JSON
+is authoritative and can be enabled after the planned MySQL source-of-truth
+handoff.
 
 == Installation ==
 
@@ -32,6 +38,13 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 `composer check` to run both standards and static-analysis checks.
 
 == Changelog ==
+
+= 0.9.0 =
+* Added an administrator-only full-post ingestion, editorial review, approval,
+  audit, and title-and-summary vector workflow for the future
+  MySQL-authoritative deployment.
+* Added separate ingestion API configuration and preserved JSON-authoritative
+  approval locking for the current deployment phase.
 
 = 0.4.0 =
 * Added a disabled-by-default, token-protected parity endpoint, bounded search

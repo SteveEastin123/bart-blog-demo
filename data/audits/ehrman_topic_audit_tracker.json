@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-08-30",
+  "updatedAt": "2026-09-07",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -13506,7 +13506,7 @@
       "auditSequence": 18,
       "status": "completed",
       "postCountBefore": 66,
-      "postCountAfter": 106,
+      "postCountAfter": 107,
       "descriptionBefore": "Covers interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
       "descriptionRecommendation": "Covers interviews, podcasts, videos, broadcasts, documentaries, and other public media appearances.",
       "categoriesBefore": [
@@ -14033,6 +14033,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post shares a public Freedom From Religion Foundation video lecture about agnosticism and religion."
+        },
+        {
+          "wpId": "50456",
+          "title": "My Interview with James Carville",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -14044,7 +14051,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3401-3650 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -20560,7 +20568,7 @@
       "auditSequence": 33,
       "status": "completed",
       "postCountBefore": 52,
-      "postCountAfter": 68,
+      "postCountAfter": 69,
       "descriptionBefore": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "descriptionRecommendation": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "categoriesBefore": [
@@ -20996,6 +21004,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post explains contextual historical interpretation and uses Apollonius of Tyana as an extended ancient comparison for Jesus traditions."
+        },
+        {
+          "wpId": "50524",
+          "title": "Committed Apologists and Serious Historians",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -21009,7 +21024,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -32452,7 +32468,7 @@
       "auditSequence": 63,
       "status": "completed",
       "postCountBefore": 34,
-      "postCountAfter": 49,
+      "postCountAfter": 50,
       "descriptionBefore": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "descriptionRecommendation": "Covers the historical reliability of the canonical Gospels, including how scholars evaluate claims, contradictions, memory, sources, and apologetic arguments.",
       "categoriesBefore": [
@@ -32790,6 +32806,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50524",
+          "title": "Committed Apologists and Serious Historians",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -32801,7 +32824,8 @@
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3151-3400 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -39291,7 +39315,7 @@
       "auditSequence": 88,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 36,
+      "postCountAfter": 37,
       "descriptionBefore": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "descriptionRecommendation": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "categoriesBefore": [
@@ -39559,6 +39583,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post explains contextual historical interpretation and uses Apollonius of Tyana as an extended ancient comparison for Jesus traditions."
+        },
+        {
+          "wpId": "50502",
+          "title": "Two Intrigues About Noah’s Flood",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -39568,7 +39599,8 @@
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -42222,7 +42254,7 @@
       "auditSequence": 100,
       "status": "completed",
       "postCountBefore": 26,
-      "postCountAfter": 24,
+      "postCountAfter": 25,
       "descriptionBefore": "Covers angels, divine figures, heavenly beings, monsters, monotheism, personified Wisdom, and how ancient Israelites and Jews understood God and other powers.",
       "descriptionRecommendation": "Covers angels, divine figures, heavenly beings, monsters, monotheism, personified Wisdom, and how ancient Israelites and Jews understood God and other powers.",
       "categoriesBefore": [
@@ -42420,12 +42452,20 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post compares exaltation and incarnation Christologies against ancient concepts of divinity rather than examining Hebrew Bible divine beings."
+        },
+        {
+          "wpId": "50499",
+          "title": "Angels Seducing Women and the Rite of Circumcision: Two Peculiarities of Genesis",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -46258,7 +46298,7 @@
       "auditSequence": 118,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 34,
+      "postCountAfter": 35,
       "descriptionBefore": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "descriptionRecommendation": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "categoriesBefore": [
@@ -46505,6 +46545,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50472",
+          "title": "How Old Was Jesus When He Was Baptized?  And When He Died?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46516,7 +46563,8 @@
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3151-3400 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -47373,7 +47421,7 @@
       "auditSequence": 123,
       "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": 28,
+      "postCountAfter": 30,
       "descriptionBefore": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "descriptionRecommendation": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "categoriesBefore": [
@@ -47578,6 +47626,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50502",
+          "title": "Two Intrigues About Noah’s Flood",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50499",
+          "title": "Angels Seducing Women and the Rite of Circumcision: Two Peculiarities of Genesis",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -47585,7 +47647,8 @@
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -56741,7 +56804,7 @@
       "auditSequence": 175,
       "status": "completed",
       "postCountBefore": 15,
-      "postCountAfter": 14,
+      "postCountAfter": 15,
       "descriptionBefore": "Covers miracle claims used in apologetic arguments, including eyewitness claims, signs from God, Augustine's miracles, resurrection arguments, and modern defenses of supernatural events.",
       "descriptionRecommendation": "Covers arguments for and against miracle claims, including eyewitness testimony, signs from God, historical presuppositions, resurrection arguments, and apologetic defenses.",
       "categoriesBefore": [
@@ -56876,11 +56939,19 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post narrates hagiographic miracle traditions and their reported role in conversion, but it does not sustain an apologetic argument for or against the truth of the miracle claims."
+        },
+        {
+          "wpId": "50524",
+          "title": "Committed Apologists and Serious Historians",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 1-100 updated this assignment."
+        "Post-by-post topic-link audit for posts 1-100 updated this assignment.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {
@@ -66742,7 +66813,7 @@
       "auditSequence": 291,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 10,
+      "postCountAfter": 11,
       "descriptionBefore": "Examines Jesus' baptism by John, its historical and apocalyptic significance, differences among the Gospel accounts, and textual and Christological debates surrounding the heavenly voice.",
       "descriptionRecommendation": "Examines Jesus' baptism by John, its historical and apocalyptic significance, differences among the Gospel accounts, and textual and Christological debates surrounding the heavenly voice.",
       "categoriesBefore": [
@@ -66822,12 +66893,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives sustained attention to Luke's baptism account as the possible moment of Jesus' adoption and empowerment."
+        },
+        {
+          "wpId": "50472",
+          "title": "How Old Was Jesus When He Was Baptized?  And When He Died?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Created after a conservative full-text review; posts using the baptism only as supporting evidence for another subject were excluded.",
         "Removed the identically normalized Baptism of Jesus secondary keyword from wpId 9297.",
-        "Updated both linked category descriptions to identify Jesus' baptism explicitly."
+        "Updated both linked category descriptions to identify Jesus' baptism explicitly.",
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
       ]
     },
     {

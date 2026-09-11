@@ -72,6 +72,7 @@ final class Plugin {
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		add_action( 'admin_post_ehrman_discovery_import', array( $this, 'handle_admin_import' ) );
 		AI_Analytics_Page::register();
+		Post_Ingestion_Page::register();
 		add_shortcode( 'ehrman_discovery_status', array( $this, 'render_status_shortcode' ) );
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -314,15 +315,5 @@ final class Plugin {
 	 */
 	private static function scalar_string( $value, string $fallback = '' ): string {
 		return is_scalar( $value ) ? (string) $value : $fallback;
-	}
-
-	/**
-	 * Formats a small estimated US-dollar amount without rounding it to zero.
-	 *
-	 * @param float $amount   US-dollar amount.
-	 * @param int   $decimals Number of decimal places.
-	 */
-	private static function format_usd( float $amount, int $decimals = 4 ): string {
-		return '$' . number_format_i18n( $amount, $decimals );
 	}
 }

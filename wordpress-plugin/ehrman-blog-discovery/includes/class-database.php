@@ -29,6 +29,7 @@ final class Database {
 			'subject_areas'            => $base . 'subject_areas',
 			'categories'               => $base . 'categories',
 			'topics'                   => $base . 'topics',
+			'topic_aliases'            => $base . 'topic_aliases',
 			'external_posts'           => $base . 'external_posts',
 			'keywords'                 => $base . 'keywords',
 			'subject_area_categories'  => $base . 'subject_area_categories',
@@ -42,6 +43,7 @@ final class Database {
 			'ai_requests'              => $base . 'ai_requests',
 			'ai_refinements'           => $base . 'ai_refinements',
 			'ai_feedback'              => $base . 'ai_feedback',
+			'ingestion_drafts'         => $base . 'ingestion_drafts',
 		);
 	}
 
@@ -98,6 +100,14 @@ CREATE TABLE {$tables['topics']} (
   UNIQUE KEY uq_topics_name (name),
   UNIQUE KEY uq_topics_slug (slug),
   KEY idx_topics_browser_name (display_in_browser,name)
+) {$collate};
+
+CREATE TABLE {$tables['topic_aliases']} (
+  topic_id bigint(20) unsigned NOT NULL,
+  label varchar(191) NOT NULL,
+  normalized varchar(191) NOT NULL,
+  PRIMARY KEY  (topic_id,normalized),
+  KEY idx_topic_aliases_normalized (normalized,topic_id)
 ) {$collate};
 
 CREATE TABLE {$tables['external_posts']} (
@@ -286,6 +296,45 @@ CREATE TABLE {$tables['ai_feedback']} (
   KEY idx_ai_feedback_created (created_at),
   KEY idx_ai_feedback_helpful (helpful,created_at),
   KEY idx_ai_feedback_model (model)
+) {$collate};
+
+CREATE TABLE {$tables['ingestion_drafts']} (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  status varchar(32) NOT NULL DEFAULT 'draft',
+  source_wp_id bigint(20) unsigned NOT NULL,
+  title text NOT NULL,
+  url text NOT NULL,
+  url_hash binary(32) NOT NULL,
+  author varchar(191) NOT NULL,
+  date_text varchar(64) NOT NULL,
+  published_at datetime NOT NULL,
+  post_text longtext DEFAULT NULL,
+  proposal_json longtext DEFAULT NULL,
+  model varchar(100) NOT NULL DEFAULT '',
+  prompt_version varchar(32) NOT NULL DEFAULT '',
+  taxonomy_version char(64) NOT NULL DEFAULT '',
+  response_id varchar(191) NOT NULL DEFAULT '',
+  input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  cached_input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  output_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  reasoning_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  estimated_cost_usd decimal(14,8) unsigned NOT NULL DEFAULT 0,
+  error_message text DEFAULT NULL,
+  created_by bigint(20) unsigned NOT NULL,
+  created_at datetime NOT NULL,
+  updated_at datetime NOT NULL,
+  approved_at datetime DEFAULT NULL,
+  approved_post_id bigint(20) unsigned DEFAULT NULL,
+  embedding_status varchar(32) NOT NULL DEFAULT 'not_requested',
+  embedding_model varchar(100) NOT NULL DEFAULT '',
+  embedding_response_id varchar(191) NOT NULL DEFAULT '',
+  embedding_input_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
+  embedding_estimated_cost_usd decimal(14,8) unsigned NOT NULL DEFAULT 0,
+  embedding_error text DEFAULT NULL,
+  PRIMARY KEY  (id),
+  KEY idx_ingestion_drafts_status_updated (status,updated_at),
+  KEY idx_ingestion_drafts_source (source_wp_id,status),
+  KEY idx_ingestion_drafts_url (url_hash,status)
 ) {$collate};
 ";
 

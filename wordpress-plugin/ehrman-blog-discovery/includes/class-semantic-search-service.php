@@ -43,9 +43,63 @@ final class Semantic_Search_Service {
 	 */
 	private Embedding_Service $embeddings;
 
-	/** Creates the semantic retrieval service. */
-	public function __construct() {
-		$this->embeddings = new Embedding_Service();
+	/**
+	 * Creates the semantic retrieval service.
+	 *
+	 * @param Embedding_Service|null $embeddings Optional workflow-specific embedding client.
+	 */
+	public function __construct( ?Embedding_Service $embeddings = null ) {
+		$this->embeddings = $embeddings ?? new Embedding_Service();
+	}
+
+	/**
+	 * Generates or refreshes the title-and-summary vector for one approved post.
+	 *
+	 * @param int  $source_wp_id Source WordPress post identifier.
+	 * @param bool $force        Regenerate even when the stored fingerprint matches.
+	 * @return array{generated:bool,metrics:array<string,int|float|string>}|WP_Error Result or error.
+	 */
+	public function build_post_embedding( int $source_wp_id, bool $force = false ) {
+		if ( $source_wp_id < 1 ) {
+			return new WP_Error( 'ehrman_embedding_invalid_post', __( 'The post identifier is invalid.', 'ehrman-blog-discovery' ) );
+		}
+		if ( ! $this->embeddings->configured() ) {
+			return new WP_Error( 'ehrman_embedding_not_configured', __( 'An OpenAI API key is required to build the post vector.', 'ehrman-blog-discovery' ) );
+		}
+
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		$sql    = $wpdb->prepare(
+			"SELECT p.* FROM {$tables['external_posts']} p WHERE p.source_wp_id=%d AND p.search_summary IS NOT NULL AND TRIM(p.search_summary)<>'' "
+			. "AND NOT EXISTS (SELECT 1 FROM {$tables['post_topics']} pt JOIN {$tables['topics']} t ON t.id=pt.topic_id WHERE pt.post_id=p.id AND t.name='Ignore')",
+			$source_wp_id
+		);
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifiers are internal.
+		$post = Database::associative_row( $wpdb->get_row( $sql, ARRAY_A ) );
+		if ( null === $post ) {
+			return new WP_Error( 'ehrman_embedding_ineligible_post', __( 'The approved post is not eligible for semantic indexing.', 'ehrman-blog-discovery' ) );
+		}
+
+		$existing = $this->existing_rows()[ $source_wp_id ] ?? null;
+		if ( ! $force && is_array( $existing )
+			&& hash_equals( self::content_hash( $post ), Database::text( $existing['content_hash'] ?? null ) )
+			&& Embedding_Service::model_id() === Database::text( $existing['model'] ?? null )
+			&& Embedding_Service::dimensions() === Database::integer( $existing['dimensions'] ?? null ) ) {
+			return array(
+				'generated' => false,
+				'metrics'   => array(),
+			);
+		}
+
+		$vectors = $this->embeddings->embed( array( self::content_text( $post ) ) );
+		if ( is_wp_error( $vectors ) ) {
+			return $vectors;
+		}
+		$this->store_vector( $post, $vectors[0] );
+		return array(
+			'generated' => true,
+			'metrics'   => $this->embeddings->last_metrics(),
+		);
 	}
 
 	/**

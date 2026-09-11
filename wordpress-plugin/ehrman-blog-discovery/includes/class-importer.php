@@ -476,6 +476,7 @@ final class Importer {
 		$category_positions    = array();
 		$subject_category_rows = array();
 		$topic_category_rows   = array();
+		$topic_alias_rows      = array();
 		$post_topic_rows       = array();
 		$post_keyword_rows     = array();
 		$search_term_rows      = array();
@@ -561,6 +562,12 @@ final class Importer {
 				"topic {$name}"
 			);
 			$topic_ids[ $name ] = (int) $wpdb->insert_id;
+			foreach ( $topic_aliases[ $name ] as $alias ) {
+				$normalized_alias = $this->normalize( $alias );
+				if ( '' !== $normalized_alias ) {
+					$topic_alias_rows[] = array( $topic_ids[ $name ], $alias, $normalized_alias );
+				}
+			}
 		}
 
 		foreach ( $data['topics'] as $topic ) {
@@ -645,6 +652,12 @@ final class Importer {
 			array( '%d', '%d', '%d' )
 		);
 		$this->batch_insert(
+			$tables['topic_aliases'],
+			array( 'topic_id', 'label', 'normalized' ),
+			$topic_alias_rows,
+			array( '%d', '%s', '%s' )
+		);
+		$this->batch_insert(
 			$tables['topic_categories'],
 			array( 'topic_id', 'category_id', 'position' ),
 			$topic_category_rows,
@@ -674,6 +687,7 @@ final class Importer {
 			'subject_areas'           => count( $data['subject_areas_1'] ) + count( $data['subject_areas_2'] ),
 			'categories'              => count( $category_ids ),
 			'topics'                  => count( $topic_ids ),
+			'topic_aliases'           => count( $topic_alias_rows ),
 			'external_posts'          => count( $data['posts'] ),
 			'keywords'                => count( $keyword_ids ),
 			'subject_area_categories' => count( $subject_category_rows ),
@@ -696,6 +710,7 @@ final class Importer {
 				'subject_area_categories',
 				'external_posts',
 				'keywords',
+				'topic_aliases',
 				'topics',
 				'subject_areas',
 				'categories',

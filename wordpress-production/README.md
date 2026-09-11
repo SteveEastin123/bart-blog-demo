@@ -35,6 +35,66 @@ experimental topic, alias, and secondary-keyword vectors are disabled unless
 `EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=hybrid-metadata` is explicitly selected.
 Use `semantic` to test title-and-summary similarity alone.
 
+## Administrator Post Ingestion
+
+The plugin includes an administrator-only **Tools > Post Ingestion** workflow
+for the future MySQL-authoritative deployment. An administrator enters the
+WordPress post ID, title, URL, author, publication date, and complete post text.
+The separate ingestion OpenAI project analyzes the full text and returns a
+reviewable description, search summary, existing topics, existing secondary
+keywords, explicitly marked new-keyword proposals, a readiness decision, and
+review notes. Analysis only creates a draft; no live search data changes before
+explicit approval.
+
+Descriptions and search summaries follow the existing index house style: each
+begins with an active, present-tense verb and a declarative statement rather
+than an author name, `This post`, or a question. Descriptions are normally
+18-23 words. Search summaries are normally three sentences and 60-80 words;
+unusual lengths or sentence counts are retained with visible review warnings.
+Topic and keyword selection favors precision without imposing fixed limits.
+The API selects the complete, nonredundant topic set: every primary, sustained
+subject and substantial independent section must be represented, while a text,
+person, or concept used only as evidence does not become a topic. Before
+selecting keywords, the model performs an internal topic-coverage check.
+Every proposed topic must also pass three tests: it must cover sustained
+material, be necessary to describe that material's principal subject, and meet
+a reader's reasonable expectation when browsing that topic. The review draft
+shows one short AI rationale for every proposed topic; these explanations are
+retained as review evidence but are not added to the canonical post record.
+Secondary keywords may capture meaningful supporting sources only when each is
+discussed beyond a passing reference, materially contributes to the post, and
+would satisfy a reader who searched for that label. Topic aliases are supplied
+during analysis, and alias-overlap warnings are shown during review. The
+validator also warns when a keyword matches the name or alias of an unassigned
+topic, since that may reveal a missing topic without proving that the topic
+should be assigned. Strong warnings appear first when that label is also present
+in the title, description, or opening summary sentence; supporting-only matches
+receive advisory warnings. A final internal audit checks topic coverage and
+redundancy, keyword search value, and whether every new keyword is unavoidable
+before the structured proposal is returned.
+The Responses API allows up to 16,000 generated tokens for the initial analysis,
+including reasoning tokens. If OpenAI reports that this ceiling was reached,
+the service retries once with a 32,000-token ceiling and records the combined
+usage and estimated cost of both attempts.
+
+Configure the workflow with these environment variables:
+
+- `EHRMAN_INGESTION_OPENAI_API_KEY`: dedicated ingestion-project key; required
+  for analysis and the approved post's title-and-summary vector.
+- `EHRMAN_INGESTION_OPENAI_MODEL`: defaults to `gpt-5.6-sol`.
+- `EHRMAN_INGESTION_REASONING_EFFORT`: defaults to `high`.
+- `EHRMAN_DISCOVERY_POST_SOURCE`: defaults to `json`, which permits draft
+  analysis but locks approval. Set it to `mysql` only after the source-of-truth
+  handoff.
+
+Pending drafts retain the supplied full text so they can be revised or
+reanalyzed. Approval writes the normalized post and search relationships in a
+transaction, retains the proposal and AI audit metadata, deletes the full post
+text, and then generates the title-and-summary vector. A vector failure does
+not roll back the approved post; it leaves a visible pending state with a retry
+action. While JSON remains authoritative, continue using the existing download
+skill and rebuild/import workflow for live data changes.
+
 Validate the running stack with the bundled Python runtime path when `python`
 is not on `PATH`:
 
@@ -83,6 +143,8 @@ temporary database and backup.
 - MySQL stores WordPress and discovery-index data.
 - Only `wp-content/uploads` requires a WordPress persistent disk.
 - Result links open Bart's existing post URLs; full post bodies are not stored.
+- The ingestion workflow retains full post text only in pending administrator
+  drafts and removes it after approval.
 - `/healthz` does not depend on WordPress installation state.
 - The protected parity route is disabled unless a test token is explicitly set.
 - WordPress file editing is disabled so deployed code continues to come from Git.

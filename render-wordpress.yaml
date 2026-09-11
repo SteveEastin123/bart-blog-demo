@@ -72,6 +72,14 @@ services:
         value: tiers
       - key: EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL
         value: hybrid
+      - key: EHRMAN_INGESTION_OPENAI_API_KEY
+        sync: false
+      - key: EHRMAN_INGESTION_OPENAI_MODEL
+        value: gpt-5.6-sol
+      - key: EHRMAN_INGESTION_REASONING_EFFORT
+        value: high
+      - key: EHRMAN_DISCOVERY_POST_SOURCE
+        value: json
       - key: WORDPRESS_CONFIG_EXTRA
         value: |
           define( 'WP_ENVIRONMENT_TYPE', 'staging' );

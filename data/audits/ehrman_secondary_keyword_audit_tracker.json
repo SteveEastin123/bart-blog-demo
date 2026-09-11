@@ -2,15 +2,15 @@
   "generatedFrom": "data/index/ehrman_post_search_index.json",
   "purpose": "Tracks full-text secondary-keyword audits. Pending means that no keyword-specific audit record was found; it does not erase earlier informal or batch cleanup work.",
   "summary": {
-    "totalCurrentKeywords": 897,
+    "totalCurrentKeywords": 898,
     "statusCounts": {
-      "audited_documented": 896,
+      "audited_documented": 897,
       "pending": 1
     },
     "frequencyBandCounts": {
       "100+": 33,
       "25-99": 80,
-      "5-24": 198,
+      "5-24": 199,
       "1-4": 586
     }
   },
@@ -28,43 +28,47 @@
     },
     {
       "keyword": "Gospel of Mark",
-      "postCount": 558,
+      "postCount": 560,
       "frequencyRank": 2,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
-        "gospel_of_mark_secondary_keyword_audit.json"
+        "gospel_of_mark_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
       "keyword": "Gospels",
-      "postCount": 468,
+      "postCount": 469,
       "frequencyRank": 3,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
-        "gospels_secondary_keyword_audit.json"
+        "gospels_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
       "keyword": "Gospel of Luke",
-      "postCount": 447,
+      "postCount": 448,
       "frequencyRank": 4,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
-        "gospel_of_luke_secondary_keyword_audit.json"
+        "gospel_of_luke_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
       "keyword": "Gospel of John",
-      "postCount": 424,
+      "postCount": 426,
       "frequencyRank": 5,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
         "gospel_of_john_secondary_keyword_audit.json",
-        "new_posts_2026_08_17_2026_08_23_20260817-20260823-20260823T122659Z_secondary_keyword_audit.json"
+        "new_posts_2026_08_17_2026_08_23_20260817-20260823-20260823T122659Z_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
@@ -80,13 +84,14 @@
     },
     {
       "keyword": "Gospel of Matthew",
-      "postCount": 384,
+      "postCount": 385,
       "frequencyRank": 7,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
         "gospel_of_matthew_secondary_keyword_audit.json",
-        "new_posts_2026_08_17_2026_08_23_20260817-20260823-20260823T122659Z_secondary_keyword_audit.json"
+        "new_posts_2026_08_17_2026_08_23_20260817-20260823-20260823T122659Z_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
@@ -111,11 +116,12 @@
     },
     {
       "keyword": "Resurrection of Jesus",
-      "postCount": 274,
+      "postCount": 275,
       "frequencyRank": 10,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
         "resurrection_of_jesus_secondary_keyword_audit.json"
       ]
     },
@@ -284,23 +290,24 @@
       ]
     },
     {
-      "keyword": "Apocalypticism",
+      "keyword": "Abraham",
       "postCount": 121,
       "frequencyRank": 27,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
-        "apocalypticism_secondary_keyword_audit.json"
+        "abraham_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Abraham",
-      "postCount": 120,
+      "keyword": "Apocalypticism",
+      "postCount": 121,
       "frequencyRank": 28,
       "frequencyBand": "100+",
       "status": "audited_documented",
       "auditEvidence": [
-        "abraham_secondary_keyword_audit.json"
+        "apocalypticism_secondary_keyword_audit.json"
       ]
     },
     {
@@ -509,25 +516,26 @@
       ]
     },
     {
+      "keyword": "John the Baptist",
+      "postCount": 68,
+      "frequencyRank": 49,
+      "frequencyBand": "25-99",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "john_the_baptist_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
+      ]
+    },
+    {
       "keyword": "Eyewitness Testimony",
       "postCount": 67,
-      "frequencyRank": 49,
+      "frequencyRank": 50,
       "frequencyBand": "25-99",
       "status": "audited_documented",
       "auditEvidence": [
         "eyewitness_testimony_secondary_keyword_audit.json",
         "keyword_only_topic_alignment_and_pericope_alias_2026_08_19_secondary_keyword_audit.json",
         "semantic_overlap_pairs_2026_08_19_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "John the Baptist",
-      "postCount": 67,
-      "frequencyRank": 50,
-      "frequencyBand": "25-99",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "john_the_baptist_secondary_keyword_audit.json"
       ]
     },
     {
@@ -1061,9 +1069,20 @@
       ]
     },
     {
-      "keyword": "Q Source",
+      "keyword": "Noah",
       "postCount": 29,
       "frequencyRank": 103,
+      "frequencyBand": "25-99",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "herod_1_peter_canon_formation_noah_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Q Source",
+      "postCount": 29,
+      "frequencyRank": 104,
       "frequencyBand": "25-99",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1073,21 +1092,11 @@
     {
       "keyword": "Judas Iscariot",
       "postCount": 28,
-      "frequencyRank": 104,
-      "frequencyBand": "25-99",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "first_timothy_judas_iscariot_jude_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Noah",
-      "postCount": 28,
       "frequencyRank": 105,
       "frequencyBand": "25-99",
       "status": "audited_documented",
       "auditEvidence": [
-        "herod_1_peter_canon_formation_noah_secondary_keyword_audit.json"
+        "first_timothy_judas_iscariot_jude_secondary_keyword_audit.json"
       ]
     },
     {
@@ -1848,9 +1857,32 @@
       ]
     },
     {
-      "keyword": "Essenes",
+      "keyword": "Biblical Inerrancy",
       "postCount": 9,
       "frequencyRank": 181,
+      "frequencyBand": "5-24",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Death of Jesus",
+      "postCount": 9,
+      "frequencyRank": 182,
+      "frequencyBand": "5-24",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "seven_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Essenes",
+      "postCount": 9,
+      "frequencyRank": 183,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1860,7 +1892,7 @@
     {
       "keyword": "Gabriel",
       "postCount": 9,
-      "frequencyRank": 182,
+      "frequencyRank": 184,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1870,7 +1902,7 @@
     {
       "keyword": "Gospel of Mary",
       "postCount": 9,
-      "frequencyRank": 183,
+      "frequencyRank": 185,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1880,7 +1912,7 @@
     {
       "keyword": "Gospel of Nicodemus",
       "postCount": 9,
-      "frequencyRank": 184,
+      "frequencyRank": 186,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1890,7 +1922,7 @@
     {
       "keyword": "Hebrews",
       "postCount": 9,
-      "frequencyRank": 185,
+      "frequencyRank": 187,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1900,7 +1932,7 @@
     {
       "keyword": "Justin Martyr",
       "postCount": 9,
-      "frequencyRank": 186,
+      "frequencyRank": 188,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1910,7 +1942,7 @@
     {
       "keyword": "King Saul",
       "postCount": 9,
-      "frequencyRank": 187,
+      "frequencyRank": 189,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1920,7 +1952,7 @@
     {
       "keyword": "Media Coverage and Reviews",
       "postCount": 9,
-      "frequencyRank": 188,
+      "frequencyRank": 190,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1930,7 +1962,7 @@
     {
       "keyword": "Micah",
       "postCount": 9,
-      "frequencyRank": 189,
+      "frequencyRank": 191,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1940,7 +1972,7 @@
     {
       "keyword": "Monotheism",
       "postCount": 9,
-      "frequencyRank": 190,
+      "frequencyRank": 192,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1950,7 +1982,7 @@
     {
       "keyword": "Orthodoxy",
       "postCount": 9,
-      "frequencyRank": 191,
+      "frequencyRank": 193,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1960,7 +1992,7 @@
     {
       "keyword": "Pentateuch",
       "postCount": 9,
-      "frequencyRank": 192,
+      "frequencyRank": 194,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1970,7 +2002,7 @@
     {
       "keyword": "Philemon",
       "postCount": 9,
-      "frequencyRank": 193,
+      "frequencyRank": 195,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1980,7 +2012,7 @@
     {
       "keyword": "Quran",
       "postCount": 9,
-      "frequencyRank": 194,
+      "frequencyRank": 196,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -1990,7 +2022,7 @@
     {
       "keyword": "Textbooks and Teaching Materials",
       "postCount": 9,
-      "frequencyRank": 195,
+      "frequencyRank": 197,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2000,7 +2032,7 @@
     {
       "keyword": "Thomas the Apostle",
       "postCount": 9,
-      "frequencyRank": 196,
+      "frequencyRank": 198,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2010,7 +2042,7 @@
     {
       "keyword": "Amos",
       "postCount": 8,
-      "frequencyRank": 197,
+      "frequencyRank": 199,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2020,7 +2052,7 @@
     {
       "keyword": "Aramaic",
       "postCount": 8,
-      "frequencyRank": 198,
+      "frequencyRank": 200,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2032,7 +2064,7 @@
     {
       "keyword": "Baptism of Jesus",
       "postCount": 8,
-      "frequencyRank": 199,
+      "frequencyRank": 201,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2041,19 +2073,9 @@
       ]
     },
     {
-      "keyword": "Biblical Inerrancy",
-      "postCount": 8,
-      "frequencyRank": 200,
-      "frequencyBand": "5-24",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
       "keyword": "Caiaphas",
       "postCount": 8,
-      "frequencyRank": 201,
+      "frequencyRank": 202,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2063,22 +2085,11 @@
     {
       "keyword": "Codex Sinaiticus",
       "postCount": 8,
-      "frequencyRank": 202,
-      "frequencyBand": "5-24",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Death of Jesus",
-      "postCount": 8,
       "frequencyRank": 203,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
-        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
-        "seven_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
@@ -2388,9 +2399,21 @@
       ]
     },
     {
-      "keyword": "Death",
+      "keyword": "Creation",
       "postCount": 6,
       "frequencyRank": 234,
+      "frequencyBand": "5-24",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
+        "new_posts_2026_08_24_2026_08_30_20260824-20260830-20260830T222005Z_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Death",
+      "postCount": 6,
+      "frequencyRank": 235,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2400,7 +2423,7 @@
     {
       "keyword": "Dinesh D'Souza",
       "postCount": 6,
-      "frequencyRank": 235,
+      "frequencyRank": 236,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2410,7 +2433,7 @@
     {
       "keyword": "Dionysius the Renegade",
       "postCount": 6,
-      "frequencyRank": 236,
+      "frequencyRank": 237,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2420,7 +2443,7 @@
     {
       "keyword": "Docetism",
       "postCount": 6,
-      "frequencyRank": 237,
+      "frequencyRank": 238,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2430,7 +2453,7 @@
     {
       "keyword": "Ebionites",
       "postCount": 6,
-      "frequencyRank": 238,
+      "frequencyRank": 239,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2440,7 +2463,7 @@
     {
       "keyword": "Ezekiel",
       "postCount": 6,
-      "frequencyRank": 239,
+      "frequencyRank": 240,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2450,7 +2473,7 @@
     {
       "keyword": "Faith",
       "postCount": 6,
-      "frequencyRank": 240,
+      "frequencyRank": 241,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2460,7 +2483,7 @@
     {
       "keyword": "Fresh Air",
       "postCount": 6,
-      "frequencyRank": 241,
+      "frequencyRank": 242,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2470,7 +2493,7 @@
     {
       "keyword": "Galilee",
       "postCount": 6,
-      "frequencyRank": 242,
+      "frequencyRank": 243,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2481,7 +2504,7 @@
     {
       "keyword": "Gospel According to the Hebrews",
       "postCount": 6,
-      "frequencyRank": 243,
+      "frequencyRank": 244,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2491,7 +2514,7 @@
     {
       "keyword": "Grace",
       "postCount": 6,
-      "frequencyRank": 244,
+      "frequencyRank": 245,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2501,7 +2524,7 @@
     {
       "keyword": "Hosea",
       "postCount": 6,
-      "frequencyRank": 245,
+      "frequencyRank": 246,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2511,7 +2534,7 @@
     {
       "keyword": "Imperial Cult",
       "postCount": 6,
-      "frequencyRank": 246,
+      "frequencyRank": 247,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2521,7 +2544,7 @@
     {
       "keyword": "James, Son of Zebedee",
       "postCount": 6,
-      "frequencyRank": 247,
+      "frequencyRank": 248,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2531,7 +2554,7 @@
     {
       "keyword": "John Shelby Spong",
       "postCount": 6,
-      "frequencyRank": 248,
+      "frequencyRank": 249,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2541,7 +2564,7 @@
     {
       "keyword": "Jonah",
       "postCount": 6,
-      "frequencyRank": 249,
+      "frequencyRank": 250,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2551,7 +2574,7 @@
     {
       "keyword": "Keith Hopkins",
       "postCount": 6,
-      "frequencyRank": 250,
+      "frequencyRank": 251,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2561,7 +2584,7 @@
     {
       "keyword": "King of the Jews",
       "postCount": 6,
-      "frequencyRank": 251,
+      "frequencyRank": 252,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2571,7 +2594,7 @@
     {
       "keyword": "Mary of Bethany",
       "postCount": 6,
-      "frequencyRank": 252,
+      "frequencyRank": 253,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2582,7 +2605,7 @@
     {
       "keyword": "Mummy Masks",
       "postCount": 6,
-      "frequencyRank": 253,
+      "frequencyRank": 254,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2592,7 +2615,7 @@
     {
       "keyword": "Mythicism",
       "postCount": 6,
-      "frequencyRank": 254,
+      "frequencyRank": 255,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2602,7 +2625,7 @@
     {
       "keyword": "New Revised Standard Version (NRSV)",
       "postCount": 6,
-      "frequencyRank": 255,
+      "frequencyRank": 256,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2612,7 +2635,7 @@
     {
       "keyword": "Palaeography",
       "postCount": 6,
-      "frequencyRank": 256,
+      "frequencyRank": 257,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2622,7 +2645,7 @@
     {
       "keyword": "Papias",
       "postCount": 6,
-      "frequencyRank": 257,
+      "frequencyRank": 258,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2630,9 +2653,20 @@
       ]
     },
     {
+      "keyword": "Passover",
+      "postCount": 6,
+      "frequencyRank": 259,
+      "frequencyBand": "5-24",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
+      ]
+    },
+    {
       "keyword": "Ramsay MacMullen",
       "postCount": 6,
-      "frequencyRank": 258,
+      "frequencyRank": 260,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2642,7 +2676,7 @@
     {
       "keyword": "Smithsonian",
       "postCount": 6,
-      "frequencyRank": 259,
+      "frequencyRank": 261,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2652,7 +2686,7 @@
     {
       "keyword": "Syllabus",
       "postCount": 6,
-      "frequencyRank": 260,
+      "frequencyRank": 262,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2662,7 +2696,7 @@
     {
       "keyword": "Terry Gross",
       "postCount": 6,
-      "frequencyRank": 261,
+      "frequencyRank": 263,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2672,7 +2706,7 @@
     {
       "keyword": "Walter Bauer",
       "postCount": 6,
-      "frequencyRank": 262,
+      "frequencyRank": 264,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2682,7 +2716,7 @@
     {
       "keyword": "1 Chronicles",
       "postCount": 5,
-      "frequencyRank": 263,
+      "frequencyRank": 265,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2692,7 +2726,7 @@
     {
       "keyword": "1 Samuel",
       "postCount": 5,
-      "frequencyRank": 264,
+      "frequencyRank": 266,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2702,7 +2736,7 @@
     {
       "keyword": "2 John",
       "postCount": 5,
-      "frequencyRank": 265,
+      "frequencyRank": 267,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2712,7 +2746,7 @@
     {
       "keyword": "2 Thessalonians",
       "postCount": 5,
-      "frequencyRank": 266,
+      "frequencyRank": 268,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2722,7 +2756,7 @@
     {
       "keyword": "Agnosticism",
       "postCount": 5,
-      "frequencyRank": 267,
+      "frequencyRank": 269,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2732,7 +2766,7 @@
     {
       "keyword": "Albert Schweitzer",
       "postCount": 5,
-      "frequencyRank": 268,
+      "frequencyRank": 270,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2742,7 +2776,7 @@
     {
       "keyword": "Apollos",
       "postCount": 5,
-      "frequencyRank": 269,
+      "frequencyRank": 271,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2752,7 +2786,7 @@
     {
       "keyword": "Bathsheba",
       "postCount": 5,
-      "frequencyRank": 270,
+      "frequencyRank": 272,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2762,7 +2796,7 @@
     {
       "keyword": "Bill O'Reilly",
       "postCount": 5,
-      "frequencyRank": 271,
+      "frequencyRank": 273,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2772,7 +2806,7 @@
     {
       "keyword": "Cain",
       "postCount": 5,
-      "frequencyRank": 272,
+      "frequencyRank": 274,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2782,7 +2816,7 @@
     {
       "keyword": "Christian Anti-Judaism",
       "postCount": 5,
-      "frequencyRank": 273,
+      "frequencyRank": 275,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2792,27 +2826,6 @@
     {
       "keyword": "Consciousness",
       "postCount": 5,
-      "frequencyRank": 274,
-      "frequencyBand": "5-24",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Creation",
-      "postCount": 5,
-      "frequencyRank": 275,
-      "frequencyBand": "5-24",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
-        "new_posts_2026_08_24_2026_08_30_20260824-20260830-20260830T222005Z_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Da Vinci Code",
-      "postCount": 5,
       "frequencyRank": 276,
       "frequencyBand": "5-24",
       "status": "audited_documented",
@@ -2821,7 +2834,7 @@
       ]
     },
     {
-      "keyword": "Desiderius Erasmus",
+      "keyword": "Da Vinci Code",
       "postCount": 5,
       "frequencyRank": 277,
       "frequencyBand": "5-24",
@@ -2831,9 +2844,19 @@
       ]
     },
     {
-      "keyword": "Dionysius of Alexandria",
+      "keyword": "Desiderius Erasmus",
       "postCount": 5,
       "frequencyRank": 278,
+      "frequencyBand": "5-24",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Dionysius of Alexandria",
+      "postCount": 5,
+      "frequencyRank": 279,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2843,7 +2866,7 @@
     {
       "keyword": "Evangelicalism",
       "postCount": 5,
-      "frequencyRank": 279,
+      "frequencyRank": 280,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2853,7 +2876,7 @@
     {
       "keyword": "Gospel Quotations",
       "postCount": 5,
-      "frequencyRank": 280,
+      "frequencyRank": 281,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2863,7 +2886,7 @@
     {
       "keyword": "Group Visions",
       "postCount": 5,
-      "frequencyRank": 281,
+      "frequencyRank": 282,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2873,7 +2896,7 @@
     {
       "keyword": "Hallucinations",
       "postCount": 5,
-      "frequencyRank": 282,
+      "frequencyRank": 283,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2883,7 +2906,7 @@
     {
       "keyword": "Healing",
       "postCount": 5,
-      "frequencyRank": 283,
+      "frequencyRank": 284,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2893,7 +2916,7 @@
     {
       "keyword": "Historical Methods (General)",
       "postCount": 5,
-      "frequencyRank": 284,
+      "frequencyRank": 285,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2903,7 +2926,7 @@
     {
       "keyword": "Introduction to the New Testament",
       "postCount": 5,
-      "frequencyRank": 285,
+      "frequencyRank": 286,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2913,7 +2936,7 @@
     {
       "keyword": "Islam",
       "postCount": 5,
-      "frequencyRank": 286,
+      "frequencyRank": 287,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2923,7 +2946,7 @@
     {
       "keyword": "Jerusalem Temple",
       "postCount": 5,
-      "frequencyRank": 287,
+      "frequencyRank": 288,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2933,7 +2956,7 @@
     {
       "keyword": "Jesus' Teachings",
       "postCount": 5,
-      "frequencyRank": 288,
+      "frequencyRank": 289,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2944,7 +2967,7 @@
     {
       "keyword": "Jewish Christianity",
       "postCount": 5,
-      "frequencyRank": 289,
+      "frequencyRank": 290,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2954,7 +2977,7 @@
     {
       "keyword": "Joseph in Genesis",
       "postCount": 5,
-      "frequencyRank": 290,
+      "frequencyRank": 291,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2964,7 +2987,7 @@
     {
       "keyword": "Julian the Apostate",
       "postCount": 5,
-      "frequencyRank": 291,
+      "frequencyRank": 292,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2974,7 +2997,7 @@
     {
       "keyword": "Larry Hurtado",
       "postCount": 5,
-      "frequencyRank": 292,
+      "frequencyRank": 293,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2984,7 +3007,7 @@
     {
       "keyword": "Logos",
       "postCount": 5,
-      "frequencyRank": 293,
+      "frequencyRank": 294,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -2994,7 +3017,7 @@
     {
       "keyword": "Maccabees",
       "postCount": 5,
-      "frequencyRank": 294,
+      "frequencyRank": 295,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3004,7 +3027,7 @@
     {
       "keyword": "Marriage",
       "postCount": 5,
-      "frequencyRank": 295,
+      "frequencyRank": 296,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3014,7 +3037,7 @@
     {
       "keyword": "Martin Luther",
       "postCount": 5,
-      "frequencyRank": 296,
+      "frequencyRank": 297,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3024,16 +3047,6 @@
     {
       "keyword": "Memory Studies",
       "postCount": 5,
-      "frequencyRank": 297,
-      "frequencyBand": "5-24",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Muhammad",
-      "postCount": 5,
       "frequencyRank": 298,
       "frequencyBand": "5-24",
       "status": "audited_documented",
@@ -3042,17 +3055,18 @@
       ]
     },
     {
-      "keyword": "Newsweek",
+      "keyword": "Michael Licona",
       "postCount": 5,
       "frequencyRank": 299,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
-        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json",
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Orthodox Corruption of Scripture",
+      "keyword": "Muhammad",
       "postCount": 5,
       "frequencyRank": 300,
       "frequencyBand": "5-24",
@@ -3062,7 +3076,7 @@
       ]
     },
     {
-      "keyword": "Papyri",
+      "keyword": "Newsweek",
       "postCount": 5,
       "frequencyRank": 301,
       "frequencyBand": "5-24",
@@ -3072,7 +3086,7 @@
       ]
     },
     {
-      "keyword": "Passover",
+      "keyword": "Orthodox Corruption of Scripture",
       "postCount": 5,
       "frequencyRank": 302,
       "frequencyBand": "5-24",
@@ -3082,7 +3096,7 @@
       ]
     },
     {
-      "keyword": "Pseudepigrapha",
+      "keyword": "Papyri",
       "postCount": 5,
       "frequencyRank": 303,
       "frequencyBand": "5-24",
@@ -3092,7 +3106,7 @@
       ]
     },
     {
-      "keyword": "Sacrifice",
+      "keyword": "Pseudepigrapha",
       "postCount": 5,
       "frequencyRank": 304,
       "frequencyBand": "5-24",
@@ -3102,7 +3116,7 @@
       ]
     },
     {
-      "keyword": "Sethian Gnostics",
+      "keyword": "Sacrifice",
       "postCount": 5,
       "frequencyRank": 305,
       "frequencyBand": "5-24",
@@ -3112,7 +3126,7 @@
       ]
     },
     {
-      "keyword": "Sheol",
+      "keyword": "Sethian Gnostics",
       "postCount": 5,
       "frequencyRank": 306,
       "frequencyBand": "5-24",
@@ -3122,9 +3136,19 @@
       ]
     },
     {
-      "keyword": "Socialism",
+      "keyword": "Sheol",
       "postCount": 5,
       "frequencyRank": 307,
+      "frequencyBand": "5-24",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Socialism",
+      "postCount": 5,
+      "frequencyRank": 308,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3137,7 +3161,7 @@
     {
       "keyword": "Society of Biblical Literature (SBL)",
       "postCount": 5,
-      "frequencyRank": 308,
+      "frequencyRank": 309,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3147,7 +3171,7 @@
     {
       "keyword": "Synoptic Gospels",
       "postCount": 5,
-      "frequencyRank": 309,
+      "frequencyRank": 310,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3157,7 +3181,7 @@
     {
       "keyword": "Synoptic Problem",
       "postCount": 5,
-      "frequencyRank": 310,
+      "frequencyRank": 311,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3167,7 +3191,7 @@
     {
       "keyword": "Tamar",
       "postCount": 5,
-      "frequencyRank": 311,
+      "frequencyRank": 312,
       "frequencyBand": "5-24",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3177,7 +3201,7 @@
     {
       "keyword": "2 Clement",
       "postCount": 4,
-      "frequencyRank": 312,
+      "frequencyRank": 313,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3187,7 +3211,7 @@
     {
       "keyword": "After the New Testament",
       "postCount": 4,
-      "frequencyRank": 313,
+      "frequencyRank": 314,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3197,7 +3221,7 @@
     {
       "keyword": "Alan Garrow",
       "postCount": 4,
-      "frequencyRank": 314,
+      "frequencyRank": 315,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3207,7 +3231,7 @@
     {
       "keyword": "Apotheosis and Divinization",
       "postCount": 4,
-      "frequencyRank": 315,
+      "frequencyRank": 316,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3218,7 +3242,7 @@
     {
       "keyword": "Bethlehem",
       "postCount": 4,
-      "frequencyRank": 316,
+      "frequencyRank": 317,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3228,7 +3252,7 @@
     {
       "keyword": "Biblical Interpretation",
       "postCount": 4,
-      "frequencyRank": 317,
+      "frequencyRank": 318,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3238,7 +3262,7 @@
     {
       "keyword": "Comparative Method",
       "postCount": 4,
-      "frequencyRank": 318,
+      "frequencyRank": 319,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3248,7 +3272,7 @@
     {
       "keyword": "Criterion of Dissimilarity",
       "postCount": 4,
-      "frequencyRank": 319,
+      "frequencyRank": 320,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3260,7 +3284,7 @@
     {
       "keyword": "Demons and Exorcism",
       "postCount": 4,
-      "frequencyRank": 320,
+      "frequencyRank": 321,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3270,7 +3294,7 @@
     {
       "keyword": "Editorial Boards",
       "postCount": 4,
-      "frequencyRank": 321,
+      "frequencyRank": 322,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3280,7 +3304,7 @@
     {
       "keyword": "Gerd Ludemann",
       "postCount": 4,
-      "frequencyRank": 322,
+      "frequencyRank": 323,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3290,7 +3314,7 @@
     {
       "keyword": "Gospel of the Ebionites",
       "postCount": 4,
-      "frequencyRank": 323,
+      "frequencyRank": 324,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3300,7 +3324,7 @@
     {
       "keyword": "Gospel Resurrection Narratives",
       "postCount": 4,
-      "frequencyRank": 324,
+      "frequencyRank": 325,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3310,7 +3334,7 @@
     {
       "keyword": "Greek Language",
       "postCount": 4,
-      "frequencyRank": 325,
+      "frequencyRank": 326,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3322,16 +3346,6 @@
     {
       "keyword": "Introduction to the Bible",
       "postCount": 4,
-      "frequencyRank": 326,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Jeff Siker",
-      "postCount": 4,
       "frequencyRank": 327,
       "frequencyBand": "1-4",
       "status": "audited_documented",
@@ -3340,17 +3354,19 @@
       ]
     },
     {
-      "keyword": "Jerusalem",
+      "keyword": "Irenaeus",
       "postCount": 4,
       "frequencyRank": 328,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Jesus and Pacifism",
+      "keyword": "Jeff Siker",
       "postCount": 4,
       "frequencyRank": 329,
       "frequencyBand": "1-4",
@@ -3360,7 +3376,7 @@
       ]
     },
     {
-      "keyword": "Jesus as God",
+      "keyword": "Jerusalem",
       "postCount": 4,
       "frequencyRank": 330,
       "frequencyBand": "1-4",
@@ -3370,17 +3386,17 @@
       ]
     },
     {
-      "keyword": "Jesus' Miracle Stories",
+      "keyword": "Jesus and Pacifism",
       "postCount": 4,
       "frequencyRank": 331,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Jewish Monotheism",
+      "keyword": "Jesus as God",
       "postCount": 4,
       "frequencyRank": 332,
       "frequencyBand": "1-4",
@@ -3390,17 +3406,17 @@
       ]
     },
     {
-      "keyword": "Judicial Model",
+      "keyword": "Jesus' Miracle Stories",
       "postCount": 4,
       "frequencyRank": 333,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "eight_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Killing Jesus",
+      "keyword": "Jewish Monotheism",
       "postCount": 4,
       "frequencyRank": 334,
       "frequencyBand": "1-4",
@@ -3410,9 +3426,29 @@
       ]
     },
     {
-      "keyword": "King Abgar",
+      "keyword": "Judicial Model",
       "postCount": 4,
       "frequencyRank": 335,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Killing Jesus",
+      "postCount": 4,
+      "frequencyRank": 336,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "King Abgar",
+      "postCount": 4,
+      "frequencyRank": 337,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3422,7 +3458,7 @@
     {
       "keyword": "Martin Goodman",
       "postCount": 4,
-      "frequencyRank": 336,
+      "frequencyRank": 338,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3430,27 +3466,7 @@
       ]
     },
     {
-      "keyword": "Michael Licona",
-      "postCount": 4,
-      "frequencyRank": 337,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
       "keyword": "Moral Philosophy",
-      "postCount": 4,
-      "frequencyRank": 338,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Objectivity",
       "postCount": 4,
       "frequencyRank": 339,
       "frequencyBand": "1-4",
@@ -3460,7 +3476,7 @@
       ]
     },
     {
-      "keyword": "Participationist Model",
+      "keyword": "Objectivity",
       "postCount": 4,
       "frequencyRank": 340,
       "frequencyBand": "1-4",
@@ -3470,9 +3486,19 @@
       ]
     },
     {
-      "keyword": "Proto-Gospel of James",
+      "keyword": "Participationist Model",
       "postCount": 4,
       "frequencyRank": 341,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Proto-Gospel of James",
+      "postCount": 4,
+      "frequencyRank": 342,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3482,7 +3508,7 @@
     {
       "keyword": "Proto-Orthodoxy",
       "postCount": 4,
-      "frequencyRank": 342,
+      "frequencyRank": 343,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3492,7 +3518,7 @@
     {
       "keyword": "Psalms",
       "postCount": 4,
-      "frequencyRank": 343,
+      "frequencyRank": 344,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3502,7 +3528,7 @@
     {
       "keyword": "Qumran",
       "postCount": 4,
-      "frequencyRank": 344,
+      "frequencyRank": 345,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3512,7 +3538,7 @@
     {
       "keyword": "Religious Studies",
       "postCount": 4,
-      "frequencyRank": 345,
+      "frequencyRank": 346,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3522,7 +3548,7 @@
     {
       "keyword": "Richard Bauckham",
       "postCount": 4,
-      "frequencyRank": 346,
+      "frequencyRank": 347,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3532,7 +3558,7 @@
     {
       "keyword": "Roman Religion",
       "postCount": 4,
-      "frequencyRank": 347,
+      "frequencyRank": 348,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3542,7 +3568,7 @@
     {
       "keyword": "Scholarly Books",
       "postCount": 4,
-      "frequencyRank": 348,
+      "frequencyRank": 349,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3552,7 +3578,7 @@
     {
       "keyword": "Scribes",
       "postCount": 4,
-      "frequencyRank": 349,
+      "frequencyRank": 350,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3562,7 +3588,7 @@
     {
       "keyword": "Second Temple Judaism",
       "postCount": 4,
-      "frequencyRank": 350,
+      "frequencyRank": 351,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3572,7 +3598,7 @@
     {
       "keyword": "Secret Gospel of Mark",
       "postCount": 4,
-      "frequencyRank": 351,
+      "frequencyRank": 352,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3582,7 +3608,7 @@
     {
       "keyword": "Tenure",
       "postCount": 4,
-      "frequencyRank": 352,
+      "frequencyRank": 353,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3592,7 +3618,7 @@
     {
       "keyword": "Textus Receptus",
       "postCount": 4,
-      "frequencyRank": 353,
+      "frequencyRank": 354,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3602,7 +3628,7 @@
     {
       "keyword": "University of Birmingham",
       "postCount": 4,
-      "frequencyRank": 354,
+      "frequencyRank": 355,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3612,7 +3638,7 @@
     {
       "keyword": "Urban Ministries of Durham",
       "postCount": 4,
-      "frequencyRank": 355,
+      "frequencyRank": 356,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3622,7 +3648,7 @@
     {
       "keyword": "616",
       "postCount": 3,
-      "frequencyRank": 356,
+      "frequencyRank": 357,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3633,7 +3659,7 @@
     {
       "keyword": "Academic Journals",
       "postCount": 3,
-      "frequencyRank": 357,
+      "frequencyRank": 358,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3642,17 +3668,6 @@
     },
     {
       "keyword": "Ancient New Testament Versions",
-      "postCount": 3,
-      "frequencyRank": 358,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Apocalyptic Jesus",
       "postCount": 3,
       "frequencyRank": 359,
       "frequencyBand": "1-4",
@@ -3663,7 +3678,7 @@
       ]
     },
     {
-      "keyword": "Apologetics",
+      "keyword": "Apocalyptic Jesus",
       "postCount": 3,
       "frequencyRank": 360,
       "frequencyBand": "1-4",
@@ -3674,7 +3689,7 @@
       ]
     },
     {
-      "keyword": "Artemis",
+      "keyword": "Apologetics",
       "postCount": 3,
       "frequencyRank": 361,
       "frequencyBand": "1-4",
@@ -3685,9 +3700,20 @@
       ]
     },
     {
-      "keyword": "Augustine of Hippo",
+      "keyword": "Artemis",
       "postCount": 3,
       "frequencyRank": 362,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Augustine of Hippo",
+      "postCount": 3,
+      "frequencyRank": 363,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3697,7 +3723,7 @@
     {
       "keyword": "Book of Zechariah",
       "postCount": 3,
-      "frequencyRank": 363,
+      "frequencyRank": 364,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3708,7 +3734,7 @@
     {
       "keyword": "Book Projects",
       "postCount": 3,
-      "frequencyRank": 364,
+      "frequencyRank": 365,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3720,7 +3746,7 @@
     {
       "keyword": "Book Titles",
       "postCount": 3,
-      "frequencyRank": 365,
+      "frequencyRank": 366,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3731,7 +3757,7 @@
     {
       "keyword": "Burial Practices",
       "postCount": 3,
-      "frequencyRank": 366,
+      "frequencyRank": 367,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3742,7 +3768,7 @@
     {
       "keyword": "Celsus",
       "postCount": 3,
-      "frequencyRank": 367,
+      "frequencyRank": 368,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -3753,17 +3779,6 @@
     {
       "keyword": "Christian Identity",
       "postCount": 3,
-      "frequencyRank": 368,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Critical Biblical Scholarship",
-      "postCount": 3,
       "frequencyRank": 369,
       "frequencyBand": "1-4",
       "status": "audited_documented",
@@ -3773,29 +3788,31 @@
       ]
     },
     {
-      "keyword": "Crucified Messiah",
+      "keyword": "Circumcision",
       "postCount": 3,
       "frequencyRank": 370,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Day of Atonement",
+      "keyword": "Council of Nicaea",
       "postCount": 3,
       "frequencyRank": 371,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Dieter Luhrmann",
+      "keyword": "Critical Biblical Scholarship",
       "postCount": 3,
       "frequencyRank": 372,
       "frequencyBand": "1-4",
@@ -3806,7 +3823,7 @@
       ]
     },
     {
-      "keyword": "Doctors Without Borders",
+      "keyword": "Crucified Messiah",
       "postCount": 3,
       "frequencyRank": 373,
       "frequencyBand": "1-4",
@@ -3817,7 +3834,7 @@
       ]
     },
     {
-      "keyword": "E. R. Dodds",
+      "keyword": "Day of Atonement",
       "postCount": 3,
       "frequencyRank": 374,
       "frequencyBand": "1-4",
@@ -3828,7 +3845,7 @@
       ]
     },
     {
-      "keyword": "Early Christian Population",
+      "keyword": "Dieter Luhrmann",
       "postCount": 3,
       "frequencyRank": 375,
       "frequencyBand": "1-4",
@@ -3839,7 +3856,7 @@
       ]
     },
     {
-      "keyword": "Enlightenment",
+      "keyword": "Doctors Without Borders",
       "postCount": 3,
       "frequencyRank": 376,
       "frequencyBand": "1-4",
@@ -3850,7 +3867,7 @@
       ]
     },
     {
-      "keyword": "Esther",
+      "keyword": "E. R. Dodds",
       "postCount": 3,
       "frequencyRank": 377,
       "frequencyBand": "1-4",
@@ -3861,7 +3878,7 @@
       ]
     },
     {
-      "keyword": "Exaltation Christology",
+      "keyword": "Early Christian Population",
       "postCount": 3,
       "frequencyRank": 378,
       "frequencyBand": "1-4",
@@ -3872,7 +3889,7 @@
       ]
     },
     {
-      "keyword": "Final Judgment",
+      "keyword": "Enlightenment",
       "postCount": 3,
       "frequencyRank": 379,
       "frequencyBand": "1-4",
@@ -3883,7 +3900,7 @@
       ]
     },
     {
-      "keyword": "Food Bank of Central and Eastern North Carolina",
+      "keyword": "Esther",
       "postCount": 3,
       "frequencyRank": 380,
       "frequencyBand": "1-4",
@@ -3894,7 +3911,7 @@
       ]
     },
     {
-      "keyword": "Foraging",
+      "keyword": "Exaltation Christology",
       "postCount": 3,
       "frequencyRank": 381,
       "frequencyBand": "1-4",
@@ -3905,7 +3922,7 @@
       ]
     },
     {
-      "keyword": "Freedom From Religion Foundation",
+      "keyword": "Final Judgment",
       "postCount": 3,
       "frequencyRank": 382,
       "frequencyBand": "1-4",
@@ -3916,7 +3933,7 @@
       ]
     },
     {
-      "keyword": "Fundamentalism",
+      "keyword": "Food Bank of Central and Eastern North Carolina",
       "postCount": 3,
       "frequencyRank": 383,
       "frequencyBand": "1-4",
@@ -3927,7 +3944,7 @@
       ]
     },
     {
-      "keyword": "Gethsemane",
+      "keyword": "Foraging",
       "postCount": 3,
       "frequencyRank": 384,
       "frequencyBand": "1-4",
@@ -3938,17 +3955,18 @@
       ]
     },
     {
-      "keyword": "Gospel Genre",
+      "keyword": "Freedom From Religion Foundation",
       "postCount": 3,
       "frequencyRank": 385,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
         "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Graduate School",
+      "keyword": "Fundamentalism",
       "postCount": 3,
       "frequencyRank": 386,
       "frequencyBand": "1-4",
@@ -3959,7 +3977,7 @@
       ]
     },
     {
-      "keyword": "Gregory the Wonderworker",
+      "keyword": "Gethsemane",
       "postCount": 3,
       "frequencyRank": 387,
       "frequencyBand": "1-4",
@@ -3970,18 +3988,17 @@
       ]
     },
     {
-      "keyword": "Habakkuk",
+      "keyword": "Gospel Genre",
       "postCount": 3,
       "frequencyRank": 388,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
         "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Hades",
+      "keyword": "Graduate School",
       "postCount": 3,
       "frequencyRank": 389,
       "frequencyBand": "1-4",
@@ -3992,18 +4009,19 @@
       ]
     },
     {
-      "keyword": "Happiness",
+      "keyword": "Greek Religion",
       "postCount": 3,
       "frequencyRank": 390,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "History of Joseph the Carpenter",
+      "keyword": "Gregory the Wonderworker",
       "postCount": 3,
       "frequencyRank": 391,
       "frequencyBand": "1-4",
@@ -4014,7 +4032,7 @@
       ]
     },
     {
-      "keyword": "Homosexuality",
+      "keyword": "Habakkuk",
       "postCount": 3,
       "frequencyRank": 392,
       "frequencyBand": "1-4",
@@ -4025,7 +4043,7 @@
       ]
     },
     {
-      "keyword": "Inclusive Language",
+      "keyword": "Hades",
       "postCount": 3,
       "frequencyRank": 393,
       "frequencyBand": "1-4",
@@ -4036,19 +4054,18 @@
       ]
     },
     {
-      "keyword": "Independent Attestation",
+      "keyword": "Happiness",
       "postCount": 3,
       "frequencyRank": 394,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "new_posts_2026_08_24_2026_08_30_20260824-20260830-20260830T222005Z_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Irenaeus",
+      "keyword": "History of Joseph the Carpenter",
       "postCount": 3,
       "frequencyRank": 395,
       "frequencyBand": "1-4",
@@ -4059,7 +4076,7 @@
       ]
     },
     {
-      "keyword": "Isis",
+      "keyword": "Homosexuality",
       "postCount": 3,
       "frequencyRank": 396,
       "frequencyBand": "1-4",
@@ -4070,7 +4087,7 @@
       ]
     },
     {
-      "keyword": "Jesus Movement",
+      "keyword": "Inclusive Language",
       "postCount": 3,
       "frequencyRank": 397,
       "frequencyBand": "1-4",
@@ -4081,18 +4098,19 @@
       ]
     },
     {
-      "keyword": "Jesus' Ethics",
+      "keyword": "Independent Attestation",
       "postCount": 3,
       "frequencyRank": 398,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "new_posts_2026_08_24_2026_08_30_20260824-20260830-20260830T222005Z_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Jewish Christian Relations",
+      "keyword": "Isis",
       "postCount": 3,
       "frequencyRank": 399,
       "frequencyBand": "1-4",
@@ -4103,7 +4121,7 @@
       ]
     },
     {
-      "keyword": "John Calvin",
+      "keyword": "Jesus Movement",
       "postCount": 3,
       "frequencyRank": 400,
       "frequencyBand": "1-4",
@@ -4114,17 +4132,18 @@
       ]
     },
     {
-      "keyword": "Judges",
+      "keyword": "Jesus' Ethics",
       "postCount": 3,
       "frequencyRank": 401,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "final_six_secondary_keyword_audit.json"
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Justin Bass",
+      "keyword": "Jewish Christian Relations",
       "postCount": 3,
       "frequencyRank": 402,
       "frequencyBand": "1-4",
@@ -4135,7 +4154,7 @@
       ]
     },
     {
-      "keyword": "Kirsopp Lake",
+      "keyword": "John Calvin",
       "postCount": 3,
       "frequencyRank": 403,
       "frequencyBand": "1-4",
@@ -4146,18 +4165,17 @@
       ]
     },
     {
-      "keyword": "Lying",
+      "keyword": "Judges",
       "postCount": 3,
       "frequencyRank": 404,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "final_six_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Magic",
+      "keyword": "Justin Bass",
       "postCount": 3,
       "frequencyRank": 405,
       "frequencyBand": "1-4",
@@ -4168,7 +4186,7 @@
       ]
     },
     {
-      "keyword": "Martin of Tours",
+      "keyword": "Kirsopp Lake",
       "postCount": 3,
       "frequencyRank": 406,
       "frequencyBand": "1-4",
@@ -4179,9 +4197,42 @@
       ]
     },
     {
-      "keyword": "Marxism",
+      "keyword": "Lying",
       "postCount": 3,
       "frequencyRank": 407,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Magic",
+      "postCount": 3,
+      "frequencyRank": 408,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Martin of Tours",
+      "postCount": 3,
+      "frequencyRank": 409,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Marxism",
+      "postCount": 3,
+      "frequencyRank": 410,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4193,7 +4244,7 @@
     {
       "keyword": "Max Weber",
       "postCount": 3,
-      "frequencyRank": 408,
+      "frequencyRank": 411,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4204,7 +4255,7 @@
     {
       "keyword": "Melito of Sardis",
       "postCount": 3,
-      "frequencyRank": 409,
+      "frequencyRank": 412,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4215,7 +4266,7 @@
     {
       "keyword": "Michael Bird",
       "postCount": 3,
-      "frequencyRank": 410,
+      "frequencyRank": 413,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4226,7 +4277,7 @@
     {
       "keyword": "Oxyrhynchus Papyri",
       "postCount": 3,
-      "frequencyRank": 411,
+      "frequencyRank": 414,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4238,7 +4289,7 @@
     {
       "keyword": "Papyrus Oxyrhynchus 4009",
       "postCount": 3,
-      "frequencyRank": 412,
+      "frequencyRank": 415,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4249,7 +4300,7 @@
     {
       "keyword": "Philo",
       "postCount": 3,
-      "frequencyRank": 413,
+      "frequencyRank": 416,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4258,39 +4309,6 @@
     },
     {
       "keyword": "Pilate Gospels",
-      "postCount": 3,
-      "frequencyRank": 414,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Research Methods",
-      "postCount": 3,
-      "frequencyRank": 415,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Resurrected Body",
-      "postCount": 3,
-      "frequencyRank": 416,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Septuagint",
       "postCount": 3,
       "frequencyRank": 417,
       "frequencyBand": "1-4",
@@ -4301,17 +4319,18 @@
       ]
     },
     {
-      "keyword": "Sheep and Goats",
+      "keyword": "Research Methods",
       "postCount": 3,
       "frequencyRank": 418,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
         "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Signs Source",
+      "keyword": "Resurrected Body",
       "postCount": 3,
       "frequencyRank": 419,
       "frequencyBand": "1-4",
@@ -4322,19 +4341,9 @@
       ]
     },
     {
-      "keyword": "Simon & Schuster",
+      "keyword": "Septuagint",
       "postCount": 3,
       "frequencyRank": 420,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Simon Magus",
-      "postCount": 3,
-      "frequencyRank": 421,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4343,7 +4352,17 @@
       ]
     },
     {
-      "keyword": "St. Catherine's Monastery",
+      "keyword": "Sheep and Goats",
+      "postCount": 3,
+      "frequencyRank": 421,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Signs Source",
       "postCount": 3,
       "frequencyRank": 422,
       "frequencyBand": "1-4",
@@ -4354,17 +4373,17 @@
       ]
     },
     {
-      "keyword": "Stephen",
+      "keyword": "Simon & Schuster",
       "postCount": 3,
       "frequencyRank": 423,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Subjectivity",
+      "keyword": "Simon Magus",
       "postCount": 3,
       "frequencyRank": 424,
       "frequencyBand": "1-4",
@@ -4375,9 +4394,41 @@
       ]
     },
     {
-      "keyword": "Tanakh",
+      "keyword": "St. Catherine's Monastery",
       "postCount": 3,
       "frequencyRank": 425,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Stephen",
+      "postCount": 3,
+      "frequencyRank": 426,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "five_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Subjectivity",
+      "postCount": 3,
+      "frequencyRank": 427,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "three_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Tanakh",
+      "postCount": 3,
+      "frequencyRank": 428,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4389,7 +4440,7 @@
     {
       "keyword": "Taxation",
       "postCount": 3,
-      "frequencyRank": 426,
+      "frequencyRank": 429,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4400,7 +4451,7 @@
     {
       "keyword": "Temple Authorities",
       "postCount": 3,
-      "frequencyRank": 427,
+      "frequencyRank": 430,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4411,7 +4462,7 @@
     {
       "keyword": "Thanksgiving",
       "postCount": 3,
-      "frequencyRank": 428,
+      "frequencyRank": 431,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4422,7 +4473,7 @@
     {
       "keyword": "Tiberius",
       "postCount": 3,
-      "frequencyRank": 429,
+      "frequencyRank": 432,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4433,7 +4484,7 @@
     {
       "keyword": "Wisdom",
       "postCount": 3,
-      "frequencyRank": 430,
+      "frequencyRank": 433,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4444,7 +4495,7 @@
     {
       "keyword": "Women in Early Christianity",
       "postCount": 3,
-      "frequencyRank": 431,
+      "frequencyRank": 434,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4454,7 +4505,7 @@
     {
       "keyword": "Word of Mouth",
       "postCount": 3,
-      "frequencyRank": 432,
+      "frequencyRank": 435,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4465,7 +4516,7 @@
     {
       "keyword": "Writing and Publishing Process",
       "postCount": 3,
-      "frequencyRank": 433,
+      "frequencyRank": 436,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4475,7 +4526,7 @@
     {
       "keyword": "Yale University",
       "postCount": 3,
-      "frequencyRank": 434,
+      "frequencyRank": 437,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4486,7 +4537,7 @@
     {
       "keyword": "2 Maccabees",
       "postCount": 2,
-      "frequencyRank": 435,
+      "frequencyRank": 438,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4497,7 +4548,7 @@
     {
       "keyword": "Aaron",
       "postCount": 2,
-      "frequencyRank": 436,
+      "frequencyRank": 439,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -4506,39 +4557,6 @@
     },
     {
       "keyword": "Acts of Peter",
-      "postCount": 2,
-      "frequencyRank": 437,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Adolf von Harnack",
-      "postCount": 2,
-      "frequencyRank": 438,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Antiochus IV Epiphanes",
-      "postCount": 2,
-      "frequencyRank": 439,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Antisemitism",
       "postCount": 2,
       "frequencyRank": 440,
       "frequencyBand": "1-4",
@@ -4549,7 +4567,7 @@
       ]
     },
     {
-      "keyword": "Apocalypse of Paul",
+      "keyword": "Adolf von Harnack",
       "postCount": 2,
       "frequencyRank": 441,
       "frequencyBand": "1-4",
@@ -4560,7 +4578,7 @@
       ]
     },
     {
-      "keyword": "Apocryphal Acts",
+      "keyword": "Antiochus IV Epiphanes",
       "postCount": 2,
       "frequencyRank": 442,
       "frequencyBand": "1-4",
@@ -4571,7 +4589,7 @@
       ]
     },
     {
-      "keyword": "Apollonius of Tyana",
+      "keyword": "Antisemitism",
       "postCount": 2,
       "frequencyRank": 443,
       "frequencyBand": "1-4",
@@ -4582,7 +4600,7 @@
       ]
     },
     {
-      "keyword": "Apostasy",
+      "keyword": "Apocalypse of Paul",
       "postCount": 2,
       "frequencyRank": 444,
       "frequencyBand": "1-4",
@@ -4593,7 +4611,7 @@
       ]
     },
     {
-      "keyword": "Apostolic Constitutions",
+      "keyword": "Apocryphal Acts",
       "postCount": 2,
       "frequencyRank": 445,
       "frequencyBand": "1-4",
@@ -4604,7 +4622,7 @@
       ]
     },
     {
-      "keyword": "Aristotle",
+      "keyword": "Apollonius of Tyana",
       "postCount": 2,
       "frequencyRank": 446,
       "frequencyBand": "1-4",
@@ -4615,18 +4633,18 @@
       ]
     },
     {
-      "keyword": "Atheism",
+      "keyword": "Apostasy",
       "postCount": 2,
       "frequencyRank": 447,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "three_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_audit.json",
         "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Augustus Caesar",
+      "keyword": "Apostolic Constitutions",
       "postCount": 2,
       "frequencyRank": 448,
       "frequencyBand": "1-4",
@@ -4637,7 +4655,7 @@
       ]
     },
     {
-      "keyword": "Birth of the Trinity",
+      "keyword": "Aristotle",
       "postCount": 2,
       "frequencyRank": 449,
       "frequencyBand": "1-4",
@@ -4648,29 +4666,29 @@
       ]
     },
     {
-      "keyword": "Born Again",
+      "keyword": "Atheism",
       "postCount": 2,
       "frequencyRank": 450,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
+        "three_post_secondary_keyword_audit.json",
         "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "C. S. Lewis",
+      "keyword": "Atrahasis",
       "postCount": 2,
       "frequencyRank": 451,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "singleton_followup_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Camels",
+      "keyword": "Augustus Caesar",
       "postCount": 2,
       "frequencyRank": 452,
       "frequencyBand": "1-4",
@@ -4681,7 +4699,7 @@
       ]
     },
     {
-      "keyword": "Care for Strangers",
+      "keyword": "Birth of the Trinity",
       "postCount": 2,
       "frequencyRank": 453,
       "frequencyBand": "1-4",
@@ -4692,7 +4710,7 @@
       ]
     },
     {
-      "keyword": "Christian Letters",
+      "keyword": "Born Again",
       "postCount": 2,
       "frequencyRank": 454,
       "frequencyBand": "1-4",
@@ -4703,7 +4721,7 @@
       ]
     },
     {
-      "keyword": "Church and State",
+      "keyword": "C. S. Lewis",
       "postCount": 2,
       "frequencyRank": 455,
       "frequencyBand": "1-4",
@@ -4714,7 +4732,7 @@
       ]
     },
     {
-      "keyword": "Circumcision",
+      "keyword": "Camels",
       "postCount": 2,
       "frequencyRank": 456,
       "frequencyBand": "1-4",
@@ -4725,7 +4743,7 @@
       ]
     },
     {
-      "keyword": "Cleansing of the Temple",
+      "keyword": "Care for Strangers",
       "postCount": 2,
       "frequencyRank": 457,
       "frequencyBand": "1-4",
@@ -4736,7 +4754,7 @@
       ]
     },
     {
-      "keyword": "Clergy",
+      "keyword": "Christian Letters",
       "postCount": 2,
       "frequencyRank": 458,
       "frequencyBand": "1-4",
@@ -4747,7 +4765,7 @@
       ]
     },
     {
-      "keyword": "Coleman Norton",
+      "keyword": "Church and State",
       "postCount": 2,
       "frequencyRank": 459,
       "frequencyBand": "1-4",
@@ -4758,7 +4776,7 @@
       ]
     },
     {
-      "keyword": "Collective Memory",
+      "keyword": "Cleansing of the Temple",
       "postCount": 2,
       "frequencyRank": 460,
       "frequencyBand": "1-4",
@@ -4769,18 +4787,18 @@
       ]
     },
     {
-      "keyword": "Constantin von Tischendorf",
+      "keyword": "Clergy",
       "postCount": 2,
       "frequencyRank": 461,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "final_high_confidence_normalization_2026_08_19_secondary_keyword_audit.json",
-        "singleton_followup_secondary_keyword_audit.json"
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Constantine's Conversion",
+      "keyword": "Coleman Norton",
       "postCount": 2,
       "frequencyRank": 462,
       "frequencyBand": "1-4",
@@ -4791,7 +4809,7 @@
       ]
     },
     {
-      "keyword": "Conversion to Islam",
+      "keyword": "Collective Memory",
       "postCount": 2,
       "frequencyRank": 463,
       "frequencyBand": "1-4",
@@ -4802,18 +4820,18 @@
       ]
     },
     {
-      "keyword": "Cornelius",
+      "keyword": "Constantin von Tischendorf",
       "postCount": 2,
       "frequencyRank": 464,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "final_high_confidence_normalization_2026_08_19_secondary_keyword_audit.json",
+        "singleton_followup_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Council of Nicaea",
+      "keyword": "Constantine's Conversion",
       "postCount": 2,
       "frequencyRank": 465,
       "frequencyBand": "1-4",
@@ -4824,7 +4842,7 @@
       ]
     },
     {
-      "keyword": "Dan Brown",
+      "keyword": "Conversion to Islam",
       "postCount": 2,
       "frequencyRank": 466,
       "frequencyBand": "1-4",
@@ -4835,7 +4853,7 @@
       ]
     },
     {
-      "keyword": "David Friedrich Strauss",
+      "keyword": "Cornelius",
       "postCount": 2,
       "frequencyRank": 467,
       "frequencyBand": "1-4",
@@ -4846,7 +4864,7 @@
       ]
     },
     {
-      "keyword": "Decius",
+      "keyword": "Dan Brown",
       "postCount": 2,
       "frequencyRank": 468,
       "frequencyBand": "1-4",
@@ -4857,7 +4875,7 @@
       ]
     },
     {
-      "keyword": "Deism",
+      "keyword": "David Friedrich Strauss",
       "postCount": 2,
       "frequencyRank": 469,
       "frequencyBand": "1-4",
@@ -4868,18 +4886,18 @@
       ]
     },
     {
-      "keyword": "Deuterocanonical Books",
+      "keyword": "Decius",
       "postCount": 2,
       "frequencyRank": 470,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "new_posts_2026_08_24_2026_08_30_20260824-20260830-20260830T222005Z_secondary_keyword_audit.json",
-        "singleton_followup_secondary_keyword_audit.json"
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Diane Rehm",
+      "keyword": "Deism",
       "postCount": 2,
       "frequencyRank": 471,
       "frequencyBand": "1-4",
@@ -4890,18 +4908,18 @@
       ]
     },
     {
-      "keyword": "Dissertation Defense",
+      "keyword": "Deuterocanonical Books",
       "postCount": 2,
       "frequencyRank": 472,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "new_posts_2026_08_24_2026_08_30_20260824-20260830-20260830T222005Z_secondary_keyword_audit.json",
+        "singleton_followup_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Divine Humans",
+      "keyword": "Diane Rehm",
       "postCount": 2,
       "frequencyRank": 473,
       "frequencyBand": "1-4",
@@ -4912,17 +4930,18 @@
       ]
     },
     {
-      "keyword": "Documentary Hypothesis",
+      "keyword": "Dissertation Defense",
       "postCount": 2,
       "frequencyRank": 474,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "biblical_discrepancies_through_archaeology_secondary_keyword_audit.json"
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Doubt",
+      "keyword": "Divine Humans",
       "postCount": 2,
       "frequencyRank": 475,
       "frequencyBand": "1-4",
@@ -4933,18 +4952,17 @@
       ]
     },
     {
-      "keyword": "Early Christian Diversity",
+      "keyword": "Documentary Hypothesis",
       "postCount": 2,
       "frequencyRank": 476,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "biblical_discrepancies_through_archaeology_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Early Churches",
+      "keyword": "Doubt",
       "postCount": 2,
       "frequencyRank": 477,
       "frequencyBand": "1-4",
@@ -4955,7 +4973,7 @@
       ]
     },
     {
-      "keyword": "Edessa",
+      "keyword": "Early Christian Diversity",
       "postCount": 2,
       "frequencyRank": 478,
       "frequencyBand": "1-4",
@@ -4966,7 +4984,7 @@
       ]
     },
     {
-      "keyword": "Epidemics",
+      "keyword": "Early Churches",
       "postCount": 2,
       "frequencyRank": 479,
       "frequencyBand": "1-4",
@@ -4977,7 +4995,7 @@
       ]
     },
     {
-      "keyword": "Epiphanius",
+      "keyword": "Edessa",
       "postCount": 2,
       "frequencyRank": 480,
       "frequencyBand": "1-4",
@@ -4988,7 +5006,7 @@
       ]
     },
     {
-      "keyword": "Evan Powell",
+      "keyword": "Epidemics",
       "postCount": 2,
       "frequencyRank": 481,
       "frequencyBand": "1-4",
@@ -4999,17 +5017,18 @@
       ]
     },
     {
-      "keyword": "Evangelism",
+      "keyword": "Epiphanius",
       "postCount": 2,
       "frequencyRank": 482,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "six_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Exclusivity",
+      "keyword": "Evan Powell",
       "postCount": 2,
       "frequencyRank": 483,
       "frequencyBand": "1-4",
@@ -5020,18 +5039,17 @@
       ]
     },
     {
-      "keyword": "Ezra",
+      "keyword": "Evangelism",
       "postCount": 2,
       "frequencyRank": 484,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "six_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "False Memory",
+      "keyword": "Exclusivity",
       "postCount": 2,
       "frequencyRank": 485,
       "frequencyBand": "1-4",
@@ -5042,7 +5060,7 @@
       ]
     },
     {
-      "keyword": "Fear of Death",
+      "keyword": "Ezra",
       "postCount": 2,
       "frequencyRank": 486,
       "frequencyBand": "1-4",
@@ -5053,17 +5071,18 @@
       ]
     },
     {
-      "keyword": "First-Century Mark Fragment",
+      "keyword": "False Memory",
       "postCount": 2,
       "frequencyRank": 487,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "six_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Gender in the Ancient World",
+      "keyword": "Fear of Death",
       "postCount": 2,
       "frequencyRank": 488,
       "frequencyBand": "1-4",
@@ -5074,9 +5093,30 @@
       ]
     },
     {
-      "keyword": "God's Problem",
+      "keyword": "First-Century Mark Fragment",
       "postCount": 2,
       "frequencyRank": 489,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "six_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Gender in the Ancient World",
+      "postCount": 2,
+      "frequencyRank": 490,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "God's Problem",
+      "postCount": 2,
+      "frequencyRank": 491,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5087,7 +5127,7 @@
     {
       "keyword": "Golden Rule",
       "postCount": 2,
-      "frequencyRank": 490,
+      "frequencyRank": 492,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5097,7 +5137,7 @@
     {
       "keyword": "Gospel of Jesus' Wife Fragment",
       "postCount": 2,
-      "frequencyRank": 491,
+      "frequencyRank": 493,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5106,28 +5146,6 @@
     },
     {
       "keyword": "Gratitude",
-      "postCount": 2,
-      "frequencyRank": 492,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Greek New Testament",
-      "postCount": 2,
-      "frequencyRank": 493,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Greek Religion",
       "postCount": 2,
       "frequencyRank": 494,
       "frequencyBand": "1-4",
@@ -5138,7 +5156,7 @@
       ]
     },
     {
-      "keyword": "Greek-English Edition",
+      "keyword": "Greek New Testament",
       "postCount": 2,
       "frequencyRank": 495,
       "frequencyBand": "1-4",
@@ -5149,7 +5167,7 @@
       ]
     },
     {
-      "keyword": "Gregory of Nyssa",
+      "keyword": "Greek-English Edition",
       "postCount": 2,
       "frequencyRank": 496,
       "frequencyBand": "1-4",
@@ -5160,7 +5178,7 @@
       ]
     },
     {
-      "keyword": "Hebrew Language",
+      "keyword": "Gregory of Nyssa",
       "postCount": 2,
       "frequencyRank": 497,
       "frequencyBand": "1-4",
@@ -5171,7 +5189,7 @@
       ]
     },
     {
-      "keyword": "Hermeneia Manuscripts",
+      "keyword": "Hebrew Language",
       "postCount": 2,
       "frequencyRank": 498,
       "frequencyBand": "1-4",
@@ -5182,7 +5200,7 @@
       ]
     },
     {
-      "keyword": "Herodias",
+      "keyword": "Hermeneia Manuscripts",
       "postCount": 2,
       "frequencyRank": 499,
       "frequencyBand": "1-4",
@@ -5193,9 +5211,20 @@
       ]
     },
     {
-      "keyword": "Historical Study and Theology",
+      "keyword": "Herodias",
       "postCount": 2,
       "frequencyRank": 500,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Historical Study and Theology",
+      "postCount": 2,
+      "frequencyRank": 501,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5206,7 +5235,7 @@
     {
       "keyword": "History of the King James Bible",
       "postCount": 2,
-      "frequencyRank": 501,
+      "frequencyRank": 502,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5217,24 +5246,13 @@
     {
       "keyword": "Holy Spirit",
       "postCount": 2,
-      "frequencyRank": 502,
+      "frequencyRank": 503,
       "frequencyBand": "1-4",
       "status": "pending",
       "auditEvidence": []
     },
     {
       "keyword": "Homer",
-      "postCount": 2,
-      "frequencyRank": 503,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Hospitals",
       "postCount": 2,
       "frequencyRank": 504,
       "frequencyBand": "1-4",
@@ -5245,7 +5263,7 @@
       ]
     },
     {
-      "keyword": "Ignatius",
+      "keyword": "Hospitals",
       "postCount": 2,
       "frequencyRank": 505,
       "frequencyBand": "1-4",
@@ -5256,7 +5274,7 @@
       ]
     },
     {
-      "keyword": "Illuminated Gospels",
+      "keyword": "Ignatius",
       "postCount": 2,
       "frequencyRank": 506,
       "frequencyBand": "1-4",
@@ -5267,7 +5285,7 @@
       ]
     },
     {
-      "keyword": "Incarnation Christology",
+      "keyword": "Illuminated Gospels",
       "postCount": 2,
       "frequencyRank": 507,
       "frequencyBand": "1-4",
@@ -5278,9 +5296,20 @@
       ]
     },
     {
-      "keyword": "Ishmael",
+      "keyword": "Incarnation Christology",
       "postCount": 2,
       "frequencyRank": 508,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Ishmael",
+      "postCount": 2,
+      "frequencyRank": 509,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5291,7 +5320,7 @@
     {
       "keyword": "Israel",
       "postCount": 2,
-      "frequencyRank": 509,
+      "frequencyRank": 510,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5302,7 +5331,7 @@
     {
       "keyword": "Israelite Kings",
       "postCount": 2,
-      "frequencyRank": 510,
+      "frequencyRank": 511,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5313,7 +5342,7 @@
     {
       "keyword": "James Ussher",
       "postCount": 2,
-      "frequencyRank": 511,
+      "frequencyRank": 512,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5324,7 +5353,7 @@
     {
       "keyword": "James White",
       "postCount": 2,
-      "frequencyRank": 512,
+      "frequencyRank": 513,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5335,7 +5364,7 @@
     {
       "keyword": "James, Son of Alphaeus",
       "postCount": 2,
-      "frequencyRank": 513,
+      "frequencyRank": 514,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5344,17 +5373,6 @@
     },
     {
       "keyword": "Jargon",
-      "postCount": 2,
-      "frequencyRank": 514,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Jesus Legends",
       "postCount": 2,
       "frequencyRank": 515,
       "frequencyBand": "1-4",
@@ -5365,7 +5383,7 @@
       ]
     },
     {
-      "keyword": "Jesus Traditions",
+      "keyword": "Jesus Legends",
       "postCount": 2,
       "frequencyRank": 516,
       "frequencyBand": "1-4",
@@ -5376,7 +5394,7 @@
       ]
     },
     {
-      "keyword": "Jewish Ethics",
+      "keyword": "Jesus Traditions",
       "postCount": 2,
       "frequencyRank": 517,
       "frequencyBand": "1-4",
@@ -5387,7 +5405,7 @@
       ]
     },
     {
-      "keyword": "Jewish Mystic",
+      "keyword": "Jewish Ethics",
       "postCount": 2,
       "frequencyRank": 518,
       "frequencyBand": "1-4",
@@ -5398,7 +5416,7 @@
       ]
     },
     {
-      "keyword": "Jewish Ossuaries",
+      "keyword": "Jewish Mystic",
       "postCount": 2,
       "frequencyRank": 519,
       "frequencyBand": "1-4",
@@ -5409,7 +5427,7 @@
       ]
     },
     {
-      "keyword": "Jezebel",
+      "keyword": "Jewish Ossuaries",
       "postCount": 2,
       "frequencyRank": 520,
       "frequencyBand": "1-4",
@@ -5420,7 +5438,7 @@
       ]
     },
     {
-      "keyword": "Joanna",
+      "keyword": "Jezebel",
       "postCount": 2,
       "frequencyRank": 521,
       "frequencyBand": "1-4",
@@ -5431,7 +5449,7 @@
       ]
     },
     {
-      "keyword": "Jodi Magness",
+      "keyword": "Joanna",
       "postCount": 2,
       "frequencyRank": 522,
       "frequencyBand": "1-4",
@@ -5442,7 +5460,7 @@
       ]
     },
     {
-      "keyword": "Johannine Christology",
+      "keyword": "Jodi Magness",
       "postCount": 2,
       "frequencyRank": 523,
       "frequencyBand": "1-4",
@@ -5453,7 +5471,7 @@
       ]
     },
     {
-      "keyword": "Johannine Comma",
+      "keyword": "Johannine Christology",
       "postCount": 2,
       "frequencyRank": 524,
       "frequencyBand": "1-4",
@@ -5464,7 +5482,7 @@
       ]
     },
     {
-      "keyword": "John Mill",
+      "keyword": "Johannine Comma",
       "postCount": 2,
       "frequencyRank": 525,
       "frequencyBand": "1-4",
@@ -5475,7 +5493,7 @@
       ]
     },
     {
-      "keyword": "Joseph and Aseneth",
+      "keyword": "John Mill",
       "postCount": 2,
       "frequencyRank": 526,
       "frequencyBand": "1-4",
@@ -5486,7 +5504,7 @@
       ]
     },
     {
-      "keyword": "Kyle Butt",
+      "keyword": "Joseph and Aseneth",
       "postCount": 2,
       "frequencyRank": 527,
       "frequencyBand": "1-4",
@@ -5497,7 +5515,7 @@
       ]
     },
     {
-      "keyword": "Latin",
+      "keyword": "Kyle Butt",
       "postCount": 2,
       "frequencyRank": 528,
       "frequencyBand": "1-4",
@@ -5508,9 +5526,20 @@
       ]
     },
     {
-      "keyword": "Letter of Peter to James",
+      "keyword": "Latin",
       "postCount": 2,
       "frequencyRank": 529,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Letter of Peter to James",
+      "postCount": 2,
+      "frequencyRank": 530,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5521,7 +5550,7 @@
     {
       "keyword": "Liberal Christianity",
       "postCount": 2,
-      "frequencyRank": 530,
+      "frequencyRank": 531,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5532,7 +5561,7 @@
     {
       "keyword": "Literary Agents",
       "postCount": 2,
-      "frequencyRank": 531,
+      "frequencyRank": 532,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5543,7 +5572,7 @@
     {
       "keyword": "Literary Artistry",
       "postCount": 2,
-      "frequencyRank": 532,
+      "frequencyRank": 533,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5554,7 +5583,7 @@
     {
       "keyword": "Literary Criticism",
       "postCount": 2,
-      "frequencyRank": 533,
+      "frequencyRank": 534,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5565,7 +5594,7 @@
     {
       "keyword": "Literary Seams",
       "postCount": 2,
-      "frequencyRank": 534,
+      "frequencyRank": 535,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5576,7 +5605,7 @@
     {
       "keyword": "Louis Markos",
       "postCount": 2,
-      "frequencyRank": 535,
+      "frequencyRank": 536,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5587,7 +5616,7 @@
     {
       "keyword": "Lucian of Samosata",
       "postCount": 2,
-      "frequencyRank": 536,
+      "frequencyRank": 537,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5598,7 +5627,7 @@
     {
       "keyword": "Markan Priority",
       "postCount": 2,
-      "frequencyRank": 537,
+      "frequencyRank": 538,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5609,7 +5638,7 @@
     {
       "keyword": "Martyrs of Lyons and Vienne",
       "postCount": 2,
-      "frequencyRank": 538,
+      "frequencyRank": 539,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5620,7 +5649,7 @@
     {
       "keyword": "Masoretic Text",
       "postCount": 2,
-      "frequencyRank": 539,
+      "frequencyRank": 540,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5631,7 +5660,7 @@
     {
       "keyword": "Matthew's Use of Scripture",
       "postCount": 2,
-      "frequencyRank": 540,
+      "frequencyRank": 541,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5642,7 +5671,7 @@
     {
       "keyword": "Meditation",
       "postCount": 2,
-      "frequencyRank": 541,
+      "frequencyRank": 542,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5653,7 +5682,7 @@
     {
       "keyword": "Melchizedek",
       "postCount": 2,
-      "frequencyRank": 542,
+      "frequencyRank": 543,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5664,7 +5693,7 @@
     {
       "keyword": "Michael Brown",
       "postCount": 2,
-      "frequencyRank": 543,
+      "frequencyRank": 544,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5675,7 +5704,7 @@
     {
       "keyword": "Michael Shermer",
       "postCount": 2,
-      "frequencyRank": 544,
+      "frequencyRank": 545,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5686,7 +5715,7 @@
     {
       "keyword": "Miracle Claims and Apologetics",
       "postCount": 2,
-      "frequencyRank": 545,
+      "frequencyRank": 546,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5695,17 +5724,6 @@
     },
     {
       "keyword": "Multiple Attestation",
-      "postCount": 2,
-      "frequencyRank": 546,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "National Humanities Center",
       "postCount": 2,
       "frequencyRank": 547,
       "frequencyBand": "1-4",
@@ -5716,7 +5734,7 @@
       ]
     },
     {
-      "keyword": "Necromancy",
+      "keyword": "National Humanities Center",
       "postCount": 2,
       "frequencyRank": 548,
       "frequencyBand": "1-4",
@@ -5727,7 +5745,7 @@
       ]
     },
     {
-      "keyword": "Nero",
+      "keyword": "Necromancy",
       "postCount": 2,
       "frequencyRank": 549,
       "frequencyBand": "1-4",
@@ -5738,18 +5756,18 @@
       ]
     },
     {
-      "keyword": "New Covenant",
+      "keyword": "Nephilim",
       "postCount": 2,
       "frequencyRank": 550,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json",
+        "singleton_followup_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "New International Version (NIV)",
+      "keyword": "Nero",
       "postCount": 2,
       "frequencyRank": 551,
       "frequencyBand": "1-4",
@@ -5760,7 +5778,7 @@
       ]
     },
     {
-      "keyword": "New Testament Theology",
+      "keyword": "New Covenant",
       "postCount": 2,
       "frequencyRank": 552,
       "frequencyBand": "1-4",
@@ -5771,7 +5789,7 @@
       ]
     },
     {
-      "keyword": "Non-Pauline Epistles",
+      "keyword": "New International Version (NIV)",
       "postCount": 2,
       "frequencyRank": 553,
       "frequencyBand": "1-4",
@@ -5782,7 +5800,7 @@
       ]
     },
     {
-      "keyword": "Odyssey",
+      "keyword": "New Testament Theology",
       "postCount": 2,
       "frequencyRank": 554,
       "frequencyBand": "1-4",
@@ -5793,7 +5811,7 @@
       ]
     },
     {
-      "keyword": "Oral Culture",
+      "keyword": "Non-Pauline Epistles",
       "postCount": 2,
       "frequencyRank": 555,
       "frequencyBand": "1-4",
@@ -5804,7 +5822,7 @@
       ]
     },
     {
-      "keyword": "Orphanages",
+      "keyword": "Odyssey",
       "postCount": 2,
       "frequencyRank": 556,
       "frequencyBand": "1-4",
@@ -5815,7 +5833,7 @@
       ]
     },
     {
-      "keyword": "Papyrus 46 (P46)",
+      "keyword": "Oral Culture",
       "postCount": 2,
       "frequencyRank": 557,
       "frequencyBand": "1-4",
@@ -5826,7 +5844,7 @@
       ]
     },
     {
-      "keyword": "Parable of the Sower",
+      "keyword": "Orphanages",
       "postCount": 2,
       "frequencyRank": 558,
       "frequencyBand": "1-4",
@@ -5837,7 +5855,7 @@
       ]
     },
     {
-      "keyword": "Parable of the Talents",
+      "keyword": "Papyrus 46 (P46)",
       "postCount": 2,
       "frequencyRank": 559,
       "frequencyBand": "1-4",
@@ -5848,7 +5866,7 @@
       ]
     },
     {
-      "keyword": "Peter J. Williams",
+      "keyword": "Parable of the Sower",
       "postCount": 2,
       "frequencyRank": 560,
       "frequencyBand": "1-4",
@@ -5859,7 +5877,7 @@
       ]
     },
     {
-      "keyword": "Plato",
+      "keyword": "Parable of the Talents",
       "postCount": 2,
       "frequencyRank": 561,
       "frequencyBand": "1-4",
@@ -5870,7 +5888,7 @@
       ]
     },
     {
-      "keyword": "Pliny the Younger",
+      "keyword": "Peter J. Williams",
       "postCount": 2,
       "frequencyRank": 562,
       "frequencyBand": "1-4",
@@ -5881,7 +5899,7 @@
       ]
     },
     {
-      "keyword": "Pope Benedict XVI",
+      "keyword": "Plato",
       "postCount": 2,
       "frequencyRank": 563,
       "frequencyBand": "1-4",
@@ -5892,7 +5910,7 @@
       ]
     },
     {
-      "keyword": "Possessions",
+      "keyword": "Pliny the Younger",
       "postCount": 2,
       "frequencyRank": 564,
       "frequencyBand": "1-4",
@@ -5903,7 +5921,7 @@
       ]
     },
     {
-      "keyword": "Prophecy",
+      "keyword": "Pope Benedict XVI",
       "postCount": 2,
       "frequencyRank": 565,
       "frequencyBand": "1-4",
@@ -5914,9 +5932,31 @@
       ]
     },
     {
-      "keyword": "Protestant Reformation",
+      "keyword": "Possessions",
       "postCount": 2,
       "frequencyRank": 566,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Prophecy",
+      "postCount": 2,
+      "frequencyRank": 567,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Protestant Reformation",
+      "postCount": 2,
+      "frequencyRank": 568,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5927,7 +5967,7 @@
     {
       "keyword": "Pseudo-Dionysius the Areopagite",
       "postCount": 2,
-      "frequencyRank": 567,
+      "frequencyRank": 569,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -5936,27 +5976,6 @@
     },
     {
       "keyword": "Purgatory",
-      "postCount": 2,
-      "frequencyRank": 568,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Radiocarbon Dating",
-      "postCount": 2,
-      "frequencyRank": 569,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Rapture",
       "postCount": 2,
       "frequencyRank": 570,
       "frequencyBand": "1-4",
@@ -5967,18 +5986,17 @@
       ]
     },
     {
-      "keyword": "Render unto Caesar",
+      "keyword": "Radiocarbon Dating",
       "postCount": 2,
       "frequencyRank": 571,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "two_post_secondary_keyword_audit.json",
-        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+        "four_post_secondary_keyword_reaudit_2026_08_18_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Rene Salm",
+      "keyword": "Rapture",
       "postCount": 2,
       "frequencyRank": 572,
       "frequencyBand": "1-4",
@@ -5989,7 +6007,7 @@
       ]
     },
     {
-      "keyword": "Rise of Christianity",
+      "keyword": "Render unto Caesar",
       "postCount": 2,
       "frequencyRank": 573,
       "frequencyBand": "1-4",
@@ -6000,7 +6018,7 @@
       ]
     },
     {
-      "keyword": "Robert Barron",
+      "keyword": "Rene Salm",
       "postCount": 2,
       "frequencyRank": 574,
       "frequencyBand": "1-4",
@@ -6011,7 +6029,7 @@
       ]
     },
     {
-      "keyword": "Rome",
+      "keyword": "Rise of Christianity",
       "postCount": 2,
       "frequencyRank": 575,
       "frequencyBand": "1-4",
@@ -6022,7 +6040,7 @@
       ]
     },
     {
-      "keyword": "Rudolf Bultmann",
+      "keyword": "Robert Barron",
       "postCount": 2,
       "frequencyRank": 576,
       "frequencyBand": "1-4",
@@ -6033,7 +6051,7 @@
       ]
     },
     {
-      "keyword": "Rutgers",
+      "keyword": "Rome",
       "postCount": 2,
       "frequencyRank": 577,
       "frequencyBand": "1-4",
@@ -6044,7 +6062,7 @@
       ]
     },
     {
-      "keyword": "Sadducees",
+      "keyword": "Rudolf Bultmann",
       "postCount": 2,
       "frequencyRank": 578,
       "frequencyBand": "1-4",
@@ -6055,7 +6073,7 @@
       ]
     },
     {
-      "keyword": "Salvian",
+      "keyword": "Rutgers",
       "postCount": 2,
       "frequencyRank": 579,
       "frequencyBand": "1-4",
@@ -6066,7 +6084,7 @@
       ]
     },
     {
-      "keyword": "Samuel",
+      "keyword": "Sadducees",
       "postCount": 2,
       "frequencyRank": 580,
       "frequencyBand": "1-4",
@@ -6077,7 +6095,7 @@
       ]
     },
     {
-      "keyword": "Selling Books",
+      "keyword": "Salvian",
       "postCount": 2,
       "frequencyRank": 581,
       "frequencyBand": "1-4",
@@ -6088,7 +6106,7 @@
       ]
     },
     {
-      "keyword": "Separationism",
+      "keyword": "Samuel",
       "postCount": 2,
       "frequencyRank": 582,
       "frequencyBand": "1-4",
@@ -6099,7 +6117,7 @@
       ]
     },
     {
-      "keyword": "Simcha Jacobovici",
+      "keyword": "Selling Books",
       "postCount": 2,
       "frequencyRank": 583,
       "frequencyBand": "1-4",
@@ -6110,7 +6128,7 @@
       ]
     },
     {
-      "keyword": "Simon Gathercole",
+      "keyword": "Separationism",
       "postCount": 2,
       "frequencyRank": 584,
       "frequencyBand": "1-4",
@@ -6121,7 +6139,7 @@
       ]
     },
     {
-      "keyword": "Sirach",
+      "keyword": "Simcha Jacobovici",
       "postCount": 2,
       "frequencyRank": 585,
       "frequencyBand": "1-4",
@@ -6132,7 +6150,7 @@
       ]
     },
     {
-      "keyword": "Social Class in Antiquity",
+      "keyword": "Simon Gathercole",
       "postCount": 2,
       "frequencyRank": 586,
       "frequencyBand": "1-4",
@@ -6143,7 +6161,7 @@
       ]
     },
     {
-      "keyword": "Social Justice",
+      "keyword": "Sirach",
       "postCount": 2,
       "frequencyRank": 587,
       "frequencyBand": "1-4",
@@ -6154,7 +6172,7 @@
       ]
     },
     {
-      "keyword": "Social Networks",
+      "keyword": "Social Class in Antiquity",
       "postCount": 2,
       "frequencyRank": 588,
       "frequencyBand": "1-4",
@@ -6165,7 +6183,7 @@
       ]
     },
     {
-      "keyword": "Social Welfare",
+      "keyword": "Social Justice",
       "postCount": 2,
       "frequencyRank": 589,
       "frequencyBand": "1-4",
@@ -6176,7 +6194,7 @@
       ]
     },
     {
-      "keyword": "Song of Songs",
+      "keyword": "Social Networks",
       "postCount": 2,
       "frequencyRank": 590,
       "frequencyBand": "1-4",
@@ -6187,7 +6205,7 @@
       ]
     },
     {
-      "keyword": "Star of Bethlehem",
+      "keyword": "Social Welfare",
       "postCount": 2,
       "frequencyRank": 591,
       "frequencyBand": "1-4",
@@ -6198,7 +6216,7 @@
       ]
     },
     {
-      "keyword": "Suffering Servant",
+      "keyword": "Song of Songs",
       "postCount": 2,
       "frequencyRank": 592,
       "frequencyBand": "1-4",
@@ -6209,7 +6227,7 @@
       ]
     },
     {
-      "keyword": "Suicide",
+      "keyword": "Star of Bethlehem",
       "postCount": 2,
       "frequencyRank": 593,
       "frequencyBand": "1-4",
@@ -6220,7 +6238,7 @@
       ]
     },
     {
-      "keyword": "Sword",
+      "keyword": "Suffering Servant",
       "postCount": 2,
       "frequencyRank": 594,
       "frequencyBand": "1-4",
@@ -6231,7 +6249,7 @@
       ]
     },
     {
-      "keyword": "Tacitus",
+      "keyword": "Suicide",
       "postCount": 2,
       "frequencyRank": 595,
       "frequencyBand": "1-4",
@@ -6242,7 +6260,7 @@
       ]
     },
     {
-      "keyword": "Temple Destruction",
+      "keyword": "Sword",
       "postCount": 2,
       "frequencyRank": 596,
       "frequencyBand": "1-4",
@@ -6253,7 +6271,7 @@
       ]
     },
     {
-      "keyword": "Temptation of Jesus",
+      "keyword": "Tacitus",
       "postCount": 2,
       "frequencyRank": 597,
       "frequencyBand": "1-4",
@@ -6264,7 +6282,7 @@
       ]
     },
     {
-      "keyword": "Textual Emendation",
+      "keyword": "Temple Destruction",
       "postCount": 2,
       "frequencyRank": 598,
       "frequencyBand": "1-4",
@@ -6275,7 +6293,7 @@
       ]
     },
     {
-      "keyword": "Textual Transmission",
+      "keyword": "Temptation of Jesus",
       "postCount": 2,
       "frequencyRank": 599,
       "frequencyBand": "1-4",
@@ -6286,7 +6304,7 @@
       ]
     },
     {
-      "keyword": "Thaddaeus",
+      "keyword": "Textual Emendation",
       "postCount": 2,
       "frequencyRank": 600,
       "frequencyBand": "1-4",
@@ -6297,7 +6315,7 @@
       ]
     },
     {
-      "keyword": "The Great Courses (Teaching Company)",
+      "keyword": "Textual Transmission",
       "postCount": 2,
       "frequencyRank": 601,
       "frequencyBand": "1-4",
@@ -6308,7 +6326,7 @@
       ]
     },
     {
-      "keyword": "Tim McGrew",
+      "keyword": "Thaddaeus",
       "postCount": 2,
       "frequencyRank": 602,
       "frequencyBand": "1-4",
@@ -6319,7 +6337,7 @@
       ]
     },
     {
-      "keyword": "Time Management",
+      "keyword": "The Great Courses (Teaching Company)",
       "postCount": 2,
       "frequencyRank": 603,
       "frequencyBand": "1-4",
@@ -6330,7 +6348,7 @@
       ]
     },
     {
-      "keyword": "Transcriptional Probabilities",
+      "keyword": "Tim McGrew",
       "postCount": 2,
       "frequencyRank": 604,
       "frequencyBand": "1-4",
@@ -6341,7 +6359,7 @@
       ]
     },
     {
-      "keyword": "Trinities.org",
+      "keyword": "Time Management",
       "postCount": 2,
       "frequencyRank": 605,
       "frequencyBand": "1-4",
@@ -6352,7 +6370,7 @@
       ]
     },
     {
-      "keyword": "UNC-Chapel Hill",
+      "keyword": "Transcriptional Probabilities",
       "postCount": 2,
       "frequencyRank": 606,
       "frequencyBand": "1-4",
@@ -6363,7 +6381,7 @@
       ]
     },
     {
-      "keyword": "Vigiliae Christianae",
+      "keyword": "Trinities.org",
       "postCount": 2,
       "frequencyRank": 607,
       "frequencyBand": "1-4",
@@ -6374,7 +6392,7 @@
       ]
     },
     {
-      "keyword": "Wheaton",
+      "keyword": "UNC-Chapel Hill",
       "postCount": 2,
       "frequencyRank": 608,
       "frequencyBand": "1-4",
@@ -6385,7 +6403,7 @@
       ]
     },
     {
-      "keyword": "William Harris",
+      "keyword": "Vigiliae Christianae",
       "postCount": 2,
       "frequencyRank": 609,
       "frequencyBand": "1-4",
@@ -6396,7 +6414,7 @@
       ]
     },
     {
-      "keyword": "Wise Men",
+      "keyword": "Wheaton",
       "postCount": 2,
       "frequencyRank": 610,
       "frequencyBand": "1-4",
@@ -6407,7 +6425,7 @@
       ]
     },
     {
-      "keyword": "Ximenes de Cisneros",
+      "keyword": "William Harris",
       "postCount": 2,
       "frequencyRank": 611,
       "frequencyBand": "1-4",
@@ -6418,7 +6436,7 @@
       ]
     },
     {
-      "keyword": "Yehohanan",
+      "keyword": "Wise Men",
       "postCount": 2,
       "frequencyRank": 612,
       "frequencyBand": "1-4",
@@ -6429,7 +6447,7 @@
       ]
     },
     {
-      "keyword": "Zacchaeus",
+      "keyword": "Ximenes de Cisneros",
       "postCount": 2,
       "frequencyRank": 613,
       "frequencyBand": "1-4",
@@ -6440,7 +6458,7 @@
       ]
     },
     {
-      "keyword": "Zechariah the Father of John",
+      "keyword": "Yehohanan",
       "postCount": 2,
       "frequencyRank": 614,
       "frequencyBand": "1-4",
@@ -6451,9 +6469,31 @@
       ]
     },
     {
-      "keyword": "Zlatko Plese",
+      "keyword": "Zacchaeus",
       "postCount": 2,
       "frequencyRank": 615,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Zechariah the Father of John",
+      "postCount": 2,
+      "frequencyRank": 616,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "two_post_secondary_keyword_audit.json",
+        "two_post_secondary_keyword_reaudit_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Zlatko Plese",
+      "postCount": 2,
+      "frequencyRank": 617,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6464,7 +6504,7 @@
     {
       "keyword": "1 Enoch",
       "postCount": 1,
-      "frequencyRank": 616,
+      "frequencyRank": 618,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6474,7 +6514,7 @@
     {
       "keyword": "1 Maccabees",
       "postCount": 1,
-      "frequencyRank": 617,
+      "frequencyRank": 619,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6484,7 +6524,7 @@
     {
       "keyword": "2 Baruch",
       "postCount": 1,
-      "frequencyRank": 618,
+      "frequencyRank": 620,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6494,7 +6534,7 @@
     {
       "keyword": "2 Enoch",
       "postCount": 1,
-      "frequencyRank": 619,
+      "frequencyRank": 621,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6504,7 +6544,7 @@
     {
       "keyword": "666",
       "postCount": 1,
-      "frequencyRank": 620,
+      "frequencyRank": 622,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6514,7 +6554,7 @@
     {
       "keyword": "95 Theses",
       "postCount": 1,
-      "frequencyRank": 621,
+      "frequencyRank": 623,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6524,7 +6564,7 @@
     {
       "keyword": "Abel",
       "postCount": 1,
-      "frequencyRank": 622,
+      "frequencyRank": 624,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6534,7 +6574,7 @@
     {
       "keyword": "Abgar Correspondence",
       "postCount": 1,
-      "frequencyRank": 623,
+      "frequencyRank": 625,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6544,7 +6584,7 @@
     {
       "keyword": "Abraham Lincoln",
       "postCount": 1,
-      "frequencyRank": 624,
+      "frequencyRank": 626,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6554,7 +6594,7 @@
     {
       "keyword": "Acts of John",
       "postCount": 1,
-      "frequencyRank": 625,
+      "frequencyRank": 627,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6564,7 +6604,7 @@
     {
       "keyword": "Acts “We” Passages",
       "postCount": 1,
-      "frequencyRank": 626,
+      "frequencyRank": 628,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6574,7 +6614,7 @@
     {
       "keyword": "Adoptionist Christology",
       "postCount": 1,
-      "frequencyRank": 627,
+      "frequencyRank": 629,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6584,7 +6624,7 @@
     {
       "keyword": "Agrippa II",
       "postCount": 1,
-      "frequencyRank": 628,
+      "frequencyRank": 630,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6594,7 +6634,7 @@
     {
       "keyword": "Alexandrian Text-Type",
       "postCount": 1,
-      "frequencyRank": 629,
+      "frequencyRank": 631,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6604,7 +6644,7 @@
     {
       "keyword": "Anabasis",
       "postCount": 1,
-      "frequencyRank": 630,
+      "frequencyRank": 632,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6614,7 +6654,7 @@
     {
       "keyword": "Anachronisms",
       "postCount": 1,
-      "frequencyRank": 631,
+      "frequencyRank": 633,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6624,7 +6664,7 @@
     {
       "keyword": "Andrew Sullivan",
       "postCount": 1,
-      "frequencyRank": 632,
+      "frequencyRank": 634,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6634,7 +6674,7 @@
     {
       "keyword": "Angel of the Lord",
       "postCount": 1,
-      "frequencyRank": 633,
+      "frequencyRank": 635,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6644,7 +6684,7 @@
     {
       "keyword": "Apocalypse of Abraham",
       "postCount": 1,
-      "frequencyRank": 634,
+      "frequencyRank": 636,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6654,7 +6694,7 @@
     {
       "keyword": "Apuleius",
       "postCount": 1,
-      "frequencyRank": 635,
+      "frequencyRank": 637,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6664,7 +6704,7 @@
     {
       "keyword": "Armageddon",
       "postCount": 1,
-      "frequencyRank": 636,
+      "frequencyRank": 638,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6674,7 +6714,7 @@
     {
       "keyword": "Armed Resistance",
       "postCount": 1,
-      "frequencyRank": 637,
+      "frequencyRank": 639,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6684,7 +6724,7 @@
     {
       "keyword": "Arthur Darby Nock",
       "postCount": 1,
-      "frequencyRank": 638,
+      "frequencyRank": 640,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6694,7 +6734,7 @@
     {
       "keyword": "Aryanization",
       "postCount": 1,
-      "frequencyRank": 639,
+      "frequencyRank": 641,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6704,7 +6744,7 @@
     {
       "keyword": "Athanasius of Alexandria",
       "postCount": 1,
-      "frequencyRank": 640,
+      "frequencyRank": 642,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6712,27 +6752,7 @@
       ]
     },
     {
-      "keyword": "Atrahasis",
-      "postCount": 1,
-      "frequencyRank": 641,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "singleton_followup_secondary_keyword_audit.json"
-      ]
-    },
-    {
       "keyword": "Baal Shem Tov",
-      "postCount": 1,
-      "frequencyRank": 642,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "singleton_followup_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Babylonian Exile",
       "postCount": 1,
       "frequencyRank": 643,
       "frequencyBand": "1-4",
@@ -6742,7 +6762,7 @@
       ]
     },
     {
-      "keyword": "Basilides",
+      "keyword": "Babylonian Exile",
       "postCount": 1,
       "frequencyRank": 644,
       "frequencyBand": "1-4",
@@ -6752,7 +6772,7 @@
       ]
     },
     {
-      "keyword": "Bayes' Theorem",
+      "keyword": "Basilides",
       "postCount": 1,
       "frequencyRank": 645,
       "frequencyBand": "1-4",
@@ -6762,7 +6782,7 @@
       ]
     },
     {
-      "keyword": "Beersheba",
+      "keyword": "Bayes' Theorem",
       "postCount": 1,
       "frequencyRank": 646,
       "frequencyBand": "1-4",
@@ -6772,7 +6792,7 @@
       ]
     },
     {
-      "keyword": "Bernard Anderson",
+      "keyword": "Beersheba",
       "postCount": 1,
       "frequencyRank": 647,
       "frequencyBand": "1-4",
@@ -6782,9 +6802,19 @@
       ]
     },
     {
-      "keyword": "Biblical Contradictions",
+      "keyword": "Bernard Anderson",
       "postCount": 1,
       "frequencyRank": 648,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "singleton_followup_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Biblical Contradictions",
+      "postCount": 1,
+      "frequencyRank": 649,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6794,7 +6824,7 @@
     {
       "keyword": "Birger Gerhardsson",
       "postCount": 1,
-      "frequencyRank": 649,
+      "frequencyRank": 650,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6804,7 +6834,7 @@
     {
       "keyword": "Bo Bennett",
       "postCount": 1,
-      "frequencyRank": 650,
+      "frequencyRank": 651,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6814,7 +6844,7 @@
     {
       "keyword": "Brice Jones",
       "postCount": 1,
-      "frequencyRank": 651,
+      "frequencyRank": 652,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6824,7 +6854,7 @@
     {
       "keyword": "Caesarea Maritima",
       "postCount": 1,
-      "frequencyRank": 652,
+      "frequencyRank": 653,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6834,7 +6864,7 @@
     {
       "keyword": "Canaan",
       "postCount": 1,
-      "frequencyRank": 653,
+      "frequencyRank": 654,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6844,7 +6874,7 @@
     {
       "keyword": "Capernaum",
       "postCount": 1,
-      "frequencyRank": 654,
+      "frequencyRank": 655,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6854,7 +6884,7 @@
     {
       "keyword": "Care for the Poor",
       "postCount": 1,
-      "frequencyRank": 655,
+      "frequencyRank": 656,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6864,7 +6894,7 @@
     {
       "keyword": "Carlo Maria Martini",
       "postCount": 1,
-      "frequencyRank": 656,
+      "frequencyRank": 657,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6874,7 +6904,7 @@
     {
       "keyword": "Cessationism",
       "postCount": 1,
-      "frequencyRank": 657,
+      "frequencyRank": 658,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6884,7 +6914,7 @@
     {
       "keyword": "Charles Gieschen",
       "postCount": 1,
-      "frequencyRank": 658,
+      "frequencyRank": 659,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6894,7 +6924,7 @@
     {
       "keyword": "Christopher Stanley",
       "postCount": 1,
-      "frequencyRank": 659,
+      "frequencyRank": 660,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6904,7 +6934,7 @@
     {
       "keyword": "City of God",
       "postCount": 1,
-      "frequencyRank": 660,
+      "frequencyRank": 661,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6914,7 +6944,7 @@
     {
       "keyword": "Clement of Rome",
       "postCount": 1,
-      "frequencyRank": 661,
+      "frequencyRank": 662,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6924,7 +6954,7 @@
     {
       "keyword": "Complutensian Polyglot",
       "postCount": 1,
-      "frequencyRank": 662,
+      "frequencyRank": 663,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6934,7 +6964,7 @@
     {
       "keyword": "Constantine's Vision",
       "postCount": 1,
-      "frequencyRank": 663,
+      "frequencyRank": 664,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6944,7 +6974,7 @@
     {
       "keyword": "Coptic Manuscripts",
       "postCount": 1,
-      "frequencyRank": 664,
+      "frequencyRank": 665,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6954,7 +6984,7 @@
     {
       "keyword": "Critical Editions",
       "postCount": 1,
-      "frequencyRank": 665,
+      "frequencyRank": 666,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6965,7 +6995,7 @@
     {
       "keyword": "Cullen Story",
       "postCount": 1,
-      "frequencyRank": 666,
+      "frequencyRank": 667,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6975,7 +7005,7 @@
     {
       "keyword": "Dale Martin",
       "postCount": 1,
-      "frequencyRank": 667,
+      "frequencyRank": 668,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6985,7 +7015,7 @@
     {
       "keyword": "David Adams",
       "postCount": 1,
-      "frequencyRank": 668,
+      "frequencyRank": 669,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -6995,7 +7025,7 @@
     {
       "keyword": "David Hume",
       "postCount": 1,
-      "frequencyRank": 669,
+      "frequencyRank": 670,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7005,7 +7035,7 @@
     {
       "keyword": "Deconversion",
       "postCount": 1,
-      "frequencyRank": 670,
+      "frequencyRank": 671,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7016,7 +7046,7 @@
     {
       "keyword": "Demetrius Poliorcetes",
       "postCount": 1,
-      "frequencyRank": 671,
+      "frequencyRank": 672,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7026,7 +7056,7 @@
     {
       "keyword": "Denarius",
       "postCount": 1,
-      "frequencyRank": 672,
+      "frequencyRank": 673,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7036,7 +7066,7 @@
     {
       "keyword": "Desmond Tutu",
       "postCount": 1,
-      "frequencyRank": 673,
+      "frequencyRank": 674,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7046,7 +7076,7 @@
     {
       "keyword": "Deutero-Pauline Letters",
       "postCount": 1,
-      "frequencyRank": 674,
+      "frequencyRank": 675,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7056,7 +7086,7 @@
     {
       "keyword": "Didascalia Apostolorum",
       "postCount": 1,
-      "frequencyRank": 675,
+      "frequencyRank": 676,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7066,7 +7096,7 @@
     {
       "keyword": "Diocletian",
       "postCount": 1,
-      "frequencyRank": 676,
+      "frequencyRank": 677,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7076,7 +7106,7 @@
     {
       "keyword": "Doctrina Addai",
       "postCount": 1,
-      "frequencyRank": 677,
+      "frequencyRank": 678,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7086,7 +7116,7 @@
     {
       "keyword": "Double Predestination",
       "postCount": 1,
-      "frequencyRank": 678,
+      "frequencyRank": 679,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7096,7 +7126,7 @@
     {
       "keyword": "E. Randolph Richards",
       "postCount": 1,
-      "frequencyRank": 679,
+      "frequencyRank": 680,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7106,7 +7136,7 @@
     {
       "keyword": "Ecclesiastes",
       "postCount": 1,
-      "frequencyRank": 680,
+      "frequencyRank": 681,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7116,7 +7146,7 @@
     {
       "keyword": "Economic Growth",
       "postCount": 1,
-      "frequencyRank": 681,
+      "frequencyRank": 682,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7126,7 +7156,7 @@
     {
       "keyword": "Edict of Milan",
       "postCount": 1,
-      "frequencyRank": 682,
+      "frequencyRank": 683,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7136,7 +7166,7 @@
     {
       "keyword": "Edward Gibbon",
       "postCount": 1,
-      "frequencyRank": 683,
+      "frequencyRank": 684,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7146,7 +7176,7 @@
     {
       "keyword": "Egeria",
       "postCount": 1,
-      "frequencyRank": 684,
+      "frequencyRank": 685,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7156,7 +7186,7 @@
     {
       "keyword": "Egypt",
       "postCount": 1,
-      "frequencyRank": 685,
+      "frequencyRank": 686,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7166,7 +7196,7 @@
     {
       "keyword": "Eldon Epp",
       "postCount": 1,
-      "frequencyRank": 686,
+      "frequencyRank": 687,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7176,7 +7206,7 @@
     {
       "keyword": "Enuma Elish",
       "postCount": 1,
-      "frequencyRank": 687,
+      "frequencyRank": 688,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7186,7 +7216,7 @@
     {
       "keyword": "Ephraemi Rescriptus",
       "postCount": 1,
-      "frequencyRank": 688,
+      "frequencyRank": 689,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7196,7 +7226,7 @@
     {
       "keyword": "Epicurus",
       "postCount": 1,
-      "frequencyRank": 689,
+      "frequencyRank": 690,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7206,7 +7236,7 @@
     {
       "keyword": "Episodic Memory",
       "postCount": 1,
-      "frequencyRank": 690,
+      "frequencyRank": 691,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7216,7 +7246,7 @@
     {
       "keyword": "Esau",
       "postCount": 1,
-      "frequencyRank": 691,
+      "frequencyRank": 692,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7226,7 +7256,7 @@
     {
       "keyword": "Ethics Without God",
       "postCount": 1,
-      "frequencyRank": 692,
+      "frequencyRank": 693,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7236,7 +7266,7 @@
     {
       "keyword": "Eucharist",
       "postCount": 1,
-      "frequencyRank": 693,
+      "frequencyRank": 694,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7246,7 +7276,7 @@
     {
       "keyword": "Evan Goranson",
       "postCount": 1,
-      "frequencyRank": 694,
+      "frequencyRank": 695,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7256,7 +7286,7 @@
     {
       "keyword": "Exegesis",
       "postCount": 1,
-      "frequencyRank": 695,
+      "frequencyRank": 696,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7266,7 +7296,7 @@
     {
       "keyword": "Ezekiel the Tragedian",
       "postCount": 1,
-      "frequencyRank": 696,
+      "frequencyRank": 697,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7276,7 +7306,7 @@
     {
       "keyword": "Free Will and Predestination",
       "postCount": 1,
-      "frequencyRank": 697,
+      "frequencyRank": 698,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7286,7 +7316,7 @@
     {
       "keyword": "G. A. Wells",
       "postCount": 1,
-      "frequencyRank": 698,
+      "frequencyRank": 699,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7296,7 +7326,7 @@
     {
       "keyword": "Galerius",
       "postCount": 1,
-      "frequencyRank": 699,
+      "frequencyRank": 700,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7306,7 +7336,7 @@
     {
       "keyword": "Gerald Hawthorne",
       "postCount": 1,
-      "frequencyRank": 700,
+      "frequencyRank": 701,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7316,7 +7346,7 @@
     {
       "keyword": "Geza Vermes",
       "postCount": 1,
-      "frequencyRank": 701,
+      "frequencyRank": 702,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7326,7 +7356,7 @@
     {
       "keyword": "Gilgamesh",
       "postCount": 1,
-      "frequencyRank": 702,
+      "frequencyRank": 703,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7336,7 +7366,7 @@
     {
       "keyword": "Glenn Siepert",
       "postCount": 1,
-      "frequencyRank": 703,
+      "frequencyRank": 704,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7346,7 +7376,7 @@
     {
       "keyword": "Gordon Fee",
       "postCount": 1,
-      "frequencyRank": 704,
+      "frequencyRank": 705,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7356,7 +7386,7 @@
     {
       "keyword": "Gospel of Basilides",
       "postCount": 1,
-      "frequencyRank": 705,
+      "frequencyRank": 706,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7366,7 +7396,7 @@
     {
       "keyword": "Gospel of Philip",
       "postCount": 1,
-      "frequencyRank": 706,
+      "frequencyRank": 707,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7377,7 +7407,7 @@
     {
       "keyword": "Gospel of the Egyptians",
       "postCount": 1,
-      "frequencyRank": 707,
+      "frequencyRank": 708,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7387,7 +7417,7 @@
     {
       "keyword": "Gospel of the Nazareans",
       "postCount": 1,
-      "frequencyRank": 708,
+      "frequencyRank": 709,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7397,7 +7427,7 @@
     {
       "keyword": "Gospel of the Savior",
       "postCount": 1,
-      "frequencyRank": 709,
+      "frequencyRank": 710,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7407,7 +7437,7 @@
     {
       "keyword": "Great Persecution",
       "postCount": 1,
-      "frequencyRank": 710,
+      "frequencyRank": 711,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7417,7 +7447,7 @@
     {
       "keyword": "Greek Pederasty",
       "postCount": 1,
-      "frequencyRank": 711,
+      "frequencyRank": 712,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7427,7 +7457,7 @@
     {
       "keyword": "Hagiography",
       "postCount": 1,
-      "frequencyRank": 712,
+      "frequencyRank": 713,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7437,7 +7467,7 @@
     {
       "keyword": "Handing Over of Pilate (Paradosis Pilati)",
       "postCount": 1,
-      "frequencyRank": 713,
+      "frequencyRank": 714,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7447,7 +7477,7 @@
     {
       "keyword": "HarperCollins",
       "postCount": 1,
-      "frequencyRank": 714,
+      "frequencyRank": 715,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7457,7 +7487,7 @@
     {
       "keyword": "Harry Kreisler",
       "postCount": 1,
-      "frequencyRank": 715,
+      "frequencyRank": 716,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7467,7 +7497,7 @@
     {
       "keyword": "Hasidism",
       "postCount": 1,
-      "frequencyRank": 716,
+      "frequencyRank": 717,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7477,7 +7507,7 @@
     {
       "keyword": "Heinrich Paulus",
       "postCount": 1,
-      "frequencyRank": 717,
+      "frequencyRank": 718,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7487,7 +7517,7 @@
     {
       "keyword": "Hellenization",
       "postCount": 1,
-      "frequencyRank": 718,
+      "frequencyRank": 719,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7497,7 +7527,7 @@
     {
       "keyword": "Henotheism",
       "postCount": 1,
-      "frequencyRank": 719,
+      "frequencyRank": 720,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7507,7 +7537,7 @@
     {
       "keyword": "Heraclides Ponticus",
       "postCount": 1,
-      "frequencyRank": 720,
+      "frequencyRank": 721,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7517,7 +7547,7 @@
     {
       "keyword": "Hermeneia",
       "postCount": 1,
-      "frequencyRank": 721,
+      "frequencyRank": 722,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7527,7 +7557,7 @@
     {
       "keyword": "Hezekiah",
       "postCount": 1,
-      "frequencyRank": 722,
+      "frequencyRank": 723,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7537,7 +7567,7 @@
     {
       "keyword": "Huqoq",
       "postCount": 1,
-      "frequencyRank": 723,
+      "frequencyRank": 724,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7547,7 +7577,7 @@
     {
       "keyword": "Image of God",
       "postCount": 1,
-      "frequencyRank": 724,
+      "frequencyRank": 725,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7557,7 +7587,7 @@
     {
       "keyword": "Immaculate Conception",
       "postCount": 1,
-      "frequencyRank": 725,
+      "frequencyRank": 726,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7567,7 +7597,7 @@
     {
       "keyword": "Interpolations",
       "postCount": 1,
-      "frequencyRank": 726,
+      "frequencyRank": 727,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7577,7 +7607,7 @@
     {
       "keyword": "Israel Finkelstein and Neil Asher Silberman",
       "postCount": 1,
-      "frequencyRank": 727,
+      "frequencyRank": 728,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -7587,16 +7617,6 @@
     {
       "keyword": "J. Z. Smith",
       "postCount": 1,
-      "frequencyRank": 728,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "singleton_followup_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "James Kugel",
-      "postCount": 1,
       "frequencyRank": 729,
       "frequencyBand": "1-4",
       "status": "audited_documented",
@@ -7605,17 +7625,17 @@
       ]
     },
     {
-      "keyword": "James McGrath",
+      "keyword": "James Carville",
       "postCount": 1,
       "frequencyRank": 730,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "singleton_followup_secondary_keyword_audit.json"
+        "new_posts_2026_08_31_2026_09_07_20260831-20260907-20260907T161704Z_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Jan Assmann",
+      "keyword": "James Kugel",
       "postCount": 1,
       "frequencyRank": 731,
       "frequencyBand": "1-4",
@@ -7625,7 +7645,7 @@
       ]
     },
     {
-      "keyword": "Jan Krans",
+      "keyword": "James McGrath",
       "postCount": 1,
       "frequencyRank": 732,
       "frequencyBand": "1-4",
@@ -7635,7 +7655,7 @@
       ]
     },
     {
-      "keyword": "Jehovah's Witnesses",
+      "keyword": "Jan Assmann",
       "postCount": 1,
       "frequencyRank": 733,
       "frequencyBand": "1-4",
@@ -7645,7 +7665,7 @@
       ]
     },
     {
-      "keyword": "Jennifer Knust",
+      "keyword": "Jan Krans",
       "postCount": 1,
       "frequencyRank": 734,
       "frequencyBand": "1-4",
@@ -7655,7 +7675,7 @@
       ]
     },
     {
-      "keyword": "Jerome",
+      "keyword": "Jehovah's Witnesses",
       "postCount": 1,
       "frequencyRank": 735,
       "frequencyBand": "1-4",
@@ -7665,7 +7685,7 @@
       ]
     },
     {
-      "keyword": "Jerry Wall",
+      "keyword": "Jennifer Knust",
       "postCount": 1,
       "frequencyRank": 736,
       "frequencyBand": "1-4",
@@ -7675,7 +7695,7 @@
       ]
     },
     {
-      "keyword": "Jesus Seminar",
+      "keyword": "Jerome",
       "postCount": 1,
       "frequencyRank": 737,
       "frequencyBand": "1-4",
@@ -7685,7 +7705,7 @@
       ]
     },
     {
-      "keyword": "Jesus the Magician",
+      "keyword": "Jerry Wall",
       "postCount": 1,
       "frequencyRank": 738,
       "frequencyBand": "1-4",
@@ -7695,7 +7715,7 @@
       ]
     },
     {
-      "keyword": "Jewish Priesthood",
+      "keyword": "Jesus Seminar",
       "postCount": 1,
       "frequencyRank": 739,
       "frequencyBand": "1-4",
@@ -7705,7 +7725,7 @@
       ]
     },
     {
-      "keyword": "Jewish Revolt",
+      "keyword": "Jesus the Magician",
       "postCount": 1,
       "frequencyRank": 740,
       "frequencyBand": "1-4",
@@ -7715,7 +7735,7 @@
       ]
     },
     {
-      "keyword": "Jewish Zealots",
+      "keyword": "Jewish Priesthood",
       "postCount": 1,
       "frequencyRank": 741,
       "frequencyBand": "1-4",
@@ -7725,7 +7745,7 @@
       ]
     },
     {
-      "keyword": "Joe Zias",
+      "keyword": "Jewish Revolt",
       "postCount": 1,
       "frequencyRank": 742,
       "frequencyBand": "1-4",
@@ -7735,7 +7755,7 @@
       ]
     },
     {
-      "keyword": "Joel Marcus",
+      "keyword": "Jewish Zealots",
       "postCount": 1,
       "frequencyRank": 743,
       "frequencyBand": "1-4",
@@ -7745,7 +7765,7 @@
       ]
     },
     {
-      "keyword": "John Cleese",
+      "keyword": "Joe Zias",
       "postCount": 1,
       "frequencyRank": 744,
       "frequencyBand": "1-4",
@@ -7755,7 +7775,7 @@
       ]
     },
     {
-      "keyword": "John J. Collins",
+      "keyword": "Joel Marcus",
       "postCount": 1,
       "frequencyRank": 745,
       "frequencyBand": "1-4",
@@ -7765,7 +7785,7 @@
       ]
     },
     {
-      "keyword": "John the Apostle",
+      "keyword": "John Cleese",
       "postCount": 1,
       "frequencyRank": 746,
       "frequencyBand": "1-4",
@@ -7775,7 +7795,7 @@
       ]
     },
     {
-      "keyword": "Jon Stewart",
+      "keyword": "John J. Collins",
       "postCount": 1,
       "frequencyRank": 747,
       "frequencyBand": "1-4",
@@ -7785,7 +7805,7 @@
       ]
     },
     {
-      "keyword": "Joseph Atwill",
+      "keyword": "John the Apostle",
       "postCount": 1,
       "frequencyRank": 748,
       "frequencyBand": "1-4",
@@ -7795,17 +7815,17 @@
       ]
     },
     {
-      "keyword": "Joshua the High Priest",
+      "keyword": "Jon Stewart",
       "postCount": 1,
       "frequencyRank": 749,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "genealogies_joshua_titus_2_timothy_didymus_secondary_keyword_audit.json"
+        "singleton_followup_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Judea",
+      "keyword": "Joseph Atwill",
       "postCount": 1,
       "frequencyRank": 750,
       "frequencyBand": "1-4",
@@ -7815,17 +7835,17 @@
       ]
     },
     {
-      "keyword": "Julius Caesar",
+      "keyword": "Joshua the High Priest",
       "postCount": 1,
       "frequencyRank": 751,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
-        "singleton_followup_secondary_keyword_audit.json"
+        "genealogies_joshua_titus_2_timothy_didymus_secondary_keyword_audit.json"
       ]
     },
     {
-      "keyword": "Julius-Kei Kato",
+      "keyword": "Judea",
       "postCount": 1,
       "frequencyRank": 752,
       "frequencyBand": "1-4",
@@ -7835,7 +7855,7 @@
       ]
     },
     {
-      "keyword": "Junia",
+      "keyword": "Julius Caesar",
       "postCount": 1,
       "frequencyRank": 753,
       "frequencyBand": "1-4",
@@ -7845,7 +7865,7 @@
       ]
     },
     {
-      "keyword": "Justification by Faith",
+      "keyword": "Julius-Kei Kato",
       "postCount": 1,
       "frequencyRank": 754,
       "frequencyBand": "1-4",
@@ -7855,7 +7875,7 @@
       ]
     },
     {
-      "keyword": "Justification by Works",
+      "keyword": "Junia",
       "postCount": 1,
       "frequencyRank": 755,
       "frequencyBand": "1-4",
@@ -7865,7 +7885,7 @@
       ]
     },
     {
-      "keyword": "Karin Franklin Peter",
+      "keyword": "Justification by Faith",
       "postCount": 1,
       "frequencyRank": 756,
       "frequencyBand": "1-4",
@@ -7875,7 +7895,7 @@
       ]
     },
     {
-      "keyword": "Karl Ludwig Schmidt",
+      "keyword": "Justification by Works",
       "postCount": 1,
       "frequencyRank": 757,
       "frequencyBand": "1-4",
@@ -7885,7 +7905,7 @@
       ]
     },
     {
-      "keyword": "Katabasis",
+      "keyword": "Karin Franklin Peter",
       "postCount": 1,
       "frequencyRank": 758,
       "frequencyBand": "1-4",
@@ -7895,7 +7915,7 @@
       ]
     },
     {
-      "keyword": "Kenneth Scott Latourette",
+      "keyword": "Karl Ludwig Schmidt",
       "postCount": 1,
       "frequencyRank": 759,
       "frequencyBand": "1-4",
@@ -7905,7 +7925,7 @@
       ]
     },
     {
-      "keyword": "Kenosis",
+      "keyword": "Katabasis",
       "postCount": 1,
       "frequencyRank": 760,
       "frequencyBand": "1-4",
@@ -7915,7 +7935,7 @@
       ]
     },
     {
-      "keyword": "Kierkegaard",
+      "keyword": "Kenneth Scott Latourette",
       "postCount": 1,
       "frequencyRank": 761,
       "frequencyBand": "1-4",
@@ -7925,7 +7945,7 @@
       ]
     },
     {
-      "keyword": "Kristin Swenson",
+      "keyword": "Kenosis",
       "postCount": 1,
       "frequencyRank": 762,
       "frequencyBand": "1-4",
@@ -7935,7 +7955,7 @@
       ]
     },
     {
-      "keyword": "Lectio Difficilior",
+      "keyword": "Kierkegaard",
       "postCount": 1,
       "frequencyRank": 763,
       "frequencyBand": "1-4",
@@ -7945,7 +7965,7 @@
       ]
     },
     {
-      "keyword": "Leningrad Codex",
+      "keyword": "Kristin Swenson",
       "postCount": 1,
       "frequencyRank": 764,
       "frequencyBand": "1-4",
@@ -7955,7 +7975,7 @@
       ]
     },
     {
-      "keyword": "Leprosy",
+      "keyword": "Lectio Difficilior",
       "postCount": 1,
       "frequencyRank": 765,
       "frequencyBand": "1-4",
@@ -7965,7 +7985,7 @@
       ]
     },
     {
-      "keyword": "Libelli",
+      "keyword": "Leningrad Codex",
       "postCount": 1,
       "frequencyRank": 766,
       "frequencyBand": "1-4",
@@ -7975,7 +7995,7 @@
       ]
     },
     {
-      "keyword": "Lindsay Hansen Park",
+      "keyword": "Leprosy",
       "postCount": 1,
       "frequencyRank": 767,
       "frequencyBand": "1-4",
@@ -7985,7 +8005,7 @@
       ]
     },
     {
-      "keyword": "Lord's Prayer",
+      "keyword": "Libelli",
       "postCount": 1,
       "frequencyRank": 768,
       "frequencyBand": "1-4",
@@ -7995,7 +8015,7 @@
       ]
     },
     {
-      "keyword": "Lost Gospel Fragment",
+      "keyword": "Lindsay Hansen Park",
       "postCount": 1,
       "frequencyRank": 769,
       "frequencyBand": "1-4",
@@ -8005,7 +8025,7 @@
       ]
     },
     {
-      "keyword": "Lucius",
+      "keyword": "Lord's Prayer",
       "postCount": 1,
       "frequencyRank": 770,
       "frequencyBand": "1-4",
@@ -8015,7 +8035,7 @@
       ]
     },
     {
-      "keyword": "Ludwig Koenen",
+      "keyword": "Lost Gospel Fragment",
       "postCount": 1,
       "frequencyRank": 771,
       "frequencyBand": "1-4",
@@ -8025,7 +8045,7 @@
       ]
     },
     {
-      "keyword": "Malachi",
+      "keyword": "Lucius",
       "postCount": 1,
       "frequencyRank": 772,
       "frequencyBand": "1-4",
@@ -8035,7 +8055,7 @@
       ]
     },
     {
-      "keyword": "Mammon",
+      "keyword": "Ludwig Koenen",
       "postCount": 1,
       "frequencyRank": 773,
       "frequencyBand": "1-4",
@@ -8045,7 +8065,7 @@
       ]
     },
     {
-      "keyword": "Marcus Aurelius",
+      "keyword": "Malachi",
       "postCount": 1,
       "frequencyRank": 774,
       "frequencyBand": "1-4",
@@ -8055,7 +8075,7 @@
       ]
     },
     {
-      "keyword": "Martin Dibelius",
+      "keyword": "Mammon",
       "postCount": 1,
       "frequencyRank": 775,
       "frequencyBand": "1-4",
@@ -8065,7 +8085,7 @@
       ]
     },
     {
-      "keyword": "Marvin Meyer",
+      "keyword": "Marcus Aurelius",
       "postCount": 1,
       "frequencyRank": 776,
       "frequencyBand": "1-4",
@@ -8075,7 +8095,7 @@
       ]
     },
     {
-      "keyword": "Masada",
+      "keyword": "Martin Dibelius",
       "postCount": 1,
       "frequencyRank": 777,
       "frequencyBand": "1-4",
@@ -8085,7 +8105,7 @@
       ]
     },
     {
-      "keyword": "Maurice Halbwachs",
+      "keyword": "Marvin Meyer",
       "postCount": 1,
       "frequencyRank": 778,
       "frequencyBand": "1-4",
@@ -8095,7 +8115,7 @@
       ]
     },
     {
-      "keyword": "Mel Gibson",
+      "keyword": "Masada",
       "postCount": 1,
       "frequencyRank": 779,
       "frequencyBand": "1-4",
@@ -8105,9 +8125,29 @@
       ]
     },
     {
-      "keyword": "Messianic Secret",
+      "keyword": "Maurice Halbwachs",
       "postCount": 1,
       "frequencyRank": 780,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "singleton_followup_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Mel Gibson",
+      "postCount": 1,
+      "frequencyRank": 781,
+      "frequencyBand": "1-4",
+      "status": "audited_documented",
+      "auditEvidence": [
+        "singleton_followup_secondary_keyword_audit.json"
+      ]
+    },
+    {
+      "keyword": "Messianic Secret",
+      "postCount": 1,
+      "frequencyRank": 782,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8118,7 +8158,7 @@
     {
       "keyword": "Michael Coogan",
       "postCount": 1,
-      "frequencyRank": 781,
+      "frequencyRank": 783,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8128,7 +8168,7 @@
     {
       "keyword": "Michael Penn",
       "postCount": 1,
-      "frequencyRank": 782,
+      "frequencyRank": 784,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8138,7 +8178,7 @@
     {
       "keyword": "Mitch Jeserich",
       "postCount": 1,
-      "frequencyRank": 783,
+      "frequencyRank": 785,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8148,7 +8188,7 @@
     {
       "keyword": "Mnemohistory",
       "postCount": 1,
-      "frequencyRank": 784,
+      "frequencyRank": 786,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8158,7 +8198,7 @@
     {
       "keyword": "Money Changers",
       "postCount": 1,
-      "frequencyRank": 785,
+      "frequencyRank": 787,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8168,7 +8208,7 @@
     {
       "keyword": "Montanists",
       "postCount": 1,
-      "frequencyRank": 786,
+      "frequencyRank": 788,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8178,7 +8218,7 @@
     {
       "keyword": "Monty Python",
       "postCount": 1,
-      "frequencyRank": 787,
+      "frequencyRank": 789,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8188,7 +8228,7 @@
     {
       "keyword": "Morton Smith",
       "postCount": 1,
-      "frequencyRank": 788,
+      "frequencyRank": 790,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8198,7 +8238,7 @@
     {
       "keyword": "Moses of Ingila",
       "postCount": 1,
-      "frequencyRank": 789,
+      "frequencyRank": 791,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8208,7 +8248,7 @@
     {
       "keyword": "Mount Sinai",
       "postCount": 1,
-      "frequencyRank": 790,
+      "frequencyRank": 792,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8218,7 +8258,7 @@
     {
       "keyword": "Muratorian Fragment",
       "postCount": 1,
-      "frequencyRank": 791,
+      "frequencyRank": 793,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8228,7 +8268,7 @@
     {
       "keyword": "Museum of the Bible",
       "postCount": 1,
-      "frequencyRank": 792,
+      "frequencyRank": 794,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8238,7 +8278,7 @@
     {
       "keyword": "N. T. Wright",
       "postCount": 1,
-      "frequencyRank": 793,
+      "frequencyRank": 795,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8248,17 +8288,7 @@
     {
       "keyword": "Nazi Loot",
       "postCount": 1,
-      "frequencyRank": 794,
-      "frequencyBand": "1-4",
-      "status": "audited_documented",
-      "auditEvidence": [
-        "singleton_followup_secondary_keyword_audit.json"
-      ]
-    },
-    {
-      "keyword": "Nephilim",
-      "postCount": 1,
-      "frequencyRank": 795,
+      "frequencyRank": 796,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8268,7 +8298,7 @@
     {
       "keyword": "Nestle-Aland 28",
       "postCount": 1,
-      "frequencyRank": 796,
+      "frequencyRank": 797,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8278,7 +8308,7 @@
     {
       "keyword": "New King James Version (NKJV)",
       "postCount": 1,
-      "frequencyRank": 797,
+      "frequencyRank": 798,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8288,7 +8318,7 @@
     {
       "keyword": "Nicene Creed",
       "postCount": 1,
-      "frequencyRank": 798,
+      "frequencyRank": 799,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8298,7 +8328,7 @@
     {
       "keyword": "Nikole Hannah-Jones",
       "postCount": 1,
-      "frequencyRank": 799,
+      "frequencyRank": 800,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8308,7 +8338,7 @@
     {
       "keyword": "Nils Dahl",
       "postCount": 1,
-      "frequencyRank": 800,
+      "frequencyRank": 801,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8318,7 +8348,7 @@
     {
       "keyword": "Nonviolence",
       "postCount": 1,
-      "frequencyRank": 801,
+      "frequencyRank": 802,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8328,7 +8358,7 @@
     {
       "keyword": "Novum Testamentum Graece",
       "postCount": 1,
-      "frequencyRank": 802,
+      "frequencyRank": 803,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8338,7 +8368,7 @@
     {
       "keyword": "Number of the Beast",
       "postCount": 1,
-      "frequencyRank": 803,
+      "frequencyRank": 804,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8348,7 +8378,7 @@
     {
       "keyword": "Odysseus",
       "postCount": 1,
-      "frequencyRank": 804,
+      "frequencyRank": 805,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8358,7 +8388,7 @@
     {
       "keyword": "Papyrus Amulet",
       "postCount": 1,
-      "frequencyRank": 805,
+      "frequencyRank": 806,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8368,7 +8398,7 @@
     {
       "keyword": "Parable of the Pounds",
       "postCount": 1,
-      "frequencyRank": 806,
+      "frequencyRank": 807,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8378,7 +8408,7 @@
     {
       "keyword": "Parable of the Rich Fool",
       "postCount": 1,
-      "frequencyRank": 807,
+      "frequencyRank": 808,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8388,7 +8418,7 @@
     {
       "keyword": "Paul in Acts",
       "postCount": 1,
-      "frequencyRank": 808,
+      "frequencyRank": 809,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8398,7 +8428,7 @@
     {
       "keyword": "Paul Vogelzang",
       "postCount": 1,
-      "frequencyRank": 809,
+      "frequencyRank": 810,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8408,7 +8438,7 @@
     {
       "keyword": "Peloponnesian War",
       "postCount": 1,
-      "frequencyRank": 810,
+      "frequencyRank": 811,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8418,7 +8448,7 @@
     {
       "keyword": "Pharisees",
       "postCount": 1,
-      "frequencyRank": 811,
+      "frequencyRank": 812,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8428,7 +8458,7 @@
     {
       "keyword": "Philip the Apostle",
       "postCount": 1,
-      "frequencyRank": 812,
+      "frequencyRank": 813,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8438,7 +8468,7 @@
     {
       "keyword": "Philistines",
       "postCount": 1,
-      "frequencyRank": 813,
+      "frequencyRank": 814,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8448,7 +8478,7 @@
     {
       "keyword": "Phillip H. Wiebe",
       "postCount": 1,
-      "frequencyRank": 814,
+      "frequencyRank": 815,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8458,7 +8488,7 @@
     {
       "keyword": "Pilate Inscription",
       "postCount": 1,
-      "frequencyRank": 815,
+      "frequencyRank": 816,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8468,7 +8498,7 @@
     {
       "keyword": "Political Activism",
       "postCount": 1,
-      "frequencyRank": 816,
+      "frequencyRank": 817,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8478,7 +8508,7 @@
     {
       "keyword": "Polygamy",
       "postCount": 1,
-      "frequencyRank": 817,
+      "frequencyRank": 818,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8488,7 +8518,7 @@
     {
       "keyword": "Pope Francis",
       "postCount": 1,
-      "frequencyRank": 818,
+      "frequencyRank": 819,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8498,7 +8528,7 @@
     {
       "keyword": "Presuppositions",
       "postCount": 1,
-      "frequencyRank": 819,
+      "frequencyRank": 820,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8508,7 +8538,7 @@
     {
       "keyword": "Procedural Memory",
       "postCount": 1,
-      "frequencyRank": 820,
+      "frequencyRank": 821,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8518,7 +8548,7 @@
     {
       "keyword": "Protestant Ethic",
       "postCount": 1,
-      "frequencyRank": 821,
+      "frequencyRank": 822,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8528,7 +8558,7 @@
     {
       "keyword": "Psalms of Solomon",
       "postCount": 1,
-      "frequencyRank": 822,
+      "frequencyRank": 823,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8538,7 +8568,7 @@
     {
       "keyword": "Ptolemies",
       "postCount": 1,
-      "frequencyRank": 823,
+      "frequencyRank": 824,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8548,7 +8578,7 @@
     {
       "keyword": "Quintus",
       "postCount": 1,
-      "frequencyRank": 824,
+      "frequencyRank": 825,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8558,7 +8588,7 @@
     {
       "keyword": "Rabbi Hillel",
       "postCount": 1,
-      "frequencyRank": 825,
+      "frequencyRank": 826,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8568,7 +8598,7 @@
     {
       "keyword": "Rabbi Ishmael",
       "postCount": 1,
-      "frequencyRank": 826,
+      "frequencyRank": 827,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8578,7 +8608,7 @@
     {
       "keyword": "Randy Alcorn",
       "postCount": 1,
-      "frequencyRank": 827,
+      "frequencyRank": 828,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8588,7 +8618,7 @@
     {
       "keyword": "Raphael Golb",
       "postCount": 1,
-      "frequencyRank": 828,
+      "frequencyRank": 829,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8598,7 +8628,7 @@
     {
       "keyword": "Raphael King",
       "postCount": 1,
-      "frequencyRank": 829,
+      "frequencyRank": 830,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8608,7 +8638,7 @@
     {
       "keyword": "Raymond Brown",
       "postCount": 1,
-      "frequencyRank": 830,
+      "frequencyRank": 831,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8618,7 +8648,7 @@
     {
       "keyword": "Rebekah",
       "postCount": 1,
-      "frequencyRank": 831,
+      "frequencyRank": 832,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8628,7 +8658,7 @@
     {
       "keyword": "Reimarus",
       "postCount": 1,
-      "frequencyRank": 832,
+      "frequencyRank": 833,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8639,7 +8669,7 @@
     {
       "keyword": "Religion and Politics",
       "postCount": 1,
-      "frequencyRank": 833,
+      "frequencyRank": 834,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8649,7 +8679,7 @@
     {
       "keyword": "Report of Pilate (Anaphora Pilati)",
       "postCount": 1,
-      "frequencyRank": 834,
+      "frequencyRank": 835,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8659,7 +8689,7 @@
     {
       "keyword": "Richard G. Swinburne",
       "postCount": 1,
-      "frequencyRank": 835,
+      "frequencyRank": 836,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8669,7 +8699,7 @@
     {
       "keyword": "Road to Damascus",
       "postCount": 1,
-      "frequencyRank": 836,
+      "frequencyRank": 837,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8679,7 +8709,7 @@
     {
       "keyword": "Roberta Mazza",
       "postCount": 1,
-      "frequencyRank": 837,
+      "frequencyRank": 838,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8689,7 +8719,7 @@
     {
       "keyword": "Roman Centurion",
       "postCount": 1,
-      "frequencyRank": 838,
+      "frequencyRank": 839,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8699,7 +8729,7 @@
     {
       "keyword": "Salome, Disciple of Jesus",
       "postCount": 1,
-      "frequencyRank": 839,
+      "frequencyRank": 840,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8709,7 +8739,7 @@
     {
       "keyword": "Sam Harris",
       "postCount": 1,
-      "frequencyRank": 840,
+      "frequencyRank": 841,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8719,7 +8749,7 @@
     {
       "keyword": "Samson",
       "postCount": 1,
-      "frequencyRank": 841,
+      "frequencyRank": 842,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8729,7 +8759,7 @@
     {
       "keyword": "Sanhedrin",
       "postCount": 1,
-      "frequencyRank": 842,
+      "frequencyRank": 843,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8739,7 +8769,7 @@
     {
       "keyword": "Scott Carroll",
       "postCount": 1,
-      "frequencyRank": 843,
+      "frequencyRank": 844,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8749,7 +8779,7 @@
     {
       "keyword": "Scribal Changes",
       "postCount": 1,
-      "frequencyRank": 844,
+      "frequencyRank": 845,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8760,7 +8790,7 @@
     {
       "keyword": "Second Isaiah",
       "postCount": 1,
-      "frequencyRank": 845,
+      "frequencyRank": 846,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8770,7 +8800,7 @@
     {
       "keyword": "Second Treatise of the Great Seth",
       "postCount": 1,
-      "frequencyRank": 846,
+      "frequencyRank": 847,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8780,7 +8810,7 @@
     {
       "keyword": "Seleucids",
       "postCount": 1,
-      "frequencyRank": 847,
+      "frequencyRank": 848,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8790,7 +8820,7 @@
     {
       "keyword": "Semantic Memory",
       "postCount": 1,
-      "frequencyRank": 848,
+      "frequencyRank": 849,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8800,7 +8830,7 @@
     {
       "keyword": "Sepphoris",
       "postCount": 1,
-      "frequencyRank": 849,
+      "frequencyRank": 850,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8810,7 +8840,7 @@
     {
       "keyword": "Seth Andrews",
       "postCount": 1,
-      "frequencyRank": 850,
+      "frequencyRank": 851,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8820,7 +8850,7 @@
     {
       "keyword": "Seven Sleepers of Ephesus",
       "postCount": 1,
-      "frequencyRank": 851,
+      "frequencyRank": 852,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8830,7 +8860,7 @@
     {
       "keyword": "Signs in the Gospel of John",
       "postCount": 1,
-      "frequencyRank": 852,
+      "frequencyRank": 853,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8840,7 +8870,7 @@
     {
       "keyword": "Silas",
       "postCount": 1,
-      "frequencyRank": 853,
+      "frequencyRank": 854,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8850,7 +8880,7 @@
     {
       "keyword": "Simon of Cyrene",
       "postCount": 1,
-      "frequencyRank": 854,
+      "frequencyRank": 855,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8860,7 +8890,7 @@
     {
       "keyword": "Slavery",
       "postCount": 1,
-      "frequencyRank": 855,
+      "frequencyRank": 856,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8870,7 +8900,7 @@
     {
       "keyword": "Smyrna",
       "postCount": 1,
-      "frequencyRank": 856,
+      "frequencyRank": 857,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8880,7 +8910,7 @@
     {
       "keyword": "Snake Handling",
       "postCount": 1,
-      "frequencyRank": 857,
+      "frequencyRank": 858,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8890,7 +8920,7 @@
     {
       "keyword": "Socratic Method",
       "postCount": 1,
-      "frequencyRank": 858,
+      "frequencyRank": 859,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8900,7 +8930,7 @@
     {
       "keyword": "Sola Scriptura",
       "postCount": 1,
-      "frequencyRank": 859,
+      "frequencyRank": 860,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8910,7 +8940,7 @@
     {
       "keyword": "Sophia",
       "postCount": 1,
-      "frequencyRank": 860,
+      "frequencyRank": 861,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8920,7 +8950,7 @@
     {
       "keyword": "Source Criticism",
       "postCount": 1,
-      "frequencyRank": 861,
+      "frequencyRank": 862,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8930,7 +8960,7 @@
     {
       "keyword": "Spiritual Body",
       "postCount": 1,
-      "frequencyRank": 862,
+      "frequencyRank": 863,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8940,7 +8970,7 @@
     {
       "keyword": "Stoicism",
       "postCount": 1,
-      "frequencyRank": 863,
+      "frequencyRank": 864,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8950,7 +8980,7 @@
     {
       "keyword": "Suffering Messiah",
       "postCount": 1,
-      "frequencyRank": 864,
+      "frequencyRank": 865,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8960,7 +8990,7 @@
     {
       "keyword": "Sulpicius Severus",
       "postCount": 1,
-      "frequencyRank": 865,
+      "frequencyRank": 866,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8971,7 +9001,7 @@
     {
       "keyword": "Susan Garrett",
       "postCount": 1,
-      "frequencyRank": 866,
+      "frequencyRank": 867,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8981,7 +9011,7 @@
     {
       "keyword": "Susanna",
       "postCount": 1,
-      "frequencyRank": 867,
+      "frequencyRank": 868,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -8991,7 +9021,7 @@
     {
       "keyword": "Syriac Manuscripts",
       "postCount": 1,
-      "frequencyRank": 868,
+      "frequencyRank": 869,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9001,7 +9031,7 @@
     {
       "keyword": "Ten Commandments",
       "postCount": 1,
-      "frequencyRank": 869,
+      "frequencyRank": 870,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9011,7 +9041,7 @@
     {
       "keyword": "Tenacity of the Tradition",
       "postCount": 1,
-      "frequencyRank": 870,
+      "frequencyRank": 871,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9021,7 +9051,7 @@
     {
       "keyword": "Tertius",
       "postCount": 1,
-      "frequencyRank": 871,
+      "frequencyRank": 872,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9031,7 +9061,7 @@
     {
       "keyword": "The Clergy Project",
       "postCount": 1,
-      "frequencyRank": 872,
+      "frequencyRank": 873,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9041,7 +9071,7 @@
     {
       "keyword": "The Golden Ass",
       "postCount": 1,
-      "frequencyRank": 873,
+      "frequencyRank": 874,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9051,7 +9081,7 @@
     {
       "keyword": "The Invention of the Afterlife",
       "postCount": 1,
-      "frequencyRank": 874,
+      "frequencyRank": 875,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9061,7 +9091,7 @@
     {
       "keyword": "The Passion of the Christ",
       "postCount": 1,
-      "frequencyRank": 875,
+      "frequencyRank": 876,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9071,7 +9101,7 @@
     {
       "keyword": "The True Word",
       "postCount": 1,
-      "frequencyRank": 876,
+      "frequencyRank": 877,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9081,7 +9111,7 @@
     {
       "keyword": "Theocracy",
       "postCount": 1,
-      "frequencyRank": 877,
+      "frequencyRank": 878,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9091,7 +9121,7 @@
     {
       "keyword": "Theodosius",
       "postCount": 1,
-      "frequencyRank": 878,
+      "frequencyRank": 879,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9101,7 +9131,7 @@
     {
       "keyword": "Theodotians",
       "postCount": 1,
-      "frequencyRank": 879,
+      "frequencyRank": 880,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9111,7 +9141,7 @@
     {
       "keyword": "Theosis",
       "postCount": 1,
-      "frequencyRank": 880,
+      "frequencyRank": 881,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9121,7 +9151,7 @@
     {
       "keyword": "Thomasine Christians",
       "postCount": 1,
-      "frequencyRank": 881,
+      "frequencyRank": 882,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9131,7 +9161,7 @@
     {
       "keyword": "Thucydides",
       "postCount": 1,
-      "frequencyRank": 882,
+      "frequencyRank": 883,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9141,7 +9171,7 @@
     {
       "keyword": "Tiberias",
       "postCount": 1,
-      "frequencyRank": 883,
+      "frequencyRank": 884,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9151,7 +9181,7 @@
     {
       "keyword": "Tomoi",
       "postCount": 1,
-      "frequencyRank": 884,
+      "frequencyRank": 885,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9161,7 +9191,7 @@
     {
       "keyword": "Trajan",
       "postCount": 1,
-      "frequencyRank": 885,
+      "frequencyRank": 886,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9171,7 +9201,7 @@
     {
       "keyword": "Twelve Disciples",
       "postCount": 1,
-      "frequencyRank": 886,
+      "frequencyRank": 887,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9181,7 +9211,7 @@
     {
       "keyword": "Valentinus",
       "postCount": 1,
-      "frequencyRank": 887,
+      "frequencyRank": 888,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9192,7 +9222,7 @@
     {
       "keyword": "Valerian",
       "postCount": 1,
-      "frequencyRank": 888,
+      "frequencyRank": 889,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9202,7 +9232,7 @@
     {
       "keyword": "Voluntary Martyrdom",
       "postCount": 1,
-      "frequencyRank": 889,
+      "frequencyRank": 890,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9212,7 +9242,7 @@
     {
       "keyword": "Vulgate",
       "postCount": 1,
-      "frequencyRank": 890,
+      "frequencyRank": 891,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9222,7 +9252,7 @@
     {
       "keyword": "Wealthy Donors",
       "postCount": 1,
-      "frequencyRank": 891,
+      "frequencyRank": 892,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9232,7 +9262,7 @@
     {
       "keyword": "Wilhelm Wrede",
       "postCount": 1,
-      "frequencyRank": 892,
+      "frequencyRank": 893,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9242,7 +9272,7 @@
     {
       "keyword": "William Tyndale",
       "postCount": 1,
-      "frequencyRank": 893,
+      "frequencyRank": 894,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9252,7 +9282,7 @@
     {
       "keyword": "Wisdom of Solomon",
       "postCount": 1,
-      "frequencyRank": 894,
+      "frequencyRank": 895,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9262,7 +9292,7 @@
     {
       "keyword": "YHWH",
       "postCount": 1,
-      "frequencyRank": 895,
+      "frequencyRank": 896,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9272,7 +9302,7 @@
     {
       "keyword": "Youth for Christ",
       "postCount": 1,
-      "frequencyRank": 896,
+      "frequencyRank": 897,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
@@ -9282,7 +9312,7 @@
     {
       "keyword": "Zoroastrianism",
       "postCount": 1,
-      "frequencyRank": 897,
+      "frequencyRank": 898,
       "frequencyBand": "1-4",
       "status": "audited_documented",
       "auditEvidence": [
