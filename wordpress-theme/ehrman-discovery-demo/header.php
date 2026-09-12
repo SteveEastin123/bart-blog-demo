@@ -32,6 +32,7 @@
             </span>
         </a>
         <nav class="ehrman-navigation" aria-label="<?php esc_attr_e('Primary navigation', 'ehrman-discovery-demo'); ?>">
+            <a href="<?php echo esc_url(home_url('/')); ?>"<?php echo is_front_page() ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Home', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-1')); ?>"<?php echo is_page('browse-topics-1') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 1', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-2')); ?>"<?php echo is_page('browse-topics-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 2', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"<?php echo is_page('keyword-search') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a>
