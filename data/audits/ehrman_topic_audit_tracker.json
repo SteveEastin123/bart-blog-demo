@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-09-07",
+  "updatedAt": "2026-09-15",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -1588,7 +1588,7 @@
       "auditSequence": 286,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 11,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers Mary, the mother of Jesus, including her Gospel portrayal, virginity and family traditions, apocryphal accounts of her life, questions about Jesus' parentage, and reported visions of Mary.",
       "descriptionRecommendation": "Covers Mary, the mother of Jesus, including her Gospel portrayal, virginity and family traditions, apocryphal accounts of her life, questions about Jesus' parentage, and reported visions of Mary.",
       "categoriesBefore": [
@@ -1718,13 +1718,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post treats Mary, Mother of Jesus as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50567",
+          "title": "The Perpetual Virginity of Mary (and related topics)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Created after a full-text review of 103 candidate posts; 17 treat the subject as primary or sustained.",
         "Excluded general birth narratives, genealogies, Christmas posts, and vision discussions in which Mary is only an example rather than a major subject.",
         "Identically named secondary keywords were removed from the topic posts.",
-        "A strict-dominance follow-up retained only posts in which the named figure is a dominant, sustained subject; removed assignments were returned to secondary keywords."
+        "A strict-dominance follow-up retained only posts in which the named figure is a dominant, sustained subject; removed assignments were returned to secondary keywords.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -1933,7 +1941,7 @@
       "auditSequence": null,
       "status": "excluded",
       "postCountBefore": 437,
-      "postCountAfter": 427,
+      "postCountAfter": 428,
       "descriptionBefore": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [],
@@ -1961,6 +1969,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50581",
+          "title": "October 2026 Gold Q&A Announcement",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -1974,7 +1989,8 @@
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Newly downloaded August 2026 posts were reviewed in full.",
         "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
-        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -1982,7 +1998,7 @@
       "auditSequence": 1,
       "status": "completed",
       "postCountBefore": 114,
-      "postCountAfter": 111,
+      "postCountAfter": 112,
       "descriptionBefore": "Covers difficult translation decisions, ancient languages, textual bases, inclusive language, misleading translations, and how translation affects interpretation.",
       "descriptionRecommendation": "Examines how biblical and early Christian texts are translated, including word choice, inclusive language, source texts, ancient versions, and misleading or disputed renderings.",
       "categoriesBefore": [
@@ -2852,6 +2868,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "Most of the post examines the translation of Genesis 1:1-2 and how Christians later interpreted it."
+        },
+        {
+          "wpId": "50543",
+          "title": "God’s Actual Name and Another Account of the Flood",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -2864,7 +2887,8 @@
         "Post-by-post topic-link audit for posts 501-700 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -7544,7 +7568,7 @@
       "auditSequence": 8,
       "status": "completed",
       "postCountBefore": 83,
-      "postCountAfter": 96,
+      "postCountAfter": 97,
       "descriptionBefore": "Posts focused on the Gospel of Mark, including Markan priority, the Messianic Secret, textual issues, the portrayal of Jesus, and distinctive narrative features.",
       "descriptionRecommendation": "Posts focused on the Gospel of Mark, including Markan priority, the Messianic Secret, textual issues, the portrayal of Jesus, and distinctive narrative features.",
       "categoriesBefore": [
@@ -8246,6 +8270,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post compares Mark's distressed Jesus with Luke's calm and controlled Jesus in the passion narrative."
+        },
+        {
+          "wpId": "50564",
+          "title": "Jesus the Carpenter?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -8263,7 +8294,8 @@
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3151-3400 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -8905,7 +8937,7 @@
       "auditSequence": 10,
       "status": "completed",
       "postCountBefore": 77,
-      "postCountAfter": 104,
+      "postCountAfter": 105,
       "descriptionBefore": "Posts focused on the Gospel of Matthew, including its use of Jewish scripture, genealogy, birth narrative, relation to Mark and Luke, portrayal of Jesus, and distinctive teachings.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [
@@ -9467,6 +9499,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50564",
+          "title": "Jesus the Carpenter?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -9481,7 +9520,8 @@
         "Demo and SQLite outputs were not rebuilt.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -23465,7 +23505,7 @@
       "auditSequence": 40,
       "status": "completed",
       "postCountBefore": 49,
-      "postCountAfter": 78,
+      "postCountAfter": 79,
       "descriptionBefore": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "descriptionRecommendation": "Covers Jesus' teachings, especially parables, sayings, kingdom preaching, ethics, and how Gospel traditions present his message.",
       "categoriesBefore": [
@@ -23866,6 +23906,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50541",
+          "title": "Interesting Questions on the Teachings of the NT",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -23877,7 +23924,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -25265,7 +25313,7 @@
       "auditSequence": 44,
       "status": "completed",
       "postCountBefore": 47,
-      "postCountAfter": 43,
+      "postCountAfter": 44,
       "descriptionBefore": "Covers the development of the doctrine of the Trinity, including the Father, Son, Spirit, Nicaea, biblical interpretation, and later Christian theology.",
       "descriptionRecommendation": "Covers the development of the doctrine of the Trinity, including the Father, Son, Spirit, Nicaea, biblical interpretation, and later Christian theology.",
       "categoriesBefore": [
@@ -25610,6 +25658,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post explicitly uses early Christian ideas about the Spirit in Jesus' life to explain a step toward later Trinitarian thought."
+        },
+        {
+          "wpId": "50541",
+          "title": "Interesting Questions on the Teachings of the NT",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -25618,7 +25673,8 @@
         "Recommended additions: None.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 101-200 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment."
+        "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -25626,7 +25682,7 @@
       "auditSequence": 45,
       "status": "completed",
       "postCountBefore": 44,
-      "postCountAfter": 64,
+      "postCountAfter": 78,
       "descriptionBefore": "Covers the reliability and limits of eyewitness testimony, including memory distortion, expertise, oral cultures, and whether eyewitnesses preserve historical events accurately.",
       "descriptionRecommendation": "Covers the reliability and limits of eyewitness testimony, including memory distortion, expertise, oral cultures, and whether eyewitnesses preserve historical events accurately.",
       "categoriesBefore": [
@@ -26090,13 +26146,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post treats Eyewitness Reliability as a primary or major sustained subject, and the assignment materially improves topical retrieval."
+        },
+        {
+          "wpId": "50510",
+          "title": "Modern Appearances of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 44 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Recommended additions: 49081: Does Papias Provide Us Direct Access to the Teachings of the Apostles? | 47100: The Gospel of John:  Who Wrote It, When, and Why? | 36024: More on the Life of Brian and the Historical Jesus | 35557: Who Was Spreading the Stories about Jesus Before the Gospels? | 34044: Finally: The Martyrdom of Polycarp as a Clever Christian Forgery | 34038: Evidence of Forgery.  More Reasons the Martyrdom of Polycarp Was Not Written by Someone There | 33989: Can We Take the Martyrdom of Polycarp at Face Value? | 33985: Is the Martyrdom of Polycarp an Authentic Account? | 33980: More about the First Christian Martyr Text | 29185: An Eyewitness Account of Jesus’ Crucifixion! | 20507: Did Some *One* Forge the Writings of “John”? Guest Post by Hugo Mendez | 20492: Problems with Thinking the “Letters of John” in the NT are Forgeries?  Guest Post: Hugo Mendez | 20455: Are the Gospel and Epistles of John *Forgeries*??  Guest Post by Hugo Mendez | 16143: An Eyewitness to the Crucifixion?  Another Modern Forgery | 11294: My Debate with Richard Bauckham – Round 2 | 11277: Bart Ehrman vs Richard Bauckham – Round 1 | 9545: Do I Have the Expertise Needed for My Book? | 8285: Why Was the Gospel of John Attributed to John? | 8258: Papias as an Earwitness? | 8046: On Changing One’s Mind | 26635: Does Revelation Contain an Eyewitness Account of the Eruption of Mount Vesuvius?  Guest Post by James Tabor",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -31494,7 +31558,7 @@
       "auditSequence": 60,
       "status": "completed",
       "postCountBefore": 36,
-      "postCountAfter": 41,
+      "postCountAfter": 42,
       "descriptionBefore": "Covers virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
       "descriptionRecommendation": "Covers virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
       "categoriesBefore": [
@@ -31811,6 +31875,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The miraculous birth is one of four explicitly developed puzzles and receives its own substantial Islamic interpretation."
+        },
+        {
+          "wpId": "50567",
+          "title": "The Perpetual Virginity of Mary (and related topics)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -31818,7 +31889,8 @@
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -38262,7 +38334,7 @@
       "auditSequence": 84,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 37,
+      "postCountAfter": 38,
       "descriptionBefore": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "descriptionRecommendation": "Posts on textual variants and scribal changes tied to theological controversy, including disputes over Christology, Gnostic interpretations, and emerging proto-orthodox claims.",
       "categoriesBefore": [
@@ -38537,6 +38609,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post defends Misquoting Jesus against evangelical criticism and centrally argues that textual variants affect theologically important passages."
+        },
+        {
+          "wpId": "50541",
+          "title": "Interesting Questions on the Teachings of the NT",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -38545,7 +38624,8 @@
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -39315,7 +39395,7 @@
       "auditSequence": 88,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 37,
+      "postCountAfter": 38,
       "descriptionBefore": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "descriptionRecommendation": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "categoriesBefore": [
@@ -39590,6 +39670,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50543",
+          "title": "God’s Actual Name and Another Account of the Flood",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -39600,7 +39687,8 @@
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -45198,7 +45286,7 @@
       "auditSequence": 113,
       "status": "completed",
       "postCountBefore": 24,
-      "postCountAfter": 35,
+      "postCountAfter": 36,
       "descriptionBefore": "Covers traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
       "descriptionRecommendation": "Covers traditions and claims about Jesus' relatives, including Mary, his brothers, possible father, possible marriage, and later stories about his family.",
       "categoriesBefore": [
@@ -45459,6 +45547,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50567",
+          "title": "The Perpetual Virginity of Mary (and related topics)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -45466,7 +45561,8 @@
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
-        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -46298,7 +46394,7 @@
       "auditSequence": 118,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 35,
+      "postCountAfter": 36,
       "descriptionBefore": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "descriptionRecommendation": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "categoriesBefore": [
@@ -46552,6 +46648,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50583",
+          "title": "Pins, Gates, and Why Jesus Was Not a Capitalist",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46564,7 +46667,8 @@
         "Post-by-post topic-link audit for audit sequence 3151-3400 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
-        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -47421,7 +47525,7 @@
       "auditSequence": 123,
       "status": "completed",
       "postCountBefore": 22,
-      "postCountAfter": 30,
+      "postCountAfter": 31,
       "descriptionBefore": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "descriptionRecommendation": "Covers Genesis, including creation stories, Abraham, unusual biblical episodes, translation issues, source questions, and interpretation.",
       "categoriesBefore": [
@@ -47640,6 +47744,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50543",
+          "title": "God’s Actual Name and Another Account of the Flood",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -47648,7 +47759,8 @@
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
-        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -53349,7 +53461,7 @@
       "auditSequence": 154,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 20,
+      "postCountAfter": 21,
       "descriptionBefore": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "descriptionRecommendation": "Posts on Nazareth, including archaeological evidence, claims that it did not exist, Gospel references, and whether Jesus was called a Nazarene or from Nazareth.",
       "categoriesBefore": [
@@ -53498,12 +53610,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50583",
+          "title": "Pins, Gates, and Why Jesus Was Not a Capitalist",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
-        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts."
+        "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -53730,7 +53850,7 @@
       "auditSequence": 156,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 19,
+      "postCountAfter": 21,
       "descriptionBefore": "Posts on class, status, labor, poverty, slavery, gender hierarchy, and social conditions in the ancient Mediterranean world.",
       "descriptionRecommendation": "Posts on class, status, labor, poverty, slavery, gender hierarchy, and social conditions in the ancient Mediterranean world.",
       "categoriesBefore": [
@@ -53879,11 +53999,26 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "Slavery is one supporting lexical example; the sustained subject is translation and the NRSV."
+        },
+        {
+          "wpId": "50583",
+          "title": "Pins, Gates, and Why Jesus Was Not a Capitalist",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50564",
+          "title": "Jesus the Carpenter?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for posts 701-900 updated this assignment."
+        "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -55312,7 +55447,7 @@
       "auditSequence": 166,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 26,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
       "descriptionRecommendation": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
       "categoriesBefore": [
@@ -55503,6 +55638,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The core comparison concerns competing traditions about whether Peter or Mary first saw and proclaimed the risen Jesus."
+        },
+        {
+          "wpId": "50510",
+          "title": "Modern Appearances of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -55511,7 +55653,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -56302,7 +56445,7 @@
       "auditSequence": 172,
       "status": "completed",
       "postCountBefore": 15,
-      "postCountAfter": 25,
+      "postCountAfter": 26,
       "descriptionBefore": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
       "descriptionRecommendation": "Posts on views that Jesus became or was declared God's Son, Lord, or exalted figure at resurrection, baptism, or another decisive moment.",
       "categoriesBefore": [
@@ -56500,6 +56643,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post contrasts exaltation with incarnation Christology while explaining a major change in the argument of How Jesus Became God."
+        },
+        {
+          "wpId": "50541",
+          "title": "Interesting Questions on the Teachings of the NT",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -56508,7 +56658,8 @@
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -61005,7 +61156,7 @@
       "auditSequence": 208,
       "status": "completed",
       "postCountBefore": 11,
-      "postCountAfter": 20,
+      "postCountAfter": 21,
       "descriptionBefore": "Covers the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
       "descriptionRecommendation": "Covers the relationship between historical study and theological claims, including whether theological truth depends on historical accuracy.",
       "categoriesBefore": [
@@ -61154,12 +61305,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post centrally examines the relationship between loss of faith, critical scholarship, historical conclusions, and theological belief."
+        },
+        {
+          "wpId": "50541",
+          "title": "Interesting Questions on the Teachings of the NT",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -62623,7 +62782,7 @@
       "auditSequence": 223,
       "status": "completed",
       "postCountBefore": 10,
-      "postCountAfter": 19,
+      "postCountAfter": 20,
       "descriptionBefore": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "descriptionRecommendation": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "categoriesBefore": [
@@ -62773,6 +62932,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives sustained attention to 1 Corinthians 15 and Paul's crucifixion-and-resurrection message of salvation to the Corinthians."
+        },
+        {
+          "wpId": "50541",
+          "title": "Interesting Questions on the Teachings of the NT",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -62780,7 +62946,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -62994,7 +63161,7 @@
       "auditSequence": 225,
       "status": "completed",
       "postCountBefore": 10,
-      "postCountAfter": 18,
+      "postCountAfter": 19,
       "descriptionBefore": "Covers visions, group visions, hallucinations, resurrection appearances, and questions about whether visionary experiences can be shared or historically evaluated.",
       "descriptionRecommendation": "Covers visions, group visions, hallucinations, resurrection appearances, and questions about whether visionary experiences can be shared or historically evaluated.",
       "categoriesBefore": [
@@ -63136,6 +63303,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives sustained treatment to Ludemann's reconstruction of resurrection belief as arising from visions of Jesus."
+        },
+        {
+          "wpId": "50510",
+          "title": "Modern Appearances of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -63144,7 +63318,8 @@
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -63888,7 +64063,7 @@
       "auditSequence": 233,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 12,
+      "postCountAfter": 13,
       "descriptionBefore": "Covers redaction criticism, especially how Gospel writers shaped, edited, and interpreted inherited traditions for their own theological or literary purposes.",
       "descriptionRecommendation": "Covers redaction criticism, especially how Gospel writers shaped, edited, and interpreted inherited traditions for their own theological or literary purposes.",
       "categoriesBefore": [
@@ -63981,12 +64156,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post explicitly uses redaction criticism to show how Luke edited Mark's passion narrative and removed Jesus' agony."
+        },
+        {
+          "wpId": "50564",
+          "title": "Jesus the Carpenter?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
       ]
     },
     {
@@ -67234,6 +67417,131 @@
         "The posts are closely related versions of the same underlying discussion, but the subject is central in each.",
         "Posts about the rich man and Lazarus, Mary and Martha, Gospel authorship, or the Signs Source were excluded unless the raising itself was a major sustained subject.",
         "The broader Lazarus secondary keyword remains unchanged."
+      ]
+    },
+    {
+      "topic": "Christianity and Capitalism",
+      "auditSequence": 296,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 8,
+      "descriptionBefore": "Examines capitalism in relation to Jesus' teachings, Christian ethics, Protestant theology, economic history, and modern interpretations of biblical traditions.",
+      "descriptionRecommendation": "Examines capitalism in relation to Jesus' teachings, Christian ethics, Protestant theology, economic history, and modern interpretations of biblical traditions.",
+      "categoriesBefore": [
+        "Wealth, Poverty, and Charity"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-09-03",
+      "completedAt": "2026-09-03",
+      "decisions": [
+        {
+          "wpId": "50460",
+          "title": "My Odd Situation, Writing this Book…",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "50438",
+          "title": "The Moral Benefits of Capitalism",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "50415",
+          "title": "Is Capitalism Anti-Christian?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "49965",
+          "title": "The Parable of the Sower as Advice for Capitalists",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "49955",
+          "title": "The Capitalist Parables of Jesus",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "49859",
+          "title": "Did the Doctrine of Predestination Lead to Capitalism?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "49718",
+          "title": "Jesus and Capitalism:  My Next Book (A Big Change)",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats Christianity and capitalism as a primary or sustained subject."
+        },
+        {
+          "wpId": "50583",
+          "title": "Pins, Gates, and Why Jesus Was Not a Capitalist",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        }
+      ],
+      "notes": [
+        "Added to restore the audit-tracker entry omitted when the approved topic was created.",
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+      ]
+    },
+    {
+      "topic": "Jesus' Spoken Language",
+      "auditSequence": 297,
+      "status": "completed",
+      "postCountBefore": 0,
+      "postCountAfter": 4,
+      "descriptionBefore": "Examines which languages Jesus probably spoke, especially Aramaic and Greek, and how linguistic evidence informs the reconstruction of his teachings and interactions.",
+      "descriptionRecommendation": "Examines which languages Jesus probably spoke, especially Aramaic and Greek, and how linguistic evidence informs the reconstruction of his teachings and interactions.",
+      "categoriesBefore": [
+        "Historical Jesus"
+      ],
+      "categoryRecommendation": "Retain current category placement.",
+      "startedAt": "2026-09-03",
+      "completedAt": "2026-09-03",
+      "decisions": [
+        {
+          "wpId": "48268",
+          "title": "Did Jesus Teach in Greek?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats the languages Jesus spoke or taught in as a primary or sustained subject."
+        },
+        {
+          "wpId": "12368",
+          "title": "Jesus’ Teaching in Aramaic and the Books of the Canon: Mailbag February 24, 2017",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats the languages Jesus spoke or taught in as a primary or sustained subject."
+        },
+        {
+          "wpId": "2640",
+          "title": "Did Jesus Speak Greek?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats the languages Jesus spoke or taught in as a primary or sustained subject."
+        },
+        {
+          "wpId": "2618",
+          "title": "Questions on Jesus’ Language and on the Crucifixion",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post treats the languages Jesus spoke or taught in as a primary or sustained subject."
+        }
+      ],
+      "notes": [
+        "Added to restore the audit-tracker entry omitted when the approved topic was created."
       ]
     }
   ]

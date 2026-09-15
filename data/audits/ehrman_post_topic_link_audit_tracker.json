@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-09-07",
-  "auditScope": "All 4418 posts in the canonical search index",
+  "updatedAt": "2026-09-15",
+  "auditScope": "All 4425 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,7 +10,7 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4418,
+  "reviewedPostCount": 4425,
   "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
@@ -85133,8 +85133,168 @@
       "topicsRemoved": [],
       "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
       "appliedAt": "2026-09-07"
+    },
+    {
+      "auditSequence": 4419,
+      "sourceIndex": 0,
+      "wpId": "50583",
+      "dateText": "September 15, 2026",
+      "title": "Pins, Gates, and Why Jesus Was Not a Capitalist",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Christianity and Capitalism",
+        "Historical Jesus (General)",
+        "Nazareth",
+        "Social Class in Antiquity"
+      ],
+      "topicsAdded": [
+        "Christianity and Capitalism",
+        "Historical Jesus (General)",
+        "Nazareth",
+        "Social Class in Antiquity"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4420,
+      "sourceIndex": 1,
+      "wpId": "50567",
+      "dateText": "September 13, 2026",
+      "title": "The Perpetual Virginity of Mary (and related topics)",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Mary, Mother of Jesus",
+        "Jesus' Family Traditions",
+        "Virgin Birth"
+      ],
+      "topicsAdded": [
+        "Mary, Mother of Jesus",
+        "Jesus' Family Traditions",
+        "Virgin Birth"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4421,
+      "sourceIndex": 2,
+      "wpId": "50564",
+      "dateText": "September 12, 2026",
+      "title": "Jesus the Carpenter?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Redaction Criticism",
+        "Social Class in Antiquity"
+      ],
+      "topicsAdded": [
+        "Gospel of Mark",
+        "Gospel of Matthew",
+        "Redaction Criticism",
+        "Social Class in Antiquity"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4422,
+      "sourceIndex": 3,
+      "wpId": "50581",
+      "dateText": "September 11, 2026",
+      "title": "October 2026 Gold Q&A Announcement",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Ignore"
+      ],
+      "topicsAdded": [
+        "Ignore"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4423,
+      "sourceIndex": 4,
+      "wpId": "50543",
+      "dateText": "September 10, 2026",
+      "title": "God’s Actual Name and Another Account of the Flood",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Genesis",
+        "Comparative Ancient Evidence",
+        "Translation Issues"
+      ],
+      "topicsAdded": [
+        "Genesis",
+        "Comparative Ancient Evidence",
+        "Translation Issues"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4424,
+      "sourceIndex": 5,
+      "wpId": "50541",
+      "dateText": "September 9, 2026",
+      "title": "Interesting Questions on the Teachings of the NT",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Theologically Significant Variants",
+        "Development of the Trinity",
+        "Exaltation Christology",
+        "Pauline Salvation Models",
+        "Jesus' Teachings",
+        "Historical Study and Theology"
+      ],
+      "topicsAdded": [
+        "Theologically Significant Variants",
+        "Development of the Trinity",
+        "Exaltation Christology",
+        "Pauline Salvation Models",
+        "Jesus' Teachings",
+        "Historical Study and Theology"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4425,
+      "sourceIndex": 6,
+      "wpId": "50510",
+      "dateText": "September 8, 2026",
+      "title": "Modern Appearances of Jesus",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Visionary Experiences",
+        "Eyewitness Reliability",
+        "Jesus' Resurrection Appearances"
+      ],
+      "topicsAdded": [
+        "Visionary Experiences",
+        "Eyewitness Reliability",
+        "Jesus' Resurrection Appearances"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-09-15"
     }
   ],
-  "appliedChangeCount": 644,
+  "appliedChangeCount": 651,
   "pendingDescriptionRecommendations": []
 }

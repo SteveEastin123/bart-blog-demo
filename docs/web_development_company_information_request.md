@@ -58,6 +58,8 @@ For a conventional WordPress site, PHP is the expected language for the plugin. 
 
 ## Existing Post Structure
 
+Confirmed requirement: membership levels do not restrict which posts readers can view. Browse Topics, Keyword Search, and Ask AI therefore do not need to filter otherwise eligible results by membership level. Whether access to a search method itself varies by membership level is a separate product decision.
+
 Please explain how production posts are stored and identified:
 
 - Whether the indexed blog posts use the standard WordPress `post` post type
