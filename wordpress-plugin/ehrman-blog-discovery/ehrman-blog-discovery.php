@@ -43,6 +43,7 @@ require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-feedback.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-parity-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-assets.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-discovery-markup.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-browse-page-renderer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-structure-review-renderer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-page-controller.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-activator.php';

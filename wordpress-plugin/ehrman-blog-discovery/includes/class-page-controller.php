@@ -37,6 +37,13 @@ final class Page_Controller {
 	private Discovery_Markup $markup;
 
 	/**
+	 * Browse Topics page renderer.
+	 *
+	 * @var Browse_Page_Renderer
+	 */
+	private Browse_Page_Renderer $browse_page;
+
+	/**
 	 * Reviewer-only structure page renderer.
 	 *
 	 * @var Structure_Review_Renderer
@@ -55,6 +62,14 @@ final class Page_Controller {
 		$this->browse           = new Browse_Service();
 		$this->search           = new Search_Service();
 		$this->markup           = new Discovery_Markup();
+		$this->browse_page      = new Browse_Page_Renderer(
+			$this->browse,
+			$this->search,
+			$this->markup,
+			\Closure::fromCallable( array( $this, 'browse_url' ) ),
+			\Closure::fromCallable( array( $this, 'browse_search_panel' ) ),
+			\Closure::fromCallable( array( $this, 'results_markup' ) )
+		);
 		$this->structure_review = new Structure_Review_Renderer( $this->browse, $this->markup );
 	}
 
@@ -425,20 +440,19 @@ final class Page_Controller {
 		$category_slug = sanitize_title( $this->request_value( 'ebd_category' ) );
 		$topic_slug    = sanitize_title( $this->request_value( 'ebd_topic' ) );
 		$view          = sanitize_key( $this->request_value( 'ebd_view' ) );
+		$terms         = $this->request_terms();
 
-		if ( '' !== $topic_slug ) {
-			return $this->render_topic_posts( $path_number, $subject_slug, $category_slug, $topic_slug );
-		}
-		if ( '' !== $category_slug && 'posts' === $view ) {
-			return $this->render_category_posts( $path_number, $subject_slug, $category_slug );
-		}
-		if ( '' !== $category_slug ) {
-			return $this->render_category( $path_number, $subject_slug, $category_slug );
-		}
-		if ( '' !== $subject_slug ) {
-			return $this->render_subject_area( $path_number, $subject_slug );
-		}
-		return $this->render_subject_areas( $path_number );
+		return $this->browse_page->render(
+			$path_number,
+			$subject_slug,
+			$category_slug,
+			$topic_slug,
+			$view,
+			$terms,
+			$this->request_term_modes( $terms ),
+			$this->request_value( 'ebd_sort', 'ranked' ),
+			$this->request_page()
+		);
 	}
 
 	/**
@@ -455,266 +469,6 @@ final class Page_Controller {
 			'2' === $this->request_value( 'ebd_path' ) ? 2 : 1,
 			sanitize_key( $this->request_value( 'ebd_view' ) ),
 			$this->page_url( 'structure_review' )
-		);
-	}
-
-	/**
-	 * Renders the subject-area index for a browse path.
-	 *
-	 * @param int $path_number Browse-path number.
-	 * @return string Subject-area list markup.
-	 */
-	private function render_subject_areas( int $path_number ): string {
-		$areas = $this->browse->subject_areas( $path_number );
-		$items = array();
-		foreach ( $areas as $area ) {
-			$url     = $this->browse_url( $path_number, array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) );
-			$meta    = $this->plural( Database::integer( $area['category_count'] ?? null ), 'category', 'categories' ) . ' &bull; '
-				. $this->plural( Database::integer( $area['topic_count'] ?? null ), 'topic' ) . ' &bull; '
-				. $this->plural( Database::integer( $area['post_count'] ?? null ), 'post' );
-			$items[] = $this->browse_item(
-				Database::text( $area['name'] ?? null ),
-				$url,
-				$meta,
-				Database::text( $area['description'] ?? null ),
-				true
-			);
-		}
-		return $this->shell(
-			$this->heading( __( 'Choose a Subject Area', 'ehrman-blog-discovery' ), $this->plural( count( $areas ), 'subject area' ) )
-			. $this->description_control( 'hover', 'browse' )
-			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
-			'browse'
-		);
-	}
-
-	/**
-	 * Renders the categories within a subject area.
-	 *
-	 * @param int    $path_number Browse-path number.
-	 * @param string $subject_slug Subject-area slug.
-	 * @return string Category list markup.
-	 */
-	private function render_subject_area( int $path_number, string $subject_slug ): string {
-		$area = $this->browse->subject_area( $path_number, $subject_slug );
-		if ( null === $area ) {
-			return $this->not_found();
-		}
-		$area_id    = Database::integer( $area['id'] ?? null );
-		$categories = $this->browse->subject_area_categories( $area_id );
-		$counts     = $this->browse->subject_area_counts( $area_id );
-		$items      = array();
-		foreach ( $categories as $category ) {
-			$url     = $this->browse_url(
-				$path_number,
-				array(
-					'ebd_subject'  => $subject_slug,
-					'ebd_category' => Database::text( $category['slug'] ?? null ),
-				)
-			);
-			$meta    = $this->plural( Database::integer( $category['topic_count'] ?? null ), 'topic' ) . ' &bull; '
-				. $this->plural( Database::integer( $category['post_count'] ?? null ), 'post' );
-			$items[] = $this->browse_item(
-				Database::text( $category['name'] ?? null ),
-				$url,
-				$meta,
-				Database::text( $category['description'] ?? null ),
-				true
-			);
-		}
-		$meta        = $this->plural( (int) $counts['category_count'], 'category', 'categories' ) . ' &bull; '
-			. $this->plural( (int) $counts['topic_count'], 'topic' ) . ' &bull; '
-			. $this->plural( (int) $counts['post_count'], 'post' );
-		$breadcrumbs = array(
-			array( 'Browse Topics ' . $path_number, $this->browse_url( $path_number ) ),
-			array( Database::text( $area['name'] ?? null ), '' ),
-		);
-		return $this->shell(
-			$this->heading( Database::text( $area['name'] ?? null ), $meta, $breadcrumbs )
-			. $this->description_control( 'hover', 'browse' )
-			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
-			'browse'
-		);
-	}
-
-	/**
-	 * Renders the topics within a category.
-	 *
-	 * @param int    $path_number  Browse-path number.
-	 * @param string $subject_slug Subject-area slug.
-	 * @param string $category_slug Category slug.
-	 * @return string Topic list markup.
-	 */
-	private function render_category( int $path_number, string $subject_slug, string $category_slug ): string {
-		$category = $this->browse->category( $category_slug );
-		if ( null === $category ) {
-			return $this->not_found();
-		}
-		$category_id = Database::integer( $category['id'] ?? null );
-		$area        = $this->browse->primary_subject_area( $path_number, $category_id, $subject_slug );
-		$topics      = $this->browse->category_topics( $category_id );
-		$post_count  = $this->browse->category_post_count( $category_id );
-		$items       = array();
-		foreach ( $topics as $topic ) {
-			$args = array(
-				'ebd_category' => $category_slug,
-				'ebd_topic'    => Database::text( $topic['slug'] ?? null ),
-			);
-			if ( null !== $area ) {
-				$args['ebd_subject'] = Database::text( $area['slug'] ?? null );
-			}
-			$items[] = $this->browse_item(
-				Database::text( $topic['name'] ?? null ),
-				$this->browse_url( $path_number, $args ),
-				$this->plural( Database::integer( $topic['post_count'] ?? null ), 'post' ),
-				Database::text( $topic['description'] ?? null ),
-				true
-			);
-		}
-		$post_args = array(
-			'ebd_category' => $category_slug,
-			'ebd_view'     => 'posts',
-		);
-		if ( null !== $area ) {
-			$post_args['ebd_subject'] = Database::text( $area['slug'] ?? null );
-		}
-		/* translators: %s: formatted number of posts. */
-		$view_all_label                              = sprintf( __( 'View all %s in this category', 'ehrman-blog-discovery' ), $this->plural( $post_count, 'post' ) );
-		$actions                                     = '<a class="ebd-primary-link" href="' . esc_url( $this->browse_url( $path_number, $post_args ) ) . '">'
-			. esc_html( $view_all_label )
-			. '</a>';
-		$breadcrumbs                                 = $this->category_breadcrumbs( $path_number, $category, $area );
-		$breadcrumbs[ count( $breadcrumbs ) - 1 ][1] = '';
-		/**
-		 * Validated breadcrumb tuples.
-		 *
-		 * @var list<array{0:string,1:string}> $breadcrumbs
-		 */
-		return $this->shell(
-			$this->heading(
-				Database::text( $category['name'] ?? null ),
-				$this->plural( count( $topics ), 'topic' ) . ' &bull; ' . $this->plural( $post_count, 'post' ),
-				$breadcrumbs,
-				$actions
-			)
-			. $this->description_control( 'hover', 'browse' )
-			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
-			'browse'
-		);
-	}
-
-	/**
-	 * Renders and filters the posts assigned to a topic.
-	 *
-	 * @param int    $path_number  Browse-path number.
-	 * @param string $subject_slug Subject-area slug.
-	 * @param string $category_slug Category slug.
-	 * @param string $topic_slug   Topic slug.
-	 * @return string Topic-post view markup.
-	 */
-	private function render_topic_posts(
-		int $path_number,
-		string $subject_slug,
-		string $category_slug,
-		string $topic_slug
-	): string {
-		$topic = $this->browse->topic( $topic_slug );
-		if ( null === $topic ) {
-			return $this->not_found();
-		}
-		$category   = $this->browse->topic_category( Database::integer( $topic['id'] ?? null ), $category_slug );
-		$area       = null === $category
-			? null
-			: $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
-		$terms      = $this->request_terms();
-		$term_modes = $this->request_term_modes( $terms );
-		if ( empty( $terms ) ) {
-			$terms      = array( Database::text( $topic['name'] ?? null ) );
-			$term_modes = array( Search_Service::TERM_MODE_TOPIC );
-		}
-		$sort        = $this->request_value( 'ebd_sort', 'ranked' );
-		$page        = $this->request_page();
-		$result      = $this->search->search( $terms, $sort, '', $topic_slug, $page, Search_Service::POSTS_PER_PAGE, $term_modes );
-		$breadcrumbs = null === $category
-			? array()
-			: array_merge(
-				$this->category_breadcrumbs( $path_number, $category, $area ),
-				array( array( Database::text( $topic['name'] ?? null ), '' ) )
-			);
-		/**
-		 * Validated breadcrumb tuples.
-		 *
-		 * @var list<array{0:string,1:string}> $breadcrumbs
-		 */
-		return $this->shell(
-			$this->heading( Database::text( $topic['name'] ?? null ), $this->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
-			. $this->search_panel(
-				$result['terms'],
-				$term_modes,
-				$result['sort'],
-				true,
-				$this->browse_url(
-					$path_number,
-					array_filter(
-						array(
-							'ebd_subject'  => null === $area ? '' : Database::text( $area['slug'] ?? null ),
-							'ebd_category' => null === $category ? '' : Database::text( $category['slug'] ?? null ),
-							'ebd_topic'    => $topic_slug,
-						)
-					)
-				),
-				'',
-				$topic_slug
-			)
-			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $topic['name'] ?? null ) ) . '">'
-			. $this->results_markup( $result, Database::text( $topic['name'] ?? null ) ) . '</div>',
-			'posts'
-		);
-	}
-
-	/**
-	 * Renders and filters all posts connected to a category.
-	 *
-	 * @param int    $path_number  Browse-path number.
-	 * @param string $subject_slug Subject-area slug.
-	 * @param string $category_slug Category slug.
-	 * @return string Category-post view markup.
-	 */
-	private function render_category_posts( int $path_number, string $subject_slug, string $category_slug ): string {
-		$category = $this->browse->category( $category_slug );
-		if ( null === $category ) {
-			return $this->not_found();
-		}
-		$area        = $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
-		$terms       = $this->request_terms();
-		$term_modes  = $this->request_term_modes( $terms );
-		$sort        = $this->request_value( 'ebd_sort', 'ranked' );
-		$page        = $this->request_page();
-		$result      = $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE, $term_modes );
-		$breadcrumbs = array_merge(
-			$this->category_breadcrumbs( $path_number, $category, $area ),
-			array( array( __( 'Posts', 'ehrman-blog-discovery' ), '' ) )
-		);
-		$form_args   = array(
-			'ebd_category' => $category_slug,
-			'ebd_view'     => 'posts',
-		);
-		if ( null !== $area ) {
-			$form_args['ebd_subject'] = Database::text( $area['slug'] ?? null );
-		}
-		return $this->shell(
-			$this->heading( Database::text( $category['name'] ?? null ), $this->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
-			. $this->search_panel(
-				$result['terms'],
-				$term_modes,
-				$result['sort'],
-				true,
-				$this->browse_url( $path_number, $form_args ),
-				$category_slug
-			)
-			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $category['name'] ?? null ) ) . '">'
-			. $this->results_markup( $result, Database::text( $category['name'] ?? null ) ) . '</div>',
-			'posts'
 		);
 	}
 
@@ -847,6 +601,28 @@ final class Page_Controller {
 			. ( $has_search_state ? '' : ' hidden' ) . '>' . esc_html__( 'Hide search controls', 'ehrman-blog-discovery' )
 			. '</button></div></div></form>'
 			. '<div class="ebd-description-control">' . $this->description_control( $show_descriptions ? 'always' : 'hover', 'posts' ) . '</div>';
+	}
+
+	/**
+	 * Builds the shared search controls used by Browse Topics post views.
+	 *
+	 * @param array<int,string> $terms          Selected search terms.
+	 * @param array<int,string> $term_modes     Search modes aligned with selected terms.
+	 * @param string            $sort           Requested sort mode.
+	 * @param string            $action         Form action URL.
+	 * @param string            $category_scope Fixed category slug.
+	 * @param string            $topic_scope    Fixed topic slug.
+	 * @return string Search-panel markup.
+	 */
+	private function browse_search_panel(
+		array $terms,
+		array $term_modes,
+		string $sort,
+		string $action,
+		string $category_scope,
+		string $topic_scope
+	): string {
+		return $this->search_panel( $terms, $term_modes, $sort, true, $action, $category_scope, $topic_scope );
 	}
 
 	/**
@@ -1101,81 +877,6 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Builds a content heading with optional navigation and actions.
-	 *
-	 * @param string                              $title                Heading text.
-	 * @param string                              $meta                 Count or context markup.
-	 * @param array<int,array{0:string,1:string}> $breadcrumbs Breadcrumb labels and URLs.
-	 * @param string                              $actions              Optional action markup.
-	 * @param bool                                $dynamic_result_count Whether JavaScript may update the count.
-	 * @return string Heading markup.
-	 */
-	private function heading(
-		string $title,
-		string $meta,
-		array $breadcrumbs = array(),
-		string $actions = '',
-		bool $dynamic_result_count = false
-	): string {
-		return $this->markup->heading( $title, $meta, $breadcrumbs, $actions, $dynamic_result_count );
-	}
-
-	/**
-	 * Builds breadcrumbs leading to a category.
-	 *
-	 * @param int                      $path_number Browse-path number.
-	 * @param array<string,mixed>      $category    Category record.
-	 * @param array<string,mixed>|null $area        Subject-area record.
-	 * @return array<int,array{0:string,1:string}> Breadcrumb labels and URLs.
-	 */
-	private function category_breadcrumbs( int $path_number, array $category, ?array $area ): array {
-		$items = array( array( 'Browse Topics ' . $path_number, $this->browse_url( $path_number ) ) );
-		if ( null !== $area ) {
-			$items[] = array(
-				Database::text( $area['name'] ?? null ),
-				$this->browse_url( $path_number, array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) ),
-			);
-		}
-		$args = array( 'ebd_category' => Database::text( $category['slug'] ?? null ) );
-		if ( null !== $area ) {
-			$args['ebd_subject'] = Database::text( $area['slug'] ?? null );
-		}
-		$items[] = array( Database::text( $category['name'] ?? null ), $this->browse_url( $path_number, $args ) );
-		return $items;
-	}
-
-	/**
-	 * Builds one subject-area, category, or topic navigation item.
-	 *
-	 * @param string $title          Item title.
-	 * @param string $url            Destination URL.
-	 * @param string $meta           Count metadata.
-	 * @param string $description    Hover and expanded description.
-	 * @param bool   $navigation_row Whether to render the full-row navigation style.
-	 * @return string Navigation-item markup.
-	 */
-	private function browse_item(
-		string $title,
-		string $url,
-		string $meta,
-		string $description,
-		bool $navigation_row = false
-	): string {
-		if ( $navigation_row ) {
-			return '<li class="ebd-list-item ebd-navigation-item"><a class="ebd-item-title ebd-navigation-link" href="'
-				. esc_url( $url ) . '" data-description="' . esc_attr( $description ) . '"><span class="ebd-navigation-name">'
-				. '<span>' . esc_html( $title ) . '</span><span class="ebd-navigation-arrow" aria-hidden="true">&#8594;</span>'
-				. '</span><span class="ebd-item-meta">' . wp_kses_post( $meta ) . '</span></a>'
-				. '<p class="ebd-item-description" hidden>' . esc_html( $description ) . '</p></li>';
-		}
-
-		return '<li class="ebd-list-item"><div class="ebd-item-row"><a class="ebd-item-title" href="'
-			. esc_url( $url ) . '" data-description="' . esc_attr( $description ) . '">' . esc_html( $title )
-			. '</a><p class="ebd-item-meta">' . wp_kses_post( $meta ) . '</p></div><p class="ebd-item-description" hidden>'
-			. esc_html( $description ) . '</p></li>';
-	}
-
-	/**
 	 * Builds the description display-mode control.
 	 *
 	 * @param string $default_mode Initial display mode.
@@ -1205,15 +906,6 @@ final class Page_Controller {
 	private function not_ready(): string {
 		Assets::enqueue();
 		return '<div class="ebd-notice">' . esc_html__( 'Discovery data has not been imported yet.', 'ehrman-blog-discovery' ) . '</div>';
-	}
-
-	/**
-	 * Returns the requested-view-not-found notice.
-	 *
-	 * @return string Not-found notice markup.
-	 */
-	private function not_found(): string {
-		return $this->shell( '<p class="ebd-empty">' . esc_html__( 'The requested discovery page could not be found.', 'ehrman-blog-discovery' ) . '</p>', 'error' );
 	}
 
 	/**
