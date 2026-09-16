@@ -28,7 +28,7 @@ if (-not $status.database_connected -or $status.import_state -ne 'complete') {
     throw 'The production-equivalent plugin is not connected to a completed import.'
 }
 
-$expectedJson = & $PythonExecutable -B (Join-Path $repoRoot 'scripts\wordpress_expected_counts.py')
+$expectedJson = & $PythonExecutable -B (Join-Path $repoRoot 'scripts/wordpress_expected_counts.py')
 if ($LASTEXITCODE -ne 0) {
     throw 'Could not calculate authoritative import counts.'
 }
@@ -41,6 +41,11 @@ foreach ($property in $expected.PSObject.Properties) {
     }
 }
 
+& docker compose -f $composeFile exec -T wordpress wp eval-file /opt/ehrman-tests/plugin-regression-tests.php --allow-root --path=/var/www/html
+if ($LASTEXITCODE -ne 0) {
+    throw 'The focused WordPress plugin regression checks failed.'
+}
+
 $pages = @('/', '/keyword-search/', '/ask-ai/', '/ask-ai-2/', '/browse-topics-1/', '/browse-topics-2/', '/structure-review/')
 foreach ($path in $pages) {
     $response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:$Port$path"
@@ -49,7 +54,7 @@ foreach ($path in $pages) {
     }
 }
 
-& docker compose -f $composeFile exec -T wordpress sh -c "test -f /opt/ehrman-import/ehrman_post_search_index.json && test ! -e /var/www/html/wp-content/ehrman-import && test -f /var/www/html/wp-content/plugins/ehrman-blog-discovery/ehrman-blog-discovery.php"
+& docker compose -f $composeFile exec -T wordpress sh -c "test -f /opt/ehrman-import/ehrman_post_search_index.json && test -f /opt/ehrman-import/ehrman_post_embeddings.jsonl.gz && test ! -e /var/www/html/wp-content/ehrman-import && test -f /var/www/html/wp-content/plugins/ehrman-blog-discovery/ehrman-blog-discovery.php"
 if ($LASTEXITCODE -ne 0) {
     throw 'Packaged runtime files are missing or legacy import JSON is present under the public document root.'
 }
@@ -150,6 +155,7 @@ Write-Output 'Production Docker image: OK'
 Write-Output "Plugin PHP syntax: OK ($($phpFiles.Count) files)"
 Write-Output 'WordPress and MySQL connection: OK'
 Write-Output 'Authoritative imported counts: OK'
+Write-Output 'Semantic coverage, ingestion, and analytics regressions: OK'
 Write-Output 'Landing, search, browse, and structure-review pages: OK'
 Write-Output 'Private import and packaged runtime files: OK'
 Write-Output 'Parity route disabled: OK'

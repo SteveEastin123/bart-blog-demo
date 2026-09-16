@@ -2,6 +2,8 @@
 
 Date: August 29, 2026
 
+> Historical evaluation only. The metadata-vector runtime was removed from the handoff plugin after the single-vector Ask AI 2 pipeline was selected.
+
 ## Method
 
 The frozen 50-question benchmark from the August 29 Ask AI evaluation was run twice against Ask AI 2. The control used the original `hybrid` title-and-summary retrieval. The experiment used `hybrid-metadata`, which combines title-and-summary (80%), topic (12%), topic-alias (5%), and secondary-keyword (3%) vectors before the unchanged lexical, exact-metadata, and AI-refinement stages.

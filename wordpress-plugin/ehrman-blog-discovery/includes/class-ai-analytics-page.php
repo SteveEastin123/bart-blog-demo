@@ -375,7 +375,7 @@ final class AI_Analytics_Page {
 	 * Returns comparable Ask AI and Ask AI 2 datasets for the active filters.
 	 *
 	 * @param array<string,string> $filters Active administrator filters.
-	 * @return array<string,array<string,mixed>> Datasets keyed by interface.
+	 * @return array<string,array<string,int|float>> Datasets keyed by interface.
 	 */
 	private static function comparison( array $filters ): array {
 		$datasets = array();
@@ -460,7 +460,7 @@ final class AI_Analytics_Page {
 	/**
 	 * Renders the side-by-side interface comparison.
 	 *
-	 * @param array<string,array<string,mixed>> $comparison Interface summary values.
+	 * @param array<string,array<string,int|float>> $comparison Interface summary values.
 	 */
 	private static function comparison_table( array $comparison ): void {
 		$taxonomy = $comparison['taxonomy'];
@@ -564,16 +564,17 @@ final class AI_Analytics_Page {
 		$submissions = Database::integer( $usage['submissions'] ?? 0 );
 		$cache_hits  = Database::integer( $usage['cache_hits'] ?? 0 );
 		$cache_rate  = $submissions > 0 ? ( $cache_hits / $submissions ) * 100 : 0.0;
+		$models      = is_array( $usage['models'] ?? null ) ? $usage['models'] : array();
 		?>
 		<details style="margin:18px 0;max-width:1050px">
 			<summary><strong><?php echo esc_html__( 'Token and model details', 'ehrman-blog-discovery' ); ?></strong></summary>
 			<p><?php echo esc_html( sprintf( /* translators: 1: input tokens, 2: cached input tokens, 3: cache-write tokens, 4: output tokens, 5: reasoning tokens, 6: total tokens. */ __( '%1$s input tokens (%2$s cache reads and %3$s cache writes), %4$s output tokens (%5$s reasoning), and %6$s total tokens across retained usage.', 'ehrman-blog-discovery' ), number_format_i18n( Database::integer( $usage['input_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['cached_input_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['cache_write_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['output_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['reasoning_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['total_tokens'] ?? 0 ) ) ) ); ?></p>
 			<p><?php echo esc_html( sprintf( /* translators: 1: WordPress response-cache hits, 2: cache-hit percentage, 3: average paid OpenAI call cost. */ __( 'WordPress response-cache hits: %1$s (%2$s%%). Average paid OpenAI call: %3$s.', 'ehrman-blog-discovery' ), number_format_i18n( $cache_hits ), number_format_i18n( $cache_rate, 1 ), self::cents( (float) Database::text( $usage['average_cost'] ?? 0 ) ) ) ); ?></p>
-			<?php if ( ! empty( $usage['models'] ) ) : ?>
+			<?php if ( ! empty( $models ) ) : ?>
 			<table class="widefat striped">
 				<thead><tr><th><?php echo esc_html__( 'Model and tier', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Pricing version', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'OpenAI calls', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Input tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Cache reads / writes', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Output / reasoning', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 				<tbody>
-				<?php foreach ( $usage['models'] as $raw_row ) : ?>
+				<?php foreach ( $models as $raw_row ) : ?>
 					<?php $row = Database::associative_row( $raw_row ) ?? array(); ?>
 					<tr><td><?php echo esc_html( self::model_and_tier( $row ) ); ?></td><td><?php echo esc_html( Database::text( $row['pricing_version'] ?? '' ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['api_requests'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['input_tokens'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['cached_input_tokens'] ?? 0 ) ) . ' / ' . number_format_i18n( Database::integer( $row['cache_write_tokens'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['output_tokens'] ?? 0 ) ) . ' / ' . number_format_i18n( Database::integer( $row['reasoning_tokens'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( self::total_tokens( $row ) ) ); ?></td><td><?php echo esc_html( self::usd( (float) Database::text( $row['total_cost'] ?? 0 ) ) ); ?></td></tr>
 				<?php endforeach; ?>

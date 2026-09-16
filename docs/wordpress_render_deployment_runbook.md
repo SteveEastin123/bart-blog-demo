@@ -58,7 +58,8 @@ No credential belongs in Git, a JSON source file, or this runbook.
    `wordpress-production/Dockerfile`.
 3. Confirm `/healthz` returns HTTP 200.
 4. The one-time initialization hook installs WordPress, activates the plugin
-   and theme, configures permalinks, and imports the authoritative JSON.
+   and theme, configures permalinks, imports the authoritative JSON, and
+   restores the bundled title-and-summary vector package.
 5. Open `/wp-json/ehrman-discovery/v1/status` and verify the import state is
    `complete`.
 6. Confirm the expected counts using `scripts/wordpress_expected_counts.py`.
@@ -96,13 +97,15 @@ Remove its token and confirm the route returns HTTP 404 afterward.
 ## Updating Discovery Data
 
 1. Update and validate the five authoritative JSON files locally.
-2. Rebuild the production image locally.
-3. Repeat import, parity, browser, and backup checks.
-4. Commit and push only after approval.
-5. Trigger a manual Render deploy.
-6. Run `initialize-ehrman-wordpress` in the Render shell to import the new
+2. Build missing vectors and export the refreshed
+   `ehrman_post_embeddings.jsonl.gz` package.
+3. Rebuild the production image locally.
+4. Repeat import, parity, browser, and backup checks.
+5. Commit and push only after approval.
+6. Trigger a manual Render deploy.
+7. Run `initialize-ehrman-wordpress` in the Render shell to import the new
    checksum, or add a separately approved deployment job.
-7. Verify counts and representative searches before announcing the update.
+8. Verify counts and representative searches before announcing the update.
 
 ## Backups
 
@@ -136,6 +139,7 @@ Provide the development company with:
 
 - `wordpress-plugin/ehrman-blog-discovery/`
 - The five authoritative JSON files
+- `data/index/ehrman_post_embeddings.jsonl.gz`
 - Plugin schema and JSON integration documentation
 - This deployment runbook
 - The local production Docker package

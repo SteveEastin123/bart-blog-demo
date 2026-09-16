@@ -1,9 +1,10 @@
 # Production-Equivalent WordPress Package
 
-This directory packages the Ehrman Blog Discovery plugin, companion demo
-theme, and five authoritative JSON sources into a reproducible WordPress
-Docker image. It exists beside the development Compose stack and does not
-change the current Python or PHP demos.
+This directory packages the current Ehrman Blog Discovery WordPress/MySQL
+target: the plugin, companion demo theme, five authoritative JSON sources, the
+portable title-and-summary vector index, and production acceptance checks in a
+reproducible Docker image. Older Python, PHP/SQLite, and WordPress development
+demos remain reference implementations.
 
 ## Local Acceptance Stack
 
@@ -19,7 +20,8 @@ excluded from the primary navigation, and marked `noindex, nofollow`.
 
 The script builds the exact WordPress image intended for staging, starts a
 fresh MySQL service, installs WordPress when necessary, activates the plugin
-and theme, configures permalinks, and imports the authoritative index.
+and theme, configures permalinks, imports the authoritative JSON, and restores
+the validated semantic-vector package.
 
 Ask AI uses the focused two-term interpretation strategy by default. Set
 `EHRMAN_DISCOVERY_AI_TERM_STRATEGY=legacy` to restore the previous four-term
@@ -29,11 +31,9 @@ AI-refined results are grouped into direct answers, strongly related posts, and
 supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
 restore the previous flat relevance-ordered result list.
 
-Ask AI 2 uses the selected single-vector `hybrid` retrieval strategy, combining
-title-and-summary similarity with lexical and exact metadata signals. The
-experimental topic, alias, and secondary-keyword vectors are disabled unless
-`EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL=hybrid-metadata` is explicitly selected.
-Use `semantic` to test title-and-summary similarity alone.
+Ask AI 2 uses the selected title-and-summary vector pipeline, combining
+semantic similarity with lexical and exact topic, alias, and secondary-keyword
+ranking signals.
 
 ## Administrator Post Ingestion
 
@@ -151,29 +151,30 @@ temporary database and backup.
 
 ## Ask AI 2 Index
 
-Ask AI 2 uses one title-and-summary vector per eligible post. After deploying a
-plugin or data update, refresh the semantic index from the WordPress service
-shell. The command does not build optional metadata vectors while `hybrid` is
-active:
+Ask AI 2 uses one title-and-summary vector per eligible post. Clean installs
+restore `/opt/ehrman-import/ehrman_post_embeddings.jsonl.gz` automatically.
+The package can be exported and imported explicitly without an OpenAI API call:
+
+```bash
+wp ehrman-discovery embeddings export --file=/tmp/ehrman_post_embeddings.jsonl.gz --allow-root --path=/var/www/html
+wp ehrman-discovery embeddings import --file=/opt/ehrman-import/ehrman_post_embeddings.jsonl.gz --allow-root --path=/var/www/html
+```
+
+Import validates the format version, model, dimensions, post IDs,
+title-and-summary hashes, binary vector lengths, and norms before making one
+transactional update. Repeating an import skips unchanged rows.
+
+After approving new posts or changing summaries, build only missing or stale
+title-and-summary vectors from the WordPress service shell:
 
 ```bash
 wp ehrman-discovery embeddings --allow-root --path=/var/www/html
 ```
 
-On a Render database that previously contained experimental topic, alias, or
-secondary-keyword vectors, rebuild the content index and remove those rows with:
-
-```bash
-wp ehrman-discovery embeddings --purge-metadata --allow-root --path=/var/www/html
-```
-
-The empty metadata table remains part of the plugin schema so the experiment can
-still be run locally, but no metadata vectors are stored or loaded in the
-selected Render configuration.
-
 ## Render Blueprint
 
-`render-wordpress.yaml` is intentionally separate from the active root
-`render.yaml`. It defines a new staging WordPress web service and private
-MySQL service with persistent disks and generated credentials. Do not activate
-it or replace the current PHP service until deployment is explicitly approved.
+`render-wordpress.yaml` defines the current WordPress web service and private
+MySQL target with persistent disks and generated credentials. Render updates
+are applied manually after the local production-equivalent checks pass. The
+root `render.yaml` belongs to the legacy Python demonstration and is not the
+WordPress handoff definition.

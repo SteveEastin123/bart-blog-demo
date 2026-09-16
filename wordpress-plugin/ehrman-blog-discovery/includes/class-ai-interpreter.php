@@ -273,8 +273,8 @@ final class AI_Interpreter {
 			AI_Usage::record_response( $body, false, 'refine_response_error', $request_id );
 			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
 		}
-		$decoded = json_decode( $this->output_text( $body ), true );
-		$parsed  = is_array( $decoded ) ? $this->parse_refined_posts( $decoded, $candidates ) : null;
+		$decoded = Database::associative_row( json_decode( $this->output_text( $body ), true ) );
+		$parsed  = null !== $decoded ? $this->parse_refined_posts( $decoded, $candidates ) : null;
 		if ( null === $parsed ) {
 			AI_Usage::record_response( $body, false, 'refine_invalid_output', $request_id );
 			return new WP_Error( 'ehrman_ai_refine_invalid', __( 'The refinement service returned an invalid response.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
@@ -446,7 +446,7 @@ final class AI_Interpreter {
 		$allowed = array_fill_keys( $post_ids, true );
 		$tiers   = array();
 		foreach ( $cached_tiers as $id => $tier ) {
-			$id   = is_scalar( $id ) ? sanitize_text_field( (string) $id ) : '';
+			$id   = sanitize_text_field( (string) $id );
 			$tier = is_scalar( $tier ) ? sanitize_key( (string) $tier ) : '';
 			if ( isset( $allowed[ $id ] ) && in_array( $tier, self::RELEVANCE_TIERS, true ) ) {
 				$tiers[ $id ] = $tier;

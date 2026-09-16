@@ -64,4 +64,13 @@ wp theme activate ehrman-discovery-demo --allow-root --quiet
 wp rewrite structure '/%postname%/' --allow-root --hard --quiet
 wp ehrman-discovery import --force --allow-root
 
-echo "WordPress initialization and Ehrman discovery import completed."
+embedding_count="$(wp eval 'echo \EhrmanBlogDiscovery\Database::counts()["post_embeddings"];' --allow-root --path=/var/www/html)"
+if [[ "$embedding_count" == "0" ]]; then
+  wp ehrman-discovery embeddings import \
+    --file=/opt/ehrman-import/ehrman_post_embeddings.jsonl.gz \
+    --allow-root
+else
+  echo "Preserved ${embedding_count} existing semantic vectors; run the incremental embeddings command after data updates."
+fi
+
+echo "WordPress initialization and discovery import completed."

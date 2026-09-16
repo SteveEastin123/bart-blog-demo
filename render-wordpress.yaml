@@ -1,5 +1,5 @@
-# Inactive staging Blueprint. The existing root render.yaml and deployed PHP
-# service remain unchanged until the WordPress staging deployment is approved.
+# Current WordPress/MySQL staging blueprint. Repository pushes do not apply this
+# blueprint automatically; Render updates remain an explicit manual step.
 services:
   - type: pserv
     name: bart-blog-demo-wordpress-mysql
@@ -70,8 +70,6 @@ services:
         value: focused
       - key: EHRMAN_DISCOVERY_AI_RESULT_GROUPING
         value: tiers
-      - key: EHRMAN_DISCOVERY_SEMANTIC_RETRIEVAL
-        value: hybrid
       - key: EHRMAN_INGESTION_OPENAI_API_KEY
         sync: false
       - key: EHRMAN_INGESTION_OPENAI_MODEL

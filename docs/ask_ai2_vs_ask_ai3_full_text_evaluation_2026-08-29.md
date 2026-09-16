@@ -2,6 +2,8 @@
 
 Date: August 29, 2026
 
+> Historical evaluation only. Ask AI 3's metadata-vector runtime was removed from the handoff plugin after Ask AI 2 was selected.
+
 ## Method
 
 Fifty new questions were frozen before retrieval. Ask AI 2 used one title-and-summary vector. Ask AI 3 used the same vector plus independently weighted topic, topic-alias, and secondary-keyword vectors. Both methods used the same AI refinement stage.

@@ -75,12 +75,17 @@ final class Cli_Command {
 			\WP_CLI::line( "{$name}: {$count}" );
 		}
 		$semantic = ( new Semantic_Search_Service() )->status();
-		\WP_CLI::line( 'Semantic retrieval strategy: ' . $semantic['strategy'] );
-		\WP_CLI::line( 'Content embeddings: ' . $semantic['indexed'] . ' of ' . $semantic['eligible'] );
-		\WP_CLI::line( 'Metadata embeddings: ' . $semantic['metadata']['current'] . ' of ' . $semantic['metadata']['eligible'] );
-		foreach ( $semantic['metadata']['kinds'] as $kind => $counts ) {
-			\WP_CLI::line( "  {$kind}: {$counts['current']} of {$counts['eligible']}" );
-		}
+		\WP_CLI::line( 'Semantic retrieval pipeline: ' . Semantic_Search_Service::pipeline_version() );
+		\WP_CLI::line(
+			sprintf(
+				'Content embeddings: %d current of %d eligible (%d missing, %d stale, %d obsolete).',
+				$semantic['current'],
+				$semantic['eligible'],
+				$semantic['missing'],
+				$semantic['stale'],
+				$semantic['obsolete']
+			)
+		);
 	}
 
 	/**
@@ -88,26 +93,75 @@ final class Cli_Command {
 	 *
 	 * ## OPTIONS
 	 *
+	 * [<action>]
+	 * : Optional action: build, export, or import. Omit to build the index.
+	 *
+	 * [--file=<path>]
+	 * : Compressed .jsonl.gz package path required by export and import.
+	 *
 	 * [--force]
 	 * : Regenerate embeddings even when the post content is unchanged.
 	 *
 	 * [--batch-size=<number>]
 	 * : Number of posts sent in each embeddings request. Default: 50.
 	 *
-	 * [--purge-metadata]
-	 * : Delete optional topic, alias, and secondary-keyword vectors after building the content index.
-	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp ehrman-discovery embeddings
 	 *     wp ehrman-discovery embeddings --force --batch-size=50
-	 *     wp ehrman-discovery embeddings --purge-metadata
+	 *     wp ehrman-discovery embeddings export --file=/secure/ehrman-post-embeddings.jsonl.gz
+	 *     wp ehrman-discovery embeddings import --file=/secure/ehrman-post-embeddings.jsonl.gz
 	 *
 	 * @param array<int,string>   $args       Positional command arguments.
 	 * @param array<string,mixed> $assoc_args Named command arguments.
 	 */
 	public function embeddings( array $args, array $assoc_args ): void {
-		unset( $args );
+		$action = strtolower( trim( $args[0] ?? '' ) );
+		if ( in_array( $action, array( 'export', 'import' ), true ) ) {
+			$file = is_scalar( $assoc_args['file'] ?? null ) ? (string) $assoc_args['file'] : '';
+			if ( '' === trim( $file ) ) {
+				\WP_CLI::error( 'The --file option is required for vector export and import.' );
+				return;
+			}
+			$transfer = new Embedding_Index_Transfer();
+			try {
+				if ( 'export' === $action ) {
+					$result = $transfer->export( $file );
+					\WP_CLI::success(
+						sprintf(
+							'Exported %d vectors (%s, %d dimensions) to %s (%s).',
+							$result['count'],
+							$result['model'],
+							$result['dimensions'],
+							$result['file'],
+							size_format( $result['bytes'] )
+						)
+					);
+					return;
+				}
+
+				$result = $transfer->import( $file );
+				\WP_CLI::success(
+					sprintf(
+						'Validated %d vectors: %d imported, %d unchanged, %d obsolete removed, %d missing, and %d rejected.',
+						$result['records'],
+						$result['imported'],
+						$result['skipped'],
+						$result['removed'],
+						$result['missing'],
+						$result['rejected']
+					)
+				);
+				return;
+			} catch ( \Throwable $error ) {
+				\WP_CLI::error( sanitize_text_field( $error->getMessage() ) );
+				return;
+			}
+		}
+		if ( '' !== $action && 'build' !== $action ) {
+			\WP_CLI::error( 'Unknown embeddings action. Use build, export, or import.' );
+			return;
+		}
 		$batch_size = is_numeric( $assoc_args['batch-size'] ?? null ) ? (int) $assoc_args['batch-size'] : 50;
 		$progress   = null;
 		$bar        = null;
@@ -139,51 +193,19 @@ final class Cli_Command {
 				$result['removed']
 			)
 		);
-
-		if ( isset( $assoc_args['purge-metadata'] ) ) {
-			$removed = $service->clear_metadata_index();
-			\WP_CLI::success(
+		$content_status = $service->status();
+		if ( $content_status['eligible'] < 1 || $content_status['current'] !== $content_status['eligible'] ) {
+			\WP_CLI::error(
 				sprintf(
-					'Content index ready; %d optional metadata embeddings removed.',
-					$removed
+					'Content index is incomplete: %d current of %d eligible (%d missing and %d stale).',
+					$content_status['current'],
+					$content_status['eligible'],
+					$content_status['missing'],
+					$content_status['stale']
 				)
 			);
-			return;
 		}
 
-		if ( 'hybrid-metadata' !== $status['strategy'] ) {
-			\WP_CLI::success( 'Content index ready; optional metadata embeddings were not built for the active retrieval strategy.' );
-			return;
-		}
-
-		$metadata_status   = $service->status()['metadata'];
-		$metadata_bar      = null;
-		$metadata_last     = 0;
-		$metadata_progress = null;
-		if ( $metadata_status['eligible'] > 0 ) {
-			$metadata_bar      = \WP_CLI\Utils\make_progress_bar( 'Building semantic metadata embeddings', $metadata_status['eligible'] );
-			$metadata_progress = static function ( int $processed, int $total ) use ( $metadata_bar, &$metadata_last ): void {
-				unset( $total );
-				$metadata_bar->tick( max( 0, $processed - $metadata_last ) );
-				$metadata_last = $processed;
-			};
-		}
-		$metadata_result = $service->build_metadata_index( isset( $assoc_args['force'] ), $batch_size, $metadata_progress );
-		if ( null !== $metadata_bar ) {
-			$metadata_bar->finish();
-		}
-		if ( is_wp_error( $metadata_result ) ) {
-			\WP_CLI::error( $metadata_result->get_error_message() );
-			return;
-		}
-		\WP_CLI::success(
-			sprintf(
-				'Metadata index: %d eligible vectors, %d generated, %d unchanged, and %d obsolete embeddings removed.',
-				$metadata_result['eligible'],
-				$metadata_result['generated'],
-				$metadata_result['unchanged'],
-				$metadata_result['removed']
-			)
-		);
+		\WP_CLI::success( 'Content index ready.' );
 	}
 }

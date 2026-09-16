@@ -1,6 +1,9 @@
 # Ask AI 2 Metadata Vector Experiment
 
-Status: Implemented and verified locally. The first paired relevance evaluation is complete; production deployment is still pending.
+Status: Archived. The experiment was evaluated, the single-vector Ask AI 2
+pipeline was selected, and the experimental runtime was removed from the
+handoff plugin on September 16, 2026. Configuration and commands below document
+the historical test and are no longer available in current code.
 
 ## Control design
 
@@ -91,4 +94,4 @@ The result supports continuing with the metadata-enhanced strategy, but the curr
 
 ## Deployment decision
 
-On August 30, 2026, the single-vector `hybrid` strategy was selected for Ask AI 2. The Render blueprint no longer enables `hybrid-metadata`, the normal embeddings command skips the optional metadata index, and `--purge-metadata` removes experimental metadata vectors from an existing database.
+On August 30, 2026, the single-vector `hybrid` strategy was selected for Ask AI 2. The separate metadata-vector table, build path, runtime branch, and configuration switch were subsequently removed from the handoff plugin. The evaluation reports and frozen result data remain as the historical record.

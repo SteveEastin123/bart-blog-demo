@@ -1,3 +1,5 @@
+# Legacy Python reference deployment. The current WordPress/MySQL target is
+# defined in render-wordpress.yaml.
 services:
   - type: web
     name: bart-blog-demo

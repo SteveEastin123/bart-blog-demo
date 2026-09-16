@@ -442,7 +442,7 @@ final class Rest_Controller {
 		$broader_count = count( $broader );
 		$count         = $refined ? count( $posts ) : $broader_count;
 		return array(
-			'posts'           => array_values( $posts ),
+			'posts'           => $posts,
 			'terms'           => array(),
 			'sort'            => 'ranked',
 			'count'           => $count,
@@ -457,7 +457,7 @@ final class Rest_Controller {
 			'refinement_id'   => $refinement_id,
 			'notice'          => $notice,
 			'broader'         => array(
-				'posts'       => array_values( $broader ),
+				'posts'       => $broader,
 				'terms'       => array(),
 				'sort'        => 'ranked',
 				'count'       => $broader_count,

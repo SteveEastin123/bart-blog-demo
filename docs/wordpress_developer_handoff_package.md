@@ -21,12 +21,17 @@ Provide the five authoritative JSON files:
 
 The data includes post metadata, concise descriptions, optional AI-refinement summaries, secondary keywords, organizational structures, and relationships among posts, topics, categories, and subject areas. It does not include the full text of Bart's posts.
 
+Also provide `ehrman_post_embeddings.jsonl.gz`, the versioned, compressed
+title-and-summary vector index. The plugin imports it by WordPress post ID and
+rejects stale, malformed, duplicate, or incompatible records before changing
+the database. The vector package does not contain full post text.
+
 ## 3. Integration and Maintenance Guide
 
 Provide a consolidated guide explaining how to:
 
 - Install and configure the plugin
-- Import the JSON data
+- Import the JSON data and portable vector package
 - Match imported records to existing WordPress posts using WordPress IDs or URLs
 - Add the search and browsing pages to the production site
 - Integrate the plugin with the existing WordPress theme

@@ -223,7 +223,8 @@ final class AI_Usage {
 			);
 		}
 		$sql = $wpdb->prepare(
-			"SELECT COUNT(*) calls,SUM(input_tokens) input_tokens,SUM(estimated_cost_usd) total_cost FROM {$table} WHERE request_id='' AND model LIKE %s",
+			'SELECT COUNT(*) calls,SUM(input_tokens) input_tokens,SUM(estimated_cost_usd) total_cost FROM %i WHERE request_id=\'\' AND model LIKE %s',
+			$table,
 			'text-embedding-%'
 		);
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally and the value is prepared.

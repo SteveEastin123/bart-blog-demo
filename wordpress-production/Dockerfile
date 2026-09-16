@@ -31,7 +31,12 @@ COPY --chown=www-data:www-data data/index/ehrman_post_search_index.json \
     data/index/ehrman_post_categories.json \
     data/index/ehrman_post_subject_areas.json \
     data/index/ehrman_post_subject_areas_2.json \
+    data/index/ehrman_post_embeddings.jsonl.gz \
     /opt/ehrman-import/
+
+RUN mkdir -p /opt/ehrman-tests
+COPY --chown=www-data:www-data wordpress-production/tests/plugin-regression-tests.php \
+    /opt/ehrman-tests/plugin-regression-tests.php
 
 COPY --chown=www-data:www-data wordpress-production/healthz.html /opt/ehrman-code/healthz
 COPY wordpress-production/initialize-wordpress.sh /usr/local/bin/initialize-ehrman-wordpress

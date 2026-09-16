@@ -1,122 +1,148 @@
-# Bart Ehrman Blog Indexing
+# Bart Ehrman Blog Discovery
 
-This workspace is for building a local index of Ehrman Blog posts.
+This repository contains the discovery system for browsing and searching Bart
+Ehrman's blog. The current product and handoff target is the WordPress/MySQL
+implementation. It provides Browse Topics, Keyword Search, Ask AI 1, Ask AI 2,
+reviewer tools, AI analytics, and an administrator post-ingestion workflow.
 
-The raw full-text export is committed for private backup/indexing use. Keep
-this repository private unless you remove membership-site content first.
+The repository is private because its indexing sources include member-only post
+content. Do not publish the repository or its raw data.
 
-## Workflow
+## Current Architecture
 
-1. Put the temporary member credentials in `.ehrman_credentials.env`.
-2. Visit each post URL and save clean post metadata plus full text.
-3. Produce summaries and candidate tags.
-4. Review the candidate tags and normalize posts against a controlled tag set.
+| Component | Location | Purpose |
+| --- | --- | --- |
+| WordPress plugin | `wordpress-plugin/ehrman-blog-discovery/` | Search, browsing, AI retrieval, analytics, ingestion, and custom MySQL tables |
+| Demo theme | `wordpress-theme/ehrman-discovery-demo/` | Production-equivalent presentation and landing page |
+| Local/Render image | `wordpress-production/` | Reproducible WordPress/PHP/MySQL build and acceptance tooling |
+| Render blueprint | `render-wordpress.yaml` | WordPress and private MySQL services; applied manually |
+| Canonical discovery data | Five selected files in `data/index/` | Current JSON source of truth for imported posts and taxonomy |
+| Portable semantic index | `data/index/ehrman_post_embeddings.jsonl.gz` | Precomputed Ask AI 2 title-and-summary vectors |
 
-## Files
+The five imported JSON files are:
 
-- `scripts/ehrman_http_indexer.py`: scraper/indexer for the logged-in site.
-- `.ehrman_credentials.env.example`: template for the temporary login file.
-- `data/raw/archive_months.json`: discovered monthly archive URLs and visible counts.
-- `data/raw/post_urls.json`: discovered post URLs and archive-source metadata.
-- `data/raw/posts.jsonl`: full extracted post records, one JSON object per line.
-- `data/index/posts_index.json`: summary/tag index generated from raw posts.
-- `data/index/posts_index.csv`: spreadsheet-friendly version of the same index.
+- `ehrman_post_search_index.json`
+- `ehrman_post_topics.json`
+- `ehrman_post_categories.json`
+- `ehrman_post_subject_areas.json`
+- `ehrman_post_subject_areas_2.json`
 
-## Run
+JSON remains authoritative during development. A rebuild imports those files
+into MySQL, preserving the current workflow for downloaded posts. At the final
+source-of-truth handoff, MySQL will become authoritative and the administrator
+ingestion workflow will update it directly.
 
-Create `.ehrman_credentials.env`:
+## Local WordPress Build
 
-```ini
-EHRMAN_USERNAME=...
-EHRMAN_PASSWORD=...
-```
-
-Run a small authenticated pilot:
-
-```powershell
-python -B scripts\ehrman_http_indexer.py --reset --limit-months 1 --limit-posts 3
-```
-
-Run the full archive:
-
-```powershell
-python -B scripts\ehrman_http_indexer.py --reset
-```
-
-## Search Parity
-
-Generate the routine 500-case Python/PHP comparison suite:
-
-```powershell
-python -B scripts\search_parity.py generate --profile standard
-```
-
-Use `--profile smoke` for a quick deployment check. The much larger
-`--profile full` suite is retained only for optional stress testing.
-
-Remote captures can use smaller batches plus retry and resume support:
-
-```powershell
-python -B scripts\search_parity.py capture --base-url https://example.onrender.com `
-  --batch-size 25 --retries 5 --resume
-```
-
-## PHP comparison application
-
-The independent PHP 8.4 implementation is in `phpapp/`. It uses the same
-SQLite schema and browser assets as the Python demo while preserving the
-existing Python Render service as the reference application. See
-`phpapp/README.md` for local startup, Docker deployment, and the 500-case
-Python-to-PHP comparison workflow.
-
-## WordPress/MySQL proof of concept
-
-The WordPress migration is being developed alongside the existing demos:
-
-- Architecture and schema: `docs/wordpress_mysql_migration_architecture.md`
-- Local Docker environment: `wordpress-demo/`
-- WordPress plugin source: `wordpress-plugin/ehrman-blog-discovery/`
-
-After Docker Desktop is installed and running, bootstrap the isolated local
-environment with:
-
-```powershell
-.\wordpress-demo\setup-wordpress.ps1
-```
-
-Then verify WordPress, MySQL, the plugin, and its REST status endpoint with:
-
-```powershell
-.\wordpress-demo\verify-wordpress.ps1
-```
-
-After importing, Phase 4 is available at:
-
-- `http://localhost:8085/keyword-search/`
-- `http://localhost:8085/browse-topics-1/`
-- `http://localhost:8085/browse-topics-2/`
-
-Import and strictly verify the authoritative discovery index with:
-
-```powershell
-docker compose -f .\wordpress-demo\compose.yaml run --rm wpcli ehrman-discovery import --force --path=/var/www/html
-.\wordpress-demo\verify-wordpress.ps1 -RequireImport
-```
-
-Phase 5 parity, security, accessibility, integrity, and MySQL performance
-results are documented in `docs/wordpress_phase5_validation_report.md`.
-
-The production-equivalent Docker package is in `wordpress-production/`. It
-uses a separate port and separate volumes, bakes the plugin, theme, and import
-sources into the image, and leaves all existing demos unchanged:
+Docker Desktop must be running. Build or refresh the production-equivalent
+local system on port `8086`:
 
 ```powershell
 .\wordpress-production\setup-production-test.ps1
-.\wordpress-production\verify-production-test.ps1 -PythonExecutable <python.exe>
 ```
 
-Local readiness evidence is in
-`docs/wordpress_local_production_readiness_report.md`. The Render staging and
-rollback procedure is in `docs/wordpress_render_deployment_runbook.md`. The
-inactive staging Blueprint is `render-wordpress.yaml`; the active root
-`render.yaml` has not been changed.
+The main entry points are:
+
+- `http://localhost:8086/`
+- `http://localhost:8086/browse-topics-1/`
+- `http://localhost:8086/browse-topics-2/`
+- `http://localhost:8086/keyword-search/`
+- `http://localhost:8086/ask-ai/`
+- `http://localhost:8086/ask-ai-2/`
+- `http://localhost:8086/structure-review/`
+
+Run the complete local acceptance suite after plugin, theme, canonical-data, or
+build changes:
+
+```powershell
+.\wordpress-production\verify-production-test.ps1 `
+  -PythonExecutable 'C:\path\to\python.exe'
+```
+
+The suite validates the Docker configuration, packaged PHP syntax, imported
+counts, private source placement, public pages, representative searches,
+pagination, and focused regressions for semantic-vector coverage, post
+ingestion, and AI analytics.
+
+## Semantic Index
+
+Ask AI 2 uses one title-and-summary vector for every eligible post. The vectors
+are stored in MySQL and are not part of the canonical JSON files. A versioned,
+compressed package at `data/index/ehrman_post_embeddings.jsonl.gz` supplies the
+initial index without paid embedding calls. Fresh production-equivalent
+installations import it automatically.
+
+Export or restore the complete package through WP-CLI:
+
+```bash
+wp ehrman-discovery embeddings export --file=/secure/ehrman_post_embeddings.jsonl.gz --allow-root --path=/var/www/html
+wp ehrman-discovery embeddings import --file=/secure/ehrman_post_embeddings.jsonl.gz --allow-root --path=/var/www/html
+```
+
+Build only vectors that are missing or stale after new posts are ingested with:
+
+```bash
+wp ehrman-discovery embeddings --allow-root --path=/var/www/html
+```
+
+The selected production pipeline uses the title-and-summary vector together
+with lexical and exact topic, alias, and secondary-keyword ranking signals.
+The retired two-vector experiment is preserved only in historical evaluation
+reports under `docs/` and `data/evaluations/`.
+
+Import is transactional and idempotent. It validates the package version,
+embedding model, dimensions, post IDs, title-and-summary hashes, binary lengths,
+and vector norms before changing MySQL. The semantic index is ready only when
+every eligible post has a current vector. `wp ehrman-discovery status` reports
+current, missing, stale, and obsolete vector counts. See
+`docs/wordpress_portable_vector_index.md` for the package contract.
+
+## Render
+
+`render-wordpress.yaml` defines the current WordPress/MySQL target. Render
+updates are intentionally manual: commit and push the repository, then apply or
+deploy the WordPress service through Render and run the import/index verification
+steps in `docs/wordpress_render_deployment_runbook.md`.
+
+The root `render.yaml` belongs to the legacy Python demonstration and is not the
+WordPress handoff or deployment definition.
+
+## Development Checks
+
+The plugin has WordPress Coding Standards and maximum-level PHPStan checks:
+
+```powershell
+cd wordpress-plugin\ehrman-blog-discovery
+composer install
+composer check
+```
+
+GitHub Actions runs those static checks and the production-equivalent
+WordPress/MySQL regression suite on pushes and pull requests. The same complete
+regression suite is run locally by `verify-production-test.ps1`.
+
+## Data Maintenance
+
+The established post-ingestion workflow downloads new posts, prepares their
+descriptions and search summaries, assigns controlled topics and secondary
+keywords, updates the canonical JSON, rebuilds the local WordPress/MySQL demo,
+and creates missing title-and-summary vectors.
+
+Temporary member credentials belong only in `.ehrman_credentials.env`, which is
+ignored by Git. API keys and WordPress credentials must be supplied through
+environment variables and must never be committed.
+
+## Legacy Reference Implementations
+
+The following directories remain for historical comparison and parity evidence;
+they are not the current product or handoff target:
+
+- `webapp/` and `app.py`: Python/SQLite demonstration
+- `phpapp/`: independent PHP/SQLite comparison application
+- `wordpress-demo/`: earlier WordPress development stack on port `8085`
+- `ehrman_search_demo.html`: standalone HTML demonstration
+- `render.yaml`: legacy Python Render service
+
+Search-parity tooling and prior validation reports remain useful as historical
+evidence, but new production work should be made and verified against
+`wordpress-plugin/`, `wordpress-theme/`, and `wordpress-production/`.

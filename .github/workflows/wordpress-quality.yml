@@ -1,0 +1,37 @@
+name: WordPress quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wordpress-plugin/ehrman-blog-discovery
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          ini-values: memory_limit=1G
+          tools: composer:v2
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer check
+
+  wordpress-regressions:
+    runs-on: ubuntu-latest
+    needs: static-analysis
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and initialize WordPress/MySQL
+        shell: pwsh
+        run: ./wordpress-production/setup-production-test.ps1
+      - name: Run production acceptance and regression checks
+        shell: pwsh
+        run: ./wordpress-production/verify-production-test.ps1 -PythonExecutable python3
+      - name: Stop the test stack
+        if: always()
+        run: docker compose -f wordpress-production/compose.local.yaml down --volumes

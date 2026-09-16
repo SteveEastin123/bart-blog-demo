@@ -36,11 +36,14 @@ require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-analytics-page.php
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-interpreter.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-embedding-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-semantic-search-service.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-embedding-index-transfer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-page.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-feedback.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-parity-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-assets.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-discovery-markup.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-structure-review-renderer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-page-controller.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-activator.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-rest-controller.php';
