@@ -22,43 +22,23 @@ final class Browse_Page_Renderer {
 	private \Closure $browse_url;
 
 	/**
-	 * Shared search-panel renderer supplied by the page controller.
-	 *
-	 * @var \Closure(array<int,string>,array<int,string>,string,string,string,string):string
-	 */
-	private \Closure $search_panel;
-
-	/**
-	 * Shared result-list renderer supplied by the page controller.
-	 *
-	 * @var \Closure(array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int},string):string
-	 */
-	private \Closure $results_markup;
-
-	/**
 	 * Creates the renderer with its data and presentation collaborators.
 	 *
-	 * @param Browse_Service   $browse         Browse-taxonomy data service.
-	 * @param Search_Service   $search         Post-search service.
-	 * @param Discovery_Markup $markup         Shared discovery-page markup.
-	 * @param callable         $browse_url     Browse URL builder.
-	 * @param callable         $search_panel   Shared search-panel renderer.
-	 * @param callable         $results_markup Shared result-list renderer.
+	 * @param Browse_Service       $browse      Browse-taxonomy data service.
+	 * @param Search_Service       $search      Post-search service.
+	 * @param Discovery_Markup     $markup      Shared discovery-page markup.
+	 * @param Search_Page_Renderer $search_page Shared search-page renderer.
+	 * @param callable             $browse_url  Browse URL builder.
 	 * @phpstan-param callable(int,array<string,mixed>):string $browse_url
-	 * @phpstan-param callable(array<int,string>,array<int,string>,string,string,string,string):string $search_panel
-	 * @phpstan-param callable(array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int},string):string $results_markup
 	 */
 	public function __construct(
 		private Browse_Service $browse,
 		private Search_Service $search,
 		private Discovery_Markup $markup,
-		callable $browse_url,
-		callable $search_panel,
-		callable $results_markup
+		private Search_Page_Renderer $search_page,
+		callable $browse_url
 	) {
-		$this->browse_url     = \Closure::fromCallable( $browse_url );
-		$this->search_panel   = \Closure::fromCallable( $search_panel );
-		$this->results_markup = \Closure::fromCallable( $results_markup );
+		$this->browse_url = \Closure::fromCallable( $browse_url );
 	}
 
 	/**
@@ -302,9 +282,9 @@ final class Browse_Page_Renderer {
 		);
 		return $this->markup->shell(
 			$this->markup->heading( Database::text( $topic['name'] ?? null ), $this->markup->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
-			. $this->search_panel( $result['terms'], $term_modes, $result['sort'], $action, '', $topic_slug )
+			. $this->search_page->search_panel( $result['terms'], $term_modes, $result['sort'], true, $action, '', $topic_slug )
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $topic['name'] ?? null ) ) . '">'
-			. $this->results_markup( $result, Database::text( $topic['name'] ?? null ) ) . '</div>',
+			. $this->search_page->results_markup( $result, Database::text( $topic['name'] ?? null ) ) . '</div>',
 			'posts'
 		);
 	}
@@ -349,9 +329,9 @@ final class Browse_Page_Renderer {
 		}
 		return $this->markup->shell(
 			$this->markup->heading( Database::text( $category['name'] ?? null ), $this->markup->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
-			. $this->search_panel( $result['terms'], $term_modes, $result['sort'], $this->url( $path_number, $form_args ), $category_slug, '' )
+			. $this->search_page->search_panel( $result['terms'], $term_modes, $result['sort'], true, $this->url( $path_number, $form_args ), $category_slug, '' )
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $category['name'] ?? null ) ) . '">'
-			. $this->results_markup( $result, Database::text( $category['name'] ?? null ) ) . '</div>',
+			. $this->search_page->results_markup( $result, Database::text( $category['name'] ?? null ) ) . '</div>',
 			'posts'
 		);
 	}
@@ -406,32 +386,6 @@ final class Browse_Page_Renderer {
 	 */
 	private function url( int $path_number, array $args = array() ): string {
 		return ( $this->browse_url )( $path_number, $args );
-	}
-
-	/**
-	 * Invokes the shared search-panel renderer.
-	 *
-	 * @param array<int,string> $terms          Selected search terms.
-	 * @param array<int,string> $term_modes     Search modes aligned with selected terms.
-	 * @param string            $sort           Requested sort mode.
-	 * @param string            $action         Form action URL.
-	 * @param string            $category_scope Fixed category slug.
-	 * @param string            $topic_scope    Fixed topic slug.
-	 * @return string Search-panel markup.
-	 */
-	private function search_panel( array $terms, array $term_modes, string $sort, string $action, string $category_scope, string $topic_scope ): string {
-		return ( $this->search_panel )( $terms, $term_modes, $sort, $action, $category_scope, $topic_scope );
-	}
-
-	/**
-	 * Invokes the shared result-list renderer.
-	 *
-	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} $result  Search result data.
-	 * @param string                                                                                                                $context Topic or category context.
-	 * @return string Result-list markup.
-	 */
-	private function results_markup( array $result, string $context ): string {
-		return ( $this->results_markup )( $result, $context );
 	}
 
 	/**

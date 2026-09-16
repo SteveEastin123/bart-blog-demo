@@ -22,6 +22,24 @@ final class Discovery_Markup {
 	private int $instance = 0;
 
 	/**
+	 * Counter shared by page-level form controls.
+	 *
+	 * @var int
+	 */
+	private int $control_instance = 0;
+
+	/**
+	 * Returns a unique identifier for a page-level control.
+	 *
+	 * @param string $prefix Identifier prefix.
+	 * @return string Unique control identifier.
+	 */
+	public function next_control_id( string $prefix ): string {
+		++$this->control_instance;
+		return $prefix . '-' . $this->control_instance;
+	}
+
+	/**
 	 * Builds a content heading with optional navigation and actions.
 	 *
 	 * @param string                              $title                Heading text.
