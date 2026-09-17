@@ -11,6 +11,7 @@ use EhrmanBlogDiscovery\AI_Analytics_Page;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
+use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
 
@@ -208,6 +209,7 @@ try {
 $original_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
 $original_key    = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
 $ingestion       = new Post_Ingestion_Service();
+$ingestion_store = new Post_Ingestion_Repository();
 $taxonomy        = $ingestion->vocabulary();
 $topic           = null;
 foreach ( $taxonomy['topics'] as $candidate ) {
@@ -231,37 +233,40 @@ $proposal        = array(
 	'reviewNotes'          => array(),
 );
 $taxonomy_json    = wp_json_encode( $taxonomy );
-$proposal_json    = wp_json_encode( $proposal );
 $draft_id         = 0;
 $approved_post_id = 0;
-$assert( is_string( $taxonomy_json ) && is_string( $proposal_json ), 'The ingestion regression fixture could not be encoded.' );
+$assert( is_string( $taxonomy_json ), 'The ingestion regression taxonomy fixture could not be encoded.' );
 
 try {
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
 	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
-	$inserted = $wpdb->insert(
-		$tables['ingestion_drafts'],
+	$created = $ingestion_store->create_draft(
 		array(
-			'status'           => 'ready',
-			'source_wp_id'     => $ingestion_wp_id,
-			'title'            => 'Ingestion approval regression fixture',
-			'url'              => $ingestion_url,
-			'url_hash'         => hash( 'sha256', $ingestion_url, true ),
-			'author'           => 'Regression Test',
-			'date_text'        => 'January 2, 2026',
-			'published_at'     => '2026-01-02 12:00:00',
-			'post_text'        => 'Temporary post text retained only until approval.',
-			'proposal_json'    => $proposal_json,
-			'model'            => Post_Ingestion_Service::model_id(),
-			'prompt_version'   => Post_Ingestion_Service::prompt_version(),
-			'taxonomy_version' => hash( 'sha256', is_string( $taxonomy_json ) ? $taxonomy_json : '' ),
-			'created_by'       => 0,
-			'created_at'       => current_time( 'mysql', true ),
-			'updated_at'       => current_time( 'mysql', true ),
+			'source_wp_id' => $ingestion_wp_id,
+			'title'        => 'Ingestion approval regression fixture',
+			'url'          => $ingestion_url,
+			'author'       => 'Regression Test',
+			'date_text'    => 'January 2, 2026',
+			'published_at' => '2026-01-02 12:00:00',
+			'post_text'    => 'Temporary post text retained only until approval.',
+		),
+		hash( 'sha256', is_string( $taxonomy_json ) ? $taxonomy_json : '' ),
+		0
+	);
+	$assert( ! is_wp_error( $created ), is_wp_error( $created ) ? $created->get_error_message() : 'Could not create the ingestion approval fixture.' );
+	$draft_id = (int) $created;
+	$ingestion_store->store_analysis(
+		$draft_id,
+		$proposal,
+		array(
+			'response_id'         => 'regression-analysis',
+			'input_tokens'        => 10,
+			'cached_input_tokens' => 0,
+			'output_tokens'       => 10,
+			'reasoning_tokens'    => 0,
+			'estimated_cost_usd'  => 0.0,
 		)
 	);
-	$assert( false !== $inserted, 'Could not insert the ingestion approval fixture.' );
-	$draft_id = (int) $wpdb->insert_id;
 
 	$approved = $ingestion->approve( $draft_id, false );
 	$assert( ! is_wp_error( $approved ), is_wp_error( $approved ) ? $approved->get_error_message() : 'Ingestion approval failed.' );

@@ -27,6 +27,11 @@ final class Discovery_Request {
 	 */
 	public function __construct( ?array $query = null ) {
 		if ( null === $query ) {
+			/**
+			 * Raw query values accepted by the read-only parser.
+			 *
+			 * @var array<string,mixed> $query
+			 */
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Public read-only values are sanitized by each accessor.
 			$query = $_GET;
 		}
