@@ -1,0 +1,46 @@
+.ehrman-ingestion-editor .components-notice {
+	margin: 0 0 12px;
+	padding: 8px 12px;
+}
+
+.ehrman-ingestion-editor__loading {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.ehrman-ingestion-editor__status {
+	margin: 0 0 14px;
+}
+
+.ehrman-ingestion-editor__status > div {
+	display: grid;
+	grid-template-columns: minmax(72px, auto) 1fr;
+	gap: 10px;
+	padding: 5px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.ehrman-ingestion-editor__status dt {
+	font-weight: 600;
+}
+
+.ehrman-ingestion-editor__status dd {
+	margin: 0;
+}
+
+.ehrman-ingestion-editor__detail {
+	margin: 14px 0;
+}
+
+.ehrman-ingestion-editor__detail p {
+	margin: 4px 0 0;
+	line-height: 1.45;
+}
+
+.ehrman-ingestion-editor__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 16px;
+}

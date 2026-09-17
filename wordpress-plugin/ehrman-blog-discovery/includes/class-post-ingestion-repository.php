@@ -154,6 +154,33 @@ final class Post_Ingestion_Repository {
 	}
 
 	/**
+	 * Refreshes a pending draft from the current saved WordPress post.
+	 *
+	 * @param int                 $draft_id Draft identifier.
+	 * @param array<string,mixed> $post     Validated current post values.
+	 * @phpstan-param ValidatedPost $post
+	 */
+	public function update_pending_source( int $draft_id, array $post ): bool {
+		$updated = Database::client()->update(
+			Database::tables()['ingestion_drafts'],
+			array(
+				'title'        => $post['title'],
+				'url'          => $post['url'],
+				'url_hash'     => hash( 'sha256', $post['url'], true ),
+				'author'       => $post['author'],
+				'date_text'    => $post['date_text'],
+				'published_at' => $post['published_at'],
+				'post_text'    => $post['post_text'],
+				'updated_at'   => current_time( 'mysql', true ),
+			),
+			array( 'id' => $draft_id ),
+			array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ),
+			array( '%d' )
+		);
+		return false !== $updated;
+	}
+
+	/**
 	 * Applies one approved proposal inside a transaction.
 	 *
 	 * @param int                 $draft_id     Draft identifier.
@@ -221,6 +248,24 @@ final class Post_Ingestion_Repository {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ingestion_drafts'];
 		$sql   = $wpdb->prepare( 'SELECT * FROM %i WHERE id=%d', $table, $draft_id );
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier is internal.
+		return Database::associative_row( $wpdb->get_row( $sql, ARRAY_A ) );
+	}
+
+	/**
+	 * Returns the most recent ingestion record for a WordPress post.
+	 *
+	 * @param int $source_wp_id Source WordPress post identifier.
+	 * @return array<string,mixed>|null Draft or approval record.
+	 */
+	public function latest_for_source_wp_id( int $source_wp_id ): ?array {
+		$wpdb  = Database::client();
+		$table = Database::tables()['ingestion_drafts'];
+		$sql   = $wpdb->prepare(
+			'SELECT * FROM %i WHERE source_wp_id=%d ORDER BY updated_at DESC,id DESC LIMIT 1',
+			$table,
+			$source_wp_id
+		);
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier is internal.
 		return Database::associative_row( $wpdb->get_row( $sql, ARRAY_A ) );
 	}

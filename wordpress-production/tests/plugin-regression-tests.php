@@ -11,6 +11,7 @@ use EhrmanBlogDiscovery\AI_Analytics_Page;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
+use EhrmanBlogDiscovery\Post_Ingestion_Editor;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
@@ -290,6 +291,101 @@ try {
 	}
 	false === $original_source ? putenv( 'EHRMAN_DISCOVERY_POST_SOURCE' ) : putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $original_source );
 	false === $original_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $original_key );
+}
+
+/* Verify the post-editor bridge is permission-protected and exposes safe workflow state. */
+$editor_user_id  = 0;
+$editor_post_id  = 0;
+$editor_draft_id = 0;
+$previous_user   = get_current_user_id();
+$editor_key      = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
+try {
+	$created_user = wp_insert_user(
+		array(
+			'user_login' => 'ehrman_ingestion_editor_' . strtolower( wp_generate_password( 8, false, false ) ),
+			'user_pass'  => wp_generate_password( 24, true, true ),
+			'user_email' => 'ingestion-editor-' . wp_generate_uuid4() . '@example.test',
+			'role'       => 'administrator',
+		)
+	);
+	$assert( ! is_wp_error( $created_user ), is_wp_error( $created_user ) ? $created_user->get_error_message() : 'Could not create the ingestion editor user.' );
+	$editor_user_id = is_wp_error( $created_user ) ? 0 : (int) $created_user;
+	wp_set_current_user( $editor_user_id );
+	$created_post = wp_insert_post(
+		array(
+			'post_title'   => 'Editor ingestion regression fixture',
+			'post_content' => '<!-- wp:paragraph --><p>Explains how the saved WordPress post supplies complete text to the protected search-metadata workflow.</p><!-- /wp:paragraph -->',
+			'post_status'  => 'publish',
+			'post_type'    => 'post',
+			'post_author'  => (int) $editor_user_id,
+		),
+		true
+	);
+	$assert( ! is_wp_error( $created_post ), is_wp_error( $created_post ) ? $created_post->get_error_message() : 'Could not create the ingestion editor post.' );
+	$editor_post_id = is_wp_error( $created_post ) ? 0 : (int) $created_post;
+
+	$editor_request = new WP_REST_Request( 'GET' );
+	$editor_request->set_param( 'post_id', (int) $editor_post_id );
+	$assert_same( true, Post_Ingestion_Editor::permission( $editor_request ), 'An administrator could not access the post ingestion editor endpoint.' );
+
+	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
+	$unconfigured = Post_Ingestion_Editor::analyze( $editor_request );
+	$assert( is_wp_error( $unconfigured ), 'Editor analysis unexpectedly called the API without an ingestion key.' );
+	$assert_same( 'ehrman_ingestion_not_configured', $unconfigured->get_error_code(), 'The editor did not build valid ingestion input from the saved post.' );
+
+	$editor_taxonomy      = $ingestion_store->vocabulary();
+	$editor_taxonomy_json = wp_json_encode( $editor_taxonomy );
+	$assert( is_string( $editor_taxonomy_json ), 'The editor-ingestion taxonomy fixture could not be encoded.' );
+	$editor_created = $ingestion_store->create_draft(
+		array(
+			'source_wp_id' => (int) $editor_post_id,
+			'title'        => 'Editor ingestion regression fixture',
+			'url'          => (string) get_permalink( (int) $editor_post_id ),
+			'author'       => 'Regression Test',
+			'date_text'    => 'January 3, 2026',
+			'published_at' => '2026-01-03 12:00:00',
+			'post_text'    => 'Temporary editor-ingestion text.',
+		),
+		hash( 'sha256', $editor_taxonomy_json ),
+		(int) $editor_user_id
+	);
+	$assert( ! is_wp_error( $editor_created ), is_wp_error( $editor_created ) ? $editor_created->get_error_message() : 'Could not create the editor-ingestion draft.' );
+	$editor_draft_id = (int) $editor_created;
+	$ingestion_store->store_analysis(
+		$editor_draft_id,
+		$proposal,
+		array(
+			'response_id'         => 'editor-regression-analysis',
+			'input_tokens'        => 10,
+			'cached_input_tokens' => 0,
+			'output_tokens'       => 10,
+			'reasoning_tokens'    => 0,
+			'estimated_cost_usd'  => 0.0,
+		)
+	);
+	$editor_response = Post_Ingestion_Editor::status( $editor_request );
+	$assert( $editor_response instanceof WP_REST_Response, 'The editor status endpoint did not return a REST response.' );
+	$editor_data = $editor_response->get_data();
+	$assert( is_array( $editor_data ) && is_array( $editor_data['draft'] ?? null ), 'The editor status response omitted the ingestion draft.' );
+	$assert_same( $editor_draft_id, (int) $editor_data['draft']['id'], 'The editor status response selected the wrong ingestion draft.' );
+	$assert_same( 'ready', $editor_data['draft']['status'], 'The editor status response changed the proposal state.' );
+	$assert( ! array_key_exists( 'post_text', $editor_data['draft'] ), 'The editor status response exposed retained full post text.' );
+
+	wp_set_current_user( 0 );
+	$denied = Post_Ingestion_Editor::permission( $editor_request );
+	$assert( is_wp_error( $denied ) && 'ehrman_ingestion_forbidden' === $denied->get_error_code(), 'The editor endpoint allowed an unauthenticated request.' );
+} finally {
+	wp_set_current_user( $previous_user );
+	if ( $editor_draft_id > 0 ) {
+		$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $editor_draft_id ) );
+	}
+	if ( $editor_post_id > 0 ) {
+		wp_delete_post( $editor_post_id, true );
+	}
+	if ( $editor_user_id > 0 ) {
+		wp_delete_user( $editor_user_id );
+	}
+	false === $editor_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $editor_key );
 }
 
 /* Verify total and average analytics costs include initial and refinement calls. */

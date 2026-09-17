@@ -475,7 +475,7 @@ final class Post_Ingestion_Page {
 	 *
 	 * @param int $draft_id Draft identifier, or zero for the index.
 	 */
-	private static function page_url( int $draft_id = 0 ): string {
+	public static function page_url( int $draft_id = 0 ): string {
 		$url = admin_url( 'tools.php?page=' . self::PAGE_SLUG );
 		return $draft_id > 0 ? add_query_arg( 'draft', $draft_id, $url ) : $url;
 	}

@@ -21,6 +21,12 @@ topics, and secondary keywords for review. Approval remains disabled while JSON
 is authoritative and can be enabled after the planned MySQL source-of-truth
 handoff.
 
+The block editor includes a Search Metadata panel for published posts. It uses
+the saved WordPress post as the trusted source, exposes the current proposal and
+vector status, and provides protected analysis, review, approval, reanalysis,
+and vector-retry controls. The Tools > Post Ingestion page remains available for
+detailed review and as an administrative fallback.
+
 == Installation ==
 
 1. Copy the plugin directory to `wp-content/plugins/ehrman-blog-discovery`.
@@ -43,6 +49,8 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 * Added an administrator-only full-post ingestion, editorial review, approval,
   audit, and title-and-summary vector workflow for the future
   MySQL-authoritative deployment.
+* Added an administrator-only Search Metadata panel to the WordPress post editor
+  with nonce-protected workflow actions and links to the full review screen.
 * Added separate ingestion API configuration and preserved JSON-authoritative
   approval locking for the current deployment phase.
 

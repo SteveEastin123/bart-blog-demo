@@ -192,6 +192,37 @@ final class Post_Ingestion_Service {
 	}
 
 	/**
+	 * Refreshes a pending draft from a saved WordPress post before reanalysis.
+	 *
+	 * @param int                 $draft_id Draft identifier.
+	 * @param array<string,mixed> $input    Current saved post values.
+	 * @return array<string,mixed>|WP_Error Updated draft or error.
+	 */
+	public function reanalyze_post( int $draft_id, array $input ) {
+		$draft = $this->draft( $draft_id );
+		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
+			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+		}
+		if ( ! self::is_configured() ) {
+			return new WP_Error(
+				'ehrman_ingestion_not_configured',
+				__( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before reanalyzing a post.', 'ehrman-blog-discovery' )
+			);
+		}
+		$validated = $this->validator->validate_submission( $input );
+		if ( is_wp_error( $validated ) ) {
+			return $validated;
+		}
+		if ( Database::integer( $draft['source_wp_id'] ?? null ) !== $validated['source_wp_id'] ) {
+			return new WP_Error( 'ehrman_ingestion_post_mismatch', __( 'The saved post does not match this ingestion draft.', 'ehrman-blog-discovery' ) );
+		}
+		if ( ! $this->repository->update_pending_source( $draft_id, $validated ) ) {
+			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The saved post could not be copied into the ingestion draft.', 'ehrman-blog-discovery' ) );
+		}
+		return $this->reanalyze( $draft_id );
+	}
+
+	/**
 	 * Stores administrator revisions without modifying the live index.
 	 *
 	 * @param int                 $draft_id Draft identifier.
@@ -333,6 +364,16 @@ final class Post_Ingestion_Service {
 	 */
 	public function draft( int $draft_id ): ?array {
 		return $this->repository->draft( $draft_id );
+	}
+
+	/**
+	 * Returns the most recent ingestion record for a WordPress post.
+	 *
+	 * @param int $source_wp_id Source WordPress post identifier.
+	 * @return array<string,mixed>|null Draft or approval record.
+	 */
+	public function latest_for_post( int $source_wp_id ): ?array {
+		return $this->repository->latest_for_source_wp_id( $source_wp_id );
 	}
 
 	/**
