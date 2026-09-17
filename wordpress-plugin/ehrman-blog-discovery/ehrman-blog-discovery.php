@@ -42,8 +42,10 @@ require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-page.p
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-feedback.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-parity-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-assets.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-discovery-request.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-discovery-markup.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-search-page-renderer.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ask-ai-page-renderer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-browse-page-renderer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-structure-review-renderer.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-page-controller.php';

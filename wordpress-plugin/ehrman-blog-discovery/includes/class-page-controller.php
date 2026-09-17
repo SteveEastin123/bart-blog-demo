@@ -28,6 +28,13 @@ final class Page_Controller {
 	private Search_Service $search;
 
 	/**
+	 * Sanitized public discovery request.
+	 *
+	 * @var Discovery_Request
+	 */
+	private Discovery_Request $request;
+
+	/**
 	 * Shared discovery-page markup.
 	 *
 	 * @var Discovery_Markup
@@ -40,6 +47,13 @@ final class Page_Controller {
 	 * @var Search_Page_Renderer
 	 */
 	private Search_Page_Renderer $search_page;
+
+	/**
+	 * Ask AI 1 and Ask AI 2 page renderer.
+	 *
+	 * @var Ask_AI_Page_Renderer
+	 */
+	private Ask_AI_Page_Renderer $ask_ai_page;
 
 	/**
 	 * Browse Topics page renderer.
@@ -59,8 +73,10 @@ final class Page_Controller {
 	public function __construct() {
 		$this->browse           = new Browse_Service();
 		$this->search           = new Search_Service();
+		$this->request          = new Discovery_Request();
 		$this->markup           = new Discovery_Markup();
 		$this->search_page      = new Search_Page_Renderer( $this->browse, $this->search, $this->markup );
+		$this->ask_ai_page      = new Ask_AI_Page_Renderer( $this->markup, $this->search_page );
 		$this->browse_page      = new Browse_Page_Renderer(
 			$this->browse,
 			$this->search,
@@ -201,11 +217,11 @@ final class Page_Controller {
 			return $this->not_ready();
 		}
 		Assets::enqueue();
-		$terms         = $this->request_terms();
-		$term_modes    = $this->request_term_modes( $terms );
-		$sort          = $this->request_value( 'ebd_sort', 'ranked' );
-		$page          = $this->request_page();
-		$category_slug = sanitize_title( $this->request_value( 'ebd_category' ) );
+		$terms         = $this->request->terms();
+		$term_modes    = $this->search->resolve_term_modes( $terms, $this->request->term_modes() );
+		$sort          = $this->request->value( 'ebd_sort', 'ranked' );
+		$page          = $this->request->page();
+		$category_slug = $this->request->slug( 'ebd_category' );
 		return $this->search_page->render_keyword_search(
 			$terms,
 			$term_modes,
@@ -226,12 +242,12 @@ final class Page_Controller {
 			return $this->not_ready();
 		}
 		Assets::enqueue();
-		$question   = $this->request_value( 'ebd_question' );
-		$request_id = sanitize_text_field( $this->request_value( 'ebd_ai_request' ) );
-		$terms      = $this->request_terms();
-		$term_modes = $this->request_term_modes( $terms );
-		$sort       = $this->request_value( 'ebd_sort', 'ranked' );
-		$page       = $this->request_page();
+		$question   = $this->request->value( 'ebd_question' );
+		$request_id = $this->request->value( 'ebd_ai_request' );
+		$terms      = $this->request->terms();
+		$term_modes = $this->search->resolve_term_modes( $terms, $this->request->term_modes() );
+		$sort       = $this->request->value( 'ebd_sort', 'ranked' );
+		$page       = $this->request->page();
 		$has_terms  = ! empty( $terms );
 		$result     = $has_terms
 			? $this->search->search( $terms, $sort, '', '', $page, Search_Service::POSTS_PER_PAGE, $term_modes )
@@ -252,29 +268,15 @@ final class Page_Controller {
 			&& '' !== trim( $question )
 			&& 1 === preg_match( '/^[a-f0-9-]{36}$/', $request_id );
 
-		return $this->markup->shell(
-			$this->question_panel( $question, $result['sort'] )
-			. ( $has_terms
-				? $this->search_page->search_panel(
-					$terms,
-					$term_modes,
-					$result['sort'],
-					true,
-					$this->page_url( 'ask_question' ),
-					'',
-					'',
-					null,
-					'',
-					'<input type="hidden" name="ebd_question" value="' . esc_attr( $question ) . '"><input type="hidden" name="ebd_ai_request" value="' . esc_attr( $request_id ) . '">',
-					true
-				)
-				: '<div class="ebd-description-control">' . $this->markup->description_control( 'always', 'posts' ) . '</div>' )
-			. '<div id="ebd-results" class="ebd-results" data-ebd-results>'
-			. ( $auto_refine
-				? $this->automatic_refinement_markup()
-				: ( $has_terms ? $this->search_page->results_markup( $result, '', $question, $request_id ) : '' ) )
-			. '</div>',
-			'ask-question'
+		return $this->ask_ai_page->render_ask_ai_1(
+			$question,
+			$request_id,
+			$terms,
+			$term_modes,
+			$result,
+			$auto_refine,
+			AI_Interpreter::is_configured(),
+			$this->page_url( 'ask_question' )
 		);
 	}
 
@@ -288,104 +290,18 @@ final class Page_Controller {
 			return $this->not_ready();
 		}
 		Assets::enqueue();
-		$question = $this->request_value( 'ebd_question' );
-		$sort     = $this->request_value( 'ebd_sort', 'ranked' );
+		$question = $this->request->value( 'ebd_question' );
+		$sort     = $this->request->value( 'ebd_sort', 'ranked' );
 		$status   = ( new Semantic_Search_Service() )->status();
 
-		return $this->markup->shell(
-			$this->semantic_question_panel( $question, $sort, $status )
-			. '<div class="ebd-description-control">' . $this->markup->description_control( 'always', 'posts' ) . '</div>'
-			. '<div id="ebd-results" class="ebd-results" data-ebd-results></div>',
-			'ask-ai-2'
+		return $this->ask_ai_page->render_ask_ai_2(
+			$question,
+			$sort,
+			$status,
+			AI_Interpreter::is_configured(),
+			Embedding_Service::is_configured(),
+			$this->page_url( 'ask_ai_2' )
 		);
-	}
-
-	/**
-	 * Builds the Ask AI form and interpretation review.
-	 *
-	 * @param string $question Reader question.
-	 * @param string $sort     Selected result order.
-	 * @return string Question form markup.
-	 */
-	private function question_panel( string $question, string $sort ): string {
-		$id           = $this->markup->next_control_id( 'ebd-question' );
-		$sort_options = array();
-		foreach ( array(
-			'ranked' => 'Best match',
-			'newest' => 'Newest first',
-			'oldest' => 'Oldest first',
-		) as $value => $label ) {
-			$sort_options[] = '<label class="ebd-sort-choice"><input type="radio" name="ebd_sort" value="' . esc_attr( $value )
-				. '"' . checked( $sort, $value, false ) . '><span>' . esc_html( $label ) . '</span></label>';
-		}
-		$configured_message = AI_Interpreter::is_configured()
-			? ''
-			: '<p class="ebd-question-configuration">' . esc_html__( 'Local AI credentials must be configured before questions can be interpreted.', 'ehrman-blog-discovery' ) . '</p>';
-		$review_markup      = '<section class="ebd-question-review" data-ebd-question-review hidden><h3>'
-			. esc_html__( 'Review the interpreted search', 'ehrman-blog-discovery' ) . '</h3><p>'
-			. esc_html__( 'These are the topics and keywords selected from your question. Remove any that do not reflect what you intended.', 'ehrman-blog-discovery' )
-			. '</p><ul data-ebd-question-terms></ul><div class="ebd-sort-row"><span>'
-			. esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>' . implode( '', $sort_options )
-			. '</div><div class="ebd-question-actions"><button type="submit" class="ebd-question-search" data-ebd-question-search disabled>'
-			. esc_html__( 'Search posts', 'ehrman-blog-discovery' ) . '</button></div></section>';
-
-		return '<form class="ebd-question-panel" action="' . esc_url( $this->page_url( 'ask_question' ) )
-			. '" method="get" data-ebd-question-form><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><div id="' . esc_attr( $id )
-			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
-			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review.', 'ehrman-blog-discovery' )
-			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
-			. 'placeholder="' . esc_attr__( 'Example: How do the teachings of Paul differ from those of Jesus?', 'ehrman-blog-discovery' )
-			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
-			. '<button type="button" class="ebd-question-interpret" data-ebd-question-interpret'
-			. ( AI_Interpreter::is_configured() ? '' : ' disabled' ) . '>' . esc_html__( 'Submit', 'ehrman-blog-discovery' )
-			. '</button><button type="button" class="ebd-question-clear" data-ebd-question-clear>'
-			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>' . $configured_message
-			. '<p class="ebd-question-status" data-ebd-question-status aria-live="polite"></p>'
-			. $review_markup . '</div></form>';
-	}
-
-	/**
-	 * Builds the streamlined Ask AI 2 question form.
-	 *
-	 * @param string              $question Reader question.
-	 * @param string              $sort     Selected result order.
-	 * @param array<string,mixed> $status   Semantic index status.
-	 * @return string Question form markup.
-	 */
-	private function semantic_question_panel( string $question, string $sort, array $status ): string {
-		$id           = $this->markup->next_control_id( 'ebd-semantic-question' );
-		$sort_options = array();
-		foreach ( array(
-			'ranked' => 'Best match',
-			'newest' => 'Newest first',
-			'oldest' => 'Oldest first',
-		) as $value => $label ) {
-			$sort_options[] = '<label class="ebd-sort-choice"><input type="radio" name="ebd_sort" value="' . esc_attr( $value )
-				. '"' . checked( $sort, $value, false ) . '><span>' . esc_html( $label ) . '</span></label>';
-		}
-		$configured = AI_Interpreter::is_configured() && Embedding_Service::is_configured() && $status['ready'];
-		$message    = '';
-		if ( ! AI_Interpreter::is_configured() || ! Embedding_Service::is_configured() ) {
-			$message = __( 'Local AI credentials must be configured before semantic search can run.', 'ehrman-blog-discovery' );
-		} elseif ( ! $status['ready'] ) {
-			$message = __( 'The semantic post index must be built before Ask AI 2 can run.', 'ehrman-blog-discovery' );
-		}
-
-		return '<form class="ebd-question-panel ebd-semantic-panel" action="' . esc_url( $this->page_url( 'ask_ai_2' ) )
-			. '" method="get" data-ebd-semantic-form' . ( '' !== trim( $question ) ? ' data-ebd-auto-run="true"' : '' )
-			. '><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><label for="' . esc_attr( $id ) . '"><strong>'
-			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review.', 'ehrman-blog-discovery' )
-			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required placeholder="'
-			. esc_attr__( 'Example: How does Luke change Mark?', 'ehrman-blog-discovery' )
-			. '" data-ebd-semantic-question>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
-			. '<button type="submit" class="ebd-question-interpret" data-ebd-semantic-submit' . ( $configured ? '' : ' disabled' ) . '>'
-			. esc_html__( 'Submit', 'ehrman-blog-discovery' ) . '</button><button type="button" class="ebd-question-clear" data-ebd-semantic-clear>'
-			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>'
-			. ( '' === $message ? '' : '<p class="ebd-question-configuration">' . esc_html( $message ) . '</p>' )
-			. '<p class="ebd-question-status" data-ebd-semantic-status aria-live="polite"></p><div class="ebd-sort-row ebd-semantic-sort"><span>'
-			. esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>' . implode( '', $sort_options ) . '</div></form>';
 	}
 
 	/**
@@ -404,11 +320,11 @@ final class Page_Controller {
 		Assets::enqueue();
 		$attributes    = shortcode_atts( array( 'path' => '1' ), $attributes, 'ehrman_browse_topics' );
 		$path_number   = '2' === Database::text( $attributes['path'] ) ? 2 : 1;
-		$subject_slug  = sanitize_title( $this->request_value( 'ebd_subject' ) );
-		$category_slug = sanitize_title( $this->request_value( 'ebd_category' ) );
-		$topic_slug    = sanitize_title( $this->request_value( 'ebd_topic' ) );
-		$view          = sanitize_key( $this->request_value( 'ebd_view' ) );
-		$terms         = $this->request_terms();
+		$subject_slug  = $this->request->slug( 'ebd_subject' );
+		$category_slug = $this->request->slug( 'ebd_category' );
+		$topic_slug    = $this->request->slug( 'ebd_topic' );
+		$view          = $this->request->key( 'ebd_view' );
+		$terms         = $this->request->terms();
 
 		return $this->browse_page->render(
 			$path_number,
@@ -417,9 +333,9 @@ final class Page_Controller {
 			$topic_slug,
 			$view,
 			$terms,
-			$this->request_term_modes( $terms ),
-			$this->request_value( 'ebd_sort', 'ranked' ),
-			$this->request_page()
+			$this->search->resolve_term_modes( $terms, $this->request->term_modes() ),
+			$this->request->value( 'ebd_sort', 'ranked' ),
+			$this->request->page()
 		);
 	}
 
@@ -434,18 +350,10 @@ final class Page_Controller {
 		}
 		Assets::enqueue();
 		return $this->structure_review->render(
-			'2' === $this->request_value( 'ebd_path' ) ? 2 : 1,
-			sanitize_key( $this->request_value( 'ebd_view' ) ),
+			'2' === $this->request->value( 'ebd_path' ) ? 2 : 1,
+			$this->request->key( 'ebd_view' ),
 			$this->page_url( 'structure_review' )
 		);
-	}
-
-	/** Builds the pending state shown while Ask AI refines broader matches. */
-	private function automatic_refinement_markup(): string {
-		return '<div class="ebd-ai-refine is-loading" data-ebd-ai-refine data-ebd-auto-refine aria-live="polite">'
-			. '<span data-ebd-refine-status>'
-			. esc_html__( 'AI is reviewing the matching post titles and summaries...', 'ehrman-blog-discovery' )
-			. '</span></div>';
 	}
 
 	/**
@@ -456,66 +364,6 @@ final class Page_Controller {
 	private function not_ready(): string {
 		Assets::enqueue();
 		return '<div class="ebd-notice">' . esc_html__( 'Discovery data has not been imported yet.', 'ehrman-blog-discovery' ) . '</div>';
-	}
-
-	/**
-	 * Reads and sanitizes selected search terms from the public query string.
-	 *
-	 * @return array<int,string> Unique search terms.
-	 */
-	private function request_terms(): array {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Public read-only values are sanitized immediately below.
-		$raw = isset( $_GET['ebd_keyword'] ) ? wp_unslash( $_GET['ebd_keyword'] ) : array();
-		$raw = is_array( $raw ) ? $raw : array( $raw );
-		$raw = array_values( array_filter( $raw, 'is_scalar' ) );
-		return Search_Service::unique_terms(
-			array_map( static fn( $value ): string => sanitize_text_field( Database::text( $value ) ), $raw )
-		);
-	}
-
-	/**
-	 * Reads selected-term modes and resolves missing legacy values.
-	 *
-	 * @param array<int,string> $terms Sanitized selected terms.
-	 * @return array<int,string> Modes aligned with the selected terms.
-	 */
-	private function request_term_modes( array $terms ): array {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Public read-only values are sanitized below.
-		$raw = isset( $_GET['ebd_term_mode'] ) ? wp_unslash( $_GET['ebd_term_mode'] ) : array();
-		$raw = is_array( $raw ) ? $raw : array( $raw );
-		$raw = array_values(
-			array_map(
-				static fn( $value ): string => sanitize_key( is_scalar( $value ) ? (string) $value : '' ),
-				$raw
-			)
-		);
-		return $this->search->resolve_term_modes( $terms, $raw );
-	}
-
-	/**
-	 * Reads the requested results page from the public query string.
-	 *
-	 * @return int Positive results page number.
-	 */
-	private function request_page(): int {
-		return max( 1, Database::integer( $this->request_value( 'ebd_page', '1' ) ) );
-	}
-
-	/**
-	 * Reads one sanitized scalar value from the public query string.
-	 *
-	 * @param string $name    Query parameter name.
-	 * @param string $fallback Fallback value.
-	 * @return string Sanitized query value.
-	 */
-	private function request_value( string $name, string $fallback = '' ): string {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Public read-only search parameters.
-		if ( ! isset( $_GET[ $name ] ) || is_array( $_GET[ $name ] ) ) {
-			return $fallback;
-		}
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.ValidatedSanitizedInput.MissingUnslash -- Public read-only value is converted, unslashed, and sanitized immediately below.
-		$raw_value = Database::text( $_GET[ $name ] );
-		return sanitize_text_field( wp_unslash( $raw_value ) );
 	}
 
 	/**
