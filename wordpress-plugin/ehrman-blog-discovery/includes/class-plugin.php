@@ -72,6 +72,7 @@ final class Plugin {
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		add_action( 'admin_post_ehrman_discovery_import', array( $this, 'handle_admin_import' ) );
 		AI_Analytics_Page::register();
+		Post_Ingestion_Queue::register();
 		Post_Ingestion_Page::register();
 		Post_Ingestion_Editor::register();
 		add_shortcode( 'ehrman_discovery_status', array( $this, 'render_status_shortcode' ) );

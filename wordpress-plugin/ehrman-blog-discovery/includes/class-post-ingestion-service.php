@@ -7,6 +7,7 @@
 
 namespace EhrmanBlogDiscovery;
 
+use Throwable;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,8 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @phpstan-type Proposal array{description:string,searchSummary:string,topics:list<string>,topicRationales:list<TopicRationale>,secondaryKeywords:list<string>,newSecondaryKeywords:list<string>,status:string,reviewNotes:list<string>}
  */
 final class Post_Ingestion_Service {
-	private const STATUS_APPROVED = 'approved';
-	private const STATUS_READY    = 'ready';
+	private const STATUS_ANALYZING = 'analyzing';
+	private const STATUS_APPROVED  = 'approved';
+	private const STATUS_QUEUED    = 'queued';
+	private const STATUS_READY     = 'ready';
+	private const STALE_AFTER      = 10 * MINUTE_IN_SECONDS;
 
 	/**
 	 * Ingestion persistence.
@@ -103,7 +107,7 @@ final class Post_Ingestion_Service {
 	}
 
 	/**
-	 * Validates post metadata, stores a pending draft, and analyzes its full text.
+	 * Validates post metadata, stores a pending draft, and queues its analysis.
 	 *
 	 * @param array<string,mixed> $input   Submitted metadata and full text.
 	 * @param int                 $user_id Administrator user identifier.
@@ -125,6 +129,10 @@ final class Post_Ingestion_Service {
 		if ( '' !== $duplicate ) {
 			return new WP_Error( 'ehrman_ingestion_duplicate', $duplicate );
 		}
+		$pending_duplicate = $this->repository->pending_duplicate_message( $validated['source_wp_id'], $validated['url'] );
+		if ( '' !== $pending_duplicate ) {
+			return new WP_Error( 'ehrman_ingestion_duplicate', $pending_duplicate );
+		}
 
 		$taxonomy      = $this->repository->vocabulary();
 		$taxonomy_hash = $this->taxonomy_hash( $taxonomy );
@@ -133,21 +141,11 @@ final class Post_Ingestion_Service {
 			return $draft_id;
 		}
 
-		$result = $this->analyzer->analyze( $validated, $taxonomy, $taxonomy_hash, $user_id );
-		if ( is_wp_error( $result ) ) {
-			$this->repository->mark_analysis_error( $draft_id, $result->get_error_message() );
-			return $this->draft( $draft_id ) ?? $result;
-		}
-		$this->repository->store_analysis( $draft_id, $result['proposal'], $result['metrics'] );
-
-		$stored = $this->draft( $draft_id );
-		return null === $stored
-			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The analyzed draft could not be reloaded.', 'ehrman-blog-discovery' ) )
-			: $stored;
+		return $this->schedule_draft( $draft_id );
 	}
 
 	/**
-	 * Repeats analysis for a stored draft after a temporary failure or requested revision.
+	 * Queues a stored draft after a temporary failure or requested revision.
 	 *
 	 * @param int $draft_id Draft identifier.
 	 * @return array<string,mixed>|WP_Error Updated draft or error.
@@ -166,29 +164,21 @@ final class Post_Ingestion_Service {
 		if ( '' === trim( Database::text( $draft['post_text'] ?? null ) ) ) {
 			return new WP_Error( 'ehrman_ingestion_missing_text', __( 'The draft no longer contains full post text.', 'ehrman-blog-discovery' ) );
 		}
+		$status = sanitize_key( Database::text( $draft['status'] ?? null ) );
+		if ( self::STATUS_QUEUED === $status ) {
+			return $this->schedule_draft( $draft_id );
+		}
+		if ( self::STATUS_ANALYZING === $status && ! self::analysis_is_stale( $draft ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Analysis is already running in the background.', 'ehrman-blog-discovery' ) );
+		}
 
 		$taxonomy      = $this->repository->vocabulary();
 		$taxonomy_hash = $this->taxonomy_hash( $taxonomy );
-		$input         = array(
-			'source_wp_id' => Database::integer( $draft['source_wp_id'] ?? null ),
-			'title'        => Database::text( $draft['title'] ?? null ),
-			'url'          => Database::text( $draft['url'] ?? null ),
-			'author'       => Database::text( $draft['author'] ?? null ),
-			'date_text'    => Database::text( $draft['date_text'] ?? null ),
-			'published_at' => Database::text( $draft['published_at'] ?? null ),
-			'post_text'    => Database::text( $draft['post_text'] ?? null ),
-		);
-		$result        = $this->analyzer->analyze( $input, $taxonomy, $taxonomy_hash, Database::integer( $draft['created_by'] ?? null ) );
-		if ( is_wp_error( $result ) ) {
-			$this->repository->mark_analysis_error( $draft_id, $result->get_error_message() );
-			return $this->draft( $draft_id ) ?? $result;
+		if ( ! $this->repository->queue_analysis( $draft_id, $taxonomy_hash ) ) {
+			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The ingestion draft could not be queued for analysis.', 'ehrman-blog-discovery' ) );
 		}
-		$this->repository->store_analysis( $draft_id, $result['proposal'], $result['metrics'], $taxonomy_hash );
-
-		$stored = $this->draft( $draft_id );
-		return null === $stored
-			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The reanalyzed draft could not be reloaded.', 'ehrman-blog-discovery' ) )
-			: $stored;
+		Post_Ingestion_Queue::cancel( $draft_id );
+		return $this->schedule_draft( $draft_id );
 	}
 
 	/**
@@ -209,6 +199,9 @@ final class Post_Ingestion_Service {
 				__( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before reanalyzing a post.', 'ehrman-blog-discovery' )
 			);
 		}
+		if ( self::analysis_is_active( $draft ) && ! self::analysis_is_stale( $draft ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Analysis is already queued or running in the background.', 'ehrman-blog-discovery' ) );
+		}
 		$validated = $this->validator->validate_submission( $input );
 		if ( is_wp_error( $validated ) ) {
 			return $validated;
@@ -220,6 +213,64 @@ final class Post_Ingestion_Service {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The saved post could not be copied into the ingestion draft.', 'ehrman-blog-discovery' ) );
 		}
 		return $this->reanalyze( $draft_id );
+	}
+
+	/**
+	 * Claims and processes one queued draft from the background worker.
+	 *
+	 * @param int $draft_id Draft identifier.
+	 * @return array<string,mixed>|WP_Error|null Updated draft, error, or null when another worker claimed it.
+	 */
+	public function process_queued( int $draft_id ) {
+		$attempt = $this->repository->claim_analysis( $draft_id );
+		if ( $attempt < 1 ) {
+			return null;
+		}
+		$draft = $this->draft( $draft_id );
+		if ( null === $draft ) {
+			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The queued ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+		}
+		if ( ! self::is_configured() ) {
+			$error = new WP_Error( 'ehrman_ingestion_not_configured', __( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before analyzing a post.', 'ehrman-blog-discovery' ) );
+			$this->repository->mark_analysis_error( $draft_id, $error->get_error_message(), $attempt );
+			return $error;
+		}
+		$input = array(
+			'source_wp_id' => Database::integer( $draft['source_wp_id'] ?? null ),
+			'title'        => Database::text( $draft['title'] ?? null ),
+			'url'          => Database::text( $draft['url'] ?? null ),
+			'author'       => Database::text( $draft['author'] ?? null ),
+			'date_text'    => Database::text( $draft['date_text'] ?? null ),
+			'published_at' => Database::text( $draft['published_at'] ?? null ),
+			'post_text'    => Database::text( $draft['post_text'] ?? null ),
+		);
+		if ( '' === trim( $input['post_text'] ) ) {
+			$error = new WP_Error( 'ehrman_ingestion_missing_text', __( 'The draft no longer contains full post text.', 'ehrman-blog-discovery' ) );
+			$this->repository->mark_analysis_error( $draft_id, $error->get_error_message(), $attempt );
+			return $error;
+		}
+
+		try {
+			$taxonomy      = $this->repository->vocabulary();
+			$taxonomy_hash = $this->taxonomy_hash( $taxonomy );
+			$result        = $this->analyzer->analyze( $input, $taxonomy, $taxonomy_hash, Database::integer( $draft['created_by'] ?? null ) );
+			if ( is_wp_error( $result ) ) {
+				$this->repository->mark_analysis_error( $draft_id, $result->get_error_message(), $attempt );
+				return $result;
+			}
+			if ( ! $this->repository->store_analysis( $draft_id, $result['proposal'], $result['metrics'], $taxonomy_hash, $attempt ) ) {
+				return $this->draft( $draft_id );
+			}
+		} catch ( Throwable $error ) {
+			$message = __( 'Background analysis stopped unexpectedly. Retry the analysis.', 'ehrman-blog-discovery' );
+			$this->repository->mark_analysis_error( $draft_id, $message, $attempt );
+			return new WP_Error( 'ehrman_ingestion_analysis_failed', $message, $error->getMessage() );
+		}
+
+		$stored = $this->draft( $draft_id );
+		return null === $stored
+			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The analyzed draft could not be reloaded.', 'ehrman-blog-discovery' ) )
+			: $stored;
 	}
 
 	/**
@@ -350,10 +401,38 @@ final class Post_Ingestion_Service {
 	 */
 	public function discard( int $draft_id ): bool {
 		$draft = $this->draft( $draft_id );
-		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
+		if ( null === $draft || in_array( $draft['status'], array( self::STATUS_ANALYZING, self::STATUS_APPROVED ), true ) ) {
 			return false;
 		}
+		Post_Ingestion_Queue::cancel( $draft_id );
 		return $this->repository->delete_draft( $draft_id );
+	}
+
+	/**
+	 * Returns whether a draft is waiting for or currently undergoing analysis.
+	 *
+	 * @param array<string,mixed> $draft Draft record.
+	 */
+	public static function analysis_is_active( array $draft ): bool {
+		return in_array(
+			sanitize_key( Database::text( $draft['status'] ?? null ) ),
+			array( self::STATUS_QUEUED, self::STATUS_ANALYZING ),
+			true
+		);
+	}
+
+	/**
+	 * Returns whether an analyzing draft has exceeded the recovery threshold.
+	 *
+	 * @param array<string,mixed> $draft Draft record.
+	 */
+	public static function analysis_is_stale( array $draft ): bool {
+		if ( self::STATUS_ANALYZING !== sanitize_key( Database::text( $draft['status'] ?? null ) ) ) {
+			return false;
+		}
+		$started = Database::text( $draft['analysis_started_at'] ?? $draft['updated_at'] ?? null );
+		$updated = strtotime( $started . ' UTC' );
+		return false !== $updated && time() - $updated >= self::STALE_AFTER;
 	}
 
 	/**
@@ -403,5 +482,23 @@ final class Post_Ingestion_Service {
 	private function taxonomy_hash( array $taxonomy ): string {
 		$taxonomy_json = wp_json_encode( $taxonomy );
 		return hash( 'sha256', is_string( $taxonomy_json ) ? $taxonomy_json : '' );
+	}
+
+	/**
+	 * Schedules a stored draft and returns its current state.
+	 *
+	 * @param int $draft_id Draft identifier.
+	 * @return array<string,mixed>|WP_Error Queued draft or scheduling error.
+	 */
+	private function schedule_draft( int $draft_id ) {
+		$scheduled = Post_Ingestion_Queue::schedule( $draft_id );
+		if ( is_wp_error( $scheduled ) ) {
+			$this->repository->mark_analysis_error( $draft_id, $scheduled->get_error_message() );
+			return $scheduled;
+		}
+		$stored = $this->draft( $draft_id );
+		return null === $stored
+			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The queued draft could not be reloaded.', 'ehrman-blog-discovery' ) )
+			: $stored;
 	}
 }

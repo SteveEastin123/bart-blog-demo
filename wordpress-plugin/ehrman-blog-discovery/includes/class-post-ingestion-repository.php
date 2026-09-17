@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 final class Post_Ingestion_Repository {
 	/**
-	 * Creates an analyzing draft and returns its identifier.
+	 * Creates a queued draft and returns its identifier.
 	 *
 	 * @param array<string,mixed> $post          Validated post.
 	 * @param string              $taxonomy_hash Taxonomy fingerprint.
@@ -42,7 +42,7 @@ final class Post_Ingestion_Repository {
 		$inserted = $wpdb->insert(
 			Database::tables()['ingestion_drafts'],
 			array(
-				'status'           => 'analyzing',
+				'status'           => 'queued',
 				'source_wp_id'     => $post['source_wp_id'],
 				'title'            => $post['title'],
 				'url'              => $post['url'],
@@ -66,23 +66,88 @@ final class Post_Ingestion_Repository {
 	}
 
 	/**
+	 * Atomically claims one queued draft for background analysis.
+	 *
+	 * @param int $draft_id Draft identifier.
+	 */
+	public function claim_analysis( int $draft_id ): int {
+		$wpdb  = Database::client();
+		$table = Database::tables()['ingestion_drafts'];
+		$sql   = $wpdb->prepare(
+			'UPDATE %i SET status=%s,error_message=NULL,analysis_attempt=analysis_attempt+1,analysis_started_at=%s,updated_at=%s WHERE id=%d AND status=%s',
+			$table,
+			'analyzing',
+			current_time( 'mysql', true ),
+			current_time( 'mysql', true ),
+			$draft_id,
+			'queued'
+		);
+		if ( ! is_string( $sql ) ) {
+			return 0;
+		}
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier is internal.
+		if ( 1 !== $wpdb->query( $sql ) ) {
+			return 0;
+		}
+		$draft = $this->draft( $draft_id );
+		return null === $draft ? 0 : Database::integer( $draft['analysis_attempt'] ?? null );
+	}
+
+	/**
+	 * Resets a pending draft for a fresh background analysis attempt.
+	 *
+	 * @param int    $draft_id     Draft identifier.
+	 * @param string $taxonomy_hash Current taxonomy fingerprint.
+	 */
+	public function queue_analysis( int $draft_id, string $taxonomy_hash ): bool {
+		$wpdb  = Database::client();
+		$table = Database::tables()['ingestion_drafts'];
+		$sql   = $wpdb->prepare(
+			'UPDATE %i SET status=%s,proposal_json=NULL,model=%s,prompt_version=%s,taxonomy_version=%s,response_id=%s,input_tokens=0,cached_input_tokens=0,output_tokens=0,reasoning_tokens=0,estimated_cost_usd=0,error_message=NULL,analysis_started_at=NULL,updated_at=%s WHERE id=%d AND status<>%s',
+			$table,
+			'queued',
+			Post_Ingestion_Settings::model_id(),
+			Post_Ingestion_Settings::prompt_version(),
+			$taxonomy_hash,
+			'',
+			current_time( 'mysql', true ),
+			$draft_id,
+			'approved'
+		);
+		if ( ! is_string( $sql ) ) {
+			return false;
+		}
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier is internal.
+		return 1 === $wpdb->query( $sql );
+	}
+
+	/**
 	 * Records an analysis failure without discarding the retained source text.
 	 *
-	 * @param int    $draft_id Draft identifier.
-	 * @param string $message  User-visible error message.
+	 * @param int      $draft_id Draft identifier.
+	 * @param string   $message  User-visible error message.
+	 * @param int|null $attempt Claimed analysis attempt, when fencing a worker result.
 	 */
-	public function mark_analysis_error( int $draft_id, string $message ): void {
-		Database::client()->update(
+	public function mark_analysis_error( int $draft_id, string $message, ?int $attempt = null ): bool {
+		$where         = array( 'id' => $draft_id );
+		$where_formats = array( '%d' );
+		if ( null !== $attempt ) {
+			$where['analysis_attempt'] = $attempt;
+			$where['status']           = 'analyzing';
+			$where_formats             = array( '%d', '%d', '%s' );
+		}
+		$updated = Database::client()->update(
 			Database::tables()['ingestion_drafts'],
 			array(
 				'status'        => 'error',
 				'error_message' => $message,
 				'updated_at'    => current_time( 'mysql', true ),
 			),
-			array( 'id' => $draft_id ),
+			$where,
 			array( '%s', '%s', '%s' ),
-			array( '%d' )
+			$where_formats
 		);
+		return null === $attempt ? false !== $updated : 1 === $updated;
 	}
 
 	/**
@@ -92,10 +157,11 @@ final class Post_Ingestion_Repository {
 	 * @param array<string,mixed> $proposal      Validated proposal.
 	 * @param array<string,mixed> $metrics       API usage metrics.
 	 * @param string|null         $taxonomy_hash Refreshed taxonomy fingerprint for reanalysis.
+	 * @param int|null            $attempt       Claimed analysis attempt, when fencing a worker result.
 	 * @phpstan-param Proposal $proposal
 	 * @phpstan-param AnalysisMetrics $metrics
 	 */
-	public function store_analysis( int $draft_id, array $proposal, array $metrics, ?string $taxonomy_hash = null ): void {
+	public function store_analysis( int $draft_id, array $proposal, array $metrics, ?string $taxonomy_hash = null, ?int $attempt = null ): bool {
 		$proposal_json = wp_json_encode( $proposal );
 		$data          = array(
 			'status'              => $proposal['status'],
@@ -123,13 +189,21 @@ final class Post_Ingestion_Repository {
 			);
 			$formats = array( '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%s', '%s', '%s' );
 		}
-		Database::client()->update(
+		$where         = array( 'id' => $draft_id );
+		$where_formats = array( '%d' );
+		if ( null !== $attempt ) {
+			$where['analysis_attempt'] = $attempt;
+			$where['status']           = 'analyzing';
+			$where_formats             = array( '%d', '%d', '%s' );
+		}
+		$updated = Database::client()->update(
 			Database::tables()['ingestion_drafts'],
 			$data,
-			array( 'id' => $draft_id ),
+			$where,
 			$formats,
-			array( '%d' )
+			$where_formats
 		);
+		return null === $attempt ? false !== $updated : 1 === $updated;
 	}
 
 	/**
@@ -356,6 +430,35 @@ final class Post_Ingestion_Repository {
 		return Database::integer( $row['source_wp_id'] ?? null ) === $source_wp_id
 			? __( 'A post with this WordPress ID already exists in the live index.', 'ehrman-blog-discovery' )
 			: __( 'A post with this URL already exists in the live index.', 'ehrman-blog-discovery' );
+	}
+
+	/**
+	 * Returns a duplicate-pending-workflow message, or an empty string.
+	 *
+	 * @param int    $source_wp_id Source WordPress post identifier.
+	 * @param string $url          Canonical post URL.
+	 */
+	public function pending_duplicate_message( int $source_wp_id, string $url ): string {
+		$wpdb  = Database::client();
+		$table = Database::tables()['ingestion_drafts'];
+		$sql   = $wpdb->prepare(
+			'SELECT source_wp_id,url FROM %i WHERE status<>%s AND (source_wp_id=%d OR url_hash=%s) LIMIT 1',
+			$table,
+			'approved',
+			$source_wp_id,
+			hash( 'sha256', $url, true )
+		);
+		if ( ! is_string( $sql ) ) {
+			return '';
+		}
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier is internal.
+		$row = Database::associative_row( $wpdb->get_row( $sql, ARRAY_A ) );
+		if ( null === $row ) {
+			return '';
+		}
+		return Database::integer( $row['source_wp_id'] ?? null ) === $source_wp_id
+			? __( 'An ingestion workflow already exists for this WordPress post.', 'ehrman-blog-discovery' )
+			: __( 'An ingestion workflow already exists for this post URL.', 'ehrman-blog-discovery' );
 	}
 
 	/**

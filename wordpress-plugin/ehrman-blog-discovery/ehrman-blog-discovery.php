@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'EHRMAN_DISCOVERY_VERSION', '0.9.0' );
-define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.9.0' );
+define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.10.0' );
 define( 'EHRMAN_DISCOVERY_PLUGIN_FILE', __FILE__ );
 define( 'EHRMAN_DISCOVERY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EHRMAN_DISCOVERY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -43,6 +43,7 @@ require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-analyz
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-repository.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-embedding-generator.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-service.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-queue.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-page.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-editor.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-feedback.php';

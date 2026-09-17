@@ -306,6 +306,8 @@ CREATE TABLE {$tables['ingestion_drafts']} (
   reasoning_tokens bigint(20) unsigned NOT NULL DEFAULT 0,
   estimated_cost_usd decimal(14,8) unsigned NOT NULL DEFAULT 0,
   error_message text DEFAULT NULL,
+  analysis_attempt bigint(20) unsigned NOT NULL DEFAULT 0,
+  analysis_started_at datetime DEFAULT NULL,
   created_by bigint(20) unsigned NOT NULL,
   created_at datetime NOT NULL,
   updated_at datetime NOT NULL,

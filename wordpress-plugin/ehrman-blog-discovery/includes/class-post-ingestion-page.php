@@ -89,11 +89,7 @@ final class Post_Ingestion_Page {
 			self::redirect_with_notice( 0, false, $result->get_error_message() );
 		}
 		$draft_id = Database::integer( $result['id'] ?? null );
-		$success  = 'error' !== Database::text( $result['status'] ?? null );
-		$message  = $success
-			? __( 'Analysis complete. Review every field before approval.', 'ehrman-blog-discovery' )
-			: Database::text( $result['error_message'] ?? __( 'Analysis failed.', 'ehrman-blog-discovery' ) );
-		self::redirect_with_notice( $draft_id, $success, $message );
+		self::redirect_with_notice( $draft_id, true, __( 'Analysis queued. Refresh this page in a moment to review the results.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles proposal revisions or final approval. */
@@ -133,9 +129,7 @@ final class Post_Ingestion_Page {
 		if ( is_wp_error( $result ) ) {
 			self::redirect_with_notice( $draft_id, false, $result->get_error_message() );
 		}
-		$success = 'error' !== Database::text( $result['status'] ?? null );
-		$message = $success ? __( 'The draft was reanalyzed.', 'ehrman-blog-discovery' ) : Database::text( $result['error_message'] ?? null );
-		self::redirect_with_notice( $draft_id, $success, $message );
+		self::redirect_with_notice( $draft_id, true, __( 'Reanalysis queued. Refresh this page in a moment to review the results.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles a vector-generation retry. */
@@ -227,6 +221,16 @@ final class Post_Ingestion_Page {
 		</table>
 		<?php if ( '' !== Database::text( $draft['error_message'] ?? null ) ) : ?>
 			<div class="notice notice-error inline"><p><?php echo esc_html( Database::text( $draft['error_message'] ?? null ) ); ?></p></div>
+		<?php endif; ?>
+		<?php if ( Post_Ingestion_Service::analysis_is_active( $draft ) ) : ?>
+			<?php if ( Post_Ingestion_Service::analysis_is_stale( $draft ) ) : ?>
+				<div class="notice notice-warning inline"><p><?php echo esc_html__( 'Background analysis appears to have stopped. Start a fresh attempt below.', 'ehrman-blog-discovery' ); ?></p></div>
+				<div class="ehrman-ingestion__actions"><?php self::render_reanalyze_form( $draft_id, __( 'Retry analysis', 'ehrman-blog-discovery' ) ); ?></div>
+			<?php else : ?>
+				<div class="notice notice-info inline"><p><?php echo esc_html__( 'Analysis is running in the background. You may leave this page and return later.', 'ehrman-blog-discovery' ); ?></p></div>
+				<p><a class="button" href="<?php echo esc_url( self::page_url( $draft_id ) ); ?>"><?php echo esc_html__( 'Refresh status', 'ehrman-blog-discovery' ); ?></a></p>
+			<?php endif; ?>
+			<?php return; ?>
 		<?php endif; ?>
 		<?php if ( 'approved' === $status ) : ?>
 			<?php self::render_approved_proposal( $proposal ); ?>
@@ -351,11 +355,13 @@ final class Post_Ingestion_Page {
 	/**
 	 * Renders the reanalysis action.
 	 *
-	 * @param int $draft_id Draft identifier.
+	 * @param int    $draft_id Draft identifier.
+	 * @param string $label    Optional button label.
 	 */
-	private static function render_reanalyze_form( int $draft_id ): void {
+	private static function render_reanalyze_form( int $draft_id, string $label = '' ): void {
+		$label = '' !== $label ? $label : __( 'Reanalyze full text', 'ehrman-blog-discovery' );
 		?>
-		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"><input type="hidden" name="action" value="ehrman_ingestion_reanalyze"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $draft_id ); ?>"><?php wp_nonce_field( 'ehrman_ingestion_reanalyze' ); ?><button class="button" type="submit"><?php echo esc_html__( 'Reanalyze full text', 'ehrman-blog-discovery' ); ?></button></form>
+		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"><input type="hidden" name="action" value="ehrman_ingestion_reanalyze"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $draft_id ); ?>"><?php wp_nonce_field( 'ehrman_ingestion_reanalyze' ); ?><button class="button" type="submit"><?php echo esc_html( $label ); ?></button></form>
 		<?php
 	}
 

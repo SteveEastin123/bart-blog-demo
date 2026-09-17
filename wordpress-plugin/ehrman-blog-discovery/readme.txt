@@ -24,8 +24,10 @@ handoff.
 The block editor includes a Search Metadata panel for published posts. It uses
 the saved WordPress post as the trusted source, exposes the current proposal and
 vector status, and provides protected analysis, review, approval, reanalysis,
-and vector-retry controls. The Tools > Post Ingestion page remains available for
-detailed review and as an administrative fallback.
+and vector-retry controls. AI analysis runs as a recoverable background job, so
+the editor remains responsive while results are generated. The Tools > Post
+Ingestion page remains available for detailed review and as an administrative
+fallback.
 
 == Installation ==
 
@@ -51,6 +53,9 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
   MySQL-authoritative deployment.
 * Added an administrator-only Search Metadata panel to the WordPress post editor
   with nonce-protected workflow actions and links to the full review screen.
+* Added queued background analysis with editor polling, atomic worker claims,
+  stale-job recovery, and attempt fencing that prevents late results from
+  replacing a newer analysis.
 * Added separate ingestion API configuration and preserved JSON-authoritative
   approval locking for the current deployment phase.
 

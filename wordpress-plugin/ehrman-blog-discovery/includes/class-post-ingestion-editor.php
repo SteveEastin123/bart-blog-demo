@@ -95,7 +95,7 @@ final class Post_Ingestion_Editor {
 	 * @return true|WP_Error Permission result.
 	 */
 	public static function permission( WP_REST_Request $request ) {
-		$post_id = absint( $request->get_param( 'post_id' ) );
+		$post_id = self::request_post_id( $request );
 		if ( ! current_user_can( 'manage_options' ) || ! current_user_can( 'edit_post', $post_id ) ) {
 			return new WP_Error(
 				'ehrman_ingestion_forbidden',
@@ -112,11 +112,15 @@ final class Post_Ingestion_Editor {
 	 * @param WP_REST_Request $request REST request.
 	 */
 	public static function status( WP_REST_Request $request ): WP_REST_Response|WP_Error {
-		$post = self::post( absint( $request->get_param( 'post_id' ) ) );
+		$post = self::post( self::request_post_id( $request ) );
 		if ( is_wp_error( $post ) ) {
 			return $post;
 		}
-		return self::response( $post, ( new Post_Ingestion_Service() )->latest_for_post( $post->ID ) );
+		$draft = ( new Post_Ingestion_Service() )->latest_for_post( $post->ID );
+		if ( null !== $draft && 'queued' === sanitize_key( Database::text( $draft['status'] ?? null ) ) ) {
+			Post_Ingestion_Queue::schedule( Database::integer( $draft['id'] ?? null ) );
+		}
+		return self::response( $post, $draft );
 	}
 
 	/**
@@ -125,7 +129,7 @@ final class Post_Ingestion_Editor {
 	 * @param WP_REST_Request $request REST request.
 	 */
 	public static function analyze( WP_REST_Request $request ): WP_REST_Response|WP_Error {
-		$post = self::post( absint( $request->get_param( 'post_id' ) ) );
+		$post = self::post( self::request_post_id( $request ) );
 		if ( is_wp_error( $post ) ) {
 			return $post;
 		}
@@ -149,7 +153,7 @@ final class Post_Ingestion_Editor {
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
 		}
-		return self::response( $post, $result );
+		return self::response( $post, $result, 202 );
 	}
 
 	/**
@@ -158,7 +162,7 @@ final class Post_Ingestion_Editor {
 	 * @param WP_REST_Request $request REST request.
 	 */
 	public static function reanalyze( WP_REST_Request $request ): WP_REST_Response|WP_Error {
-		$post = self::post( absint( $request->get_param( 'post_id' ) ) );
+		$post = self::post( self::request_post_id( $request ) );
 		if ( is_wp_error( $post ) ) {
 			return $post;
 		}
@@ -178,7 +182,7 @@ final class Post_Ingestion_Editor {
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
 		}
-		return self::response( $post, $result );
+		return self::response( $post, $result, 202 );
 	}
 
 	/**
@@ -187,7 +191,7 @@ final class Post_Ingestion_Editor {
 	 * @param WP_REST_Request $request REST request.
 	 */
 	public static function approve( WP_REST_Request $request ): WP_REST_Response|WP_Error {
-		$post = self::post( absint( $request->get_param( 'post_id' ) ) );
+		$post = self::post( self::request_post_id( $request ) );
 		if ( is_wp_error( $post ) ) {
 			return $post;
 		}
@@ -212,7 +216,7 @@ final class Post_Ingestion_Editor {
 		}
 		$result = $service->approve(
 			Database::integer( $draft['id'] ?? null ),
-			rest_sanitize_boolean( $request->get_param( 'approve_new_keywords' ) )
+			rest_sanitize_boolean( Database::text( $request->get_param( 'approve_new_keywords' ) ) )
 		);
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
@@ -226,7 +230,7 @@ final class Post_Ingestion_Editor {
 	 * @param WP_REST_Request $request REST request.
 	 */
 	public static function retry_embedding( WP_REST_Request $request ): WP_REST_Response|WP_Error {
-		$post = self::post( absint( $request->get_param( 'post_id' ) ) );
+		$post = self::post( self::request_post_id( $request ) );
 		if ( is_wp_error( $post ) ) {
 			return $post;
 		}
@@ -282,8 +286,8 @@ final class Post_Ingestion_Editor {
 			'source_wp_id' => $post->ID,
 			'title'        => get_the_title( $post ),
 			'url'          => get_permalink( $post ),
-			'author'       => is_string( $author ) ? $author : '',
-			'date'         => is_string( $date ) ? $date : '',
+			'author'       => $author,
+			'date'         => $date,
 			'post_text'    => trim( is_string( $text ) ? $text : '' ),
 		);
 	}
@@ -292,9 +296,10 @@ final class Post_Ingestion_Editor {
 	 * Returns a no-store editor response.
 	 *
 	 * @param WP_Post                  $post  WordPress post.
-	 * @param array<string,mixed>|null $draft Ingestion record.
+	 * @param array<string,mixed>|null $draft  Ingestion record.
+	 * @param int                      $status HTTP response status.
 	 */
-	private static function response( WP_Post $post, ?array $draft ): WP_REST_Response {
+	private static function response( WP_Post $post, ?array $draft, int $status = 200 ): WP_REST_Response {
 		$draft_id       = null === $draft ? 0 : Database::integer( $draft['id'] ?? null );
 		$source_changed = null !== $draft
 			&& 'approved' !== sanitize_key( Database::text( $draft['status'] ?? null ) )
@@ -310,7 +315,7 @@ final class Post_Ingestion_Editor {
 				'sourceChanged'         => $source_changed,
 				'draft'                 => self::draft_payload( $draft ),
 			),
-			200
+			$status
 		);
 		$response->header( 'Cache-Control', 'no-store' );
 		return $response;
@@ -342,6 +347,8 @@ final class Post_Ingestion_Editor {
 			'embeddingError'       => Database::text( $draft['embedding_error'] ?? null ),
 			'estimatedCostUsd'     => (float) Database::text( $draft['estimated_cost_usd'] ?? null ),
 			'embeddingCostUsd'     => (float) Database::text( $draft['embedding_estimated_cost_usd'] ?? null ),
+			'analysisActive'       => Post_Ingestion_Service::analysis_is_active( $draft ),
+			'analysisStalled'      => Post_Ingestion_Service::analysis_is_stale( $draft ),
 		);
 	}
 
@@ -377,15 +384,28 @@ final class Post_Ingestion_Editor {
 			&& hash_equals( Database::text( $draft['post_text'] ?? null ), Database::text( $current['post_text'] ?? null ) );
 	}
 
-	/** Returns REST argument definitions shared by each route. */
+	/**
+	 * Returns REST argument definitions shared by each route.
+	 *
+	 * @return array<string,array<string,mixed>> Route arguments.
+	 */
 	private static function post_id_args(): array {
 		return array(
 			'post_id' => array(
 				'required'          => true,
 				'sanitize_callback' => 'absint',
-				'validate_callback' => static fn( $value ): bool => absint( $value ) > 0,
+				'validate_callback' => static fn( $value ): bool => absint( Database::text( $value ) ) > 0,
 			),
 		);
+	}
+
+	/**
+	 * Extracts the sanitized WordPress post identifier from a REST request.
+	 *
+	 * @param WP_REST_Request $request REST request.
+	 */
+	private static function request_post_id( WP_REST_Request $request ): int {
+		return absint( Database::text( $request->get_param( 'post_id' ) ) );
 	}
 
 	/**
@@ -396,6 +416,11 @@ final class Post_Ingestion_Editor {
 	private static function service_error( WP_Error $error ): WP_Error {
 		$code   = (string) $error->get_error_code();
 		$status = str_contains( $code, 'unavailable' ) || str_contains( $code, 'response' ) ? 502 : 400;
+		if ( str_contains( $code, 'active' ) ) {
+			$status = 409;
+		} elseif ( str_contains( $code, 'queue' ) ) {
+			$status = 503;
+		}
 		$error->add_data( array( 'status' => $status ) );
 		return $error;
 	}

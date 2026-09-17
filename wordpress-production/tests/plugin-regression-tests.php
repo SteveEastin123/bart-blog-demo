@@ -12,6 +12,7 @@ use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
 use EhrmanBlogDiscovery\Post_Ingestion_Editor;
+use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
@@ -333,35 +334,66 @@ try {
 	$assert( is_wp_error( $unconfigured ), 'Editor analysis unexpectedly called the API without an ingestion key.' );
 	$assert_same( 'ehrman_ingestion_not_configured', $unconfigured->get_error_code(), 'The editor did not build valid ingestion input from the saved post.' );
 
+	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=regression-placeholder-key' );
 	$editor_taxonomy      = $ingestion_store->vocabulary();
 	$editor_taxonomy_json = wp_json_encode( $editor_taxonomy );
 	$assert( is_string( $editor_taxonomy_json ), 'The editor-ingestion taxonomy fixture could not be encoded.' );
-	$editor_created = $ingestion_store->create_draft(
+	$queued_response = Post_Ingestion_Editor::analyze( $editor_request );
+	$assert( $queued_response instanceof WP_REST_Response, 'The editor did not return a REST response after queueing analysis.' );
+	$assert_same( 202, $queued_response->get_status(), 'The editor did not identify queued analysis as an accepted background request.' );
+	$queued_data      = $queued_response->get_data();
+	$editor_draft_id = is_array( $queued_data ) && is_array( $queued_data['draft'] ?? null ) ? (int) $queued_data['draft']['id'] : 0;
+	$assert( $editor_draft_id > 0, 'The editor did not return the queued ingestion draft.' );
+	$assert_same( 'queued', $queued_data['draft']['status'], 'The editor ran analysis inside the REST request instead of queueing it.' );
+	$assert_same( true, $queued_data['draft']['analysisActive'], 'The editor did not identify queued analysis as active.' );
+	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The queued ingestion draft did not receive a worker event.' );
+	$duplicate_pending = $ingestion->analyze(
 		array(
 			'source_wp_id' => (int) $editor_post_id,
 			'title'        => 'Editor ingestion regression fixture',
 			'url'          => (string) get_permalink( (int) $editor_post_id ),
 			'author'       => 'Regression Test',
-			'date_text'    => 'January 3, 2026',
-			'published_at' => '2026-01-03 12:00:00',
-			'post_text'    => 'Temporary editor-ingestion text.',
+			'date'         => '2026-09-17',
+			'post_text'    => 'A second ingestion submission for the same saved WordPress post must not create another background AI request.',
 		),
-		hash( 'sha256', $editor_taxonomy_json ),
 		(int) $editor_user_id
 	);
-	$assert( ! is_wp_error( $editor_created ), is_wp_error( $editor_created ) ? $editor_created->get_error_message() : 'Could not create the editor-ingestion draft.' );
-	$editor_draft_id = (int) $editor_created;
+	$assert( is_wp_error( $duplicate_pending ), 'A duplicate pending workflow was accepted for the same WordPress post.' );
+	$assert_same( 'ehrman_ingestion_duplicate', $duplicate_pending->get_error_code(), 'The duplicate pending workflow returned the wrong error.' );
+	Post_Ingestion_Queue::cancel( $editor_draft_id );
+
+	$first_attempt = $ingestion_store->claim_analysis( $editor_draft_id );
+	$assert_same( 1, $first_attempt, 'The first background worker could not claim the queued ingestion draft.' );
+	$assert_same( 0, $ingestion_store->claim_analysis( $editor_draft_id ), 'A second background worker claimed the same analysis attempt.' );
+	$assert(
+		$ingestion_store->queue_analysis( $editor_draft_id, hash( 'sha256', is_string( $editor_taxonomy_json ) ? $editor_taxonomy_json : '' ) ),
+		'The stalled ingestion draft could not be queued for a fresh attempt.'
+	);
+	$second_attempt = $ingestion_store->claim_analysis( $editor_draft_id );
+	$assert_same( 2, $second_attempt, 'The retried worker did not receive a new analysis attempt number.' );
+	$metrics = array(
+		'response_id'         => 'editor-regression-analysis',
+		'input_tokens'        => 10,
+		'cached_input_tokens' => 0,
+		'output_tokens'       => 10,
+		'reasoning_tokens'    => 0,
+		'estimated_cost_usd'  => 0.0,
+	);
+	$assert_same(
+		false,
+		$ingestion_store->store_analysis( $editor_draft_id, $proposal, $metrics, null, $first_attempt ),
+		'A stale worker overwrote the newer analysis attempt.'
+	);
+	$assert_same(
+		true,
+		$ingestion_store->store_analysis( $editor_draft_id, $proposal, $metrics, null, $second_attempt ),
+		'The current analysis attempt could not store its result.'
+	);
+	/* Confirm legacy callers can still store validated analysis without a worker lease. */
 	$ingestion_store->store_analysis(
 		$editor_draft_id,
 		$proposal,
-		array(
-			'response_id'         => 'editor-regression-analysis',
-			'input_tokens'        => 10,
-			'cached_input_tokens' => 0,
-			'output_tokens'       => 10,
-			'reasoning_tokens'    => 0,
-			'estimated_cost_usd'  => 0.0,
-		)
+		$metrics
 	);
 	$editor_response = Post_Ingestion_Editor::status( $editor_request );
 	$assert( $editor_response instanceof WP_REST_Response, 'The editor status endpoint did not return a REST response.' );

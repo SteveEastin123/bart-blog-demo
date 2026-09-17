@@ -58,13 +58,16 @@
 		const [ busyAction, setBusyAction ] = useState( '' );
 		const [ error, setError ] = useState( '' );
 		const [ approveNewKeywords, setApproveNewKeywords ] = useState( false );
+		const draft = record && record.draft;
 
-		function load() {
+		function load( silent ) {
 			if ( ! editor.postId ) {
 				setLoading( false );
 				return;
 			}
-			setLoading( true );
+			if ( ! silent ) {
+				setLoading( true );
+			}
 			setError( '' );
 			apiFetch( { path: config.restBase + editor.postId } )
 				.then( function ( response ) {
@@ -74,11 +77,27 @@
 					setError( requestError.message || __( 'Search metadata could not be loaded.', 'ehrman-blog-discovery' ) );
 				} )
 				.finally( function () {
-					setLoading( false );
+					if ( ! silent ) {
+						setLoading( false );
+					}
 				} );
 		}
 
-		useEffect( load, [ editor.postId ] );
+		useEffect( function () {
+			load( false );
+		}, [ editor.postId ] );
+
+		useEffect( function () {
+			if ( ! draft || ! draft.analysisActive || draft.analysisStalled ) {
+				return undefined;
+			}
+			const timer = window.setInterval( function () {
+				load( true );
+			}, 3000 );
+			return function () {
+				window.clearInterval( timer );
+			};
+		}, [ editor.postId, !! ( draft && draft.analysisActive ), !! ( draft && draft.analysisStalled ) ] );
 
 		function perform( action, data ) {
 			setBusyAction( action );
@@ -100,12 +119,12 @@
 				} );
 		}
 
-		const draft = record && record.draft;
 		const hasNewKeywords = !! ( draft && draft.newSecondaryKeywords && draft.newSecondaryKeywords.length );
 		const savedPostRequired = editor.isDirty || editor.isSaving;
 		const actionDisabled = !! busyAction || savedPostRequired;
 		const canAnalyze = record && record.configured && 'publish' === editor.postStatus && ! draft;
-		const canReanalyze = record && record.configured && draft && 'approved' !== draft.status;
+		const canReanalyze = record && record.configured && draft && 'approved' !== draft.status &&
+			( ! draft.analysisActive || draft.analysisStalled );
 		const canApprove = record && record.databaseAuthoritative && ! record.sourceChanged && draft && 'ready' === draft.status;
 		const canRetry = draft && 'approved' === draft.status &&
 			'complete' !== draft.embeddingStatus && 'not_applicable' !== draft.embeddingStatus;
@@ -123,6 +142,8 @@
 				record && ! record.configured ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The ingestion API key is not configured.', 'ehrman-blog-discovery' ) ) : null,
 				record && ! record.databaseAuthoritative ? el( Notice, { status: 'info', isDismissible: false }, __( 'Review is available, but approval remains locked while JSON is authoritative.', 'ehrman-blog-discovery' ) ) : null,
 				record && record.sourceChanged ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The saved post changed after analysis. Reanalyze it before approval.', 'ehrman-blog-discovery' ) ) : null,
+				draft && draft.analysisActive && ! draft.analysisStalled ? el( Notice, { status: 'info', isDismissible: false }, __( 'Analysis is running in the background. You may continue editing or leave this page; results will appear automatically.', 'ehrman-blog-discovery' ) ) : null,
+				draft && draft.analysisStalled ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Analysis appears to have stopped. Retry it to start a fresh background attempt.', 'ehrman-blog-discovery' ) ) : null,
 				el(
 					'dl',
 					{ className: 'ehrman-ingestion-editor__status' },
@@ -149,13 +170,13 @@
 						variant: 'primary',
 						disabled: actionDisabled,
 						onClick: function () { perform( 'analyze' ); },
-					}, 'analyze' === busyAction ? __( 'Analyzing...', 'ehrman-blog-discovery' ) : __( 'Analyze', 'ehrman-blog-discovery' ) ) : null,
+					}, 'analyze' === busyAction ? __( 'Queueing...', 'ehrman-blog-discovery' ) : __( 'Analyze', 'ehrman-blog-discovery' ) ) : null,
 					draft ? el( Button, { variant: 'secondary', href: record.reviewUrl }, __( 'Review', 'ehrman-blog-discovery' ) ) : null,
 					canReanalyze ? el( Button, {
 						variant: 'secondary',
 						disabled: actionDisabled,
 						onClick: function () { perform( 'reanalyze' ); },
-					}, 'reanalyze' === busyAction ? __( 'Reanalyzing...', 'ehrman-blog-discovery' ) : __( 'Reanalyze', 'ehrman-blog-discovery' ) ) : null,
+					}, 'reanalyze' === busyAction ? __( 'Queueing...', 'ehrman-blog-discovery' ) : ( draft.analysisStalled || 'error' === draft.status ? __( 'Retry Analysis', 'ehrman-blog-discovery' ) : __( 'Reanalyze', 'ehrman-blog-discovery' ) ) ) : null,
 					canApprove ? el( Button, {
 						variant: 'primary',
 						disabled: actionDisabled || ( hasNewKeywords && ! approveNewKeywords ),
