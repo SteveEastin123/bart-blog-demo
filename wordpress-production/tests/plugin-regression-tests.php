@@ -347,6 +347,12 @@ try {
 	$assert_same( 'queued', $queued_data['draft']['status'], 'The editor ran analysis inside the REST request instead of queueing it.' );
 	$assert_same( true, $queued_data['draft']['analysisActive'], 'The editor did not identify queued analysis as active.' );
 	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The queued ingestion draft did not receive a worker event.' );
+	Post_Ingestion_Queue::cancel( $editor_draft_id );
+	$assert_same( false, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The ingestion worker event could not be cancelled for recovery testing.' );
+	$recovered_response = Post_Ingestion_Editor::status( $editor_request );
+	$assert( $recovered_response instanceof WP_REST_Response, 'The editor status endpoint did not return a REST response while repairing the queue.' );
+	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The editor status endpoint did not repair a missing queued worker event.' );
+	$assert_same( 'no-store', $recovered_response->get_headers()['Cache-Control'] ?? '', 'The editor workflow response may be cached.' );
 	$duplicate_pending = $ingestion->analyze(
 		array(
 			'source_wp_id' => (int) $editor_post_id,
@@ -365,6 +371,19 @@ try {
 	$first_attempt = $ingestion_store->claim_analysis( $editor_draft_id );
 	$assert_same( 1, $first_attempt, 'The first background worker could not claim the queued ingestion draft.' );
 	$assert_same( 0, $ingestion_store->claim_analysis( $editor_draft_id ), 'A second background worker claimed the same analysis attempt.' );
+	$active_draft = $ingestion_store->draft( $editor_draft_id );
+	$assert( is_array( $active_draft ), 'The active ingestion draft could not be reloaded.' );
+	$assert_same( false, Post_Ingestion_Service::analysis_is_stale( $active_draft ), 'A newly claimed analysis was marked stale.' );
+	$wpdb->update(
+		$tables['ingestion_drafts'],
+		array( 'analysis_started_at' => gmdate( 'Y-m-d H:i:s', time() - ( 11 * MINUTE_IN_SECONDS ) ) ),
+		array( 'id' => $editor_draft_id ),
+		array( '%s' ),
+		array( '%d' )
+	);
+	$stalled_draft = $ingestion_store->draft( $editor_draft_id );
+	$assert( is_array( $stalled_draft ), 'The stalled ingestion draft could not be reloaded.' );
+	$assert_same( true, Post_Ingestion_Service::analysis_is_stale( $stalled_draft ), 'An analysis beyond the recovery threshold was not marked stale.' );
 	$assert(
 		$ingestion_store->queue_analysis( $editor_draft_id, hash( 'sha256', is_string( $editor_taxonomy_json ) ? $editor_taxonomy_json : '' ) ),
 		'The stalled ingestion draft could not be queued for a fresh attempt.'
@@ -402,6 +421,18 @@ try {
 	$assert_same( $editor_draft_id, (int) $editor_data['draft']['id'], 'The editor status response selected the wrong ingestion draft.' );
 	$assert_same( 'ready', $editor_data['draft']['status'], 'The editor status response changed the proposal state.' );
 	$assert( ! array_key_exists( 'post_text', $editor_data['draft'] ), 'The editor status response exposed retained full post text.' );
+	$original_content = (string) get_post_field( 'post_content', $editor_post_id );
+	$updated_post     = wp_update_post(
+		array(
+			'ID'           => $editor_post_id,
+			'post_content' => $original_content . '<!-- wp:paragraph --><p>This saved change must require a fresh search-metadata review.</p><!-- /wp:paragraph -->',
+		),
+		true
+	);
+	$assert( ! is_wp_error( $updated_post ), is_wp_error( $updated_post ) ? $updated_post->get_error_message() : 'Could not update the ingestion editor fixture.' );
+	$changed_response = Post_Ingestion_Editor::status( $editor_request );
+	$changed_data     = $changed_response instanceof WP_REST_Response ? $changed_response->get_data() : array();
+	$assert_same( true, is_array( $changed_data ) ? ( $changed_data['sourceChanged'] ?? false ) : false, 'A saved post-content change did not require reanalysis.' );
 
 	wp_set_current_user( 0 );
 	$denied = Post_Ingestion_Editor::permission( $editor_request );

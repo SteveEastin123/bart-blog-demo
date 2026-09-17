@@ -13,6 +13,9 @@ The plugin already provides:
 - Title-and-summary vector generation and semantic retrieval.
 - Versioned, compressed vector export and transactional, idempotent import by WordPress post ID.
 - An administrator-only Post Ingestion workflow with AI analysis, review, approval, audit evidence, and vector generation.
+- A Search Metadata panel in the normal WordPress post editor with protected
+  endpoints, queued background analysis, status polling, duplicate protection,
+  stalled-job recovery, and a Tools-page fallback.
 - A production-equivalent WordPress/MySQL Docker environment and acceptance suite.
 
 ## Remaining Work
@@ -49,16 +52,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Include empty secret placeholders in deployment templates and instructions.
 - Never store or expose API keys in Git, JSON, browser code, logs, exports, or the plugin package.
 
-### 4. Integrate Ingestion Into The WordPress Post Editor
-
-- Add a Search Metadata panel to the normal WordPress post editor.
-- Obtain the post ID, title, URL, author, publication date, and complete text directly from WordPress.
-- Provide Analyze for Search, review, edit, approve, and retry actions.
-- Run AI analysis asynchronously so it does not delay or prevent normal publication.
-- Display analysis and vector status clearly.
-- Keep the existing Post Ingestion page as an administrative fallback and audit view.
-
-### 5. Handle The WordPress Post Lifecycle
+### 4. Handle The WordPress Post Lifecycle
 
 - Mark search metadata for review when important post content changes.
 - Mark the semantic vector stale when the title or search summary changes.
@@ -67,7 +61,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Restore or reanalyze posts when their publication status changes appropriately.
 - Provide retry handling for failed AI analysis and vector generation.
 
-### 6. Complete The MySQL Source-Of-Truth Transition
+### 5. Complete The MySQL Source-Of-Truth Transition
 
 - Use JSON and the supplied vectors for the initial production import.
 - Set `EHRMAN_DISCOVERY_POST_SOURCE=mysql` after the approved handoff.
@@ -75,7 +69,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Prevent later JSON imports from accidentally overwriting MySQL-authoritative changes.
 - Document backup, restore, rollback, and source-of-truth recovery procedures.
 
-### 7. Prepare The Final Handoff Package
+### 6. Prepare The Final Handoff Package
 
 - Installable, versioned plugin ZIP and corresponding source release.
 - The selected authoritative JSON files.
@@ -85,7 +79,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Expected counts and acceptance checklist.
 - Working demonstration and representative screenshots.
 
-### 8. Run Final Production Testing
+### 7. Run Final Production Testing
 
 - Test a fresh WordPress installation and an upgrade from the current plugin version.
 - Test JSON and vector import, repeat import, rollback, and duplicate handling.
@@ -97,7 +91,8 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 
 ## Principal Missing Features
 
-The largest remaining development item is integration of the ingestion
-workflow into the normal WordPress post editor, including lifecycle and retry
-handling. The other items consolidate the selected production experience,
-complete the MySQL transition, and package and validate the handoff.
+The post-editor ingestion integration and recoverable background analysis are
+complete. The largest remaining development item is automatic handling of the
+WordPress post lifecycle, followed by the MySQL source-of-truth transition.
+The other items consolidate the selected production experience and package and
+validate the handoff.

@@ -132,6 +132,10 @@ Temporary member credentials belong only in `.ehrman_credentials.env`, which is
 ignored by Git. API keys and WordPress credentials must be supplied through
 environment variables and must never be committed.
 
+The production post-editor workflow, configuration, recovery states, security
+boundaries, and acceptance steps are documented in
+`docs/wordpress_post_ingestion_handoff.md`.
+
 ## Legacy Reference Implementations
 
 The following directories remain for historical comparison and parity evidence;

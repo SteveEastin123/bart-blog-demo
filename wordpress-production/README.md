@@ -95,6 +95,14 @@ not roll back the approved post; it leaves a visible pending state with a retry
 action. While JSON remains authoritative, continue using the existing download
 skill and rebuild/import workflow for live data changes.
 
+Published WordPress posts can be analyzed from the block editor's **Search
+Metadata** panel. Analysis runs through a one-time WordPress cron event and the
+panel polls for status, so a slow API response does not block publishing or
+editing. Atomic claims, a ten-minute stalled-job threshold, and attempt fencing
+make retries recoverable without allowing an older response to replace newer
+work. See `docs/wordpress_post_ingestion_handoff.md` for the complete operator
+and developer guide.
+
 Validate the running stack with the bundled Python runtime path when `python`
 is not on `PATH`:
 
