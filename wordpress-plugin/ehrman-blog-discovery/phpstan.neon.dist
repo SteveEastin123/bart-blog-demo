@@ -21,8 +21,9 @@ parameters:
             message: '#^Parameter \#1 \$query of method wpdb::prepare\(\) expects literal-string, non-falsy-string given\.$#'
             paths:
                 - src/Browse/Browse_Service.php
-                - src/Import/Importer.php
+                - src/Import/Import_Database_Writer.php
                 - src/Import/Parity_Service.php
                 - src/KeywordSearch/Search_Service.php
+                - src/KeywordSearch/Search_Suggestion_Service.php
                 - src/AskAI/Semantic_Index_Service.php
                 - src/AskAI/Semantic_Search_Service.php
