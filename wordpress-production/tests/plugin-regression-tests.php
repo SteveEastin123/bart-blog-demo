@@ -56,6 +56,14 @@ $assert( ( $callbacks['/ehrman-discovery/v1/interpret'] ?? null ) instanceof Tax
 $assert( ( $callbacks['/ehrman-discovery/v1/refine'] ?? null ) instanceof Taxonomy_Ask_AI_REST_Controller, 'The refinement route is not owned by the taxonomy Ask AI controller.' );
 $assert( ( $callbacks['/ehrman-discovery/v1/semantic-search'] ?? null ) instanceof Semantic_Ask_AI_REST_Controller, 'The semantic-search route is not owned by the semantic Ask AI controller.' );
 
+/* Verify each Ask AI shortcode is rendered by its mechanism-specific page renderer. */
+$taxonomy_ask_ai_markup = do_shortcode( '[ehrman_ask_question]' );
+$semantic_ask_ai_markup = do_shortcode( '[ehrman_ask_ai_2]' );
+$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-form' ), 'The taxonomy Ask AI shortcode lost its question form.' );
+$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-interpret' ), 'The taxonomy Ask AI shortcode lost its interpretation control.' );
+$assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-form' ), 'The semantic Ask AI shortcode lost its question form.' );
+$assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-submit' ), 'The semantic Ask AI shortcode lost its submit control.' );
+
 /* Keep the selected Ask AI 2 pipeline free of the retired metadata-vector experiment. */
 $assert( ! isset( $tables['post_metadata_embeddings'] ), 'The retired metadata-vector table returned to the active schema.' );
 $assert_same( 'hybrid-1', Semantic_Search_Service::pipeline_version(), 'The selected semantic pipeline version changed.' );

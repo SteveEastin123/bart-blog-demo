@@ -49,11 +49,18 @@ final class Page_Controller {
 	private Search_Page_Renderer $search_page;
 
 	/**
-	 * Ask AI 1 and Ask AI 2 page renderer.
+	 * Topic-and-keyword Ask AI page renderer.
 	 *
-	 * @var Ask_AI_Page_Renderer
+	 * @var Taxonomy_Ask_AI_Page_Renderer
 	 */
-	private Ask_AI_Page_Renderer $ask_ai_page;
+	private Taxonomy_Ask_AI_Page_Renderer $taxonomy_ask_ai_page;
+
+	/**
+	 * Semantic Ask AI page renderer.
+	 *
+	 * @var Semantic_Ask_AI_Page_Renderer
+	 */
+	private Semantic_Ask_AI_Page_Renderer $semantic_ask_ai_page;
 
 	/**
 	 * Browse Topics page renderer.
@@ -71,20 +78,21 @@ final class Page_Controller {
 
 	/** Creates the page controller and its data services. */
 	public function __construct() {
-		$this->browse           = new Browse_Service();
-		$this->search           = new Search_Service();
-		$this->request          = new Discovery_Request();
-		$this->markup           = new Discovery_Markup();
-		$this->search_page      = new Search_Page_Renderer( $this->browse, $this->search, $this->markup );
-		$this->ask_ai_page      = new Ask_AI_Page_Renderer( $this->markup, $this->search_page );
-		$this->browse_page      = new Browse_Page_Renderer(
+		$this->browse               = new Browse_Service();
+		$this->search               = new Search_Service();
+		$this->request              = new Discovery_Request();
+		$this->markup               = new Discovery_Markup();
+		$this->search_page          = new Search_Page_Renderer( $this->browse, $this->search, $this->markup );
+		$this->taxonomy_ask_ai_page = new Taxonomy_Ask_AI_Page_Renderer( $this->markup, $this->search_page );
+		$this->semantic_ask_ai_page = new Semantic_Ask_AI_Page_Renderer( $this->markup );
+		$this->browse_page          = new Browse_Page_Renderer(
 			$this->browse,
 			$this->search,
 			$this->markup,
 			$this->search_page,
 			\Closure::fromCallable( array( $this, 'browse_url' ) )
 		);
-		$this->structure_review = new Structure_Review_Renderer( $this->browse, $this->markup );
+		$this->structure_review     = new Structure_Review_Renderer( $this->browse, $this->markup );
 	}
 
 	/** Registers the plugin's public shortcodes. */
@@ -268,7 +276,7 @@ final class Page_Controller {
 			&& '' !== trim( $question )
 			&& 1 === preg_match( '/^[a-f0-9-]{36}$/', $request_id );
 
-		return $this->ask_ai_page->render_ask_ai_1(
+		return $this->taxonomy_ask_ai_page->render(
 			$question,
 			$request_id,
 			$terms,
@@ -294,7 +302,7 @@ final class Page_Controller {
 		$sort     = $this->request->value( 'ebd_sort', 'ranked' );
 		$status   = ( new Semantic_Search_Service() )->status();
 
-		return $this->ask_ai_page->render_ask_ai_2(
+		return $this->semantic_ask_ai_page->render(
 			$question,
 			$sort,
 			$status,
