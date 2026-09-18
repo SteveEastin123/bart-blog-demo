@@ -8,6 +8,8 @@
  */
 
 use EhrmanBlogDiscovery\AI_Analytics_Report;
+use EhrmanBlogDiscovery\AI_Analytics_Page;
+use EhrmanBlogDiscovery\AI_Analytics_Request;
 use EhrmanBlogDiscovery\AI_Candidate_Reviewer;
 use EhrmanBlogDiscovery\AI_Interpreter;
 use EhrmanBlogDiscovery\AI_Usage;
@@ -64,6 +66,31 @@ $assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-form' ), 'The
 $assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-interpret' ), 'The taxonomy Ask AI shortcode lost its interpretation control.' );
 $assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-form' ), 'The semantic Ask AI shortcode lost its question form.' );
 $assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-submit' ), 'The semantic Ask AI shortcode lost its submit control.' );
+
+/* Verify analytics hooks and administrator filters retain their public contract. */
+$assert( false !== has_action( 'admin_post_ehrman_ai_analytics_csv', array( AI_Analytics_Page::class, 'export_csv' ) ), 'The analytics CSV hook is not owned by the analytics page coordinator.' );
+$assert( false !== has_action( 'admin_post_ehrman_ai_analytics_reset', array( AI_Analytics_Page::class, 'reset_test_analytics' ) ), 'The analytics reset hook is not owned by the analytics page coordinator.' );
+$original_get = $_GET;
+try {
+	$_GET = array(
+		'view'         => 'ask-ai-2',
+		'feedback'     => 'invalid',
+		'date_from'    => 'invalid',
+		'date_to'      => '2026-09-18',
+		'search'       => '<b>Paul</b>',
+		'zero_results' => '1',
+	);
+	$analytics_filters = ( new AI_Analytics_Request() )->filters();
+	$assert_same( 'ask-ai-2', $analytics_filters['view'], 'The analytics view was not retained.' );
+	$assert_same( 'semantic', $analytics_filters['interface'], 'The analytics view did not select its interface.' );
+	$assert_same( 'all', $analytics_filters['feedback'], 'An invalid analytics feedback filter was retained.' );
+	$assert_same( '', $analytics_filters['date_from'], 'An invalid analytics start date was retained.' );
+	$assert_same( '2026-09-18', $analytics_filters['date_to'], 'A valid analytics end date was discarded.' );
+	$assert_same( 'Paul', $analytics_filters['search'], 'The analytics text filter was not sanitized.' );
+	$assert_same( '1', $analytics_filters['zero_results'], 'The analytics zero-results filter was discarded.' );
+} finally {
+	$_GET = $original_get;
+}
 
 /* Keep the selected Ask AI 2 pipeline free of the retired metadata-vector experiment. */
 $assert( ! isset( $tables['post_metadata_embeddings'] ), 'The retired metadata-vector table returned to the active schema.' );
