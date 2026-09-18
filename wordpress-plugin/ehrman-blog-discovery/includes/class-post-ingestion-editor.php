@@ -303,7 +303,7 @@ final class Post_Ingestion_Editor {
 		$draft_id       = null === $draft ? 0 : Database::integer( $draft['id'] ?? null );
 		$source_changed = null !== $draft
 			&& 'approved' !== sanitize_key( Database::text( $draft['status'] ?? null ) )
-			&& ! self::source_matches_draft( $post, $draft );
+			&& self::source_changed( $post, $draft );
 		$response       = new WP_REST_Response(
 			array(
 				'postId'                => $post->ID,
@@ -382,6 +382,16 @@ final class Post_Ingestion_Editor {
 			&& hash_equals( Database::text( $draft['author'] ?? null ), Database::text( $current['author'] ?? null ) )
 			&& substr( Database::text( $draft['published_at'] ?? null ), 0, 10 ) === Database::text( $current['date'] ?? null )
 			&& hash_equals( Database::text( $draft['post_text'] ?? null ), Database::text( $current['post_text'] ?? null ) );
+	}
+
+	/**
+	 * Returns whether a saved WordPress post differs from its pending analysis source.
+	 *
+	 * @param WP_Post             $post  Current WordPress post.
+	 * @param array<string,mixed> $draft Ingestion draft.
+	 */
+	public static function source_changed( WP_Post $post, array $draft ): bool {
+		return ! self::source_matches_draft( $post, $draft );
 	}
 
 	/**

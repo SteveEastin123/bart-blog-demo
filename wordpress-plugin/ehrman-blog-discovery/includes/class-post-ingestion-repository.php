@@ -345,6 +345,54 @@ final class Post_Ingestion_Repository {
 	}
 
 	/**
+	 * Returns the most recent ingestion record for each supplied WordPress post.
+	 *
+	 * @param array<int> $source_wp_ids Source WordPress post identifiers.
+	 * @return array<int,array<string,mixed>> Records keyed by WordPress post ID.
+	 * @phpstan-param list<int> $source_wp_ids
+	 */
+	public function latest_for_source_wp_ids( array $source_wp_ids ): array {
+		$source_wp_ids = array_values( array_unique( array_filter( array_map( 'absint', $source_wp_ids ) ) ) );
+		if ( empty( $source_wp_ids ) ) {
+			return array();
+		}
+
+		$wpdb         = Database::client();
+		$table        = Database::tables()['ingestion_drafts'];
+		$placeholders = implode( ',', array_fill( 0, count( $source_wp_ids ), '%d' ) );
+		$sql          = $wpdb->prepare(
+			"SELECT * FROM %i WHERE source_wp_id IN ({$placeholders}) ORDER BY updated_at DESC,id DESC",
+			array_merge( array( $table ), $source_wp_ids )
+		);
+		if ( ! is_string( $sql ) ) {
+			return array();
+		}
+
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier and post IDs are trusted arguments.
+		$rows   = Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
+		$latest = array();
+		foreach ( $rows as $row ) {
+			$source_wp_id = Database::integer( $row['source_wp_id'] ?? null );
+			if ( $source_wp_id > 0 && ! isset( $latest[ $source_wp_id ] ) ) {
+				$latest[ $source_wp_id ] = $row;
+			}
+		}
+		return $latest;
+	}
+
+	/** Returns the number of proposals requiring administrator review. */
+	public function review_count(): int {
+		$wpdb  = Database::client();
+		$table = Database::tables()['ingestion_drafts'];
+		$sql   = $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE status IN (%s,%s)', $table, 'ready', 'held' );
+		if ( ! is_string( $sql ) ) {
+			return 0;
+		}
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; table identifier and statuses are trusted arguments.
+		return Database::integer( $wpdb->get_var( $sql ) );
+	}
+
+	/**
 	 * Returns recent pending and approved ingestion records.
 	 *
 	 * @return list<array<string,mixed>> Draft records.

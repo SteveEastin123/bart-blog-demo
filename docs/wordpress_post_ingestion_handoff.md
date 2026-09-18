@@ -41,13 +41,17 @@ model, budget, permissions, and usage can be managed independently.
 4. Continue editing or leave the page. The panel polls every three seconds
    while analysis is active. **Tools > Post Ingestion** provides the full
    review screen and an administrative fallback.
-5. Review the description, search summary, topics, rationales, secondary
+5. When analysis finishes, WordPress displays a persistent administrative
+   notice, a count beside **Post Ingestion**, and an **Awaiting approval** or
+   **Review required** status on the Posts screen. These reminders remain
+   until the proposal is approved or discarded.
+6. Review the description, search summary, topics, rationales, secondary
    keywords, new-keyword proposals, and warnings. Reanalyze when the saved
    source changed or the proposal needs a fresh AI pass.
-6. Approve only after review. Approval transactionally updates the MySQL
+7. Approve only after review. Approval transactionally updates the MySQL
    discovery index and audit record, deletes retained full post text, and then
    requests the title-and-summary vector.
-7. If vector generation fails, the post remains approved and searchable by
+8. If vector generation fails, the post remains approved and searchable by
    nonsemantic methods. Use **Retry Vector** after correcting the API or
    network problem.
 

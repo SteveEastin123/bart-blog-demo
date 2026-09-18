@@ -212,6 +212,7 @@ $original_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
 $original_key    = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
 $ingestion       = new Post_Ingestion_Service();
 $ingestion_store = new Post_Ingestion_Repository();
+$review_count    = $ingestion->review_count();
 $taxonomy        = $ingestion->vocabulary();
 $topic           = null;
 foreach ( $taxonomy['topics'] as $candidate ) {
@@ -269,6 +270,9 @@ try {
 			'estimated_cost_usd'  => 0.0,
 		)
 	);
+	$assert_same( $review_count + 1, $ingestion->review_count(), 'A ready proposal was not counted as awaiting review.' );
+	$latest_records = $ingestion->latest_for_posts( array( $ingestion_wp_id ) );
+	$assert_same( $draft_id, (int) ( $latest_records[ $ingestion_wp_id ]['id'] ?? 0 ), 'The batch post-status lookup did not return the current ingestion record.' );
 
 	$approved = $ingestion->approve( $draft_id, false );
 	$assert( ! is_wp_error( $approved ), is_wp_error( $approved ) ? $approved->get_error_message() : 'Ingestion approval failed.' );
@@ -279,6 +283,7 @@ try {
 	$assert( $approved_post_id > 0, 'The approved post identifier was not retained.' );
 	$assert_same( 1, (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['post_topics']} WHERE post_id=%d", $approved_post_id ) ), 'The approved topic relationship was not created.' );
 	$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['post_embeddings']} WHERE source_wp_id=%d", $ingestion_wp_id ) ), 'A vector row was created without an API key.' );
+	$assert_same( $review_count, $ingestion->review_count(), 'An approved proposal remained in the awaiting-review count.' );
 } finally {
 	if ( $approved_post_id > 0 ) {
 		$wpdb->delete( $tables['post_search_terms'], array( 'post_id' => $approved_post_id ) );

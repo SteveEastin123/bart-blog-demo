@@ -29,7 +29,7 @@ final class Post_Ingestion_Page {
 	public static function add_page(): void {
 		add_management_page(
 			__( 'Post Ingestion', 'ehrman-blog-discovery' ),
-			__( 'Post Ingestion', 'ehrman-blog-discovery' ),
+			Post_Ingestion_Admin_Status::menu_title( __( 'Post Ingestion', 'ehrman-blog-discovery' ) ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( self::class, 'render' )
@@ -89,7 +89,7 @@ final class Post_Ingestion_Page {
 			self::redirect_with_notice( 0, false, $result->get_error_message() );
 		}
 		$draft_id = Database::integer( $result['id'] ?? null );
-		self::redirect_with_notice( $draft_id, true, __( 'Analysis queued. Refresh this page in a moment to review the results.', 'ehrman-blog-discovery' ) );
+		self::redirect_with_notice( $draft_id, true, __( 'Analysis queued. This post will not be added to search until the results are reviewed and approved.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles proposal revisions or final approval. */
@@ -129,7 +129,7 @@ final class Post_Ingestion_Page {
 		if ( is_wp_error( $result ) ) {
 			self::redirect_with_notice( $draft_id, false, $result->get_error_message() );
 		}
-		self::redirect_with_notice( $draft_id, true, __( 'Reanalysis queued. Refresh this page in a moment to review the results.', 'ehrman-blog-discovery' ) );
+		self::redirect_with_notice( $draft_id, true, __( 'Reanalysis queued. This post will not be updated in search until the results are reviewed and approved.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles a vector-generation retry. */
@@ -227,7 +227,7 @@ final class Post_Ingestion_Page {
 				<div class="notice notice-warning inline"><p><?php echo esc_html__( 'Background analysis appears to have stopped. Start a fresh attempt below.', 'ehrman-blog-discovery' ); ?></p></div>
 				<div class="ehrman-ingestion__actions"><?php self::render_reanalyze_form( $draft_id, __( 'Retry analysis', 'ehrman-blog-discovery' ) ); ?></div>
 			<?php else : ?>
-				<div class="notice notice-info inline"><p><?php echo esc_html__( 'Analysis is running in the background. You may leave this page and return later.', 'ehrman-blog-discovery' ); ?></p></div>
+				<div class="notice notice-info inline"><p><?php echo esc_html__( 'Analysis is running in the background. This post will not be added to search until the results are reviewed and approved. You may leave this page and return later.', 'ehrman-blog-discovery' ); ?></p></div>
 				<p><a class="button" href="<?php echo esc_url( self::page_url( $draft_id ) ); ?>"><?php echo esc_html__( 'Refresh status', 'ehrman-blog-discovery' ); ?></a></p>
 			<?php endif; ?>
 			<?php return; ?>
@@ -242,6 +242,11 @@ final class Post_Ingestion_Page {
 				</form>
 			<?php endif; ?>
 			<?php return; ?>
+		<?php endif; ?>
+		<?php if ( 'ready' === $status ) : ?>
+			<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
+		<?php elseif ( 'held' === $status ) : ?>
+			<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata requires review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Resolve the review notes and mark the proposal ready before approval.', 'ehrman-blog-discovery' ); ?></p></div>
 		<?php endif; ?>
 
 		<?php if ( empty( $proposal ) ) : ?>
@@ -347,9 +352,24 @@ final class Post_Ingestion_Page {
 			<?php
 			foreach ( $drafts as $draft ) :
 				?>
-				<tr><td><?php echo esc_html( get_date_from_gmt( Database::text( $draft['updated_at'] ?? null ), 'M j, Y g:i A' ) ); ?></td><td><strong><?php echo esc_html( Database::text( $draft['title'] ?? null ) ); ?></strong><br><span class="description"><?php echo esc_html( '#' . Database::text( $draft['source_wp_id'] ?? null ) ); ?></span></td><td><?php echo esc_html( ucfirst( Database::text( $draft['status'] ?? null ) ) ); ?></td><td><?php echo esc_html( str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ) ); ?></td><td><a class="button button-small" href="<?php echo esc_url( self::page_url( Database::integer( $draft['id'] ?? null ) ) ); ?>"><?php echo esc_html__( 'Review', 'ehrman-blog-discovery' ); ?></a></td></tr><?php endforeach; ?></tbody>
+				<?php $status = sanitize_key( Database::text( $draft['status'] ?? null ) ); ?>
+				<tr><td><?php echo esc_html( get_date_from_gmt( Database::text( $draft['updated_at'] ?? null ), 'M j, Y g:i A' ) ); ?></td><td><strong><?php echo esc_html( Database::text( $draft['title'] ?? null ) ); ?></strong><br><span class="description"><?php echo esc_html( '#' . Database::text( $draft['source_wp_id'] ?? null ) ); ?></span></td><td><?php echo esc_html( ucfirst( $status ) ); ?></td><td><?php echo esc_html( str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ) ); ?></td><td><a class="button button-small" href="<?php echo esc_url( self::page_url( Database::integer( $draft['id'] ?? null ) ) ); ?>"><?php echo esc_html( self::draft_action_label( $status ) ); ?></a></td></tr><?php endforeach; ?></tbody>
 		</table>
 		<?php
+	}
+
+	/**
+	 * Returns the ingestion-history action appropriate for a workflow status.
+	 *
+	 * @param string $status Ingestion workflow status.
+	 */
+	private static function draft_action_label( string $status ): string {
+		return match ( $status ) {
+			'ready'    => __( 'Review and approve', 'ehrman-blog-discovery' ),
+			'held'     => __( 'Review required', 'ehrman-blog-discovery' ),
+			'approved' => __( 'View', 'ehrman-blog-discovery' ),
+			default    => __( 'Review', 'ehrman-blog-discovery' ),
+		};
 	}
 
 	/**

@@ -12,7 +12,6 @@
 	const useSelect = wp.data.useSelect;
 	const apiFetch = wp.apiFetch;
 	const Button = wp.components.Button;
-	const CheckboxControl = wp.components.CheckboxControl;
 	const Notice = wp.components.Notice;
 	const Spinner = wp.components.Spinner;
 	const PluginDocumentSettingPanel = wp.editor.PluginDocumentSettingPanel;
@@ -57,7 +56,6 @@
 		const [ loading, setLoading ] = useState( true );
 		const [ busyAction, setBusyAction ] = useState( '' );
 		const [ error, setError ] = useState( '' );
-		const [ approveNewKeywords, setApproveNewKeywords ] = useState( false );
 		const draft = record && record.draft;
 
 		function load( silent ) {
@@ -109,7 +107,6 @@
 			} )
 				.then( function ( response ) {
 					setRecord( response );
-					setApproveNewKeywords( false );
 				} )
 				.catch( function ( requestError ) {
 					setError( requestError.message || __( 'The requested action could not be completed.', 'ehrman-blog-discovery' ) );
@@ -119,13 +116,12 @@
 				} );
 		}
 
-		const hasNewKeywords = !! ( draft && draft.newSecondaryKeywords && draft.newSecondaryKeywords.length );
 		const savedPostRequired = editor.isDirty || editor.isSaving;
 		const actionDisabled = !! busyAction || savedPostRequired;
 		const canAnalyze = record && record.configured && 'publish' === editor.postStatus && ! draft;
 		const canReanalyze = record && record.configured && draft && 'approved' !== draft.status &&
 			( ! draft.analysisActive || draft.analysisStalled );
-		const canApprove = record && record.databaseAuthoritative && ! record.sourceChanged && draft && 'ready' === draft.status;
+		const needsReview = draft && ( 'ready' === draft.status || 'held' === draft.status );
 		const canRetry = draft && 'approved' === draft.status &&
 			'complete' !== draft.embeddingStatus && 'not_applicable' !== draft.embeddingStatus;
 
@@ -142,8 +138,10 @@
 				record && ! record.configured ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The ingestion API key is not configured.', 'ehrman-blog-discovery' ) ) : null,
 				record && ! record.databaseAuthoritative ? el( Notice, { status: 'info', isDismissible: false }, __( 'Review is available, but approval remains locked while JSON is authoritative.', 'ehrman-blog-discovery' ) ) : null,
 				record && record.sourceChanged ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The saved post changed after analysis. Reanalyze it before approval.', 'ehrman-blog-discovery' ) ) : null,
-				draft && draft.analysisActive && ! draft.analysisStalled ? el( Notice, { status: 'info', isDismissible: false }, __( 'Analysis is running in the background. You may continue editing or leave this page; results will appear automatically.', 'ehrman-blog-discovery' ) ) : null,
+				draft && draft.analysisActive && ! draft.analysisStalled ? el( Notice, { status: 'info', isDismissible: false }, __( 'Analysis is running in the background. This post will not be added to search until the results are reviewed and approved. You may continue editing or leave this page.', 'ehrman-blog-discovery' ) ) : null,
 				draft && draft.analysisStalled ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Analysis appears to have stopped. Retry it to start a fresh background attempt.', 'ehrman-blog-discovery' ) ) : null,
+				draft && 'ready' === draft.status ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Search metadata is ready for review. Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ) ) : null,
+				draft && 'held' === draft.status ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Search metadata requires review. Resolve the review notes and mark the proposal ready before approval.', 'ehrman-blog-discovery' ) ) : null,
 				el(
 					'dl',
 					{ className: 'ehrman-ingestion-editor__status' },
@@ -158,11 +156,6 @@
 				el( Detail, { label: __( 'Secondary keywords', 'ehrman-blog-discovery' ), value: draft && draft.secondaryKeywords } ),
 				el( Detail, { label: __( 'New secondary keywords', 'ehrman-blog-discovery' ), value: draft && draft.newSecondaryKeywords } ),
 				el( Detail, { label: __( 'Review notes', 'ehrman-blog-discovery' ), value: draft && draft.reviewNotes } ),
-				hasNewKeywords && canApprove ? el( CheckboxControl, {
-					label: __( 'Approve creation of the proposed new secondary keywords', 'ehrman-blog-discovery' ),
-					checked: approveNewKeywords,
-					onChange: setApproveNewKeywords,
-				} ) : null,
 				el(
 					'div',
 					{ className: 'ehrman-ingestion-editor__actions' },
@@ -171,17 +164,14 @@
 						disabled: actionDisabled,
 						onClick: function () { perform( 'analyze' ); },
 					}, 'analyze' === busyAction ? __( 'Queueing...', 'ehrman-blog-discovery' ) : __( 'Analyze', 'ehrman-blog-discovery' ) ) : null,
-					draft ? el( Button, { variant: 'secondary', href: record.reviewUrl }, __( 'Review', 'ehrman-blog-discovery' ) ) : null,
+					needsReview ? el( Button, { variant: 'primary', href: record.reviewUrl }, 'ready' === draft.status ? __( 'Review and Approve', 'ehrman-blog-discovery' ) : __( 'Review Required', 'ehrman-blog-discovery' ) ) : null,
+					draft && 'approved' === draft.status ? el( Button, { variant: 'secondary', href: record.reviewUrl }, __( 'View Approved Metadata', 'ehrman-blog-discovery' ) ) : null,
+					draft && ( 'error' === draft.status || draft.analysisStalled ) ? el( Button, { variant: 'secondary', href: record.reviewUrl }, __( 'Review Details', 'ehrman-blog-discovery' ) ) : null,
 					canReanalyze ? el( Button, {
 						variant: 'secondary',
 						disabled: actionDisabled,
 						onClick: function () { perform( 'reanalyze' ); },
 					}, 'reanalyze' === busyAction ? __( 'Queueing...', 'ehrman-blog-discovery' ) : ( draft.analysisStalled || 'error' === draft.status ? __( 'Retry Analysis', 'ehrman-blog-discovery' ) : __( 'Reanalyze', 'ehrman-blog-discovery' ) ) ) : null,
-					canApprove ? el( Button, {
-						variant: 'primary',
-						disabled: actionDisabled || ( hasNewKeywords && ! approveNewKeywords ),
-						onClick: function () { perform( 'approve', { approve_new_keywords: approveNewKeywords } ); },
-					}, 'approve' === busyAction ? __( 'Approving...', 'ehrman-blog-discovery' ) : __( 'Approve', 'ehrman-blog-discovery' ) ) : null,
 					canRetry ? el( Button, {
 						variant: 'secondary',
 						disabled: actionDisabled,

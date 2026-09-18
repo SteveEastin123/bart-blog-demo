@@ -46,6 +46,7 @@ require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-servic
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-queue.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-page.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-editor.php';
+require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-post-ingestion-admin-status.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-ai-feedback.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-parity-service.php';
 require_once EHRMAN_DISCOVERY_PLUGIN_DIR . 'includes/class-assets.php';

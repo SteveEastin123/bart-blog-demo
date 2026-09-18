@@ -456,6 +456,22 @@ final class Post_Ingestion_Service {
 	}
 
 	/**
+	 * Returns the most recent ingestion record for each supplied WordPress post.
+	 *
+	 * @param array<int> $source_wp_ids Source WordPress post identifiers.
+	 * @return array<int,array<string,mixed>> Records keyed by WordPress post ID.
+	 * @phpstan-param list<int> $source_wp_ids
+	 */
+	public function latest_for_posts( array $source_wp_ids ): array {
+		return $this->repository->latest_for_source_wp_ids( $source_wp_ids );
+	}
+
+	/** Returns the number of proposals requiring administrator review. */
+	public function review_count(): int {
+		return $this->repository->review_count();
+	}
+
+	/**
 	 * Returns recent pending and approved ingestion records.
 	 *
 	 * @return list<array<string,mixed>> Draft records.
