@@ -60,6 +60,13 @@ final class Post_Ingestion_Service {
 	private Post_Ingestion_Embedding_Generator $embedding_generator;
 
 	/**
+	 * Transactional approved-post writer.
+	 *
+	 * @var Post_Ingestion_Approval_Writer
+	 */
+	private Post_Ingestion_Approval_Writer $approval_writer;
+
+	/**
 	 * Creates the ingestion workflow.
 	 *
 	 * Optional collaborators preserve the simple production constructor while allowing focused tests.
@@ -68,17 +75,20 @@ final class Post_Ingestion_Service {
 	 * @param Post_Ingestion_Validator|null           $validator           Optional proposal validator.
 	 * @param Post_Ingestion_Analyzer|null            $analyzer            Optional AI analyzer.
 	 * @param Post_Ingestion_Embedding_Generator|null $embedding_generator Optional vector generator.
+	 * @param Post_Ingestion_Approval_Writer|null     $approval_writer     Optional approved-post writer.
 	 */
 	public function __construct(
 		?Post_Ingestion_Repository $repository = null,
 		?Post_Ingestion_Validator $validator = null,
 		?Post_Ingestion_Analyzer $analyzer = null,
-		?Post_Ingestion_Embedding_Generator $embedding_generator = null
+		?Post_Ingestion_Embedding_Generator $embedding_generator = null,
+		?Post_Ingestion_Approval_Writer $approval_writer = null
 	) {
 		$this->repository          = $repository ?? new Post_Ingestion_Repository();
 		$this->validator           = $validator ?? new Post_Ingestion_Validator();
 		$this->analyzer            = $analyzer ?? new Post_Ingestion_Analyzer( $this->validator );
 		$this->embedding_generator = $embedding_generator ?? new Post_Ingestion_Embedding_Generator( $this->repository );
+		$this->approval_writer     = $approval_writer ?? new Post_Ingestion_Approval_Writer();
 	}
 
 	/** Returns whether the dedicated ingestion project key is configured. */
@@ -361,7 +371,7 @@ final class Post_Ingestion_Service {
 			return new WP_Error( 'ehrman_ingestion_duplicate', $duplicate );
 		}
 
-		$post_id = $this->repository->approve( $draft_id, $draft, $checked, $current_taxonomy, $approved_json );
+		$post_id = $this->approval_writer->approve( $draft_id, $draft, $checked, $current_taxonomy, $approved_json );
 		if ( is_wp_error( $post_id ) ) {
 			return $post_id;
 		}
