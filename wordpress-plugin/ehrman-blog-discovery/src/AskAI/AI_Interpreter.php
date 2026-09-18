@@ -15,23 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Maps a reader's question to the plugin's controlled search vocabulary. */
 final class AI_Interpreter {
-	private const API_URL               = 'https://api.openai.com/v1/responses';
-	private const DEFAULT_MODEL         = 'gpt-5.4-mini';
-	private const MAX_QUESTION_LEN      = 800;
-	private const CACHE_SECONDS         = DAY_IN_SECONDS;
-	private const PROMPT_VERSION        = '21';
-	private const REFINE_PROMPT_VERSION = '4';
-	private const MAX_REFINE_POSTS      = 200;
-	private const MAX_REFINED_RESULTS   = 25;
-	private const FOCUSED_MAX_TERMS     = 2;
-	private const STRATEGY_FOCUSED      = 'focused';
-	private const STRATEGY_LEGACY       = 'legacy';
-	private const GROUPING_TIERS        = 'tiers';
-	private const GROUPING_ORDERED      = 'ordered';
-	private const TIER_DIRECT           = 'direct';
-	private const TIER_RELATED          = 'related';
-	private const TIER_BACKGROUND       = 'background';
-	private const RELEVANCE_TIERS       = array( self::TIER_DIRECT, self::TIER_RELATED, self::TIER_BACKGROUND );
+	private const API_URL           = 'https://api.openai.com/v1/responses';
+	private const DEFAULT_MODEL     = 'gpt-5.4-mini';
+	private const MAX_QUESTION_LEN  = 800;
+	private const CACHE_SECONDS     = DAY_IN_SECONDS;
+	private const PROMPT_VERSION    = '21';
+	private const FOCUSED_MAX_TERMS = 2;
+	private const STRATEGY_FOCUSED  = 'focused';
+	private const STRATEGY_LEGACY   = 'legacy';
 
 	/**
 	 * Controlled-vocabulary term selector.
@@ -40,9 +31,21 @@ final class AI_Interpreter {
 	 */
 	private AI_Term_Selector $term_selector;
 
-	/** Creates the interpreter and its deterministic term selector. */
-	public function __construct() {
-		$this->term_selector = new AI_Term_Selector();
+	/**
+	 * Shared title-and-summary candidate reviewer.
+	 *
+	 * @var AI_Candidate_Reviewer
+	 */
+	private AI_Candidate_Reviewer $candidate_reviewer;
+
+	/**
+	 * Creates the interpreter and its focused collaborators.
+	 *
+	 * @param AI_Candidate_Reviewer|null $candidate_reviewer Optional candidate reviewer for testing or integration.
+	 */
+	public function __construct( ?AI_Candidate_Reviewer $candidate_reviewer = null ) {
+		$this->term_selector      = new AI_Term_Selector();
+		$this->candidate_reviewer = $candidate_reviewer ?? new AI_Candidate_Reviewer( self::api_key(), self::model() );
 	}
 
 	/** Returns the configured model identifier for reporting. */
@@ -66,16 +69,12 @@ final class AI_Interpreter {
 
 	/** Returns the configured AI result-grouping mode. */
 	public static function result_grouping(): string {
-		if ( defined( 'EHRMAN_DISCOVERY_AI_RESULT_GROUPING' ) ) {
-			$grouping = constant( 'EHRMAN_DISCOVERY_AI_RESULT_GROUPING' );
-			return is_scalar( $grouping ) ? self::sanitize_result_grouping( (string) $grouping ) : self::GROUPING_TIERS;
-		}
-		return self::sanitize_result_grouping( (string) getenv( 'EHRMAN_DISCOVERY_AI_RESULT_GROUPING' ) );
+		return AI_Candidate_Reviewer::result_grouping();
 	}
 
 	/** Returns the refinement prompt version for analytics. */
 	public static function refine_prompt_version(): string {
-		return self::REFINE_PROMPT_VERSION . '-' . self::result_grouping();
+		return AI_Candidate_Reviewer::prompt_version();
 	}
 
 	/**
@@ -200,272 +199,7 @@ final class AI_Interpreter {
 	 * @return array{post_ids:list<string>,post_tiers:array<string,string>,candidate_count:int,cache_hit:bool,usage:array<string,mixed>}|WP_Error Refined post identifiers or error.
 	 */
 	public function refine( string $question, array $posts, string $request_id = '' ) {
-		$question = sanitize_text_field( $question );
-		$question = function_exists( 'mb_substr' )
-			? mb_substr( $question, 0, self::MAX_QUESTION_LEN )
-			: substr( $question, 0, self::MAX_QUESTION_LEN );
-		if ( '' === trim( $question ) || empty( $posts ) ) {
-			return new WP_Error( 'ehrman_ai_refine_empty', __( 'There are no search results to refine.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
-		}
-		if ( ! self::is_configured() ) {
-			return new WP_Error( 'ehrman_ai_not_configured', __( 'AI search refinement is not configured on this site.', 'ehrman-blog-discovery' ), array( 'status' => 503 ) );
-		}
-
-		$candidates = array();
-		foreach ( array_slice( $posts, 0, self::MAX_REFINE_POSTS ) as $post ) {
-			$id      = Database::text( $post['id'] ?? null );
-			$title   = sanitize_text_field( Database::text( $post['title'] ?? null ) );
-			$summary = sanitize_text_field( Database::text( $post['search_summary'] ?? null ) );
-			if ( '' === $summary ) {
-				$summary = sanitize_text_field( Database::text( $post['description'] ?? null ) );
-			}
-			if ( '' === $id || '' === $title ) {
-				continue;
-			}
-			$candidates[] = array(
-				'id'      => $id,
-				'title'   => $title,
-				'summary' => $summary,
-			);
-		}
-		if ( empty( $candidates ) ) {
-			return new WP_Error( 'ehrman_ai_refine_empty', __( 'There are no search results to refine.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
-		}
-
-		$cache_key = 'ebd_ai_refine_' . hash(
-			'sha256',
-			Search_Service::normalize( $question ) . '|' . (string) wp_json_encode( $candidates ) . '|' . self::model() . '|' . self::refine_prompt_version() . '|' . AI_Usage::cache_version()
-		);
-		$cached    = get_transient( $cache_key );
-		if ( is_array( $cached ) && is_array( $cached['post_ids'] ?? null ) ) {
-			$post_ids = Database::strings( $cached['post_ids'] );
-			AI_Usage::record_cache_hit( self::model(), $request_id );
-			return array(
-				'post_ids'        => $post_ids,
-				'post_tiers'      => $this->cached_post_tiers( $cached['post_tiers'] ?? array(), $post_ids ),
-				'candidate_count' => count( $candidates ),
-				'cache_hit'       => true,
-				'usage'           => array(),
-			);
-		}
-
-		$payload = $this->refine_payload( $question, $candidates );
-		$encoded = wp_json_encode( $payload );
-		if ( ! is_string( $encoded ) ) {
-			AI_Usage::record_failure( self::model(), 'refine_request_error', $request_id );
-			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be prepared for refinement.', 'ehrman-blog-discovery' ), array( 'status' => 500 ) );
-		}
-		$response = wp_remote_post(
-			self::API_URL,
-			array(
-				'timeout' => 60,
-				'headers' => array(
-					'Authorization' => 'Bearer ' . self::api_key(),
-					'Content-Type'  => 'application/json',
-				),
-				'body'    => $encoded,
-			)
-		);
-		if ( is_wp_error( $response ) ) {
-			AI_Usage::record_failure( self::model(), 'refine_unavailable', $request_id );
-			return new WP_Error( 'ehrman_ai_refine_unavailable', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
-		}
-
-		$status = wp_remote_retrieve_response_code( $response );
-		$body   = json_decode( wp_remote_retrieve_body( $response ), true );
-		if ( ! is_array( $body ) ) {
-			AI_Usage::record_failure( self::model(), 'refine_response_error', $request_id );
-			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
-		}
-		/**
-		 * Decoded API response.
-		 *
-		 * @var array<string,mixed> $body
-		 */
-		if ( $status < 200 || $status >= 300 ) {
-			AI_Usage::record_response( $body, false, 'refine_response_error', $request_id );
-			return new WP_Error( 'ehrman_ai_refine_error', __( 'The search results could not be refined. Please try again.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
-		}
-		$decoded = Database::associative_row( json_decode( $this->output_text( $body ), true ) );
-		$parsed  = null !== $decoded ? $this->parse_refined_posts( $decoded, $candidates ) : null;
-		if ( null === $parsed ) {
-			AI_Usage::record_response( $body, false, 'refine_invalid_output', $request_id );
-			return new WP_Error( 'ehrman_ai_refine_invalid', __( 'The refinement service returned an invalid response.', 'ehrman-blog-discovery' ), array( 'status' => 502 ) );
-		}
-
-		AI_Usage::record_response( $body, true, '', $request_id );
-		set_transient( $cache_key, $parsed, self::CACHE_SECONDS );
-		return array(
-			'post_ids'        => $parsed['post_ids'],
-			'post_tiers'      => $parsed['post_tiers'],
-			'candidate_count' => count( $candidates ),
-			'cache_hit'       => false,
-			'usage'           => AI_Usage::response_metrics( $body ),
-		);
-	}
-
-	/**
-	 * Builds the structured post-refinement request.
-	 *
-	 * @param string                                             $question   Reader question.
-	 * @param list<array{id:string,title:string,summary:string}> $candidates Candidate post metadata.
-	 * @return array<string,mixed> Responses API payload.
-	 */
-	private function refine_payload( string $question, array $candidates ): array {
-		if ( self::GROUPING_TIERS === self::result_grouping() ) {
-			$instructions = 'Evaluate blog posts for relevance to the reader\'s exact question. '
-				. 'Use only the supplied titles and summaries. Retain a post only when its metadata indicates that a substantial part of the post directly addresses the requested subject or provides genuinely useful context. '
-				. 'Exclude posts that merely mention the subject, address one incidental detail, or match only a broad vocabulary label. '
-				. 'For a request for a summary or overview, retain only posts that broadly cover the requested text or subject; exclude posts limited to authorship, one passage, one episode, one textual variant, or one narrow theological issue. '
-				. 'Prefer precision over quantity. Select no more than 25 posts and return only supplied post IDs. '
-				. 'Classify each selected post into exactly one relevance tier. '
-				. 'Use direct when the title or summary indicates that the post substantially answers the exact question. '
-				. 'Use related when the post materially addresses an important part of the question but does not directly answer the whole question. '
-				. 'Use background only when the post provides genuinely useful context after the direct and related posts; do not use it for incidental matches. '
-				. 'Order posts from strongest to weakest within each tier.';
-			$schema       = array(
-				'type'                 => 'object',
-				'additionalProperties' => false,
-				'required'             => array( 'selected_posts' ),
-				'properties'           => array(
-					'selected_posts' => array(
-						'type'     => 'array',
-						'maxItems' => self::MAX_REFINED_RESULTS,
-						'items'    => array(
-							'type'                 => 'object',
-							'additionalProperties' => false,
-							'required'             => array( 'id', 'relevance_tier' ),
-							'properties'           => array(
-								'id'             => array( 'type' => 'string' ),
-								'relevance_tier' => array(
-									'type' => 'string',
-									'enum' => self::RELEVANCE_TIERS,
-								),
-							),
-						),
-					),
-				),
-			);
-		} else {
-			$instructions = 'Filter blog posts for direct relevance to the reader\'s exact question. '
-				. 'Use only the supplied titles and summaries. Retain a post only when its metadata indicates that a substantial part of the post directly addresses the requested subject. '
-				. 'Exclude posts that merely mention the subject, provide surrounding background, address one incidental detail, or match only a broad vocabulary label. '
-				. 'For a request for a summary or overview, retain only posts that broadly cover the requested text or subject; exclude posts limited to authorship, one passage, one episode, one textual variant, or one narrow theological issue. '
-				. 'Prefer precision over quantity. Select no more than 25 posts, ordered from most to least relevant. Return only supplied post IDs.';
-			$schema       = array(
-				'type'                 => 'object',
-				'additionalProperties' => false,
-				'required'             => array( 'selected_ids' ),
-				'properties'           => array(
-					'selected_ids' => array(
-						'type'     => 'array',
-						'maxItems' => self::MAX_REFINED_RESULTS,
-						'items'    => array( 'type' => 'string' ),
-					),
-				),
-			);
-		}
-		return array(
-			'model'             => self::model(),
-			'reasoning'         => array( 'effort' => 'low' ),
-			'instructions'      => $instructions,
-			'input'             => "Reader question:\n{$question}\n\nCandidate posts:\n" . wp_json_encode( $candidates ),
-			'max_output_tokens' => 800,
-			'text'              => array(
-				'format' => array(
-					'type'   => 'json_schema',
-					'name'   => 'ehrman_refined_posts',
-					'strict' => true,
-					'schema' => $schema,
-				),
-			),
-		);
-	}
-
-	/**
-	 * Validates and orders the structured refinement response.
-	 *
-	 * @param array<string,mixed>                                $decoded    Decoded structured output.
-	 * @param list<array{id:string,title:string,summary:string}> $candidates Candidate post metadata.
-	 * @return array{post_ids:list<string>,post_tiers:array<string,string>}|null
-	 */
-	private function parse_refined_posts( array $decoded, array $candidates ): ?array {
-		$allowed = array_fill_keys( array_column( $candidates, 'id' ), true );
-		if ( self::GROUPING_ORDERED === self::result_grouping() ) {
-			if ( ! is_array( $decoded['selected_ids'] ?? null ) ) {
-				return null;
-			}
-			$post_ids = array();
-			foreach ( $decoded['selected_ids'] as $id ) {
-				$id = is_scalar( $id ) ? sanitize_text_field( (string) $id ) : '';
-				if ( '' !== $id && isset( $allowed[ $id ] ) && ! in_array( $id, $post_ids, true ) ) {
-					$post_ids[] = $id;
-				}
-				if ( count( $post_ids ) >= self::MAX_REFINED_RESULTS ) {
-					break;
-				}
-			}
-			return array(
-				'post_ids'   => $post_ids,
-				'post_tiers' => array(),
-			);
-		}
-
-		if ( ! is_array( $decoded['selected_posts'] ?? null ) ) {
-			return null;
-		}
-		$buckets    = array_fill_keys( self::RELEVANCE_TIERS, array() );
-		$post_tiers = array();
-		foreach ( $decoded['selected_posts'] as $selected ) {
-			if ( ! is_array( $selected ) || ! is_scalar( $selected['id'] ?? null ) || ! is_scalar( $selected['relevance_tier'] ?? null ) ) {
-				return null;
-			}
-			$id   = sanitize_text_field( (string) $selected['id'] );
-			$tier = sanitize_key( (string) $selected['relevance_tier'] );
-			if ( ! isset( $allowed[ $id ] ) || ! in_array( $tier, self::RELEVANCE_TIERS, true ) || isset( $post_tiers[ $id ] ) ) {
-				continue;
-			}
-			$buckets[ $tier ][] = $id;
-			$post_tiers[ $id ]  = $tier;
-		}
-		$post_ids = array();
-		foreach ( self::RELEVANCE_TIERS as $tier ) {
-			foreach ( $buckets[ $tier ] as $id ) {
-				$post_ids[] = $id;
-				if ( count( $post_ids ) >= self::MAX_REFINED_RESULTS ) {
-					break 2;
-				}
-			}
-		}
-		$post_tiers = array_intersect_key( $post_tiers, array_fill_keys( $post_ids, true ) );
-		return array(
-			'post_ids'   => $post_ids,
-			'post_tiers' => $post_tiers,
-		);
-	}
-
-	/**
-	 * Validates cached tier labels against the cached post IDs.
-	 *
-	 * @param mixed $cached_tiers Raw cached tier map.
-	 * @param array $post_ids     Cached post identifiers.
-	 * @phpstan-param list<string> $post_ids
-	 * @return array<string,string>
-	 */
-	private function cached_post_tiers( $cached_tiers, array $post_ids ): array {
-		if ( ! is_array( $cached_tiers ) ) {
-			return array();
-		}
-		$allowed = array_fill_keys( $post_ids, true );
-		$tiers   = array();
-		foreach ( $cached_tiers as $id => $tier ) {
-			$id   = sanitize_text_field( (string) $id );
-			$tier = is_scalar( $tier ) ? sanitize_key( (string) $tier ) : '';
-			if ( isset( $allowed[ $id ] ) && in_array( $tier, self::RELEVANCE_TIERS, true ) ) {
-				$tiers[ $id ] = $tier;
-			}
-		}
-		return $tiers;
+		return $this->candidate_reviewer->review( $question, $posts, $request_id );
 	}
 
 	/**
@@ -670,15 +404,6 @@ final class AI_Interpreter {
 	 */
 	private static function sanitize_term_strategy( string $strategy ): string {
 		return self::STRATEGY_LEGACY === strtolower( trim( $strategy ) ) ? self::STRATEGY_LEGACY : self::STRATEGY_FOCUSED;
-	}
-
-	/**
-	 * Normalizes the refinement grouping switch and defaults to relevance tiers.
-	 *
-	 * @param string $grouping Configured grouping value.
-	 */
-	private static function sanitize_result_grouping( string $grouping ): string {
-		return self::GROUPING_ORDERED === strtolower( trim( $grouping ) ) ? self::GROUPING_ORDERED : self::GROUPING_TIERS;
 	}
 
 	/** Returns the API key without exposing it to the browser. */

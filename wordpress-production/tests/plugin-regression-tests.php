@@ -8,6 +8,9 @@
  */
 
 use EhrmanBlogDiscovery\AI_Analytics_Report;
+use EhrmanBlogDiscovery\AI_Candidate_Reviewer;
+use EhrmanBlogDiscovery\AI_Interpreter;
+use EhrmanBlogDiscovery\AI_Usage;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
@@ -15,6 +18,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Editor;
 use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
+use EhrmanBlogDiscovery\Search_Service;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -454,6 +458,66 @@ try {
 		wp_delete_user( $editor_user_id );
 	}
 	false === $editor_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $editor_key );
+}
+
+/* Verify AI_Interpreter delegates cached candidate review without changing its contract. */
+$review_question   = 'Which candidate best addresses the question?';
+$review_model      = 'review-test-model';
+$review_request_id = '00000000-0000-4000-8000-000000000042';
+$review_posts      = array(
+	array(
+		'id'             => 'review-post-1',
+		'title'          => 'First Candidate',
+		'search_summary' => 'Directly addresses the test question.',
+	),
+	array(
+		'id'             => 'review-post-2',
+		'title'          => 'Second Candidate',
+		'search_summary' => '',
+		'description'    => 'Provides useful related context.',
+	),
+);
+$review_candidates = array(
+	array(
+		'id'      => 'review-post-1',
+		'title'   => 'First Candidate',
+		'summary' => 'Directly addresses the test question.',
+	),
+	array(
+		'id'      => 'review-post-2',
+		'title'   => 'Second Candidate',
+		'summary' => 'Provides useful related context.',
+	),
+);
+$review_cache_key  = 'ebd_ai_refine_' . hash(
+	'sha256',
+	Search_Service::normalize( $review_question ) . '|' . (string) wp_json_encode( $review_candidates ) . '|' . $review_model . '|' . AI_Candidate_Reviewer::prompt_version() . '|' . AI_Usage::cache_version()
+);
+set_transient(
+	$review_cache_key,
+	array(
+		'post_ids'   => array( 'review-post-1', 'review-post-2' ),
+		'post_tiers' => array(
+			'review-post-1' => 'direct',
+			'review-post-2' => 'related',
+			'unknown-post'  => 'background',
+		),
+	),
+	MINUTE_IN_SECONDS
+);
+try {
+	$reviewer    = new AI_Candidate_Reviewer( 'test-api-key', $review_model );
+	$interpreter = new AI_Interpreter( $reviewer );
+	$review       = $interpreter->refine( $review_question, $review_posts, $review_request_id );
+	$assert( ! is_wp_error( $review ), is_wp_error( $review ) ? $review->get_error_message() : 'Candidate review returned an unexpected error.' );
+	$assert_same( array( 'review-post-1', 'review-post-2' ), $review['post_ids'], 'Candidate review changed cached post ordering.' );
+	$assert_same( array( 'review-post-1' => 'direct', 'review-post-2' => 'related' ), $review['post_tiers'], 'Candidate review changed cached relevance tiers.' );
+	$assert_same( 2, $review['candidate_count'], 'Candidate review returned the wrong candidate count.' );
+	$assert_same( true, $review['cache_hit'], 'Candidate review did not report its WordPress cache hit.' );
+	$assert_same( AI_Candidate_Reviewer::prompt_version(), AI_Interpreter::refine_prompt_version(), 'The compatibility refinement prompt version changed.' );
+} finally {
+	delete_transient( $review_cache_key );
+	$wpdb->delete( $tables['ai_usage'], array( 'request_id' => $review_request_id ) );
 }
 
 /* Verify total and average analytics costs include initial and refinement calls. */
