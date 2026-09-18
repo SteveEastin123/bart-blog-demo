@@ -19,7 +19,9 @@ use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Search_Service;
+use EhrmanBlogDiscovery\Semantic_Ask_AI_REST_Controller;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
+use EhrmanBlogDiscovery\Taxonomy_Ask_AI_REST_Controller;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );
@@ -37,6 +39,22 @@ $assert_same = static function ( $expected, $actual, string $message ) use ( $as
 
 $wpdb   = Database::client();
 $tables = Database::tables();
+
+/* Verify each Ask AI route is owned by its mechanism-specific controller. */
+$rest_routes = rest_get_server()->get_routes();
+$callbacks   = array();
+foreach ( array( '/ehrman-discovery/v1/interpret', '/ehrman-discovery/v1/refine', '/ehrman-discovery/v1/semantic-search' ) as $route ) {
+	$handlers = $rest_routes[ $route ] ?? array();
+	foreach ( $handlers as $handler ) {
+		if ( is_array( $handler['callback'] ?? null ) && is_object( $handler['callback'][0] ?? null ) ) {
+			$callbacks[ $route ] = $handler['callback'][0];
+			break;
+		}
+	}
+}
+$assert( ( $callbacks['/ehrman-discovery/v1/interpret'] ?? null ) instanceof Taxonomy_Ask_AI_REST_Controller, 'The interpretation route is not owned by the taxonomy Ask AI controller.' );
+$assert( ( $callbacks['/ehrman-discovery/v1/refine'] ?? null ) instanceof Taxonomy_Ask_AI_REST_Controller, 'The refinement route is not owned by the taxonomy Ask AI controller.' );
+$assert( ( $callbacks['/ehrman-discovery/v1/semantic-search'] ?? null ) instanceof Semantic_Ask_AI_REST_Controller, 'The semantic-search route is not owned by the semantic Ask AI controller.' );
 
 /* Keep the selected Ask AI 2 pipeline free of the retired metadata-vector experiment. */
 $assert( ! isset( $tables['post_metadata_embeddings'] ), 'The retired metadata-vector table returned to the active schema.' );

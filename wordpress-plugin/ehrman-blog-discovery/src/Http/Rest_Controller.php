@@ -30,11 +30,18 @@ final class Rest_Controller {
 	private Search_REST_Controller $search;
 
 	/**
-	 * Ask AI endpoints.
+	 * Topic-and-keyword Ask AI endpoints.
 	 *
-	 * @var Ask_AI_REST_Controller
+	 * @var Taxonomy_Ask_AI_REST_Controller
 	 */
-	private Ask_AI_REST_Controller $ask_ai;
+	private Taxonomy_Ask_AI_REST_Controller $taxonomy_ask_ai;
+
+	/**
+	 * Semantic Ask AI endpoint.
+	 *
+	 * @var Semantic_Ask_AI_REST_Controller
+	 */
+	private Semantic_Ask_AI_REST_Controller $semantic_ask_ai;
 
 	/**
 	 * Search feedback endpoint.
@@ -53,11 +60,14 @@ final class Rest_Controller {
 	/** Creates the endpoint controllers and their shared services. */
 	public function __construct() {
 		$search_service = new Search_Service();
-		$this->status   = new Status_REST_Controller();
-		$this->search   = new Search_REST_Controller( $search_service );
-		$this->ask_ai   = new Ask_AI_REST_Controller( $search_service, new AI_Interpreter(), new Semantic_Search_Service() );
-		$this->feedback = new Feedback_REST_Controller();
-		$this->parity   = new Parity_REST_Controller();
+		$interpreter    = new AI_Interpreter();
+
+		$this->status          = new Status_REST_Controller();
+		$this->search          = new Search_REST_Controller( $search_service );
+		$this->taxonomy_ask_ai = new Taxonomy_Ask_AI_REST_Controller( $search_service, $interpreter );
+		$this->semantic_ask_ai = new Semantic_Ask_AI_REST_Controller( $interpreter, new Semantic_Search_Service() );
+		$this->feedback        = new Feedback_REST_Controller();
+		$this->parity          = new Parity_REST_Controller();
 	}
 
 	/** Registers all public and test-only REST routes. */
@@ -105,7 +115,7 @@ final class Rest_Controller {
 			'/interpret',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( $this->ask_ai, 'interpret' ),
+				'callback'            => array( $this->taxonomy_ask_ai, 'interpret' ),
 				'permission_callback' => '__return_true',
 			)
 		);
@@ -114,7 +124,7 @@ final class Rest_Controller {
 			'/refine',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( $this->ask_ai, 'refine' ),
+				'callback'            => array( $this->taxonomy_ask_ai, 'refine' ),
 				'permission_callback' => '__return_true',
 			)
 		);
@@ -123,7 +133,7 @@ final class Rest_Controller {
 			'/semantic-search',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( $this->ask_ai, 'semantic_search' ),
+				'callback'            => array( $this->semantic_ask_ai, 'semantic_search' ),
 				'permission_callback' => '__return_true',
 			)
 		);
