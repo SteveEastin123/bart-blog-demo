@@ -74,7 +74,7 @@ final class Cli_Command {
 		foreach ( $status['counts'] as $name => $count ) {
 			\WP_CLI::line( "{$name}: {$count}" );
 		}
-		$semantic = ( new Semantic_Search_Service() )->status();
+		$semantic = ( new Semantic_Index_Service() )->status();
 		\WP_CLI::line( 'Semantic retrieval pipeline: ' . Semantic_Search_Service::pipeline_version() );
 		\WP_CLI::line(
 			sprintf(
@@ -166,7 +166,7 @@ final class Cli_Command {
 		$progress   = null;
 		$bar        = null;
 		$last       = 0;
-		$service    = new Semantic_Search_Service();
+		$service    = new Semantic_Index_Service();
 		$status     = $service->status();
 		if ( $status['eligible'] > 0 ) {
 			$bar      = \WP_CLI\Utils\make_progress_bar( 'Building semantic post embeddings', $status['eligible'] );

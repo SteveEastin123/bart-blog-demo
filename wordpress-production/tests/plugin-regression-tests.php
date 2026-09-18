@@ -20,6 +20,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Search_Service;
 use EhrmanBlogDiscovery\Semantic_Ask_AI_REST_Controller;
+use EhrmanBlogDiscovery\Semantic_Index_Service;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
 use EhrmanBlogDiscovery\Taxonomy_Ask_AI_REST_Controller;
 
@@ -69,7 +70,7 @@ $assert( ! isset( $tables['post_metadata_embeddings'] ), 'The retired metadata-v
 $assert_same( 'hybrid-1', Semantic_Search_Service::pipeline_version(), 'The selected semantic pipeline version changed.' );
 
 /* Verify complete, missing, stale, and orphaned semantic-vector coverage. */
-$semantic = new Semantic_Search_Service();
+$semantic = new Semantic_Index_Service();
 $baseline = $semantic->status();
 $assert_same( 'hybrid', $baseline['strategy'], 'The selected semantic retrieval method changed.' );
 $assert( ! isset( $baseline['metadata'] ), 'Retired metadata-vector status returned to the active runtime.' );

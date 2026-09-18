@@ -28,7 +28,7 @@ final class Embedding_Index_Transfer {
 	 */
 	public function export( string $file ): array {
 		$file   = self::normalize_path( $file, false );
-		$status = ( new Semantic_Search_Service() )->status();
+		$status = ( new Semantic_Index_Service() )->status();
 		if ( $status['eligible'] < 1 || $status['current'] !== $status['eligible'] ) {
 			throw new \RuntimeException(
 				sprintf(
@@ -219,7 +219,7 @@ final class Embedding_Index_Transfer {
 				$removed += (int) $deleted;
 			}
 
-			$status = ( new Semantic_Search_Service() )->status();
+			$status = ( new Semantic_Index_Service() )->status();
 			if ( $status['current'] !== $status['eligible'] || $status['missing'] > 0 || $status['stale'] > 0 || $status['obsolete'] > 0 ) {
 				throw new \RuntimeException( 'Imported vectors did not produce a complete, current semantic index.' );
 			}
@@ -272,7 +272,7 @@ final class Embedding_Index_Transfer {
 	 */
 	private function eligible_posts(): array {
 		$map = array();
-		foreach ( ( new Semantic_Search_Service() )->eligible_posts() as $post ) {
+		foreach ( ( new Semantic_Index_Service() )->eligible_posts() as $post ) {
 			$map[ Database::integer( $post['source_wp_id'] ?? null ) ] = $post;
 		}
 		return $map;
@@ -346,7 +346,7 @@ final class Embedding_Index_Transfer {
 		if ( 1 !== preg_match( '/^[a-f0-9]{64}$/', $content_hash ) ) {
 			throw new \RuntimeException( sprintf( 'Line %d contains an invalid content hash.', $line_number ) );
 		}
-		if ( ! hash_equals( Semantic_Search_Service::content_hash( $eligible[ $wp_id ] ), $content_hash ) ) {
+		if ( ! hash_equals( Semantic_Index_Service::content_hash( $eligible[ $wp_id ] ), $content_hash ) ) {
 			throw new \RuntimeException( sprintf( 'Line %d contains a stale content hash for WordPress post %d.', $line_number, $wp_id ) );
 		}
 

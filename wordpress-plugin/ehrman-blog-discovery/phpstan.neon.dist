@@ -24,4 +24,5 @@ parameters:
                 - src/Import/Importer.php
                 - src/Import/Parity_Service.php
                 - src/KeywordSearch/Search_Service.php
+                - src/AskAI/Semantic_Index_Service.php
                 - src/AskAI/Semantic_Search_Service.php

@@ -46,7 +46,7 @@ final class Post_Ingestion_Embedding_Generator {
 		}
 
 		$client  = new Embedding_Service( $key, false );
-		$service = new Semantic_Search_Service( $client );
+		$service = new Semantic_Index_Service( $client );
 		$result  = $service->build_post_embedding( $source_wp_id, true );
 		if ( is_wp_error( $result ) ) {
 			$this->repository->mark_embedding_pending( $draft_id, $result->get_error_message(), Embedding_Service::model_id() );

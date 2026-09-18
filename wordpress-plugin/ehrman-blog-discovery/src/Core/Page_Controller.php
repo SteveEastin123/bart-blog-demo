@@ -300,7 +300,7 @@ final class Page_Controller {
 		Assets::enqueue();
 		$question = $this->request->value( 'ebd_question' );
 		$sort     = $this->request->value( 'ebd_sort', 'ranked' );
-		$status   = ( new Semantic_Search_Service() )->status();
+		$status   = ( new Semantic_Index_Service() )->status();
 
 		return $this->semantic_ask_ai_page->render(
 			$question,
