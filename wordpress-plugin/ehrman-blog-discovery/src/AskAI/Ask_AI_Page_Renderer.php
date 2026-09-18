@@ -111,33 +111,16 @@ final class Ask_AI_Page_Renderer {
 	 * @return string Question form markup.
 	 */
 	private function question_panel( string $question, string $sort, bool $ai_configured, string $action ): string {
-		$id                 = $this->markup->next_control_id( 'ebd-question' );
-		$sort_options       = $this->sort_options( $sort );
-		$configured_message = $ai_configured
-			? ''
-			: '<p class="ebd-question-configuration">' . esc_html__( 'Local AI credentials must be configured before questions can be interpreted.', 'ehrman-blog-discovery' ) . '</p>';
-		$review_markup      = '<section class="ebd-question-review" data-ebd-question-review hidden><h3>'
-			. esc_html__( 'Review the interpreted search', 'ehrman-blog-discovery' ) . '</h3><p>'
-			. esc_html__( 'These are the topics and keywords selected from your question. Remove any that do not reflect what you intended.', 'ehrman-blog-discovery' )
-			. '</p><ul data-ebd-question-terms></ul><div class="ebd-sort-row"><span>'
-			. esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>' . $sort_options
-			. '</div><div class="ebd-question-actions"><button type="submit" class="ebd-question-search" data-ebd-question-search disabled>'
-			. esc_html__( 'Search posts', 'ehrman-blog-discovery' ) . '</button></div></section>';
-
-		return '<form class="ebd-question-panel" action="' . esc_url( $action )
-			. '" method="get" data-ebd-question-form><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><div id="' . esc_attr( $id )
-			. '-controls" data-ebd-question-expanded><label for="' . esc_attr( $id ) . '"><strong>'
-			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review.', 'ehrman-blog-discovery' )
-			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required '
-			. 'placeholder="' . esc_attr__( 'Example: How do the teachings of Paul differ from those of Jesus?', 'ehrman-blog-discovery' )
-			. '" data-ebd-question-input>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
-			. '<button type="button" class="ebd-question-interpret" data-ebd-question-interpret'
-			. ( $ai_configured ? '' : ' disabled' ) . '>' . esc_html__( 'Submit', 'ehrman-blog-discovery' )
-			. '</button><button type="button" class="ebd-question-clear" data-ebd-question-clear>'
-			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>' . $configured_message
-			. '<p class="ebd-question-status" data-ebd-question-status aria-live="polite"></p>'
-			. $review_markup . '</div></form>';
+		return Template::render(
+			'public/ask-ai-question.php',
+			array(
+				'id'            => $this->markup->next_control_id( 'ebd-question' ),
+				'question'      => $question,
+				'action'        => $action,
+				'sort_options'  => $this->sort_options( $sort ),
+				'ai_configured' => $ai_configured,
+			)
+		);
 	}
 
 	/**
@@ -168,20 +151,17 @@ final class Ask_AI_Page_Renderer {
 			$message = __( 'The semantic post index must be built before Ask AI 2 can run.', 'ehrman-blog-discovery' );
 		}
 
-		return '<form class="ebd-question-panel ebd-semantic-panel" action="' . esc_url( $action )
-			. '" method="get" data-ebd-semantic-form' . ( '' !== trim( $question ) ? ' data-ebd-auto-run="true"' : '' )
-			. '><input type="hidden" name="ebd_ai_request" value="" data-ebd-ai-request><label for="' . esc_attr( $id ) . '"><strong>'
-			. esc_html__( 'What would you like to explore?', 'ehrman-blog-discovery' ) . '</strong></label><p class="ebd-question-help">'
-			. esc_html__( 'Ask a question or describe what you want to find. AI will find related posts on Bart\'s blog for you to review.', 'ehrman-blog-discovery' )
-			. '</p><textarea id="' . esc_attr( $id ) . '" name="ebd_question" rows="3" maxlength="800" required placeholder="'
-			. esc_attr__( 'Example: How does Luke change Mark?', 'ehrman-blog-discovery' )
-			. '" data-ebd-semantic-question>' . esc_textarea( $question ) . '</textarea><div class="ebd-question-actions">'
-			. '<button type="submit" class="ebd-question-interpret" data-ebd-semantic-submit' . ( $configured ? '' : ' disabled' ) . '>'
-			. esc_html__( 'Submit', 'ehrman-blog-discovery' ) . '</button><button type="button" class="ebd-question-clear" data-ebd-semantic-clear>'
-			. esc_html__( 'Clear', 'ehrman-blog-discovery' ) . '</button></div>'
-			. ( '' === $message ? '' : '<p class="ebd-question-configuration">' . esc_html( $message ) . '</p>' )
-			. '<p class="ebd-question-status" data-ebd-semantic-status aria-live="polite"></p><div class="ebd-sort-row ebd-semantic-sort"><span>'
-			. esc_html__( 'Sort by', 'ehrman-blog-discovery' ) . '</span>' . $this->sort_options( $sort ) . '</div></form>';
+		return Template::render(
+			'public/ask-ai-semantic-question.php',
+			array(
+				'id'           => $id,
+				'question'     => $question,
+				'action'       => $action,
+				'sort_options' => $this->sort_options( $sort ),
+				'message'      => $message,
+				'configured'   => $configured,
+			)
+		);
 	}
 
 	/**

@@ -33,6 +33,18 @@ final class AI_Interpreter {
 	private const TIER_BACKGROUND       = 'background';
 	private const RELEVANCE_TIERS       = array( self::TIER_DIRECT, self::TIER_RELATED, self::TIER_BACKGROUND );
 
+	/**
+	 * Controlled-vocabulary term selector.
+	 *
+	 * @var AI_Term_Selector
+	 */
+	private AI_Term_Selector $term_selector;
+
+	/** Creates the interpreter and its deterministic term selector. */
+	public function __construct() {
+		$this->term_selector = new AI_Term_Selector();
+	}
+
 	/** Returns the configured model identifier for reporting. */
 	public static function model_id(): string {
 		return self::model();
@@ -103,9 +115,9 @@ final class AI_Interpreter {
 		$cached          = $this->cached_result( $cached );
 		if ( null !== $cached ) {
 			AI_Usage::record_cache_hit( self::model(), $request_id );
-			$cached_terms        = $this->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] );
-			$cached_terms        = $this->reconcile_gospel_comparison( $question, $cached_terms, $vocabulary['topics'] );
-			$cached['terms']     = $this->bounded_terms( $this->compatible_terms( $cached_terms ) );
+			$cached_terms        = $this->term_selector->prefer_topic_labels( $cached['terms'], $vocabulary['topics'] );
+			$cached_terms        = $this->term_selector->reconcile_gospel_comparison( $question, $cached_terms, $vocabulary['topics'], self::max_interpreted_terms() );
+			$cached['terms']     = $this->term_selector->bounded_terms( $this->term_selector->compatible_terms( $cached_terms ), self::max_interpreted_terms() );
 			$cached['cache_hit'] = true;
 			return $cached;
 		}
@@ -158,13 +170,14 @@ final class AI_Interpreter {
 		 * @var array<string,mixed> $decoded
 		 */
 
-		$entities = $this->validated_entities( $decoded['named_entities'] ?? array(), $vocabulary['keywords'] );
-		$terms    = $this->validated_terms( $decoded['terms'] ?? array(), $vocabulary );
-		$terms    = $this->prefer_topic_labels( $this->merge_terms( $entities, $terms ), $vocabulary['topics'] );
-		$terms    = $this->reconcile_gospel_comparison( $question, $terms, $vocabulary['topics'] );
-		$result   = array(
+		$max_terms = self::max_interpreted_terms();
+		$entities  = $this->term_selector->validated_entities( $decoded['named_entities'] ?? array(), $vocabulary['keywords'], $max_terms );
+		$terms     = $this->term_selector->validated_terms( $decoded['terms'] ?? array(), $vocabulary, $max_terms );
+		$terms     = $this->term_selector->prefer_topic_labels( $this->term_selector->merge_terms( $entities, $terms, $max_terms ), $vocabulary['topics'] );
+		$terms     = $this->term_selector->reconcile_gospel_comparison( $question, $terms, $vocabulary['topics'], $max_terms );
+		$result    = array(
 			'question'  => $question,
-			'terms'     => $this->bounded_terms( $this->compatible_terms( $terms ) ),
+			'terms'     => $this->term_selector->bounded_terms( $this->term_selector->compatible_terms( $terms ), $max_terms ),
 			'cache_hit' => false,
 		);
 		if ( empty( $result['terms'] ) ) {
@@ -643,265 +656,6 @@ final class AI_Interpreter {
 			}
 		}
 		return '';
-	}
-
-	/**
-	 * Validates model-selected terms against exact database labels.
-	 *
-	 * @param mixed                                                                           $raw Raw terms.
-	 * @param array{topics:list<array{name:string,description:string}>,keywords:list<string>} $vocabulary Approved vocabulary.
-	 * @return list<array{label:string,mode:string}>
-	 */
-	private function validated_terms( $raw, array $vocabulary ): array {
-		$topics = array();
-		foreach ( $vocabulary['topics'] as $topic ) {
-			$topics[ Search_Service::normalize( $topic['name'] ) ] = $topic['name'];
-		}
-		$keywords = array();
-		foreach ( $vocabulary['keywords'] as $keyword ) {
-			$keywords[ Search_Service::normalize( $keyword ) ] = $keyword;
-		}
-		$terms       = array();
-		$seen        = array();
-		$topic_count = 0;
-		foreach ( is_array( $raw ) ? $raw : array() as $term ) {
-			if ( ! is_array( $term ) || ! is_scalar( $term['label'] ?? null ) ) {
-				continue;
-			}
-			$normalized = Search_Service::normalize( (string) $term['label'] );
-			if ( '' === $normalized || isset( $seen[ $normalized ] ) ) {
-				continue;
-			}
-			if ( isset( $topics[ $normalized ] ) ) {
-				if ( $topic_count >= 2 ) {
-					continue;
-				}
-				$terms[] = array(
-					'label' => $topics[ $normalized ],
-					'mode'  => Search_Service::TERM_MODE_TOPIC,
-				);
-				++$topic_count;
-			} elseif ( isset( $keywords[ $normalized ] ) ) {
-				$terms[] = array(
-					'label' => $keywords[ $normalized ],
-					'mode'  => Search_Service::TERM_MODE_KEYWORD,
-				);
-			} else {
-				continue;
-			}
-			$seen[ $normalized ] = true;
-			if ( count( $terms ) >= self::max_interpreted_terms() ) {
-				break;
-			}
-		}
-		return $terms;
-	}
-
-	/**
-	 * Validates explicitly named entities against exact keyword labels.
-	 *
-	 * @param mixed             $raw      Raw named entities.
-	 * @param array<int,string> $keywords Approved keywords.
-	 * @return list<array{label:string,mode:string}> Valid entities.
-	 */
-	private function validated_entities( $raw, array $keywords ): array {
-		$approved = array();
-		foreach ( $keywords as $keyword ) {
-			$approved[ Search_Service::normalize( $keyword ) ] = (string) $keyword;
-		}
-		$entities = array();
-		$seen     = array();
-		foreach ( is_array( $raw ) ? $raw : array() as $entity ) {
-			if ( ! is_scalar( $entity ) ) {
-				continue;
-			}
-			$normalized = Search_Service::normalize( (string) $entity );
-			if ( '' === $normalized || isset( $seen[ $normalized ] ) || ! isset( $approved[ $normalized ] ) ) {
-				continue;
-			}
-			$entities[]          = array(
-				'label' => $approved[ $normalized ],
-				'mode'  => Search_Service::TERM_MODE_KEYWORD,
-			);
-			$seen[ $normalized ] = true;
-			if ( count( $entities ) >= self::max_interpreted_terms() ) {
-				break;
-			}
-		}
-		return $entities;
-	}
-
-	/**
-	 * Combines prioritized entity and interpreted terms without duplicates.
-	 *
-	 * @param list<array{label:string,mode:string}> $entities Explicit entities.
-	 * @param list<array{label:string,mode:string}> $terms Interpreted terms.
-	 * @return list<array{label:string,mode:string}> Combined bounded terms.
-	 */
-	private function merge_terms( array $entities, array $terms ): array {
-		$merged = array();
-		$seen   = array();
-		foreach ( array_merge( $entities, $terms ) as $term ) {
-			$normalized = Search_Service::normalize( $term['label'] );
-			if ( isset( $seen[ $normalized ] ) ) {
-				continue;
-			}
-			$merged[]            = $term;
-			$seen[ $normalized ] = true;
-			if ( count( $merged ) >= self::max_interpreted_terms() ) {
-				break;
-			}
-		}
-		return $merged;
-	}
-
-	/**
-	 * Promotes a selected keyword to topic mode when an identical topic exists.
-	 *
-	 * @param list<array{label:string,mode:string}>       $terms  Selected terms.
-	 * @param list<array{name:string,description:string}> $topics Approved topics.
-	 * @return list<array{label:string,mode:string}> Topic-preferred terms.
-	 */
-	private function prefer_topic_labels( array $terms, array $topics ): array {
-		$topic_labels = array();
-		foreach ( $topics as $topic ) {
-			$topic_labels[ Search_Service::normalize( $topic['name'] ) ] = $topic['name'];
-		}
-		foreach ( $terms as &$term ) {
-			$normalized = Search_Service::normalize( $term['label'] );
-			if ( isset( $topic_labels[ $normalized ] ) ) {
-				$term['label'] = $topic_labels[ $normalized ];
-				$term['mode']  = Search_Service::TERM_MODE_TOPIC;
-			}
-		}
-		unset( $term );
-		return $terms;
-	}
-
-	/**
-	 * Makes explicit literary comparisons between named Gospels deterministic.
-	 *
-	 * The model may reasonably choose a broad method topic for these questions,
-	 * but readers get more predictable results when both named Gospel texts are
-	 * retained as the search requirements.
-	 *
-	 * @param string                                      $question Reader question.
-	 * @param list<array{label:string,mode:string}>       $terms    Interpreted terms.
-	 * @param list<array{name:string,description:string}> $topics   Approved topics.
-	 * @return list<array{label:string,mode:string}> Reconciled terms.
-	 */
-	private function reconcile_gospel_comparison( string $question, array $terms, array $topics ): array {
-		$relationship_pattern = '/\b(?:compare|compared|compares|comparing|differ|differed|differs|differing|different|differently|difference|differences|agree|agreed|agrees|agreeing|disagree|disagreed|disagrees|disagreeing|change|changed|changes|changing|alter|altered|alters|altering|edit|edited|edits|editing|rewrite|rewrites|rewriting|rewritten|copy|copied|copies|copying|use|used|uses|using|depend|depended|depends|depending|borrow|borrowed|borrows|borrowing|influence|influenced|influences|influencing|relationship|relationships|source|sources)\b/i';
-		if ( ! preg_match( $relationship_pattern, $question ) ) {
-			return $terms;
-		}
-
-		$topic_labels = array();
-		foreach ( $topics as $topic ) {
-			$topic_labels[ Search_Service::normalize( $topic['name'] ) ] = $topic['name'];
-		}
-
-		$gospels = array(
-			'matthew' => 'Gospel of Matthew',
-			'mark'    => 'Gospel of Mark',
-			'luke'    => 'Gospel of Luke',
-			'john'    => 'Gospel of John',
-		);
-		$named   = array();
-		foreach ( $gospels as $short_name => $topic_name ) {
-			if ( ! preg_match( '/\b(?:gospel\s+of\s+)?' . preg_quote( $short_name, '/' ) . '\b/i', $question, $match, PREG_OFFSET_CAPTURE ) ) {
-				continue;
-			}
-			$normalized = Search_Service::normalize( $topic_name );
-			if ( isset( $topic_labels[ $normalized ] ) ) {
-				$named[] = array(
-					'offset' => (int) $match[0][1],
-					'label'  => $topic_labels[ $normalized ],
-				);
-			}
-		}
-		if ( count( $named ) < 2 ) {
-			return $terms;
-		}
-
-		usort(
-			$named,
-			static fn( array $left, array $right ): int => $left['offset'] <=> $right['offset']
-		);
-		$reconciled = array();
-		$seen       = array();
-		foreach ( $named as $gospel ) {
-			$normalized          = Search_Service::normalize( $gospel['label'] );
-			$reconciled[]        = array(
-				'label' => $gospel['label'],
-				'mode'  => Search_Service::TERM_MODE_TOPIC,
-			);
-			$seen[ $normalized ] = true;
-		}
-
-		$method_topics       = array_map(
-			array( Search_Service::class, 'normalize' ),
-			array( 'Historical Methods (General)', 'Methods for Studying the Historical Jesus', 'Redaction Criticism', 'Source Criticism', 'Synoptic Problem' )
-		);
-		$normalized_question = Search_Service::normalize( $question );
-		foreach ( $terms as $term ) {
-			$normalized = Search_Service::normalize( $term['label'] );
-			if ( isset( $seen[ $normalized ] ) ) {
-				continue;
-			}
-			if ( in_array( $normalized, $method_topics, true ) && ! str_contains( $normalized_question, $normalized ) ) {
-				continue;
-			}
-			$reconciled[]        = $term;
-			$seen[ $normalized ] = true;
-			if ( count( $reconciled ) >= self::max_interpreted_terms() ) {
-				break;
-			}
-		}
-
-		return $reconciled;
-	}
-
-	/**
-	 * Keeps only model-selected terms that produce a useful AND search.
-	 *
-	 * Terms arrive in relevance order. A later term is retained whenever the
-	 * combined AND search preserves at least one result.
-	 *
-	 * @param list<array{label:string,mode:string}> $terms Validated terms.
-	 * @return list<array{label:string,mode:string}> Compatible terms.
-	 */
-	private function compatible_terms( array $terms ): array {
-		if ( count( $terms ) < 2 ) {
-			return $terms;
-		}
-
-		$search   = new Search_Service();
-		$accepted = array( $terms[0] );
-
-		foreach ( array_slice( $terms, 1 ) as $term ) {
-			$trial        = array_merge( $accepted, array( $term ) );
-			$trial_terms  = array_column( $trial, 'label' );
-			$trial_modes  = array_column( $trial, 'mode' );
-			$trial_result = $search->search( $trial_terms, 'ranked', '', '', 1, 1, $trial_modes );
-			$trial_count  = $trial_result['count'];
-
-			if ( $trial_count > 0 ) {
-				$accepted = $trial;
-			}
-		}
-
-		return $accepted;
-	}
-
-	/**
-	 * Applies the configured AI interpretation limit without changing search limits.
-	 *
-	 * @param list<array{label:string,mode:string}> $terms Validated terms.
-	 * @return list<array{label:string,mode:string}> Bounded terms.
-	 */
-	private function bounded_terms( array $terms ): array {
-		return array_slice( $terms, 0, self::max_interpreted_terms() );
 	}
 
 	/** Returns the interpretation term limit for the configured strategy. */

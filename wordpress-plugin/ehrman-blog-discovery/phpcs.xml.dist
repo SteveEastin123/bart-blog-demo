@@ -15,6 +15,14 @@
 
     <rule ref="WordPress"/>
 
+    <!-- PSR-4 source filenames intentionally match their class names. -->
+    <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+        <exclude-pattern>src/*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+        <exclude-pattern>src/*</exclude-pattern>
+    </rule>
+
     <!--
         The plugin owns dedicated custom tables and must query them directly.
         Query results are request-scoped search data, so WordPress object-cache
@@ -50,6 +58,8 @@
     </rule>
 
     <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <!-- Template variables execute inside Template::render(), not global scope. -->
+        <exclude-pattern>templates/*</exclude-pattern>
         <properties>
             <property name="prefixes" type="array">
                 <element value="ehrman_discovery"/>

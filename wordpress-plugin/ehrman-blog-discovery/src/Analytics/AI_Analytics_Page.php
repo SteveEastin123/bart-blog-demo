@@ -39,18 +39,19 @@ final class AI_Analytics_Page {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		$report_builder        = new AI_Analytics_Report();
 		$filters               = self::filters();
 		$page                  = max( 1, absint( self::query_value( 'paged', '1' ) ) );
 		$report                = AI_Requests::analytics( $filters, $page, self::PAGE_SIZE );
 		$all_report            = AI_Requests::analytics( $filters, 1, 0 );
 		$request_ids           = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $all_report['rows'] ), true );
-		$refinements           = self::filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
-		$refinement_costs      = self::refinement_costs_by_request( $refinements );
-		$summary               = self::summary( $all_report['rows'], $refinements );
+		$refinements           = $report_builder->filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
+		$refinement_costs      = $report_builder->refinement_costs_by_request( $refinements );
+		$summary               = $report_builder->summary( $all_report['rows'], $refinements );
 		$usage                 = AI_Usage::report();
 		$semantic_index_usage  = AI_Usage::semantic_index_report();
-		$periods               = self::periods( $filters['interface'] );
-		$comparison            = self::comparison( $filters );
+		$periods               = $report_builder->periods( $filters['interface'] );
+		$comparison            = $report_builder->comparison( $filters );
 		$total_pages           = max( 1, (int) ceil( $report['total'] / self::PAGE_SIZE ) );
 		$export_url            = wp_nonce_url(
 			add_query_arg( array_merge( array( 'action' => 'ehrman_ai_analytics_csv' ), $filters ), admin_url( 'admin-post.php' ) ),
@@ -80,7 +81,7 @@ final class AI_Analytics_Page {
 			<?php if ( 'comparison' === $filters['view'] ) : ?>
 				<?php self::comparison_table( $comparison ); ?>
 				<?php self::semantic_index_note( $semantic_index_usage ); ?>
-				<?php self::comparison_period_table( self::comparison_periods() ); ?>
+				<?php self::comparison_period_table( $report_builder->comparison_periods() ); ?>
 				<?php self::filter_form( $filters ); ?>
 				<p><?php echo esc_html__( 'The comparison respects the active date, question, feedback, and zero-result filters. Initial cost covers topic interpretation for Ask AI 1 and semantic retrieval for Ask AI 2; refinement cost covers title-and-summary evaluation.', 'ehrman-blog-discovery' ); ?></p>
 			<?php else : ?>
@@ -180,97 +181,7 @@ final class AI_Analytics_Page {
 			wp_die( esc_html__( 'You are not allowed to export AI search analytics.', 'ehrman-blog-discovery' ) );
 		}
 		check_admin_referer( 'ehrman_ai_analytics_csv' );
-		if ( 'refinements' === self::query_value( 'dataset' ) ) {
-			self::export_refinements_csv();
-		}
-		$report = AI_Requests::analytics( self::filters(), 1, 0 );
-		nocache_headers();
-		header( 'Content-Type: text/csv; charset=utf-8' );
-		header( 'Content-Disposition: attachment; filename="ask-ai-analytics-' . gmdate( 'Y-m-d' ) . '.csv"' );
-		$output = fopen( 'php://output', 'w' );
-		if ( false === $output ) {
-			wp_die( esc_html__( 'The CSV export could not be created.', 'ehrman-blog-discovery' ) );
-		}
-		fputcsv( $output, array( 'Date (Eastern)', 'Method', 'Question', 'Topics and keywords', 'Results', 'Feedback', 'Response ID', 'Model', 'Service tier', 'Prompt version', 'WordPress cache hit', 'Input tokens', 'Cached input tokens', 'Cache write tokens', 'Output tokens', 'Reasoning tokens', 'Total tokens', 'Estimated cost USD', 'Pricing version', 'Status', 'Error code' ) );
-		foreach ( $report['rows'] as $row ) {
-			fputcsv(
-				$output,
-				array(
-					self::csv_datetime( $row ),
-					self::request_type_label( $row ),
-					Database::text( $row['question'] ?? '' ),
-					self::term_text( $row ),
-					Database::integer( $row['result_count'] ?? 0 ),
-					self::feedback_label( $row ),
-					Database::text( $row['response_id'] ?? '' ),
-					self::source_model( $row ),
-					Database::text( $row['service_tier'] ?? '' ),
-					Database::text( $row['prompt_version'] ?? '' ),
-					Database::integer( $row['cache_hit'] ?? 0 ),
-					Database::integer( $row['input_tokens'] ?? 0 ),
-					Database::integer( $row['cached_input_tokens'] ?? 0 ),
-					Database::integer( $row['cache_write_tokens'] ?? 0 ),
-					Database::integer( $row['output_tokens'] ?? 0 ),
-					Database::integer( $row['reasoning_tokens'] ?? 0 ),
-					self::total_tokens( $row ),
-					Database::text( $row['estimated_cost_usd'] ?? 0 ),
-					Database::text( $row['pricing_version'] ?? '' ),
-					1 === Database::integer( $row['request_succeeded'] ?? 0 ) ? 'Success' : 'Failed',
-					Database::text( $row['error_code'] ?? '' ),
-				)
-			);
-		}
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Required for streamed CSV output.
-		fclose( $output );
-		exit;
-	}
-
-	/** Exports filtered refinement rows as a protected CSV download. */
-	private static function export_refinements_csv(): void {
-		$report      = AI_Requests::analytics( self::filters(), 1, 0 );
-		$request_ids = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $report['rows'] ), true );
-		$rows        = self::filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
-		nocache_headers();
-		header( 'Content-Type: text/csv; charset=utf-8' );
-		header( 'Content-Disposition: attachment; filename="ask-ai-refinements-' . gmdate( 'Y-m-d' ) . '.csv"' );
-		$output = fopen( 'php://output', 'w' );
-		if ( false === $output ) {
-			wp_die( esc_html__( 'The CSV export could not be created.', 'ehrman-blog-discovery' ) );
-		}
-		fputcsv( $output, array( 'Date (Eastern)', 'Parent request ID', 'Refinement ID', 'Question', 'Original results', 'Candidates reviewed', 'Refined results', 'Retained posts', 'Response ID', 'Model', 'Service tier', 'Prompt version', 'WordPress cache hit', 'Input tokens', 'Cached input tokens', 'Cache write tokens', 'Output tokens', 'Reasoning tokens', 'Total tokens', 'Estimated cost USD', 'Pricing version', 'Status', 'Error code' ) );
-		foreach ( $rows as $row ) {
-			fputcsv(
-				$output,
-				array(
-					self::csv_datetime( $row ),
-					Database::text( $row['request_id'] ?? '' ),
-					Database::text( $row['refinement_id'] ?? '' ),
-					Database::text( $row['question'] ?? '' ),
-					Database::integer( $row['original_count'] ?? 0 ),
-					Database::integer( $row['candidate_count'] ?? 0 ),
-					Database::integer( $row['refined_count'] ?? 0 ),
-					self::retained_post_text( $row ),
-					Database::text( $row['response_id'] ?? '' ),
-					Database::text( $row['model'] ?? '' ),
-					Database::text( $row['service_tier'] ?? '' ),
-					Database::text( $row['prompt_version'] ?? '' ),
-					Database::integer( $row['cache_hit'] ?? 0 ),
-					Database::integer( $row['input_tokens'] ?? 0 ),
-					Database::integer( $row['cached_input_tokens'] ?? 0 ),
-					Database::integer( $row['cache_write_tokens'] ?? 0 ),
-					Database::integer( $row['output_tokens'] ?? 0 ),
-					Database::integer( $row['reasoning_tokens'] ?? 0 ),
-					self::total_tokens( $row ),
-					Database::text( $row['estimated_cost_usd'] ?? 0 ),
-					Database::text( $row['pricing_version'] ?? '' ),
-					1 === Database::integer( $row['request_succeeded'] ?? 0 ) ? 'Success' : 'Failed',
-					Database::text( $row['error_code'] ?? '' ),
-				)
-			);
-		}
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Required for streamed CSV output.
-		fclose( $output );
-		exit;
+		( new AI_Analytics_Exporter() )->export( self::filters(), self::query_value( 'dataset' ) );
 	}
 
 	/**
@@ -283,135 +194,6 @@ final class AI_Analytics_Page {
 		?>
 		<div style="min-width:140px;padding:14px 18px;border:1px solid #c3c4c7;background:#fff"><strong style="display:block;font-size:22px"><?php echo esc_html( $value ); ?></strong><span><?php echo esc_html( $label ); ?></span></div>
 		<?php
-	}
-
-	/**
-	 * Summarizes question and refinement rows.
-	 *
-	 * @param list<array<string,mixed>> $requests    Question interpretation rows.
-	 * @param list<array<string,mixed>> $refinements Refinement rows.
-	 * @return array<string,int|float> Summary values.
-	 */
-	private static function summary( array $requests, array $refinements ): array {
-		$initial_cost      = self::row_cost( $requests );
-		$refinement_cost   = self::row_cost( $refinements );
-		$total_cost        = $initial_cost + $refinement_cost;
-		$events            = array_merge( $requests, $refinements );
-		$cache_hits        = count( array_filter( $events, static fn( array $row ): bool => 1 === Database::integer( $row['cache_hit'] ?? 0 ) ) );
-		$api_calls         = max( 0, count( $events ) - $cache_hits );
-		$questions         = count( $requests );
-		$refinement_count  = count( $refinements );
-		$refined_questions = array_filter( array_unique( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $refinements ) ) );
-		$result_total      = self::row_integer_sum( $requests, 'result_count' );
-		$zero_results      = count(
-			array_filter(
-				$requests,
-				static fn( array $row ): bool => 1 === Database::integer( $row['result_recorded'] ?? 0 )
-					&& 0 === Database::integer( $row['result_count'] ?? 0 )
-			)
-		);
-
-		return array(
-			'questions'              => $questions,
-			'refinements'            => $refinement_count,
-			'api_calls'              => $api_calls,
-			'cache_hits'             => $cache_hits,
-			'input_tokens'           => self::row_integer_sum( $events, 'input_tokens' ),
-			'cached_input_tokens'    => self::row_integer_sum( $events, 'cached_input_tokens' ),
-			'cache_write_tokens'     => self::row_integer_sum( $events, 'cache_write_tokens' ),
-			'output_tokens'          => self::row_integer_sum( $events, 'output_tokens' ),
-			'reasoning_tokens'       => self::row_integer_sum( $events, 'reasoning_tokens' ),
-			'total_tokens'           => array_reduce( $events, static fn( int $sum, array $row ): int => $sum + self::total_tokens( $row ), 0 ),
-			'initial_cost'           => $initial_cost,
-			'refinement_cost'        => $refinement_cost,
-			'total_cost'             => $total_cost,
-			'average_question'       => $questions > 0 ? $total_cost / $questions : 0.0,
-			'average_interpretation' => $questions > 0 ? $initial_cost / $questions : 0.0,
-			'average_refinement'     => $refinement_count > 0 ? $refinement_cost / $refinement_count : 0.0,
-			'average_api_call'       => $api_calls > 0 ? $total_cost / $api_calls : 0.0,
-			'average_calls'          => $questions > 0 ? $api_calls / $questions : 0.0,
-			'average_results'        => $questions > 0 ? $result_total / $questions : 0.0,
-			'zero_results'           => $zero_results,
-			'cache_rate'             => count( $events ) > 0 ? ( $cache_hits / count( $events ) ) * 100 : 0.0,
-			'refinement_rate'        => $questions > 0 ? ( count( $refined_questions ) / $questions ) * 100 : 0.0,
-		);
-	}
-
-	/**
-	 * Returns cost summaries for today, this month, and all retained data.
-	 *
-	 * @param string $request_interface Request source to include.
-	 * @return array<string,array<string,int|float>> Cost summaries by period.
-	 */
-	private static function periods( string $request_interface = 'all' ): array {
-		$filters     = array(
-			'interface'    => $request_interface,
-			'feedback'     => 'all',
-			'date_from'    => '',
-			'date_to'      => '',
-			'search'       => '',
-			'zero_results' => '',
-		);
-		$requests    = AI_Requests::analytics( $filters, 1, 0 )['rows'];
-		$refinements = AI_Refinements::recent( 5000 );
-		$now         = new \DateTimeImmutable( 'now', self::display_timezone() );
-		$periods     = array(
-			__( 'Today', 'ehrman-blog-discovery' )        => self::utc_datetime( $now->setTime( 0, 0 ) ),
-			__( 'This month', 'ehrman-blog-discovery' )   => self::utc_datetime( $now->modify( 'first day of this month' )->setTime( 0, 0 ) ),
-			__( 'All retained', 'ehrman-blog-discovery' ) => '',
-		);
-		$rows        = array();
-		foreach ( $periods as $label => $start ) {
-			$request_period = array_values( array_filter( $requests, static fn( array $row ): bool => '' === $start || Database::text( $row['created_at'] ?? '' ) >= $start ) );
-			$request_ids    = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $request_period ), true );
-			$refine_period  = self::filtered_refinements( $refinements, $request_ids );
-			$refine_period  = array_values( array_filter( $refine_period, static fn( array $row ): bool => '' === $start || Database::text( $row['created_at'] ?? '' ) >= $start ) );
-			$rows[ $label ] = self::summary( $request_period, $refine_period );
-		}
-		return $rows;
-	}
-
-	/**
-	 * Returns comparable Ask AI and Ask AI 2 datasets for the active filters.
-	 *
-	 * @param array<string,string> $filters Active administrator filters.
-	 * @return array<string,array<string,int|float>> Datasets keyed by interface.
-	 */
-	private static function comparison( array $filters ): array {
-		$datasets = array();
-		foreach ( array( 'taxonomy', 'semantic' ) as $interface ) {
-			$interface_filters              = $filters;
-			$interface_filters['interface'] = $interface;
-			$report                         = AI_Requests::analytics( $interface_filters, 1, 0 );
-			$request_ids                    = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $report['rows'] ), true );
-			$refinements                    = self::filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
-			$summary                        = self::summary( $report['rows'], $refinements );
-			$summary['yes']                 = $report['yes'];
-			$summary['no']                  = $report['no'];
-			$summary['unanswered']          = $report['unanswered'];
-			$summary['response_rate']       = $report['response_rate'];
-			$summary['helpful_rate']        = $report['helpful_rate'];
-			$datasets[ $interface ]         = $summary;
-		}
-		return $datasets;
-	}
-
-	/**
-	 * Returns standard-period comparisons for both Ask AI interfaces.
-	 *
-	 * @return array<string,array<string,array<string,int|float>>> Period rows by interface.
-	 */
-	private static function comparison_periods(): array {
-		$taxonomy = self::periods( 'taxonomy' );
-		$semantic = self::periods( 'semantic' );
-		$rows     = array();
-		foreach ( $taxonomy as $label => $summary ) {
-			$rows[ $label ] = array(
-				'taxonomy' => $summary,
-				'semantic' => $semantic[ $label ] ?? self::summary( array(), array() ),
-			);
-		}
-		return $rows;
 	}
 
 	/**
@@ -711,40 +493,6 @@ final class AI_Analytics_Page {
 	}
 
 	/**
-	 * Keeps refinements linked to the currently filtered question rows.
-	 *
-	 * @param list<array<string,mixed>> $rows        Refinement rows.
-	 * @param array<string,bool>        $request_ids Allowed parent request identifiers.
-	 * @return list<array<string,mixed>> Filtered refinement rows.
-	 */
-	private static function filtered_refinements( array $rows, array $request_ids ): array {
-		return array_values(
-			array_filter(
-				$rows,
-				static fn( array $row ): bool => isset( $request_ids[ Database::text( $row['request_id'] ?? '' ) ] )
-			)
-		);
-	}
-
-	/**
-	 * Totals AI review costs by their parent question identifier.
-	 *
-	 * @param list<array<string,mixed>> $rows Refinement rows.
-	 * @return array<string,float> Refinement costs keyed by parent request identifier.
-	 */
-	private static function refinement_costs_by_request( array $rows ): array {
-		$costs = array();
-		foreach ( $rows as $row ) {
-			$request_id = Database::text( $row['request_id'] ?? '' );
-			if ( '' === $request_id ) {
-				continue;
-			}
-			$costs[ $request_id ] = ( $costs[ $request_id ] ?? 0.0 ) + (float) Database::text( $row['estimated_cost_usd'] ?? 0 );
-		}
-		return $costs;
-	}
-
-	/**
 	 * Renders total question cost first, followed by its two components.
 	 *
 	 * @param array<string,mixed> $row             Request row.
@@ -787,15 +535,6 @@ final class AI_Analytics_Page {
 	}
 
 	/**
-	 * Returns a stored UTC timestamp formatted for CSV in Eastern time.
-	 *
-	 * @param array<string,mixed> $row Analytics row.
-	 */
-	private static function csv_datetime( array $row ): string {
-		return self::format_datetime( Database::text( $row['created_at'] ?? '' ), 'Y-m-d H:i:s P T' );
-	}
-
-	/**
 	 * Converts a stored UTC timestamp to Eastern time.
 	 *
 	 * @param string $value  Stored UTC timestamp.
@@ -816,15 +555,6 @@ final class AI_Analytics_Page {
 	/** Returns the named timezone used for analytics display and reporting. */
 	private static function display_timezone(): \DateTimeZone {
 		return new \DateTimeZone( self::DISPLAY_TIMEZONE );
-	}
-
-	/**
-	 * Converts an Eastern timestamp to the stored UTC timestamp format.
-	 *
-	 * @param \DateTimeImmutable $value Eastern timestamp.
-	 */
-	private static function utc_datetime( \DateTimeImmutable $value ): string {
-		return $value->setTimezone( new \DateTimeZone( 'UTC' ) )->format( 'Y-m-d H:i:s' );
 	}
 
 	/**
@@ -895,25 +625,6 @@ final class AI_Analytics_Page {
 	 */
 	private static function short_identifier( string $identifier ): string {
 		return strlen( $identifier ) > 24 ? substr( $identifier, 0, 14 ) . '…' . substr( $identifier, -7 ) : $identifier;
-	}
-
-	/**
-	 * Returns the estimated-cost sum for analytics rows.
-	 *
-	 * @param list<array<string,mixed>> $rows Analytics rows.
-	 */
-	private static function row_cost( array $rows ): float {
-		return array_reduce( $rows, static fn( float $sum, array $row ): float => $sum + (float) Database::text( $row['estimated_cost_usd'] ?? 0 ), 0.0 );
-	}
-
-	/**
-	 * Returns an integer-field sum for analytics rows.
-	 *
-	 * @param list<array<string,mixed>> $rows  Analytics rows.
-	 * @param string                    $field Integer field to total.
-	 */
-	private static function row_integer_sum( array $rows, string $field ): int {
-		return array_reduce( $rows, static fn( int $sum, array $row ): int => $sum + Database::integer( $row[ $field ] ?? 0 ), 0 );
 	}
 
 	/**

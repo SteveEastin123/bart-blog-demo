@@ -3,6 +3,21 @@
     "description": "Development tooling for the Ehrman Blog Discovery WordPress plugin.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "EhrmanBlogDiscovery\\": [
+                "src/Core/",
+                "src/Browse/",
+                "src/KeywordSearch/",
+                "src/AskAI/",
+                "src/Analytics/",
+                "src/Ingestion/",
+                "src/Import/",
+                "src/Http/",
+                "src/Shared/"
+            ]
+        }
+    },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
         "phpstan/phpstan": "^2.1",

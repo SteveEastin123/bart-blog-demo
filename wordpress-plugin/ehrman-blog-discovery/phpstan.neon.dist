@@ -11,7 +11,7 @@ parameters:
     paths:
         - ehrman-blog-discovery.php
         - uninstall.php
-        - includes
+        - src
     excludePaths:
         analyse:
             - vendor
@@ -20,8 +20,8 @@ parameters:
             identifier: argument.type
             message: '#^Parameter \#1 \$query of method wpdb::prepare\(\) expects literal-string, non-falsy-string given\.$#'
             paths:
-                - includes/class-browse-service.php
-                - includes/class-importer.php
-                - includes/class-parity-service.php
-                - includes/class-search-service.php
-                - includes/class-semantic-search-service.php
+                - src/Browse/Browse_Service.php
+                - src/Import/Importer.php
+                - src/Import/Parity_Service.php
+                - src/KeywordSearch/Search_Service.php
+                - src/AskAI/Semantic_Search_Service.php

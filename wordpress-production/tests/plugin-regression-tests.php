@@ -7,7 +7,7 @@
  * @package EhrmanBlogDiscovery
  */
 
-use EhrmanBlogDiscovery\AI_Analytics_Page;
+use EhrmanBlogDiscovery\AI_Analytics_Report;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
@@ -457,9 +457,7 @@ try {
 }
 
 /* Verify total and average analytics costs include initial and refinement calls. */
-$summary_method = new ReflectionMethod( AI_Analytics_Page::class, 'summary' );
-$analytics      = $summary_method->invoke(
-	null,
+$analytics = ( new AI_Analytics_Report() )->summary(
 	array(
 		array(
 			'request_id'         => 'request-1',

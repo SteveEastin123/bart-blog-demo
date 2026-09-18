@@ -13,6 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Searches imported post metadata and builds scoped autocomplete suggestions. */
 final class Search_Service {
+	/**
+	 * Database access for post matching.
+	 *
+	 * @var Search_Post_Repository
+	 */
+	private Search_Post_Repository $repository;
+
+	/**
+	 * Deterministic post-ranking rules.
+	 *
+	 * @var Search_Post_Ranker
+	 */
+	private Search_Post_Ranker $ranker;
 
 	/** Maximum number of terms accepted by a search. */
 	public const MAX_TERMS = 4;
@@ -31,6 +44,12 @@ final class Search_Service {
 
 	/** Search a secondary-keyword label using the normal broad term lookup. */
 	public const TERM_MODE_KEYWORD = 'keyword';
+
+	/** Creates the search service and its focused collaborators. */
+	public function __construct() {
+		$this->repository = new Search_Post_Repository();
+		$this->ranker     = new Search_Post_Ranker();
+	}
 
 	/**
 	 * Searches posts using AND semantics across terms and optional scope.
@@ -62,19 +81,19 @@ final class Search_Service {
 		$topic         = null;
 
 		if ( '' !== $category_slug ) {
-			$category = $this->record_by_slug( 'categories', $category_slug );
+			$category = $this->repository->record_by_slug( 'categories', $category_slug );
 			if ( null === $category ) {
 				return $this->search_result( array(), $terms, $sort, $page, $per_page );
 			}
-			$eligible = $this->category_post_ids( Database::integer( $category['id'] ?? null ) );
+			$eligible = $this->repository->category_post_ids( Database::integer( $category['id'] ?? null ) );
 		}
 
 		if ( '' !== $topic_slug ) {
-			$topic = $this->record_by_slug( 'topics', $topic_slug );
+			$topic = $this->repository->record_by_slug( 'topics', $topic_slug );
 			if ( null === $topic ) {
 				return $this->search_result( array(), $terms, $sort, $page, $per_page );
 			}
-			$eligible = self::intersect_id_sets( $eligible, $this->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
+			$eligible = self::intersect_id_sets( $eligible, $this->repository->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
 		}
 
 		if ( null === $eligible && empty( $terms ) ) {
@@ -100,7 +119,7 @@ final class Search_Service {
 		foreach ( $filter_terms as $index => $term ) {
 			$scores = self::intersect_scores(
 				$scores,
-				$this->post_scores_for_term( $term, $filter_modes[ $index ] ?? self::TERM_MODE_COMBINED )
+				$this->repository->post_scores_for_term( $term, $filter_modes[ $index ] ?? self::TERM_MODE_COMBINED )
 			);
 		}
 
@@ -111,8 +130,8 @@ final class Search_Service {
 			return $this->search_result( array(), $terms, $sort, $page, $per_page );
 		}
 
-		$posts = $this->posts_by_ids( array_keys( $scores ) );
-		$posts = $this->sort_posts( $posts, $sort, $terms, $scores );
+		$posts = $this->repository->posts_by_ids( array_keys( $scores ) );
+		$posts = $this->ranker->sort( $posts, $sort, $terms, $scores );
 
 		return $this->search_result( $posts, $terms, $sort, $page, $per_page );
 	}
@@ -234,12 +253,12 @@ final class Search_Service {
 		$eligible                = null;
 		$allowed_category_topics = array();
 		if ( '' !== $category_slug ) {
-			$category = $this->record_by_slug( 'categories', $category_slug );
+			$category = $this->repository->record_by_slug( 'categories', $category_slug );
 			if ( null === $category ) {
 				return array();
 			}
 			$category_id = Database::integer( $category['id'] ?? null );
-			$eligible    = $this->category_post_ids( $category_id );
+			$eligible    = $this->repository->category_post_ids( $category_id );
 			$sql         = "SELECT t.name FROM {$tables['topics']} t "
 				. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=t.id "
 				. 'WHERE tc.category_id=%d AND t.display_in_browser=1';
@@ -248,18 +267,18 @@ final class Search_Service {
 		}
 
 		if ( '' !== $topic_slug ) {
-			$topic = $this->record_by_slug( 'topics', $topic_slug );
+			$topic = $this->repository->record_by_slug( 'topics', $topic_slug );
 			if ( null === $topic ) {
 				return array();
 			}
-			$eligible = self::intersect_id_sets( $eligible, $this->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
+			$eligible = self::intersect_id_sets( $eligible, $this->repository->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
 		}
 
 		foreach ( $selected as $index => $term ) {
 			$eligible = self::intersect_id_sets(
 				$eligible,
 				array_fill_keys(
-					array_keys( $this->post_scores_for_term( $term, $selected_modes[ $index ] ?? self::TERM_MODE_COMBINED ) ),
+					array_keys( $this->repository->post_scores_for_term( $term, $selected_modes[ $index ] ?? self::TERM_MODE_COMBINED ) ),
 					true
 				)
 			);
@@ -471,261 +490,6 @@ final class Search_Service {
 			}
 		}
 		return $values;
-	}
-
-	/**
-	 * Finds a record by slug in an allowed custom table.
-	 *
-	 * @param string $table_key Logical custom-table key.
-	 * @param string $slug      Record slug.
-	 * @return array<string,mixed>|null Record when found.
-	 */
-	private function record_by_slug( string $table_key, string $slug ): ?array {
-		$wpdb   = Database::client();
-		$tables = Database::tables();
-		$row    = $wpdb->get_row(
-			$wpdb->prepare( "SELECT * FROM {$tables[$table_key]} WHERE slug=%s LIMIT 1", $slug ),
-			ARRAY_A
-		);
-		return Database::associative_row( $row );
-	}
-
-	/**
-	 * Returns the unique posts connected to a category.
-	 *
-	 * @param int $category_id Category database identifier.
-	 * @return array<int,bool> Post-ID set.
-	 */
-	private function category_post_ids( int $category_id ): array {
-		$wpdb   = Database::client();
-		$tables = Database::tables();
-		$sql    = "SELECT DISTINCT pt.post_id FROM {$tables['post_topics']} pt "
-			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d";
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
-		$ids = $wpdb->get_col( $wpdb->prepare( $sql, $category_id ) );
-		return array_fill_keys( array_map( static fn( $id ): int => Database::integer( $id ), $ids ), true );
-	}
-
-	/**
-	 * Returns the posts assigned directly to a topic.
-	 *
-	 * @param int $topic_id Topic database identifier.
-	 * @return array<int,bool> Post-ID set.
-	 */
-	private function topic_post_ids( int $topic_id ): array {
-		$wpdb   = Database::client();
-		$tables = Database::tables();
-		$sql    = "SELECT post_id FROM {$tables['post_topics']} WHERE topic_id=%d";
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
-		$ids = $wpdb->get_col( $wpdb->prepare( $sql, $topic_id ) );
-		return array_fill_keys( array_map( static fn( $id ): int => Database::integer( $id ), $ids ), true );
-	}
-
-	/**
-	 * Returns matching post IDs and index weights for one term.
-	 *
-	 * @param string $term Search term.
-	 * @param string $mode Selected term mode.
-	 * @return array<int,int> Scores keyed by post ID.
-	 */
-	private function post_scores_for_term( string $term, string $mode = self::TERM_MODE_COMBINED ): array {
-		$wpdb       = Database::client();
-		$tables     = Database::tables();
-		$normalized = self::normalize( $term );
-		if ( '' === $normalized ) {
-			return array();
-		}
-		if ( self::TERM_MODE_TOPIC === $mode ) {
-			$sql  = 'SELECT post_id,MAX(weight+2) score '
-				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind IN ('topic','alias') GROUP BY post_id";
-			$rows = $wpdb->get_results(
-				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
-				$wpdb->prepare( $sql, $normalized ),
-				ARRAY_A
-			);
-		} else {
-			$sql  = 'SELECT post_id,MAX(weight+CASE WHEN normalized=%s THEN 2 ELSE 0 END) score '
-				. "FROM {$tables['post_search_terms']} WHERE normalized=%s "
-				. "OR CONCAT(' ',normalized,' ') LIKE %s GROUP BY post_id";
-			$rows = $wpdb->get_results(
-				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
-				$wpdb->prepare( $sql, $normalized, $normalized, "% {$normalized} %" ),
-				ARRAY_A
-			);
-		}
-		$matches = array();
-		foreach ( Database::associative_rows( $rows ) as $row ) {
-			$matches[ Database::integer( $row['post_id'] ?? null ) ] = Database::integer( $row['score'] ?? null );
-		}
-		return $matches;
-	}
-
-	/**
-	 * Loads post records for a sanitized set of IDs.
-	 *
-	 * @param array<int,int|string> $post_ids Post identifiers.
-	 * @return array<int,array<string,mixed>> Post records.
-	 */
-	private function posts_by_ids( array $post_ids ): array {
-		$wpdb = Database::client();
-		if ( empty( $post_ids ) ) {
-			return array();
-		}
-		$tables = Database::tables();
-		$sql    = "SELECT * FROM {$tables['external_posts']} WHERE id IN (" . self::integer_list( $post_ids ) . ')';
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The ID list is reduced to integers by integer_list().
-		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
-	}
-
-	/**
-	 * Sorts posts by relevance or publication date.
-	 *
-	 * @param array<int,array<string,mixed>> $posts  Post records.
-	 * @param string                         $sort   Sort mode.
-	 * @param array<int,string>              $terms  Search terms.
-	 * @param array<int,int>                 $scores Indexed scores keyed by post ID.
-	 * @return array<int,array<string,mixed>> Sorted posts.
-	 */
-	private function sort_posts( array $posts, string $sort, array $terms, array $scores ): array {
-		if ( 'ranked' === $sort ) {
-			foreach ( $posts as $post ) {
-				$post_id = Database::integer( $post['id'] ?? null );
-				$score   = (int) ( $scores[ $post_id ] ?? 0 );
-				foreach ( $terms as $term ) {
-					$score += self::title_boost( Database::text( $post['title'] ?? null ), $term );
-					$score += self::description_boost( Database::text( $post['description'] ?? null ), $term );
-				}
-				$scores[ $post_id ] = $score;
-			}
-		}
-
-		usort(
-			$posts,
-			static function ( array $left, array $right ) use ( $sort, $scores ): int {
-				if ( 'ranked' === $sort ) {
-					$right_id   = Database::integer( $right['id'] ?? null );
-					$left_id    = Database::integer( $left['id'] ?? null );
-					$comparison = ( $scores[ $right_id ] ?? 0 ) <=> ( $scores[ $left_id ] ?? 0 );
-					if ( 0 !== $comparison ) {
-						return $comparison;
-					}
-				}
-				$date_comparison = strcmp( Database::text( $left['published_at'] ?? null ), Database::text( $right['published_at'] ?? null ) );
-				if ( 0 !== $date_comparison ) {
-					return 'oldest' === $sort ? $date_comparison : -$date_comparison;
-				}
-				$url_comparison = strcasecmp( Database::text( $left['url'] ?? null ), Database::text( $right['url'] ?? null ) );
-				return 'oldest' === $sort ? $url_comparison : -$url_comparison;
-			}
-		);
-		return $posts;
-	}
-
-	/**
-	 * Calculates the ranking boost for a term found in a title.
-	 *
-	 * @param string $title Post title.
-	 * @param string $term  Search term.
-	 * @return int Title relevance boost.
-	 */
-	private static function title_boost( string $title, string $term ): int {
-		$title = self::normalize( $title );
-		$term  = self::ranking_term( $term );
-		if ( '' === $title || '' === $term ) {
-			return 0;
-		}
-		if ( str_contains( " {$title} ", " {$term} " ) ) {
-			return 4;
-		}
-		if ( ! str_contains( $term, ' ' ) && in_array( $term, explode( ' ', $title ), true ) ) {
-			return 1;
-		}
-		$anchor = self::ranking_anchor( $term );
-		return '' !== $anchor && in_array( $anchor, explode( ' ', $title ), true ) ? 2 : 0;
-	}
-
-	/**
-	 * Calculates the ranking boost for a term found in a description.
-	 *
-	 * @param string $description Post description.
-	 * @param string $term        Search term.
-	 * @return int Description relevance boost.
-	 */
-	private static function description_boost( string $description, string $term ): int {
-		$description = self::normalize( $description );
-		$term        = self::ranking_term( $term );
-		if ( '' === $description || '' === $term ) {
-			return 0;
-		}
-		if ( str_contains( " {$description} ", " {$term} " ) ) {
-			return 2;
-		}
-		$anchor = self::ranking_anchor( $term );
-		return '' !== $anchor && in_array( $anchor, explode( ' ', $description ), true ) ? 1 : 0;
-	}
-
-	/**
-	 * Removes display-only general qualifiers before ranking.
-	 *
-	 * @param string $term Search term.
-	 * @return string Ranking form of the term.
-	 */
-	private static function ranking_term( string $term ): string {
-		$normalized = self::normalize( $term );
-		return str_ends_with( $normalized, ' general' )
-			? rtrim( substr( $normalized, 0, -strlen( ' general' ) ) )
-			: $normalized;
-	}
-
-	/**
-	 * Selects a meaningful phrase token for partial ranking boosts.
-	 *
-	 * @param string $term Search term.
-	 * @return string Ranking anchor or an empty string.
-	 */
-	private static function ranking_anchor( string $term ): string {
-		$stopwords = array_fill_keys(
-			array(
-				'a',
-				'an',
-				'and',
-				'as',
-				'at',
-				'belief',
-				'beliefs',
-				'by',
-				'for',
-				'from',
-				'general',
-				'in',
-				'into',
-				'issue',
-				'issues',
-				'of',
-				'on',
-				'or',
-				'overview',
-				'question',
-				'questions',
-				'the',
-				'to',
-				'tradition',
-				'traditions',
-				'with',
-			),
-			true
-		);
-		$term      = self::ranking_term( $term );
-		if ( ! str_contains( $term, ' ' ) ) {
-			return '';
-		}
-		$tokens = array_values(
-			array_filter(
-				explode( ' ', $term ),
-				static fn( string $token ): bool => strlen( $token ) >= 4 && ! isset( $stopwords[ $token ] )
-			)
-		);
-		return empty( $tokens ) ? '' : (string) end( $tokens );
 	}
 
 	/**
