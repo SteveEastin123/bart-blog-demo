@@ -20,6 +20,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Editor;
 use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
+use EhrmanBlogDiscovery\Post_Ingestion_Validator;
 use EhrmanBlogDiscovery\Search_Service;
 use EhrmanBlogDiscovery\Semantic_Ask_AI_REST_Controller;
 use EhrmanBlogDiscovery\Semantic_Index_Service;
@@ -293,6 +294,56 @@ $proposal        = array(
 	'status'               => 'ready',
 	'reviewNotes'          => array(),
 );
+$validator       = new Post_Ingestion_Validator();
+$valid_proposal  = $proposal;
+$valid_proposal['topics'] = array( strtolower( $topic['name'] ) );
+$valid_proposal['topicRationales'] = array(
+	array(
+		'topic'     => strtolower( $topic['name'] ),
+		'rationale' => 'This is the central subject of the post.',
+	),
+);
+$valid_proposal['reviewNotes'] = array( '  Reviewed by editor  ', 'Reviewed by editor' );
+$checked_proposal = $validator->validate_proposal( $valid_proposal, $taxonomy, false, true );
+$assert( ! is_wp_error( $checked_proposal ), is_wp_error( $checked_proposal ) ? $checked_proposal->get_error_message() : 'A valid proposal was rejected.' );
+$assert_same( array( $topic['name'] ), $checked_proposal['topics'], 'The proposal validator did not canonicalize its topic.' );
+$assert_same( $topic['name'], $checked_proposal['topicRationales'][0]['topic'], 'The proposal validator did not canonicalize its topic rationale.' );
+$assert_same( 1, count( array_intersect( $checked_proposal['reviewNotes'], array( 'Reviewed by editor' ) ) ), 'The proposal validator did not deduplicate review notes.' );
+
+$held_proposal = $proposal;
+$held_proposal['topics'] = array();
+$held_proposal['status'] = 'held';
+$held_proposal['reviewNotes'] = array( 'No existing topic fits.' );
+$checked_held = $validator->validate_proposal( $held_proposal, $taxonomy, true );
+$assert( ! is_wp_error( $checked_held ), is_wp_error( $checked_held ) ? $checked_held->get_error_message() : 'A documented held proposal was rejected.' );
+$assert_same( 'held', $checked_held['status'], 'The held proposal lost its status.' );
+$rejected_held = $validator->validate_proposal( $held_proposal, $taxonomy, false );
+$assert( is_wp_error( $rejected_held ) && str_contains( $rejected_held->get_error_message(), 'cannot be approved' ), 'A held proposal was accepted for approval.' );
+$held_proposal['reviewNotes'] = array();
+$missing_note = $validator->validate_proposal( $held_proposal, $taxonomy, true );
+$assert( is_wp_error( $missing_note ) && str_contains( $missing_note->get_error_message(), 'requires a review note' ), 'A held proposal without a review note was accepted.' );
+
+$invalid_proposal = $proposal;
+$invalid_proposal['description'] = 'Ehrman discusses this post.';
+$invalid_proposal['searchSummary'] = 'Does this summary begin as a question?';
+$invalid_proposal['topics'] = array( 'Not an existing topic' );
+$rejected_proposal = $validator->validate_proposal( $invalid_proposal, $taxonomy, false );
+$assert( is_wp_error( $rejected_proposal ), 'An invalid proposal was accepted.' );
+$assert_same( 'ehrman_ingestion_invalid_proposal', $rejected_proposal->get_error_code(), 'The invalid proposal returned the wrong error code.' );
+$assert( str_contains( $rejected_proposal->get_error_message(), 'Unknown topic' ), 'The unknown topic was not reported.' );
+$assert( str_contains( $rejected_proposal->get_error_message(), 'declarative statement' ), 'The question-opening summary was not reported.' );
+
+$form_proposal = $validator->proposal_from_input(
+	array(
+		'topics'             => array( $topic['name'] ),
+		'secondary_keywords' => "First keyword\n\nSecond keyword",
+		'review_notes'       => "First note\nSecond note",
+	)
+);
+$assert_same( array( 'First keyword', 'Second keyword' ), $form_proposal['secondaryKeywords'], 'Proposal form keywords were not split into lines.' );
+$assert_same( array( 'First note', 'Second note' ), $form_proposal['reviewNotes'], 'Proposal form notes were not split into lines.' );
+$assert_same( array( 'status' => 'held' ), $validator->decode_proposal( '{"status":"held"}' ), 'Stored proposals were not decoded.' );
+$assert_same( array(), $validator->decode_proposal( 'invalid-json' ), 'Malformed stored proposal JSON was not rejected.' );
 $taxonomy_json    = wp_json_encode( $taxonomy );
 $draft_id         = 0;
 $approved_post_id = 0;
