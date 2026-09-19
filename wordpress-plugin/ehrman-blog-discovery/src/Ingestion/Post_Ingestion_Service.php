@@ -7,7 +7,6 @@
 
 namespace EhrmanBlogDiscovery;
 
-use Throwable;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -67,6 +66,13 @@ final class Post_Ingestion_Service {
 	private Post_Ingestion_Approval_Writer $approval_writer;
 
 	/**
+	 * Background analysis worker.
+	 *
+	 * @var Post_Ingestion_Analysis_Worker
+	 */
+	private Post_Ingestion_Analysis_Worker $analysis_worker;
+
+	/**
 	 * Creates the ingestion workflow.
 	 *
 	 * Optional collaborators preserve the simple production constructor while allowing focused tests.
@@ -76,19 +82,22 @@ final class Post_Ingestion_Service {
 	 * @param Post_Ingestion_Analyzer|null            $analyzer            Optional AI analyzer.
 	 * @param Post_Ingestion_Embedding_Generator|null $embedding_generator Optional vector generator.
 	 * @param Post_Ingestion_Approval_Writer|null     $approval_writer     Optional approved-post writer.
+	 * @param Post_Ingestion_Analysis_Worker|null     $analysis_worker    Optional background analysis worker.
 	 */
 	public function __construct(
 		?Post_Ingestion_Repository $repository = null,
 		?Post_Ingestion_Validator $validator = null,
 		?Post_Ingestion_Analyzer $analyzer = null,
 		?Post_Ingestion_Embedding_Generator $embedding_generator = null,
-		?Post_Ingestion_Approval_Writer $approval_writer = null
+		?Post_Ingestion_Approval_Writer $approval_writer = null,
+		?Post_Ingestion_Analysis_Worker $analysis_worker = null
 	) {
 		$this->repository          = $repository ?? new Post_Ingestion_Repository();
 		$this->validator           = $validator ?? new Post_Ingestion_Validator();
 		$this->analyzer            = $analyzer ?? new Post_Ingestion_Analyzer( $this->validator );
 		$this->embedding_generator = $embedding_generator ?? new Post_Ingestion_Embedding_Generator( $this->repository );
 		$this->approval_writer     = $approval_writer ?? new Post_Ingestion_Approval_Writer();
+		$this->analysis_worker     = $analysis_worker ?? new Post_Ingestion_Analysis_Worker( $this->repository, $this->analyzer );
 	}
 
 	/** Returns whether the dedicated ingestion project key is configured. */
@@ -145,7 +154,7 @@ final class Post_Ingestion_Service {
 		}
 
 		$taxonomy      = $this->repository->vocabulary();
-		$taxonomy_hash = $this->taxonomy_hash( $taxonomy );
+		$taxonomy_hash = $this->repository->vocabulary_hash( $taxonomy );
 		$draft_id      = $this->repository->create_draft( $validated, $taxonomy_hash, $user_id );
 		if ( is_wp_error( $draft_id ) ) {
 			return $draft_id;
@@ -183,7 +192,7 @@ final class Post_Ingestion_Service {
 		}
 
 		$taxonomy      = $this->repository->vocabulary();
-		$taxonomy_hash = $this->taxonomy_hash( $taxonomy );
+		$taxonomy_hash = $this->repository->vocabulary_hash( $taxonomy );
 		if ( ! $this->repository->queue_analysis( $draft_id, $taxonomy_hash ) ) {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The ingestion draft could not be queued for analysis.', 'ehrman-blog-discovery' ) );
 		}
@@ -232,55 +241,7 @@ final class Post_Ingestion_Service {
 	 * @return array<string,mixed>|WP_Error|null Updated draft, error, or null when another worker claimed it.
 	 */
 	public function process_queued( int $draft_id ) {
-		$attempt = $this->repository->claim_analysis( $draft_id );
-		if ( $attempt < 1 ) {
-			return null;
-		}
-		$draft = $this->draft( $draft_id );
-		if ( null === $draft ) {
-			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The queued ingestion draft was not found.', 'ehrman-blog-discovery' ) );
-		}
-		if ( ! self::is_configured() ) {
-			$error = new WP_Error( 'ehrman_ingestion_not_configured', __( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before analyzing a post.', 'ehrman-blog-discovery' ) );
-			$this->repository->mark_analysis_error( $draft_id, $error->get_error_message(), $attempt );
-			return $error;
-		}
-		$input = array(
-			'source_wp_id' => Database::integer( $draft['source_wp_id'] ?? null ),
-			'title'        => Database::text( $draft['title'] ?? null ),
-			'url'          => Database::text( $draft['url'] ?? null ),
-			'author'       => Database::text( $draft['author'] ?? null ),
-			'date_text'    => Database::text( $draft['date_text'] ?? null ),
-			'published_at' => Database::text( $draft['published_at'] ?? null ),
-			'post_text'    => Database::text( $draft['post_text'] ?? null ),
-		);
-		if ( '' === trim( $input['post_text'] ) ) {
-			$error = new WP_Error( 'ehrman_ingestion_missing_text', __( 'The draft no longer contains full post text.', 'ehrman-blog-discovery' ) );
-			$this->repository->mark_analysis_error( $draft_id, $error->get_error_message(), $attempt );
-			return $error;
-		}
-
-		try {
-			$taxonomy      = $this->repository->vocabulary();
-			$taxonomy_hash = $this->taxonomy_hash( $taxonomy );
-			$result        = $this->analyzer->analyze( $input, $taxonomy, $taxonomy_hash, Database::integer( $draft['created_by'] ?? null ) );
-			if ( is_wp_error( $result ) ) {
-				$this->repository->mark_analysis_error( $draft_id, $result->get_error_message(), $attempt );
-				return $result;
-			}
-			if ( ! $this->repository->store_analysis( $draft_id, $result['proposal'], $result['metrics'], $taxonomy_hash, $attempt ) ) {
-				return $this->draft( $draft_id );
-			}
-		} catch ( Throwable $error ) {
-			$message = __( 'Background analysis stopped unexpectedly. Retry the analysis.', 'ehrman-blog-discovery' );
-			$this->repository->mark_analysis_error( $draft_id, $message, $attempt );
-			return new WP_Error( 'ehrman_ingestion_analysis_failed', $message, $error->getMessage() );
-		}
-
-		$stored = $this->draft( $draft_id );
-		return null === $stored
-			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The analyzed draft could not be reloaded.', 'ehrman-blog-discovery' ) )
-			: $stored;
+		return $this->analysis_worker->process_queued( $draft_id );
 	}
 
 	/**
@@ -360,7 +321,7 @@ final class Post_Ingestion_Service {
 		if ( ! is_string( $approved_json ) ) {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The approved proposal could not be encoded.', 'ehrman-blog-discovery' ) );
 		}
-		if ( ! hash_equals( Database::text( $draft['taxonomy_version'] ?? null ), $this->taxonomy_hash( $current_taxonomy ) ) ) {
+		if ( ! hash_equals( Database::text( $draft['taxonomy_version'] ?? null ), $this->repository->vocabulary_hash( $current_taxonomy ) ) ) {
 			return new WP_Error( 'ehrman_ingestion_taxonomy_changed', __( 'The topic or keyword vocabulary changed after analysis. Reanalyze the draft before approval.', 'ehrman-blog-discovery' ) );
 		}
 
@@ -497,17 +458,6 @@ final class Post_Ingestion_Service {
 	 */
 	public function vocabulary(): array {
 		return $this->repository->vocabulary();
-	}
-
-	/**
-	 * Returns a stable hash of the current approved vocabulary.
-	 *
-	 * @param array<string,mixed> $taxonomy Approved vocabulary.
-	 * @phpstan-param Vocabulary $taxonomy
-	 */
-	private function taxonomy_hash( array $taxonomy ): string {
-		$taxonomy_json = wp_json_encode( $taxonomy );
-		return hash( 'sha256', is_string( $taxonomy_json ) ? $taxonomy_json : '' );
 	}
 
 	/**

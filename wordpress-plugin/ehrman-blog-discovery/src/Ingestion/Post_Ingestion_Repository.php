@@ -405,6 +405,17 @@ final class Post_Ingestion_Repository {
 	}
 
 	/**
+	 * Returns a stable hash of an approved vocabulary snapshot.
+	 *
+	 * @param array<string,mixed> $taxonomy Approved vocabulary.
+	 * @phpstan-param Vocabulary $taxonomy
+	 */
+	public function vocabulary_hash( array $taxonomy ): string {
+		$taxonomy_json = wp_json_encode( $taxonomy );
+		return hash( 'sha256', is_string( $taxonomy_json ) ? $taxonomy_json : '' );
+	}
+
+	/**
 	 * Returns a duplicate error message, or an empty string.
 	 *
 	 * @param int    $source_wp_id Source WordPress post identifier.

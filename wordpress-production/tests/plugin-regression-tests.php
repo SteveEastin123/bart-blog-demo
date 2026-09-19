@@ -346,12 +346,36 @@ $assert_same( array( 'status' => 'held' ), $validator->decode_proposal( '{"statu
 $assert_same( array(), $validator->decode_proposal( 'invalid-json' ), 'Malformed stored proposal JSON was not rejected.' );
 $taxonomy_json    = wp_json_encode( $taxonomy );
 $draft_id         = 0;
+$worker_draft_id  = 0;
 $approved_post_id = 0;
 $assert( is_string( $taxonomy_json ), 'The ingestion regression taxonomy fixture could not be encoded.' );
 
 try {
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
 	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
+	$worker_draft = $ingestion_store->create_draft(
+		array(
+			'source_wp_id' => $ingestion_wp_id + 1000000,
+			'title'        => 'Background analysis regression fixture',
+			'url'          => 'https://example.test/ehrman-worker-' . $ingestion_wp_id . '/',
+			'author'       => 'Regression Test',
+			'date_text'    => 'January 2, 2026',
+			'published_at' => '2026-01-02 12:00:00',
+			'post_text'    => 'Temporary text for testing background analysis without an API key.',
+		),
+		$ingestion_store->vocabulary_hash( $taxonomy ),
+		0
+	);
+	$assert( ! is_wp_error( $worker_draft ), is_wp_error( $worker_draft ) ? $worker_draft->get_error_message() : 'Could not create the background analysis fixture.' );
+	$worker_draft_id = (int) $worker_draft;
+	$worker_result = $ingestion->process_queued( $worker_draft_id );
+	$assert( is_wp_error( $worker_result ), 'Background analysis unexpectedly continued without an ingestion API key.' );
+	$assert_same( 'ehrman_ingestion_not_configured', $worker_result->get_error_code(), 'The background worker returned the wrong configuration error.' );
+	$worker_state = $ingestion_store->draft( $worker_draft_id );
+	$assert( is_array( $worker_state ), 'The background worker draft was not retained.' );
+	$assert_same( 'error', $worker_state['status'], 'The background worker did not record the analysis error.' );
+	$assert_same( 1, (int) $worker_state['analysis_attempt'], 'The background worker did not record its claimed attempt.' );
+	$assert_same( null, $ingestion->process_queued( $worker_draft_id ), 'The background worker claimed the same draft twice.' );
 	$created = $ingestion_store->create_draft(
 		array(
 			'source_wp_id' => $ingestion_wp_id,
@@ -403,6 +427,9 @@ try {
 	$wpdb->delete( $tables['external_posts'], array( 'source_wp_id' => $ingestion_wp_id ) );
 	if ( $draft_id > 0 ) {
 		$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $draft_id ) );
+	}
+	if ( $worker_draft_id > 0 ) {
+		$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $worker_draft_id ) );
 	}
 	false === $original_source ? putenv( 'EHRMAN_DISCOVERY_POST_SOURCE' ) : putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $original_source );
 	false === $original_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $original_key );
