@@ -21,6 +21,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Post_Ingestion_Validator;
+use EhrmanBlogDiscovery\Post_Ingestion_Vocabulary_Reader;
 use EhrmanBlogDiscovery\Search_Service;
 use EhrmanBlogDiscovery\Semantic_Ask_AI_REST_Controller;
 use EhrmanBlogDiscovery\Semantic_Index_Service;
@@ -266,14 +267,19 @@ try {
 	}
 }
 
-/* Verify approval commits the post while a missing API key leaves its vector pending. */
-$original_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
-$original_key    = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
-$ingestion       = new Post_Ingestion_Service();
-$ingestion_store = new Post_Ingestion_Repository();
-$review_count    = $ingestion->review_count();
-$taxonomy        = $ingestion->vocabulary();
-$topic           = null;
+/* Verify vocabulary reads and approval with a pending vector when the API key is absent. */
+$original_source   = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
+$original_key      = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
+$ingestion         = new Post_Ingestion_Service();
+$ingestion_store   = new Post_Ingestion_Repository();
+$review_count      = $ingestion->review_count();
+$taxonomy          = $ingestion->vocabulary();
+$vocabulary_reader = new Post_Ingestion_Vocabulary_Reader();
+$assert_same( $taxonomy, $vocabulary_reader->vocabulary(), 'The repository vocabulary differs from the dedicated reader.' );
+$assert_same( $ingestion_store->vocabulary_hash( $taxonomy ), $vocabulary_reader->vocabulary_hash( $taxonomy ), 'The repository changed the vocabulary hash.' );
+$assert_same( (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['topics']}" ), count( $taxonomy['topics'] ), 'The vocabulary reader omitted topics.' );
+$assert_same( (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['keywords']}" ), count( $taxonomy['keywords'] ), 'The vocabulary reader omitted keywords.' );
+$topic             = null;
 foreach ( $taxonomy['topics'] as $candidate ) {
 	if ( 'Ignore' !== $candidate['name'] ) {
 		$topic = $candidate;
