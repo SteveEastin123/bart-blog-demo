@@ -407,6 +407,61 @@ try {
 	$latest_records = $ingestion->latest_for_posts( array( $ingestion_wp_id ) );
 	$assert_same( $draft_id, (int) ( $latest_records[ $ingestion_wp_id ]['id'] ?? 0 ), 'The batch post-status lookup did not return the current ingestion record.' );
 
+	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=json' );
+	$json_approval = $ingestion->approve( $draft_id, false );
+	$assert( is_wp_error( $json_approval ), 'Approval modified the index while JSON was authoritative.' );
+	$assert_same( 'ehrman_ingestion_json_authoritative', $json_approval->get_error_code(), 'JSON-authoritative approval returned the wrong error.' );
+	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
+
+	$held_revision = $ingestion->save_proposal(
+		$draft_id,
+		array(
+			'description'    => $proposal['description'],
+			'search_summary' => $proposal['searchSummary'],
+			'status'         => 'held',
+			'review_notes'   => 'No existing topic fits this post.',
+		)
+	);
+	$assert( ! is_wp_error( $held_revision ), is_wp_error( $held_revision ) ? $held_revision->get_error_message() : 'A held proposal could not be saved.' );
+	$assert_same( 'held', $held_revision['status'], 'The review workflow did not retain the held status.' );
+	$held_approval = $ingestion->approve( $draft_id, false );
+	$assert( is_wp_error( $held_approval ), 'A held proposal was approved.' );
+	$assert_same( 'ehrman_ingestion_invalid_proposal', $held_approval->get_error_code(), 'Held-proposal approval returned the wrong error.' );
+
+	$keyword_revision = $ingestion->save_proposal(
+		$draft_id,
+		array(
+			'description'            => $proposal['description'],
+			'search_summary'         => $proposal['searchSummary'],
+			'topics'                 => $proposal['topics'],
+			'new_secondary_keywords' => 'Regression Keyword ' . $ingestion_wp_id,
+			'status'                 => 'ready',
+			'review_notes'           => 'New keyword requires editorial approval.',
+		)
+	);
+	$assert( ! is_wp_error( $keyword_revision ), is_wp_error( $keyword_revision ) ? $keyword_revision->get_error_message() : 'A proposed new keyword could not be saved.' );
+	$new_keyword_approval = $ingestion->approve( $draft_id, false );
+	$assert( is_wp_error( $new_keyword_approval ), 'A new keyword was approved without explicit consent.' );
+	$assert_same( 'ehrman_ingestion_new_keywords', $new_keyword_approval->get_error_code(), 'New-keyword approval returned the wrong error.' );
+
+	$ready_revision = $ingestion->save_proposal(
+		$draft_id,
+		array(
+			'description'    => $proposal['description'],
+			'search_summary' => $proposal['searchSummary'],
+			'topics'         => $proposal['topics'],
+			'status'         => 'ready',
+		)
+	);
+	$assert( ! is_wp_error( $ready_revision ), is_wp_error( $ready_revision ) ? $ready_revision->get_error_message() : 'The ready proposal could not be restored.' );
+	$assert_same( 'ready', $ready_revision['status'], 'The restored proposal was not ready.' );
+	$wpdb->update( $tables['ingestion_drafts'], array( 'taxonomy_version' => str_repeat( '0', 64 ) ), array( 'id' => $draft_id ) );
+	$changed_taxonomy_approval = $ingestion->approve( $draft_id, false );
+	$assert( is_wp_error( $changed_taxonomy_approval ), 'Approval ignored a changed vocabulary hash.' );
+	$assert_same( 'ehrman_ingestion_taxonomy_changed', $changed_taxonomy_approval->get_error_code(), 'Changed-vocabulary approval returned the wrong error.' );
+	$wpdb->update( $tables['ingestion_drafts'], array( 'taxonomy_version' => $ingestion_store->vocabulary_hash( $taxonomy ) ), array( 'id' => $draft_id ) );
+	$assert_same( $review_count + 1, $ingestion->review_count(), 'Review and approval guardrails changed the pending-review count.' );
+
 	$approved = $ingestion->approve( $draft_id, false );
 	$assert( ! is_wp_error( $approved ), is_wp_error( $approved ) ? $approved->get_error_message() : 'Ingestion approval failed.' );
 	$assert_same( 'approved', $approved['status'], 'The ingestion draft was not marked approved.' );
