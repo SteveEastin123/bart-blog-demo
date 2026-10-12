@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-09-15",
+  "updatedAt": "2026-10-12",
   "auditOrder": "linked post count descending, then topic name",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -827,7 +827,7 @@
       "auditSequence": 279,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 5,
+      "postCountAfter": 6,
       "descriptionBefore": "Examines Jesus' disruption of the Jerusalem Temple, including its historical plausibility, apocalyptic meaning, relationship to his arrest, and interpretations of it as revolutionary activity.",
       "descriptionRecommendation": "Examines Jesus' disruption of the Jerusalem Temple, including its historical plausibility, apocalyptic meaning, relationship to his arrest, and interpretations of it as revolutionary activity.",
       "categoriesBefore": [
@@ -871,11 +871,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post treats Jesus' Temple Action as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50591",
+          "title": "Important Questions About Jesus, Paul, and the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Created after a conservative full-text review of 37 candidates; 5 treat the subject as primary or sustained.",
-        "Identically normalized secondary keywords were removed from topic posts."
+        "Identically normalized secondary keywords were removed from topic posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -1156,7 +1164,7 @@
       "auditSequence": 283,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 35,
+      "postCountAfter": 36,
       "descriptionBefore": "Examines the meaning and development of the title Son of God, including its use in the Gospels, adoption and exaltation Christologies, resurrection traditions, textual variants, and later Christian debates.",
       "descriptionRecommendation": "Examines the meaning and development of the title Son of God, including its use in the Gospels, adoption and exaltation Christologies, resurrection traditions, textual variants, and later Christian debates.",
       "categoriesBefore": [
@@ -1442,12 +1450,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post treats Son of God as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50654",
+          "title": "Jesus’s Salvation, Self-Identity, and Birth: Key Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Created after a conservative full-text review of 215 candidates; 39 treat the subject as primary or sustained.",
         "Identically normalized secondary keywords were removed from topic posts.",
-        "An extra-conservative full-text follow-up removed four assignments; 35 posts retain the topic because divine sonship drives a substantial part of their argument."
+        "An extra-conservative full-text follow-up removed four assignments; 35 posts retain the topic because divine sonship drives a substantial part of their argument.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -1869,7 +1885,7 @@
       "auditSequence": 288,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 7,
+      "postCountAfter": 8,
       "descriptionBefore": "Examines the lost Greater Questions of Mary, Epiphanius's account of its revelation to Mary Magdalene, its alleged use by the Phibionites, and whether the text or the sexual rituals attributed to it ever existed.",
       "descriptionRecommendation": "Examines the lost Greater Questions of Mary, Epiphanius's account of its revelation to Mary Magdalene, its alleged use by the Phibionites, and whether the text or the sexual rituals attributed to it ever existed.",
       "categoriesBefore": [
@@ -1928,12 +1944,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post treats Greater Questions of Mary as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50708",
+          "title": "A Very Different (not to say Bizarre) Gospel Featuring Mary Magdalene",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Created after a full-text review of 7 candidate posts; 7 treat the subject as primary or sustained.",
         "All seven keyword posts qualified for the topic.",
-        "Identically named secondary keywords were removed from the topic posts."
+        "Identically named secondary keywords were removed from the topic posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -1941,7 +1965,7 @@
       "auditSequence": null,
       "status": "excluded",
       "postCountBefore": 437,
-      "postCountAfter": 428,
+      "postCountAfter": 429,
       "descriptionBefore": "Administrative, announcement, or housekeeping posts not intended for topical browsing.",
       "descriptionRecommendation": "Examines the Gospel of Matthew, including its authorship, sources, Jewish scriptural interpretation, genealogy, birth narrative, relationship to Mark and Luke, distinctive teachings, and portrayal of Jesus.",
       "categoriesBefore": [],
@@ -1976,6 +2000,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50649",
+          "title": "A Blog Dinner in Denver, CO on November 19.  Interested?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -1990,7 +2021,8 @@
         "Newly downloaded August 2026 posts were reviewed in full.",
         "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
         "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -1998,7 +2030,7 @@
       "auditSequence": 1,
       "status": "completed",
       "postCountBefore": 114,
-      "postCountAfter": 112,
+      "postCountAfter": 114,
       "descriptionBefore": "Covers difficult translation decisions, ancient languages, textual bases, inclusive language, misleading translations, and how translation affects interpretation.",
       "descriptionRecommendation": "Examines how biblical and early Christian texts are translated, including word choice, inclusive language, source texts, ancient versions, and misleading or disputed renderings.",
       "categoriesBefore": [
@@ -2875,6 +2907,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50680",
+          "title": "Does Paul Ever Refer to (or Even Know About) Judas Iscariot?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50654",
+          "title": "Jesus’s Salvation, Self-Identity, and Birth: Key Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -2888,7 +2934,8 @@
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -2896,7 +2943,7 @@
       "auditSequence": 2,
       "status": "completed",
       "postCountBefore": 100,
-      "postCountAfter": 112,
+      "postCountAfter": 113,
       "descriptionBefore": "Posts focused on the Gospel of Luke, including Luke-Acts, birth narratives, parables, atonement, historical reliability, and Luke's distinctive portrayal of Jesus.",
       "descriptionRecommendation": "Examines the Gospel of Luke's authorship, composition, distinctive narratives, theology, textual history, and relationship to Acts and the other Gospels.",
       "categoriesBefore": [
@@ -3731,6 +3778,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The entire post compares Mark's distressed Jesus with Luke's calm and controlled Jesus in the passion narrative."
+        },
+        {
+          "wpId": "50728",
+          "title": "Did Jesus Believe in Equality?  You Might Think So….",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -3746,7 +3800,8 @@
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -9529,7 +9584,7 @@
       "auditSequence": 11,
       "status": "completed",
       "postCountBefore": 74,
-      "postCountAfter": 83,
+      "postCountAfter": 84,
       "descriptionBefore": "Posts offering personal reflections on belief, doubt, ethics, suffering, public issues, holidays, or life experience.",
       "descriptionRecommendation": "Posts offering personal reflections on belief, doubt, ethics, suffering, public issues, holidays, or life experience.",
       "categoriesBefore": [
@@ -10112,6 +10167,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50637",
+          "title": "Do You Really Mean That?  Consciousness and Socialism",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -10126,7 +10188,8 @@
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
         "Final post-by-post audit validation assigned this topic to a formerly topicless post.",
-        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -14616,7 +14679,7 @@
       "auditSequence": 20,
       "status": "completed",
       "postCountBefore": 65,
-      "postCountAfter": 76,
+      "postCountAfter": 77,
       "descriptionBefore": "Posts on broad questions involving the canonical Gospels as a group, including their sources, shared traditions, relationships to one another, differences in presentation, and general interpretation.",
       "descriptionRecommendation": "Posts on broad questions involving the canonical Gospels as a group, including their sources, shared traditions, relationships to one another, differences in presentation, and general interpretation.",
       "categoriesBefore": [
@@ -15094,6 +15157,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses a class quiz to discuss noncanonical Gospels, the character of canonical Gospels, and a sustained Gospel contradiction."
+        },
+        {
+          "wpId": "50591",
+          "title": "Important Questions About Jesus, Paul, and the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -15105,7 +15175,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -16555,7 +16626,7 @@
       "auditSequence": 24,
       "status": "completed",
       "postCountBefore": 60,
-      "postCountAfter": 62,
+      "postCountAfter": 64,
       "descriptionBefore": "Covers ancient literary forgery, pseudepigraphy, deception, motives for false attribution, and general debates about whether forged writings were meant to mislead readers.",
       "descriptionRecommendation": "Covers ancient literary forgery, pseudepigraphy, deception, motives for false attribution, and general debates about whether forged writings were meant to mislead readers.",
       "categoriesBefore": [
@@ -16998,6 +17069,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "A major section explains forged apostolic writings and the authority they claimed within debates over the New Testament canon."
+        },
+        {
+          "wpId": "50589",
+          "title": "How to Justify a Lie",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50586",
+          "title": "Caught Red-Handed!  An Unrepentant Christian Forger",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -17007,7 +17092,8 @@
         "Recommendations have not been applied to live topic assignments.",
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment."
+        "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -20608,7 +20694,7 @@
       "auditSequence": 33,
       "status": "completed",
       "postCountBefore": 52,
-      "postCountAfter": 69,
+      "postCountAfter": 70,
       "descriptionBefore": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "descriptionRecommendation": "Covers historical reasoning, evidence, genre, miracle claims, critical inquiry, and how historians approach the New Testament and other ancient sources.",
       "categoriesBefore": [
@@ -21051,6 +21137,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50677",
+          "title": "Did Judas Iscariot Actually Exist?  Or Was He “Made Up”?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -21065,7 +21158,8 @@
         "Post-by-post topic-link audit for posts 2551-2850 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts."
+        "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -23933,7 +24027,7 @@
       "auditSequence": 41,
       "status": "completed",
       "postCountBefore": 49,
-      "postCountAfter": 52,
+      "postCountAfter": 55,
       "descriptionBefore": "Covers Jewish law and Torah observance in biblical, Second Temple, Gospel, and Pauline contexts, including Matthew, Galatians, and debates over whether Judaism was legalistic.",
       "descriptionRecommendation": "Covers Jewish law and Torah observance in biblical, Second Temple, Gospel, and Pauline contexts, including Matthew, Galatians, and debates over whether Judaism was legalistic.",
       "categoriesBefore": [
@@ -24334,6 +24428,27 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "This is an event and fundraising announcement; the removed subjects occur only in one brief lecture description."
+        },
+        {
+          "wpId": "50657",
+          "title": "Can You Explain the Tabernacle, the Ark of the Covenant, and/or the Shema?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50627",
+          "title": "The Ten (more or less?) Commandments and the Code of Hammurabi",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50616",
+          "title": "The Origins of God’s Personal Name and of the Feast of Passover",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -24343,7 +24458,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -27599,7 +27715,7 @@
       "auditSequence": 49,
       "status": "completed",
       "postCountBefore": 42,
-      "postCountAfter": 76,
+      "postCountAfter": 77,
       "descriptionBefore": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "descriptionRecommendation": "Posts on Jesus as a Jewish apocalyptic teacher, including his proclamation of God's coming kingdom, judgment, the Son of Man, messiahship, and later reinterpretations of his message.",
       "categoriesBefore": [
@@ -28119,6 +28235,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50591",
+          "title": "Important Questions About Jesus, Paul, and the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -28136,7 +28259,8 @@
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3651-3950 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 4251-4390 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -29625,7 +29749,7 @@
       "auditSequence": 54,
       "status": "completed",
       "postCountBefore": 39,
-      "postCountAfter": 49,
+      "postCountAfter": 50,
       "descriptionBefore": "Posts on whether Jesus understood himself or was understood by others as Messiah, including Jewish messianic expectations, resurrection belief, and early Christian claims.",
       "descriptionRecommendation": "Posts on whether Jesus understood himself or was understood by others as Messiah, including Jewish messianic expectations, resurrection belief, and early Christian claims.",
       "categoriesBefore": [
@@ -29977,13 +30101,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50755",
+          "title": "Where Christianity Started, And Why – Platinum Guest Post by Peter van Kan",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 39 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
         "Approved recommendations were applied to live topic assignments.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -31558,7 +31690,7 @@
       "auditSequence": 60,
       "status": "completed",
       "postCountBefore": 36,
-      "postCountAfter": 42,
+      "postCountAfter": 43,
       "descriptionBefore": "Covers virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
       "descriptionRecommendation": "Covers virgin birth traditions, including Matthew and Luke, textual questions, adoptionist Christology, ancient parallels, and historical or theological interpretation.",
       "categoriesBefore": [
@@ -31882,6 +32014,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50654",
+          "title": "Jesus’s Salvation, Self-Identity, and Birth: Key Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -31890,7 +32029,8 @@
         "Approved recommendations were applied to live topic assignments.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -33194,7 +33334,7 @@
       "auditSequence": 65,
       "status": "completed",
       "postCountBefore": 34,
-      "postCountAfter": 35,
+      "postCountAfter": 38,
       "descriptionBefore": "Covers Judas Iscariot, including his betrayal of Jesus, death traditions, Gospel portrayals, Papias, and questions about what Paul or early Christians knew about him.",
       "descriptionRecommendation": "Covers Judas Iscariot, including his betrayal of Jesus, death traditions, Gospel portrayals, Papias, and questions about what Paul or early Christians knew about him.",
       "categoriesBefore": [
@@ -33448,12 +33588,34 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is devoted to two later accounts of Judas Iscariot's death and compares them with the New Testament traditions."
+        },
+        {
+          "wpId": "50680",
+          "title": "Does Paul Ever Refer to (or Even Know About) Judas Iscariot?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50677",
+          "title": "Did Judas Iscariot Actually Exist?  Or Was He “Made Up”?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50674",
+          "title": "About the Betrayer Judas Iscariot.  What’s an Iscariot?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Reviewed all 34 linked posts against the full local text.",
         "Checked unlinked posts conservatively for strong omissions.",
-        "Approved recommendations were applied to live topic assignments."
+        "Approved recommendations were applied to live topic assignments.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -34337,7 +34499,7 @@
       "auditSequence": 69,
       "status": "completed",
       "postCountBefore": 32,
-      "postCountAfter": 33,
+      "postCountAfter": 34,
       "descriptionBefore": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "descriptionRecommendation": "Covers disputes between Gnostic or other non-orthodox Christians and emerging proto-orthodox Christianity, including scripture, doctrine, heresiology, and competing claims to truth.",
       "categoriesBefore": [
@@ -34598,6 +34760,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50708",
+          "title": "A Very Different (not to say Bizarre) Gospel Featuring Mary Magdalene",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -34609,7 +34778,8 @@
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -38081,7 +38251,7 @@
       "auditSequence": 83,
       "status": "completed",
       "postCountBefore": 30,
-      "postCountAfter": 25,
+      "postCountAfter": 26,
       "descriptionBefore": "Covers what Paul appears to know about Jesus, including Jesus' teachings, death, disciples, family, and traditions cited in Paul's letters.",
       "descriptionRecommendation": "Covers what Paul appears to know about Jesus, including Jesus' teachings, death, disciples, family, and traditions cited in Paul's letters.",
       "categoriesBefore": [
@@ -38321,12 +38491,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses Paul's acquaintance with Peter, John, and James as sustained evidence against mythicist claims and for Paul's knowledge of the historical Jesus."
+        },
+        {
+          "wpId": "50680",
+          "title": "Does Paul Ever Refer to (or Even Know About) Judas Iscariot?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1101-1300 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -39096,7 +39274,7 @@
       "auditSequence": 87,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 38,
+      "postCountAfter": 39,
       "descriptionBefore": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
       "descriptionRecommendation": "Covers anti-Jewish ideas and interpretations in Christian texts and traditions, including portrayals of Jews, Pilate, scripture, and later Christian rhetoric.",
       "categoriesBefore": [
@@ -39378,6 +39556,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The newly downloaded post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50640",
+          "title": "Do You Really Mean That?  Antisemitism.",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -39387,7 +39572,8 @@
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
-        "Newly downloaded August 2026 posts were reviewed in full."
+        "Newly downloaded August 2026 posts were reviewed in full.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -39395,7 +39581,7 @@
       "auditSequence": 88,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 38,
+      "postCountAfter": 39,
       "descriptionBefore": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "descriptionRecommendation": "Covers comparisons between biblical texts, historical claims, manuscript traditions, miracle stories, creation accounts, ethics, and other ancient or Greco-Roman materials.",
       "categoriesBefore": [
@@ -39677,6 +39863,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50627",
+          "title": "The Ten (more or less?) Commandments and the Code of Hammurabi",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -39688,7 +39881,8 @@
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
         "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -39913,7 +40107,7 @@
       "auditSequence": 90,
       "status": "completed",
       "postCountBefore": 28,
-      "postCountAfter": 40,
+      "postCountAfter": 41,
       "descriptionBefore": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "descriptionRecommendation": "Covers Jesus' moral teachings, Jewish roots of his ethics, altruism, wealth, love of neighbor, and modern relevance.",
       "categoriesBefore": [
@@ -40196,6 +40390,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50728",
+          "title": "Did Jesus Believe in Equality?  You Might Think So….",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -40208,7 +40409,8 @@
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
         "Newly downloaded August 2026 posts were reviewed in full.",
-        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -43042,7 +43244,7 @@
       "auditSequence": 103,
       "status": "completed",
       "postCountBefore": 26,
-      "postCountAfter": 33,
+      "postCountAfter": 35,
       "descriptionBefore": "Covers the Torah/Pentateuch, including Moses, Exodus, Sinai, law, contradictions, source theories, and historical questions about its narratives.",
       "descriptionRecommendation": "Covers the Torah/Pentateuch, including Moses, Exodus, Sinai, law, contradictions, source theories, and historical questions about its narratives.",
       "categoriesBefore": [
@@ -43282,12 +43484,27 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post is entirely about the discovery, contents, dating, and significance of a complete medieval Torah scroll."
+        },
+        {
+          "wpId": "50657",
+          "title": "Can You Explain the Tabernacle, the Ark of the Covenant, and/or the Shema?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50616",
+          "title": "The Origins of God’s Personal Name and of the Feast of Passover",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -44187,7 +44404,7 @@
       "auditSequence": 108,
       "status": "completed",
       "postCountBefore": 25,
-      "postCountAfter": 26,
+      "postCountAfter": 28,
       "descriptionBefore": "Covers Mary Magdalene, including her role among Jesus' followers, resurrection traditions, later legends, claims that she was a prostitute, and non-canonical traditions about her.",
       "descriptionRecommendation": "Covers Mary Magdalene, including her role among Jesus' followers, resurrection traditions, later legends, claims that she was a prostitute, and non-canonical traditions about her.",
       "categoriesBefore": [
@@ -44379,11 +44596,26 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post gives sustained attention to Mary Magdalene and to historical, medical, and social explanations of healing and demon-possession traditions."
+        },
+        {
+          "wpId": "50701",
+          "title": "Was Mary Magdalene the Actual Founder of Christianity?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50698",
+          "title": "Peter and Mary Magdalene Going Toe to Toe",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -44648,7 +44880,7 @@
       "auditSequence": 110,
       "status": "completed",
       "postCountBefore": 25,
-      "postCountAfter": 31,
+      "postCountAfter": 32,
       "descriptionBefore": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "descriptionRecommendation": "Covers Peter as a disciple of Jesus and early Christian leader, including historical evidence, later legends, relationships with Paul and Mary Magdalene, traditions connecting Peter with Mark and Rome, and accounts of his martyrdom.",
       "categoriesBefore": [
@@ -44874,6 +45106,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50698",
+          "title": "Peter and Mary Magdalene Going Toe to Toe",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -44881,7 +45120,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Newly downloaded August 2026 posts were reviewed in full.",
-        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -46394,7 +46634,7 @@
       "auditSequence": 118,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 36,
+      "postCountAfter": 37,
       "descriptionBefore": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "descriptionRecommendation": "Posts examining what can be known about Jesus as a historical figure, including the available sources, reconstructions of his life, specific historical questions, and debates about his existence or portrayal.",
       "categoriesBefore": [
@@ -46655,6 +46895,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50755",
+          "title": "Where Christianity Started, And Why – Platinum Guest Post by Peter van Kan",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46668,7 +46915,8 @@
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
         "Ingestion run 20260824-20260830-20260830T222005Z added full-text-reviewed posts.",
         "Ingestion run 20260831-20260907-20260907T161704Z added full-text-reviewed posts.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -46676,7 +46924,7 @@
       "auditSequence": 119,
       "status": "completed",
       "postCountBefore": 23,
-      "postCountAfter": 31,
+      "postCountAfter": 32,
       "descriptionBefore": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "descriptionRecommendation": "Covers Jesus' teachings, parables, and historical setting in relation to wealth, poverty, possessions, economic survival, and social class.",
       "categoriesBefore": [
@@ -46903,6 +47151,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50728",
+          "title": "Did Jesus Believe in Equality?  You Might Think So….",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -46911,7 +47166,8 @@
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
         "Post-by-post topic-link audit for posts 2251-2550 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts."
+        "Ingestion run 20260817-20260823-20260823T122659Z added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -52964,7 +53220,7 @@
       "auditSequence": 151,
       "status": "completed",
       "postCountBefore": 18,
-      "postCountAfter": 26,
+      "postCountAfter": 27,
       "descriptionBefore": "Covers ancient Jewish apocalyptic thought, including prophecy, historical crisis, apocalypse as a genre, resurrection, judgment, and its background for Jesus and early Christianity.",
       "descriptionRecommendation": "Covers ancient Jewish apocalyptic thought, including prophecy, historical crisis, apocalypse as a genre, resurrection, judgment, and its background for Jesus and early Christianity.",
       "categoriesBefore": [
@@ -53155,13 +53411,21 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The full post explains the ancient Jewish apocalyptic worldview associated with Jesus and Paul before considering its modern reinterpretation."
+        },
+        {
+          "wpId": "50701",
+          "title": "Was Mary Magdalene the Actual Founder of Christianity?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 201-300 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -55447,7 +55711,7 @@
       "auditSequence": 166,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 27,
+      "postCountAfter": 28,
       "descriptionBefore": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
       "descriptionRecommendation": "Covers traditions that Jesus appeared after death, including appearances to disciples, women, Paul, the Twelve, the five hundred, and questions about visions or hallucinations.",
       "categoriesBefore": [
@@ -55645,6 +55909,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50698",
+          "title": "Peter and Mary Magdalene Going Toe to Toe",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -55654,7 +55925,8 @@
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -55662,7 +55934,7 @@
       "auditSequence": 167,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 16,
+      "postCountAfter": 17,
       "descriptionBefore": "Covers early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
       "descriptionRecommendation": "Covers early Christian interpretations of Jesus' resurrection, including messiahship, salvation, the beginning of the church, Isaiah 53, Christology, and early Christian belief.",
       "categoriesBefore": [
@@ -55783,10 +56055,18 @@
           "decision": "retain",
           "confidence": "high",
           "reason": "The full post treats Meaning of Jesus' Resurrection as a primary or major sustained subject."
+        },
+        {
+          "wpId": "50701",
+          "title": "Was Mary Magdalene the Actual Founder of Christianity?",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
-        "Full-text audit completed; approved decisions applied."
+        "Full-text audit completed; approved decisions applied.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -56807,7 +57087,7 @@
       "auditSequence": 174,
       "status": "completed",
       "postCountBefore": 16,
-      "postCountAfter": 17,
+      "postCountAfter": 18,
       "descriptionBefore": "Covers historical questions about Hebrew Bible narratives, including Moses, Exodus, David, conquest, Israelite origins, miracle stories, archaeology, and comparative evidence.",
       "descriptionRecommendation": "Covers historical questions about Hebrew Bible narratives, including Moses, Exodus, David, conquest, Israelite origins, miracle stories, archaeology, and comparative evidence.",
       "categoriesBefore": [
@@ -56943,11 +57223,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses archaeological evidence concerning the Philistines and Beersheba to test Pentateuchal chronology and Mosaic authorship."
+        },
+        {
+          "wpId": "50659",
+          "title": "Slaughter and Human Sacrifice: Understanding Tales of the Hebrew Bible",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
-        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 2851-3150 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -60615,7 +60903,7 @@
       "auditSequence": 203,
       "status": "completed",
       "postCountBefore": 12,
-      "postCountAfter": 14,
+      "postCountAfter": 15,
       "descriptionBefore": "Posts on women's roles, leadership, silence, gender hierarchy, and social status in early Christian texts and communities.",
       "descriptionRecommendation": "Posts on women's roles, leadership, silence, gender hierarchy, and social status in early Christian texts and communities.",
       "categoriesBefore": [
@@ -60729,13 +61017,21 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post concerns women in Gospel traditions about Jesus' empty tomb, not women's roles or leadership in early Christian communities."
+        },
+        {
+          "wpId": "50694",
+          "title": "The Intriguing Gospel of Mary Magdalene",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
-        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment."
+        "Post-by-post topic-link audit for audit sequence 3951-4250 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -62782,7 +63078,7 @@
       "auditSequence": 223,
       "status": "completed",
       "postCountBefore": 10,
-      "postCountAfter": 20,
+      "postCountAfter": 22,
       "descriptionBefore": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "descriptionRecommendation": "Covers Paul's understandings of salvation, especially judicial and participationist models, grace, atonement, and the believer's relation to Christ.",
       "categoriesBefore": [
@@ -62939,6 +63235,20 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50654",
+          "title": "Jesus’s Salvation, Self-Identity, and Birth: Key Questions from Readers",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50591",
+          "title": "Important Questions About Jesus, Paul, and the Gospels",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -62947,7 +63257,8 @@
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
         "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
         "Post-by-post topic-link audit for audit sequence 1751-2000 updated this assignment.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -63538,7 +63849,7 @@
       "auditSequence": 228,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 11,
+      "postCountAfter": 12,
       "descriptionBefore": "Covers Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
       "descriptionRecommendation": "Covers Mary Magdalene in Gnostic or non-canonical traditions, especially the Gospel of Philip, Gospel of Mary, and claims about Jesus' relationship to Mary.",
       "categoriesBefore": [
@@ -63631,12 +63942,20 @@
           "decision": "remove",
           "confidence": "high",
           "reason": "The post critiques a modern allegorical reading of Joseph and Aseneth; Gnostic traditions about Mary are only contextual background."
+        },
+        {
+          "wpId": "50694",
+          "title": "The Intriguing Gospel of Mary Magdalene",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Full-text audit completed; approved decisions applied.",
         "Post-by-post topic-link audit for posts 1301-1500 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -63728,7 +64047,7 @@
       "auditSequence": 230,
       "status": "completed",
       "postCountBefore": 9,
-      "postCountAfter": 15,
+      "postCountAfter": 16,
       "descriptionBefore": "Covers ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
       "descriptionRecommendation": "Covers ethical difficulties in biblical texts, including slavery, violence, divine judgment, gender, and attempts to defend or reinterpret troubling passages.",
       "categoriesBefore": [
@@ -63843,6 +64162,13 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post uses two portrayals of Jesus to reflect centrally on troubling biblical ethics in relation to current crises."
+        },
+        {
+          "wpId": "50659",
+          "title": "Slaughter and Human Sacrifice: Understanding Tales of the Hebrew Bible",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
@@ -63851,7 +64177,8 @@
         "Post-by-post topic-link audit for posts 701-900 updated this assignment.",
         "Post-by-post topic-link audit for posts 901-1100 updated this assignment.",
         "Post-by-post topic-link audit for posts 1501-1750 updated this assignment.",
-        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment."
+        "Post-by-post topic-link audit for posts 2001-2250 updated this assignment.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {
@@ -67424,7 +67751,7 @@
       "auditSequence": 296,
       "status": "completed",
       "postCountBefore": 0,
-      "postCountAfter": 8,
+      "postCountAfter": 9,
       "descriptionBefore": "Examines capitalism in relation to Jesus' teachings, Christian ethics, Protestant theology, economic history, and modern interpretations of biblical traditions.",
       "descriptionRecommendation": "Examines capitalism in relation to Jesus' teachings, Christian ethics, Protestant theology, economic history, and modern interpretations of biblical traditions.",
       "categoriesBefore": [
@@ -67489,11 +67816,19 @@
           "decision": "add",
           "confidence": "high",
           "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
+        },
+        {
+          "wpId": "50606",
+          "title": "Health, Wealth, and the Prosperity Gospel",
+          "decision": "add",
+          "confidence": "high",
+          "reason": "The post was reviewed in full and treats this topic as a primary or sustained subject."
         }
       ],
       "notes": [
         "Added to restore the audit-tracker entry omitted when the approved topic was created.",
-        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts."
+        "Ingestion run 2026-09-15-0907-to-0915 added full-text-reviewed posts.",
+        "Ingestion run 20260916-20261012-review added full-text-reviewed posts."
       ]
     },
     {

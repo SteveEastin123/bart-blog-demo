@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-09-15",
-  "auditScope": "All 4425 posts in the canonical search index",
+  "updatedAt": "2026-10-12",
+  "auditScope": "All 4446 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,7 +10,7 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4425,
+  "reviewedPostCount": 4446,
   "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
@@ -85293,8 +85293,430 @@
       "topicsRemoved": [],
       "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
       "appliedAt": "2026-09-15"
+    },
+    {
+      "auditSequence": 4426,
+      "sourceIndex": 0,
+      "wpId": "50728",
+      "dateText": "October 11, 2026",
+      "title": "Did Jesus Believe in Equality?  You Might Think So….",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Gospel of Luke"
+      ],
+      "topicsAdded": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics",
+        "Gospel of Luke"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4427,
+      "sourceIndex": 1,
+      "wpId": "50708",
+      "dateText": "October 10, 2026",
+      "title": "A Very Different (not to say Bizarre) Gospel Featuring Mary Magdalene",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Greater Questions of Mary",
+        "Gnostic and Orthodox Conflicts"
+      ],
+      "topicsAdded": [
+        "Greater Questions of Mary",
+        "Gnostic and Orthodox Conflicts"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4428,
+      "sourceIndex": 2,
+      "wpId": "50755",
+      "dateText": "October 9, 2026",
+      "title": "Where Christianity Started, And Why – Platinum Guest Post by Peter van Kan",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Historical Jesus (General)",
+        "Messiah"
+      ],
+      "topicsAdded": [
+        "Historical Jesus (General)",
+        "Messiah"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4429,
+      "sourceIndex": 3,
+      "wpId": "50701",
+      "dateText": "October 8, 2026",
+      "title": "Was Mary Magdalene the Actual Founder of Christianity?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Mary Magdalene",
+        "Meaning of Jesus' Resurrection",
+        "Jewish Apocalypticism"
+      ],
+      "topicsAdded": [
+        "Mary Magdalene",
+        "Meaning of Jesus' Resurrection",
+        "Jewish Apocalypticism"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4430,
+      "sourceIndex": 4,
+      "wpId": "50698",
+      "dateText": "October 7, 2026",
+      "title": "Peter and Mary Magdalene Going Toe to Toe",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Mary Magdalene",
+        "Peter the Apostle",
+        "Jesus' Resurrection Appearances"
+      ],
+      "topicsAdded": [
+        "Mary Magdalene",
+        "Peter the Apostle",
+        "Jesus' Resurrection Appearances"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4431,
+      "sourceIndex": 5,
+      "wpId": "50694",
+      "dateText": "October 6, 2026",
+      "title": "The Intriguing Gospel of Mary Magdalene",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Mary Magdalene in Gnostic Traditions",
+        "Women in Early Christianity"
+      ],
+      "topicsAdded": [
+        "Mary Magdalene in Gnostic Traditions",
+        "Women in Early Christianity"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4432,
+      "sourceIndex": 6,
+      "wpId": "50680",
+      "dateText": "October 4, 2026",
+      "title": "Does Paul Ever Refer to (or Even Know About) Judas Iscariot?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Judas Iscariot",
+        "Paul's Knowledge of Jesus",
+        "Translation Issues"
+      ],
+      "topicsAdded": [
+        "Judas Iscariot",
+        "Paul's Knowledge of Jesus",
+        "Translation Issues"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4433,
+      "sourceIndex": 7,
+      "wpId": "50677",
+      "dateText": "October 3, 2026",
+      "title": "Did Judas Iscariot Actually Exist?  Or Was He “Made Up”?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Judas Iscariot",
+        "Historical Methods (General)"
+      ],
+      "topicsAdded": [
+        "Judas Iscariot",
+        "Historical Methods (General)"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4434,
+      "sourceIndex": 8,
+      "wpId": "50674",
+      "dateText": "October 1, 2026",
+      "title": "About the Betrayer Judas Iscariot.  What’s an Iscariot?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Judas Iscariot"
+      ],
+      "topicsAdded": [
+        "Judas Iscariot"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4435,
+      "sourceIndex": 9,
+      "wpId": "50659",
+      "dateText": "September 30, 2026",
+      "title": "Slaughter and Human Sacrifice: Understanding Tales of the Hebrew Bible",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Hebrew Bible Historical Reliability",
+        "Moral Problems in Scripture"
+      ],
+      "topicsAdded": [
+        "Hebrew Bible Historical Reliability",
+        "Moral Problems in Scripture"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4436,
+      "sourceIndex": 10,
+      "wpId": "50657",
+      "dateText": "September 29, 2026",
+      "title": "Can You Explain the Tabernacle, the Ark of the Covenant, and/or the Shema?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Pentateuch",
+        "Jewish Law and Torah"
+      ],
+      "topicsAdded": [
+        "Pentateuch",
+        "Jewish Law and Torah"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4437,
+      "sourceIndex": 11,
+      "wpId": "50654",
+      "dateText": "September 27, 2026",
+      "title": "Jesus’s Salvation, Self-Identity, and Birth: Key Questions from Readers",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Pauline Salvation Models",
+        "Translation Issues",
+        "Son of God",
+        "Virgin Birth"
+      ],
+      "topicsAdded": [
+        "Pauline Salvation Models",
+        "Translation Issues",
+        "Son of God",
+        "Virgin Birth"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4438,
+      "sourceIndex": 12,
+      "wpId": "50640",
+      "dateText": "September 26, 2026",
+      "title": "Do You Really Mean That?  Antisemitism.",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Christian Anti-Judaism"
+      ],
+      "topicsAdded": [
+        "Christian Anti-Judaism"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4439,
+      "sourceIndex": 13,
+      "wpId": "50649",
+      "dateText": "September 25, 2026",
+      "title": "A Blog Dinner in Denver, CO on November 19.  Interested?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Ignore"
+      ],
+      "topicsAdded": [
+        "Ignore"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4440,
+      "sourceIndex": 14,
+      "wpId": "50637",
+      "dateText": "September 24, 2026",
+      "title": "Do You Really Mean That?  Consciousness and Socialism",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Personal Reflections"
+      ],
+      "topicsAdded": [
+        "Personal Reflections"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4441,
+      "sourceIndex": 15,
+      "wpId": "50627",
+      "dateText": "September 22, 2026",
+      "title": "The Ten (more or less?) Commandments and the Code of Hammurabi",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Jewish Law and Torah",
+        "Comparative Ancient Evidence"
+      ],
+      "topicsAdded": [
+        "Jewish Law and Torah",
+        "Comparative Ancient Evidence"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4442,
+      "sourceIndex": 16,
+      "wpId": "50616",
+      "dateText": "September 21, 2026",
+      "title": "The Origins of God’s Personal Name and of the Feast of Passover",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Pentateuch",
+        "Jewish Law and Torah"
+      ],
+      "topicsAdded": [
+        "Pentateuch",
+        "Jewish Law and Torah"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4443,
+      "sourceIndex": 17,
+      "wpId": "50591",
+      "dateText": "September 20, 2026",
+      "title": "Important Questions About Jesus, Paul, and the Gospels",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Apocalyptic Jesus",
+        "Jesus' Temple Action",
+        "Pauline Salvation Models",
+        "Canonical Gospels (General)"
+      ],
+      "topicsAdded": [
+        "Apocalyptic Jesus",
+        "Jesus' Temple Action",
+        "Pauline Salvation Models",
+        "Canonical Gospels (General)"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4444,
+      "sourceIndex": 18,
+      "wpId": "50606",
+      "dateText": "September 19, 2026",
+      "title": "Health, Wealth, and the Prosperity Gospel",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Christianity and Capitalism"
+      ],
+      "topicsAdded": [
+        "Christianity and Capitalism"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4445,
+      "sourceIndex": 19,
+      "wpId": "50589",
+      "dateText": "September 17, 2026",
+      "title": "How to Justify a Lie",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Forgery (General)"
+      ],
+      "topicsAdded": [
+        "Forgery (General)"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4446,
+      "sourceIndex": 20,
+      "wpId": "50586",
+      "dateText": "September 16, 2026",
+      "title": "Caught Red-Handed!  An Unrepentant Christian Forger",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Forgery (General)"
+      ],
+      "topicsAdded": [
+        "Forgery (General)"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-10-12"
     }
   ],
-  "appliedChangeCount": 651,
+  "appliedChangeCount": 672,
   "pendingDescriptionRecommendations": []
 }
