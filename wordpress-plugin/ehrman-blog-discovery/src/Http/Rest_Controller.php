@@ -30,13 +30,6 @@ final class Rest_Controller {
 	private Search_REST_Controller $search;
 
 	/**
-	 * Topic-and-keyword Ask AI endpoints.
-	 *
-	 * @var Taxonomy_Ask_AI_REST_Controller
-	 */
-	private Taxonomy_Ask_AI_REST_Controller $taxonomy_ask_ai;
-
-	/**
 	 * Semantic Ask AI endpoint.
 	 *
 	 * @var Semantic_Ask_AI_REST_Controller
@@ -64,7 +57,6 @@ final class Rest_Controller {
 
 		$this->status          = new Status_REST_Controller();
 		$this->search          = new Search_REST_Controller( $search_service );
-		$this->taxonomy_ask_ai = new Taxonomy_Ask_AI_REST_Controller( $search_service, $interpreter );
 		$this->semantic_ask_ai = new Semantic_Ask_AI_REST_Controller( $interpreter, new Semantic_Search_Service() );
 		$this->feedback        = new Feedback_REST_Controller();
 		$this->parity          = new Parity_REST_Controller();
@@ -107,24 +99,6 @@ final class Rest_Controller {
 			array(
 				'methods'             => 'GET',
 				'callback'            => array( $this->search, 'search' ),
-				'permission_callback' => '__return_true',
-			)
-		);
-		register_rest_route(
-			self::REST_NAMESPACE,
-			'/interpret',
-			array(
-				'methods'             => 'POST',
-				'callback'            => array( $this->taxonomy_ask_ai, 'interpret' ),
-				'permission_callback' => '__return_true',
-			)
-		);
-		register_rest_route(
-			self::REST_NAMESPACE,
-			'/refine',
-			array(
-				'methods'             => 'POST',
-				'callback'            => array( $this->taxonomy_ask_ai, 'refine' ),
 				'permission_callback' => '__return_true',
 			)
 		);

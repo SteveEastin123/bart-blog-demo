@@ -49,13 +49,6 @@ final class Page_Controller {
 	private Search_Page_Renderer $search_page;
 
 	/**
-	 * Topic-and-keyword Ask AI page renderer.
-	 *
-	 * @var Taxonomy_Ask_AI_Page_Renderer
-	 */
-	private Taxonomy_Ask_AI_Page_Renderer $taxonomy_ask_ai_page;
-
-	/**
 	 * Semantic Ask AI page renderer.
 	 *
 	 * @var Semantic_Ask_AI_Page_Renderer
@@ -83,7 +76,6 @@ final class Page_Controller {
 		$this->request              = new Discovery_Request();
 		$this->markup               = new Discovery_Markup();
 		$this->search_page          = new Search_Page_Renderer( $this->browse, $this->search, $this->markup );
-		$this->taxonomy_ask_ai_page = new Taxonomy_Ask_AI_Page_Renderer( $this->markup, $this->search_page );
 		$this->semantic_ask_ai_page = new Semantic_Ask_AI_Page_Renderer( $this->markup );
 		$this->browse_page          = new Browse_Page_Renderer(
 			$this->browse,
@@ -110,7 +102,6 @@ final class Page_Controller {
 	public static function ensure_pages(): void {
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'ask_question'     => array( 'Ask AI 1', 'ask-ai', '[ehrman_ask_question]' ),
 			'ask_ai_2'         => array( 'Ask AI 2', 'ask-ai-2', '[ehrman_ask_ai_2]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
@@ -121,22 +112,12 @@ final class Page_Controller {
 			$option  = 'ehrman_discovery_page_' . $key;
 			$page_id = Database::integer( get_option( $option, 0 ) );
 			if ( $page_id > 0 && 'trash' !== get_post_status( $page_id ) ) {
-				self::update_managed_page( $key, $page_id, $title, $slug );
 				continue;
 			}
 			$existing = get_page_by_path( $slug, OBJECT, 'page' );
 			if ( $existing instanceof \WP_Post ) {
-				self::update_managed_page( $key, $existing->ID, $title, $slug );
 				update_option( $option, $existing->ID, false );
 				continue;
-			}
-			if ( 'ask_question' === $key ) {
-				$legacy = get_page_by_path( 'ask-a-question', OBJECT, 'page' );
-				if ( $legacy instanceof \WP_Post ) {
-					self::update_managed_page( $key, $legacy->ID, $title, $slug );
-					update_option( $option, $legacy->ID, false );
-					continue;
-				}
 			}
 			$page_id = wp_insert_post(
 				array(
@@ -156,48 +137,41 @@ final class Page_Controller {
 		update_option( 'ehrman_discovery_pages_version', EHRMAN_DISCOVERY_VERSION, false );
 	}
 
-	/**
-	 * Applies title and slug migrations to plugin-managed pages.
-	 *
-	 * @param string $key     Managed page key.
-	 * @param int    $page_id WordPress page ID.
-	 * @param string $title   Current canonical title.
-	 * @param string $slug    Current canonical slug.
-	 */
-	private static function update_managed_page( string $key, int $page_id, string $title, string $slug ): void {
-		if ( 'ask_question' !== $key ) {
-			return;
-		}
-		$changes = array( 'ID' => $page_id );
-		if ( get_the_title( $page_id ) !== $title ) {
-			$changes['post_title'] = $title;
-		}
-		if ( get_post_field( 'post_name', $page_id ) !== $slug ) {
-			$changes['post_name'] = $slug;
-		}
-		if ( count( $changes ) > 1 ) {
-			wp_update_post( $changes );
+	/** Redirects retired interfaces to the surviving search page. */
+	public function redirect_legacy_ask_ai(): void {
+		$target = $this->retired_ask_ai_target();
+		if ( '' !== $target ) {
+			wp_safe_redirect( $target, 302, 'Ehrman Blog Discovery' );
+			exit;
 		}
 	}
 
-	/** Permanently redirects the former Ask AI path to its canonical URL. */
-	public function redirect_legacy_ask_ai(): void {
+	/**
+	 * Resolves retired URLs, retaining only the reader's question.
+	 *
+	 * @return string Surviving page URL, or empty text for an unrelated request.
+	 */
+	public function retired_ask_ai_target(): string {
 		if ( is_admin() || ! isset( $_SERVER['REQUEST_URI'] ) || ! is_string( $_SERVER['REQUEST_URI'] ) ) {
-			return;
+			return '';
 		}
 		$request_uri  = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
 		$request_path = wp_parse_url( $request_uri, PHP_URL_PATH );
-		$legacy_path  = wp_parse_url( home_url( '/ask-a-question/' ), PHP_URL_PATH );
-		if ( ! is_string( $request_path ) || ! is_string( $legacy_path ) || untrailingslashit( $request_path ) !== untrailingslashit( $legacy_path ) ) {
-			return;
+		$retired      = false;
+		foreach ( array( 'ask-a-question', 'ask-ai', 'ask-ai-1', 'ask-ai-3' ) as $slug ) {
+			$legacy_path = wp_parse_url( home_url( '/' . $slug . '/' ), PHP_URL_PATH );
+			if ( is_page( $slug ) || ( is_string( $request_path ) && is_string( $legacy_path ) && untrailingslashit( $request_path ) === untrailingslashit( $legacy_path ) ) ) {
+				$retired = true;
+				break;
+			}
 		}
-
-		// Preserve interpreted-search arguments in old bookmarks and shared links.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only redirect parameters.
-		$query_args = map_deep( wp_unslash( $_GET ), 'sanitize_text_field' );
-		$target     = empty( $query_args ) ? $this->page_url( 'ask_question' ) : add_query_arg( $query_args, $this->page_url( 'ask_question' ) );
-		wp_safe_redirect( $target, 301, 'Ehrman Blog Discovery' );
-		exit;
+		if ( ! $retired ) {
+			return '';
+		}
+		// Old method-specific IDs and term filters must not enter the semantic workflow.
+		$question = $this->request->value( 'ebd_question' );
+		$url      = $this->page_url( 'ask_ai_2' );
+		return '' === $question ? $url : add_query_arg( 'ebd_question', rawurlencode( $question ), $url );
 	}
 
 	/**
@@ -241,51 +215,12 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Renders the AI-assisted natural-language search interface.
+	 * Keeps legacy shortcode content usable after Ask AI 1 retirement.
 	 *
-	 * @return string Question interpretation and post results markup.
+	 * @return string Ask AI 2 markup.
 	 */
 	public function ask_question_shortcode(): string {
-		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
-			return $this->not_ready();
-		}
-		Assets::enqueue();
-		$question   = $this->request->value( 'ebd_question' );
-		$request_id = $this->request->value( 'ebd_ai_request' );
-		$terms      = $this->request->terms();
-		$term_modes = $this->search->resolve_term_modes( $terms, $this->request->term_modes() );
-		$sort       = $this->request->value( 'ebd_sort', 'ranked' );
-		$page       = $this->request->page();
-		$has_terms  = ! empty( $terms );
-		$result     = $has_terms
-			? $this->search->search( $terms, $sort, '', '', $page, Search_Service::POSTS_PER_PAGE, $term_modes )
-			: array(
-				'posts'       => array(),
-				'terms'       => array(),
-				'sort'        => 'ranked',
-				'count'       => 0,
-				'page'        => 1,
-				'per_page'    => Search_Service::POSTS_PER_PAGE,
-				'total_pages' => 0,
-			);
-		if ( $has_terms && '' !== $request_id ) {
-			AI_Requests::set_result_count( $request_id, Database::integer( $result['count'] ) );
-		}
-		$auto_refine = $has_terms
-			&& Database::integer( $result['count'] ) > 0
-			&& '' !== trim( $question )
-			&& 1 === preg_match( '/^[a-f0-9-]{36}$/', $request_id );
-
-		return $this->taxonomy_ask_ai_page->render(
-			$question,
-			$request_id,
-			$terms,
-			$term_modes,
-			$result,
-			$auto_refine,
-			AI_Interpreter::is_configured(),
-			$this->page_url( 'ask_question' )
-		);
+		return $this->ask_ai_2_shortcode();
 	}
 
 	/**

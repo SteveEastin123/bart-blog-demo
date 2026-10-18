@@ -330,6 +330,12 @@ a:hover {
   border-radius: 4px;
 }
 
+.ehrman-ai-selected-figure {
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .ehrman-demo-meta {
   margin-top: 24px !important;
   color: var(--ehrman-muted);

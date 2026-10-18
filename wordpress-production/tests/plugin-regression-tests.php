@@ -16,6 +16,7 @@ use EhrmanBlogDiscovery\AI_Usage;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
+use EhrmanBlogDiscovery\Page_Controller;
 use EhrmanBlogDiscovery\Post_Ingestion_Editor;
 use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
@@ -26,7 +27,6 @@ use EhrmanBlogDiscovery\Search_Service;
 use EhrmanBlogDiscovery\Semantic_Ask_AI_REST_Controller;
 use EhrmanBlogDiscovery\Semantic_Index_Service;
 use EhrmanBlogDiscovery\Semantic_Search_Service;
-use EhrmanBlogDiscovery\Taxonomy_Ask_AI_REST_Controller;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );
@@ -45,10 +45,10 @@ $assert_same = static function ( $expected, $actual, string $message ) use ( $as
 $wpdb   = Database::client();
 $tables = Database::tables();
 
-/* Verify each Ask AI route is owned by its mechanism-specific controller. */
+/* Keep retired AI routes unavailable while preserving the semantic endpoint. */
 $rest_routes = rest_get_server()->get_routes();
 $callbacks   = array();
-foreach ( array( '/ehrman-discovery/v1/interpret', '/ehrman-discovery/v1/refine', '/ehrman-discovery/v1/semantic-search' ) as $route ) {
+foreach ( array( '/ehrman-discovery/v1/semantic-search' ) as $route ) {
 	$handlers = $rest_routes[ $route ] ?? array();
 	foreach ( $handlers as $handler ) {
 		if ( is_array( $handler['callback'] ?? null ) && is_object( $handler['callback'][0] ?? null ) ) {
@@ -57,17 +57,48 @@ foreach ( array( '/ehrman-discovery/v1/interpret', '/ehrman-discovery/v1/refine'
 		}
 	}
 }
-$assert( ( $callbacks['/ehrman-discovery/v1/interpret'] ?? null ) instanceof Taxonomy_Ask_AI_REST_Controller, 'The interpretation route is not owned by the taxonomy Ask AI controller.' );
-$assert( ( $callbacks['/ehrman-discovery/v1/refine'] ?? null ) instanceof Taxonomy_Ask_AI_REST_Controller, 'The refinement route is not owned by the taxonomy Ask AI controller.' );
+foreach ( array( '/ehrman-discovery/v1/interpret', '/ehrman-discovery/v1/refine' ) as $route ) {
+	$assert( ! isset( $rest_routes[ $route ] ), 'A retired Ask AI 1 route is still registered.' );
+	$retired_response = rest_do_request( new WP_REST_Request( 'POST', $route ) );
+	$assert_same( 404, $retired_response->get_status(), 'A retired Ask AI route did not return 404.' );
+}
 $assert( ( $callbacks['/ehrman-discovery/v1/semantic-search'] ?? null ) instanceof Semantic_Ask_AI_REST_Controller, 'The semantic-search route is not owned by the semantic Ask AI controller.' );
 
-/* Verify each Ask AI shortcode is rendered by its mechanism-specific page renderer. */
+/* Old embedded shortcode content must use the surviving search, not a dead form. */
 $taxonomy_ask_ai_markup = do_shortcode( '[ehrman_ask_question]' );
 $semantic_ask_ai_markup = do_shortcode( '[ehrman_ask_ai_2]' );
-$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-form' ), 'The taxonomy Ask AI shortcode lost its question form.' );
-$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-interpret' ), 'The taxonomy Ask AI shortcode lost its interpretation control.' );
+$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-semantic-form' ), 'The legacy Ask AI shortcode did not render Ask AI 2.' );
+$assert( ! str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-interpret' ), 'The retired interpretation form is still rendered.' );
 $assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-form' ), 'The semantic Ask AI shortcode lost its question form.' );
 $assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-submit' ), 'The semantic Ask AI shortcode lost its submit control.' );
+
+/* Redirects retain the question but discard old request IDs, terms and targets. */
+$original_get = $_GET;
+$original_uri = $_SERVER['REQUEST_URI'] ?? null;
+try {
+	$_GET = array( 'ebd_question' => 'mustard seed', 'ebd_ai_request' => 'old-id', 'redirect_to' => 'https://example.invalid/', 'ebd_keyword' => array( 'Paul' ) );
+	foreach ( array( 'ask-a-question', 'ask-ai', 'ask-ai-1', 'ask-ai-3' ) as $slug ) {
+		$_SERVER['REQUEST_URI'] = '/' . $slug . '/';
+		$target                = ( new Page_Controller() )->retired_ask_ai_target();
+		$assert_same( home_url( '/ask-ai-2/?ebd_question=mustard%20seed' ), $target, 'Retired URL did not redirect safely.' );
+	}
+	$_SERVER['REQUEST_URI'] = '/ask-ai-2/';
+	$assert_same( '', ( new Page_Controller() )->retired_ask_ai_target(), 'Ask AI 2 would redirect to itself.' );
+	$_SERVER['REQUEST_URI'] = '/keyword-search/';
+	$assert_same( '', ( new Page_Controller() )->retired_ask_ai_target(), 'Keyword Search would be redirected.' );
+	$_SERVER['REQUEST_URI'] = '/ask-ai/';
+	$_GET                  = array( 'ebd_question' => 'mustard & faith? #meaning' );
+	$assert_same( home_url( '/ask-ai-2/?ebd_question=mustard%20%26%20faith%3F%20%23meaning' ), ( new Page_Controller() )->retired_ask_ai_target(), 'Question punctuation was not URL-encoded.' );
+	$_GET                  = array( 'ebd_question' => array( 'invalid' ) );
+	$assert_same( home_url( '/ask-ai-2/' ), ( new Page_Controller() )->retired_ask_ai_target(), 'Malformed question was preserved in a redirect.' );
+} finally {
+	$_GET = $original_get;
+	if ( null === $original_uri ) {
+		unset( $_SERVER['REQUEST_URI'] );
+	} else {
+		$_SERVER['REQUEST_URI'] = $original_uri;
+	}
+}
 
 /* Verify analytics hooks and administrator filters retain their public contract. */
 $assert( false !== has_action( 'admin_post_ehrman_ai_analytics_csv', array( AI_Analytics_Page::class, 'export_csv' ) ), 'The analytics CSV hook is not owned by the analytics page coordinator.' );

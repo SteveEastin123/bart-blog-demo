@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1130" viewBox="0 0 760 1130" role="img" aria-labelledby="title description">
+  <title id="title">Ask AI 2: finding relevant posts</title>
+  <desc id="description">AI converts a question or request into a semantic vector. Semantic search compares it with post title-and-summary vectors to find candidates. AI reviews candidate titles and summaries against the query and returns ranked relevant posts.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7d201a"/>
+    </marker>
+    <style>
+      .heading { font: 700 36px Arial, Helvetica, sans-serif; fill: #6f1d18; }
+      .label { font: 700 30px Arial, Helvetica, sans-serif; fill: #171512; }
+      .box { stroke-width: 2; }
+      .question { fill: #fffefa; stroke: #bcae91; }
+      .ai { fill: #edf6fb; stroke: #3982a5; }
+      .database { fill: #f5f0f7; stroke: #876f93; }
+      .candidate { fill: #fff9e9; stroke: #c39a42; }
+      .posts { fill: #edf7eb; stroke: #559657; }
+      .arrow { fill: none; stroke: #7d201a; stroke-width: 3; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <text class="heading" x="380" y="56" text-anchor="middle">Ask AI 2</text>
+  <rect class="box question" x="40" y="95" width="680" height="120" rx="8"/>
+  <text class="label" x="380" y="165" text-anchor="middle">Question or Request</text>
+  <path class="arrow" d="M380 215 V265"/>
+  <rect class="box ai" x="40" y="265" width="680" height="120" rx="8"/>
+  <text class="label" text-anchor="middle"><tspan x="380" y="317">AI Converts Query into</tspan><tspan x="380" y="353">Semantic Vector</tspan></text>
+  <path class="arrow" d="M380 385 V435"/>
+  <rect class="box database" x="40" y="435" width="680" height="120" rx="8"/>
+  <text class="label" text-anchor="middle"><tspan x="380" y="467">Semantic Search Matches Query Vector</tspan><tspan x="380" y="499">to Post Title-and-Summary</tspan><tspan x="380" y="531">Vectors</tspan></text>
+  <path class="arrow" d="M380 555 V605"/>
+  <rect class="box candidate" x="40" y="605" width="680" height="120" rx="8"/>
+  <text class="label" x="380" y="675" text-anchor="middle">Candidate Posts</text>
+  <path class="arrow" d="M380 725 V775"/>
+  <rect class="box ai" x="40" y="775" width="680" height="120" rx="8"/>
+  <text class="label" text-anchor="middle"><tspan x="380" y="807">AI Evaluates Candidate Titles</tspan><tspan x="380" y="839">and Summaries</tspan><tspan x="380" y="871">Against the Query</tspan></text>
+  <path class="arrow" d="M380 895 V945"/>
+  <rect class="box posts" x="40" y="945" width="680" height="120" rx="8"/>
+  <text class="label" x="380" y="1015" text-anchor="middle">Ranked Relevant Posts</text>
+</svg>

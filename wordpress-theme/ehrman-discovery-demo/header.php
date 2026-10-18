@@ -36,7 +36,6 @@
             <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-1')); ?>"<?php echo is_page('browse-topics-1') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 1', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-2')); ?>"<?php echo is_page('browse-topics-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 2', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"<?php echo is_page('keyword-search') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a>
-            <a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai')); ?>"<?php echo is_page('ask-ai') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI 1', 'ehrman-discovery-demo'); ?></a>
             <a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai-2')); ?>"<?php echo is_page('ask-ai-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI 2', 'ehrman-discovery-demo'); ?></a>
             <?php do_action('ehrman_demo_extra_search_links'); ?>
             <a href="<?php echo esc_url(add_query_arg('ebd_path', '1', ehrman_demo_page_url('structure-review'))); ?>"<?php echo is_page('structure-review') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Reviewer Tools', 'ehrman-discovery-demo'); ?></a>
