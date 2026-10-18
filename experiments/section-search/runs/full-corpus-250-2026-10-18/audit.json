@@ -1,0 +1,766 @@
+{
+  "verifiedSearches": 499,
+  "apiReceipts": 1004,
+  "historicalFilesUnchanged": 3382,
+  "frozenInputsUnchanged": 105,
+  "databaseUnchanged": true,
+  "reviewerOutputWarnings": [
+    {
+      "questionId": 5,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751042",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 6,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751608",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 9,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750521",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 23,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "749645",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 32,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "749269",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        },
+        {
+          "id": "749365",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 33,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "749956",
+          "relevance_tier": "direct",
+          "reason": "duplicate"
+        }
+      ]
+    },
+    {
+      "questionId": 35,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751761",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 35,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "753130",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 46,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751351",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 48,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 50,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752836",
+          "relevance_tier": "direct",
+          "reason": "duplicate"
+        }
+      ]
+    },
+    {
+      "questionId": 58,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 59,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751452",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 61,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 63,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751295",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 64,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 65,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "750750",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 65,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750498",
+          "relevance_tier": "related",
+          "reason": "duplicate"
+        }
+      ]
+    },
+    {
+      "questionId": 70,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751987",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 73,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750855",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 81,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750350",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 87,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 89,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 94,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751488",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 95,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751564",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 99,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751381",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 100,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750899",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 103,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751951",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 103,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752752",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 105,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751451",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 106,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 107,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750095",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 114,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        },
+        {
+          "id": "751751",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 118,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750301",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        },
+        {
+          "id": "750834",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 119,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "750390",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 121,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751860",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 121,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750432",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 125,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "752890",
+          "relevance_tier": "background",
+          "reason": "duplicate"
+        }
+      ]
+    },
+    {
+      "questionId": 125,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752040",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 128,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "750750",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 129,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "752344",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 129,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752342",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 131,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "749789",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 131,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751825",
+          "relevance_tier": "related",
+          "reason": "duplicate"
+        }
+      ]
+    },
+    {
+      "questionId": 132,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "749524",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 134,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "749799",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 135,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750633",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 137,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751881",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 140,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "750950",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 146,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "750625",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 150,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 171,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 171,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752552",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 180,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750475",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 181,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "749397",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        },
+        {
+          "id": "749465",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 187,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752818",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 190,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 193,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "751751",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 196,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "261",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 200,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750750",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 204,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750749",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 213,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751443",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 215,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "752752",
+          "relevance_tier": "direct",
+          "reason": "unknown candidate"
+        },
+        {
+          "id": "752102",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 227,
+      "arm": "ask-ai-3",
+      "rejectedReviewerRows": [
+        {
+          "id": "750926",
+          "relevance_tier": "related",
+          "reason": "unknown candidate"
+        }
+      ]
+    },
+    {
+      "questionId": 241,
+      "arm": "ask-ai-2",
+      "rejectedReviewerRows": [
+        {
+          "id": "751387",
+          "relevance_tier": "background",
+          "reason": "unknown candidate"
+        }
+      ]
+    }
+  ],
+  "failedSearchAttempts": 3,
+  "failedSearchCostByArmUsd": {
+    "ask-ai-2": 0.01241002,
+    "ask-ai-3": 0.00749624
+  },
+  "failedReviewUsageAnomalies": [
+    "4e6d3b73-73de-44a5-a4ca-d11578351652"
+  ],
+  "uncompletedQuestionArms": [
+    {
+      "questionId": 207,
+      "arm": "ask-ai-3",
+      "reason": "No completed review after the original attempt and one unchanged-settings retry. Report as a technical failure, not a zero-relevance result or a quality tie. Ask AI 2 completed its retry."
+    }
+  ],
+  "providerCostUsd": 12.26981478,
+  "completedSearchCostUsd": 12.24990852
+}

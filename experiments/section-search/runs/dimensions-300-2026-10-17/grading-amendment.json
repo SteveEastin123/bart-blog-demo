@@ -1,0 +1,19 @@
+{
+  "reason": "Legacy full-post grades lacked individual textHash; corpus is identical to frozen original. Bind existing corpus hashes, validate prior grades; strengthen raw-review parser replay and grading receipt audit. No prompts, grades, inputs or search runs changed. First grading receipt retained and reused; no final question-grade files existed at amendment.",
+  "initial": {
+    "scope": "Frozen before new API grading; searches already complete, aggregate outcomes not examined",
+    "files": {
+      "experiments/section-search/dimensions/score.py": "a72fd18f4b162d477fefed2154e24c04b899a3398918bd63537ebd3f654d2e19",
+      "experiments/section-search/dimensions/spot_check.py": "36e8dd829a334b96f3145365df501f3088ead3dbd696d706de0b99baf3063c3f"
+    },
+    "blindGradesHash": "74e34818cf9f2e1e5feff1277a535a7a3684a5ff0d09545df5ed7fc35eb053bc"
+  },
+  "updated": {
+    "scope": "Frozen before new API grading; searches already complete, aggregate outcomes not examined",
+    "files": {
+      "experiments/section-search/dimensions/score.py": "11fb4345b7088322081c5a244440e89162cfba261f56d70ea03684c8db09b496",
+      "experiments/section-search/dimensions/spot_check.py": "36e8dd829a334b96f3145365df501f3088ead3dbd696d706de0b99baf3063c3f"
+    },
+    "blindGradesHash": "74e34818cf9f2e1e5feff1277a535a7a3684a5ff0d09545df5ed7fc35eb053bc"
+  }
+}

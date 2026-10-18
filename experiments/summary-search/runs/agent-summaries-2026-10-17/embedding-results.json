@@ -1,0 +1,126 @@
+{
+  "run": "agent-summaries-2026-10-17",
+  "status": "embeddings_complete_search_comparison_not_run",
+  "vectors": 500,
+  "model": "text-embedding-3-small",
+  "dimensions": 512,
+  "summaryFileSha256": "37163fa00b619c21efe5549e67d6b80a944f0119bf88f461fe207e99d0d28467",
+  "packageSha256": "42112c4e9de4883946a51297ebba4c2c7f4d371cca0b2624cac8697ae948f585",
+  "packageFile": "experiments/summary-search/private/agent-summaries-2026-10-17/fixtures/improved.json",
+  "packageBytes": 2099909,
+  "rawVectorBytes": 1024000,
+  "successfulRequests": 16,
+  "inputTokens": 96011,
+  "estimatedEmbeddingCostUsd": 0.00192022,
+  "pricePerMillionInputTokensUsd": 0.02,
+  "priceSource": "https://developers.openai.com/api/docs/models/text-embedding-3-small",
+  "priceChecked": "2026-10-17",
+  "costScope": "Successful saved embedding responses only; provider invoice is authoritative.",
+  "unitNormRange": [
+    0.9995393699296199,
+    1.000463967001264
+  ],
+  "receipts": [
+    {
+      "requestHash": "e3a20f3f0a4645f661ddbcc916269909a656eb61a7342f12818a4bb8f2915809",
+      "responseSha256": "616e8ad9671bc46239d5d0d565f2f46495d22b7807cb4edafd147b5478c47de6",
+      "posts": 32,
+      "inputTokens": 5992
+    },
+    {
+      "requestHash": "3ebcdd1193c2ab214cbead8a4ff4c92f18795976512815bd472cf1ab746a3498",
+      "responseSha256": "413a0606a27e02db06155e016b8d9ada1646d2e61c80ab238e7910b49754949f",
+      "posts": 32,
+      "inputTokens": 5583
+    },
+    {
+      "requestHash": "02ef3b13a75a63c9a5f28632a5ef1546b1296c4f92d91fa2a89b86e22fa7306b",
+      "responseSha256": "db586aecdde03aa51a2908adb6af4129969d7cbaf7fe0679d1228e8b4d7c99b4",
+      "posts": 32,
+      "inputTokens": 5758
+    },
+    {
+      "requestHash": "dad52eaf8a5d135dc9a788d2c80080cdb3a15db31e95be23763987fb09a6a64e",
+      "responseSha256": "480e3878eb7821fc342584a6c0e516008303e0549111066f1e9d4ef070a0edd9",
+      "posts": 32,
+      "inputTokens": 5353
+    },
+    {
+      "requestHash": "a724aa40bcc33ca54f6f56cf571b0cb08b49055f7a103e1255c0567e207e5a93",
+      "responseSha256": "466f3f0cd0aa04a700828ee93ab5d019855507735788cea72522f4c5b6c2d7a6",
+      "posts": 32,
+      "inputTokens": 5806
+    },
+    {
+      "requestHash": "7db2bfb60e7b42aacdf9cdae29e6d9d4c23fce4660042360d4eca4f40ca2f455",
+      "responseSha256": "a0471ed04351caf08517dd54733a70f1eda17cda4ced988f5fc52e2da82170e5",
+      "posts": 32,
+      "inputTokens": 5803
+    },
+    {
+      "requestHash": "922cba7faa1acc385e95b723c34db4d9d914fc5473a2bef83b858966a9a00995",
+      "responseSha256": "6995e0acb88fa79f433d6ec94f0836672fab24aac4f1cf9ddb79a9d708cea9af",
+      "posts": 32,
+      "inputTokens": 5692
+    },
+    {
+      "requestHash": "db398ea9e7258d2e2b01322036b79ee456ed137516b4c888745c4ca3dfa07a57",
+      "responseSha256": "f13ca174ada13d08807406a7723a0b4910faeeb8c04b9cbd4bd79bce48127ac7",
+      "posts": 32,
+      "inputTokens": 5700
+    },
+    {
+      "requestHash": "00f8ab00f4f34631c984725f95e7907847dcaaadc38a82b35bc7595a4689e00f",
+      "responseSha256": "b83f9101be0ef436b8f8aea3cb0487b23046742671b76eb7e66a42c40801dc15",
+      "posts": 32,
+      "inputTokens": 6539
+    },
+    {
+      "requestHash": "f1a9c7e07e154088ba987863f23c7e670b556fcb45ed0a50d11cd78996cdabeb",
+      "responseSha256": "570a9c375ef38a63180e3d14b9ca3869e107dee44cea82f83e1c0d7a20cb2c36",
+      "posts": 32,
+      "inputTokens": 6500
+    },
+    {
+      "requestHash": "23f150d42f1851c1dd62e17143e7121524d6c07592afcd8eae3ef1dcb9fcd812",
+      "responseSha256": "6eb7dd2072e1ec8b3cad10e64c11c53e66f0ad79aa5651be31f38c8136d490eb",
+      "posts": 32,
+      "inputTokens": 6649
+    },
+    {
+      "requestHash": "a9b78bf7f3d2d04126ae025ab331bbd8a6dbd3f9d44e3e4ccfb2987d3e7b37ab",
+      "responseSha256": "f1884dcd36cdeca0a05a955e7a4f5e680736648b4997d67c346c737f97d10272",
+      "posts": 32,
+      "inputTokens": 6263
+    },
+    {
+      "requestHash": "6ee5a37049b5f2130b72bf6d13343ddabe212f949ea162b5a91628ff4211fcc6",
+      "responseSha256": "57fe77ab41d649b08ab633841f8d09694490db457f744c9d8cb0d345f62a9fed",
+      "posts": 32,
+      "inputTokens": 6726
+    },
+    {
+      "requestHash": "ed3ccdf513ddeae0bad41a8458713ea3698676ff5f29683fbabfb4b1ede5dc99",
+      "responseSha256": "46746497fb29e4d204a99cc5d89d5fe56f4cef2036c05b0e73f6b172c2c68469",
+      "posts": 32,
+      "inputTokens": 6741
+    },
+    {
+      "requestHash": "563096515d42641b20227c358a03494490f0f4edfcfd78251ad91cf79e0f345c",
+      "responseSha256": "68ee3a20090fda077c77d654f6289daaf2ba15eab81f709ce6f71711a4e5c93f",
+      "posts": 32,
+      "inputTokens": 6646
+    },
+    {
+      "requestHash": "9dedbd9860f9a87cc1b4621064aa716d74c35b441adb823c00f5f0c48adf3435",
+      "responseSha256": "b4115f843f160644a43287d950f3cd9a92009577d78f5f162030ca8fc529ecfe",
+      "posts": 20,
+      "inputTokens": 4260
+    }
+  ],
+  "unchangedPreservedFiles": 112,
+  "canonicalDataChanged": false,
+  "databaseWrites": false,
+  "searchComparisonRun": false,
+  "summaryGenerationApiCalls": 0
+}

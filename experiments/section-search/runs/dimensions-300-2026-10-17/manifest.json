@@ -1,0 +1,73 @@
+{
+  "run": "dimensions-300-2026-10-17",
+  "sampleHash": "90694f1757315e2426baf81f0461803d9b890549774d3a68f215f0bd42e75a64",
+  "sampleCount": 500,
+  "questionCount": 50,
+  "sectionCount": 2636,
+  "sectionWords": 300,
+  "arms": [
+    "ask-ai-2",
+    "sections-512",
+    "sections-1536"
+  ],
+  "embeddingModel": "text-embedding-3-small",
+  "sectionDimensions": [
+    512,
+    1536
+  ],
+  "titleSummaryDimensions": 512,
+  "reviewerModel": "gpt-5.4-mini",
+  "reviewerReasoning": "low",
+  "maxOutputTokens": 800,
+  "candidateCount": 100,
+  "promptHashes": {
+    "ask-ai-2": "51aa872450f15a4bc64e79db803d9fffcf59e6f17f6bf788e38dc464a96fa3cb",
+    "sections-512": "492eca304c2841f80dc4dd003545abf3dc837fc7192da01825178d295fc04ab0",
+    "sections-1536": "492eca304c2841f80dc4dd003545abf3dc837fc7192da01825178d295fc04ab0"
+  },
+  "settingsHash": "922984ad8e2e2263460be6edf6baae32d1adf1722c780e7ef9d7ffd4c18997f2",
+  "indexHash": "54b4837e70e0caaca6487fa376ceb3a127814a678e92df2bd1717d3a0052ddc1",
+  "questionsHash": "2c8a2df8a741c5591cecbffd24a28121ead2191a0b3e3b245adcb95c5b047d7a",
+  "sectionHash": "b40b693d086cdc8d6c13eae71c161fdc648f74dbe21922e86e54733a8d14c7d5",
+  "runnerHash": "0ad5164f2707dfb1ea2dae9ba1fbfbe0a20a6d8e1530e61389b44697cd9eb326",
+  "pilotSources": {
+    "Baseline.php": "477e6a663975e56c010e629909ae976d58b7be4b1a8ddca3f3da695fbaa19cda",
+    "cli.php": "eed89e85dd1b1b86a7abb8a59afd997f7e7923d74c89dec360950d50fa7d5336",
+    "ehrman-section-pilot.php": "f92191e06ccccb116d3c34d931ddbadb67aac18476928a676ad586b83096f386",
+    "End_To_End_Run.php": "b97cae09a292ac4164705147f74ba3e1ce1e602693b9a812c6c94bb651c7d569",
+    "Evidence_Review.php": "9800942753bfc1d884056d4d14757f9026fd5632a1c8939b733295aeec363988",
+    "Index.php": "dbc3eceac886158240fc178d2fca2b8a55510d9ef15cce52ed11bc0767498d4c",
+    "Service.php": "49db8aa4b174adf7fdccc9b33ab5d09cfe2fd37cde656d37630aa02d7b86e5d8"
+  },
+  "preserved": {
+    "experiments/section-search/private/sections.json": "d71cc214cf6af03350e15d3c830663de1afc7f3b1d715a570481ae7052311d7f",
+    "experiments/section-search/private/runtime/index.json": "54b4837e70e0caaca6487fa376ceb3a127814a678e92df2bd1717d3a0052ddc1",
+    "experiments/section-search/private/runtime/sections-300.jsonl.gz": "56a9772a59ae69af135a202d2d60be24a671bdeec6275d05e51f0b64c0738dba",
+    "experiments/section-search/private/dimensions-300-2026-10-17/fixtures/sections-1536.jsonl.gz": "b40b693d086cdc8d6c13eae71c161fdc648f74dbe21922e86e54733a8d14c7d5",
+    "experiments/section-search/private/dimensions-300-2026-10-17/fixtures/questions.json": "2c8a2df8a741c5591cecbffd24a28121ead2191a0b3e3b245adcb95c5b047d7a",
+    "experiments/section-search/private/dimensions-300-2026-10-17/prior-results.json": "494dcf1b1eccad4a6253d73cc66dd3deb558c750364466c5e70e966398b3f971",
+    "experiments/section-search/runs/dimensions-300-2026-10-17/questions.json": "2c8a2df8a741c5591cecbffd24a28121ead2191a0b3e3b245adcb95c5b047d7a",
+    "experiments/section-search/runs/dimensions-300-2026-10-17/embedding-manifest.json": "b9a38415349f6ac3c56ea1b1524fdb2b7098308f0930ff1f5fcea2c07b4a3dfa",
+    "experiments/section-search/runs/dimensions-300-2026-10-17/embedding-results.json": "280a09a27b2a82bcf3b3361283bd6dbefc52576f2518d3433d4cce61329a2edd",
+    "experiments/section-search/runs/end-to-end-300-2026-10-17/results.json": "6931b0c9730e43a24ee621cedd88d4bc7d06b0eb6e5621d610e8742899b92400",
+    "experiments/summary-search/runs/metadata-review-2026-10-17/results.json": "e0fca40901b5504cee950d75a8ed8358a7d38c3545a7405dadadfe2670cdb262",
+    "experiments/section-search/dimensions/plugin/dimension-pilot.php": "0ad5164f2707dfb1ea2dae9ba1fbfbe0a20a6d8e1530e61389b44697cd9eb326",
+    "experiments/section-search/dimensions/plugin/tests.php": "c46da90cd7e759c65a0d3568267a757d63b1037b7c0ed11a9339af875d198730"
+  },
+  "orderSeed": "dimensions-300-2026-10-17",
+  "tieTolerance": 0.03,
+  "graderModel": "gpt-5.4-mini",
+  "gradePromptHash": "773f83578f88213b44f87df96a1d69ddad1792bcdc77c78ad5f5c1404d208f97",
+  "graderReasoning": "medium",
+  "questionProvenance": "Same 50 previous pilot questions; diagnostic, not independent confirmation.",
+  "design": "Only section embedding dimensions differ between section arms; same section text, boundaries, source titles/summaries, title-summary512 branch, hybrid fusion, best-passage selection algorithm,100 candidates,passage prompt and reviewer settings. Ask AI 2 is an additional production reference with its unchanged title-summary-only reviewer.",
+  "timingScope": "HTTP submission to complete JSON result, excluding authentication/browser paint. Each1536 request uses an extra1536query embedding plus512query for unchanged title-summary branch. All arms include identical fixture validation overhead.",
+  "grading": "Shared pool retains previous full-text judgments, latest documented metadata adjudications take precedence on overlap. Add new final-top10 and candidate-top10 members, grade full stored text blind to arms,ranks,summaries,labels.",
+  "pricesChecked": "2026-10-17",
+  "usdPerMillion": {
+    "embedding": 0.02,
+    "input": 0.75,
+    "cachedInput": 0.075,
+    "output": 4.5
+  }
+}

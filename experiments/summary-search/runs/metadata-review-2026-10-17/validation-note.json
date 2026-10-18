@@ -1,0 +1,11 @@
+{
+  "run": "metadata-review-2026-10-17",
+  "stage": "After five paid responses; before completing question 2",
+  "observation": "q02-topics-keywords returned two post IDs outside its candidate list. The initial Python precheck rejected the response, although the production PHP parser discards unknown IDs and retains valid ones.",
+  "correction": "Align the Python receipt validation with the frozen production parser: preserve the response, record unknown IDs, unknown tiers and duplicates as warnings, and let the production parser discard them. Structurally malformed or incomplete responses still fail.",
+  "paidResponseRepeated": false,
+  "originalRawResponsePreserved": true,
+  "requestsPromptsSettingsCandidatesChanged": false,
+  "productionCodeChanged": false,
+  "qualityOutcomesInspected": false
+}

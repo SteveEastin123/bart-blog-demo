@@ -1,0 +1,41 @@
+{
+  "run": "agent-summaries-2026-10-17",
+  "selection": "Initial three checks selected deterministically by hash from early completed new grades. Subsequent checks target new positive grades in later completed questions. This is a spot check, not exhaustive independent grading.",
+  "blinding": "The coordinating agent saw question, full stored post, grade and reason, but no search-method labels, candidate ranks or final ranks for these checks. Not blind to the proposed numerical grade.",
+  "checks": [
+    {"questionId": 13, "wpId": "14920", "grade": 0, "decision": "Retain: theological value of Gospel discrepancies does not answer secret versus public apostolic teaching."},
+    {"questionId": 4, "wpId": "7543", "grade": 0, "decision": "Retain: crucifixion and burial policies do not address the salvation of righteous people before Jesus."},
+    {"questionId": 2, "wpId": "21086", "grade": 2, "decision": "Retain: substantial discussion of Christian agendas reshaping Jesus traditions, with concrete examples; useful support, not a complete account of changing audiences."},
+    {"questionId": 19, "wpId": "32065", "grade": 1, "decision": "Correct from 3: mostly first- and second-century changes in wealth and almsgiving, not the effects of imperial patronage."},
+    {"questionId": 20, "wpId": "8916", "grade": 2, "decision": "Correct from 3: substantial support about copies versus lost autographs and chronological gaps, but focused on textual reliability rather than distinguishing composition dating from copy dating."},
+    {"questionId": 27, "wpId": "15995", "grade": 2, "decision": "Correct from 3: explains postmortem justice in Plato, but does not explain the causal shift from disappointed expectations of justice within one's lifetime."},
+    {"questionId": 33, "wpId": "17310", "grade": 3, "decision": "Retain: explicitly compares harmonization, apparent contradictions and ancient compositional devices, with a worked example."},
+    {"questionId": 29, "wpId": "49663", "grade": 3, "decision": "Retain: gives a detailed example of how rediscovered papyri change conclusions about an early Christian Gospel and its reception, including uncertainty."}
+  ],
+  "overrides": [
+    {
+      "questionId": 19,
+      "wpId": "32065",
+      "originalGrade": 3,
+      "grade": 1,
+      "reason": "Describes changing wealth and charity teachings largely before imperial patronage. A later quotation from Chrysostom does not make this a substantial explanation of what changed when emperors supported Christianity.",
+      "evidence": "emerge already at the tail end of the New Testament period."
+    },
+    {
+      "questionId": 20,
+      "wpId": "8916",
+      "originalGrade": 3,
+      "grade": 2,
+      "reason": "Gives useful, substantial support on the gap between lost autographs and surviving copies, but its main issue is textual stability and manuscript reliability rather than how scholars date composition separately from copies.",
+      "evidence": "we do not possess the manuscripts that the original authors of the New Testament wrote"
+    },
+    {
+      "questionId": 27,
+      "wpId": "15995",
+      "originalGrade": 3,
+      "grade": 2,
+      "reason": "Substantially explains Greek postmortem justice and its later adoption, but not how disappointment in justice during life caused beliefs to change. Plato is explicitly described as expecting rewards during life as well as after death.",
+      "evidence": "The rewards for righteous living are great during life"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "run": "metadata-review-2026-10-17",
+  "selectionAndBlinding": "Six pregrade independent full-text judgments are recorded in pregrade-spotchecks.json. Two additional positive-grade spot checks are recorded in positive-spotchecks.json. Two final-batch source checks prompted by failed quotation validation are recorded in final-batch-source-check.json. No method labels, ranks, summaries or tags were shown. The six pregrade judgments and two final-batch checks were also blind to the numerical API grade. Aggregate quality results were not inspected before these decisions.",
+  "checks": [
+    {"questionId": 1, "wpId": "40436", "apiGrade": 1, "grade": 1, "decision": "Retain; marginal letter-history context, not reception and circulation."},
+    {"questionId": 10, "wpId": "40344", "apiGrade": 0, "grade": 1, "decision": "Use independent pregrade judgment; marginal context on household dominance and cultural change, not practical family relationships."},
+    {"questionId": 7, "wpId": "15172", "apiGrade": 0, "grade": 1, "decision": "Use independent pregrade judgment; marginal literary-style context, without analysis of education."},
+    {"questionId": 31, "wpId": "4667", "apiGrade": 1, "grade": 0, "decision": "Use independent pregrade judgment; textual variants of the heavenly voice, not baptism and forgiveness."},
+    {"questionId": 42, "wpId": "13186", "apiGrade": 0, "grade": 0, "decision": "Retain; no Sabbath controversy or grain-picking discussion."},
+    {"questionId": 47, "wpId": "15172", "apiGrade": 0, "grade": 0, "decision": "Retain; no Judas death traditions."},
+    {"questionId": 17, "wpId": "16120", "apiGrade": 3, "grade": 3, "decision": "Retain; substantial direct evidence on bodily resurrection."},
+    {"questionId": 13, "wpId": "8930", "apiGrade": 2, "grade": 2, "decision": "Retain; substantial support on public canonical authority, not secret teaching directly."},
+    {"questionId": 50, "wpId": "47072", "apiGrade": 0, "grade": 0, "decision": "Retain; redaction of rich-young-ruler wording, not the Syrophoenician encounter or gentiles."},
+    {"questionId": 50, "wpId": "35255", "apiGrade": 2, "grade": 1, "decision": "Use independent source-check judgment; Matthew versus Paul on Torah gives marginal context but does not treat the encounter or its gentile narrative setting."}
+  ],
+  "overrides": [
+    {
+      "questionId": 10,
+      "wpId": "40344",
+      "originalGrade": 0,
+      "grade": 1,
+      "reason": "Discusses Christianity's large-scale cultural triumph and changing ideals of dominance and service. It does not explain how converts handled relationships with relatives worshipping other gods; household dominance supplies only marginal context.",
+      "evidence": "it made the male head of the household a sovereign despot over all those under him"
+    },
+    {
+      "questionId": 7,
+      "wpId": "15172",
+      "originalGrade": 0,
+      "grade": 1,
+      "reason": "Discusses Gospel anonymity and imitation of biblical narrative style, but does not connect Greek language or style with evidence of an author's education. Literary style provides a marginal connection only.",
+      "evidence": "using imagery and language heavily dependent on Old Testament narratives"
+    },
+    {
+      "questionId": 31,
+      "wpId": "4667",
+      "originalGrade": 1,
+      "grade": 0,
+      "reason": "Analyzes scribal variants of the heavenly voice in Luke 3:22 and textual-critical probabilities. It does not discuss baptism's relationship to forgiveness of sins.",
+      "evidence": ""
+    },
+    {
+      "questionId": 50,
+      "wpId": "35255",
+      "originalGrade": 2,
+      "grade": 1,
+      "reason": "The post contrasts Paul's gentile converts and Matthew's continuing Torah observance. That gives marginal Jewish-gentile background but does not discuss the Syrophoenician encounter or its relationship to the Gospel's gentile narrative.",
+      "evidence": "The gentile followers of Jesus were not, *absolutely* not, supposed to become Jewish."
+    }
+  ]
+}

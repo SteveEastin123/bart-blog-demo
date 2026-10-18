@@ -1,0 +1,61 @@
+{
+  "protocol": "Eight newly surfaced question/post pairs selected by frozen SHA-256 order, with distinct questions. Coordinator read each full stored post, question and title before seeing its API grade, method, rank or aggregate results. These are AI checks, not human adjudication.",
+  "checks": [
+    {
+      "questionId": 40,
+      "wpId": "17830",
+      "grade": 0,
+      "reason": "Analyzes literary inconsistencies as evidence of written sources in John; it does not evaluate personal religious experience as historical evidence.",
+      "evidence": ""
+    },
+    {
+      "questionId": 11,
+      "wpId": "47225",
+      "grade": 2,
+      "reason": "Explains Paul's judgment of those outside the saved community, a substantial part of the New Testament context. It does not specifically distinguish people who never heard from those who rejected the message, so it is partial support rather than a direct answer.",
+      "evidence": "His return will bring destruction to everyone who has not accepted the good news of his salvation."
+    },
+    {
+      "questionId": 22,
+      "wpId": "13706",
+      "grade": 1,
+      "reason": "Discusses written transmission and shared sayings through Q, but not Aramaic-to-Greek translation or its effects on later readers.",
+      "evidence": ""
+    },
+    {
+      "questionId": 27,
+      "wpId": "14971",
+      "grade": 2,
+      "reason": "Substantially traces afterlife traditions from undifferentiated existence to moral reward and punishment. This supports the development of postmortem justice, but does not directly explain the loss of hope for justice within one's lifetime.",
+      "evidence": "the damned experience torment but the righteous eternal bliss."
+    },
+    {
+      "questionId": 44,
+      "wpId": "11508",
+      "grade": 0,
+      "reason": "Concerns resurrection belief and Christianity's beginnings, not James, Paul's identification of him, or the phrase brother of the Lord.",
+      "evidence": ""
+    },
+    {
+      "questionId": 14,
+      "wpId": "36569",
+      "grade": 3,
+      "reason": "Defines independent attestation and repeatedly applies it, distinguishing multiple Gospel reports from independent testimony when Matthew and Luke depend on Mark. Directly illustrates the question's evidentiary issue even though the larger article debates Jesus' apocalyptic expectations.",
+      "evidence": "Independent Attestation: Multiple sources independent of each other that describe the same event or saying."
+    },
+    {
+      "questionId": 12,
+      "wpId": "15870",
+      "grade": 1,
+      "reason": "Explains how modern historical-Jesus scholars projected their own concerns onto Jesus and notes Gospel theology and oral change, but does not substantively address biblical authors responding to contemporary crises.",
+      "evidence": ""
+    },
+    {
+      "questionId": 35,
+      "wpId": "12563",
+      "grade": 2,
+      "reason": "Demonstrates historical-critical reading of contradictions and explicitly explains that accepting these findings can coexist with remaining Christian. Useful partial support, though it does not develop the broader benefits for religious readers.",
+      "evidence": "I could still be a Christian, yes."
+    }
+  ]
+}

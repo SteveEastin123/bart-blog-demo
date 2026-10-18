@@ -1,0 +1,29 @@
+{
+  "reviewer": "Codex coding agent, reading complete stored posts; not a human gold standard",
+  "date": "2026-10-17",
+  "selection": "Six full-post spot checks from large wins and losses, including newly graded posts and potentially overstated evidence. Selection was not blinded to outcomes; corrections apply to the shared question/post grade in both arms.",
+  "checks": [
+    {"question": 4, "wpId": "15564", "decision": "Retain grade 3. Explicitly explains low Greco-Roman literacy and why Paul's letters had to be read aloud; the broad digital-Bible summary omits this useful detail."},
+    {"question": 6, "wpId": "32065", "decision": "Retain grade 3. Substantively explains the change from divestment to charitable giving and the acceptance of wealthy converts."},
+    {"question": 6, "wpId": "47282", "decision": "Reduce grade 3 to 2. Substantial relevant discussion, but the original reason generalized ascetic renunciation into a universal admission requirement despite qualifications in the post."},
+    {"question": 37, "wpId": "33121", "decision": "Retain grade 3. Directly explains comparing contradictory sources and assessing plausibility instead of simply accepting their claims."},
+    {"question": 37, "wpId": "15870", "decision": "Retain grade 2. Useful substantial background on critical evaluation and how Gospel traditions changed, rather than a direct general explanation of harmonization."},
+    {"question": 45, "wpId": "13761", "decision": "Reduce grade 2 to 1. The grader confused editorial differences between Gospels with manuscript variants within one passage; the post never addresses the leper or anger/compassion variant."}
+  ],
+  "overrides": [
+    {
+      "question": 6,
+      "wpId": "47282",
+      "grade": 2,
+      "reason": "Provides substantial support about sexual ethics and later ascetic renunciation, but distinguishes Paul's concessions from the legendary Acts of Paul and Thecla. It does not establish these as universal requirements for joining a Christian community.",
+      "evidence": "That means no fine food, no high-quality wine, no frivolous entertainments, and most especially, no sex."
+    },
+    {
+      "question": 45,
+      "wpId": "13761",
+      "grade": 1,
+      "reason": "Discusses Gospel authors editing inherited sources, not competing manuscript readings of the leper episode. Its general concern with interpretation is only tangential to the specific anger/compassion question.",
+      "evidence": "Redaction criticism looks at the editing decisions made by an editor of a source."
+    }
+  ]
+}

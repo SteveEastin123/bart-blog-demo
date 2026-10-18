@@ -1,0 +1,16 @@
+{
+  "stage": "Before measured searches; no question-specific tuning",
+  "method": "Agent read each of the eight seeded initial full posts and generated summaries. This is not a human editorial gold standard.",
+  "promptChanged": false,
+  "summariesEdited": false,
+  "checks": [
+    {"wpId":"2378","assessment":"Faithful coverage of historical rationale, dated readership statistics and harmful biblical uses. Detailed statistics may consume space without improving search; retain for the test rather than selectively edit."},
+    {"wpId":"11941","assessment":"Preserves bodily resurrection and temporary interim heavenly existence, with uncertainty about Paul's view and the promised sequel left unresolved."},
+    {"wpId":"15820","assessment":"Attributes the reconstruction to Marcus and preserves Baptist/Elijah/Elisha, forgiveness/Spirit, Qumran and theological implications."},
+    {"wpId":"7170","assessment":"Appropriately short at 79 words. Does not invent the missing radio transcript or positions argued in the audio."},
+    {"wpId":"8922","assessment":"Distinguishes Eusebius's original-majority narrative from modern objections and leaves the historical-definition question open."},
+    {"wpId":"39082","assessment":"Retains conditional claims about Quranic transmission and separates textual preservation from truth claims; reports the post's dating discussion rather than adding outside knowledge."},
+    {"wpId":"4403","assessment":"Correctly distinguishes leaving church from later agnosticism and preserves knowledge/belief/humanism distinctions."},
+    {"wpId":"34121","assessment":"Keeps disputed Bauer thesis, Codex Bezae limits, and several hundred rather than most variants; dense but faithful to a long scholarly source."}
+  ]
+}

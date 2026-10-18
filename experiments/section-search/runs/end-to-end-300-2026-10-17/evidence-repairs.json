@@ -1,0 +1,32 @@
+{
+  "note": "Agent-read source corrections after quotation verification failed. Original API responses are preserved. Replacements do not change relevance grades and are not blind to method outcomes.",
+  "repairs": [
+    {
+      "question": 14,
+      "wpId": "15363",
+      "requestHash": "0acd5c0ac459fa3b17a261ced9f58b39735a305dacee76e5074e67d354bd5416",
+      "originalEvidence": "If you have two independent sources, that is obviously better than having to rely on one",
+      "evidence": "Multiple attestation is a criterion that gets applied to events that *are* acceptable as",
+      "reason": "Explains the limits of multiple attestation for miraculous claims. This is substantial support on what counts as historical confirmation, rather than a full account of source independence.",
+      "explanation": "The original quotation belongs to post 20545 in the same batch, not this post. Read the full texts of all four posts in the batch; retained grade 2 and selected an exact quotation from 15363."
+    },
+    {
+      "question": 35,
+      "wpId": "3729",
+      "requestHash": "6fc6213c5f12d6cb1e2422f2b25f2e6d10a80edabe2726e3628777f4d1046a73",
+      "originalEvidence": "this did not shatter my faith, but deepened it.",
+      "evidence": "did not shatter my faith, but deepened it.",
+      "reason": "Directly explains how historical-critical reading can deepen a believer's faith, preserve distinct biblical perspectives, and connect ancient texts with modern faith.",
+      "explanation": "The API inserted 'this' before a genuine source phrase. Read the full source post and the other three in its batch; retained grade 3 and removed the inserted word."
+    },
+    {
+      "question": 50,
+      "wpId": "35255",
+      "requestHash": "3879a25394ba1f96ec74a2387cd2f0d718bff8a35cb8cf8e729d2bacc0c47f39",
+      "originalEvidence": "The gentile followers of Jesus were not, absolutely not, supposed to become Jewish.",
+      "evidence": "The gentile followers of Jesus were not, *absolutely* not, supposed to become Jewish.",
+      "reason": "Offers background on Matthew and Paul's differing treatment of gentile Torah observance, but does not discuss the Syrophoenician encounter.",
+      "explanation": "Read the full source post. The API omitted the source's literal emphasis asterisks; restored them for exact source verification and retained grade 1."
+    }
+  ]
+}

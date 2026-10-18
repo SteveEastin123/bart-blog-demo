@@ -1,0 +1,14 @@
+includes:
+    - ../../wordpress-plugin/ehrman-blog-discovery/vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+    phpVersion: 80100
+    bootstrapFiles:
+        - ../../wordpress-plugin/ehrman-blog-discovery/phpstan-bootstrap.php
+    scanDirectories:
+        - ../../wordpress-plugin/ehrman-blog-discovery/src
+    scanFiles:
+        - ../../wordpress-plugin/ehrman-blog-discovery/stubs/wp-cli.stub
+    paths:
+        - plugin

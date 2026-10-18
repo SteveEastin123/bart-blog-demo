@@ -1,0 +1,1956 @@
+{
+  "run": "full-corpus-250-2026-10-18",
+  "challengePurpose": "Fifty new specific-detail questions, authored before either search method is run. A deliberately difficult diagnostic set, not a representative sample of reader traffic; an answer is not guaranteed to exist in the corpus.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Why does Matthew trace Jesus' ancestry through Joseph if Jesus was born of a virgin?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 1,
+      "batch": 1
+    },
+    {
+      "id": 2,
+      "question": "What historical problems surround Luke's census under Quirinius?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 2,
+      "batch": 1
+    },
+    {
+      "id": 3,
+      "question": "Why does John place the cleansing of the Temple near the beginning of Jesus' ministry?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 3,
+      "batch": 1
+    },
+    {
+      "id": 4,
+      "question": "Was the Last Supper actually a Passover meal?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 4,
+      "batch": 1
+    },
+    {
+      "id": 5,
+      "question": "How do the Gospels differ about who first discovered Jesus' empty tomb?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 5,
+      "batch": 1
+    },
+    {
+      "id": 6,
+      "question": "Why was Jesus baptized by John if Christians believed Jesus was sinless?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 6,
+      "batch": 1
+    },
+    {
+      "id": 7,
+      "question": "How historically plausible is the Gospel account of Jesus' trial before the Jewish council?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 7,
+      "batch": 1
+    },
+    {
+      "id": 8,
+      "question": "Is the story of the crowd choosing Barabbas historically credible?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 8,
+      "batch": 1
+    },
+    {
+      "id": 9,
+      "question": "Why does Mark repeatedly portray the disciples as misunderstanding Jesus?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 9,
+      "batch": 1
+    },
+    {
+      "id": 10,
+      "question": "What does John's statement that the Word became flesh mean?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 10,
+      "batch": 1
+    },
+    {
+      "id": 11,
+      "question": "Is the conversation between Jesus and Nicodemus meant as history or theological symbolism?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 11,
+      "batch": 1
+    },
+    {
+      "id": 12,
+      "question": "Why is the raising of Lazarus reported only in the Gospel of John?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 12,
+      "batch": 1
+    },
+    {
+      "id": 13,
+      "question": "What does the parable of the rich man and Lazarus imply about judgment after death?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 13,
+      "batch": 1
+    },
+    {
+      "id": 14,
+      "question": "Why are Matthew's Sermon on the Mount and Luke's Sermon on the Plain different?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 14,
+      "batch": 1
+    },
+    {
+      "id": 15,
+      "question": "Why do the Gospels say Jesus used parables to conceal his message from some listeners?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 15,
+      "batch": 1
+    },
+    {
+      "id": 16,
+      "question": "What can the story of Jairus' daughter tell us about how Gospel traditions developed?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 16,
+      "batch": 1
+    },
+    {
+      "id": 17,
+      "question": "Why do the resurrection accounts disagree about where Jesus appeared to his disciples?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 17,
+      "batch": 1
+    },
+    {
+      "id": 18,
+      "question": "Did Jesus ascend on Easter day or forty days after the resurrection?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 18,
+      "batch": 1
+    },
+    {
+      "id": 19,
+      "question": "What did Paul mean when he described Junia as prominent among the apostles?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 19,
+      "batch": 1
+    },
+    {
+      "id": 20,
+      "question": "Why does Paul permit women to prophesy in one passage but command women to be silent in another?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 20,
+      "batch": 1
+    },
+    {
+      "id": 21,
+      "question": "What kind of body did Paul think people would have after the resurrection?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 21,
+      "batch": 1
+    },
+    {
+      "id": 22,
+      "question": "Was Paul's confrontation with Peter at Antioch fundamentally about Jewish law?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 22,
+      "batch": 1
+    },
+    {
+      "id": 23,
+      "question": "Why is the Letter to the Hebrews anonymous, and could Paul have written it?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 23,
+      "batch": 1
+    },
+    {
+      "id": 24,
+      "question": "What evidence leads scholars to doubt that Paul wrote Ephesians?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 24,
+      "batch": 1
+    },
+    {
+      "id": 25,
+      "question": "How does Paul's letter to Philemon address slavery without explicitly condemning it?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 25,
+      "batch": 1
+    },
+    {
+      "id": 26,
+      "question": "What evidence suggests that Paul did not write 1 Timothy?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 26,
+      "batch": 1
+    },
+    {
+      "id": 27,
+      "question": "Why do scholars think the author of 2 Peter knew the Letter of Jude?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 27,
+      "batch": 1
+    },
+    {
+      "id": 28,
+      "question": "Why does the Letter of Jude quote the Book of 1 Enoch?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 28,
+      "batch": 1
+    },
+    {
+      "id": 29,
+      "question": "Why does Acts never mention that Paul wrote letters to Christian communities?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 29,
+      "batch": 1
+    },
+    {
+      "id": 30,
+      "question": "What does Romans 9 imply about divine election and human free will?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 30,
+      "batch": 1
+    },
+    {
+      "id": 31,
+      "question": "Was Marcion the first Christian to assemble a collection resembling a New Testament?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 31,
+      "batch": 1
+    },
+    {
+      "id": 32,
+      "question": "Did the Council of Nicaea decide which books belonged in the Bible?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 32,
+      "batch": 1
+    },
+    {
+      "id": 33,
+      "question": "How did proto-orthodox Christians come to defeat rival forms of Christianity?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 33,
+      "batch": 1
+    },
+    {
+      "id": 34,
+      "question": "Why did Marcion believe that Jesus' Father was not the God of the Old Testament?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 34,
+      "batch": 1
+    },
+    {
+      "id": 35,
+      "question": "What does the Gospel of Peter add to the story of Jesus' resurrection?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 35,
+      "batch": 1
+    },
+    {
+      "id": 36,
+      "question": "What rituals and beliefs are described in the Gospel of Philip?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 36,
+      "batch": 1
+    },
+    {
+      "id": 37,
+      "question": "What stories about the apostle Thomas appear in the Acts of Thomas?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 37,
+      "batch": 1
+    },
+    {
+      "id": 38,
+      "question": "Why did church leaders reject the Infancy Gospel of Thomas?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 38,
+      "batch": 1
+    },
+    {
+      "id": 39,
+      "question": "What accusations did the pagan critic Celsus make against Christianity?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 39,
+      "batch": 1
+    },
+    {
+      "id": 40,
+      "question": "How did Origen defend Christianity against educated pagan critics?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 40,
+      "batch": 1
+    },
+    {
+      "id": 41,
+      "question": "What happened to Christians during the persecution under the emperor Decius?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 41,
+      "batch": 1
+    },
+    {
+      "id": 42,
+      "question": "What happened to the Christians of Lyons and Vienne?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 42,
+      "batch": 1
+    },
+    {
+      "id": 43,
+      "question": "How do early martyr stories portray women such as Perpetua?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 43,
+      "batch": 1
+    },
+    {
+      "id": 44,
+      "question": "How have Christian understandings of biblical inspiration changed over time?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 44,
+      "batch": 1
+    },
+    {
+      "id": 45,
+      "question": "What evidence is there that Moses was a historical person?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 45,
+      "batch": 1
+    },
+    {
+      "id": 46,
+      "question": "How does the Documentary Hypothesis explain contradictions in the Pentateuch?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 46,
+      "batch": 1
+    },
+    {
+      "id": 47,
+      "question": "Why does the Book of Job offer more than one explanation for innocent suffering?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 47,
+      "batch": 1
+    },
+    {
+      "id": 48,
+      "question": "How did Bart's study of suffering contribute to his loss of faith?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 48,
+      "batch": 1
+    },
+    {
+      "id": 49,
+      "question": "Why did Bart write Misquoting Jesus for readers outside the university?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 49,
+      "batch": 1
+    },
+    {
+      "id": 50,
+      "question": "How accurately does Life of Brian portray religion and politics in first-century Judea?",
+      "group": "original-200",
+      "originalRun": 1,
+      "originalNumber": 50,
+      "batch": 1
+    },
+    {
+      "id": 51,
+      "question": "How do the two creation accounts in Genesis differ in their order of events and portrayal of God?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 1,
+      "batch": 2
+    },
+    {
+      "id": 52,
+      "question": "What evidence do scholars use to identify different literary sources within the Pentateuch?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 2,
+      "batch": 2
+    },
+    {
+      "id": 53,
+      "question": "Is there historical or archaeological evidence that a large group of Israelites escaped from Egypt?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 3,
+      "batch": 2
+    },
+    {
+      "id": 54,
+      "question": "What does archaeology suggest about the biblical account of Israel's conquest of Canaan?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 4,
+      "batch": 2
+    },
+    {
+      "id": 55,
+      "question": "Did the earliest Israelites deny that other gods existed, or did exclusive monotheism develop later?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 5,
+      "batch": 2
+    },
+    {
+      "id": 56,
+      "question": "How did Satan change from a divine accuser in the Hebrew Bible into God's cosmic enemy?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 6,
+      "batch": 2
+    },
+    {
+      "id": 57,
+      "question": "Why do critical scholars conclude that the book of Isaiah contains writings from more than one period?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 7,
+      "batch": 2
+    },
+    {
+      "id": 58,
+      "question": "What do the Dead Sea Scrolls reveal about the text of the Hebrew Bible before the medieval manuscripts?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 8,
+      "batch": 2
+    },
+    {
+      "id": 59,
+      "question": "Why do Catholic, Orthodox, and Protestant Bibles contain different collections of Old Testament books?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 9,
+      "batch": 2
+    },
+    {
+      "id": 60,
+      "question": "Why does Ecclesiastes sound skeptical about divine justice and life after death?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 10,
+      "batch": 2
+    },
+    {
+      "id": 61,
+      "question": "What can historians reasonably know about Jesus' parents, siblings, education, and childhood?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 11,
+      "batch": 2
+    },
+    {
+      "id": 62,
+      "question": "What normally happened to the bodies of people crucified by Roman authorities?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 12,
+      "batch": 2
+    },
+    {
+      "id": 63,
+      "question": "Was Jesus' entry into Jerusalem on a donkey intended as a public messianic claim?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 13,
+      "batch": 2
+    },
+    {
+      "id": 64,
+      "question": "When Jesus spoke about the Son of Man, was he referring to himself or to a future heavenly figure?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 14,
+      "batch": 2
+    },
+    {
+      "id": 65,
+      "question": "Did Jesus expect all of his followers to give away their possessions?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 15,
+      "batch": 2
+    },
+    {
+      "id": 66,
+      "question": "Why does Mark describe Jesus healing a blind man in two stages rather than immediately?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 16,
+      "batch": 2
+    },
+    {
+      "id": 67,
+      "question": "Was Jesus' disruption in the Temple probably the event that led Roman authorities to execute him?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 17,
+      "batch": 2
+    },
+    {
+      "id": 68,
+      "question": "Does Luke deliberately remove Mark's portrayal of Jesus' death as a ransom or atoning sacrifice?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 18,
+      "batch": 2
+    },
+    {
+      "id": 69,
+      "question": "How does Matthew change Mark's portrayal of Jesus during his arrest and trial?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 19,
+      "batch": 2
+    },
+    {
+      "id": 70,
+      "question": "Why does John place Jesus' death before the Passover meal rather than afterward?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 20,
+      "batch": 2
+    },
+    {
+      "id": 71,
+      "question": "Why did Paul travel to Arabia after his conversion, and what might he have done there?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 21,
+      "batch": 2
+    },
+    {
+      "id": 72,
+      "question": "Why was Paul's collection of money for the Jerusalem believers so important to his mission?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 22,
+      "batch": 2
+    },
+    {
+      "id": 73,
+      "question": "What do the abuses at the Corinthian communal meal reveal about wealth and status in the church?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 23,
+      "batch": 2
+    },
+    {
+      "id": 74,
+      "question": "Why did Paul strongly oppose requiring gentile converts to be circumcised?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 24,
+      "batch": 2
+    },
+    {
+      "id": 75,
+      "question": "Who were Paul's opponents in Galatia, and what were they asking his converts to do?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 25,
+      "batch": 2
+    },
+    {
+      "id": 76,
+      "question": "Why do scholars think that 2 Corinthians may combine portions of several different letters?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 26,
+      "batch": 2
+    },
+    {
+      "id": 77,
+      "question": "What does Paul's recommendation of Phoebe tell us about her authority and role in the Roman church?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 27,
+      "batch": 2
+    },
+    {
+      "id": 78,
+      "question": "What differences from 1 Thessalonians lead some scholars to think Paul did not write 2 Thessalonians?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 28,
+      "batch": 2
+    },
+    {
+      "id": 79,
+      "question": "Would ancient readers have considered a letter falsely written in Paul's name acceptable or deceptive?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 29,
+      "batch": 2
+    },
+    {
+      "id": 80,
+      "question": "How much did Paul actually know about the earthly life and teachings of Jesus?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 30,
+      "batch": 2
+    },
+    {
+      "id": 81,
+      "question": "How can textual critics reconstruct the New Testament when none of the original manuscripts survive?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 31,
+      "batch": 2
+    },
+    {
+      "id": 82,
+      "question": "Did Mark originally say that Jesus felt compassion or anger before healing the leper?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 32,
+      "batch": 2
+    },
+    {
+      "id": 83,
+      "question": "How can repeated storytelling reshape people's memories of what Jesus said and did?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 33,
+      "batch": 2
+    },
+    {
+      "id": 84,
+      "question": "What did Papias claim about Mark and Matthew, and how reliable is his testimony?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 34,
+      "batch": 2
+    },
+    {
+      "id": 85,
+      "question": "When and why were the traditional names Matthew, Mark, Luke, and John attached to the Gospels?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 35,
+      "batch": 2
+    },
+    {
+      "id": 86,
+      "question": "Could the use of a secretary explain why letters attributed to Peter were written in polished Greek?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 36,
+      "batch": 2
+    },
+    {
+      "id": 87,
+      "question": "Did ancient authors and readers condemn writings that falsely claimed to be written by famous people?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 37,
+      "batch": 2
+    },
+    {
+      "id": 88,
+      "question": "Why do scholars disagree about whether the Secret Gospel of Mark is ancient or a modern forgery?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 38,
+      "batch": 2
+    },
+    {
+      "id": 89,
+      "question": "What punishments and rewards does the Apocalypse of Peter describe for the afterlife?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 39,
+      "batch": 2
+    },
+    {
+      "id": 90,
+      "question": "Why did some early Christians value the Shepherd of Hermas highly enough to treat it almost as scripture?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 40,
+      "batch": 2
+    },
+    {
+      "id": 91,
+      "question": "What does the Gospel of the Ebionites reveal about Jewish-Christian beliefs and practices?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 41,
+      "batch": 2
+    },
+    {
+      "id": 92,
+      "question": "How did Valentinian Christians explain creation, the human problem, and salvation?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 42,
+      "batch": 2
+    },
+    {
+      "id": 93,
+      "question": "How and when did Christians begin treating the Holy Spirit as fully divine within the Trinity?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 43,
+      "batch": 2
+    },
+    {
+      "id": 94,
+      "question": "What social and historical factors help explain Christianity's growth throughout the Roman Empire?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 44,
+      "batch": 2
+    },
+    {
+      "id": 95,
+      "question": "How historically reliable are the surviving stories about early Christian martyrs?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 45,
+      "batch": 2
+    },
+    {
+      "id": 96,
+      "question": "What leadership and ministry roles did women hold in the earliest Christian communities?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 46,
+      "batch": 2
+    },
+    {
+      "id": 97,
+      "question": "How did Jewish belief in bodily resurrection differ from Greek belief in an immortal soul?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 47,
+      "batch": 2
+    },
+    {
+      "id": 98,
+      "question": "How did Bart's years at Moody Bible Institute and Wheaton shape his early understanding of biblical inerrancy?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 48,
+      "batch": 2
+    },
+    {
+      "id": 99,
+      "question": "How does Bart turn specialized biblical scholarship into books intended for nonspecialist readers?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 49,
+      "batch": 2
+    },
+    {
+      "id": 100,
+      "question": "How did early Christians understand wealth, almsgiving, and responsibility toward the poor?",
+      "group": "original-200",
+      "originalRun": 2,
+      "originalNumber": 50,
+      "batch": 2
+    },
+    {
+      "id": 101,
+      "question": "Why does the Genesis flood story contain details that appear to come from two different versions?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 1,
+      "batch": 3
+    },
+    {
+      "id": 102,
+      "question": "Why does Deuteronomy describe some laws and events differently from Exodus and Numbers?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 2,
+      "batch": 3
+    },
+    {
+      "id": 103,
+      "question": "Why do scholars date the book of Daniel to the time of Antiochus Epiphanes rather than the Babylonian exile?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 3,
+      "batch": 3
+    },
+    {
+      "id": 104,
+      "question": "How does 1 Enoch explain the origin of demons and evil through the story of the Watchers?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 4,
+      "batch": 3
+    },
+    {
+      "id": 105,
+      "question": "How did early Christians reinterpret passages from the Hebrew Bible as predictions about Jesus?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 5,
+      "batch": 3
+    },
+    {
+      "id": 106,
+      "question": "Did Isaiah 7 originally predict that a virgin would give birth to the Messiah?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 6,
+      "batch": 3
+    },
+    {
+      "id": 107,
+      "question": "Why was the Greek Septuagint so important for New Testament authors and early Christians?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 7,
+      "batch": 3
+    },
+    {
+      "id": 108,
+      "question": "What are the books of the Maccabees, and why are they absent from many Protestant Bibles?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 8,
+      "batch": 3
+    },
+    {
+      "id": 109,
+      "question": "What did ancient Jewish apocalyptic writers expect God to do at the end of the present age?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 9,
+      "batch": 3
+    },
+    {
+      "id": 110,
+      "question": "How did Pharisees and Sadducees differ over resurrection, angels, and the authority of oral tradition?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 10,
+      "batch": 3
+    },
+    {
+      "id": 111,
+      "question": "Did Jesus expect the destruction of the Jerusalem Temple within his own generation?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 11,
+      "batch": 3
+    },
+    {
+      "id": 112,
+      "question": "What did Jesus mean by the kingdom of God, and did he think it was already present or still future?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 12,
+      "batch": 3
+    },
+    {
+      "id": 113,
+      "question": "Was Jesus' command to love enemies intended as a practical ethic for ordinary life?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 13,
+      "batch": 3
+    },
+    {
+      "id": 114,
+      "question": "How can historians evaluate claims that Jesus performed miracles without deciding whether miracles are possible?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 14,
+      "batch": 3
+    },
+    {
+      "id": 115,
+      "question": "What do Jesus' exorcisms reveal about ancient beliefs concerning demons and illness?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 15,
+      "batch": 3
+    },
+    {
+      "id": 116,
+      "question": "How do Matthew and Luke tell different versions of Jesus' temptation in the wilderness?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 16,
+      "batch": 3
+    },
+    {
+      "id": 117,
+      "question": "Why do the genealogies of Jesus in Matthew and Luke disagree about his ancestors?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 17,
+      "batch": 3
+    },
+    {
+      "id": 118,
+      "question": "Is there historical evidence that Herod ordered the massacre of infants in Bethlehem?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 18,
+      "batch": 3
+    },
+    {
+      "id": 119,
+      "question": "What point was Jesus making with the parable of the Good Samaritan?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 19,
+      "batch": 3
+    },
+    {
+      "id": 120,
+      "question": "Why does John call Jesus' miracles signs, and what are they meant to reveal about him?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 20,
+      "batch": 3
+    },
+    {
+      "id": 121,
+      "question": "What role did Mary Magdalene play among Jesus' followers and in the earliest resurrection traditions?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 21,
+      "batch": 3
+    },
+    {
+      "id": 122,
+      "question": "Why did Judas betray Jesus, and do the Gospels agree about his motives and death?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 22,
+      "batch": 3
+    },
+    {
+      "id": 123,
+      "question": "Why do the Gospels portray Pontius Pilate as reluctant to execute Jesus when other sources describe him as brutal?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 23,
+      "batch": 3
+    },
+    {
+      "id": 124,
+      "question": "How historically plausible is the claim that Joseph of Arimathea placed Jesus in a known tomb?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 24,
+      "batch": 3
+    },
+    {
+      "id": 125,
+      "question": "Is an empty tomb necessary to explain why Jesus' followers came to believe he had been raised?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 25,
+      "batch": 3
+    },
+    {
+      "id": 126,
+      "question": "How do the accounts of Paul's conversion in Acts differ from Paul's own description in Galatians?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 26,
+      "batch": 3
+    },
+    {
+      "id": 127,
+      "question": "What did Paul mean by justification through faith in his letter to the Romans?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 27,
+      "batch": 3
+    },
+    {
+      "id": 128,
+      "question": "Why were some Christians in Corinth denying a future resurrection of the dead?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 28,
+      "batch": 3
+    },
+    {
+      "id": 129,
+      "question": "Does the Christ poem in Philippians teach that Jesus existed in heaven before his human life?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 29,
+      "batch": 3
+    },
+    {
+      "id": 130,
+      "question": "What vocabulary and theology lead many scholars to question whether Paul wrote Colossians?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 30,
+      "batch": 3
+    },
+    {
+      "id": 131,
+      "question": "How do restrictions on women in the Pastoral Epistles differ from women's roles in Paul's undisputed letters?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 31,
+      "batch": 3
+    },
+    {
+      "id": 132,
+      "question": "Do Paul's speeches in Acts accurately represent the theology found in his letters?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 32,
+      "batch": 3
+    },
+    {
+      "id": 133,
+      "question": "Does the Letter of James contradict Paul's teaching that people are justified by faith rather than works?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 33,
+      "batch": 3
+    },
+    {
+      "id": 134,
+      "question": "Were Peter and Cephas the same apostle, and why have some scholars argued that they were different people?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 34,
+      "batch": 3
+    },
+    {
+      "id": 135,
+      "question": "Did Paul expect Jesus to return before Paul and most of his converts died?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 35,
+      "batch": 3
+    },
+    {
+      "id": 136,
+      "question": "Did the Gospel of Mark originally end with the women fleeing the empty tomb in fear?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 36,
+      "batch": 3
+    },
+    {
+      "id": 137,
+      "question": "How did the passage known as the Johannine Comma become part of later copies of 1 John?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 37,
+      "batch": 3
+    },
+    {
+      "id": 138,
+      "question": "Why do scholars conclude that the story of the woman caught in adultery was not originally in John's Gospel?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 38,
+      "batch": 3
+    },
+    {
+      "id": 139,
+      "question": "Was Luke's account of Jesus sweating blood added by a later scribe, and why would someone add it?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 39,
+      "batch": 3
+    },
+    {
+      "id": 140,
+      "question": "Did Christian scribes alter passages that could be used to support adoptionist views of Jesus?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 40,
+      "batch": 3
+    },
+    {
+      "id": 141,
+      "question": "How is the kingdom of God presented in the sayings of the Gospel of Thomas?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 41,
+      "batch": 3
+    },
+    {
+      "id": 142,
+      "question": "Does the Gospel of Judas portray Judas as Jesus' favored disciple or as a condemned figure?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 42,
+      "batch": 3
+    },
+    {
+      "id": 143,
+      "question": "What was discovered at Nag Hammadi, and how did it change the study of early Christianity?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 43,
+      "batch": 3
+    },
+    {
+      "id": 144,
+      "question": "How did Constantine's conversion change the legal and political position of Christianity in the Roman Empire?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 44,
+      "batch": 3
+    },
+    {
+      "id": 145,
+      "question": "What disagreement about Christ led to the conflict between Arius and his opponents at the Council of Nicaea?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 45,
+      "batch": 3
+    },
+    {
+      "id": 146,
+      "question": "How did Augustine develop the doctrine of original sin from his reading of Paul?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 46,
+      "batch": 3
+    },
+    {
+      "id": 147,
+      "question": "Did Origen teach that all rational beings, including the devil, would eventually be saved?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 47,
+      "batch": 3
+    },
+    {
+      "id": 148,
+      "question": "Why can studying contradictions and manuscript differences create problems for belief in biblical inerrancy?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 48,
+      "batch": 3
+    },
+    {
+      "id": 149,
+      "question": "How does Bart prepare for public debates with evangelical or conservative Christian scholars?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 49,
+      "batch": 3
+    },
+    {
+      "id": 150,
+      "question": "How does Bart's blog use membership fees and fundraising campaigns to support charitable causes?",
+      "group": "original-200",
+      "originalRun": 3,
+      "originalNumber": 50,
+      "batch": 3
+    },
+    {
+      "id": 151,
+      "question": "Why did God protect Cain with a mark after Cain murdered Abel?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 1,
+      "batch": 4
+    },
+    {
+      "id": 152,
+      "question": "What is the point of the story in which God commands Abraham to sacrifice Isaac?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 2,
+      "batch": 4
+    },
+    {
+      "id": 153,
+      "question": "Why does Exodus sometimes say that Pharaoh hardened his heart and elsewhere that God hardened it?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 3,
+      "batch": 4
+    },
+    {
+      "id": 154,
+      "question": "Why do the two biblical versions of the Ten Commandments give different reasons for keeping the Sabbath?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 4,
+      "batch": 4
+    },
+    {
+      "id": 155,
+      "question": "What evidence do historians have for the kingdoms of David and Solomon?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 5,
+      "batch": 4
+    },
+    {
+      "id": 156,
+      "question": "Why did Hebrew Bible prophets connect worship of God with justice for the poor and oppressed?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 6,
+      "batch": 4
+    },
+    {
+      "id": 157,
+      "question": "What did Jeremiah originally mean by a new covenant, and how did Christians later interpret it?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 7,
+      "batch": 4
+    },
+    {
+      "id": 158,
+      "question": "Is Daniel 12 the earliest clear biblical teaching about a future resurrection of the dead?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 8,
+      "batch": 4
+    },
+    {
+      "id": 159,
+      "question": "What was Sheol, and did ancient Israelites think people remained conscious there after death?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 9,
+      "batch": 4
+    },
+    {
+      "id": 160,
+      "question": "Does the divine council in Psalm 82 show that ancient Israelites believed in multiple gods?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 10,
+      "batch": 4
+    },
+    {
+      "id": 161,
+      "question": "Could the historical Jesus read and write, given literacy rates in first-century Galilee?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 11,
+      "batch": 4
+    },
+    {
+      "id": 162,
+      "question": "What archaeological and literary evidence shows that Nazareth existed during Jesus' lifetime?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 12,
+      "batch": 4
+    },
+    {
+      "id": 163,
+      "question": "How much of Jesus' message and ministry may have been shaped by John the Baptist?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 13,
+      "batch": 4
+    },
+    {
+      "id": 164,
+      "question": "Is there any credible historical evidence that Jesus was married?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 14,
+      "batch": 4
+    },
+    {
+      "id": 165,
+      "question": "Did Jesus publicly claim to be the Messiah before his arrest?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 15,
+      "batch": 4
+    },
+    {
+      "id": 166,
+      "question": "Was Jesus advocating armed resistance against Rome, or was his message nonviolent?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 16,
+      "batch": 4
+    },
+    {
+      "id": 167,
+      "question": "How can scholars reconstruct the hypothetical Q source when no manuscript of it survives?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 17,
+      "batch": 4
+    },
+    {
+      "id": 168,
+      "question": "What evidence indicates that Matthew and Luke used Mark rather than Mark using them?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 18,
+      "batch": 4
+    },
+    {
+      "id": 169,
+      "question": "Did the Gospel of Matthew portray Jesus as abolishing Jewish law or intensifying its demands?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 19,
+      "batch": 4
+    },
+    {
+      "id": 170,
+      "question": "How does Luke give unusual attention to poor people, women, and social outsiders?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 20,
+      "batch": 4
+    },
+    {
+      "id": 171,
+      "question": "Does the Gospel of John have Jesus directly claim that he is God?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 21,
+      "batch": 4
+    },
+    {
+      "id": 172,
+      "question": "What is the significance of Jesus' transfiguration in the Gospel narratives?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 22,
+      "batch": 4
+    },
+    {
+      "id": 173,
+      "question": "Why are the versions of the Lord's Prayer in Matthew and Luke different?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 23,
+      "batch": 4
+    },
+    {
+      "id": 174,
+      "question": "Why does Jesus curse a fig tree for having no fruit when it was not the season for figs?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 24,
+      "batch": 4
+    },
+    {
+      "id": 175,
+      "question": "What does the tearing of the Temple curtain at Jesus' death mean in the different Gospels?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 25,
+      "batch": 4
+    },
+    {
+      "id": 176,
+      "question": "Why did Paul persecute followers of Jesus before becoming one himself?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 26,
+      "batch": 4
+    },
+    {
+      "id": 177,
+      "question": "Can the chronology of Paul's missionary journeys in Acts be reconciled with his own letters?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 27,
+      "batch": 4
+    },
+    {
+      "id": 178,
+      "question": "Is Paul describing his own experience in Romans 7 when he says he cannot do the good he wants?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 28,
+      "batch": 4
+    },
+    {
+      "id": 179,
+      "question": "Did Paul intend Romans 13 to require obedience to every government?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 29,
+      "batch": 4
+    },
+    {
+      "id": 180,
+      "question": "Why did Paul require women in Corinth to cover their heads while praying or prophesying?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 30,
+      "batch": 4
+    },
+    {
+      "id": 181,
+      "question": "What did speaking in tongues mean in Paul's Corinthian churches?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 31,
+      "batch": 4
+    },
+    {
+      "id": 182,
+      "question": "Did Paul's statement that there is no male and female in Christ imply social equality in the church?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 32,
+      "batch": 4
+    },
+    {
+      "id": 183,
+      "question": "Why did Paul prefer celibacy while still allowing Christians to marry?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 33,
+      "batch": 4
+    },
+    {
+      "id": 184,
+      "question": "Did Paul think Jesus was divine before Jesus' resurrection?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 34,
+      "batch": 4
+    },
+    {
+      "id": 185,
+      "question": "How does Hebrews explain Jesus' death through the imagery of sacrifice and high priesthood?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 35,
+      "batch": 4
+    },
+    {
+      "id": 186,
+      "question": "Why did the claim that a first-century fragment of Mark had been discovered become controversial?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 36,
+      "batch": 4
+    },
+    {
+      "id": 187,
+      "question": "Are there really more New Testament textual variants than there are words in the New Testament?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 37,
+      "batch": 4
+    },
+    {
+      "id": 188,
+      "question": "What is the earliest surviving manuscript of the New Testament, and how confidently can it be dated?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 38,
+      "batch": 4
+    },
+    {
+      "id": 189,
+      "question": "Why do some modern Bible translations use gender-inclusive language when the Greek text uses masculine terms?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 39,
+      "batch": 4
+    },
+    {
+      "id": 190,
+      "question": "Why do modern Bibles omit or bracket verses that appear in the King James Version?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 40,
+      "batch": 4
+    },
+    {
+      "id": 191,
+      "question": "What kinds of textual and translation changes distinguish the updated NRSV from earlier editions?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 41,
+      "batch": 4
+    },
+    {
+      "id": 192,
+      "question": "What does the Muratorian Fragment reveal about which Christian books were accepted or disputed?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 42,
+      "batch": 4
+    },
+    {
+      "id": 193,
+      "question": "What does the Didache reveal about early Christian worship, ethics, and church organization?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 43,
+      "batch": 4
+    },
+    {
+      "id": 194,
+      "question": "Why did the church in Rome write 1 Clement to Christians in Corinth?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 44,
+      "batch": 4
+    },
+    {
+      "id": 195,
+      "question": "What do the letters of Ignatius reveal about bishops, heresy, and martyrdom in the early church?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 45,
+      "batch": 4
+    },
+    {
+      "id": 196,
+      "question": "How historically reliable is the account of Polycarp's arrest and execution?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 46,
+      "batch": 4
+    },
+    {
+      "id": 197,
+      "question": "Why did the Montanist movement give prominent prophetic roles to women?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 47,
+      "batch": 4
+    },
+    {
+      "id": 198,
+      "question": "Why do many scholars avoid treating Gnosticism as a single unified religion?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 48,
+      "batch": 4
+    },
+    {
+      "id": 199,
+      "question": "How does Bart distinguish being an agnostic from being an atheist?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 49,
+      "batch": 4
+    },
+    {
+      "id": 200,
+      "question": "Why does Bart argue that Revelation should not be read as a prediction of current world events?",
+      "group": "original-200",
+      "originalRun": 4,
+      "originalNumber": 50,
+      "batch": 4
+    },
+    {
+      "id": 201,
+      "question": "Why does the Hebrew word almah in Isaiah 7:14 not necessarily imply that the woman is a virgin?",
+      "group": "challenge-50",
+      "category": "Hebrew Bible",
+      "batch": 5
+    },
+    {
+      "id": 202,
+      "question": "How does the Mesha inscription complicate the biblical account of Israel's war against Moab?",
+      "group": "challenge-50",
+      "category": "Hebrew Bible",
+      "batch": 5
+    },
+    {
+      "id": 203,
+      "question": "What does the Ketef Hinnom silver amulet tell us about the age of the priestly blessing?",
+      "group": "challenge-50",
+      "category": "Hebrew Bible",
+      "batch": 5
+    },
+    {
+      "id": 204,
+      "question": "Why does the Hebrew Bible sometimes call the same priest Moses' father-in-law Jethro and sometimes Reuel?",
+      "group": "challenge-50",
+      "category": "Hebrew Bible",
+      "batch": 5
+    },
+    {
+      "id": 205,
+      "question": "What is the significance of the number seventy in the nations of Genesis 10 and the sons of God in Deuteronomy 32?",
+      "group": "challenge-50",
+      "category": "Hebrew Bible",
+      "batch": 5
+    },
+    {
+      "id": 206,
+      "question": "Why do some manuscripts change Mark's attribution of a combined quotation to Isaiah into a reference to the prophets?",
+      "group": "challenge-50",
+      "category": "Textual variants",
+      "batch": 5
+    },
+    {
+      "id": 207,
+      "question": "What changes to Luke 2:33 and 2:48 could protect the claim that Joseph was not Jesus' biological father?",
+      "group": "challenge-50",
+      "category": "Textual variants",
+      "batch": 5
+    },
+    {
+      "id": 208,
+      "question": "How would the reading apart from God instead of by the grace of God change the meaning of Jesus' death in Hebrews 2:9?",
+      "group": "challenge-50",
+      "category": "Textual variants",
+      "batch": 5
+    },
+    {
+      "id": 209,
+      "question": "How could the ending of Mark found in Codex Washingtonianus change the explanation for the disciples' unbelief?",
+      "group": "challenge-50",
+      "category": "Textual variants",
+      "batch": 5
+    },
+    {
+      "id": 210,
+      "question": "What evidence suggests that the story of the woman caught in adultery circulated in more than one location in the Gospels?",
+      "group": "challenge-50",
+      "category": "Textual variants",
+      "batch": 5
+    },
+    {
+      "id": 211,
+      "question": "What can the letters on the reverse side of a reused papyrus tell us about when a Christian manuscript was written?",
+      "group": "challenge-50",
+      "category": "Manuscripts",
+      "batch": 5
+    },
+    {
+      "id": 212,
+      "question": "How did the use of nomina sacra distinguish early Christian manuscripts from ordinary Greek writing?",
+      "group": "challenge-50",
+      "category": "Manuscripts",
+      "batch": 5
+    },
+    {
+      "id": 213,
+      "question": "Why is it difficult to date a papyrus fragment to a single decade on the basis of handwriting alone?",
+      "group": "challenge-50",
+      "category": "Manuscripts",
+      "batch": 5
+    },
+    {
+      "id": 214,
+      "question": "How could accidental eye movement between similar line endings cause a passage to disappear during copying?",
+      "group": "challenge-50",
+      "category": "Manuscripts",
+      "batch": 5
+    },
+    {
+      "id": 215,
+      "question": "What are the limitations of using the number of surviving manuscripts to establish the wording of the original New Testament?",
+      "group": "challenge-50",
+      "category": "Manuscripts",
+      "batch": 5
+    },
+    {
+      "id": 216,
+      "question": "Why does Mark say that Abiathar was high priest when David ate the consecrated bread?",
+      "group": "challenge-50",
+      "category": "Gospel details",
+      "batch": 5
+    },
+    {
+      "id": 217,
+      "question": "Why is the claim that the eye of the needle was a small Jerusalem gate a problematic explanation of Jesus' saying?",
+      "group": "challenge-50",
+      "category": "Gospel details",
+      "batch": 5
+    },
+    {
+      "id": 218,
+      "question": "What is unusual about the naked young man who escapes at Jesus' arrest in Mark?",
+      "group": "challenge-50",
+      "category": "Gospel details",
+      "batch": 5
+    },
+    {
+      "id": 219,
+      "question": "How does Luke's description of Jesus eating fish in front of his disciples address doubts about bodily resurrection?",
+      "group": "challenge-50",
+      "category": "Gospel details",
+      "batch": 5
+    },
+    {
+      "id": 220,
+      "question": "Why does the placement of the raising of Lazarus create a problem when comparing John's account with the Synoptic Gospels?",
+      "group": "challenge-50",
+      "category": "Gospel details",
+      "batch": 5
+    },
+    {
+      "id": 221,
+      "question": "What does Paul's reference to a brother famous for proclaiming the gospel tell us, if anything, about the identity of Luke?",
+      "group": "challenge-50",
+      "category": "Pauline details",
+      "batch": 5
+    },
+    {
+      "id": 222,
+      "question": "Why does Paul's statement that he baptized the household of Stephanas complicate his claim that he baptized very few Corinthians?",
+      "group": "challenge-50",
+      "category": "Pauline details",
+      "batch": 5
+    },
+    {
+      "id": 223,
+      "question": "What can the abrupt shift in tone at 2 Corinthians 10 suggest about how the letter was assembled?",
+      "group": "challenge-50",
+      "category": "Pauline details",
+      "batch": 5
+    },
+    {
+      "id": 224,
+      "question": "Why is the instruction for women to be silent sometimes moved to a different location in manuscripts of 1 Corinthians?",
+      "group": "challenge-50",
+      "category": "Pauline details",
+      "batch": 5
+    },
+    {
+      "id": 225,
+      "question": "How does the punishment of the man living with his father's wife illuminate Paul's view of the church community?",
+      "group": "challenge-50",
+      "category": "Pauline details",
+      "batch": 5
+    },
+    {
+      "id": 226,
+      "question": "How does the story of Peter's daughter in the Acts of Peter connect miraculous healing with expectations about female chastity?",
+      "group": "challenge-50",
+      "category": "Noncanonical texts",
+      "batch": 5
+    },
+    {
+      "id": 227,
+      "question": "What happens to the midwife Salome in the Proto-Gospel of James, and what claim is the story defending?",
+      "group": "challenge-50",
+      "category": "Noncanonical texts",
+      "batch": 5
+    },
+    {
+      "id": 228,
+      "question": "What does Jesus do to the clay birds in the Infancy Gospel of Thomas, and why does the Sabbath matter in that story?",
+      "group": "challenge-50",
+      "category": "Noncanonical texts",
+      "batch": 5
+    },
+    {
+      "id": 229,
+      "question": "How does the Acts of Paul and Thecla connect baptism, celibacy, and women's religious authority?",
+      "group": "challenge-50",
+      "category": "Noncanonical texts",
+      "batch": 5
+    },
+    {
+      "id": 230,
+      "question": "Why was the discovery of the Gospel of Judas not straightforward evidence that Judas was portrayed as a hero?",
+      "group": "challenge-50",
+      "category": "Noncanonical texts",
+      "batch": 5
+    },
+    {
+      "id": 231,
+      "question": "What does Pliny's exchange with Trajan reveal about anonymous accusations against Christians?",
+      "group": "challenge-50",
+      "category": "Early Christianity",
+      "batch": 5
+    },
+    {
+      "id": 232,
+      "question": "Why did some Christians refuse to eat meat connected with civic sacrifices even when no one forced them to worship an idol?",
+      "group": "challenge-50",
+      "category": "Early Christianity",
+      "batch": 5
+    },
+    {
+      "id": 233,
+      "question": "What did the Decian certificates called libelli prove, and why did they create problems for Christians?",
+      "group": "challenge-50",
+      "category": "Early Christianity",
+      "batch": 5
+    },
+    {
+      "id": 234,
+      "question": "How did disputes over Christians who surrendered scriptures during persecution contribute to the Donatist controversy?",
+      "group": "challenge-50",
+      "category": "Early Christianity",
+      "batch": 5
+    },
+    {
+      "id": 235,
+      "question": "What does Perpetua's vision about her brother Dinocrates suggest about the concerns of early Christian martyrs?",
+      "group": "challenge-50",
+      "category": "Early Christianity",
+      "batch": 5
+    },
+    {
+      "id": 236,
+      "question": "Why does the Muratorian Fragment treat the Shepherd of Hermas differently from writings attributed to the apostles?",
+      "group": "challenge-50",
+      "category": "Canon and forgery",
+      "batch": 5
+    },
+    {
+      "id": 237,
+      "question": "What does Serapion's response to the Gospel of Peter show about how early bishops assessed disputed books?",
+      "group": "challenge-50",
+      "category": "Canon and forgery",
+      "batch": 5
+    },
+    {
+      "id": 238,
+      "question": "Why was the letter to the Laodiceans that circulated in Latin not accepted as a genuine Pauline letter?",
+      "group": "challenge-50",
+      "category": "Canon and forgery",
+      "batch": 5
+    },
+    {
+      "id": 239,
+      "question": "How can a forged author's claim to be writing in his own hand actually strengthen a false attribution?",
+      "group": "challenge-50",
+      "category": "Canon and forgery",
+      "batch": 5
+    },
+    {
+      "id": 240,
+      "question": "What does the correspondence between Paul and Seneca reveal about attempts to give Christianity elite intellectual respectability?",
+      "group": "challenge-50",
+      "category": "Canon and forgery",
+      "batch": 5
+    },
+    {
+      "id": 241,
+      "question": "What does the Testament of Abraham suggest about the weighing of souls at judgment?",
+      "group": "challenge-50",
+      "category": "Afterlife and cosmology",
+      "batch": 5
+    },
+    {
+      "id": 242,
+      "question": "What is the difference between the fate of the soul in Plato's Phaedo and the bodily resurrection expected by early Christians?",
+      "group": "challenge-50",
+      "category": "Afterlife and cosmology",
+      "batch": 5
+    },
+    {
+      "id": 243,
+      "question": "Why is the lake of fire in Revelation called the second death, and how does that complicate ideas about eternal conscious torment?",
+      "group": "challenge-50",
+      "category": "Afterlife and cosmology",
+      "batch": 5
+    },
+    {
+      "id": 244,
+      "question": "What role do the stars play in Jewish apocalyptic descriptions of fallen angels?",
+      "group": "challenge-50",
+      "category": "Afterlife and cosmology",
+      "batch": 5
+    },
+    {
+      "id": 245,
+      "question": "How does Gregory of Nyssa's dialogue with Macrina connect purification after death with the eventual restoration of humanity?",
+      "group": "challenge-50",
+      "category": "Afterlife and cosmology",
+      "batch": 5
+    },
+    {
+      "id": 246,
+      "question": "What does the Roman practice of damnatio memoriae show about the difference between erasing a person's name and erasing their historical influence?",
+      "group": "challenge-50",
+      "category": "Historical methods",
+      "batch": 5
+    },
+    {
+      "id": 247,
+      "question": "How does the existence of multiple people called Jesus affect claims that an inscription identifies Jesus of Nazareth?",
+      "group": "challenge-50",
+      "category": "Historical methods",
+      "batch": 5
+    },
+    {
+      "id": 248,
+      "question": "Why might an ancient author invent an eyewitness source instead of simply claiming personal authority?",
+      "group": "challenge-50",
+      "category": "Historical methods",
+      "batch": 5
+    },
+    {
+      "id": 249,
+      "question": "What can repeated wording in oral retellings tell us, and what can it not tell us, about the historical accuracy of a story?",
+      "group": "challenge-50",
+      "category": "Historical methods",
+      "batch": 5
+    },
+    {
+      "id": 250,
+      "question": "How could the economics of producing a handwritten book affect who owned and read Christian texts in antiquity?",
+      "group": "challenge-50",
+      "category": "Historical methods",
+      "batch": 5
+    }
+  ]
+}

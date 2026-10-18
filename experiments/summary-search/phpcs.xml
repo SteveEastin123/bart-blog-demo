@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="Local Summary Pilot">
+    <file>plugin</file>
+    <arg name="extensions" value="php"/>
+    <rule ref="WordPress-Core">
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+    </rule>
+</ruleset>

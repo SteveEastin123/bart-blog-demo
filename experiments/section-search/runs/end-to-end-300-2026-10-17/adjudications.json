@@ -1,0 +1,85 @@
+{
+  "reviewer": "Coding agent full-text spot checks; not blinded to search outcomes",
+  "checks": [
+    {"question": 1, "wpId": "14712", "decision": "Change 3 to 2. The complete post supplies useful evidence about received-letter archives and later copying, but the connection to Christian congregations is a qualified material analogy, not a direct account of their receipt and circulation practices."},
+    {"question": 1, "wpId": "7457", "decision": "Retain 2. The complete post substantially explains dictation, correction, clean copies and sending letters, supplying useful partial background without directly explaining circulation among congregations."},
+    {"question": 1, "wpId": "22271", "decision": "Retain 2. The opening explicitly situates copied letters in congregational reading; most of the post concerns recovering the original text, so useful partial relevance is appropriate."},
+    {"question": 2, "wpId": "32259", "decision": "Retain 3. An extended section directly describes Luke adapting a Galilean mud roof into tiles for an Aegean audience and explains cross-cultural storytelling. This relevant detail is absent from the broad apologetics summary."},
+    {"question": 2, "wpId": "7071", "decision": "Retain 0. The complete post argues for spliced written sources in John through literary inconsistencies; it does not discuss changing audiences or audience-driven storytelling."},
+    {"question": 6, "wpId": "7459", "decision": "Change 3 to 2. Read in full after its grading explanation blurred two issues: uncertainty about an author's dictated intention is useful background, not a direct discussion of scribes intentionally altering a biblical text while believing its meaning preserved."},
+    {"question": 6, "wpId": "9112", "decision": "Retain 3. The full post explicitly connects scribal theological controversies to changes intended to make a text say what scribes believed it meant."},
+    {"question": 6, "wpId": "27889", "decision": "Change 3 to 2. The complete post discusses reversing the noncanonical Apocalypse of Peter's universalism to make it more acceptable for scripture. It is a useful analogy, not direct evidence of meaning-preserving alterations to a biblical text."},
+    {"question": 4, "wpId": "12858", "decision": "Change 3 to 2. The full post explains Jewish bodily resurrection in response to Maccabean persecution, then notes Christian inheritance of that belief. It is substantial background, not a direct account of Christian explanations for righteous people who lived before Jesus."},
+    {"question": 11, "wpId": "4777", "decision": "Change 2 to 3. The full post directly contrasts Acts 17, where God overlooks pagan ignorance until Christ, with Romans 1, where people already know God and face punishment for rejection. This is sustained evidence on the question of ignorance and divine judgment, despite the broader Acts-reliability title."},
+    {"question": 11, "wpId": "27889", "decision": "Change 3 to 2. The full post substantially discusses universalism, divine mercy and noncanonical afterlife visions, but not the specific New Testament treatment of people who have never heard the Christian message."},
+    {"question": 14, "wpId": "15363", "decision": "Retain 2. Full-text check after a quotation attribution failure: the post discusses multiple attestation and its limits for miracles, providing substantial support on historical confirmation. A separately recorded evidence repair preserves the raw API response."},
+    {"question": 14, "wpId": "20545", "decision": "Retain 3. The full post explicitly defines independence, explains why copied accounts do not constitute separate sources, and applies independent attestation to Judas."},
+    {"question": 14, "wpId": "38766", "decision": "Retain 0. The full post distinguishes ancient historiographical conventions from accuracy, but does not address how reports qualify as independent confirmation."},
+    {"question": 14, "wpId": "49239", "decision": "Retain 0. The full post concerns eyewitness memory errors and modern psychological experiments, without explaining independent confirmation from several ancient sources."},
+    {"question": 17, "wpId": "47152", "decision": "Retain 3. The final substantial section explicitly contrasts an already-experienced spiritual resurrection with Paul's future transformed bodily resurrection. The broad letter overview still directly answers the question."},
+    {"question": 18, "wpId": "40161", "decision": "Retain 2. The full post substantially explains the scriptural covenant and Jewish-law setting of Paul's argument to gentile churches, without directly explaining his method of scriptural quotation for unfamiliar readers. Useful partial relevance, not a full answer."},
+    {"question": 35, "wpId": "50541", "decision": "Retain 3. A substantial final answer directly explains how religious truths can be conveyed by stories that are not literally historical, with examples from creation and Jesus traditions."},
+    {"question": 35, "wpId": "16764", "decision": "Retain 2. Substantial personal testimony about combining critical study and faith, including Genesis as etiological rather than literal history; the post leaves most of the detailed explanation to a later installment."},
+    {"question": 35, "wpId": "3729", "decision": "Retain 3. The complete post explains reading biblical diversity as a conversation with modern faith and moving from literal to critical reading without losing belief. Recorded a separate quotation repair."},
+    {"question": 35, "wpId": "12686", "decision": "Retain 3. The full post directly explains how historical reading preserves each Gospel's theological insights and can enrich Christian reflection rather than undermine it."},
+    {"question": 50, "wpId": "35255", "decision": "Retain 1. The full post contrasts Matthew and Paul on Torah observance but does not discuss the Syrophoenician encounter. A separate evidence repair restores literal emphasis markers omitted by the API."},
+    {"question": 50, "wpId": "6942", "decision": "Retain 1. The full post discusses Mark's Jewish context and a gentile reader's understanding of divine sonship, but not the specified encounter or its implications for gentile inclusion."},
+    {"question": 50, "wpId": "25333", "decision": "Retain 1. The full post mentions the Syrophoenician woman's daughter only as an unspecified ailment, then focuses on other women's healing and social pressures. It does not address the question's gentile theme."},
+    {"question": 42, "wpId": "12368", "decision": "Retain 3. The full post directly explains the Aramaic formulation of 'lord of the Sabbath' in the food/work dispute, concluding that human need takes priority over the Sabbath prohibition."},
+    {"question": 42, "wpId": "6571", "decision": "Retain 2. A paragraph explicitly interprets the saying as superiority to Sabbath rules and relates sayings to their narrative settings. It offers a useful part of the answer, although the overall post addresses the zealot hypothesis."},
+    {"question": 49, "wpId": "47152", "decision": "Retain 2. The full text was already read for question 17; its earlier section directly connects Paul's physical and rhetorical weakness with service and apostolic leadership, without discussing the thorn itself."},
+    {"question": 49, "wpId": "39718", "decision": "Retain 2. The full post explicitly connects the thorn to a hypothesized speech impediment and Paul's defense of poor speaking to the Corinthians. This is useful partial evidence, though the larger subject is textual transmission."},
+    {"question": 50, "wpId": "35346", "decision": "Change 2 to 1. Read the full post when checking the largest challenge-question gains. It analyzes Mark's trial and blasphemy narrative for Roman readers, not the Syrophoenician episode or the Gospel's portrayal of gentile inclusion. A gentile target audience alone is only marginal context for this question."}
+  ],
+  "overrides": [
+    {
+      "question": 1,
+      "wpId": "14712",
+      "grade": 2,
+      "reason": "Provides substantive background on received-letter archives, copying and possible composite Pauline correspondence, but not a direct account of how early congregations received and circulated letters.",
+      "evidence": "Many people in the Roman world kept an archive of their received letters by simply pasting them together"
+    },
+    {
+      "question": 6,
+      "wpId": "7459",
+      "grade": 2,
+      "reason": "Substantial background on dictation, intended meaning and identifying an original text, but it does not directly examine intentional scribal changes believed to preserve biblical meaning.",
+      "evidence": "One of these forms of the text is the original thing written, but the other is what the author (Paul) originally meant."
+    },
+    {
+      "question": 6,
+      "wpId": "27889",
+      "grade": 2,
+      "reason": "Offers a useful comparison involving doctrinal alteration of the noncanonical Apocalypse of Peter; does not directly establish meaning-preserving changes to a biblical text.",
+      "evidence": "a scribe changed the text of the Apocalypse of Peter specifically to facilitate its acceptance as part of the Christian canon of Scripture."
+    },
+    {
+      "question": 4,
+      "wpId": "12858",
+      "grade": 2,
+      "reason": "Explains the Jewish origins of bodily resurrection and Christian inheritance of that belief, but not directly Christian accounts of the fate of righteous people before Jesus.",
+      "evidence": "until Jews came up with the idea of the resurrection of the body, a view that Christians inherited and ran with."
+    },
+    {
+      "question": 11,
+      "wpId": "4777",
+      "grade": 3,
+      "reason": "Directly contrasts Acts 17 and Romans 1 on pagan ignorance, responsibility, and whether God overlooks or punishes it, addressing the question through differing New Testament views.",
+      "evidence": "Does God overlook their error or punish it? (Acts: overlooks; Romans: punishes.)"
+    },
+    {
+      "question": 11,
+      "wpId": "27889",
+      "grade": 2,
+      "reason": "Provides substantial background on universal salvation and divine mercy, but not directly the New Testament treatment of people who never heard the Christian message.",
+      "evidence": "in one way or another, God will restore everyone and be reconciled with all."
+    },
+    {
+      "question": 50,
+      "wpId": "35346",
+      "grade": 1,
+      "reason": "Analyzes Mark's trial narrative and Roman audience, but not the Syrophoenician episode or gentile inclusion. General audience context is only marginally relevant to this specific question.",
+      "evidence": "Mark shows that he is addressing a Gentile audience"
+    }
+  ]
+}

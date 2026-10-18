@@ -1,0 +1,16 @@
+{
+  "measuredSearchesBeforeChange": 0,
+  "reason": "PHPStan-only preflight repairs: use presence of the test constant as existing runners do, and annotate the mutable deferred mock mode. Production ranking/review logic and vectors unchanged. Initial preflight manifest retained.",
+  "files": [
+    {
+      "file": "experiments/section-search/dimensions/plugin/dimension-pilot.php",
+      "before": "ae884e12d8c6da1ed5d24c3fa13cee3763e8b043ce626a4a8ddd9f2352f397d0",
+      "after": "0ad5164f2707dfb1ea2dae9ba1fbfbe0a20a6d8e1530e61389b44697cd9eb326"
+    },
+    {
+      "file": "experiments/section-search/dimensions/plugin/tests.php",
+      "before": "ba6c53034edcdd98a10305d972dbda8dacfd0de7b14a14cc64263d396a2e8d8c",
+      "after": "c46da90cd7e759c65a0d3568267a757d63b1037b7c0ed11a9339af875d198730"
+    }
+  ]
+}

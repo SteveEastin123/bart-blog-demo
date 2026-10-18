@@ -1,0 +1,55 @@
+{
+  "qualityExclusions": [
+    {
+      "questionId": 207,
+      "arm": "ask-ai-3",
+      "reason": "No completed review after the original attempt and one unchanged-settings retry. Report as a technical failure, not a zero-relevance result or a quality tie. Ask AI 2 completed its retry."
+    }
+  ],
+  "failures": [
+    {
+      "questionId": 207,
+      "arm": "ask-ai-2",
+      "attempt": 1,
+      "requestId": "c61a57b3-a7d0-460f-8e65-e8d9578750de",
+      "reason": "max_output_tokens",
+      "outputTokenLimit": 800,
+      "outputTokens": 800,
+      "reasoningTokens": 800,
+      "httpResponseSeconds": 5.18033630000001,
+      "costUsd": 0.01241002,
+      "disposition": "One fresh retry with unchanged settings. Original error and lock archived under attempt-1; all original API receipts retained.",
+      "timingCaveat": "No final post list was displayed for this attempt. Successful-attempt timing excludes this failed attempt and the subsequent manual diagnosis interval."
+    },
+    {
+      "questionId": 207,
+      "arm": "ask-ai-3",
+      "attempt": 1,
+      "requestId": "4e6d3b73-73de-44a5-a4ca-d11578351652",
+      "reason": "max_output_tokens",
+      "outputTokenLimit": 800,
+      "reportedOutputTokens": 0,
+      "reportedReasoningTokens": 0,
+      "httpResponseSeconds": 8.003084600000001,
+      "costUsd": 0.00000052,
+      "reviewUsageAnomaly": true,
+      "costCaveat": "The provider reported all-zero review usage despite an incomplete reasoning response. The saved amount includes the embedding and zero reported review usage; it does not prove that the review was free. Actual billed review cost is unverified.",
+      "disposition": "One fresh retry with unchanged settings. Original error and lock archived under attempt-1; all original API receipts retained.",
+      "timingCaveat": "No final post list was displayed for this attempt. Successful-attempt timing excludes this failed attempt and the subsequent manual diagnosis interval."
+    },
+    {
+      "questionId": 207,
+      "arm": "ask-ai-3",
+      "attempt": 2,
+      "requestId": "c458e49d-8c64-41ee-bde2-1d7e9cbd58da",
+      "reason": "max_output_tokens",
+      "outputTokenLimit": 800,
+      "outputTokens": 800,
+      "reasoningTokens": 800,
+      "httpResponseSeconds": 6.983736599999997,
+      "costUsd": 0.00749572,
+      "disposition": "Retry also incomplete. No further retry or settings change. Exclude this question from paired relevance metrics and report the technical failure separately.",
+      "timingCaveat": "No final post list was displayed. This is a failed-attempt HTTP duration, not a successful submit-to-results time."
+    }
+  ]
+}

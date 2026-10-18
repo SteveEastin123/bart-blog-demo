@@ -2,6 +2,10 @@
 .codex_deps
 .tools
 .tmp
+wordpress-production/.env
+wordpress-production/backups
+experiments/section-search/
+experiments/summary-search/
 __pycache__
 *.pyc
 *.pyo

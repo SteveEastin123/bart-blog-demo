@@ -1,0 +1,137 @@
+{
+  "questionsAttempted": 250,
+  "pairedQualityComparisons": 249,
+  "completedSearches": 499,
+  "failedAttempts": 3,
+  "reportedSearchCostUsd": 12.26981478,
+  "gradingCostUsd": 10.9162557,
+  "fullPostQuestionPairsGraded": 2546,
+  "groups": {
+    "original-200": {
+      "ask-ai-2": {
+        "questionsAttempted": 200,
+        "completedSearches": 200,
+        "firstAttemptFailures": 0,
+        "failedAttemptsIncludingRetries": 0,
+        "reportedSearchCostIncludingFailuresUsd": 2.0085109,
+        "reportedCostPerAttemptedQuestionUsd": 0.0100425545,
+        "unverifiedFailedReviewCosts": 0
+      },
+      "ask-ai-3": {
+        "questionsAttempted": 200,
+        "completedSearches": 200,
+        "firstAttemptFailures": 0,
+        "failedAttemptsIncludingRetries": 0,
+        "reportedSearchCostIncludingFailuresUsd": 7.8128389,
+        "reportedCostPerAttemptedQuestionUsd": 0.0390641945,
+        "unverifiedFailedReviewCosts": 0
+      }
+    },
+    "challenge-50": {
+      "ask-ai-2": {
+        "questionsAttempted": 50,
+        "completedSearches": 50,
+        "firstAttemptFailures": 1,
+        "failedAttemptsIncludingRetries": 1,
+        "reportedSearchCostIncludingFailuresUsd": 0.51025844,
+        "reportedCostPerAttemptedQuestionUsd": 0.010205168799999999,
+        "unverifiedFailedReviewCosts": 0
+      },
+      "ask-ai-3": {
+        "questionsAttempted": 50,
+        "completedSearches": 49,
+        "firstAttemptFailures": 1,
+        "failedAttemptsIncludingRetries": 2,
+        "reportedSearchCostIncludingFailuresUsd": 1.93820654,
+        "reportedCostPerAttemptedQuestionUsd": 0.0387641308,
+        "unverifiedFailedReviewCosts": 1
+      }
+    }
+  },
+  "answerCoverageDiagnostics": {
+    "original-200": {
+      "neitherReturnedRelevantPosts": [
+        151
+      ],
+      "rankingWinnersWithoutRelevantPosts": {
+        "ask-ai-3": 1
+      },
+      "pairsWithAtLeastOneRelevantPost": 199,
+      "winnersWhenAtLeastOneRelevantPostReturned": {
+        "ask-ai-3": 86,
+        "tie": 30,
+        "ask-ai-2": 83
+      },
+      "onlyOneMethodReturnedRelevantPosts": {
+        "ask-ai-2": [
+          154
+        ],
+        "ask-ai-3": [
+          179,
+          197
+        ]
+      }
+    },
+    "challenge-50": {
+      "neitherReturnedRelevantPosts": [
+        202,
+        203,
+        209,
+        222,
+        226,
+        231,
+        241
+      ],
+      "rankingWinnersWithoutRelevantPosts": {
+        "tie": 2,
+        "ask-ai-3": 4,
+        "ask-ai-2": 1
+      },
+      "pairsWithAtLeastOneRelevantPost": 42,
+      "winnersWhenAtLeastOneRelevantPostReturned": {
+        "ask-ai-2": 11,
+        "ask-ai-3": 23,
+        "tie": 8
+      },
+      "onlyOneMethodReturnedRelevantPosts": {
+        "ask-ai-2": [],
+        "ask-ai-3": [
+          217,
+          225,
+          244
+        ]
+      }
+    }
+  },
+  "databaseUnchanged": true,
+  "finalHarnessSourceHashes": {
+    "experiments/section-search/full-comparison/audit.py": "35cbc692103597dc91969f6ffb9ce1a61a600cfe7786007f8ab636c124b7caf5",
+    "experiments/section-search/full-comparison/challenge.json": "129ca3189acdd866b95052a5d8d5d26872d1f118628f0f3a1533b01b4ebc2fb2",
+    "experiments/section-search/full-comparison/common.py": "fa12dc3ad851e37f90fde5f5663288e41e2d946533553023d2f5aae40419c7b2",
+    "experiments/section-search/full-comparison/finalize.py": "dcab16e8b334b1aa3749ada538de9041246803c804519f0bccec13dcdeba2c3f",
+    "experiments/section-search/full-comparison/grade.py": "80f7c5a50e84e4929db8634379bbc29371968a8b17ca634504c40ec7e5a4bf5e",
+    "experiments/section-search/full-comparison/grade_remaining.py": "14bef21758c44ba401c5aa0b500da92648f4efaf19d169533129d78775addf84",
+    "experiments/section-search/full-comparison/install-local.ps1": "f604677b7961a5fd57fb3ced9b7375f661c2f0bafe88af9c3ac25592e59c270b",
+    "experiments/section-search/full-comparison/manual-grade-audits.json": "3c014b2e6d505f5d1ccefcd2657a19019ee80f7dd7b1a7aaae3780dfffc6caa0",
+    "experiments/section-search/full-comparison/phpcs.xml": "5aad1dd71ebab653a89885837a17580b22f59849f5b0cc295a025cf443dc318f",
+    "experiments/section-search/full-comparison/phpstan.neon": "bf17c3070a00f954db37d601d510ae34a3738e035f0ec6a13c3c35be373f2c5b",
+    "experiments/section-search/full-comparison/plugin/full-comparison.php": "fcc44e788347ac4763ede1998fb30849d20e7178313dbb5b584cafcd5f9202fe",
+    "experiments/section-search/full-comparison/plugin/Index.php": "046438e985a86d2211f1f78debfd0108fd73f0bbb56e31817a035dcb5ffec465",
+    "experiments/section-search/full-comparison/plugin/Service.php": "f46ccc810c829b3ebf383bc027ba6da743c24650f5e1afe68912eafe487b09ce",
+    "experiments/section-search/full-comparison/plugin/tests.php": "2f87674cead26dbca8de582212f3d6153bf4c5d88bce11465c157eca8ef3b54c",
+    "experiments/section-search/full-comparison/prepare.py": "18da5266048f444c2b9260dc4cf55df4793f9525d0a66055694154806f944d43",
+    "experiments/section-search/full-comparison/README.md": "03e8f38430ffd957c734271f53293e1b504ab88636bbcf404f3be4699e24541c",
+    "experiments/section-search/full-comparison/rejudge.py": "7d1429a1dc59a0c92c090520752b55ae821f2dcb50a6f17ab15feb43199dfed9",
+    "experiments/section-search/full-comparison/repair_quotes.py": "14443423480ac9cc1d997a71fba9fdcb74f44165b6cfa25fa1b71b413ec1ed80",
+    "experiments/section-search/full-comparison/report.py": "9059cc775bb36f37c2656bd1b4f9020585b744a938acb3a503e152155080e795",
+    "experiments/section-search/full-comparison/resume-searches.cjs": "878daa7fa257cc423ae0e09b9a9b8afdfe5cd0376a6b80db6f0c504cc54a685a",
+    "experiments/section-search/full-comparison/run.cjs": "60715d72d803b6f2758963e488ec1bf9963ce24bd7f5459a018d340f5802814f",
+    "experiments/section-search/full-comparison/test_protocol.py": "f74c0aa5aa477a01f0979799463d32d4a3b6fb1b62f71e140f8c0309fe36492d",
+    "experiments/section-search/full-comparison/test_recovery.py": "6fa7e65f8b808543b1df93fe549c2e6c5da26cd76503ad36c1999176ae75bf51",
+    "experiments/section-search/full-comparison/test_repairs.py": "aaa9c65446cd6e1d8f96c85858cc4812277114c05e84389de36381fa2cbe8b29"
+  },
+  "reviewerOutputRejectionCounts": {
+    "unknown candidate": 65,
+    "duplicate": 5
+  }
+}

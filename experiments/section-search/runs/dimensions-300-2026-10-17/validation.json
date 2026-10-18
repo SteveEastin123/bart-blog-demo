@@ -1,0 +1,112 @@
+{
+  "run": "dimensions-300-2026-10-17",
+  "productionRegression": "passed; 77 PHP files syntax-checked, canonical counts, semantic coverage, ingestion, analytics, public pages, search modes, pagination, private import protection",
+  "mockedWordPressChecks": 1466,
+  "mockedHttpCalls": 32,
+  "phpcs": "WordPress-Core passed",
+  "phpstan": "level 5 passed",
+  "pythonTests": {
+    "dimensions": 21,
+    "section": 20,
+    "summary": 29,
+    "metadataReview": 15
+  },
+  "measuredSearches": 150,
+  "realSearchPhases": 350,
+  "newGradesLinkedToReceipts": 78,
+  "legacyJudgmentsReused": 1203,
+  "rawReviewTierAndFallbackReplay": "passed",
+  "discoveryTablesUnchanged": {
+    "wp_ehrman_ai_feedback": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "wp_ehrman_ai_refinements": {
+      "rows": 516,
+      "sha256": "6569a00d193f2340846a7db12933763551c4c36bb49a3cc8cb220b3b515c38d7"
+    },
+    "wp_ehrman_ai_requests": {
+      "rows": 526,
+      "sha256": "8ab0a2350dca1c8c99605a91ca72cb3aa7b05af8f226728a10fded7f6902fb45"
+    },
+    "wp_ehrman_ai_usage": {
+      "rows": 1179,
+      "sha256": "b3f64b58df80ec7adb11e62c0e1b3f22bfc3b7fdbeac3c61411544b7588c9b87"
+    },
+    "wp_ehrman_browse_paths": {
+      "rows": 2,
+      "sha256": "4e33d89f057775ef8b9e8be45890e034f566dd3351aa30c609a25a35668f2039"
+    },
+    "wp_ehrman_categories": {
+      "rows": 41,
+      "sha256": "dcc0c637dec486a9c9cdaad7b2f036da1f0bd90b7a4b71f0f35d4d49d39f2583"
+    },
+    "wp_ehrman_external_posts": {
+      "rows": 4446,
+      "sha256": "440289c08edb83edfd07c4ccaf4f8ed367e2296dde604ec271000a6bee519fe1"
+    },
+    "wp_ehrman_ingestion_drafts": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "wp_ehrman_keywords": {
+      "rows": 901,
+      "sha256": "facfcbb1890d87a81e091f243190a9f6819d31053ab6cac34dfc617c1f944610"
+    },
+    "wp_ehrman_post_embeddings": {
+      "rows": 4016,
+      "sha256": "e2c449552211b150d903e0b72bdbb6b6bc399c45475cf3dda0b90507423f78d0"
+    },
+    "wp_ehrman_post_keywords": {
+      "rows": 15291,
+      "sha256": "81aa87058109732a222435dfee02d6251ffa946e6f0312805cfb49ba0a36e89b"
+    },
+    "wp_ehrman_post_metadata_embeddings": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "wp_ehrman_post_search_terms": {
+      "rows": 24232,
+      "sha256": "1b95ff5579fc1c77fe931955c0fe46d4bcb8dc8636ca7e847d4309d243741fbd"
+    },
+    "wp_ehrman_post_topics": {
+      "rows": 8931,
+      "sha256": "0f0644357b29ff96f4b509361c77fa9930041288ae32e46f41526d9bbcbb23cb"
+    },
+    "wp_ehrman_subject_area_categories": {
+      "rows": 83,
+      "sha256": "5ebfb40ba793210a95ed7193d30c1deaf7724acf6220ece3e1d2fefdab127df8"
+    },
+    "wp_ehrman_subject_areas": {
+      "rows": 19,
+      "sha256": "7c4f591f88a6609fd945b3c8a0efa818158774887753445baded861d0c8ae2e4"
+    },
+    "wp_ehrman_topic_aliases": {
+      "rows": 1,
+      "sha256": "4232911d7b76d94bee1c572f5764648bf36e99bf06be7c96ce60532ce0f80de9"
+    },
+    "wp_ehrman_topic_categories": {
+      "rows": 351,
+      "sha256": "a15b7e1680ee6a6bb6165306cb8d047a99e8cf8ed422967938eb868960d094aa"
+    },
+    "wp_ehrman_topics": {
+      "rows": 296,
+      "sha256": "20cd1454b890b45aec60a06559a5140d2a5e71c5ef23568558d28af73fe98336"
+    }
+  },
+  "temporaryDimensionHelper": "deactivated after measured searches",
+  "productionCodeAndOriginalVectors": "frozen hashes unchanged",
+  "scope": "No commit, push, deployment, production adoption, ingestion or skill change",
+  "finalCodeHashes": {
+    "experiments/section-search/dimensions/common.py": "42295818727c2cf4b1882b4e9c48667bd252e12b0cb2baf59e7531a9dfa5367e",
+    "experiments/section-search/dimensions/compare.py": "8b8067cb1df644d3b2416a098f2754c4f68e3854ccf764fa9ad59fdbb33473a5",
+    "experiments/section-search/dimensions/embed.py": "3efd8e045dd38e5589e757089aed5dc02cd5131e241dc92c018e858cdc57d363",
+    "experiments/section-search/dimensions/repair_evidence.py": "dfa94868887f564d0e557c63ae3145532b0025921095fa9efdd09fca9c61cecb",
+    "experiments/section-search/dimensions/report.py": "832bac54388975eeca020eddf5daa7024d9c2c80fd48157e3264b5e1c0cb31b6",
+    "experiments/section-search/dimensions/score.py": "11fb4345b7088322081c5a244440e89162cfba261f56d70ea03684c8db09b496",
+    "experiments/section-search/dimensions/spot_check.py": "36e8dd829a334b96f3145365df501f3088ead3dbd696d706de0b99baf3063c3f",
+    "experiments/section-search/dimensions/test_dimensions.py": "0ce123f69cc2dce56b093cd6a9606208326362fe26369ea996e310a2ad5ab730",
+    "experiments/section-search/dimensions/plugin/dimension-pilot.php": "0ad5164f2707dfb1ea2dae9ba1fbfbe0a20a6d8e1530e61389b44697cd9eb326",
+    "experiments/section-search/dimensions/plugin/tests.php": "c46da90cd7e759c65a0d3568267a757d63b1037b7c0ed11a9339af875d198730"
+  }
+}

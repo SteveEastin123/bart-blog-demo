@@ -1,0 +1,9 @@
+{
+  "run": "agent-summaries-2026-10-17",
+  "validSummaries": 500,
+  "expected": 500,
+  "errors": [],
+  "apiCalls": 0,
+  "meanWords": 137.32,
+  "shortExceptions": 26
+}

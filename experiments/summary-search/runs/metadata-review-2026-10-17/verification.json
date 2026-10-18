@@ -1,0 +1,40 @@
+{
+  "run": "metadata-review-2026-10-17",
+  "status": "complete",
+  "reviewRequests": 150,
+  "questions": 50,
+  "arms": 3,
+  "candidateCountPerRequest": 100,
+  "gradedPairs": 1072,
+  "reusedGrades": 953,
+  "newGrades": 119,
+  "coordinatingAgentFullTextChecks": 10,
+  "numericalAdjudications": 4,
+  "offlineQuotationRepairs": 1,
+  "tests": {
+    "metadataPythonTests": {"passed": 15, "failed": 0},
+    "parentSummaryPythonTests": {"passed": 29, "failed": 0},
+    "productionPhpParserMockChecks": {"passed": 300, "failed": 0},
+    "phpcsWordPressCoreBridge": "passed",
+    "phpstanLevel5Bridge": "passed",
+    "localProductionWordPressRegression": "passed"
+  },
+  "preservation": {
+    "frozenInputAndPriorRunChecksums": "passed",
+    "discoveryTablesWithIdenticalCountsAndFingerprints": 19,
+    "canonicalJsonChanged": false,
+    "productionPluginChanged": false,
+    "productionVectorsChanged": false,
+    "downloadSkillChanged": false,
+    "ingestionGuidanceChanged": false,
+    "newExperimentPluginInstalled": false,
+    "privateArtifacts": "Existing ignored summary-search/private directory; excluded from Render packaging."
+  },
+  "executionNotes": [
+    "All reviews used saved frozen inputs and the unchanged production PHP parser. Invalid model selections were discarded as in production and audited, not retried for better answers.",
+    "Final quotation repair restored literal emphasis markers without weakening evidence validation or changing the saved numerical API grade. Raw receipts are preserved and every saved grading attempt is included in cost.",
+    "Current numerical adjudications were determined from full stored text before inspecting aggregate quality results. Ten spot checks are not exhaustive human validation.",
+    "Review latency excludes embedding, retrieval and browser rendering. Unequal provider prompt caching makes the raw cost ratio unsuitable as the intrinsic metadata overhead.",
+    "Existing unrelated workspace changes were left intact. No commit, push, deployment or production adoption was performed."
+  ]
+}

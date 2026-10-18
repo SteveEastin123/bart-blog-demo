@@ -1,0 +1,49 @@
+{
+  "run": "metadata-review-2026-10-17",
+  "selection": "Three new question/post pairs selected by stable hash from 81 new top-ten pairs in questions 1-30 before new API grading began. Three further pairs selected by stable hash from 38 new pairs in questions 31-50 while early-question grading was running. No aggregate outcomes or proposed numerical grades were inspected for any selection.",
+  "blinding": "Only question, full stored post, title and IDs were shown. No method label, rank, summary, topic/keyword labels or proposed grade was shown.",
+  "checks": [
+    {
+      "questionId": 1,
+      "wpId": "40436",
+      "grade": 1,
+      "reason": "Explains Pauline source authenticity and biographical reconstruction. Mentioning an early collection of letters provides only marginal context, not an account of how congregations received or circulated letters.",
+      "evidence": "our earliest extant collection of Paul's letters"
+    },
+    {
+      "questionId": 10,
+      "wpId": "40344",
+      "grade": 1,
+      "reason": "Discusses Christianity's large-scale cultural triumph and changing ideals of dominance and service. It does not explain how converts handled relationships with relatives worshipping other gods.",
+      "evidence": "it made the male head of the household a sovereign despot over all those under him"
+    },
+    {
+      "questionId": 7,
+      "wpId": "15172",
+      "grade": 1,
+      "reason": "Discusses Gospel anonymity and imitation of biblical narrative style, but does not connect Greek language or style with evidence of an author's education.",
+      "evidence": "using imagery and language heavily dependent on Old Testament narratives"
+    },
+    {
+      "questionId": 31,
+      "wpId": "4667",
+      "grade": 0,
+      "reason": "Analyzes scribal variants of the heavenly voice in Luke 3:22 and textual-critical probabilities. It does not discuss baptism's relationship to forgiveness of sins.",
+      "evidence": ""
+    },
+    {
+      "questionId": 42,
+      "wpId": "13186",
+      "grade": 0,
+      "reason": "Explains the coming earthly Kingdom of God, not Sabbath disputes, picking grain, or the meaning of lord of the Sabbath.",
+      "evidence": ""
+    },
+    {
+      "questionId": 47,
+      "wpId": "15172",
+      "grade": 0,
+      "reason": "Explains Gospel anonymity and biblical narrative imitation, not Judas' death or the development of competing accounts of it.",
+      "evidence": ""
+    }
+  ]
+}

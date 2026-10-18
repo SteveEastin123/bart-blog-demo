@@ -1,0 +1,20 @@
+{
+  "run": "remaining-300-512-2026-10-18",
+  "postCount": 3486,
+  "sectionCount": 17315,
+  "uniqueInputs": 17307,
+  "newEmbeddingInputs": 17297,
+  "reusedPilotInputs": 10,
+  "inputTokens": 6278311,
+  "requests": 541,
+  "costUsd": 0.12556622,
+  "rawVectorBytes": 35461120,
+  "packageBytes": 36602879,
+  "preservedFileCount": 3382,
+  "allStoredWordsCovered": true,
+  "overlapAndBoundariesVerified": true,
+  "vectorsMatchedToReceipts": true,
+  "priorFilesUnchanged": true,
+  "installedOrImported": false,
+  "productionChanged": false
+}

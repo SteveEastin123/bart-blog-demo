@@ -1,0 +1,70 @@
+{
+  "run": "agent-summaries-2026-10-17",
+  "status": "summaries_complete_search_comparison_not_run",
+  "summaryFile": "experiments/summary-search/private/agent-summaries-2026-10-17/summaries.json",
+  "summaryFileSha256": "37163fa00b619c21efe5549e67d6b80a944f0119bf88f461fe207e99d0d28467",
+  "authorship": {
+    "batches01Through10": "Coordinating Codex agent",
+    "batches11Through20": "Five user-authorized Codex helper agents, two disjoint batches each",
+    "inputs": ["wpId", "title", "full stored text"],
+    "excludedInputs": ["old summaries", "API summaries", "benchmark questions", "retrieval results", "grades"],
+    "apiCalls": 0,
+    "usesCodexAllowance": true
+  },
+  "validation": {
+    "summaries": 500,
+    "uniquePostIds": 500,
+    "errors": [],
+    "unitTestsPassed": 8,
+    "preservedFileHashesUnchanged": 112,
+    "meanWords": 137.32,
+    "medianWords": 141,
+    "minWords": 57,
+    "maxWords": 160,
+    "within120To180Words": 474,
+    "documentedShortExceptions": 26,
+    "supportingQuotesMatched": true,
+    "limitations": "Format, identity, length and quotation checks do not independently establish every summary claim."
+  },
+  "coordinatorFullSourceSpotChecksOfHelperSummaries": [
+    "9499", "12341", "4743", "36569", "7389", "16063", "17793",
+    "27695", "6958", "49350", "30688", "11941", "13508", "12454"
+  ],
+  "spotCheckResult": "No material factual or attribution corrections needed in these 14 summaries.",
+  "repostPairsWithIdenticalSummaries": [
+    ["17830", "7071"],
+    ["11611", "25687"]
+  ],
+  "repostNote": "Both pairs were reread and contain the same substantive discussion with different framing. Preserve the fixed sample; these are not duplicate post IDs.",
+  "knownSourceLimitation": {
+    "wpId": "2359",
+    "issue": "Stored article contains only its opening excerpt; the summary does not invent the missing response."
+  },
+  "exceedCurrentProduction1200CharacterLimit": [
+    {"wpId": "22174", "characters": 1223},
+    {"wpId": "32259", "characters": 1202},
+    {"wpId": "8440", "characters": 1202},
+    {"wpId": "36268", "characters": 1214}
+  ],
+  "production": {
+    "canonicalSummariesChanged": false,
+    "vectorsChanged": false,
+    "databaseWrites": false,
+    "skillOrWordPressIngestionChanges": false,
+    "commitPushOrDeployment": false
+  },
+  "evaluation": {
+    "replacementEmbeddingsGenerated": false,
+    "pairedSearchesRun": false,
+    "newRelevanceGradesCreated": false,
+    "improvementEstablished": false,
+    "apiCallsRequireSeparateApproval": true,
+    "sourceQuotesAreAuditOnly": true
+  },
+  "conditionalNextSteps": [
+    "Obtain approval for separate embedding and search comparison calls; do not use the API to rewrite these summaries.",
+    "Measure relevance, ranking, end-to-end time and cost against unchanged Ask AI 2.",
+    "If worthwhile, compare agent and API summary quality before adopting API generation in the deployed WordPress post workflow.",
+    "Change the download skill, production summary constraints and WordPress generation guidance only after approval."
+  ]
+}

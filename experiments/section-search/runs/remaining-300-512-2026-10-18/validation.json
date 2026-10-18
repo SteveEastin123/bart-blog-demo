@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "run": "remaining-300-512-2026-10-18",
+  "status": "passed",
+  "mode": "offline",
+  "marker": "EXPANSION_AUDIT_OK",
+  "apiCallsAllowed": false,
+  "completeManifestContractVerified": true,
+  "receiptsAndOutputsVerified": true,
+  "priorFilesUnchanged": true,
+  "installedOrImported": false,
+  "productionChanged": false,
+  "auditorFiles": {
+    "experiments/section-search/expansion/audit.py": "4419548a4bdfcc0be71d1b327c13a7dc9fcae87266bc4cc3c11240b54c68adf3",
+    "experiments/section-search/expansion/test_audit.py": "0008a3d0f8c58c9ef0642345654688c94b69ac32fa9572161d0198767f481446"
+  },
+  "generatorFiles": {
+    "experiments/section-search/expansion/build.py": "35c8bc9f1383a154a2d542a7af56c273fdf267854964b7bf20a77e5348081f16",
+    "experiments/section-search/expansion/test_build.py": "4fad27f0353110b3b9cf9d311e18abc349c2c262f80068c82f339854731f750b"
+  },
+  "manifestSha256": "8ec907eacfce7b1b031aea4542ddccc9a34b86b6c944d31c0957543e2cc31f7f",
+  "packageManifestSha256": "2d99fcf4173c983ac565f1d99325b7d441c3f7efe97b2ad5d98c1e0961f5ec40",
+  "preparedSha256": "b237ef4c580eef84e4e2a3ff6349c0e7f8e82a95aa6ea42d8f40010236c38f6e",
+  "pilotPackage": {
+    "path": "experiments/section-search/private/runtime/sections-300.jsonl.gz",
+    "sha256": "56a9772a59ae69af135a202d2d60be24a671bdeec6275d05e51f0b64c0738dba"
+  },
+  "postCount": 3486,
+  "sectionCount": 17315,
+  "files": {
+    "posts.jsonl.gz": {
+      "sha256": "e4f5948ed34f71dc97d24906f27aa15e4907e3c5cc3ace732ecf5422b25e2ffc",
+      "bytes": 310159
+    },
+    "sections-300-512.jsonl.gz": {
+      "sha256": "c49fd24a36b6ce5fbb28fcc88922b85ebc82ab3b13dd664b9880b39580ed5656",
+      "bytes": 36291728
+    }
+  },
+  "usageSha256": "870e77924b6b21b9ffba7e4b261b29eee0e38de7f89d66dbb3ad0b4b4a57b59d",
+  "resultsSha256": "60e5e61aa2e64f10feed1d71b198cd964597d102cb258ab8c3678ed37d8eda27"
+}

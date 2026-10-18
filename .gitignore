@@ -16,3 +16,4 @@ wordpress-demo/.env
 wordpress-production/.env
 wordpress-production/backups/
 wordpress-plugin/ehrman-blog-discovery/vendor/
+experiments/section-search/private/

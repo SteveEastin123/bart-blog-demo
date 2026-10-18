@@ -1,0 +1,12 @@
+{
+  "questionId": 50,
+  "wpId": "35255",
+  "requestHash": "4e06f164509ada342e0fc780be4d949cd6eefac032f9b325ed9ade2327c94f98",
+  "attempts": 3,
+  "paidAgain": false,
+  "originalEvidence": "The gentile followers of Jesus were not, absolutely not, supposed to become Jewish.",
+  "repairedEvidence": "The gentile followers of Jesus were not, *absolutely* not, supposed to become Jewish.",
+  "reason": "All three saved API attempts omitted literal emphasis asterisks from the quoted source sentence. The coordinator read both full posts and restored the exact source characters without weakening quotation validation.",
+  "gradeHandling": "The final API grades remain 0 and 2 in the grade file. Separate, previously recorded full-text adjudication changes 35255 from 2 to 1 in reported metrics; raw API receipts are unchanged and all attempts are costed.",
+  "sourceCheck": "final-batch-source-check.json"
+}

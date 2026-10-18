@@ -1,0 +1,19 @@
+{
+  "questionId": 50,
+  "question": "How does Jesus' encounter with the Syrophoenician woman fit the Gospel's treatment of gentiles?",
+  "selection": "The final two newly pooled posts were inspected because all three API grading attempts failed quotation validation. No method labels, ranks, summaries, keywords, API grades or aggregate outcomes were shown during this source reading.",
+  "checks": [
+    {
+      "wpId": "47072",
+      "grade": 0,
+      "reason": "The full stored post compares Matthew's and Mark's rich-young-ruler wording to explain redaction and Markan priority. It does not discuss the Syrophoenician woman or gentile inclusion; the shared Gospel names alone do not answer this question.",
+      "evidence": ""
+    },
+    {
+      "wpId": "35255",
+      "grade": 1,
+      "reason": "The post contrasts Paul's gentile converts and Matthew's continuing Torah observance. That gives marginal Jewish-gentile background but does not discuss the Syrophoenician encounter or its relationship to the Gospel's gentile narrative.",
+      "evidence": "The gentile followers of Jesus were not, *absolutely* not, supposed to become Jewish."
+    }
+  ]
+}

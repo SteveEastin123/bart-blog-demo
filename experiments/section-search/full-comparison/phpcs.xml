@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="Local comparison">
+  <rule ref="WordPress-Core">
+    <exclude name="WordPress.Files.FileName"/>
+  </rule>
+  <!-- Preserve the existing experiment's class-file naming convention. -->
+  <file>plugin</file>
+</ruleset>

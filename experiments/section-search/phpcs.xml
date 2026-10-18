@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="Local Section Pilot">
+    <description>WordPress Core formatting for the isolated prototype, using class-matching filenames.</description>
+    <file>plugin</file>
+    <arg name="extensions" value="php"/>
+    <rule ref="WordPress-Core">
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+    </rule>
+</ruleset>

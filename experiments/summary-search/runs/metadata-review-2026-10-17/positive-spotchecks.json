@@ -1,0 +1,21 @@
+{
+  "run": "metadata-review-2026-10-17",
+  "selection": "Two pairs selected by stable hash from the first 15 newly completed positive API grades, before aggregate quality results were calculated.",
+  "blinding": "Question, title, full stored post and proposed grade/reason were visible. Method labels, result ranks, summaries and topic/keyword assignments were hidden. Unlike the six pregrade checks, these checks were not blind to the proposed grade.",
+  "checks": [
+    {
+      "questionId": 17,
+      "wpId": "16120",
+      "grade": 3,
+      "reason": "Retain: directly contrasts bodily resurrection with opponents' views and develops physical expectations of a renewed earth through Papias and Irenaeus.",
+      "evidence": "the resurrection of the righteous will involve the resurrection of the entire person, both body and soul."
+    },
+    {
+      "questionId": 13,
+      "wpId": "8930",
+      "grade": 2,
+      "reason": "Retain: substantial support on constructing unified orthodox authority through a public canon and claims of ancient continuity, but no direct treatment of secret teaching.",
+      "evidence": "right ones needed to be promoted and shown to have ancient authority."
+    }
+  ]
+}

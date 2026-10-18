@@ -1,0 +1,131 @@
+.section-public {
+  max-width: 960px;
+}
+
+.section-public-scope {
+  color: #535b61;
+  margin: 0 0 24px;
+  font-size: 16px;
+}
+
+.section-public label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.section-public textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid #80878b;
+  border-radius: 4px;
+  font: inherit;
+  background: #fff;
+  color: #202b34;
+}
+
+.section-public textarea:focus-visible,
+.section-public button:focus-visible {
+  outline: 3px solid #186a99;
+  outline-offset: 3px;
+}
+
+.section-public-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 14px;
+}
+
+.section-public button {
+  min-height: 44px;
+  min-width: 120px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--ehrman-link, #176b99);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.section-public button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+#section-public-status {
+  margin: 0;
+}
+
+#section-public-error {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-left: 3px solid #9f2525;
+  background: #fff0ee;
+  color: #762323;
+}
+
+#section-public-results:not(:empty) {
+  margin-top: 32px;
+}
+
+#section-public-results h2 {
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+
+.section-public-result {
+  border-top: 1px solid #d9dfe2;
+  padding: 18px 0;
+}
+
+.section-public-result h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+
+.section-public-result p {
+  margin: 6px 0 0;
+  line-height: 1.6;
+}
+
+.section-public-tier {
+  color: #48565e;
+  font-size: 14px;
+}
+
+@media (min-width: 941px) {
+  .ehrman-section-public-enabled .ehrman-navigation {
+    gap: 16px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 941px) and (max-width: 1350px) {
+  .ehrman-section-public-enabled .ehrman-brand-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .ehrman-section-public-enabled .ehrman-brand {
+    flex-basis: auto;
+  }
+
+  .ehrman-section-public-enabled .ehrman-navigation {
+    flex: 0 0 auto;
+    max-width: none;
+    width: 100%;
+    min-height: 42px;
+  }
+}

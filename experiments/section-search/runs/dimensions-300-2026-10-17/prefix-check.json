@@ -1,0 +1,8 @@
+{
+  "scope": "Offline comparison of each saved512vector with the normalized first512components of its newly generated1536vector. Original vectors are not replaced.",
+  "vectors": 2636,
+  "minimumCosine": 0.9961690724829876,
+  "meanCosine": 0.9999918891565156,
+  "pairsBelow0999": 6,
+  "interpretation": "The prefixes closely agree but are not bitwise identical. The experiment compares saved512with newly generated1536API configurations, not a mathematically exact truncation of a single generation. Minor generation/numeric variation is a limitation; no claim is made about its cause."
+}

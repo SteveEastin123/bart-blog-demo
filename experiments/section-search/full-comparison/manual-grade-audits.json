@@ -1,0 +1,14 @@
+{
+  "purpose": "Source-text audits of rejected evidence; no search method or rank supplied during the audit. Original provider judgments are retained.",
+  "audits": [
+    {
+      "questionId": 6,
+      "wpId": "16136",
+      "receipt": "488bd8cea5aba6186121b705aa9b1908b10b09723e00955c79a32ea67bf880e2",
+      "grade": 1,
+      "reason": "Explains how belief in Jesus' sinlessness developed from sacrificial interpretations after the resurrection, but does not address why John baptized Jesus or the Gospel baptism narratives. Useful background, not an answer to the baptism problem.",
+      "evidence": "To say that Jesus was a perfect sacrifice was to say nothing about his physical attributes",
+      "auditNote": "Codex read the complete frozen post. The rejected quotation about Matthew sanitizing Mark is absent; the post explicitly defers implications for Jesus' life to a subsequent installment."
+    }
+  ]
+}

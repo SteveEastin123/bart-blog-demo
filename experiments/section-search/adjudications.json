@@ -1,0 +1,18 @@
+{
+  "reviewer": "Coding agent full-text spot check; not a human gold-standard review",
+  "unchangedChecks": [
+    {"question": 3, "wpId": "9581", "grade": 3, "note": "Read the complete post. Its discussion of false and social memory directly supports different sincere recollections. The quotation mismatch was initial capitalization."},
+    {"question": 34, "wpId": "11611", "grade": 3, "note": "Read the complete post. It explicitly distinguishes divergent scholarly opinions from consensus on core points."},
+    {"question": 34, "wpId": "25687", "grade": 3, "note": "Read the complete post. The repeated discussion explicitly distinguishes divergent views from consensus; it warrants the same grade as its earlier version."}
+  ],
+  "overrides": [
+    {"question": 43, "wpId": "8375", "grade": 1, "reason": "Discusses incarnation and the virgin birth in John but does not analyze the phrase 'only begotten' or its role in interpretive arguments. The connection is marginal, not substantial support.", "evidence": "But there is no mention here of a virgin birth."},
+    {"question": 43, "wpId": "14400", "grade": 1, "reason": "Reprints the same substantive discussion as post 8375, with a new introduction. Neither version analyzes 'only begotten'; both receive the same marginal-relevance grade.", "evidence": "But there is no mention here of a virgin birth."},
+    {"question": 11, "wpId": "40686", "grade": 2, "reason": "Full-text check confirms a substantial example of doctrinal stakes in canon acceptance. Retain the grade; replace the quotation's paraphrased opening with exact source wording.", "evidence": "church fathers had become increasingly antagonistic toward the idea that everyone would be saved"},
+    {"question": 14, "wpId": "4667", "grade": 3, "reason": "Full-text check confirms direct discussion of transcriptional versus intrinsic probabilities, distinguishing what scribes preferred from what the author produced. Retain the grade; choose an exact excerpt without omitted emphasis markup.", "evidence": "if you have two forms of the text, which of the two would *scribes* have been more likely to prefer"},
+    {"question": 21, "wpId": "37909", "grade": 2, "reason": "Full-text check confirms a substantial case study in the limits of archaeological inference: later tombs do not establish absence of an earlier settlement. Retain the grade; correct the quoted verb from 'based' to the source's 'bases'.", "evidence": "he bases almost his entire case on archaeological reports about the town of Nazareth"},
+    {"question": 32, "wpId": "35255", "grade": 2, "reason": "Full-text check confirms useful partial context on gentile Christians and Jewish law, while the post does not cover the whole later history of attitudes toward Jews. Retain the grade and include the source's emphasis markup in the quotation.", "evidence": "The gentile followers of Jesus were not, *absolutely* not, supposed to become Jewish."},
+    {"question": 36, "wpId": "47282", "grade": 1, "reason": "Full-text check finds only an incidental mention of Thecla in a post about chastity, not an account of women exercising authority. Retain the marginal grade; the previous supporting quotation was not in the source.", "evidence": "Paul and his most famous female disciple Thecla"},
+    {"question": 42, "wpId": "13186", "grade": 1, "reason": "Full-text check confirms apocalyptic-kingdom background but no discussion of buying swords. Retain the marginal grade; correct 'The future' to the source's 'This future'.", "evidence": "This future kingdom stands over against the present evil kingdoms"}
+  ]
+}

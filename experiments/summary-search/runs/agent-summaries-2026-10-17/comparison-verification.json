@@ -1,0 +1,47 @@
+{
+  "run": "agent-summaries-2026-10-17",
+  "status": "completed",
+  "checks": {
+    "pythonUnitTestsPassed": 29,
+    "mockedPhpChecksPassed": 641,
+    "mockedPhpPaidCalls": 0,
+    "phpcsWordPressCore": "passed",
+    "phpstanLevel5": "passed",
+    "localWordPressRegression": "passed",
+    "originalFrozenFilesUnchanged": 112,
+    "additionalComparisonInputsUnchanged": true,
+    "discoveryTablesUnchangedAfterSearches": 19,
+    "discoveryTablesUnchangedAfterValidationAndCleanup": 19,
+    "acceptedSearchesAudited": 100,
+    "extraPaidSearchPhases": 0
+  },
+  "grading": {
+    "questionPostPairs": 953,
+    "reusedVerifiedFullPostGrades": 719,
+    "newBlindedFullPostGrades": 234,
+    "coordinatingAgentSpotChecks": 8,
+    "documentedCorrections": 3,
+    "originalGradeFilesPreserved": true,
+    "humanGoldStandard": false
+  },
+  "cleanup": {
+    "temporarySummaryPlugin": "ehrman-summary-pilot deactivated",
+    "experimentalFilesPreserved": true,
+    "normalSearchConfigurationChanged": false,
+    "canonicalSummariesOrVectorsReplaced": false,
+    "downloadSkillChanged": false,
+    "productionIngestionChanged": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "privateEvidence": [
+    "database-before.json",
+    "database-after.json",
+    "database-after-validation.json",
+    "server-requests.jsonl",
+    "searches/",
+    "grades/",
+    "grading-cache/"
+  ]
+}
