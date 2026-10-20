@@ -28,13 +28,11 @@ final class AI_Analytics_Renderer {
 		$report                = AI_Requests::analytics( $filters, $page, self::PAGE_SIZE );
 		$all_report            = AI_Requests::analytics( $filters, 1, 0 );
 		$request_ids           = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $all_report['rows'] ), true );
-		$refinements           = $report_builder->filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
-		$refinement_costs      = $report_builder->refinement_costs_by_request( $refinements );
+		$refinements           = $report_builder->filtered_refinements( AI_Refinements::recent( 0 ), $request_ids );
+		$rows                  = $report_builder->question_rows( $report['rows'], $refinements );
 		$summary               = $report_builder->summary( $all_report['rows'], $refinements );
-		$usage                 = AI_Usage::report();
 		$semantic_index_usage  = AI_Usage::semantic_index_report();
-		$periods               = $report_builder->periods( $filters['interface'] );
-		$comparison            = $report_builder->comparison( $filters );
+		$periods               = $report_builder->periods();
 		$total_pages           = max( 1, (int) ceil( $report['total'] / self::PAGE_SIZE ) );
 		$export_url            = wp_nonce_url(
 			add_query_arg( array_merge( array( 'action' => 'ehrman_ai_analytics_csv' ), $filters ), admin_url( 'admin-post.php' ) ),
@@ -55,65 +53,61 @@ final class AI_Analytics_Renderer {
 		);
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html__( 'AI Search Analytics', 'ehrman-blog-discovery' ); ?></h1>
+			<h1><?php echo esc_html__( 'Ask AI Analytics', 'ehrman-blog-discovery' ); ?></h1>
 			<?php if ( $was_reset ) : ?>
-				<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Test analytics and AI search caches were reset. The semantic post index and its preparation history were preserved.', 'ehrman-blog-discovery' ); ?></p></div>
+				<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Active Ask AI analytics and search caches were reset. Retired-method history, post vectors and index-preparation history were preserved.', 'ehrman-blog-discovery' ); ?></p></div>
 			<?php endif; ?>
-			<p><?php echo esc_html__( 'Detailed questions are retained for 90 days. Dates are displayed in Eastern time; timestamps remain stored in UTC. No account, IP address, or browser identifier is stored with a request.', 'ehrman-blog-discovery' ); ?></p>
-			<?php self::view_tabs( $filters ); ?>
-			<?php if ( 'comparison' === $filters['view'] ) : ?>
-				<?php self::comparison_table( $comparison ); ?>
-				<?php self::semantic_index_note( $semantic_index_usage ); ?>
-				<?php self::comparison_period_table( $report_builder->comparison_periods() ); ?>
-				<?php self::filter_form( $filters ); ?>
-				<p><?php echo esc_html__( 'The comparison respects the active date, question, feedback, and zero-result filters. Initial cost covers topic interpretation for Ask AI 1 and semantic retrieval for Ask AI 2; refinement cost covers title-and-summary evaluation.', 'ehrman-blog-discovery' ); ?></p>
-			<?php else : ?>
-			<div style="display:flex;gap:12px;flex-wrap:wrap;max-width:1200px;margin:18px 0">
+			<p><?php echo esc_html__( 'Reports include the active title-and-summary search only. Retired methods and experiments are excluded. Dates use Eastern time; no account, IP address or browser identifier is stored with a request.', 'ehrman-blog-discovery' ); ?></p>
+			<?php self::filter_form( $filters ); ?>
+			<div style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0" data-ebd-analytics-metrics>
+				<?php self::metric( __( 'Total estimated cost', 'ehrman-blog-discovery' ), self::usd( $summary['total_cost'] ) ); ?>
+				<?php self::metric( __( 'Average cost per question', 'ehrman-blog-discovery' ), self::cents( $summary['average_question'] ) ); ?>
 				<?php self::metric( __( 'Questions', 'ehrman-blog-discovery' ), number_format_i18n( $summary['questions'] ) ); ?>
-				<?php self::metric( __( 'Refinements', 'ehrman-blog-discovery' ), number_format_i18n( $summary['refinements'] ) ); ?>
-				<?php self::metric( __( 'Estimated cost', 'ehrman-blog-discovery' ), self::usd( $summary['total_cost'] ) ); ?>
-				<?php self::metric( __( 'Average per question', 'ehrman-blog-discovery' ), self::cents( $summary['average_question'] ) ); ?>
-				<?php self::metric( __( 'Average initial step', 'ehrman-blog-discovery' ), self::cents( $summary['average_interpretation'] ) ); ?>
-				<?php self::metric( __( 'Average refinement', 'ehrman-blog-discovery' ), self::cents( $summary['average_refinement'] ) ); ?>
-				<?php self::metric( __( 'Refinement rate', 'ehrman-blog-discovery' ), number_format_i18n( $summary['refinement_rate'], 1 ) . '%' ); ?>
-				<?php self::metric( __( 'Helpful rate', 'ehrman-blog-discovery' ), number_format_i18n( $report['helpful_rate'], 1 ) . '%' ); ?>
+				<?php self::metric( __( 'Average posts returned', 'ehrman-blog-discovery' ), number_format_i18n( $summary['average_results'], 1 ) ); ?>
+				<?php self::metric( __( 'Helpful rate', 'ehrman-blog-discovery' ), self::percentage( $report['helpful_rate'], $report['yes'] + $report['no'] ) ); ?>
+				<?php self::metric( __( 'Zero-result questions', 'ehrman-blog-discovery' ), number_format_i18n( $summary['zero_results'] ) ); ?>
 			</div>
-			<p><?php echo esc_html__( 'Summary cards reflect the active filters. OpenAI reports the token, cache, model, and service-tier details; this plugin converts those values to estimated dollars using the pricing version shown. Confirm billed amounts in the OpenAI usage dashboard.', 'ehrman-blog-discovery' ); ?></p>
-				<?php self::period_table( $periods ); ?>
-				<?php if ( 'combined' === $filters['view'] ) : ?>
-					<?php self::usage_details( $usage ); ?>
-			<?php endif; ?>
-				<?php self::filter_form( $filters ); ?>
-			<p><a class="button" href="<?php echo esc_url( $export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinement_export_url ); ?>"><?php echo esc_html__( 'Export refinements CSV', 'ehrman-blog-discovery' ); ?></a></p>
-			<table class="widefat striped">
-				<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Method', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Topics and keywords', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+			<p><?php echo esc_html( sprintf( /* translators: 1: embedding cost, 2: review cost. */ __( 'Query embeddings: %1$s; AI review: %2$s. Totals and averages include both stages and respect the active filters, including cached questions.', 'ehrman-blog-discovery' ), self::usd( $summary['initial_cost'], 6 ), self::usd( $summary['refinement_cost'], 6 ) ) ); ?></p>
+			<p><?php echo esc_html__( 'Costs are estimates based on API-reported usage and recorded pricing. Confirm billed amounts in the OpenAI usage dashboard. Index preparation is reported separately.', 'ehrman-blog-discovery' ); ?></p>
+			<?php self::usage_details( $summary ); ?>
+			<h2><?php echo esc_html__( 'Questions', 'ehrman-blog-discovery' ); ?></h2>
+			<p><a class="button" href="<?php echo esc_url( $export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinement_export_url ); ?>"><?php echo esc_html__( 'Export AI reviews CSV', 'ehrman-blog-discovery' ); ?></a></p>
+			<div style="overflow-x:auto">
+			<table class="widefat striped" data-ebd-analytics-questions>
+				<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total tokens', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 				<tbody>
-				<?php if ( empty( $report['rows'] ) ) : ?>
-					<tr><td colspan="9"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
+				<?php if ( empty( $rows ) ) : ?>
+					<tr><td colspan="7"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
 				<?php else : ?>
-					<?php foreach ( $report['rows'] as $row ) : ?>
-						<?php self::row( $row, $refinement_costs[ Database::text( $row['request_id'] ?? '' ) ] ?? 0.0 ); ?>
+					<?php foreach ( $rows as $row ) : ?>
+						<?php self::row( $row ); ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
 				</tbody>
 			</table>
-				<?php self::pagination( $page, $total_pages, $filters ); ?>
-			<h2 style="margin-top:32px"><?php echo esc_html__( 'Recent refinement requests', 'ehrman-blog-discovery' ); ?></h2>
-			<p><?php echo esc_html__( 'Refinement events are linked to their original question but report their own token usage and estimated cost.', 'ehrman-blog-discovery' ); ?></p>
-			<table class="widefat striped">
-				<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Retained posts', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Refinement cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Status', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-				<tbody>
-				<?php if ( empty( $refinements ) ) : ?>
-					<tr><td colspan="8"><?php echo esc_html__( 'No refinement requests have been recorded.', 'ehrman-blog-discovery' ); ?></td></tr>
-				<?php else : ?>
-					<?php foreach ( array_slice( $refinements, 0, 100 ) as $refinement ) : ?>
-						<?php self::refinement_row( $refinement ); ?>
-					<?php endforeach; ?>
-				<?php endif; ?>
-				</tbody>
-			</table>
-			<?php endif; ?>
-			<?php self::reset_controls( $export_url, $refinement_export_url, $filters['view'] ); ?>
+			</div>
+			<?php self::pagination( $page, $total_pages, $filters ); ?>
+			<details style="margin:24px 0">
+				<summary><strong><?php echo esc_html__( 'AI review details', 'ehrman-blog-discovery' ); ?></strong></summary>
+				<p><?php echo esc_html__( 'The latest 100 reviews linked to the filtered questions. The CSV export includes all matching reviews.', 'ehrman-blog-discovery' ); ?></p>
+				<div style="overflow-x:auto">
+				<table class="widefat striped">
+					<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Retained posts', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'AI review cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Status', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+					<tbody>
+					<?php if ( empty( $refinements ) ) : ?>
+						<tr><td colspan="8"><?php echo esc_html__( 'No AI reviews match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
+					<?php else : ?>
+						<?php foreach ( array_slice( $refinements, 0, 100 ) as $refinement ) : ?>
+							<?php self::refinement_row( $refinement ); ?>
+						<?php endforeach; ?>
+					<?php endif; ?>
+					</tbody>
+				</table>
+				</div>
+			</details>
+			<?php self::period_table( $periods ); ?>
+			<?php self::semantic_index_note( $semantic_index_usage ); ?>
+			<?php self::reset_controls( $export_url, $refinement_export_url ); ?>
 		</div>
 		<?php
 	}
@@ -131,91 +125,13 @@ final class AI_Analytics_Renderer {
 	}
 
 	/**
-	 * Renders the Combined, Ask AI, Ask AI 2, and Comparison tabs.
-	 *
-	 * @param array<string,string> $filters Active administrator filters.
-	 */
-	private static function view_tabs( array $filters ): void {
-		$tabs = array(
-			'combined'   => __( 'Combined', 'ehrman-blog-discovery' ),
-			'ask-ai'     => __( 'Ask AI 1', 'ehrman-blog-discovery' ),
-			'ask-ai-2'   => __( 'Ask AI 2', 'ehrman-blog-discovery' ),
-			'comparison' => __( 'Comparison', 'ehrman-blog-discovery' ),
-		);
-		$args = array_filter(
-			array(
-				'feedback'     => $filters['feedback'],
-				'date_from'    => $filters['date_from'],
-				'date_to'      => $filters['date_to'],
-				'search'       => $filters['search'],
-				'zero_results' => $filters['zero_results'],
-			),
-			static fn( string $value ): bool => '' !== $value && 'all' !== $value
-		);
-		?>
-		<nav class="nav-tab-wrapper" aria-label="<?php echo esc_attr__( 'Analytics view', 'ehrman-blog-discovery' ); ?>">
-			<?php foreach ( $tabs as $view => $label ) : ?>
-				<?php
-				$url = add_query_arg(
-					array_merge(
-						array(
-							'page' => 'ehrman-ai-analytics',
-							'view' => $view,
-						),
-						$args
-					),
-					admin_url( 'tools.php' )
-				);
-				?>
-				<a class="nav-tab <?php echo esc_attr( $filters['view'] === $view ? 'nav-tab-active' : '' ); ?>" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $label ); ?></a>
-			<?php endforeach; ?>
-		</nav>
-		<?php
-	}
-
-	/**
-	 * Renders the side-by-side interface comparison.
-	 *
-	 * @param array<string,array<string,int|float>> $comparison Interface summary values.
-	 */
-	private static function comparison_table( array $comparison ): void {
-		$taxonomy = $comparison['taxonomy'];
-		$semantic = $comparison['semantic'];
-		$rows     = array(
-			__( 'Questions', 'ehrman-blog-discovery' )    => array( number_format_i18n( (int) $taxonomy['questions'] ), number_format_i18n( (int) $semantic['questions'] ) ),
-			__( 'OpenAI calls per question', 'ehrman-blog-discovery' ) => array( number_format_i18n( (float) $taxonomy['average_calls'], 2 ), number_format_i18n( (float) $semantic['average_calls'], 2 ) ),
-			__( 'Total estimated cost', 'ehrman-blog-discovery' ) => array( self::usd( (float) $taxonomy['total_cost'] ), self::usd( (float) $semantic['total_cost'] ) ),
-			__( 'Average cost per question', 'ehrman-blog-discovery' ) => array( self::cents( (float) $taxonomy['average_question'] ), self::cents( (float) $semantic['average_question'] ) ),
-			__( 'Initial-stage cost', 'ehrman-blog-discovery' ) => array( self::usd( (float) $taxonomy['initial_cost'], 6 ), self::usd( (float) $semantic['initial_cost'], 6 ) ),
-			__( 'Refinement cost', 'ehrman-blog-discovery' ) => array( self::usd( (float) $taxonomy['refinement_cost'] ), self::usd( (float) $semantic['refinement_cost'] ) ),
-			__( 'Average posts returned', 'ehrman-blog-discovery' ) => array( number_format_i18n( (float) $taxonomy['average_results'], 1 ), number_format_i18n( (float) $semantic['average_results'], 1 ) ),
-			__( 'Zero-result questions', 'ehrman-blog-discovery' ) => array( number_format_i18n( (int) $taxonomy['zero_results'] ), number_format_i18n( (int) $semantic['zero_results'] ) ),
-			__( 'Helpful / Not helpful', 'ehrman-blog-discovery' ) => array( number_format_i18n( (int) $taxonomy['yes'] ) . ' / ' . number_format_i18n( (int) $taxonomy['no'] ), number_format_i18n( (int) $semantic['yes'] ) . ' / ' . number_format_i18n( (int) $semantic['no'] ) ),
-			__( 'Feedback not provided', 'ehrman-blog-discovery' ) => array( number_format_i18n( (int) $taxonomy['unanswered'] ), number_format_i18n( (int) $semantic['unanswered'] ) ),
-			__( 'Feedback response rate', 'ehrman-blog-discovery' ) => array( self::percentage( (float) $taxonomy['response_rate'], (int) $taxonomy['yes'] + (int) $taxonomy['no'] ), self::percentage( (float) $semantic['response_rate'], (int) $semantic['yes'] + (int) $semantic['no'] ) ),
-			__( 'Helpful rate', 'ehrman-blog-discovery' ) => array( self::percentage( (float) $taxonomy['helpful_rate'], (int) $taxonomy['yes'] + (int) $taxonomy['no'] ), self::percentage( (float) $semantic['helpful_rate'], (int) $semantic['yes'] + (int) $semantic['no'] ) ),
-		);
-		?>
-		<h2><?php echo esc_html__( 'Side-by-side comparison', 'ehrman-blog-discovery' ); ?></h2>
-		<table class="widefat striped" style="max-width:900px">
-			<thead><tr><th><?php echo esc_html__( 'Metric', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 1', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 2', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-			<tbody>
-			<?php foreach ( $rows as $label => $values ) : ?>
-				<tr><th scope="row"><?php echo esc_html( $label ); ?></th><td><?php echo esc_html( $values[0] ); ?></td><td><?php echo esc_html( $values[1] ); ?></td></tr>
-			<?php endforeach; ?>
-			</tbody>
-		</table>
-		<?php
-	}
-
-	/**
 	 * Identifies the one-time semantic index cost excluded from question costs.
 	 *
 	 * @param array{calls:int,input_tokens:int,total_cost:float} $usage Semantic index usage.
 	 */
 	private static function semantic_index_note( array $usage ): void {
 		?>
-		<p><strong><?php echo esc_html__( 'Ask AI 2 index preparation:', 'ehrman-blog-discovery' ); ?></strong>
+		<p><strong><?php echo esc_html__( 'Index preparation:', 'ehrman-blog-discovery' ); ?></strong>
 		<?php
 		echo esc_html(
 			sprintf(
@@ -232,71 +148,38 @@ final class AI_Analytics_Renderer {
 	}
 
 	/**
-	 * Renders cost comparisons for standard reporting periods.
-	 *
-	 * @param array<string,array<string,array<string,int|float>>> $periods Period rows by interface.
-	 */
-	private static function comparison_period_table( array $periods ): void {
-		?>
-		<h2><?php echo esc_html__( 'Cost by period', 'ehrman-blog-discovery' ); ?></h2>
-		<table class="widefat striped" style="max-width:1050px">
-			<thead><tr><th><?php echo esc_html__( 'Period', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 1 questions', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 1 cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 1 average', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 2 questions', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 2 cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Ask AI 2 average', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-			<tbody>
-			<?php foreach ( $periods as $label => $interfaces ) : ?>
-				<?php $taxonomy = $interfaces['taxonomy']; ?>
-				<?php $semantic = $interfaces['semantic']; ?>
-				<tr><th scope="row"><?php echo esc_html( $label ); ?></th><td><?php echo esc_html( number_format_i18n( (int) $taxonomy['questions'] ) ); ?></td><td><?php echo esc_html( self::usd( (float) $taxonomy['total_cost'] ) ); ?></td><td><?php echo esc_html( self::cents( (float) $taxonomy['average_question'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $semantic['questions'] ) ); ?></td><td><?php echo esc_html( self::usd( (float) $semantic['total_cost'] ) ); ?></td><td><?php echo esc_html( self::cents( (float) $semantic['average_question'] ) ); ?></td></tr>
-			<?php endforeach; ?>
-			</tbody>
-		</table>
-		<?php
-	}
-
-	/**
 	 * Renders cost totals for standard reporting periods.
 	 *
 	 * @param array<string,array<string,int|float>> $periods Period summaries.
 	 */
 	private static function period_table( array $periods ): void {
 		?>
-		<h2><?php echo esc_html__( 'Cost overview', 'ehrman-blog-discovery' ); ?></h2>
+		<h2><?php echo esc_html__( 'Cost by period', 'ehrman-blog-discovery' ); ?></h2>
+		<p><?php echo esc_html__( 'Active-method totals by question submission date, independent of the filters above.', 'ehrman-blog-discovery' ); ?></p>
+		<div style="overflow-x:auto;max-width:1050px">
 		<table class="widefat striped" style="max-width:1050px">
-			<thead><tr><th><?php echo esc_html__( 'Period', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Questions', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Refinements', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'OpenAI calls', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Average per question', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+			<thead><tr><th><?php echo esc_html__( 'Period', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Questions', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'AI reviews', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Uncached stages', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Average per question', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 			<tbody>
 			<?php foreach ( $periods as $label => $period ) : ?>
 				<tr><th scope="row"><?php echo esc_html( $label ); ?></th><td><?php echo esc_html( number_format_i18n( (int) $period['questions'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $period['refinements'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $period['api_calls'] ) ); ?></td><td><?php echo esc_html( self::usd( (float) $period['total_cost'] ) ); ?></td><td><?php echo esc_html( self::cents( (float) $period['average_question'] ) ); ?></td></tr>
 			<?php endforeach; ?>
 			</tbody>
 		</table>
+		</div>
 		<?php
 	}
 
 	/**
-	 * Renders token and model details from all retained usage events.
+	 * Renders combined token and cache statistics for the filtered questions.
 	 *
-	 * @param array<string,mixed> $usage Aggregate usage report.
+	 * @param array<string,int|float> $usage Filtered question and review totals.
 	 */
 	private static function usage_details( array $usage ): void {
-		$submissions = Database::integer( $usage['submissions'] ?? 0 );
-		$cache_hits  = Database::integer( $usage['cache_hits'] ?? 0 );
-		$cache_rate  = $submissions > 0 ? ( $cache_hits / $submissions ) * 100 : 0.0;
-		$models      = is_array( $usage['models'] ?? null ) ? $usage['models'] : array();
 		?>
-		<details style="margin:18px 0;max-width:1050px">
-			<summary><strong><?php echo esc_html__( 'Token and model details', 'ehrman-blog-discovery' ); ?></strong></summary>
-			<p><?php echo esc_html( sprintf( /* translators: 1: input tokens, 2: cached input tokens, 3: cache-write tokens, 4: output tokens, 5: reasoning tokens, 6: total tokens. */ __( '%1$s input tokens (%2$s cache reads and %3$s cache writes), %4$s output tokens (%5$s reasoning), and %6$s total tokens across retained usage.', 'ehrman-blog-discovery' ), number_format_i18n( Database::integer( $usage['input_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['cached_input_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['cache_write_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['output_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['reasoning_tokens'] ?? 0 ) ), number_format_i18n( Database::integer( $usage['total_tokens'] ?? 0 ) ) ) ); ?></p>
-			<p><?php echo esc_html( sprintf( /* translators: 1: WordPress response-cache hits, 2: cache-hit percentage, 3: average paid OpenAI call cost. */ __( 'WordPress response-cache hits: %1$s (%2$s%%). Average paid OpenAI call: %3$s.', 'ehrman-blog-discovery' ), number_format_i18n( $cache_hits ), number_format_i18n( $cache_rate, 1 ), self::cents( (float) Database::text( $usage['average_cost'] ?? 0 ) ) ) ); ?></p>
-			<?php if ( ! empty( $models ) ) : ?>
-			<table class="widefat striped">
-				<thead><tr><th><?php echo esc_html__( 'Model and tier', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Pricing version', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'OpenAI calls', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Input tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Cache reads / writes', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Output / reasoning', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total tokens', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-				<tbody>
-				<?php foreach ( $models as $raw_row ) : ?>
-					<?php $row = Database::associative_row( $raw_row ) ?? array(); ?>
-					<tr><td><?php echo esc_html( self::model_and_tier( $row ) ); ?></td><td><?php echo esc_html( Database::text( $row['pricing_version'] ?? '' ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['api_requests'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['input_tokens'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['cached_input_tokens'] ?? 0 ) ) . ' / ' . number_format_i18n( Database::integer( $row['cache_write_tokens'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['output_tokens'] ?? 0 ) ) . ' / ' . number_format_i18n( Database::integer( $row['reasoning_tokens'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( number_format_i18n( self::total_tokens( $row ) ) ); ?></td><td><?php echo esc_html( self::usd( (float) Database::text( $row['total_cost'] ?? 0 ) ) ); ?></td></tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
-			<?php endif; ?>
+		<details style="margin:18px 0">
+			<summary><strong><?php echo esc_html__( 'Token and cache details', 'ehrman-blog-discovery' ); ?></strong></summary>
+			<p><?php self::token_details( $usage ); ?></p>
+			<p><?php echo esc_html( sprintf( /* translators: 1: cached stages, 2: stage cache-hit percentage. */ __( 'WordPress-cached stages: %1$s (%2$s%% of embedding and review stages). These stages make no new API call. Cached input tokens are provider-side prompt-cache reads, not WordPress cache hits.', 'ehrman-blog-discovery' ), number_format_i18n( (int) $usage['cache_hits'] ), number_format_i18n( $usage['cache_rate'], 1 ) ) ); ?></p>
 		</details>
 		<?php
 	}
@@ -310,14 +193,12 @@ final class AI_Analytics_Renderer {
 		$clear_url = add_query_arg(
 			array(
 				'page' => 'ehrman-ai-analytics',
-				'view' => $filters['view'],
 			),
 			admin_url( 'tools.php' )
 		);
 		?>
 		<form method="get" style="display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:18px 0">
 			<input type="hidden" name="page" value="ehrman-ai-analytics">
-			<input type="hidden" name="view" value="<?php echo esc_attr( $filters['view'] ); ?>">
 			<label><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?><br><select name="feedback">
 			<?php
 			foreach ( array(
@@ -330,7 +211,7 @@ final class AI_Analytics_Renderer {
 	<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $filters['feedback'], $value ); ?>><?php echo esc_html( $label ); ?></option><?php endforeach; ?></select></label>
 			<label><?php echo esc_html__( 'From', 'ehrman-blog-discovery' ); ?><br><input type="date" name="date_from" value="<?php echo esc_attr( $filters['date_from'] ); ?>"></label>
 			<label><?php echo esc_html__( 'To', 'ehrman-blog-discovery' ); ?><br><input type="date" name="date_to" value="<?php echo esc_attr( $filters['date_to'] ); ?>"></label>
-			<label><?php echo esc_html__( 'Question or term', 'ehrman-blog-discovery' ); ?><br><input type="search" name="search" value="<?php echo esc_attr( $filters['search'] ); ?>"></label>
+			<label><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?><br><input type="search" name="search" value="<?php echo esc_attr( $filters['search'] ); ?>"></label>
 			<label><input type="checkbox" name="zero_results" value="1" <?php checked( $filters['zero_results'], '1' ); ?>> <?php echo esc_html__( 'Zero results', 'ehrman-blog-discovery' ); ?></label>
 			<button class="button button-primary" type="submit"><?php echo esc_html__( 'Apply filters', 'ehrman-blog-discovery' ); ?></button>
 			<a class="button" href="<?php echo esc_url( $clear_url ); ?>"><?php echo esc_html__( 'Clear', 'ehrman-blog-discovery' ); ?></a>
@@ -343,18 +224,16 @@ final class AI_Analytics_Renderer {
 	 *
 	 * @param string $questions_export_url  Filtered question export URL.
 	 * @param string $refinements_export_url Filtered refinement export URL.
-	 * @param string $view                  Active analytics view.
 	 */
-	private static function reset_controls( string $questions_export_url, string $refinements_export_url, string $view ): void {
-		$confirmation = __( 'Permanently clear recorded test questions, refinements, feedback, question costs, and AI search caches? The semantic post index and its preparation history will be preserved.', 'ehrman-blog-discovery' );
+	private static function reset_controls( string $questions_export_url, string $refinements_export_url ): void {
+		$confirmation = __( 'Permanently clear ALL active Ask AI questions, reviews, feedback and question costs, regardless of the filters above? Retired-method history, post vectors and index-preparation history will be preserved.', 'ehrman-blog-discovery' );
 		?>
 		<hr style="margin:32px 0 24px">
 		<h2><?php echo esc_html__( 'Reset test analytics', 'ehrman-blog-discovery' ); ?></h2>
-		<p><?php echo esc_html__( 'Export any records you want to retain before resetting. This action does not remove post embeddings or discovery search data.', 'ehrman-blog-discovery' ); ?></p>
-		<p><a class="button" href="<?php echo esc_url( $questions_export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinements_export_url ); ?>"><?php echo esc_html__( 'Export refinements CSV', 'ehrman-blog-discovery' ); ?></a></p>
+		<p><?php echo esc_html__( 'Reset affects all active-method analytics, not only the filtered rows. Export records before resetting; exports follow the current filters. Retired-method history, post vectors and discovery data are preserved.', 'ehrman-blog-discovery' ); ?></p>
+		<p><a class="button" href="<?php echo esc_url( $questions_export_url ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $refinements_export_url ); ?>"><?php echo esc_html__( 'Export AI reviews CSV', 'ehrman-blog-discovery' ); ?></a></p>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return window.confirm('<?php echo esc_js( $confirmation ); ?>');">
 			<input type="hidden" name="action" value="ehrman_ai_analytics_reset">
-			<input type="hidden" name="view" value="<?php echo esc_attr( $view ); ?>">
 			<?php wp_nonce_field( 'ehrman_ai_analytics_reset' ); ?>
 			<?php submit_button( __( 'Reset Test Analytics', 'ehrman-blog-discovery' ), 'delete', 'submit', false ); ?>
 		</form>
@@ -362,14 +241,42 @@ final class AI_Analytics_Renderer {
 	}
 
 	/**
-	 * Renders one request row.
+	 * Renders one question with total costs and tokens across both stages.
 	 *
-	 * @param array<string,mixed> $row             Request row.
-	 * @param float               $refinement_cost Cost of AI review calls linked to the request.
+	 * @param array<string,mixed> $row Enriched question row.
 	 */
-	private static function row( array $row, float $refinement_cost ): void {
+	private static function row( array $row ): void {
+		$usage   = Database::associative_row( $row['question_usage'] ?? null ) ?? array();
+		$reviews = Database::associative_rows( $row['reviews'] ?? array() );
 		?>
-		<tr><td><?php echo esc_html( self::display_datetime( $row ) ); ?></td><td><?php echo esc_html( self::request_type_label( $row ) ); ?></td><td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?></td><td><?php echo esc_html( self::term_text( $row ) ); ?></td><td><?php echo esc_html( number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) ); ?></td><td><?php echo esc_html( self::feedback_label( $row ) ); ?></td><td><?php self::source_details( $row ); ?></td><td><?php self::token_details( $row ); ?></td><td><?php self::request_cost_details( $row, $refinement_cost ); ?></td></tr>
+		<tr>
+			<td><?php echo esc_html( self::display_datetime( $row ) ); ?></td>
+			<td><?php echo esc_html( Database::text( $row['question'] ?? '' ) ); ?>
+				<?php if ( 1 !== Database::integer( $row['request_succeeded'] ?? 0 ) ) : ?>
+					<br><strong><?php echo esc_html__( 'Failed', 'ehrman-blog-discovery' ); ?></strong>: <?php echo esc_html( Database::text( $row['error_code'] ?? '' ) ); ?>
+				<?php endif; ?>
+			</td>
+			<td><?php self::request_cost_details( $row, (float) Database::text( $usage['refinement_cost'] ?? 0 ) ); ?></td>
+			<td><?php echo esc_html( 1 === Database::integer( $row['result_recorded'] ?? 0 ) ? number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) : __( 'Not recorded', 'ehrman-blog-discovery' ) ); ?></td>
+			<td><?php echo esc_html( self::feedback_label( $row ) ); ?></td>
+			<td>
+				<details><summary><?php echo esc_html__( 'Embedding and AI review', 'ehrman-blog-discovery' ); ?></summary>
+				<p><?php echo esc_html__( 'Embedding:', 'ehrman-blog-discovery' ); ?><br><?php self::source_details( $row ); ?></p>
+				<?php foreach ( $reviews as $review ) : ?>
+					<p><?php echo esc_html__( 'AI review:', 'ehrman-blog-discovery' ); ?><br><?php self::source_details( $review ); ?>
+					<?php if ( 1 !== Database::integer( $review['request_succeeded'] ?? 0 ) ) : ?>
+						<br><?php echo esc_html__( 'Failed; broader results returned.', 'ehrman-blog-discovery' ); ?>
+					<?php endif; ?>
+					</p>
+				<?php endforeach; ?>
+				<?php
+				if ( empty( $reviews ) ) :
+					?>
+					<p><?php echo esc_html__( 'No AI review recorded.', 'ehrman-blog-discovery' ); ?></p><?php endif; ?>
+				</details>
+			</td>
+			<td><?php self::token_details( $usage ); ?></td>
+		</tr>
 		<?php
 	}
 
@@ -399,7 +306,7 @@ final class AI_Analytics_Renderer {
 		$total_cost   = $initial_cost + $refinement_cost;
 		?>
 		<strong><?php echo esc_html( self::cents( $total_cost ) ); ?></strong>
-		<br><small><?php echo esc_html( sprintf( /* translators: 1: initial-call cost, 2: AI-review cost. */ __( 'Initial: %1$s; AI review: %2$s', 'ehrman-blog-discovery' ), self::cents( $initial_cost ), self::cents( $refinement_cost ) ) ); ?></small>
+		<br><small><?php echo esc_html( sprintf( /* translators: 1: initial-call cost, 2: AI-review cost. */ __( 'Embedding: %1$s; AI review: %2$s', 'ehrman-blog-discovery' ), self::cents( $initial_cost ), self::cents( $refinement_cost ) ) ); ?></small>
 		<?php
 	}
 
@@ -587,39 +494,6 @@ final class AI_Analytics_Renderer {
 		if ( '' !== $links ) {
 			echo '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post( $links ) . '</div></div>';
 		}
-	}
-
-	/**
-	 * Returns readable interpreted terms with their types.
-	 *
-	 * @param array<string,mixed> $row Request row.
-	 */
-	private static function term_text( array $row ): string {
-		if ( 'semantic' === Database::text( $row['request_type'] ?? '' ) ) {
-			return __( 'Not used', 'ehrman-blog-discovery' );
-		}
-		$decoded = json_decode( Database::text( $row['selected_terms'] ?? '' ), true );
-		if ( ! is_array( $decoded ) ) {
-			return '';
-		}
-		$labels = array();
-		foreach ( $decoded as $term ) {
-			if ( is_array( $term ) && is_scalar( $term['label'] ?? null ) ) {
-				$labels[] = ucfirst( 'topic' === ( $term['mode'] ?? '' ) ? 'topic' : 'keyword' ) . ': ' . sanitize_text_field( (string) $term['label'] );
-			}
-		}
-		return implode( ' | ', $labels );
-	}
-
-	/**
-	 * Returns a readable search-pipeline name.
-	 *
-	 * @param array<string,mixed> $row Request row.
-	 */
-	private static function request_type_label( array $row ): string {
-		return 'semantic' === Database::text( $row['request_type'] ?? '' )
-			? __( 'Ask AI 2', 'ehrman-blog-discovery' )
-			: __( 'Ask AI 1', 'ehrman-blog-discovery' );
 	}
 
 	/**

@@ -22,63 +22,128 @@ final class AI_Analytics_Exporter {
 	 * @param string               $dataset Dataset identifier.
 	 */
 	public function export( array $filters, string $dataset ): void {
-		if ( 'refinements' === $dataset ) {
-			$this->export_refinements( $filters );
-			return;
-		}
-
-		$report = AI_Requests::analytics( $filters, 1, 0 );
-		$output = $this->open_output( 'ask-ai-analytics-' . gmdate( 'Y-m-d' ) . '.csv' );
-		fputcsv( $output, array( 'Date (Eastern)', 'Method', 'Question', 'Topics and keywords', 'Results', 'Feedback', 'Response ID', 'Model', 'Service tier', 'Prompt version', 'WordPress cache hit', 'Input tokens', 'Cached input tokens', 'Cache write tokens', 'Output tokens', 'Reasoning tokens', 'Total tokens', 'Estimated cost USD', 'Pricing version', 'Status', 'Error code' ) );
-		foreach ( $report['rows'] as $row ) {
-			fputcsv(
-				$output,
-				array(
-					$this->csv_datetime( $row ),
-					$this->request_type_label( $row ),
-					Database::text( $row['question'] ?? '' ),
-					$this->term_text( $row ),
-					Database::integer( $row['result_count'] ?? 0 ),
-					$this->feedback_label( $row ),
-					Database::text( $row['response_id'] ?? '' ),
-					$this->source_model( $row ),
-					Database::text( $row['service_tier'] ?? '' ),
-					Database::text( $row['prompt_version'] ?? '' ),
-					Database::integer( $row['cache_hit'] ?? 0 ),
-					Database::integer( $row['input_tokens'] ?? 0 ),
-					Database::integer( $row['cached_input_tokens'] ?? 0 ),
-					Database::integer( $row['cache_write_tokens'] ?? 0 ),
-					Database::integer( $row['output_tokens'] ?? 0 ),
-					Database::integer( $row['reasoning_tokens'] ?? 0 ),
-					$this->total_tokens( $row ),
-					Database::text( $row['estimated_cost_usd'] ?? 0 ),
-					Database::text( $row['pricing_version'] ?? '' ),
-					1 === Database::integer( $row['request_succeeded'] ?? 0 ) ? 'Success' : 'Failed',
-					Database::text( $row['error_code'] ?? '' ),
-				)
-			);
+		$reviews = 'refinements' === $dataset;
+		$output  = $this->open_output( ( $reviews ? 'ask-ai-reviews-' : 'ask-ai-analytics-' ) . gmdate( 'Y-m-d' ) . '.csv' );
+		if ( $reviews ) {
+			$this->write_refinements( $output, $filters );
+		} else {
+			$this->write_questions( $output, $filters );
 		}
 		$this->close_output( $output );
 	}
 
 	/**
-	 * Streams refinement rows linked to the filtered questions.
+	 * Writes question totals to a stream; authorization is enforced by the page.
 	 *
+	 * @param resource             $output  Writable CSV stream.
 	 * @param array<string,string> $filters Sanitized analytics filters.
 	 */
-	private function export_refinements( array $filters ): void {
-		$report      = AI_Requests::analytics( $filters, 1, 0 );
-		$request_ids = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $report['rows'] ), true );
-		$rows        = array_values(
-			array_filter(
-				AI_Refinements::recent( 5000 ),
-				static fn( array $row ): bool => isset( $request_ids[ Database::text( $row['request_id'] ?? '' ) ] )
+	public function write_questions( $output, array $filters ): void {
+		$builder = new AI_Analytics_Report();
+		$report  = AI_Requests::analytics( $filters, 1, 0 );
+		$rows    = $builder->question_rows( $report['rows'], AI_Refinements::recent( 0 ) );
+		$this->write_row(
+			$output,
+			array(
+				'Date (Eastern)',
+				'Request ID',
+				'Question',
+				'Results',
+				'Feedback',
+				'Total cost USD',
+				'Embedding cost USD',
+				'AI review cost USD',
+				'Total tokens',
+				'Input tokens',
+				'Cached input tokens',
+				'Cache write tokens',
+				'Output tokens',
+				'Reasoning tokens',
+				'Embedding WordPress cache hit',
+				'AI reviews',
+				'AI review WordPress cache hits',
+				'Embedding response ID',
+				'Embedding model',
+				'Embedding pricing version',
+				'Pipeline version',
+				'Status',
+				'Error code',
 			)
 		);
-		$output      = $this->open_output( 'ask-ai-refinements-' . gmdate( 'Y-m-d' ) . '.csv' );
-		fputcsv( $output, array( 'Date (Eastern)', 'Parent request ID', 'Refinement ID', 'Question', 'Original results', 'Candidates reviewed', 'Refined results', 'Retained posts', 'Response ID', 'Model', 'Service tier', 'Prompt version', 'WordPress cache hit', 'Input tokens', 'Cached input tokens', 'Cache write tokens', 'Output tokens', 'Reasoning tokens', 'Total tokens', 'Estimated cost USD', 'Pricing version', 'Status', 'Error code' ) );
 		foreach ( $rows as $row ) {
-			fputcsv(
+			$usage        = Database::associative_row( $row['question_usage'] ?? null ) ?? array();
+			$review_usage = Database::associative_row( $row['review_usage'] ?? null ) ?? array();
+			$this->write_row(
+				$output,
+				array(
+					$this->csv_datetime( $row ),
+					Database::text( $row['request_id'] ?? '' ),
+					Database::text( $row['question'] ?? '' ),
+					1 === Database::integer( $row['result_recorded'] ?? 0 ) ? Database::integer( $row['result_count'] ?? 0 ) : '',
+					$this->feedback_label( $row ),
+					Database::text( $usage['total_cost'] ?? 0 ),
+					Database::text( $usage['initial_cost'] ?? 0 ),
+					Database::text( $usage['refinement_cost'] ?? 0 ),
+					Database::integer( $usage['total_tokens'] ?? 0 ),
+					Database::integer( $usage['input_tokens'] ?? 0 ),
+					Database::integer( $usage['cached_input_tokens'] ?? 0 ),
+					Database::integer( $usage['cache_write_tokens'] ?? 0 ),
+					Database::integer( $usage['output_tokens'] ?? 0 ),
+					Database::integer( $usage['reasoning_tokens'] ?? 0 ),
+					Database::integer( $row['cache_hit'] ?? 0 ),
+					Database::integer( $review_usage['refinements'] ?? 0 ),
+					Database::integer( $review_usage['cache_hits'] ?? 0 ),
+					Database::text( $row['response_id'] ?? '' ),
+					$this->source_model( $row ),
+					Database::text( $row['pricing_version'] ?? '' ),
+					Database::text( $row['prompt_version'] ?? '' ),
+					1 === Database::integer( $row['request_succeeded'] ?? 0 ) ? 'Success' : 'Failed',
+					Database::text( $row['error_code'] ?? '' ),
+				)
+			);
+		}
+	}
+
+	/**
+	 * Writes all reviews linked to the filtered active-method questions.
+	 *
+	 * @param resource             $output  Writable CSV stream.
+	 * @param array<string,string> $filters Sanitized analytics filters.
+	 */
+	public function write_refinements( $output, array $filters ): void {
+		$report      = AI_Requests::analytics( $filters, 1, 0 );
+		$request_ids = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $report['rows'] ), true );
+		$rows        = ( new AI_Analytics_Report() )->filtered_refinements( AI_Refinements::recent( 0 ), $request_ids );
+		$this->write_row(
+			$output,
+			array(
+				'Date (Eastern)',
+				'Parent request ID',
+				'Review ID',
+				'Question',
+				'Original results',
+				'Candidates reviewed',
+				'Refined results',
+				'Retained posts',
+				'Response ID',
+				'Model',
+				'Service tier',
+				'Prompt version',
+				'WordPress cache hit',
+				'Input tokens',
+				'Cached input tokens',
+				'Cache write tokens',
+				'Output tokens',
+				'Reasoning tokens',
+				'Total tokens',
+				'Estimated cost USD',
+				'Pricing version',
+				'Status',
+				'Error code',
+			)
+		);
+		foreach ( $rows as $row ) {
+			$this->write_row(
 				$output,
 				array(
 					$this->csv_datetime( $row ),
@@ -107,7 +172,20 @@ final class AI_Analytics_Exporter {
 				)
 			);
 		}
-		$this->close_output( $output );
+	}
+
+	/**
+	 * Writes one CSV row without allowing text fields to become spreadsheet formulas.
+	 *
+	 * @param resource         $output Writable CSV stream.
+	 * @param list<string|int> $cells  Row values.
+	 */
+	private function write_row( $output, array $cells ): void {
+		$cells = array_map(
+			static fn( $value ) => is_string( $value ) && preg_match( '/^[\\x00-\\x20]*[=+@-]/', $value ) ? "'" . $value : $value,
+			$cells
+		);
+		fputcsv( $output, $cells, ',', '"', '' );
 	}
 
 	/**
@@ -182,37 +260,6 @@ final class AI_Analytics_Exporter {
 	private function total_tokens( array $row ): int {
 		$total = Database::integer( $row['total_tokens'] ?? 0 );
 		return 0 < $total ? $total : Database::integer( $row['input_tokens'] ?? 0 ) + Database::integer( $row['output_tokens'] ?? 0 );
-	}
-
-	/**
-	 * Returns readable interpreted terms with their types.
-	 *
-	 * @param array<string,mixed> $row Request row.
-	 */
-	private function term_text( array $row ): string {
-		if ( 'semantic' === Database::text( $row['request_type'] ?? '' ) ) {
-			return __( 'Not used', 'ehrman-blog-discovery' );
-		}
-		$decoded = json_decode( Database::text( $row['selected_terms'] ?? '' ), true );
-		if ( ! is_array( $decoded ) ) {
-			return '';
-		}
-		$labels = array();
-		foreach ( $decoded as $term ) {
-			if ( is_array( $term ) && is_scalar( $term['label'] ?? null ) ) {
-				$labels[] = ucfirst( 'topic' === ( $term['mode'] ?? '' ) ? 'topic' : 'keyword' ) . ': ' . sanitize_text_field( (string) $term['label'] );
-			}
-		}
-		return implode( ' | ', $labels );
-	}
-
-	/**
-	 * Returns a readable search-pipeline name.
-	 *
-	 * @param array<string,mixed> $row Request row.
-	 */
-	private function request_type_label( array $row ): string {
-		return 'semantic' === Database::text( $row['request_type'] ?? '' ) ? __( 'Ask AI 2', 'ehrman-blog-discovery' ) : __( 'Ask AI 1', 'ehrman-blog-discovery' );
 	}
 
 	/**

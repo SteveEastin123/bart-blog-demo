@@ -7,7 +7,15 @@ This document defines the materials to provide to the development company for in
 - `ehrman-blog-discovery.zip`
 - Access to the corresponding source-code repository or tagged release
 
-The plugin contains Keyword Search, Browse Topics, Structure Review, autocomplete, result ranking, category filtering, MySQL integration, data importing, REST endpoints, and administrative tools.
+The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, Structure Review, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
+
+The retired topic/keyword Ask AI interpreter and experimental section-search
+plugins are not part of the production plugin. Package the active plugin directory,
+not the repository root. Both Browse Topics structures remain until the final
+structure is selected. A single Ask AI Analytics dashboard reports on the active
+semantic method; retired-method records are retained locally but excluded from
+the dashboard and its exports. Historical test data is not part of the discovery
+data package.
 
 ## 2. Discovery Data
 
@@ -72,6 +80,14 @@ Do not include:
 - Passwords or hosting credentials
 - Internal auditing files and temporary working scripts
 - The old Python, PHP, or standalone HTML implementations
+- `experiments/`, including Ask AI 3 and other experimental plugins, section
+  vectors, benchmark inputs/results, private full-text data and runtime bundles
+- Local recovery archives and database backups
+
+The demo Docker build excludes all of `experiments/` through `.dockerignore` and
+copies only the production plugin, demo theme, explicit canonical data files and
+regression checks. The repository retains experimental source for recovery; that
+does not make it part of the installable plugin or the handoff package.
 
 ## Summary
 

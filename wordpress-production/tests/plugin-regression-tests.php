@@ -11,7 +11,7 @@ use EhrmanBlogDiscovery\AI_Analytics_Report;
 use EhrmanBlogDiscovery\AI_Analytics_Page;
 use EhrmanBlogDiscovery\AI_Analytics_Request;
 use EhrmanBlogDiscovery\AI_Candidate_Reviewer;
-use EhrmanBlogDiscovery\AI_Interpreter;
+use EhrmanBlogDiscovery\AI_Settings;
 use EhrmanBlogDiscovery\AI_Usage;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
@@ -114,8 +114,7 @@ try {
 		'zero_results' => '1',
 	);
 	$analytics_filters = ( new AI_Analytics_Request() )->filters();
-	$assert_same( 'ask-ai-2', $analytics_filters['view'], 'The analytics view was not retained.' );
-	$assert_same( 'semantic', $analytics_filters['interface'], 'The analytics view did not select its interface.' );
+	$assert( ! isset( $analytics_filters['view'], $analytics_filters['interface'] ), 'Retired analytics selectors were retained.' );
 	$assert_same( 'all', $analytics_filters['feedback'], 'An invalid analytics feedback filter was retained.' );
 	$assert_same( '', $analytics_filters['date_from'], 'An invalid analytics start date was retained.' );
 	$assert_same( '2026-09-18', $analytics_filters['date_to'], 'A valid analytics end date was discarded.' );
@@ -684,7 +683,7 @@ try {
 	false === $editor_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $editor_key );
 }
 
-/* Verify AI_Interpreter delegates cached candidate review without changing its contract. */
+/* Verify direct candidate review retains the original cache key and result contract. */
 $review_question   = 'Which candidate best addresses the question?';
 $review_model      = 'review-test-model';
 $review_request_id = '00000000-0000-4000-8000-000000000042';
@@ -731,14 +730,12 @@ set_transient(
 );
 try {
 	$reviewer    = new AI_Candidate_Reviewer( 'test-api-key', $review_model );
-	$interpreter = new AI_Interpreter( $reviewer );
-	$review       = $interpreter->refine( $review_question, $review_posts, $review_request_id );
+	$review      = $reviewer->review( $review_question, $review_posts, $review_request_id );
 	$assert( ! is_wp_error( $review ), is_wp_error( $review ) ? $review->get_error_message() : 'Candidate review returned an unexpected error.' );
 	$assert_same( array( 'review-post-1', 'review-post-2' ), $review['post_ids'], 'Candidate review changed cached post ordering.' );
 	$assert_same( array( 'review-post-1' => 'direct', 'review-post-2' => 'related' ), $review['post_tiers'], 'Candidate review changed cached relevance tiers.' );
 	$assert_same( 2, $review['candidate_count'], 'Candidate review returned the wrong candidate count.' );
 	$assert_same( true, $review['cache_hit'], 'Candidate review did not report its WordPress cache hit.' );
-	$assert_same( AI_Candidate_Reviewer::prompt_version(), AI_Interpreter::refine_prompt_version(), 'The compatibility refinement prompt version changed.' );
 } finally {
 	delete_transient( $review_cache_key );
 	$wpdb->delete( $tables['ai_usage'], array( 'request_id' => $review_request_id ) );
@@ -787,5 +784,8 @@ $assert( abs( $analytics['average_question'] - 0.15 ) < 0.000001, 'Average quest
 $assert_same( 2, $analytics['api_calls'], 'Cached events were counted as paid API calls.' );
 $assert_same( 1, $analytics['cache_hits'], 'Analytics cache hits were counted incorrectly.' );
 $assert_same( 360, $analytics['total_tokens'], 'Analytics tokens were totaled incorrectly.' );
+
+require __DIR__ . '/ask-ai-cleanup-tests.php';
+require __DIR__ . '/analytics-dashboard-tests.php';
 
 echo "Plugin regression checks: OK\n";

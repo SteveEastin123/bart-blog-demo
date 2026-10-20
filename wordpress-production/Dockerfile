@@ -37,6 +37,10 @@ COPY --chown=www-data:www-data data/index/ehrman_post_search_index.json \
 RUN mkdir -p /opt/ehrman-tests
 COPY --chown=www-data:www-data wordpress-production/tests/plugin-regression-tests.php \
     /opt/ehrman-tests/plugin-regression-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-cleanup-tests.php \
+    /opt/ehrman-tests/ask-ai-cleanup-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/analytics-dashboard-tests.php \
+    /opt/ehrman-tests/analytics-dashboard-tests.php
 
 COPY --chown=www-data:www-data wordpress-production/healthz.html /opt/ehrman-code/healthz
 COPY wordpress-production/initialize-wordpress.sh /usr/local/bin/initialize-ehrman-wordpress

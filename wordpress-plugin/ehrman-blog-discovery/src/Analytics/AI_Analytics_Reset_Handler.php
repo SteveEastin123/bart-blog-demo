@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Clears test analytics while preserving semantic-index preparation data. */
+/** Clears active-method analytics without deleting archived method history. */
 final class AI_Analytics_Reset_Handler {
 	/**
 	 * Handles the protected analytics reset request.
@@ -24,7 +24,6 @@ final class AI_Analytics_Reset_Handler {
 		}
 		check_admin_referer( 'ehrman_ai_analytics_reset' );
 
-		$view = ( new AI_Analytics_Request() )->posted_view();
 		$wpdb = Database::client();
 		try {
 			if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
@@ -44,7 +43,6 @@ final class AI_Analytics_Reset_Handler {
 			add_query_arg(
 				array(
 					'page'            => 'ehrman-ai-analytics',
-					'view'            => $view,
 					'analytics_reset' => '1',
 				),
 				admin_url( 'tools.php' )
@@ -54,33 +52,25 @@ final class AI_Analytics_Reset_Handler {
 	}
 
 	/**
-	 * Deletes question analytics while preserving semantic-index preparation usage.
+	 * Deletes only active-method questions and linked review/usage records.
 	 *
 	 * @throws \RuntimeException When an analytics table cannot be cleared.
 	 */
 	private function delete_test_analytics(): void {
 		$tables = Database::tables();
-		$this->delete_all_rows( $tables['ai_feedback'] );
-		$this->delete_all_rows( $tables['ai_refinements'] );
-		$this->delete_all_rows( $tables['ai_requests'] );
-
-		$sql = "DELETE FROM {$tables['ai_usage']} WHERE request_id<>''";
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally and no external values are used.
-		if ( false === Database::client()->query( $sql ) ) {
-			throw new \RuntimeException( 'Question usage records could not be deleted.' );
-		}
-	}
-
-	/**
-	 * Deletes every row from one internally named analytics table.
-	 *
-	 * @param string $table Fully qualified table name.
-	 * @throws \RuntimeException When the analytics table cannot be cleared.
-	 */
-	private function delete_all_rows( string $table ): void {
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally.
-		if ( false === Database::client()->query( "DELETE FROM {$table}" ) ) {
-			throw new \RuntimeException( 'An analytics table could not be cleared.' );
+		$scope  = AI_Analytics_Scope::where();
+		// Delete dependents before parents, within handle()'s transaction.
+		$queries = array(
+			"DELETE u FROM {$tables['ai_usage']} u JOIN {$tables['ai_refinements']} f ON f.refinement_id=u.request_id JOIN {$tables['ai_requests']} r ON r.request_id=f.request_id WHERE {$scope}",
+			"DELETE u FROM {$tables['ai_usage']} u JOIN {$tables['ai_requests']} r ON r.request_id=u.request_id WHERE {$scope}",
+			"DELETE f FROM {$tables['ai_refinements']} f JOIN {$tables['ai_requests']} r ON r.request_id=f.request_id WHERE {$scope}",
+			"DELETE r FROM {$tables['ai_requests']} r WHERE {$scope}",
+		);
+		foreach ( $queries as $sql ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Internally generated table names and fixed active-method predicate; no request values.
+			if ( false === Database::client()->query( $sql ) ) {
+				throw new \RuntimeException( 'Active Ask AI analytics could not be deleted.' );
+			}
 		}
 	}
 }

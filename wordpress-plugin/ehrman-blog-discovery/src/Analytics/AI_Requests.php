@@ -48,8 +48,8 @@ final class AI_Requests {
 				'question'          => $question,
 				'selected_terms'    => (string) wp_json_encode( self::terms( $terms ) ),
 				'result_count'      => 0,
-				'model'             => '' !== $model ? sanitize_text_field( $model ) : AI_Interpreter::model_id(),
-				'prompt_version'    => '' !== $prompt_version ? sanitize_text_field( $prompt_version ) : AI_Interpreter::prompt_version(),
+				'model'             => '' !== $model ? sanitize_text_field( $model ) : AI_Settings::model_id(),
+				'prompt_version'    => sanitize_text_field( $prompt_version ),
 				'cache_hit'         => $cache_hit ? 1 : 0,
 				'request_succeeded' => $succeeded ? 1 : 0,
 				'error_code'        => sanitize_key( $error_code ),
@@ -119,7 +119,6 @@ final class AI_Requests {
 	 * @return array{rows:list<array<string,mixed>>,total:int,yes:int,no:int,unanswered:int,response_rate:float,helpful_rate:float}
 	 */
 	public static function analytics( array $filters, int $page = 1, int $per_page = 50 ): array {
-		self::delete_expired();
 		$filters['date_from_utc'] = self::eastern_boundary( $filters['date_from'] ?? '', false );
 		$filters['date_to_utc']   = self::eastern_boundary( $filters['date_to'] ?? '', true );
 		$rows                     = self::rows();
@@ -143,7 +142,7 @@ final class AI_Requests {
 	}
 
 	/**
-	 * Loads retained requests with their aggregated usage.
+	 * Loads active-method requests with embedding usage, before display pagination.
 	 *
 	 * @return list<array<string,mixed>> Request rows.
 	 */
@@ -151,7 +150,8 @@ final class AI_Requests {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
 		$usage  = "SELECT request_id,MAX(response_id) response_id,MAX(model) usage_model,MAX(service_tier) service_tier,MAX(pricing_version) pricing_version,SUM(input_tokens) input_tokens,SUM(cached_input_tokens) cached_input_tokens,SUM(cache_write_tokens) cache_write_tokens,SUM(output_tokens) output_tokens,SUM(reasoning_tokens) reasoning_tokens,SUM(total_tokens) total_tokens,SUM(estimated_cost_usd) estimated_cost_usd FROM {$tables['ai_usage']} WHERE request_id<>'' GROUP BY request_id";
-		$sql    = "SELECT r.*,u.response_id,u.usage_model,u.service_tier,u.pricing_version,u.input_tokens,u.cached_input_tokens,u.cache_write_tokens,u.output_tokens,u.reasoning_tokens,u.total_tokens,u.estimated_cost_usd FROM {$tables['ai_requests']} r LEFT JOIN ({$usage}) u ON u.request_id=r.request_id ORDER BY r.id DESC LIMIT 5000";
+		$scope  = AI_Analytics_Scope::where();
+		$sql    = "SELECT r.*,u.response_id,u.usage_model,u.service_tier,u.pricing_version,u.input_tokens,u.cached_input_tokens,u.cache_write_tokens,u.output_tokens,u.reasoning_tokens,u.total_tokens,u.estimated_cost_usd FROM {$tables['ai_requests']} r LEFT JOIN ({$usage}) u ON u.request_id=r.request_id WHERE {$scope} ORDER BY r.id DESC";
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- All table identifiers are generated internally.
 		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
 	}
@@ -163,14 +163,6 @@ final class AI_Requests {
 	 * @param array<string,string> $filters Administrator filters.
 	 */
 	private static function matches( array $row, array $filters ): bool {
-		$interface = $filters['interface'] ?? 'all';
-		$type      = Database::text( $row['request_type'] ?? 'taxonomy' );
-		if ( 'taxonomy' === $interface && 'semantic' === $type ) {
-			return false;
-		}
-		if ( 'semantic' === $interface && 'semantic' !== $type ) {
-			return false;
-		}
 		$feedback = $filters['feedback'] ?? 'all';
 		$value    = Database::text( $row['feedback'] ?? null );
 		if ( 'yes' === $feedback && '1' !== $value ) {
@@ -182,7 +174,7 @@ final class AI_Requests {
 		if ( 'unanswered' === $feedback && '' !== $value ) {
 			return false;
 		}
-		if ( '1' === ( $filters['zero_results'] ?? '' ) && 0 !== Database::integer( $row['result_count'] ?? 0 ) ) {
+		if ( '1' === ( $filters['zero_results'] ?? '' ) && ( 1 !== Database::integer( $row['result_recorded'] ?? 0 ) || 0 !== Database::integer( $row['result_count'] ?? 0 ) ) ) {
 			return false;
 		}
 		$created = Database::text( $row['created_at'] ?? '' );
@@ -193,7 +185,7 @@ final class AI_Requests {
 			return false;
 		}
 		$needle   = Search_Service::normalize( $filters['search'] ?? '' );
-		$haystack = Search_Service::normalize( Database::text( $row['question'] ?? '' ) . ' ' . Database::text( $row['selected_terms'] ?? '' ) );
+		$haystack = Search_Service::normalize( Database::text( $row['question'] ?? '' ) );
 		return '' === $needle || str_contains( $haystack, $needle );
 	}
 

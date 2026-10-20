@@ -66,8 +66,6 @@ services:
         generateValue: true
       - key: WORDPRESS_ADMIN_EMAIL
         sync: false
-      - key: EHRMAN_DISCOVERY_AI_TERM_STRATEGY
-        value: focused
       - key: EHRMAN_DISCOVERY_AI_RESULT_GROUPING
         value: tiers
       - key: EHRMAN_INGESTION_OPENAI_API_KEY

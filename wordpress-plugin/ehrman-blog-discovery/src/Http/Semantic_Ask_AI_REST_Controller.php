@@ -22,11 +22,11 @@ final class Semantic_Ask_AI_REST_Controller {
 	/**
 	 * Creates the controller from semantic retrieval and review services.
 	 *
-	 * @param AI_Interpreter          $interpreter     Shared AI candidate-review service.
+	 * @param AI_Candidate_Reviewer   $reviewer        AI candidate-review service.
 	 * @param Semantic_Search_Service $semantic_search Semantic candidate retrieval service.
 	 */
 	public function __construct(
-		private AI_Interpreter $interpreter,
+		private AI_Candidate_Reviewer $reviewer,
 		private Semantic_Search_Service $semantic_search
 	) {}
 
@@ -58,7 +58,7 @@ final class Semantic_Ask_AI_REST_Controller {
 				false,
 				(string) $candidates->get_error_code(),
 				'semantic',
-				AI_Interpreter::model_id(),
+				AI_Settings::model_id(),
 				Semantic_Search_Service::pipeline_version()
 			);
 			return $candidates;
@@ -72,13 +72,13 @@ final class Semantic_Ask_AI_REST_Controller {
 			true,
 			'',
 			'semantic',
-			AI_Interpreter::model_id(),
+			AI_Settings::model_id(),
 			Semantic_Search_Service::pipeline_version()
 		);
 		$broader       = $candidates['posts'];
 		$broader_count = count( $broader );
 		$refinement_id = AI_Requests::request_id();
-		$refinement    = $this->interpreter->refine( $question, $broader, $refinement_id );
+		$refinement    = $this->reviewer->review( $question, $broader, $refinement_id );
 		if ( is_wp_error( $refinement ) ) {
 			AI_Refinements::record(
 				array(

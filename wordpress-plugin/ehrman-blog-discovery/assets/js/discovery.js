@@ -134,14 +134,10 @@
     const hasState = searchHasState(form);
     const preference = searchControlsPreference();
     const initialCollapse = form.dataset.ebdInitialCollapse === "true";
-    const forceInitialCollapse = form.dataset.ebdForceInitialCollapse === "true";
     updateSearchControlsSummary(form);
     setSearchControlsCollapsed(
       form,
-      hasState && (
-        forceInitialCollapse
-        || (preference !== "expanded" && (preference === "collapsed" || initialCollapse))
-      ),
+      hasState && preference !== "expanded" && (preference === "collapsed" || initialCollapse),
       false
     );
     form.querySelector("[data-ebd-search-collapse]")?.addEventListener("click", () => {
@@ -516,18 +512,10 @@
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
   }
 
-  async function refreshSearch(form, page = 1, options = {}) {
+  async function refreshSearch(form, page = 1) {
     const results = form.parentElement?.querySelector("[data-ebd-results]")
       || form.closest(".ebd-discovery")?.querySelector("[data-ebd-results]");
     if (!results || !config.searchUrl) return;
-    if (!options.preserveRefined) {
-      form.ebdRefineController?.abort();
-      form.ebdRefineController = null;
-      form.ebdRefinedResult = null;
-      form.ebdBroaderResult = null;
-      form.ebdShowingBroader = false;
-    }
-    if (options.notice) form.ebdResultsNotice = options.notice;
     if (form.ebdSearchController) form.ebdSearchController.abort();
     const controller = new AbortController();
     form.ebdSearchController = controller;
@@ -538,10 +526,6 @@
       if (!response.ok) throw new Error("Search request failed");
       const result = await response.json();
       if (form.ebdSearchController !== controller) return;
-      if (options.preserveRefined) {
-        form.ebdBroaderResult = result;
-        form.ebdShowingBroader = true;
-      }
       renderResults(results, result, form);
       updateSearchControlsSummary(form);
       const headingCount = form.closest(".ebd-discovery")?.querySelector("[data-ebd-result-count]");
@@ -863,74 +847,11 @@
     };
   }
 
-  async function refineSearch(form, results) {
-    if (!form || !results || !config.refineUrl) {
-      if (form && results) {
-        await refreshSearch(form, 1, { notice: strings.refineFallback || "AI refinement was unavailable, so the broader matches are shown." });
-      }
-      return;
-    }
-    const entries = termEntries(form, searchInput(form));
-    const question = form.querySelector('input[name="ebd_question"]')?.value || "";
-    const requestId = form.querySelector('input[name="ebd_ai_request"]')?.value || "";
-    form.ebdRefineController?.abort();
-    const controller = new AbortController();
-    form.ebdRefineController = controller;
-    results.setAttribute("aria-busy", "true");
-    try {
-      const response = await fetch(config.refineUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question,
-          request_id: requestId,
-          term: entries.map((entry) => entry.value),
-          mode: entries.map((entry) => entry.mode),
-        }),
-        signal: controller.signal,
-      });
-      const payload = await response.json();
-      if (form.ebdRefineController !== controller) return;
-      if (!response.ok) throw new Error(payload?.message || strings.refineFailed || "The results could not be refined.");
-      form.ebdBroaderResult = payload.broader || null;
-      if (!Array.isArray(payload.posts) || !payload.posts.length) {
-        form.ebdRefinedResult = null;
-        form.ebdShowingBroader = true;
-        if (form.ebdBroaderResult) {
-          form.ebdResultsNotice = strings.noRefinedPosts || "AI did not select a narrower set, so the broader matches are shown.";
-          renderResults(results, form.ebdBroaderResult, form);
-        } else {
-          await refreshSearch(form, 1, { notice: strings.noRefinedPosts || "AI did not select a narrower set, so the broader matches are shown." });
-        }
-        return;
-      }
-      form.ebdRefinedResult = payload;
-      form.ebdShowingBroader = false;
-      renderResults(results, payload, form);
-    } catch (error) {
-      if (error.name === "AbortError") return;
-      form.ebdRefinedResult = null;
-      form.ebdShowingBroader = true;
-      const notice = strings.refineFallback || "AI refinement was unavailable, so the broader matches are shown.";
-      if (form.ebdBroaderResult) {
-        form.ebdResultsNotice = notice;
-        renderResults(results, form.ebdBroaderResult, form);
-      } else {
-        await refreshSearch(form, 1, { notice });
-      }
-    } finally {
-      if (form.ebdRefineController === controller) {
-        form.ebdRefineController = null;
-        results.removeAttribute("aria-busy");
-      }
-    }
-  }
-
-  document.addEventListener("click", async (event) => {
+  document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-ebd-show-broader],[data-ebd-show-refined]");
     if (!button) return;
     const discovery = button.closest(".ebd-discovery");
-    const form = discovery?.querySelector("[data-ebd-search-form],[data-ebd-semantic-form]");
+    const form = discovery?.querySelector("[data-ebd-semantic-form]");
     const results = discovery?.querySelector("[data-ebd-results]");
     if (!form || !results) return;
 
@@ -950,12 +871,6 @@
       updateBrowserUrl(form);
       return;
     }
-    if (form.ebdBroaderResult && form.ebdBroaderResult.sort === sort) {
-      renderResults(results, form.ebdBroaderResult, form);
-      updateBrowserUrl(form, Number(form.ebdBroaderResult.page || 1));
-      return;
-    }
-    await refreshSearch(form, 1, { preserveRefined: true });
   });
 
   function feedbackControl(requestId) {
@@ -1110,15 +1025,7 @@
     form.querySelectorAll('input[name="ebd_sort"]').forEach((radio) => {
       radio.addEventListener("change", () => {
         updateSearchControlsSummary(form);
-        if (form.ebdRefinedResult && !form.ebdShowingBroader) {
-          const results = form.closest(".ebd-discovery")?.querySelector("[data-ebd-results]");
-          if (results) {
-            renderResults(results, sortedRefinedResult(form.ebdRefinedResult, radio.value), form);
-            updateBrowserUrl(form);
-          }
-          return;
-        }
-        refreshSearch(form, 1, { preserveRefined: Boolean(form.ebdRefinedResult) });
+        refreshSearch(form);
       });
     });
     form.querySelectorAll('input[name="ebd_suggestion_order"]').forEach((radio) => {
@@ -1618,153 +1525,6 @@
     });
   }
 
-  function questionTermElement(term) {
-    const item = document.createElement("li");
-    const label = document.createElement("span");
-    const badge = document.createElement("span");
-    const termInput = document.createElement("input");
-    const modeInput = document.createElement("input");
-    const remove = document.createElement("button");
-    const mode = termMode(term?.mode);
-
-    item.className = "ebd-question-term";
-    item.dataset.ebdQuestionTerm = "";
-    label.textContent = String(term?.label || "");
-    badge.className = `ebd-selected-term-badge is-${mode}`;
-    badge.textContent = modeLabel(mode);
-    termInput.type = "hidden";
-    termInput.name = "ebd_keyword[]";
-    termInput.value = String(term?.label || "");
-    modeInput.type = "hidden";
-    modeInput.name = "ebd_term_mode[]";
-    modeInput.value = mode;
-    remove.type = "button";
-    remove.dataset.ebdQuestionRemove = "";
-    remove.setAttribute("aria-label", `Remove ${termInput.value}`);
-    remove.innerHTML = "&times;";
-    item.append(label, badge, termInput, modeInput, remove);
-    return item;
-  }
-
-  function updateQuestionReview(form) {
-    const terms = form.querySelectorAll("[data-ebd-question-term]");
-    const review = form.querySelector("[data-ebd-question-review]");
-    const search = form.querySelector("[data-ebd-question-search]");
-    if (review) review.hidden = terms.length === 0;
-    if (search) search.disabled = terms.length === 0;
-  }
-
-  function setupQuestionForm(form) {
-    const input = form.querySelector("[data-ebd-question-input]");
-    const interpret = form.querySelector("[data-ebd-question-interpret]");
-    const status = form.querySelector("[data-ebd-question-status]");
-    const termList = form.querySelector("[data-ebd-question-terms]");
-    const review = form.querySelector("[data-ebd-question-review]");
-    const search = form.querySelector("[data-ebd-question-search]");
-    const expanded = form.querySelector("[data-ebd-question-expanded]");
-    const compact = form.querySelector("[data-ebd-question-compact]");
-    const requestId = form.querySelector("[data-ebd-ai-request]");
-    if (!input || !interpret || !status || !termList || !review) return;
-
-    const setCollapsed = (collapsed) => {
-      if (expanded) expanded.hidden = collapsed;
-      if (compact) compact.hidden = !collapsed;
-      form.classList.toggle("is-collapsed", collapsed);
-    };
-
-    const interpretQuestion = async () => {
-      if (interpret.disabled || form.classList.contains("is-loading")) return;
-      const question = input.value.trim();
-      if (!question) {
-        status.textContent = "Enter a question before asking for an interpretation.";
-        input.focus();
-        return;
-      }
-      const originalLabel = interpret.textContent;
-      let submitted = false;
-      interpret.disabled = true;
-      interpret.textContent = "Interpreting...";
-      interpret.setAttribute("aria-busy", "true");
-      form.classList.add("is-loading");
-      status.classList.add("is-loading");
-      status.textContent = "Interpreting your question...";
-      try {
-        const response = await fetch(config.interpretUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question }),
-        });
-        const payload = await response.json();
-        if (!response.ok) {
-          throw new Error(payload?.message || "The question could not be interpreted.");
-        }
-        termList.innerHTML = "";
-        (payload.terms || []).forEach((term) => termList.appendChild(questionTermElement(term)));
-        if (requestId) requestId.value = String(payload.request_id || "");
-        updateQuestionReview(form);
-        if (!termList.querySelector("[data-ebd-question-term]")) {
-          status.textContent = "No matching topics or keywords were found. Try revising the question.";
-          return;
-        }
-        status.textContent = "Searching posts...";
-        submitted = true;
-        form.requestSubmit(search || undefined);
-      } catch (error) {
-        status.textContent = error?.message || "The question could not be interpreted. Please try again.";
-      } finally {
-        if (!submitted) {
-          form.classList.remove("is-loading");
-          status.classList.remove("is-loading");
-          interpret.disabled = false;
-          interpret.textContent = originalLabel;
-          interpret.removeAttribute("aria-busy");
-        }
-      }
-    };
-
-    interpret.addEventListener("click", interpretQuestion);
-
-    input.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
-      event.preventDefault();
-      interpretQuestion();
-    });
-
-    form.addEventListener("click", (event) => {
-      if (event.target.closest("[data-ebd-question-clear]")) {
-        input.value = "";
-        termList.innerHTML = "";
-        updateQuestionReview(form);
-        status.textContent = "";
-        window.location.assign(form.action);
-        return;
-      }
-      if (event.target.closest("[data-ebd-question-expand]")) {
-        setCollapsed(false);
-        input.focus({ preventScroll: true });
-        return;
-      }
-      const remove = event.target.closest("[data-ebd-question-remove]");
-      if (remove) {
-        remove.closest("[data-ebd-question-term]")?.remove();
-        updateQuestionReview(form);
-        return;
-      }
-      if (event.target.closest("[data-ebd-question-edit]")) {
-        setCollapsed(false);
-        input.focus({ preventScroll: true });
-        input.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    });
-
-    input.addEventListener("input", () => {
-      status.textContent = "";
-    });
-    updateQuestionReview(form);
-    setCollapsed(Boolean(compact && !compact.hidden));
-    if (!input.value.trim()) input.focus({ preventScroll: true });
-  }
-
   function setupSemanticForm(form) {
     const input = form.querySelector("[data-ebd-semantic-question]");
     const submit = form.querySelector("[data-ebd-semantic-submit]");
@@ -1856,18 +1616,10 @@
   }
 
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
-  document.querySelectorAll("[data-ebd-question-form]").forEach(setupQuestionForm);
   document.querySelectorAll("[data-ebd-semantic-form]").forEach(setupSemanticForm);
   document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);
   document.querySelectorAll(".ebd-view-structure-review").forEach(setupStructureReview);
   setupTitleTooltips(document);
-
-  document.querySelectorAll("[data-ebd-auto-refine]").forEach((pending) => {
-    const discovery = pending.closest(".ebd-discovery");
-    const form = discovery?.querySelector("[data-ebd-search-form],[data-ebd-semantic-form]");
-    const results = discovery?.querySelector("[data-ebd-results]");
-    if (form && results) refineSearch(form, results);
-  });
 
   document.addEventListener("click", (event) => {
     const pagination = event.target.closest(".ebd-pagination-link[href]");
@@ -1882,13 +1634,6 @@
       if (results) renderResults(results, form.ebdBroaderResult, form);
       updateBrowserUrl(form, page);
       results?.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-    if (pagination && form?.ebdRefinedResult && form.ebdShowingBroader) {
-      event.preventDefault();
-      const page = Number(new URL(pagination.href).searchParams.get("ebd_page") || 1);
-      refreshSearch(form, page, { preserveRefined: true });
-      discovery.querySelector("[data-ebd-results]")?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
     if (event.target.closest("[data-ebd-back-to-top]")) {

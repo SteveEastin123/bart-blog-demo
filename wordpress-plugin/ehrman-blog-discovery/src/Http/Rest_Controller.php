@@ -53,11 +53,11 @@ final class Rest_Controller {
 	/** Creates the endpoint controllers and their shared services. */
 	public function __construct() {
 		$search_service = new Search_Service();
-		$interpreter    = new AI_Interpreter();
+		$reviewer       = new AI_Candidate_Reviewer( AI_Settings::api_key(), AI_Settings::model_id() );
 
 		$this->status          = new Status_REST_Controller();
 		$this->search          = new Search_REST_Controller( $search_service );
-		$this->semantic_ask_ai = new Semantic_Ask_AI_REST_Controller( $interpreter, new Semantic_Search_Service() );
+		$this->semantic_ask_ai = new Semantic_Ask_AI_REST_Controller( $reviewer, new Semantic_Search_Service() );
 		$this->feedback        = new Feedback_REST_Controller();
 		$this->parity          = new Parity_REST_Controller();
 	}

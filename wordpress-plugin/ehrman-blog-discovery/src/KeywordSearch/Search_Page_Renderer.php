@@ -78,7 +78,7 @@ final class Search_Page_Renderer {
 	}
 
 	/**
-	 * Builds reusable search controls for keyword, browse, and Ask AI views.
+	 * Builds reusable search controls for keyword and browse views.
 	 *
 	 * @param array<int,string>                   $terms             Selected search terms.
 	 * @param array<int,string>                   $term_modes        Search modes aligned with selected terms.
@@ -89,8 +89,6 @@ final class Search_Page_Renderer {
 	 * @param string                              $topic_scope       Fixed topic slug.
 	 * @param array<int,array<string,mixed>>|null $category_options Optional category choices.
 	 * @param string                              $selected_category Selected category slug.
-	 * @param string                              $extra_fields      Additional hidden form fields.
-	 * @param bool                                $ai_interpretation Whether terms came from Ask AI.
 	 * @return string Search-panel markup.
 	 */
 	public function search_panel(
@@ -102,9 +100,7 @@ final class Search_Page_Renderer {
 		string $category_scope = '',
 		string $topic_scope = '',
 		?array $category_options = null,
-		string $selected_category = '',
-		string $extra_fields = '',
-		bool $ai_interpretation = false
+		string $selected_category = ''
 	): string {
 		$id         = $this->markup->next_control_id( 'ebd-search' );
 		$terms      = Search_Service::unique_terms( $terms );
@@ -182,18 +178,15 @@ final class Search_Page_Renderer {
 				. esc_html( $label ) . '</span></label>';
 		}
 		$suggestion_order .= '</div>';
-		$summary_label     = $ai_interpretation ? __( 'Interpreted as:', 'ehrman-blog-discovery' ) : __( 'Current search:', 'ehrman-blog-discovery' );
-		$edit_label        = $ai_interpretation ? __( 'Review or adjust search terms', 'ehrman-blog-discovery' ) : __( 'Edit search', 'ehrman-blog-discovery' );
 		$compact_summary   = '<div class="ebd-search-compact" data-ebd-search-compact hidden><p class="ebd-search-compact-summary">'
-			. '<strong>' . esc_html( $summary_label ) . '</strong> '
+			. '<strong>' . esc_html__( 'Current search:', 'ehrman-blog-discovery' ) . '</strong> '
 			. '<span data-ebd-search-summary></span></p><button type="button" class="ebd-search-edit" '
 			. 'data-ebd-search-edit aria-controls="' . esc_attr( $id ) . '-controls">'
-			. esc_html( $edit_label ) . '</button></div>';
+			. esc_html__( 'Edit search', 'ehrman-blog-discovery' ) . '</button></div>';
 		return '<form class="ebd-search-panel" action="' . esc_url( $action ) . '" method="get" data-ebd-search-form '
 			. 'data-category="' . esc_attr( '' !== $category_scope ? $category_scope : $selected_category ) . '" '
-			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-force-initial-collapse="'
-			. ( $ai_interpretation ? 'true' : 'false' ) . '" data-ebd-initial-collapse="'
-			. ( $has_search_state ? 'true' : 'false' ) . '">' . $extra_fields . $compact_summary
+			. 'data-topic="' . esc_attr( $topic_scope ) . '" data-ebd-initial-collapse="'
+			. ( $has_search_state ? 'true' : 'false' ) . '">' . $compact_summary
 			. '<div id="' . esc_attr( $id ) . '-controls" class="ebd-search-controls" data-ebd-search-expanded>' . $scope . $category_filter
 			. '<p class="ebd-search-instructions"><strong>' . esc_html__( 'Select up to four search terms.', 'ehrman-blog-discovery' )
 			. '</strong> ' . esc_html__( 'You can enter topics, keywords, or both. Topics identify a post\'s main subjects, while keywords identify important people, texts, places, and related ideas. Combine multiple terms to narrow your results.', 'ehrman-blog-discovery' )
@@ -212,11 +205,9 @@ final class Search_Page_Renderer {
 	 *
 	 * @param array{posts:list<array<string,mixed>>,terms:list<string>,sort:string,count:int,page:int,per_page:int,total_pages:int} $result Search result payload.
 	 * @param string                                                                                                                $context Topic or category context.
-	 * @param string                                                                                                                $question Ask AI question, when applicable.
-	 * @param string                                                                                                                $request_id Ask AI request identifier.
 	 * @return string Result markup.
 	 */
-	public function results_markup( array $result, string $context, string $question = '', string $request_id = '' ): string {
+	public function results_markup( array $result, string $context ): string {
 		$terms         = $result['terms'];
 		$count         = $result['count'];
 		$page          = max( 1, Database::integer( $result['page'] ) );
@@ -254,8 +245,7 @@ final class Search_Page_Renderer {
 		$back_to_top = count( $result['posts'] ) >= self::BACK_TO_TOP_THRESHOLD
 			? $this->back_to_top_markup()
 			: '';
-		$feedback    = '' !== trim( $question ) && '' !== $request_id ? $this->feedback_markup( $request_id ) : '';
-		return $summary . $guidance . $feedback . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
+		return $summary . $guidance . $this->post_list( $result['posts'], $context ) . $back_to_top . $this->pagination_markup( $result );
 	}
 
 	/**
@@ -312,20 +302,6 @@ final class Search_Page_Renderer {
 			. esc_attr( $slug ) . '" data-label="' . esc_attr( $name ) . '" data-count="' . esc_attr( $count )
 			. '" aria-selected="' . ( $selected ? 'true' : 'false' ) . '"><span>' . esc_html( $name )
 			. '</span><span>' . esc_html( $count ) . '</span></button></li>';
-	}
-
-	/**
-	 * Builds the Ask AI interpretation feedback control.
-	 *
-	 * @param string $request_id Ask AI request identifier.
-	 * @return string Feedback control markup.
-	 */
-	private function feedback_markup( string $request_id ): string {
-		return '<section class="ebd-ai-feedback" data-ebd-ai-feedback data-request-id="' . esc_attr( $request_id ) . '"><span>'
-			. esc_html__( 'Were these search results helpful?', 'ehrman-blog-discovery' )
-			. '</span><button type="button" data-ebd-feedback-value="yes">' . esc_html__( 'Yes', 'ehrman-blog-discovery' )
-			. '</button><button type="button" data-ebd-feedback-value="no">' . esc_html__( 'No', 'ehrman-blog-discovery' )
-			. '</button><span class="ebd-ai-feedback-status" data-ebd-feedback-status aria-live="polite"></span></section>';
 	}
 
 	/**

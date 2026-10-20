@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Builds cost, usage, and comparison summaries for the analytics page. */
+/** Builds cost and usage summaries for the active Ask AI method. */
 final class AI_Analytics_Report {
 	private const DISPLAY_TIMEZONE = 'America/New_York';
 
@@ -70,12 +70,10 @@ final class AI_Analytics_Report {
 	/**
 	 * Returns cost summaries for today, this month, and all retained data.
 	 *
-	 * @param string $request_interface Request source to include.
 	 * @return array<string,array<string,int|float>> Cost summaries by period.
 	 */
-	public function periods( string $request_interface = 'all' ): array {
+	public function periods(): array {
 		$filters     = array(
-			'interface'    => $request_interface,
 			'feedback'     => 'all',
 			'date_from'    => '',
 			'date_to'      => '',
@@ -83,7 +81,7 @@ final class AI_Analytics_Report {
 			'zero_results' => '',
 		);
 		$requests    = AI_Requests::analytics( $filters, 1, 0 )['rows'];
-		$refinements = AI_Refinements::recent( 5000 );
+		$refinements = AI_Refinements::recent( 0 );
 		$now         = new \DateTimeImmutable( 'now', new \DateTimeZone( self::DISPLAY_TIMEZONE ) );
 		$periods     = array(
 			__( 'Today', 'ehrman-blog-discovery' )        => $this->utc_datetime( $now->setTime( 0, 0 ) ),
@@ -95,51 +93,7 @@ final class AI_Analytics_Report {
 			$request_period = array_values( array_filter( $requests, static fn( array $row ): bool => '' === $start || Database::text( $row['created_at'] ?? '' ) >= $start ) );
 			$request_ids    = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $request_period ), true );
 			$refine_period  = $this->filtered_refinements( $refinements, $request_ids );
-			$refine_period  = array_values( array_filter( $refine_period, static fn( array $row ): bool => '' === $start || Database::text( $row['created_at'] ?? '' ) >= $start ) );
 			$rows[ $label ] = $this->summary( $request_period, $refine_period );
-		}
-		return $rows;
-	}
-
-	/**
-	 * Returns comparable Ask AI datasets for active filters.
-	 *
-	 * @param array<string,string> $filters Active administrator filters.
-	 * @return array<string,array<string,int|float>> Datasets keyed by interface.
-	 */
-	public function comparison( array $filters ): array {
-		$datasets = array();
-		foreach ( array( 'taxonomy', 'semantic' ) as $interface ) {
-			$interface_filters              = $filters;
-			$interface_filters['interface'] = $interface;
-			$report                         = AI_Requests::analytics( $interface_filters, 1, 0 );
-			$request_ids                    = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $report['rows'] ), true );
-			$refinements                    = $this->filtered_refinements( AI_Refinements::recent( 5000 ), $request_ids );
-			$summary                        = $this->summary( $report['rows'], $refinements );
-			$summary['yes']                 = $report['yes'];
-			$summary['no']                  = $report['no'];
-			$summary['unanswered']          = $report['unanswered'];
-			$summary['response_rate']       = $report['response_rate'];
-			$summary['helpful_rate']        = $report['helpful_rate'];
-			$datasets[ $interface ]         = $summary;
-		}
-		return $datasets;
-	}
-
-	/**
-	 * Returns standard-period comparisons for both interfaces.
-	 *
-	 * @return array<string,array<string,array<string,int|float>>> Period rows by interface.
-	 */
-	public function comparison_periods(): array {
-		$taxonomy = $this->periods( 'taxonomy' );
-		$semantic = $this->periods( 'semantic' );
-		$rows     = array();
-		foreach ( $taxonomy as $label => $summary ) {
-			$rows[ $label ] = array(
-				'taxonomy' => $summary,
-				'semantic' => $semantic[ $label ] ?? $this->summary( array(), array() ),
-			);
 		}
 		return $rows;
 	}
@@ -161,20 +115,25 @@ final class AI_Analytics_Report {
 	}
 
 	/**
-	 * Totals AI review costs by parent question identifier.
+	 * Attaches complete question totals and linked review details for UI and CSV.
 	 *
-	 * @param list<array<string,mixed>> $rows Refinement rows.
-	 * @return array<string,float> Costs keyed by parent request identifier.
+	 * @param list<array<string,mixed>> $requests    Filtered question rows.
+	 * @param list<array<string,mixed>> $refinements Linked review rows.
+	 * @return list<array<string,mixed>> Enriched question rows.
 	 */
-	public function refinement_costs_by_request( array $rows ): array {
-		$costs = array();
-		foreach ( $rows as $row ) {
-			$request_id = Database::text( $row['request_id'] ?? '' );
-			if ( '' !== $request_id ) {
-				$costs[ $request_id ] = ( $costs[ $request_id ] ?? 0.0 ) + (float) Database::text( $row['estimated_cost_usd'] ?? 0 );
-			}
+	public function question_rows( array $requests, array $refinements ): array {
+		$reviews_by_request = array();
+		foreach ( $refinements as $review ) {
+			$reviews_by_request[ Database::text( $review['request_id'] ?? '' ) ][] = $review;
 		}
-		return $costs;
+		foreach ( $requests as &$row ) {
+			$reviews               = $reviews_by_request[ Database::text( $row['request_id'] ?? '' ) ] ?? array();
+			$row['reviews']        = $reviews;
+			$row['question_usage'] = $this->summary( array( $row ), $reviews );
+			$row['review_usage']   = $this->summary( array(), $reviews );
+		}
+		unset( $row );
+		return $requests;
 	}
 
 	/**

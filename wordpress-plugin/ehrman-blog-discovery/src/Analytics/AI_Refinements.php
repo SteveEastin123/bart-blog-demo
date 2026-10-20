@@ -51,8 +51,8 @@ final class AI_Refinements {
 				'candidate_count'     => max( 0, Database::integer( $data['candidate_count'] ?? 0 ) ),
 				'refined_count'       => count( $kept ),
 				'selected_posts'      => (string) wp_json_encode( $kept ),
-				'model'               => sanitize_text_field( Database::text( $usage['model'] ?? AI_Interpreter::model_id() ) ),
-				'prompt_version'      => AI_Interpreter::refine_prompt_version(),
+				'model'               => sanitize_text_field( Database::text( $usage['model'] ?? AI_Settings::model_id() ) ),
+				'prompt_version'      => AI_Candidate_Reviewer::prompt_version(),
 				'cache_hit'           => ! empty( $data['cache_hit'] ) ? 1 : 0,
 				'request_succeeded'   => ! empty( $data['succeeded'] ) ? 1 : 0,
 				'error_code'          => sanitize_key( Database::text( $data['error_code'] ?? null ) ),
@@ -66,15 +66,16 @@ final class AI_Refinements {
 	}
 
 	/**
-	 * Returns recent refinement events with their recorded usage.
+	 * Returns reviews linked to the active search method with their recorded usage.
 	 *
-	 * @param int $limit Maximum number of events to return.
+	 * @param int $limit Maximum number of events, or zero for all matching reviews.
 	 * @return list<array<string,mixed>> Recent refinement events.
 	 */
 	public static function recent( int $limit = 100 ): array {
-		self::delete_expired();
-		$tables = Database::tables();
-		$sql    = Database::client()->prepare(
+		$tables    = Database::tables();
+		$scope     = AI_Analytics_Scope::where();
+		$limit_sql = $limit > 0 ? ' LIMIT ' . max( 1, $limit ) : '';
+		$sql       = Database::client()->prepare(
 			'SELECT r.*,u.response_id,u.service_tier,u.pricing_version,'
 			. 'COALESCE(u.input_tokens,r.input_tokens) input_tokens,'
 			. 'COALESCE(u.cached_input_tokens,r.cached_input_tokens) cached_input_tokens,'
@@ -90,11 +91,13 @@ final class AI_Refinements {
 			. 'SUM(output_tokens) output_tokens,SUM(reasoning_tokens) reasoning_tokens,'
 			. 'SUM(total_tokens) total_tokens,SUM(estimated_cost_usd) estimated_cost_usd '
 			. 'FROM %i WHERE request_id<>\'\' GROUP BY request_id'
-			. ') u ON u.request_id=r.refinement_id ORDER BY r.id DESC LIMIT %d',
+			. ') u ON u.request_id=r.refinement_id WHERE r.request_id IN ('
+			. "SELECT r.request_id FROM %i r WHERE {$scope}) ORDER BY r.id DESC",
 			$tables['ai_refinements'],
 			$tables['ai_usage'],
-			max( 1, min( 5000, $limit ) )
+			$tables['ai_requests']
 		);
+		$sql      .= $limit_sql;
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifiers are generated internally and limit is prepared.
 		return Database::associative_rows( Database::client()->get_results( $sql, ARRAY_A ) );
 	}

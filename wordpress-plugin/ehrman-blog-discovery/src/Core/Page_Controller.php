@@ -241,7 +241,7 @@ final class Page_Controller {
 			$question,
 			$sort,
 			$status,
-			AI_Interpreter::is_configured(),
+			AI_Settings::is_configured(),
 			Embedding_Service::is_configured(),
 			$this->page_url( 'ask_ai_2' )
 		);
