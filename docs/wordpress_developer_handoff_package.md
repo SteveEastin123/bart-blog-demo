@@ -64,6 +64,20 @@ not change those behaviors. The analytics PHP and browser regression tests in
 `wordpress-production/tests/` cover these boundaries, including escaping,
 pagination, empty states, cached/failed requests, exports, and reset protection.
 
+### Post Ingestion Presentation
+
+`src/Ingestion/Post_Ingestion_Page.php` retains page authorization, form handlers,
+notice consumption, and display-data preparation. Its remaining page, draft,
+review, approved-result, history, and action markup lives in
+`templates/admin/post-ingestion/`; the existing new-submission template remains
+at `templates/admin/post-ingestion-new.php`. Templates escape display values and
+render nonce-protected forms; they do not query the database or run ingestion.
+
+Analysis, review, approval, background processing, and vector generation remain
+in the existing ingestion services. The production regression suite exercises
+the page's workflow states, form nonces, JSON-mode approval lock, escaping,
+history, and notices with rolled-back fixtures and no API calls.
+
 ## 4. Testing and Acceptance Package
 
 - JSON and relationship validation scripts

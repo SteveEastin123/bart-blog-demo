@@ -49,35 +49,22 @@ final class Post_Ingestion_Page {
 		if ( false !== $notice ) {
 			delete_transient( self::notice_key() );
 		}
-		?>
-		<div class="wrap ehrman-ingestion">
-			<h1><?php echo esc_html__( 'Post Ingestion', 'ehrman-blog-discovery' ); ?></h1>
-			<p><?php echo esc_html__( 'Prepare a complete Bart Ehrman Blog post for the discovery index. Analysis creates a reviewable draft; it never changes live search data.', 'ehrman-blog-discovery' ); ?></p>
-			<?php self::render_configuration_notice(); ?>
-			<?php self::render_notice( $notice ); ?>
-			<?php if ( null !== $draft ) : ?>
-				<?php self::render_draft( $service, $draft ); ?>
-			<?php else : ?>
-				<?php if ( $draft_id > 0 ) : ?>
-					<div class="notice notice-error"><p><?php echo esc_html__( 'The requested ingestion record was not found.', 'ehrman-blog-discovery' ); ?></p></div>
-				<?php endif; ?>
-				<?php self::render_new_form(); ?>
-				<?php self::render_draft_list( $service->drafts() ); ?>
-			<?php endif; ?>
-		</div>
-		<style>
-			.ehrman-ingestion .form-table th { width: 180px; }
-			.ehrman-ingestion .regular-text { width: min(100%, 680px); }
-			.ehrman-ingestion textarea.large-text { max-width: 920px; }
-			.ehrman-ingestion__meta { max-width: 920px; }
-			.ehrman-ingestion__actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0; }
-			.ehrman-ingestion__actions form { margin: 0; }
-			.ehrman-ingestion__new { border-left: 4px solid #d63638; padding-left: 12px; }
-			.ehrman-ingestion__status { display: inline-block; font-weight: 600; text-transform: capitalize; }
-			.ehrman-ingestion__rationales { margin: 0; max-width: 920px; }
-			.ehrman-ingestion__rationales li { margin-bottom: 8px; }
-		</style>
-		<?php
+		$html = Template::render(
+			'admin/post-ingestion/page.php',
+			array(
+				'analysis_configured'    => Post_Ingestion_Service::is_configured(),
+				'database_authoritative' => Post_Ingestion_Service::database_is_authoritative(),
+				'notice'                 => is_array( $notice ) ? array(
+					'success' => ! empty( $notice['success'] ),
+					'message' => Database::text( $notice['message'] ?? null ),
+				) : null,
+				'missing_draft'          => null === $draft && $draft_id > 0,
+				'draft'                  => null !== $draft ? self::draft_view( $service, $draft ) : null,
+				'history'                => null === $draft ? self::history_rows( $service->drafts() ) : array(),
+			)
+		);
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted templates escape values at their output boundaries.
+		echo $html;
 	}
 
 	/** Handles a new analysis request. */
@@ -155,197 +142,110 @@ final class Post_Ingestion_Page {
 		self::redirect_with_notice( 0, $deleted, $deleted ? __( 'Pending draft discarded.', 'ehrman-blog-discovery' ) : __( 'The draft could not be discarded.', 'ehrman-blog-discovery' ) );
 	}
 
-	/** Renders configuration and source-of-truth status. */
-	private static function render_configuration_notice(): void {
-		if ( ! Post_Ingestion_Service::is_configured() ) {
-			?>
-			<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Analysis is not configured.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Add the separate ingestion-project key as EHRMAN_INGESTION_OPENAI_API_KEY.', 'ehrman-blog-discovery' ); ?></p></div>
-			<?php
-		}
-		if ( ! Post_Ingestion_Service::database_is_authoritative() ) {
-			?>
-			<div class="notice notice-info inline"><p><strong><?php echo esc_html__( 'JSON is the current source of truth.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Draft analysis and review are available, but approval is locked because a JSON import would replace database-only posts. After the handoff, set EHRMAN_DISCOVERY_POST_SOURCE=mysql to enable approval.', 'ehrman-blog-discovery' ); ?></p></div>
-			<?php
-		}
-	}
-
-	/** Renders a new post submission form. */
-	private static function render_new_form(): void {
-		$html = Template::render(
-			'admin/post-ingestion-new.php',
-			array( 'analysis_configured' => Post_Ingestion_Service::is_configured() )
-		);
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted template escapes each dynamic value at output.
-		echo $html;
-	}
-
 	/**
-	 * Renders one draft or approved audit record.
+	 * Prepares one draft or approved audit record for display.
 	 *
 	 * @param Post_Ingestion_Service $service Ingestion service.
 	 * @param array<string,mixed>    $draft   Draft record.
+	 * @return array<string,mixed> Draft display values.
 	 */
-	private static function render_draft( Post_Ingestion_Service $service, array $draft ): void {
+	private static function draft_view( Post_Ingestion_Service $service, array $draft ): array {
 		$draft_id = Database::integer( $draft['id'] ?? null );
 		$status   = Database::text( $draft['status'] ?? null );
 		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
-		?>
-		<p><a href="<?php echo esc_url( self::page_url() ); ?>">&larr; <?php echo esc_html__( 'New submission and ingestion history', 'ehrman-blog-discovery' ); ?></a></p>
-		<h2><?php echo esc_html( Database::text( $draft['title'] ?? null ) ); ?></h2>
-		<table class="widefat striped ehrman-ingestion__meta">
-			<tbody>
-				<tr><th><?php echo esc_html__( 'Status', 'ehrman-blog-discovery' ); ?></th><td><span class="ehrman-ingestion__status"><?php echo esc_html( $status ); ?></span></td></tr>
-				<tr><th><?php echo esc_html__( 'Publication', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( Database::text( $draft['date_text'] ?? null ) ); ?> &middot; <?php echo esc_html( Database::text( $draft['author'] ?? null ) ); ?></td></tr>
-				<tr><th><?php echo esc_html__( 'WordPress ID', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( (string) Database::integer( $draft['source_wp_id'] ?? null ) ); ?></td></tr>
-				<tr><th><?php echo esc_html__( 'URL', 'ehrman-blog-discovery' ); ?></th><td><a href="<?php echo esc_url( Database::text( $draft['url'] ?? null ) ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( Database::text( $draft['url'] ?? null ) ); ?></a></td></tr>
-				<tr><th><?php echo esc_html__( 'Analysis', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( Database::text( $draft['model'] ?? null ) ); ?> &middot; <?php /* translators: 1: input token count, 2: output token count, 3: estimated US-dollar cost. */ echo esc_html( sprintf( __( '%1$s input tokens, %2$s output tokens, approximately $%3$s', 'ehrman-blog-discovery' ), number_format_i18n( Database::integer( $draft['input_tokens'] ?? null ) ), number_format_i18n( Database::integer( $draft['output_tokens'] ?? null ) ), number_format_i18n( (float) Database::text( $draft['estimated_cost_usd'] ?? 0 ), 4 ) ) ); ?></td></tr>
-				<?php
-				if ( 'approved' === $status ) :
-					?>
-					<tr><th><?php echo esc_html__( 'Semantic vector', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( Database::text( $draft['embedding_status'] ?? null ) ); ?>
-					<?php
-					if ( '' !== Database::text( $draft['embedding_error'] ?? null ) ) :
-						?>
-					: <?php echo esc_html( Database::text( $draft['embedding_error'] ?? null ) ); ?><?php endif; ?></td></tr><?php endif; ?>
-			</tbody>
-		</table>
-		<?php if ( '' !== Database::text( $draft['error_message'] ?? null ) ) : ?>
-			<div class="notice notice-error inline"><p><?php echo esc_html( Database::text( $draft['error_message'] ?? null ) ); ?></p></div>
-		<?php endif; ?>
-		<?php if ( Post_Ingestion_Service::analysis_is_active( $draft ) ) : ?>
-			<?php if ( Post_Ingestion_Service::analysis_is_stale( $draft ) ) : ?>
-				<div class="notice notice-warning inline"><p><?php echo esc_html__( 'Background analysis appears to have stopped. Start a fresh attempt below.', 'ehrman-blog-discovery' ); ?></p></div>
-				<div class="ehrman-ingestion__actions"><?php self::render_reanalyze_form( $draft_id, __( 'Retry analysis', 'ehrman-blog-discovery' ) ); ?></div>
-			<?php else : ?>
-				<div class="notice notice-info inline"><p><?php echo esc_html__( 'Analysis is running in the background. This post will not be added to search until the results are reviewed and approved. You may leave this page and return later.', 'ehrman-blog-discovery' ); ?></p></div>
-				<p><a class="button" href="<?php echo esc_url( self::page_url( $draft_id ) ); ?>"><?php echo esc_html__( 'Refresh status', 'ehrman-blog-discovery' ); ?></a></p>
-			<?php endif; ?>
-			<?php return; ?>
-		<?php endif; ?>
-		<?php if ( 'approved' === $status ) : ?>
-			<?php self::render_approved_proposal( $proposal ); ?>
-			<?php if ( 'pending' === Database::text( $draft['embedding_status'] ?? null ) ) : ?>
-				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-					<input type="hidden" name="action" value="ehrman_ingestion_retry_embedding"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $draft_id ); ?>">
-					<?php wp_nonce_field( 'ehrman_ingestion_retry_embedding' ); ?>
-					<?php submit_button( __( 'Retry semantic vector', 'ehrman-blog-discovery' ), 'secondary', 'submit', false ); ?>
-				</form>
-			<?php endif; ?>
-			<?php return; ?>
-		<?php endif; ?>
-		<?php if ( 'ready' === $status ) : ?>
-			<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
-		<?php elseif ( 'held' === $status ) : ?>
-			<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata requires review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Resolve the review notes and mark the proposal ready before approval.', 'ehrman-blog-discovery' ); ?></p></div>
-		<?php endif; ?>
-
-		<?php if ( empty( $proposal ) ) : ?>
-			<div class="ehrman-ingestion__actions">
-				<?php self::render_reanalyze_form( $draft_id ); ?>
-				<?php self::render_discard_form( $draft_id ); ?>
-			</div>
-			<?php return; ?>
-		<?php endif; ?>
-		<?php self::render_review_form( $service, $draft, $proposal ); ?>
-		<?php
+		$active   = Post_Ingestion_Service::analysis_is_active( $draft );
+		return array(
+			'id'               => $draft_id,
+			'status'           => $status,
+			'title'            => Database::text( $draft['title'] ?? null ),
+			'date'             => Database::text( $draft['date_text'] ?? null ),
+			'author'           => Database::text( $draft['author'] ?? null ),
+			'wp_id'            => (string) Database::integer( $draft['source_wp_id'] ?? null ),
+			'url'              => Database::text( $draft['url'] ?? null ),
+			'model'            => Database::text( $draft['model'] ?? null ),
+			'usage'            => sprintf(
+				/* translators: 1: input token count, 2: output token count, 3: estimated US-dollar cost. */
+				__( '%1$s input tokens, %2$s output tokens, approximately $%3$s', 'ehrman-blog-discovery' ),
+				number_format_i18n( Database::integer( $draft['input_tokens'] ?? null ) ),
+				number_format_i18n( Database::integer( $draft['output_tokens'] ?? null ) ),
+				number_format_i18n( (float) Database::text( $draft['estimated_cost_usd'] ?? 0 ), 4 )
+			),
+			'embedding_status' => Database::text( $draft['embedding_status'] ?? null ),
+			'embedding_error'  => Database::text( $draft['embedding_error'] ?? null ),
+			'error'            => Database::text( $draft['error_message'] ?? null ),
+			'analysis_active'  => $active,
+			'analysis_stale'   => $active && Post_Ingestion_Service::analysis_is_stale( $draft ),
+			'history_url'      => self::page_url(),
+			'refresh_url'      => self::page_url( $draft_id ),
+			'approved'         => self::approved_view( $proposal ),
+			'review'           => ! $active && 'approved' !== $status && ! empty( $proposal ) ? self::review_view( $service, $draft, $proposal ) : null,
+		);
 	}
 
 	/**
-	 * Renders editable proposal fields and approval controls.
+	 * Prepares editable proposal fields and approval availability.
 	 *
 	 * @param Post_Ingestion_Service $service  Ingestion service.
 	 * @param array<string,mixed>    $draft    Draft record.
 	 * @param array<string,mixed>    $proposal Proposed enrichment.
+	 * @return array<string,mixed> Review display values.
 	 */
-	private static function render_review_form( Post_Ingestion_Service $service, array $draft, array $proposal ): void {
-		$vocabulary   = $service->vocabulary();
-		$topics       = self::string_list( $proposal['topics'] ?? null );
-		$rationales   = self::topic_rationale_list( $proposal['topicRationales'] ?? null );
-		$keywords     = self::string_list( $proposal['secondaryKeywords'] ?? null );
-		$new_keywords = self::string_list( $proposal['newSecondaryKeywords'] ?? null );
-		$notes        = self::string_list( $proposal['reviewNotes'] ?? null );
-		?>
-		<h2><?php echo esc_html__( 'Review proposal', 'ehrman-blog-discovery' ); ?></h2>
-		<p><?php echo esc_html__( 'Revise any field as needed. Saving remains a draft; approval is the only action that writes to the live index.', 'ehrman-blog-discovery' ); ?></p>
-		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-			<input type="hidden" name="action" value="ehrman_ingestion_proposal"><input type="hidden" name="draft_id" value="<?php echo esc_attr( Database::text( $draft['id'] ?? null ) ); ?>">
-			<input type="hidden" name="topic_rationales_json" value="<?php echo esc_attr( (string) wp_json_encode( $rationales ) ); ?>">
-			<?php wp_nonce_field( 'ehrman_ingestion_proposal' ); ?>
-			<table class="form-table" role="presentation">
-				<tr><th scope="row"><label for="description"><?php echo esc_html__( 'Description', 'ehrman-blog-discovery' ); ?></label></th><td><textarea class="large-text" id="description" name="description" rows="2" required><?php echo esc_textarea( Database::text( $proposal['description'] ?? null ) ); ?></textarea><p class="description"><?php echo esc_html__( 'Begin with an active, present-tense verb. Use one declarative sentence, generally 18-23 words and fewer than 30.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<tr><th scope="row"><label for="search_summary"><?php echo esc_html__( 'Search summary', 'ehrman-blog-discovery' ); ?></label></th><td><textarea class="large-text" id="search_summary" name="search_summary" rows="5" required><?php echo esc_textarea( Database::text( $proposal['searchSummary'] ?? null ) ); ?></textarea><p class="description"><?php echo esc_html__( 'Begin with an active verb and a declarative statement. Normally use three sentences and about 60-80 words.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<tr><th scope="row"><label for="topics"><?php echo esc_html__( 'Topics', 'ehrman-blog-discovery' ); ?></label></th><td><select class="regular-text" id="topics" name="topics[]" multiple size="12">
-				<?php
-				foreach ( $vocabulary['topics'] as $topic ) :
-					?>
-					<option value="<?php echo esc_attr( $topic['name'] ); ?>"<?php selected( in_array( $topic['name'], $topics, true ) ); ?> title="<?php echo esc_attr( $topic['description'] ); ?>"><?php echo esc_html( $topic['name'] ); ?></option><?php endforeach; ?></select><p class="description"><?php echo esc_html__( 'Select only primary, sustained subjects. Hold a substantive post when no existing topic fits.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<?php if ( ! empty( $rationales ) ) : ?>
-					<tr><th scope="row"><?php echo esc_html__( 'AI topic rationales', 'ehrman-blog-discovery' ); ?></th><td><ul class="ehrman-ingestion__rationales">
-					<?php foreach ( $rationales as $rationale ) : ?>
-						<li><strong><?php echo esc_html( $rationale['topic'] ); ?>:</strong> <?php echo esc_html( $rationale['rationale'] ); ?></li>
-					<?php endforeach; ?>
-					</ul><p class="description"><?php echo esc_html__( 'These explanations document the original AI proposal; revise the topic selections above whenever the evidence does not support them.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<?php endif; ?>
-				<tr><th scope="row"><label for="secondary_keywords"><?php echo esc_html__( 'Existing secondary keywords', 'ehrman-blog-discovery' ); ?></label></th><td><textarea class="large-text" id="secondary_keywords" name="secondary_keywords" rows="6"><?php echo esc_textarea( implode( "\n", $keywords ) ); ?></textarea><p class="description"><?php echo esc_html__( 'Use one exact existing label per line.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<tr class="ehrman-ingestion__new"><th scope="row"><label for="new_secondary_keywords"><?php echo esc_html__( 'NEW secondary keywords', 'ehrman-blog-discovery' ); ?></label></th><td><textarea class="large-text" id="new_secondary_keywords" name="new_secondary_keywords" rows="3"><?php echo esc_textarea( implode( "\n", $new_keywords ) ); ?></textarea><p class="description"><?php echo esc_html__( 'Use only when no existing exact term, variant, or reasonable synonym fits.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<tr><th scope="row"><label for="status"><?php echo esc_html__( 'Decision', 'ehrman-blog-discovery' ); ?></label></th><td><select id="status" name="status"><option value="ready"<?php selected( 'ready', Database::text( $proposal['status'] ?? null ) ); ?>><?php echo esc_html__( 'Ready', 'ehrman-blog-discovery' ); ?></option><option value="held"<?php selected( 'held', Database::text( $proposal['status'] ?? null ) ); ?>><?php echo esc_html__( 'Held', 'ehrman-blog-discovery' ); ?></option></select></td></tr>
-				<tr><th scope="row"><label for="review_notes"><?php echo esc_html__( 'Review notes', 'ehrman-blog-discovery' ); ?></label></th><td><textarea class="large-text" id="review_notes" name="review_notes" rows="4"><?php echo esc_textarea( implode( "\n", $notes ) ); ?></textarea><p class="description"><?php echo esc_html__( 'Required for ambiguity, a new keyword, or no suitable topic.', 'ehrman-blog-discovery' ); ?></p></td></tr>
-				<?php
-				if ( ! empty( $new_keywords ) ) :
-					?>
-					<tr class="ehrman-ingestion__new"><th scope="row"><?php echo esc_html__( 'New-keyword approval', 'ehrman-blog-discovery' ); ?></th><td><label><input type="checkbox" name="approve_new_keywords" value="1"> <?php echo esc_html__( 'I explicitly approve creating the NEW secondary keyword labels shown above.', 'ehrman-blog-discovery' ); ?></label></td></tr><?php endif; ?>
-			</table>
-			<div class="ehrman-ingestion__actions">
-				<button class="button" type="submit" name="ingestion_intent" value="save"><?php echo esc_html__( 'Save revisions', 'ehrman-blog-discovery' ); ?></button>
-				<button class="button button-primary" type="submit" name="ingestion_intent" value="approve"<?php disabled( ! Post_Ingestion_Service::database_is_authoritative() ); ?>><?php echo esc_html__( 'Approve and add to index', 'ehrman-blog-discovery' ); ?></button>
-			</div>
-		</form>
-		<div class="ehrman-ingestion__actions">
-			<?php self::render_reanalyze_form( Database::integer( $draft['id'] ?? null ) ); ?>
-			<?php self::render_discard_form( Database::integer( $draft['id'] ?? null ) ); ?>
-		</div>
-		<?php
+	private static function review_view( Post_Ingestion_Service $service, array $draft, array $proposal ): array {
+		$vocabulary = $service->vocabulary();
+		$rationales = self::topic_rationale_list( $proposal['topicRationales'] ?? null );
+		return array(
+			'id'                     => Database::text( $draft['id'] ?? null ),
+			'action_id'              => Database::integer( $draft['id'] ?? null ),
+			'description'            => Database::text( $proposal['description'] ?? null ),
+			'summary'                => Database::text( $proposal['searchSummary'] ?? null ),
+			'vocabulary_topics'      => $vocabulary['topics'],
+			'topics'                 => self::string_list( $proposal['topics'] ?? null ),
+			'rationales'             => $rationales,
+			'rationales_json'        => (string) wp_json_encode( $rationales ),
+			'keywords'               => implode( "\n", self::string_list( $proposal['secondaryKeywords'] ?? null ) ),
+			'new_keywords'           => self::string_list( $proposal['newSecondaryKeywords'] ?? null ),
+			'status'                 => Database::text( $proposal['status'] ?? null ),
+			'notes'                  => implode( "\n", self::string_list( $proposal['reviewNotes'] ?? null ) ),
+			'database_authoritative' => Post_Ingestion_Service::database_is_authoritative(),
+		);
 	}
 
 	/**
-	 * Renders an immutable approved proposal.
+	 * Prepares an immutable approved proposal.
 	 *
 	 * @param array<string,mixed> $proposal Approved proposal.
+	 * @return array<string,string> Approved display values.
 	 */
-	private static function render_approved_proposal( array $proposal ): void {
-		?>
-		<h2><?php echo esc_html__( 'Approved enrichment', 'ehrman-blog-discovery' ); ?></h2>
-		<dl>
-			<dt><strong><?php echo esc_html__( 'Description', 'ehrman-blog-discovery' ); ?></strong></dt><dd><?php echo esc_html( Database::text( $proposal['description'] ?? null ) ); ?></dd>
-			<dt><strong><?php echo esc_html__( 'Search summary', 'ehrman-blog-discovery' ); ?></strong></dt><dd><?php echo esc_html( Database::text( $proposal['searchSummary'] ?? null ) ); ?></dd>
-			<dt><strong><?php echo esc_html__( 'Topics', 'ehrman-blog-discovery' ); ?></strong></dt><dd><?php echo esc_html( implode( ', ', self::string_list( $proposal['topics'] ?? null ) ) ); ?></dd>
-			<dt><strong><?php echo esc_html__( 'Secondary keywords', 'ehrman-blog-discovery' ); ?></strong></dt><dd><?php echo esc_html( implode( ', ', array_merge( self::string_list( $proposal['secondaryKeywords'] ?? null ), self::string_list( $proposal['newSecondaryKeywords'] ?? null ) ) ) ); ?></dd>
-		</dl>
-		<?php
+	private static function approved_view( array $proposal ): array {
+		return array(
+			'description' => Database::text( $proposal['description'] ?? null ),
+			'summary'     => Database::text( $proposal['searchSummary'] ?? null ),
+			'topics'      => implode( ', ', self::string_list( $proposal['topics'] ?? null ) ),
+			'keywords'    => implode( ', ', array_merge( self::string_list( $proposal['secondaryKeywords'] ?? null ), self::string_list( $proposal['newSecondaryKeywords'] ?? null ) ) ),
+		);
 	}
 
 	/**
-	 * Renders recent draft and approval history.
+	 * Prepares recent draft and approval history.
 	 *
 	 * @param list<array<string,mixed>> $drafts Draft and approval records.
+	 * @return list<array<string,string>> History display rows.
 	 */
-	private static function render_draft_list( array $drafts ): void {
-		?>
-		<h2><?php echo esc_html__( 'Ingestion history', 'ehrman-blog-discovery' ); ?></h2>
-		<?php
-		if ( empty( $drafts ) ) :
-			?>
-			<p><?php echo esc_html__( 'No ingestion records yet.', 'ehrman-blog-discovery' ); ?></p><?php return; ?><?php endif; ?>
-		<table class="widefat striped">
-			<thead><tr><th><?php echo esc_html__( 'Updated', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Post', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Status', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Vector', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Action', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-			<tbody>
-			<?php
-			foreach ( $drafts as $draft ) :
-				?>
-				<?php $status = sanitize_key( Database::text( $draft['status'] ?? null ) ); ?>
-				<tr><td><?php echo esc_html( get_date_from_gmt( Database::text( $draft['updated_at'] ?? null ), 'M j, Y g:i A' ) ); ?></td><td><strong><?php echo esc_html( Database::text( $draft['title'] ?? null ) ); ?></strong><br><span class="description"><?php echo esc_html( '#' . Database::text( $draft['source_wp_id'] ?? null ) ); ?></span></td><td><?php echo esc_html( ucfirst( $status ) ); ?></td><td><?php echo esc_html( str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ) ); ?></td><td><a class="button button-small" href="<?php echo esc_url( self::page_url( Database::integer( $draft['id'] ?? null ) ) ); ?>"><?php echo esc_html( self::draft_action_label( $status ) ); ?></a></td></tr><?php endforeach; ?></tbody>
-		</table>
-		<?php
+	private static function history_rows( array $drafts ): array {
+		$rows = array();
+		foreach ( $drafts as $draft ) {
+			$status = sanitize_key( Database::text( $draft['status'] ?? null ) );
+			$rows[] = array(
+				'updated' => get_date_from_gmt( Database::text( $draft['updated_at'] ?? null ), 'M j, Y g:i A' ),
+				'title'   => Database::text( $draft['title'] ?? null ),
+				'wp_id'   => '#' . Database::text( $draft['source_wp_id'] ?? null ),
+				'status'  => ucfirst( $status ),
+				'vector'  => str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ),
+				'url'     => self::page_url( Database::integer( $draft['id'] ?? null ) ),
+				'action'  => self::draft_action_label( $status ),
+			);
+		}
+		return $rows;
 	}
 
 	/**
@@ -360,45 +260,6 @@ final class Post_Ingestion_Page {
 			'approved' => __( 'View', 'ehrman-blog-discovery' ),
 			default    => __( 'Review', 'ehrman-blog-discovery' ),
 		};
-	}
-
-	/**
-	 * Renders the reanalysis action.
-	 *
-	 * @param int    $draft_id Draft identifier.
-	 * @param string $label    Optional button label.
-	 */
-	private static function render_reanalyze_form( int $draft_id, string $label = '' ): void {
-		$label = '' !== $label ? $label : __( 'Reanalyze full text', 'ehrman-blog-discovery' );
-		?>
-		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"><input type="hidden" name="action" value="ehrman_ingestion_reanalyze"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $draft_id ); ?>"><?php wp_nonce_field( 'ehrman_ingestion_reanalyze' ); ?><button class="button" type="submit"><?php echo esc_html( $label ); ?></button></form>
-		<?php
-	}
-
-	/**
-	 * Renders the draft-discard action.
-	 *
-	 * @param int $draft_id Draft identifier.
-	 */
-	private static function render_discard_form( int $draft_id ): void {
-		?>
-		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return window.confirm('<?php echo esc_js( __( 'Discard this pending draft and its retained full text?', 'ehrman-blog-discovery' ) ); ?>');"><input type="hidden" name="action" value="ehrman_ingestion_discard"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $draft_id ); ?>"><?php wp_nonce_field( 'ehrman_ingestion_discard' ); ?><button class="button button-link-delete" type="submit"><?php echo esc_html__( 'Discard draft', 'ehrman-blog-discovery' ); ?></button></form>
-		<?php
-	}
-
-	/**
-	 * Renders a one-time action notice.
-	 *
-	 * @param mixed $notice Stored notice value.
-	 */
-	private static function render_notice( $notice ): void {
-		if ( ! is_array( $notice ) ) {
-			return;
-		}
-		$class = ! empty( $notice['success'] ) ? 'notice-success' : 'notice-error';
-		?>
-		<div class="notice <?php echo esc_attr( $class ); ?> is-dismissible"><p><?php echo esc_html( Database::text( $notice['message'] ?? null ) ); ?></p></div>
-		<?php
 	}
 
 	/**
