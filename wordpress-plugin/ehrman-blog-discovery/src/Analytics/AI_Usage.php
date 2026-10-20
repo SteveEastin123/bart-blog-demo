@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Records privacy-conscious AI usage and provides aggregate reporting. */
+/** Records privacy-conscious AI usage and reports index-preparation costs. */
 final class AI_Usage {
 	private const CACHE_VERSION_OPTION = 'ehrman_discovery_ai_cache_version';
 	private const PRICING_VERSION      = '2026-08-21';
@@ -25,13 +25,13 @@ final class AI_Usage {
 		return max( 1, Database::integer( get_option( self::CACHE_VERSION_OPTION, 1 ) ) );
 	}
 
-	/** Invalidates cached interpretations, refinements, and semantic query vectors. */
+	/** Invalidates cached candidate reviews and semantic query vectors. */
 	public static function invalidate_search_caches(): void {
 		update_option( self::CACHE_VERSION_OPTION, self::cache_version() + 1, false );
 	}
 
 	/**
-	 * Records an interpretation served from the WordPress cache.
+	 * Records a candidate review or query vector served from the WordPress cache.
 	 *
 	 * @param string $model Configured model identifier.
 	 * @param string $request_id Correlation identifier.
@@ -44,7 +44,7 @@ final class AI_Usage {
 	 * Records an OpenAI response, including token usage when available.
 	 *
 	 * @param array<string,mixed> $response_body Decoded Responses API body.
-	 * @param bool                $succeeded     Whether the interpretation was usable.
+	 * @param bool                $succeeded     Whether the candidate-review response was usable.
 	 * @param string              $error_code    Stable local error code.
 	 * @param string              $request_id    Correlation identifier.
 	 */
@@ -131,83 +131,6 @@ final class AI_Usage {
 	}
 
 	/**
-	 * Returns aggregate usage statistics for the administration page.
-	 *
-	 * @return array{
-	 *   submissions:int,api_requests:int,cache_hits:int,failures:int,
-	 *   input_tokens:int,cached_input_tokens:int,cache_write_tokens:int,
-	 *   output_tokens:int,reasoning_tokens:int,total_tokens:int,
-	 *   total_cost:float,month_cost:float,today_cost:float,average_cost:float,
-	 *   models:list<array<string,mixed>>
-	 * } Aggregate usage values.
-	 */
-	public static function report(): array {
-		$wpdb  = Database::client();
-		$table = Database::tables()['ai_usage'];
-		if ( ! Database::table_exists( $table ) ) {
-			return self::empty_report();
-		}
-
-		$today_start = gmdate( 'Y-m-d 00:00:00', time() );
-		$month_start = gmdate( 'Y-m-01 00:00:00', time() );
-		$sql         = $wpdb->prepare(
-			// @phpstan-ignore-next-line The query uses an internally generated table identifier.
-			"SELECT COUNT(*) AS submissions,
-			SUM(CASE WHEN cache_hit=0 THEN 1 ELSE 0 END) AS api_requests,
-			SUM(cache_hit) AS cache_hits,
-			SUM(CASE WHEN request_succeeded=0 THEN 1 ELSE 0 END) AS failures,
-			SUM(input_tokens) AS input_tokens,
-			SUM(cached_input_tokens) AS cached_input_tokens,
-			SUM(cache_write_tokens) AS cache_write_tokens,
-			SUM(output_tokens) AS output_tokens,
-			SUM(reasoning_tokens) AS reasoning_tokens,
-			SUM(CASE WHEN total_tokens=0 THEN input_tokens+output_tokens ELSE total_tokens END) AS total_tokens,
-			SUM(estimated_cost_usd) AS total_cost,
-			SUM(CASE WHEN created_at >= %s THEN estimated_cost_usd ELSE 0 END) AS month_cost,
-			SUM(CASE WHEN created_at >= %s THEN estimated_cost_usd ELSE 0 END) AS today_cost
-			FROM {$table}",
-			$month_start,
-			$today_start
-		);
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally.
-		$row = Database::associative_row( $wpdb->get_row( $sql, ARRAY_A ) );
-		if ( null === $row ) {
-			return self::empty_report();
-		}
-
-		$api_requests = Database::integer( $row['api_requests'] ?? 0 );
-		$total_cost   = (float) Database::text( $row['total_cost'] ?? 0 );
-		$model_sql    = 'SELECT model,service_tier,pricing_version,COUNT(*) AS submissions,'
-			. 'SUM(CASE WHEN cache_hit=0 THEN 1 ELSE 0 END) AS api_requests,'
-			. 'SUM(input_tokens) AS input_tokens,SUM(cached_input_tokens) AS cached_input_tokens,'
-			. 'SUM(cache_write_tokens) AS cache_write_tokens,SUM(output_tokens) AS output_tokens,'
-			. 'SUM(reasoning_tokens) AS reasoning_tokens,'
-			. 'SUM(CASE WHEN total_tokens=0 THEN input_tokens+output_tokens ELSE total_tokens END) AS total_tokens,'
-			. 'SUM(estimated_cost_usd) AS total_cost '
-			. "FROM {$table} WHERE cache_hit=0 GROUP BY model,service_tier,pricing_version ORDER BY total_cost DESC,model";
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally.
-		$model_rows = Database::associative_rows( $wpdb->get_results( $model_sql, ARRAY_A ) );
-
-		return array(
-			'submissions'         => Database::integer( $row['submissions'] ?? 0 ),
-			'api_requests'        => $api_requests,
-			'cache_hits'          => Database::integer( $row['cache_hits'] ?? 0 ),
-			'failures'            => Database::integer( $row['failures'] ?? 0 ),
-			'input_tokens'        => Database::integer( $row['input_tokens'] ?? 0 ),
-			'cached_input_tokens' => Database::integer( $row['cached_input_tokens'] ?? 0 ),
-			'cache_write_tokens'  => Database::integer( $row['cache_write_tokens'] ?? 0 ),
-			'output_tokens'       => Database::integer( $row['output_tokens'] ?? 0 ),
-			'reasoning_tokens'    => Database::integer( $row['reasoning_tokens'] ?? 0 ),
-			'total_tokens'        => Database::integer( $row['total_tokens'] ?? 0 ),
-			'total_cost'          => $total_cost,
-			'month_cost'          => (float) Database::text( $row['month_cost'] ?? 0 ),
-			'today_cost'          => (float) Database::text( $row['today_cost'] ?? 0 ),
-			'average_cost'        => $api_requests > 0 ? $total_cost / $api_requests : 0.0,
-			'models'              => $model_rows,
-		);
-	}
-
-	/**
 	 * Returns semantic-index embedding usage that is not tied to a question.
 	 *
 	 * @return array{calls:int,input_tokens:int,total_cost:float} Index-build usage values.
@@ -252,8 +175,8 @@ final class AI_Usage {
 	 * Inserts one privacy-conscious usage event.
 	 *
 	 * @param array<string,int|float|string> $metrics    API response metrics.
-	 * @param bool                           $cache_hit  Whether WordPress served the interpretation from cache.
-	 * @param bool                           $succeeded  Whether the interpretation succeeded.
+	 * @param bool                           $cache_hit  Whether WordPress served the result from cache.
+	 * @param bool                           $succeeded  Whether the review or embedding request succeeded.
 	 * @param string                         $error_code Stable local error code.
 	 * @param string                         $request_id Correlation identifier.
 	 */
@@ -328,36 +251,5 @@ final class AI_Usage {
 	 */
 	private static function nonnegative_integer( $value ): int {
 		return is_numeric( $value ) ? max( 0, (int) $value ) : 0;
-	}
-
-	/**
-	 * Returns an empty report with the complete reporting shape.
-	 *
-	 * @return array{
-	 *   submissions:int,api_requests:int,cache_hits:int,failures:int,
-	 *   input_tokens:int,cached_input_tokens:int,cache_write_tokens:int,
-	 *   output_tokens:int,reasoning_tokens:int,total_tokens:int,
-	 *   total_cost:float,month_cost:float,today_cost:float,average_cost:float,
-	 *   models:list<array<string,mixed>>
-	 * } Empty aggregate report.
-	 */
-	private static function empty_report(): array {
-		return array(
-			'submissions'         => 0,
-			'api_requests'        => 0,
-			'cache_hits'          => 0,
-			'failures'            => 0,
-			'input_tokens'        => 0,
-			'cached_input_tokens' => 0,
-			'cache_write_tokens'  => 0,
-			'output_tokens'       => 0,
-			'reasoning_tokens'    => 0,
-			'total_tokens'        => 0,
-			'total_cost'          => 0.0,
-			'month_cost'          => 0.0,
-			'today_cost'          => 0.0,
-			'average_cost'        => 0.0,
-			'models'              => array(),
-		);
 	}
 }

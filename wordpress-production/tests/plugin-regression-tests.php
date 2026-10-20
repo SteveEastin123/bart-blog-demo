@@ -781,7 +781,7 @@ $assert( abs( $analytics['initial_cost'] - 0.10 ) < 0.000001, 'Initial analytics
 $assert( abs( $analytics['refinement_cost'] - 0.20 ) < 0.000001, 'Refinement analytics cost was calculated incorrectly.' );
 $assert( abs( $analytics['total_cost'] - 0.30 ) < 0.000001, 'Total analytics cost did not include both calls.' );
 $assert( abs( $analytics['average_question'] - 0.15 ) < 0.000001, 'Average question cost was calculated incorrectly.' );
-$assert_same( 2, $analytics['api_calls'], 'Cached events were counted as paid API calls.' );
+$assert_same( 2, $analytics['uncached_stages'], 'Cached events were counted as uncached stages.' );
 $assert_same( 1, $analytics['cache_hits'], 'Analytics cache hits were counted incorrectly.' );
 $assert_same( 360, $analytics['total_tokens'], 'Analytics tokens were totaled incorrectly.' );
 

@@ -53,13 +53,11 @@ final class Semantic_Ask_AI_REST_Controller {
 			AI_Requests::record(
 				$request_id,
 				$question,
-				array(),
 				false,
 				false,
-				(string) $candidates->get_error_code(),
-				'semantic',
 				AI_Settings::model_id(),
-				Semantic_Search_Service::pipeline_version()
+				Semantic_Search_Service::pipeline_version(),
+				(string) $candidates->get_error_code()
 			);
 			return $candidates;
 		}
@@ -67,11 +65,8 @@ final class Semantic_Ask_AI_REST_Controller {
 		AI_Requests::record(
 			$request_id,
 			$question,
-			array(),
 			$candidates['cache_hit'],
 			true,
-			'',
-			'semantic',
 			AI_Settings::model_id(),
 			Semantic_Search_Service::pipeline_version()
 		);

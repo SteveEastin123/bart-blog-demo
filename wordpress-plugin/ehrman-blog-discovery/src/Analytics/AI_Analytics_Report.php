@@ -23,17 +23,16 @@ final class AI_Analytics_Report {
 	 * @return array<string,int|float> Summary values.
 	 */
 	public function summary( array $requests, array $refinements ): array {
-		$initial_cost      = $this->row_cost( $requests );
-		$refinement_cost   = $this->row_cost( $refinements );
-		$total_cost        = $initial_cost + $refinement_cost;
-		$events            = array_merge( $requests, $refinements );
-		$cache_hits        = count( array_filter( $events, static fn( array $row ): bool => 1 === Database::integer( $row['cache_hit'] ?? 0 ) ) );
-		$api_calls         = max( 0, count( $events ) - $cache_hits );
-		$questions         = count( $requests );
-		$refinement_count  = count( $refinements );
-		$refined_questions = array_filter( array_unique( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $refinements ) ) );
-		$result_total      = $this->row_integer_sum( $requests, 'result_count' );
-		$zero_results      = count(
+		$initial_cost     = $this->row_cost( $requests );
+		$refinement_cost  = $this->row_cost( $refinements );
+		$total_cost       = $initial_cost + $refinement_cost;
+		$events           = array_merge( $requests, $refinements );
+		$cache_hits       = count( array_filter( $events, static fn( array $row ): bool => 1 === Database::integer( $row['cache_hit'] ?? 0 ) ) );
+		$uncached_stages  = max( 0, count( $events ) - $cache_hits );
+		$questions        = count( $requests );
+		$refinement_count = count( $refinements );
+		$result_total     = $this->row_integer_sum( $requests, 'result_count' );
+		$zero_results     = count(
 			array_filter(
 				$requests,
 				static fn( array $row ): bool => 1 === Database::integer( $row['result_recorded'] ?? 0 )
@@ -42,28 +41,23 @@ final class AI_Analytics_Report {
 		);
 
 		return array(
-			'questions'              => $questions,
-			'refinements'            => $refinement_count,
-			'api_calls'              => $api_calls,
-			'cache_hits'             => $cache_hits,
-			'input_tokens'           => $this->row_integer_sum( $events, 'input_tokens' ),
-			'cached_input_tokens'    => $this->row_integer_sum( $events, 'cached_input_tokens' ),
-			'cache_write_tokens'     => $this->row_integer_sum( $events, 'cache_write_tokens' ),
-			'output_tokens'          => $this->row_integer_sum( $events, 'output_tokens' ),
-			'reasoning_tokens'       => $this->row_integer_sum( $events, 'reasoning_tokens' ),
-			'total_tokens'           => array_reduce( $events, fn( int $sum, array $row ): int => $sum + $this->total_tokens( $row ), 0 ),
-			'initial_cost'           => $initial_cost,
-			'refinement_cost'        => $refinement_cost,
-			'total_cost'             => $total_cost,
-			'average_question'       => $questions > 0 ? $total_cost / $questions : 0.0,
-			'average_interpretation' => $questions > 0 ? $initial_cost / $questions : 0.0,
-			'average_refinement'     => $refinement_count > 0 ? $refinement_cost / $refinement_count : 0.0,
-			'average_api_call'       => $api_calls > 0 ? $total_cost / $api_calls : 0.0,
-			'average_calls'          => $questions > 0 ? $api_calls / $questions : 0.0,
-			'average_results'        => $questions > 0 ? $result_total / $questions : 0.0,
-			'zero_results'           => $zero_results,
-			'cache_rate'             => count( $events ) > 0 ? ( $cache_hits / count( $events ) ) * 100 : 0.0,
-			'refinement_rate'        => $questions > 0 ? ( count( $refined_questions ) / $questions ) * 100 : 0.0,
+			'questions'           => $questions,
+			'refinements'         => $refinement_count,
+			'uncached_stages'     => $uncached_stages,
+			'cache_hits'          => $cache_hits,
+			'input_tokens'        => $this->row_integer_sum( $events, 'input_tokens' ),
+			'cached_input_tokens' => $this->row_integer_sum( $events, 'cached_input_tokens' ),
+			'cache_write_tokens'  => $this->row_integer_sum( $events, 'cache_write_tokens' ),
+			'output_tokens'       => $this->row_integer_sum( $events, 'output_tokens' ),
+			'reasoning_tokens'    => $this->row_integer_sum( $events, 'reasoning_tokens' ),
+			'total_tokens'        => array_reduce( $events, fn( int $sum, array $row ): int => $sum + $this->total_tokens( $row ), 0 ),
+			'initial_cost'        => $initial_cost,
+			'refinement_cost'     => $refinement_cost,
+			'total_cost'          => $total_cost,
+			'average_question'    => $questions > 0 ? $total_cost / $questions : 0.0,
+			'average_results'     => $questions > 0 ? $result_total / $questions : 0.0,
+			'zero_results'        => $zero_results,
+			'cache_rate'          => count( $events ) > 0 ? ( $cache_hits / count( $events ) ) * 100 : 0.0,
 		);
 	}
 

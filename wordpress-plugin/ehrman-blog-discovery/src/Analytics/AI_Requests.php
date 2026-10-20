@@ -21,19 +21,17 @@ final class AI_Requests {
 	}
 
 	/**
-	 * Stores one submitted question and its interpretation outcome.
+	 * Stores a semantic-search submission and its candidate-retrieval outcome.
 	 *
-	 * @param string                    $request_id Correlation identifier.
-	 * @param string                    $question   Submitted question.
-	 * @param list<array<string,mixed>> $terms      Interpreted terms.
-	 * @param bool                      $cache_hit   Whether interpretation came from cache.
-	 * @param bool                      $succeeded   Whether interpretation succeeded.
-	 * @param string                    $error_code  Stable error code when unsuccessful.
-	 * @param string                    $request_type Search pipeline identifier.
-	 * @param string                    $model         Optional pipeline model identifier.
-	 * @param string                    $prompt_version Optional pipeline prompt version.
+	 * @param string $request_id       Correlation identifier.
+	 * @param string $question         Submitted question or request.
+	 * @param bool   $cache_hit        Whether the query vector came from cache.
+	 * @param bool   $succeeded        Whether candidate retrieval succeeded.
+	 * @param string $model            Recorded pipeline model identifier.
+	 * @param string $pipeline_version Semantic retrieval pipeline version.
+	 * @param string $error_code       Stable error code when unsuccessful.
 	 */
-	public static function record( string $request_id, string $question, array $terms, bool $cache_hit, bool $succeeded, string $error_code = '', string $request_type = 'taxonomy', string $model = '', string $prompt_version = '' ): void {
+	public static function record( string $request_id, string $question, bool $cache_hit, bool $succeeded, string $model, string $pipeline_version, string $error_code = '' ): void {
 		self::delete_expired();
 		$wpdb     = Database::client();
 		$table    = Database::tables()['ai_requests'];
@@ -44,12 +42,13 @@ final class AI_Requests {
 			array(
 				'request_id'        => sanitize_text_field( $request_id ),
 				'created_at'        => current_time( 'mysql', true ),
-				'request_type'      => 'semantic' === $request_type ? 'semantic' : 'taxonomy',
+				'request_type'      => 'semantic',
 				'question'          => $question,
-				'selected_terms'    => (string) wp_json_encode( self::terms( $terms ) ),
+				// Retain the legacy column without generating interpreted terms.
+				'selected_terms'    => '[]',
 				'result_count'      => 0,
 				'model'             => '' !== $model ? sanitize_text_field( $model ) : AI_Settings::model_id(),
-				'prompt_version'    => sanitize_text_field( $prompt_version ),
+				'prompt_version'    => sanitize_text_field( $pipeline_version ),
 				'cache_hit'         => $cache_hit ? 1 : 0,
 				'request_succeeded' => $succeeded ? 1 : 0,
 				'error_code'        => sanitize_key( $error_code ),
@@ -206,30 +205,6 @@ final class AI_Requests {
 		} catch ( \Exception $exception ) {
 			return '';
 		}
-	}
-
-	/**
-	 * Sanitizes interpreted term labels and modes.
-	 *
-	 * @param array<mixed> $terms Candidate terms.
-	 * @return list<array{label:string,mode:string}> Sanitized terms.
-	 */
-	private static function terms( array $terms ): array {
-		$clean = array();
-		foreach ( array_slice( $terms, 0, Search_Service::MAX_TERMS ) as $term ) {
-			if ( ! is_array( $term ) || ! is_scalar( $term['label'] ?? null ) ) {
-				continue;
-			}
-			$label = sanitize_text_field( (string) $term['label'] );
-			$mode  = 'topic' === ( $term['mode'] ?? '' ) ? 'topic' : 'keyword';
-			if ( '' !== $label ) {
-				$clean[] = array(
-					'label' => $label,
-					'mode'  => $mode,
-				);
-			}
-		}
-		return $clean;
 	}
 
 	/**

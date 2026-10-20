@@ -161,7 +161,7 @@ final class AI_Analytics_Renderer {
 			<thead><tr><th><?php echo esc_html__( 'Period', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Questions', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'AI reviews', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Uncached stages', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Estimated cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Average per question', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 			<tbody>
 			<?php foreach ( $periods as $label => $period ) : ?>
-				<tr><th scope="row"><?php echo esc_html( $label ); ?></th><td><?php echo esc_html( number_format_i18n( (int) $period['questions'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $period['refinements'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $period['api_calls'] ) ); ?></td><td><?php echo esc_html( self::usd( (float) $period['total_cost'] ) ); ?></td><td><?php echo esc_html( self::cents( (float) $period['average_question'] ) ); ?></td></tr>
+				<tr><th scope="row"><?php echo esc_html( $label ); ?></th><td><?php echo esc_html( number_format_i18n( (int) $period['questions'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $period['refinements'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( (int) $period['uncached_stages'] ) ); ?></td><td><?php echo esc_html( self::usd( (float) $period['total_cost'] ) ); ?></td><td><?php echo esc_html( self::cents( (float) $period['average_question'] ) ); ?></td></tr>
 			<?php endforeach; ?>
 			</tbody>
 		</table>

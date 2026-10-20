@@ -85,6 +85,10 @@ try {
 	$assert( abs( $summary['average_question'] - 0.004 ) < 0.0000001, 'Cached/failed questions were omitted from average cost.' );
 	$assert_same( 380, $summary['total_tokens'], 'Question tokens did not include embedding, review and retry.' );
 	$assert_same( 2, $summary['cache_hits'], 'Embedding and review cache hits were not retained.' );
+	$assert_same( 4, $summary['uncached_stages'], 'Uncached stage totals changed.' );
+	foreach ( array( 'average_interpretation', 'average_refinement', 'average_api_call', 'average_calls', 'refinement_rate', 'api_calls' ) as $obsolete_key ) {
+		$assert( ! array_key_exists( $obsolete_key, $summary ), 'Unused analytics metric remains: ' . $obsolete_key );
+	}
 	$assert_same( 1, $summary['zero_results'], 'Failed retrieval was counted as a completed zero-result search.' );
 	$assert( abs( $report['helpful_rate'] - 50 ) < 0.00001, 'Helpful rate denominator must exclude unanswered feedback.' );
 	$assert_same( 1, AI_Requests::analytics( array_merge( $filters, array( 'feedback' => 'yes' ) ) )['total'], 'Yes filter failed.' );

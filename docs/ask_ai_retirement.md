@@ -95,9 +95,9 @@ Ask AI 2 calls `AI_Candidate_Reviewer` directly. The review prompt, cache key,
 candidate selection, semantic search and embedding implementations are unchanged.
 
 Historical analytics tables and data remain in place. The separate-method
-reporting views are replaced by the unified dashboard described below. Only the
-unused interpretation-feedback writer is removed; current request feedback is
-unchanged. Both Browse Topics paths, Keyword Search and ingestion remain active.
+reporting views are replaced by the unified dashboard described below. The unused
+interpretation-feedback writer and reader are removed; current request feedback
+is unchanged. Both Browse Topics paths, Keyword Search and ingestion remain active.
 
 All `experiments/` content is excluded from the Docker build context, not just
 individual private experiment directories. The installable plugin and its handoff
@@ -153,6 +153,37 @@ Verified locally on October 19, 2026:
   includes 261 and excludes 220 taxonomy and 50 two-vector experiment requests.
 - Search, embedding and candidate-review implementations were unchanged. No
   paid API calls, data import, committed changes, push or Render deployment.
+
+## Analytics code cleanup
+
+Local checkpoint `385b4a2` preserves the completed retirement and unified
+dashboard before the follow-up code cleanup.
+
+- Remove the unused `AI_Feedback` reader, `AI_Usage::report()` and its empty-report
+  helper, and `AI_Refinements::count()`. Keep current request feedback, usage
+  recording and the separate semantic-index preparation report.
+- Remove unused interpretation/review/API-call averages and refinement-rate
+  calculations. Name the retained stage count `uncached_stages`, matching the
+  dashboard label; this is not a count of provider HTTP calls.
+- Simplify `AI_Requests::record()` to semantic submissions only. Its required
+  model and pipeline-version inputs are supplied by both controller paths.
+  New records explicitly use `semantic` and an empty legacy `selected_terms`
+  value. Old records, columns, table definitions and retention rules are unchanged.
+- Update comments to distinguish semantic retrieval from candidate review.
+  Prompts, model configuration, caches, embeddings, retrieval and ranking are
+  unchanged; only the analytics call arguments change in the REST controller.
+
+The request-writing assertions in `ask-ai-cleanup-tests.php` cover successful
+retrieval, cached query vectors, candidate-review fallbacks and failed retrieval.
+The full analytics suite also verifies the reduced summary shape, costs, tokens,
+exports, scope and preservation of historical records.
+
+Verified locally on October 20, 2026: the full WordPress acceptance/regression
+suite passed (73 PHP syntax checks), PHPCS passed (68 files), and PHPStan reported
+no errors. Analytics and public-search browser suites passed at 1440, 1024 and
+390 pixels, with mocked AI requests only. All 19 discovery tables retained
+identical schemas, indexes, row counts and content hashes. No data import,
+schema migration, paid API request, push or Render deployment was performed.
 
 ## October 18 verification
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Ask AI refinement analytics storage.
+ * Ask AI candidate-review analytics storage.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -11,15 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Stores post-result refinement events separately from question interpretation. */
+/** Stores AI candidate-review events linked to search submissions. */
 final class AI_Refinements {
 	private const RETENTION_DAYS = 90;
 
 	/**
-	 * Stores one refinement event.
+	 * Stores one candidate-review event.
 	 *
-	 * @param array<string,mixed>       $data  Refinement metadata.
-	 * @param list<array<string,mixed>> $posts Posts retained by refinement.
+	 * @param array<string,mixed>       $data  Candidate-review metadata.
+	 * @param list<array<string,mixed>> $posts Posts retained by the review.
 	 */
 	public static function record( array $data, array $posts ): void {
 		self::delete_expired();
@@ -69,7 +69,7 @@ final class AI_Refinements {
 	 * Returns reviews linked to the active search method with their recorded usage.
 	 *
 	 * @param int $limit Maximum number of events, or zero for all matching reviews.
-	 * @return list<array<string,mixed>> Recent refinement events.
+	 * @return list<array<string,mixed>> Recent candidate-review events.
 	 */
 	public static function recent( int $limit = 100 ): array {
 		$tables    = Database::tables();
@@ -98,19 +98,11 @@ final class AI_Refinements {
 			$tables['ai_requests']
 		);
 		$sql      .= $limit_sql;
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifiers are generated internally and limit is prepared.
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Identifiers and scope are internal; the optional limit is an integer.
 		return Database::associative_rows( Database::client()->get_results( $sql, ARRAY_A ) );
 	}
 
-	/** Returns the retained refinement count. */
-	public static function count(): int {
-		self::delete_expired();
-		$table = Database::tables()['ai_refinements'];
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifier is generated internally.
-		return Database::integer( Database::client()->get_var( "SELECT COUNT(*) FROM {$table}" ) );
-	}
-
-	/** Deletes detailed refinement events after the retention period. */
+	/** Deletes detailed candidate-review events after the retention period. */
 	private static function delete_expired(): void {
 		$table  = Database::tables()['ai_refinements'];
 		$cutoff = esc_sql( gmdate( 'Y-m-d H:i:s', time() - ( self::RETENTION_DAYS * DAY_IN_SECONDS ) ) );

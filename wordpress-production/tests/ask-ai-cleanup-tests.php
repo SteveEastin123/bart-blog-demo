@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $assert( ! class_exists( 'EhrmanBlogDiscovery\\AI_Interpreter' ), 'Retired interpreter is still packaged.' );
 $assert( ! class_exists( 'EhrmanBlogDiscovery\\AI_Term_Selector' ), 'Retired term selector is still packaged.' );
+$assert( ! class_exists( 'EhrmanBlogDiscovery\\AI_Feedback' ), 'Unused legacy feedback reader is still packaged.' );
+$assert( ! method_exists( AI_Usage::class, 'report' ), 'Unused aggregate usage report is still packaged.' );
+$assert( ! method_exists( 'EhrmanBlogDiscovery\\AI_Refinements', 'count' ), 'Unused refinement counter is still packaged.' );
 $assert( ! class_exists( 'EhrmanSectionPublic\\Index' ), 'Experimental section plugin is active.' );
 $asset_config = wp_scripts()->get_data( 'ehrman-blog-discovery', 'data' );
 $assert( is_string( $asset_config ) && ! str_contains( $asset_config, 'interpretUrl' ) && ! str_contains( $asset_config, 'refineUrl' ), 'Retired endpoints are still advertised to the browser.' );
@@ -91,6 +94,14 @@ try {
 		$response = $controller->semantic_search( $request );
 		$assert( $response instanceof WP_REST_Response, 'Semantic endpoint returned an unexpected error.' );
 		$data = $response->get_data();
+		$recorded = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$tables['ai_requests']} WHERE request_id=%s", $data['request_id'] ), ARRAY_A );
+		$assert_same( 'semantic', $recorded['request_type'], 'Successful search was recorded as a retired method.' );
+		$assert_same( '[]', $recorded['selected_terms'], 'Semantic search generated interpreted terms.' );
+		$assert_same( AI_Settings::model_id(), $recorded['model'], 'Request model changed during recording cleanup.' );
+		$assert_same( Semantic_Search_Service::pipeline_version(), $recorded['prompt_version'], 'Request pipeline version was not retained.' );
+		$assert_same( '1', (string) $recorded['cache_hit'], 'Query-vector cache hit was not retained.' );
+		$assert_same( '1', (string) $recorded['request_succeeded'], 'Candidate retrieval success was not retained.' );
+		$assert_same( '', $recorded['error_code'], 'A successful retrieval has an error code.' );
 		$assert_same( $candidates['posts'], $data['broader']['posts'], 'Broader candidates or ranking changed.' );
 		if ( 'success' === $cleanup_mode ) {
 			$assert_same( true, $data['refined'], 'Successful review did not produce refined results.' );
@@ -105,6 +116,26 @@ try {
 			$assert( '' !== $data['notice'], 'Fallback did not explain the result.' );
 		}
 	}
+	// An unusable cached vector exercises retrieval failure without an embedding API call.
+	$question = 'Cleanup invalid vector ' . wp_generate_uuid4();
+	$cleanup_questions[] = $question;
+	$key = 'ebd_semantic_query_' . hash( 'sha256', Search_Service::normalize( $question ) . '|' . Embedding_Service::model_id() . '|' . Embedding_Service::dimensions() . '|' . AI_Usage::cache_version() );
+	set_transient( $key, array_fill( 0, Embedding_Service::dimensions(), 0.0 ), MINUTE_IN_SECONDS );
+	$cleanup_caches[] = $key;
+	$request = new WP_REST_Request( 'POST', '/ehrman-discovery/v1/semantic-search' );
+	$request->set_param( 'question', $question );
+	$failed = $controller->semantic_search( $request );
+	$assert( is_wp_error( $failed ), 'Invalid query vector unexpectedly returned results.' );
+	$assert_same( 'ehrman_semantic_invalid_vector', $failed->get_error_code(), 'Retrieval failure response changed.' );
+	$recorded = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$tables['ai_requests']} WHERE question=%s", $question ), ARRAY_A );
+	$assert_same( 'semantic', $recorded['request_type'], 'Failed search was recorded as a retired method.' );
+	$assert_same( '[]', $recorded['selected_terms'], 'Failed search generated interpreted terms.' );
+	$assert_same( AI_Settings::model_id(), $recorded['model'], 'Failed request model changed.' );
+	$assert_same( Semantic_Search_Service::pipeline_version(), $recorded['prompt_version'], 'Failed request pipeline version changed.' );
+	$assert_same( '0', (string) $recorded['cache_hit'], 'Failed retrieval cache flag changed.' );
+	$assert_same( '0', (string) $recorded['request_succeeded'], 'Failed retrieval was recorded as successful.' );
+	$assert_same( '0', (string) $recorded['result_recorded'], 'Failed retrieval was recorded as a completed search.' );
+	$assert_same( $failed->get_error_code(), $recorded['error_code'], 'Retrieval error code was not recorded.' );
 	$assert_same( 4, $cleanup_calls, 'Unexpected number of mocked review calls.' );
 } finally {
 	remove_filter( 'pre_http_request', $cleanup_http, PHP_INT_MAX );
