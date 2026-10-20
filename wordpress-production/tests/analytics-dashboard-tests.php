@@ -21,6 +21,26 @@ $exporter = new AI_Analytics_Exporter();
 $saved_get = $_GET;
 $saved_user = get_current_user_id();
 $baseline_periods = $builder->periods();
+$dashboard_dom = static function ( string $markup ): DOMXPath {
+	$document = new DOMDocument();
+	$previous_errors = libxml_use_internal_errors( true );
+	try {
+		$document->loadHTML( '<?xml encoding="UTF-8">' . $markup );
+	} finally {
+		libxml_clear_errors();
+		libxml_use_internal_errors( $previous_errors );
+	}
+	return new DOMXPath( $document );
+};
+$render_dashboard = static function ( array $values, int $page = 1, bool $was_reset = false ): string {
+	ob_start();
+	try {
+		( new AI_Analytics_Renderer() )->render( $values, $page, $was_reset );
+		return (string) ob_get_contents();
+	} finally {
+		ob_end_clean();
+	}
+};
 $assert( false !== $wpdb->query( 'START TRANSACTION' ), 'Could not start analytics test transaction.' );
 try {
 	$insert = static function ( $table, $values ) use ( $wpdb, $assert ) {
@@ -120,6 +140,60 @@ try {
 	$assert( ! str_contains( $html, 'Topics and keywords' ) && ! str_contains( $html, 'Side-by-side' ), 'Comparison content remains.' );
 	$assert( ! str_contains( $html, $marker . ' taxonomy' ) && ! str_contains( $html, $marker . ' experiment' ), 'Hidden methods appeared in dashboard details.' );
 	$assert( str_contains( $html, '1.200' ) && str_contains( $html, '0.400' ), 'Combined and average costs are missing from dashboard.' );
+	$dashboard = $dashboard_dom( $html );
+	$question_table = '//table[@data-ebd-analytics-questions]';
+	$review_table = '//details[summary/strong[text()="AI review details"]]//table';
+	$assert_same( 7, $dashboard->query( $question_table . '/thead/tr/th' )->length, 'Question columns changed.' );
+	$assert_same( 8, $dashboard->query( $review_table . '/thead/tr/th' )->length, 'Review columns changed.' );
+	$assert_same( 3, $dashboard->query( $question_table . '/tbody/tr' )->length, 'Question template dropped rows.' );
+	$assert_same( 3, $dashboard->query( $review_table . '/tbody/tr' )->length, 'Review template dropped retries.' );
+	$paid_row = $question_table . '/tbody/tr[td[2][contains(., "' . $marker . ' paid")]]';
+	$failed_row = $question_table . '/tbody/tr[td[2][contains(., "' . $marker . ' failed")]]';
+	$assert_same( 'Oct 18, 2026 12:00 AM EDT', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[1])' ) ), 'Question timezone display changed.' );
+	$assert_same( '1.200¢', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[3]/strong)' ) ), 'Question total is not displayed first.' );
+	$assert_same( 'Embedding: 0.100¢; AI review: 1.100¢', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[3]/small)' ) ), 'Question cost breakdown changed.' );
+	$assert_same( '380', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[7]/strong)' ) ), 'Question token total changed.' );
+	$assert_same( 'Not recorded', trim( $dashboard->evaluate( 'string(' . $failed_row . '/td[4])' ) ), 'Incomplete search result label changed.' );
+	foreach ( array( 'WordPress cache', 'Failed; broader results returned.', 'No AI review recorded.', 'Not provided' ) as $label ) {
+		$assert( str_contains( $html, $label ), 'Dashboard state is missing: ' . $label );
+	}
+	$assert_same( 0, $dashboard->query( '//div[@class="tablenav"]' )->length, 'Single-page dashboard unexpectedly has pagination.' );
+	$reset_form = '//form[input[@name="action" and @value="ehrman_ai_analytics_reset"]]';
+	$nonce = $dashboard->evaluate( 'string(' . $reset_form . '/input[@name="_wpnonce"]/@value)' );
+	$assert( false !== wp_verify_nonce( $nonce, 'ehrman_ai_analytics_reset' ), 'Reset form nonce is missing or invalid.' );
+	$assert( str_contains( $dashboard->evaluate( 'string(' . $reset_form . '/@onsubmit)' ), 'window.confirm(' ), 'Reset confirmation was removed.' );
+	$empty_filters = array_merge( $filters, array( 'search' => $marker . ' "><img src=x onerror=alert(1)>', 'feedback' => 'unanswered', 'zero_results' => '1', 'date_from' => '2026-10-01', 'date_to' => '2026-10-20' ) );
+	$empty_html = $render_dashboard( $empty_filters, 1, true );
+	$empty_dom = $dashboard_dom( $empty_html );
+	$assert( str_contains( $empty_html, 'No requests match these filters.' ) && str_contains( $empty_html, 'No AI reviews match these filters.' ), 'Empty template states are missing.' );
+	$assert( str_contains( $empty_html, 'notice-success' ), 'Reset success notice was removed.' );
+	$assert_same( $empty_filters['search'], $empty_dom->evaluate( 'string(//input[@name="search"]/@value)' ), 'Search filter was not preserved safely.' );
+	$assert_same( 'unanswered', $empty_dom->evaluate( 'string(//select[@name="feedback"]/option[@selected]/@value)' ), 'Feedback selection changed.' );
+	$assert_same( 1, $empty_dom->query( '//input[@name="zero_results"][@checked]' )->length, 'Zero-results selection changed.' );
+	$assert_same( '2026-10-01', $empty_dom->evaluate( 'string(//input[@name="date_from"]/@value)' ), 'From date changed.' );
+	$assert_same( '2026-10-20', $empty_dom->evaluate( 'string(//input[@name="date_to"]/@value)' ), 'To date changed.' );
+	$assert_same( 0, $empty_dom->query( '//img|//script' )->length, 'Search filter markup was not escaped.' );
+
+	// Exercise escaping at the real renderer/template boundary without retaining fixture changes.
+	$wpdb->query( 'SAVEPOINT analytics_template_escape' );
+	try {
+		$unsafe_question = $marker . ' <img src=x onerror=alert(1)>';
+		$unsafe_source = '<b>source</b>';
+		$unsafe_id = 'response-" onmouseover="alert(1)-long-identifier';
+		$wpdb->update( $tables['ai_requests'], array( 'question' => $unsafe_question, 'error_code' => '<b>failure</b>' ), array( 'request_id' => $requests['failed'] ) );
+		$wpdb->update( $tables['ai_usage'], array( 'model' => $unsafe_source, 'service_tier' => 'priority', 'pricing_version' => '<b>price</b>', 'response_id' => $unsafe_id ), array( 'request_id' => $requests['paid'] ) );
+		$wpdb->update( $tables['ai_refinements'], array( 'selected_posts' => wp_json_encode( array( array( 'title' => 'Alpha & Omega' ) ) ) ), array( 'refinement_id' => $review_ids['paid'] ) );
+		$escaped_html = $render_dashboard( $filters );
+		$escaped_dom = $dashboard_dom( $escaped_html );
+		$assert( str_contains( $escaped_html, esc_html( $unsafe_question ) ) && str_contains( $escaped_html, esc_html( '<b>failure</b>' ) ), 'Question or error text was not escaped.' );
+		$assert( str_contains( $escaped_html, esc_html( $unsafe_source . ' (priority)' ) ) && str_contains( $escaped_html, esc_html( '<b>price</b>' ) ), 'Model, service tier or pricing display changed.' );
+		$assert_same( $unsafe_id, $escaped_dom->evaluate( 'string(' . $paid_row . '/td[6]//code/@title)' ), 'Full response ID was not preserved safely.' );
+		$assert_same( substr( $unsafe_id, 0, 14 ) . '…' . substr( $unsafe_id, -7 ), $escaped_dom->evaluate( 'string(' . $paid_row . '/td[6]//code)' ), 'Response ID shortening changed.' );
+		$assert( str_contains( $escaped_html, 'Alpha &amp; Omega' ), 'Retained post titles were not escaped.' );
+		$assert_same( 0, $escaped_dom->query( '//img|//script|//*[@onmouseover]' )->length, 'Stored analytics text became executable markup.' );
+	} finally {
+		$wpdb->query( 'ROLLBACK TO SAVEPOINT analytics_template_escape' );
+	}
 
 	$stream = fopen( 'php://temp', 'w+' );
 	try {
@@ -169,6 +243,15 @@ try {
 	$all_reviews = $builder->filtered_refinements( AI_Refinements::recent( 0 ), $ids );
 	$assert_same( 5004, count( $all_reviews ), 'Reviews are still capped at 5,000.' );
 	$assert( abs( $builder->summary( $report['rows'], $all_reviews )['total_cost'] - 0.012 ) < 0.0000001, 'Older review costs were omitted after more than 5,000 reviews.' );
+	$volume_dom = $dashboard_dom( $render_dashboard( $filters, 2 ) );
+	$assert_same( 50, $volume_dom->query( $question_table . '/tbody/tr' )->length, 'Dashboard question page size changed.' );
+	$assert_same( 100, $volume_dom->query( $review_table . '/tbody/tr' )->length, 'Dashboard review display limit changed.' );
+	$assert_same( '2', trim( $volume_dom->evaluate( 'string(//div[@class="tablenav-pages"]//span[@aria-current="page"])' ) ), 'Dashboard pagination current page changed.' );
+	foreach ( $volume_dom->query( '//div[@class="tablenav-pages"]//a' ) as $link ) {
+		parse_str( (string) wp_parse_url( $link->getAttribute( 'href' ), PHP_URL_QUERY ), $page_query );
+		$assert_same( $marker, $page_query['search'] ?? '', 'Pagination lost the search filter.' );
+		$assert_same( 'ehrman-ai-analytics', $page_query['page'] ?? '', 'Pagination changed the administration page.' );
+	}
 
 	// Invoke the deletion operation inside this transaction, then roll everything back.
 	$delete = new ReflectionMethod( AI_Analytics_Reset_Handler::class, 'delete_test_analytics' );

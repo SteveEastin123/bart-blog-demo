@@ -49,6 +49,21 @@ Provide a consolidated guide explaining how to:
 
 Include the database schema and technical architecture as appendices.
 
+### Analytics Presentation
+
+`src/Analytics/AI_Analytics_Renderer.php` loads reports and prepares display values.
+The dashboard HTML lives in `templates/admin/analytics/`: `dashboard.php` composes
+the filters, question and review tables, period totals, and reset controls.
+The source and token partials are reused in the summary and detail displays.
+Templates receive explicit context through `Template::render()` and escape values
+where they are output; they do not query or modify the database.
+
+Keep authorization in `AI_Analytics_Page`, calculations in `AI_Analytics_Report`,
+and CSV/reset operations in their existing handlers. Presentation edits should
+not change those behaviors. The analytics PHP and browser regression tests in
+`wordpress-production/tests/` cover these boundaries, including escaping,
+pagination, empty states, cached/failed requests, exports, and reset protection.
+
 ## 4. Testing and Acceptance Package
 
 - JSON and relationship validation scripts
