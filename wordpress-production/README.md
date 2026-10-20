@@ -1,10 +1,18 @@
 # Production-Equivalent WordPress Package
 
-This directory packages the current Ehrman Blog Discovery WordPress/MySQL
+This directory packages the current Ehrman Blog Discovery WordPress/database
 target: the plugin, companion demo theme, five authoritative JSON sources, the
 portable title-and-summary vector index, and production acceptance checks in a
 reproducible Docker image. Older Python, PHP/SQLite, and WordPress development
 demos remain reference implementations.
+
+The local default is **MariaDB 13.0.2**, pinned by image digest in
+`compose.local.yaml`. WordPress and PHP versions are unchanged. The original
+MySQL stack remains available in `compose.mysql.yaml`, with its original
+project and volume names. Render still uses MySQL; no remote migration is
+performed by these local scripts. See
+[`docs/wordpress_mariadb_migration.md`](../docs/wordpress_mariadb_migration.md)
+for the migration evidence and rollback procedure.
 
 ## Local Acceptance Stack
 
@@ -19,13 +27,13 @@ The reviewer-only hierarchy outline is available at
 excluded from the primary navigation, and marked `noindex, nofollow`.
 
 The script builds the exact WordPress image intended for staging, starts a
-fresh MySQL service, installs WordPress when necessary, activates the plugin
+MariaDB service (preserving existing volumes), installs WordPress when necessary, activates the plugin
 and theme, configures permalinks, imports the authoritative JSON, and restores
 the validated semantic-vector package.
 
-Ask AI uses the focused two-term interpretation strategy by default. Set
-`EHRMAN_DISCOVERY_AI_TERM_STRATEGY=legacy` to restore the previous four-term
-interpreter; this switch does not affect regular Keyword Search.
+Ask AI 1's topic-and-keyword interpreter is retired. The former
+`EHRMAN_DISCOVERY_AI_TERM_STRATEGY` setting is no longer used. Regular Keyword
+Search and Browse Topics still use the complete curated vocabulary.
 
 AI-refined results are grouped into direct answers, strongly related posts, and
 supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
@@ -117,16 +125,13 @@ Stop the stack without deleting its data:
 docker compose -f .\wordpress-production\compose.local.yaml down
 ```
 
-Deleting the named volumes is destructive and is needed only when deliberately
-repeating a clean-install test:
-
-```powershell
-docker compose -f .\wordpress-production\compose.local.yaml down --volumes
-```
+Never delete the working database or uploads volumes to test a clean install.
+Use a separate Compose project name and unused port instead. CI deletes only
+its own ephemeral runner volumes.
 
 ## Backup And Restore Test
 
-Create a logical MySQL backup:
+Create a logical database backup (MySQL and MariaDB are supported):
 
 ```powershell
 .\wordpress-production\backup-database.ps1
@@ -138,9 +143,18 @@ Verify that a backup can be restored without touching the working database:
 .\wordpress-production\test-backup-restore.ps1 -BackupPath <backup.sql>
 ```
 
-With no `BackupPath`, the restore test creates a temporary backup, restores it
-into `ehrman_restore_test`, compares indexed-post counts, and removes both the
-temporary database and backup.
+Stop web/cron writes before the restore test to keep its comparison stable.
+With no `BackupPath`, the test creates and retains a new backup. It restores
+into a uniquely named scratch database, compares every table's row count and
+extended content checksum, and removes only that scratch database. Existing
+backups are never overwritten. Backups contain private WordPress data and
+must not be committed or included in a public handoff.
+
+Pass `-ComposeFile wordpress-production/compose.mysql.yaml` to the setup,
+verification, backup, restore-test, snapshot, or vector-export scripts to
+target the retained MySQL stack explicitly. Do not run setup during rollback:
+it force-imports canonical JSON. Use `docker compose ... start` to resume the
+existing rollback containers without changing their data.
 
 ## Production Characteristics
 
@@ -148,13 +162,16 @@ temporary database and backup.
 - Import sources live outside Apache's document root at `/opt/ehrman-import`.
 - A runtime synchronizer refreshes image-managed plugin and theme code and
   removes any legacy public import directory on every container start.
-- MySQL stores WordPress and discovery-index data.
+- MariaDB stores local WordPress and discovery-index data; Render remains on MySQL.
 - Only `wp-content/uploads` requires a WordPress persistent disk.
 - Result links open Bart's existing post URLs; full post bodies are not stored.
 - The ingestion workflow retains full post text only in pending administrator
   drafts and removes it after approval.
 - `/healthz` does not depend on WordPress installation state.
 - The protected parity route is disabled unless a test token is explicitly set.
+- Set `EHRMAN_MIGRATION_ISOLATED=1` only for a migration/test copy to disable
+  automatic WP-Cron and external WordPress HTTP requests. Leave it unset or
+  `0` on the active demo. It is not a substitute for network-level isolation.
 - WordPress file editing is disabled so deployed code continues to come from Git.
 
 ## Ask AI 2 Index

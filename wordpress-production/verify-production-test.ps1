@@ -1,10 +1,11 @@
 param(
     [int]$Port = 8086,
-    [string]$PythonExecutable = 'python'
+    [string]$PythonExecutable = 'python',
+    [string]$ComposeFile = (Join-Path $PSScriptRoot 'compose.local.yaml')
 )
 
 $ErrorActionPreference = 'Stop'
-$composeFile = Join-Path $PSScriptRoot 'compose.local.yaml'
+$composeFile = (Resolve-Path -LiteralPath $ComposeFile).Path
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 
 & docker compose -f $composeFile config --quiet
@@ -153,7 +154,7 @@ if ($paginatedPage.Content -notmatch 'Showing 26-50 of' -or $paginatedPage.Conte
 
 Write-Output 'Production Docker image: OK'
 Write-Output "Plugin PHP syntax: OK ($($phpFiles.Count) files)"
-Write-Output 'WordPress and MySQL connection: OK'
+Write-Output 'WordPress and database connection: OK'
 Write-Output 'Authoritative imported counts: OK'
 Write-Output 'Semantic coverage, ingestion, and analytics regressions: OK'
 Write-Output 'Landing, search, browse, and structure-review pages: OK'

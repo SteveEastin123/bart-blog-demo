@@ -40,7 +40,7 @@ for attempt in $(seq 1 60); do
     break
   fi
   if [[ "$attempt" == "60" ]]; then
-    echo "MySQL did not become available within 120 seconds." >&2
+    echo "The database did not become available within 120 seconds." >&2
     exit 1
   fi
   sleep 2

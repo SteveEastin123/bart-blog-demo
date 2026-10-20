@@ -1,9 +1,10 @@
 param(
-    [string]$OutputPath = 'data/index/ehrman_post_embeddings.jsonl.gz'
+    [string]$OutputPath = 'data/index/ehrman_post_embeddings.jsonl.gz',
+    [string]$ComposeFile = (Join-Path $PSScriptRoot 'compose.local.yaml')
 )
 
 $ErrorActionPreference = 'Stop'
-$composeFile = Join-Path $PSScriptRoot 'compose.local.yaml'
+$composeFile = (Resolve-Path -LiteralPath $ComposeFile).Path
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $containerPath = '/tmp/ehrman_post_embeddings.jsonl.gz'
 

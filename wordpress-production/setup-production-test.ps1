@@ -1,9 +1,10 @@
 param(
-    [int]$Port = 8086
+    [int]$Port = 8086,
+    [string]$ComposeFile = (Join-Path $PSScriptRoot 'compose.local.yaml')
 )
 
 $ErrorActionPreference = 'Stop'
-$composeFile = Join-Path $PSScriptRoot 'compose.local.yaml'
+$composeFile = (Resolve-Path -LiteralPath $ComposeFile).Path
 $env:WORDPRESS_PRODUCTION_TEST_PORT = [string]$Port
 $env:WORDPRESS_SITE_URL = "http://localhost:$Port"
 
