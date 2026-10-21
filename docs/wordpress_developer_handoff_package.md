@@ -78,6 +78,29 @@ in the existing ingestion services. The production regression suite exercises
 the page's workflow states, form nonces, JSON-mode approval lock, escaping,
 history, and notices with rolled-back fixtures and no API calls.
 
+### Public Search Presentation
+
+`src/KeywordSearch/Search_Page_Renderer.php` prepares the Keyword Search page
+and the controls and post results reused by Browse Topics. Its HTML lives in
+`templates/public/search/`: the page, search panel, selected terms, category
+selector, results summary, post list, and pagination each have a template.
+Templates receive explicit display values and escape them when output; they do
+not query the database or change search state. Search selection, ranking,
+pagination URLs, and control IDs remain in their existing PHP services and
+renderer. The existing JavaScript hooks, field names, and accessibility
+attributes must be preserved when updating these templates.
+
+`wordpress-production/tests/search-page-tests.php` is included in the production
+acceptance suite. It covers term limits and modes, category selection, sorting,
+escaping, empty states, result ordering, pagination, and repeated control IDs.
+`search-page-ui.cjs` checks the live Keyword Search and both Browse Topics paths
+at desktop and mobile sizes, including keyboard controls and no-JavaScript
+pagination. Run it with Node from the repository root while the local demo is
+running. Optional `--capture-before` and `--compare-before` modes save and compare
+local DOM/screenshot baselines under `.tmp/search-page-ui/`; capture before a
+code refresh, never overwrite the baseline with the changed page. These checks
+are read-only and block AI requests.
+
 ## 4. Testing and Acceptance Package
 
 - JSON and relationship validation scripts

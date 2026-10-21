@@ -788,5 +788,6 @@ $assert_same( 360, $analytics['total_tokens'], 'Analytics tokens were totaled in
 require __DIR__ . '/ask-ai-cleanup-tests.php';
 require __DIR__ . '/analytics-dashboard-tests.php';
 require __DIR__ . '/post-ingestion-page-tests.php';
+require __DIR__ . '/search-page-tests.php';
 
 echo "Plugin regression checks: OK\n";
