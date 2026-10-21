@@ -76,6 +76,12 @@ checksum matches the original container checksum:
 
 ## Active-demo scope
 
+Update, October 20, 2026: the surviving method is now publicly named **Ask AI**
+at `/ask-ai/`. Version 0.10.2 redirects `/ask-ai-2/` there and preserves old
+shortcodes as aliases. The current demo presentation uses the new name; archived
+evaluation reports retain their original method labels. The following paragraphs
+record the earlier retirement state rather than the current naming contract.
+
 Retirement removes public entry points, not historical evidence. Ask AI 2 keeps
 its name and `/ask-ai-2/` URL. Old Ask AI URLs should redirect to it without
 carrying method-specific request IDs or interpreted search terms. Old shortcode

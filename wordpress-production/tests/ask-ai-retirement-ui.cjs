@@ -48,24 +48,30 @@ const output = path.resolve(__dirname, '../../.tmp/ask-ai-retirement-ui');
           broader: { posts: candidates, count: 30, page: 1, per_page: 25, total_pages: 2, terms: [], sort: 'ranked', semantic: true } },
       });
     });
-    for (const slug of ['ask-ai', 'ask-ai-1', 'ask-a-question', 'ask-ai-3']) {
+    for (const slug of ['ask-ai-2', 'ask-ai-1', 'ask-a-question', 'ask-ai-3']) {
       const response = await context.request.get(`${base}/${slug}/?ebd_question=mustard%20seed&ebd_ai_request=old&ebd_keyword%5B%5D=Paul`, { maxRedirects: 0 });
       assert.equal(response.status(), 302);
       const target = new URL(response.headers().location);
-      assert.equal(target.pathname, '/ask-ai-2/');
+      assert.equal(target.pathname, '/ask-ai/');
       assert.deepEqual([...target.searchParams], [['ebd_question', 'mustard seed']]);
     }
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 950 });
       await page.goto(base);
       assert.deepEqual(await page.locator('nav.ehrman-navigation a').allTextContents(),
-        ['Home', 'Browse Topics 1', 'Browse Topics 2', 'Keyword Search', 'Ask AI 2', 'Reviewer Tools']);
-      assert(!/Ask AI 1|Ask AI 3|two alternative AI search methods/i.test(await page.locator('main').innerText()));
+        ['Home', 'Browse Topics 1', 'Browse Topics 2', 'Keyword Search', 'Ask AI', 'Reviewer Tools']);
+      assert(!/Ask AI [123]|two alternative AI search methods/i.test(await page.locator('main').innerText()));
+      assert.equal(new URL(await page.getByRole('link', { name: 'Ask AI', exact: true }).getAttribute('href')).pathname, '/ask-ai/');
       assert(await page.locator('.ehrman-ai-selected-figure img').evaluate(image => image.complete && image.naturalWidth > 0));
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2));
       await page.screenshot({ path: path.join(output, `home-${width}.png`), fullPage: true });
       await page.locator('.ehrman-ai-selected-figure').screenshot({ path: path.join(output, `workflow-${width}.png`) });
-      await page.goto(`${base}/ask-ai-2/`);
+      const canonical = await page.goto(`${base}/ask-ai/`);
+      assert.equal(canonical.status(), 200);
+      assert.equal(canonical.request().redirectedFrom(), null, 'Canonical page redirected');
+      assert.equal(await page.locator('h1').innerText(), 'Ask AI');
+      assert(!/Ask AI [123]/i.test(await page.locator('body').innerText()));
+      assert.equal(new URL(await page.locator('[data-ebd-semantic-form]').getAttribute('action')).pathname, '/ask-ai/');
       assert.equal(await page.locator('[data-ebd-question-interpret]').count(), 0);
       await page.locator('[data-ebd-semantic-question]').fill('mustard seed');
       await page.locator('[data-ebd-semantic-submit]').click();
@@ -95,10 +101,11 @@ const output = path.resolve(__dirname, '../../.tmp/ask-ai-retirement-ui');
       fail = false;
     }
     await page.locator('[data-ebd-semantic-clear]').click();
-    await page.waitForURL(`${base}/ask-ai-2/`);
+    await page.waitForURL(`${base}/ask-ai/`);
     assert.equal(await page.locator('[data-ebd-semantic-question]').inputValue(), '');
     assert.equal(await page.locator('.ebd-post-item').count(), 0);
     await page.goto(`${base}/ask-ai-2/?ebd_question=mustard%20seed`);
+    assert.equal(new URL(page.url()).pathname, '/ask-ai/');
     await page.locator('[data-ebd-show-broader]').waitFor();
     assert.equal(calls, 7, 'Saved question should autorun once');
     assert.equal(feedbackCalls, 3);
@@ -124,7 +131,8 @@ const output = path.resolve(__dirname, '../../.tmp/ask-ai-retirement-ui');
       await page.locator('[data-ebd-search-edit]').click();
       assert(await expanded.isVisible());
     }
-    await page.goto(`${base}/wp-content/themes/ehrman-discovery-demo/assets/images/ehrman-ai-2-workflow.svg`);
+    await page.goto(`${base}/wp-content/themes/ehrman-discovery-demo/assets/images/ehrman-ai-workflow.svg`);
+    assert.equal(await page.locator('svg text.heading').textContent(), 'Ask AI');
     const boxes = await page.locator('svg text.label').evaluateAll(labels => labels.map(label => {
       const b = label.getBBox();
       const rect = [...document.querySelectorAll('rect')].find(r => b.y >= Number(r.getAttribute('y')) && b.y < Number(r.getAttribute('y')) + Number(r.getAttribute('height')));

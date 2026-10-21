@@ -17,6 +17,23 @@ semantic method; retired-method records are retained locally but excluded from
 the dashboard and its exports. Historical test data is not part of the discovery
 data package.
 
+### Ask AI Naming and Compatibility
+
+The public page is **Ask AI** at `/ask-ai/`, using `[ehrman_ask_ai]` and the
+`ehrman_discovery_page_ask_ai` page option. Version 0.10.2 reconnects the existing
+canonical page, or reuses the former numbered page when it is the only one.
+It preserves surrounding page content and retains a superseded managed page as
+a draft rather than deleting it. The migration is repeatable and requires no
+discovery-table or analytics-data migration.
+
+Old `/ask-ai-2/` links redirect to `/ask-ai/`, preserving the reader's question
+but discarding stale request IDs and method-specific filters. Other retired
+Ask AI URLs retain the same redirect behavior. The `[ehrman_ask_ai_2]` and
+`[ehrman_ask_question]` shortcodes remain compatibility aliases for the same
+semantic form. The REST endpoint, stored request types, vector model, retrieval
+algorithm, reviewer prompt and caches are unchanged. Historical comparison
+reports keep their original names.
+
 ## 2. Discovery Data
 
 Provide the five authoritative JSON files:

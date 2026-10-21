@@ -39,7 +39,7 @@ AI-refined results are grouped into direct answers, strongly related posts, and
 supporting background. Set `EHRMAN_DISCOVERY_AI_RESULT_GROUPING=ordered` to
 restore the previous flat relevance-ordered result list.
 
-Ask AI 2 uses the selected title-and-summary vector pipeline, combining
+Ask AI uses the selected title-and-summary vector pipeline, combining
 semantic similarity with lexical and exact topic, alias, and secondary-keyword
 ranking signals.
 
@@ -174,9 +174,9 @@ existing rollback containers without changing their data.
   `0` on the active demo. It is not a substitute for network-level isolation.
 - WordPress file editing is disabled so deployed code continues to come from Git.
 
-## Ask AI 2 Index
+## Ask AI Index
 
-Ask AI 2 uses one title-and-summary vector per eligible post. Clean installs
+Ask AI uses one title-and-summary vector per eligible post. Clean installs
 restore `/opt/ehrman-import/ehrman_post_embeddings.jsonl.gz` automatically.
 The package can be exported and imported explicitly without an OpenAI API call:
 

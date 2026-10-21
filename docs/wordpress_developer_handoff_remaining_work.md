@@ -8,7 +8,7 @@ The plugin already provides:
 
 - Versioned custom MySQL tables created through WordPress activation and upgrade routines.
 - Authoritative JSON validation and import.
-- Browse Topics, Keyword Search, and the selected Ask AI 2 implementation.
+- Browse Topics, Keyword Search, and the selected Ask AI implementation.
 - AI request analytics, feedback tracking, rate limiting, and cost estimates.
 - Title-and-summary vector generation and semantic retrieval.
 - Versioned, compressed vector export and transactional, idempotent import by WordPress post ID.
@@ -23,10 +23,11 @@ The plugin already provides:
 ### 1. Finalize Production Search Options
 
 - Select one Browse Topics structure.
-- Ask AI 2 is selected. Ask AI 1 is retired from the public plugin; the local
+- Ask AI is selected. Ask AI 1 is retired from the public plugin; the local
   section-based Ask AI 3 is parked. See [recovery instructions](ask_ai_retirement.md)
   for the GitHub checkpoint and required private vector backups.
-- Rename the public options to Browse Topics, Keyword Search, and Ask AI.
+- Ask AI is now the public name and `/ask-ai/` the canonical URL. Rename the
+  selected Browse Topics structure after that choice is finalized.
 - Remove evaluation numbering, alternative public routes, comparisons, and Reviewer Tools from the production package.
 - Preserve experimental implementations and results in repository history or an evaluation archive.
 

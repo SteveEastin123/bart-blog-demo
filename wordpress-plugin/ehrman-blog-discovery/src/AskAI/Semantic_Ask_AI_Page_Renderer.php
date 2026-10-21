@@ -21,15 +21,15 @@ final class Semantic_Ask_AI_Page_Renderer {
 	public function __construct( private Discovery_Markup $markup ) {}
 
 	/**
-	 * Renders Ask AI 2 semantic retrieval.
+	 * Renders Ask AI semantic retrieval.
 	 *
 	 * @param string              $question             Reader question.
 	 * @param string              $sort                 Selected result order.
 	 * @param array<string,mixed> $status               Semantic index status.
 	 * @param bool                $ai_configured        Whether AI refinement is configured.
 	 * @param bool                $embedding_configured Whether query embeddings are configured.
-	 * @param string              $action               Ask AI 2 page URL.
-	 * @return string Ask AI 2 markup.
+	 * @param string              $action               Ask AI page URL.
+	 * @return string Ask AI markup.
 	 */
 	public function render(
 		string $question,
@@ -43,12 +43,12 @@ final class Semantic_Ask_AI_Page_Renderer {
 			$this->question_panel( $question, $sort, $status, $ai_configured, $embedding_configured, $action )
 			. '<div class="ebd-description-control">' . $this->markup->description_control( 'always', 'posts' ) . '</div>'
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results></div>',
-			'ask-ai-2'
+			'ask-ai'
 		);
 	}
 
 	/**
-	 * Builds the Ask AI 2 question form.
+	 * Builds the Ask AI question form.
 	 *
 	 * @param string              $question             Reader question.
 	 * @param string              $sort                 Selected result order.
@@ -72,7 +72,7 @@ final class Semantic_Ask_AI_Page_Renderer {
 		if ( ! $ai_configured || ! $embedding_configured ) {
 			$message = __( 'Local AI credentials must be configured before semantic search can run.', 'ehrman-blog-discovery' );
 		} elseif ( ! $status['ready'] ) {
-			$message = __( 'The semantic post index must be built before Ask AI 2 can run.', 'ehrman-blog-discovery' );
+			$message = __( 'The semantic post index must be built before Ask AI can run.', 'ehrman-blog-discovery' );
 		}
 
 		return Template::render(

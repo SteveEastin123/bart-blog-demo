@@ -19,7 +19,7 @@ final class AI_Analytics_Scope {
 	 * @return literal-string
 	 */
 	public static function where(): string {
-		// The old two-vector experiment used the same request type as Ask AI 2.
+		// The old two-vector experiment used the same request type as the active semantic search.
 		return "r.request_type='semantic' AND r.prompt_version<>'hybrid-metadata-1'";
 	}
 }

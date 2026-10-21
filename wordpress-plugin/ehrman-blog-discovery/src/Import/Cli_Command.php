@@ -89,7 +89,7 @@ final class Cli_Command {
 	}
 
 	/**
-	 * Build or refresh the embeddings required by the active Ask AI 2 strategy.
+	 * Build or refresh the embeddings required by the active Ask AI strategy.
 	 *
 	 * ## OPTIONS
 	 *

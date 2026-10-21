@@ -2,7 +2,7 @@
 
 This repository contains the discovery system for browsing and searching Bart
 Ehrman's blog. The current product and handoff target is the WordPress/MySQL
-implementation. It provides Browse Topics, Keyword Search, Ask AI 1, Ask AI 2,
+implementation. It provides Browse Topics, Keyword Search, Ask AI,
 reviewer tools, AI analytics, and an administrator post-ingestion workflow.
 
 The repository is private because its indexing sources include member-only post
@@ -17,7 +17,7 @@ content. Do not publish the repository or its raw data.
 | Local/Render image | `wordpress-production/` | Reproducible WordPress/PHP/MySQL build and acceptance tooling |
 | Render blueprint | `render-wordpress.yaml` | WordPress and private MySQL services; applied manually |
 | Canonical discovery data | Five selected files in `data/index/` | Current JSON source of truth for imported posts and taxonomy |
-| Portable semantic index | `data/index/ehrman_post_embeddings.jsonl.gz` | Precomputed Ask AI 2 title-and-summary vectors |
+| Portable semantic index | `data/index/ehrman_post_embeddings.jsonl.gz` | Precomputed Ask AI title-and-summary vectors |
 
 The five imported JSON files are:
 
@@ -48,8 +48,12 @@ The main entry points are:
 - `http://localhost:8086/browse-topics-2/`
 - `http://localhost:8086/keyword-search/`
 - `http://localhost:8086/ask-ai/`
-- `http://localhost:8086/ask-ai-2/`
 - `http://localhost:8086/structure-review/`
+
+Ask AI is the selected title-and-summary semantic search. Its public shortcode
+is `[ehrman_ask_ai]`. Previous numbered URLs redirect to `/ask-ai/`, and existing
+shortcode embeds remain compatible. Historical comparison reports retain their
+original method names.
 
 Run the complete local acceptance suite after plugin, theme, canonical-data, or
 build changes:
@@ -66,7 +70,7 @@ ingestion, and AI analytics.
 
 ## Semantic Index
 
-Ask AI 2 uses one title-and-summary vector for every eligible post. The vectors
+Ask AI uses one title-and-summary vector for every eligible post. The vectors
 are stored in MySQL and are not part of the canonical JSON files. A versioned,
 compressed package at `data/index/ehrman_post_embeddings.jsonl.gz` supplies the
 initial index without paid embedding calls. Fresh production-equivalent

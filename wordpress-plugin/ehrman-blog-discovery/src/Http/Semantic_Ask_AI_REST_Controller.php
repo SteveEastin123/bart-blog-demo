@@ -149,7 +149,7 @@ final class Semantic_Ask_AI_REST_Controller {
 	}
 
 	/**
-	 * Builds the Ask AI 2 REST response.
+	 * Builds the Ask AI REST response.
 	 *
 	 * @param list<array<string,mixed>> $posts         Initially displayed posts.
 	 * @param list<array<string,mixed>> $broader       Semantic candidate posts.

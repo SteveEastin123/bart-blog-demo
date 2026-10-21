@@ -2,7 +2,7 @@
 
 ## Purpose
 
-`data/index/ehrman_post_embeddings.jsonl.gz` is the portable Ask AI 2 semantic
+`data/index/ehrman_post_embeddings.jsonl.gz` is the portable Ask AI semantic
 index. It carries one precomputed `text-embedding-3-small` vector for each post
 eligible for semantic search, so a fresh WordPress/MySQL installation does not
 need to recreate the initial index through paid API calls.

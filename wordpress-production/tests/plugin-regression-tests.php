@@ -45,6 +45,8 @@ $assert_same = static function ( $expected, $actual, string $message ) use ( $as
 $wpdb   = Database::client();
 $tables = Database::tables();
 
+require __DIR__ . '/ask-ai-naming-tests.php';
+
 /* Keep retired AI routes unavailable while preserving the semantic endpoint. */
 $rest_routes = rest_get_server()->get_routes();
 $callbacks   = array();
@@ -67,7 +69,10 @@ $assert( ( $callbacks['/ehrman-discovery/v1/semantic-search'] ?? null ) instance
 /* Old embedded shortcode content must use the surviving search, not a dead form. */
 $taxonomy_ask_ai_markup = do_shortcode( '[ehrman_ask_question]' );
 $semantic_ask_ai_markup = do_shortcode( '[ehrman_ask_ai_2]' );
-$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-semantic-form' ), 'The legacy Ask AI shortcode did not render Ask AI 2.' );
+$ask_ai_markup = do_shortcode( '[ehrman_ask_ai]' );
+$assert( str_contains( $ask_ai_markup, 'data-ebd-semantic-form' ), 'The canonical Ask AI shortcode did not render its form.' );
+$assert( str_contains( $ask_ai_markup, 'ebd-view-ask-ai"' ), 'The canonical Ask AI page identifier changed.' );
+$assert( str_contains( $taxonomy_ask_ai_markup, 'data-ebd-semantic-form' ), 'The legacy Ask AI shortcode did not render Ask AI.' );
 $assert( ! str_contains( $taxonomy_ask_ai_markup, 'data-ebd-question-interpret' ), 'The retired interpretation form is still rendered.' );
 $assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-form' ), 'The semantic Ask AI shortcode lost its question form.' );
 $assert( str_contains( $semantic_ask_ai_markup, 'data-ebd-semantic-submit' ), 'The semantic Ask AI shortcode lost its submit control.' );
@@ -77,20 +82,20 @@ $original_get = $_GET;
 $original_uri = $_SERVER['REQUEST_URI'] ?? null;
 try {
 	$_GET = array( 'ebd_question' => 'mustard seed', 'ebd_ai_request' => 'old-id', 'redirect_to' => 'https://example.invalid/', 'ebd_keyword' => array( 'Paul' ) );
-	foreach ( array( 'ask-a-question', 'ask-ai', 'ask-ai-1', 'ask-ai-3' ) as $slug ) {
+	foreach ( array( 'ask-a-question', 'ask-ai-1', 'ask-ai-2', 'ask-ai-3' ) as $slug ) {
 		$_SERVER['REQUEST_URI'] = '/' . $slug . '/';
 		$target                = ( new Page_Controller() )->retired_ask_ai_target();
-		$assert_same( home_url( '/ask-ai-2/?ebd_question=mustard%20seed' ), $target, 'Retired URL did not redirect safely.' );
+		$assert_same( home_url( '/ask-ai/?ebd_question=mustard%20seed' ), $target, 'Retired URL did not redirect safely.' );
 	}
-	$_SERVER['REQUEST_URI'] = '/ask-ai-2/';
-	$assert_same( '', ( new Page_Controller() )->retired_ask_ai_target(), 'Ask AI 2 would redirect to itself.' );
+	$_SERVER['REQUEST_URI'] = '/ask-ai/';
+	$assert_same( '', ( new Page_Controller() )->retired_ask_ai_target(), 'Ask AI would redirect to itself.' );
 	$_SERVER['REQUEST_URI'] = '/keyword-search/';
 	$assert_same( '', ( new Page_Controller() )->retired_ask_ai_target(), 'Keyword Search would be redirected.' );
-	$_SERVER['REQUEST_URI'] = '/ask-ai/';
+	$_SERVER['REQUEST_URI'] = '/ask-ai-2/';
 	$_GET                  = array( 'ebd_question' => 'mustard & faith? #meaning' );
-	$assert_same( home_url( '/ask-ai-2/?ebd_question=mustard%20%26%20faith%3F%20%23meaning' ), ( new Page_Controller() )->retired_ask_ai_target(), 'Question punctuation was not URL-encoded.' );
+	$assert_same( home_url( '/ask-ai/?ebd_question=mustard%20%26%20faith%3F%20%23meaning' ), ( new Page_Controller() )->retired_ask_ai_target(), 'Question punctuation was not URL-encoded.' );
 	$_GET                  = array( 'ebd_question' => array( 'invalid' ) );
-	$assert_same( home_url( '/ask-ai-2/' ), ( new Page_Controller() )->retired_ask_ai_target(), 'Malformed question was preserved in a redirect.' );
+	$assert_same( home_url( '/ask-ai/' ), ( new Page_Controller() )->retired_ask_ai_target(), 'Malformed question was preserved in a redirect.' );
 } finally {
 	$_GET = $original_get;
 	if ( null === $original_uri ) {
@@ -124,7 +129,7 @@ try {
 	$_GET = $original_get;
 }
 
-/* Keep the selected Ask AI 2 pipeline free of the retired metadata-vector experiment. */
+/* Keep the selected Ask AI pipeline free of the retired metadata-vector experiment. */
 $assert( ! isset( $tables['post_metadata_embeddings'] ), 'The retired metadata-vector table returned to the active schema.' );
 $assert_same( 'hybrid-1', Semantic_Search_Service::pipeline_version(), 'The selected semantic pipeline version changed.' );
 

@@ -90,8 +90,10 @@ final class Page_Controller {
 	/** Registers the plugin's public shortcodes. */
 	public function register(): void {
 		add_shortcode( 'ehrman_keyword_search', array( $this, 'keyword_search_shortcode' ) );
+		add_shortcode( 'ehrman_ask_ai', array( $this, 'ask_ai_shortcode' ) );
 		add_shortcode( 'ehrman_ask_question', array( $this, 'ask_question_shortcode' ) );
-		add_shortcode( 'ehrman_ask_ai_2', array( $this, 'ask_ai_2_shortcode' ) );
+		// Compatibility for content embedded before the public name was simplified.
+		add_shortcode( 'ehrman_ask_ai_2', array( $this, 'ask_ai_shortcode' ) );
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
 		add_shortcode( 'ehrman_structure_review', array( $this, 'structure_review_shortcode' ) );
 		add_filter( 'wp_robots', array( $this, 'review_page_robots' ) );
@@ -100,9 +102,12 @@ final class Page_Controller {
 
 	/** Creates or reconnects the public discovery pages. */
 	public static function ensure_pages(): void {
+		if ( ! self::migrate_ask_ai_page() ) {
+			return;
+		}
 		$pages = array(
 			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'ask_ai_2'         => array( 'Ask AI 2', 'ask-ai-2', '[ehrman_ask_ai_2]' ),
+			'ask_ai'           => array( 'Ask AI', 'ask-ai', '[ehrman_ask_ai]' ),
 			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
 			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
 			'structure_review' => array( 'Structure Review', 'structure-review', '[ehrman_structure_review]' ),
@@ -137,6 +142,54 @@ final class Page_Controller {
 		update_option( 'ehrman_discovery_pages_version', EHRMAN_DISCOVERY_VERSION, false );
 	}
 
+	/** Reuses an existing Ask AI page without deleting legacy content or history. */
+	private static function migrate_ask_ai_page(): bool {
+		$page      = get_page_by_path( 'ask-ai', OBJECT, 'page' );
+		$legacy_id = Database::integer( get_option( 'ehrman_discovery_page_ask_ai_2', 0 ) );
+		$legacy    = $legacy_id > 0 ? get_post( $legacy_id ) : null;
+		if ( ! $legacy instanceof \WP_Post || 'page' !== $legacy->post_type || 'trash' === $legacy->post_status ) {
+			$legacy = get_page_by_path( 'ask-ai-2', OBJECT, 'page' );
+		}
+		if ( ! $page instanceof \WP_Post ) {
+			$page = $legacy;
+		}
+		if ( ! $page instanceof \WP_Post ) {
+			return true;
+		}
+		$content = str_replace( array( '[ehrman_ask_question]', '[ehrman_ask_ai_2]' ), '[ehrman_ask_ai]', $page->post_content );
+		if ( 'Ask AI' !== $page->post_title || 'ask-ai' !== $page->post_name || $content !== $page->post_content ) {
+			$result = wp_update_post(
+				array(
+					'ID'           => $page->ID,
+					'post_title'   => 'Ask AI',
+					'post_name'    => 'ask-ai',
+					'post_content' => wp_slash( $content ),
+				),
+				true
+			);
+			if ( is_wp_error( $result ) ) {
+				return false;
+			}
+		}
+		update_option( 'ehrman_discovery_page_ask_ai', $page->ID, false );
+		// Keep the superseded managed page recoverable, but out of public page lists.
+		if ( $legacy instanceof \WP_Post && $legacy->ID !== $page->ID && has_shortcode( $legacy->post_content, 'ehrman_ask_ai_2' ) ) {
+			$result = wp_update_post(
+				array(
+					'ID'           => $legacy->ID,
+					'post_title'   => 'Ask AI (legacy link)',
+					'post_status'  => 'draft',
+					'post_content' => wp_slash( str_replace( '[ehrman_ask_ai_2]', '[ehrman_ask_ai]', $legacy->post_content ) ),
+				),
+				true
+			);
+			if ( is_wp_error( $result ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/** Redirects retired interfaces to the surviving search page. */
 	public function redirect_legacy_ask_ai(): void {
 		$target = $this->retired_ask_ai_target();
@@ -158,7 +211,7 @@ final class Page_Controller {
 		$request_uri  = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
 		$request_path = wp_parse_url( $request_uri, PHP_URL_PATH );
 		$retired      = false;
-		foreach ( array( 'ask-a-question', 'ask-ai', 'ask-ai-1', 'ask-ai-3' ) as $slug ) {
+		foreach ( array( 'ask-a-question', 'ask-ai-1', 'ask-ai-2', 'ask-ai-3' ) as $slug ) {
 			$legacy_path = wp_parse_url( home_url( '/' . $slug . '/' ), PHP_URL_PATH );
 			if ( is_page( $slug ) || ( is_string( $request_path ) && is_string( $legacy_path ) && untrailingslashit( $request_path ) === untrailingslashit( $legacy_path ) ) ) {
 				$retired = true;
@@ -170,7 +223,7 @@ final class Page_Controller {
 		}
 		// Old method-specific IDs and term filters must not enter the semantic workflow.
 		$question = $this->request->value( 'ebd_question' );
-		$url      = $this->page_url( 'ask_ai_2' );
+		$url      = $this->page_url( 'ask_ai' );
 		return '' === $question ? $url : add_query_arg( 'ebd_question', rawurlencode( $question ), $url );
 	}
 
@@ -217,18 +270,18 @@ final class Page_Controller {
 	/**
 	 * Keeps legacy shortcode content usable after Ask AI 1 retirement.
 	 *
-	 * @return string Ask AI 2 markup.
+	 * @return string Ask AI markup.
 	 */
 	public function ask_question_shortcode(): string {
-		return $this->ask_ai_2_shortcode();
+		return $this->ask_ai_shortcode();
 	}
 
 	/**
 	 * Renders semantic title-and-summary retrieval followed by AI refinement.
 	 *
-	 * @return string Ask AI 2 markup.
+	 * @return string Ask AI markup.
 	 */
-	public function ask_ai_2_shortcode(): string {
+	public function ask_ai_shortcode(): string {
 		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
 			return $this->not_ready();
 		}
@@ -243,7 +296,7 @@ final class Page_Controller {
 			$status,
 			AI_Settings::is_configured(),
 			Embedding_Service::is_configured(),
-			$this->page_url( 'ask_ai_2' )
+			$this->page_url( 'ask_ai' )
 		);
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Ask AI 2 semantic-question panel.
+ * Ask AI semantic-question panel.
  *
  * @package EhrmanBlogDiscovery
  */

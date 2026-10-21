@@ -45,6 +45,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-page-te
     /opt/ehrman-tests/post-ingestion-page-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/search-page-tests.php \
     /opt/ehrman-tests/search-page-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-naming-tests.php \
+    /opt/ehrman-tests/ask-ai-naming-tests.php
 
 COPY --chown=www-data:www-data wordpress-production/healthz.html /opt/ehrman-code/healthz
 COPY wordpress-production/initialize-wordpress.sh /usr/local/bin/initialize-ehrman-wordpress
