@@ -2,10 +2,14 @@
 /**
  * Reviewer-only structure page rendering.
  *
- * @package EhrmanBlogDiscovery
+ * @package EhrmanReviewerTools
  */
 
-namespace EhrmanBlogDiscovery;
+namespace EhrmanReviewerTools;
+
+use EhrmanBlogDiscovery\Browse_Service;
+use EhrmanBlogDiscovery\Database;
+use EhrmanBlogDiscovery\Discovery_Markup;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

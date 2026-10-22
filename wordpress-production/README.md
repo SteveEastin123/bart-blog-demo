@@ -23,8 +23,12 @@ The isolated production-equivalent stack runs on port `8086` by default:
 ```
 
 The reviewer-only hierarchy outline is available at
-`http://localhost:8086/structure-review/`. It is linked from the landing page,
-excluded from the primary navigation, and marked `noindex, nofollow`.
+`http://localhost:8086/structure-review/`. It is supplied by the optional
+`wordpress-demo-plugins/ehrman-reviewer-tools` companion, not the production
+handoff plugin. Existing demos need `wp plugin activate ehrman-reviewer-tools`
+once after updating the image; new setups activate it during initialization.
+It is linked from the primary navigation while the add-on is active and marked
+`noindex, nofollow`.
 
 The script builds the exact WordPress image intended for staging, starts a
 MariaDB service (preserving existing volumes), installs WordPress when necessary, activates the plugin

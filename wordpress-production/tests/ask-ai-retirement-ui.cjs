@@ -6,6 +6,7 @@ const { chromium } = require('../../node_modules/playwright-core');
 
 const base = 'http://localhost:8086';
 const output = path.resolve(__dirname, '../../.tmp/ask-ai-retirement-ui');
+const productionOnly = process.argv.includes('--production-only');
 
 (async () => {
   fs.mkdirSync(output, { recursive: true });
@@ -59,7 +60,7 @@ const output = path.resolve(__dirname, '../../.tmp/ask-ai-retirement-ui');
       await page.setViewportSize({ width, height: 950 });
       await page.goto(base);
       assert.deepEqual(await page.locator('nav.ehrman-navigation a').allTextContents(),
-        ['Home', 'Browse Topics 1', 'Browse Topics 2', 'Keyword Search', 'Ask AI', 'Reviewer Tools']);
+        ['Home', 'Browse Topics 1', 'Browse Topics 2', 'Keyword Search', 'Ask AI', ...(productionOnly ? [] : ['Reviewer Tools'])]);
       assert(!/Ask AI [123]|two alternative AI search methods/i.test(await page.locator('main').innerText()));
       assert.equal(new URL(await page.getByRole('link', { name: 'Ask AI', exact: true }).getAttribute('href')).pathname, '/ask-ai/');
       assert(await page.locator('.ehrman-ai-selected-figure img').evaluate(image => image.complete && image.naturalWidth > 0));

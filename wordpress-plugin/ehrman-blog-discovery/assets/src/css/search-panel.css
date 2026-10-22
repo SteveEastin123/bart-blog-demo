@@ -1,0 +1,10 @@
+.ebd-search-panel {
+  position: relative;
+  z-index: 4;
+  margin: 18px 0 0;
+  padding: 18px 20px 20px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}

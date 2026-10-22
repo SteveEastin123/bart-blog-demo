@@ -1,0 +1,11 @@
+includes:
+    - ../../wordpress-plugin/ehrman-blog-discovery/phpstan.neon.dist
+
+parameters:
+    dynamicConstantNames:
+        - EHRMAN_DISCOVERY_VERSION
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    paths:
+        - ehrman-reviewer-tools.php
+        - src

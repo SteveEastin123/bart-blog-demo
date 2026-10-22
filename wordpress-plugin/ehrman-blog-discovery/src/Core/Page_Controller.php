@@ -62,13 +62,6 @@ final class Page_Controller {
 	 */
 	private Browse_Page_Renderer $browse_page;
 
-	/**
-	 * Reviewer-only structure page renderer.
-	 *
-	 * @var Structure_Review_Renderer
-	 */
-	private Structure_Review_Renderer $structure_review;
-
 	/** Creates the page controller and its data services. */
 	public function __construct() {
 		$this->browse               = new Browse_Service();
@@ -84,7 +77,6 @@ final class Page_Controller {
 			$this->search_page,
 			\Closure::fromCallable( array( $this, 'browse_url' ) )
 		);
-		$this->structure_review     = new Structure_Review_Renderer( $this->browse, $this->markup );
 	}
 
 	/** Registers the plugin's public shortcodes. */
@@ -95,8 +87,6 @@ final class Page_Controller {
 		// Compatibility for content embedded before the public name was simplified.
 		add_shortcode( 'ehrman_ask_ai_2', array( $this, 'ask_ai_shortcode' ) );
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
-		add_shortcode( 'ehrman_structure_review', array( $this, 'structure_review_shortcode' ) );
-		add_filter( 'wp_robots', array( $this, 'review_page_robots' ) );
 		add_action( 'template_redirect', array( $this, 'redirect_legacy_ask_ai' ), 5 );
 	}
 
@@ -106,11 +96,10 @@ final class Page_Controller {
 			return;
 		}
 		$pages = array(
-			'keyword_search'   => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
-			'ask_ai'           => array( 'Ask AI', 'ask-ai', '[ehrman_ask_ai]' ),
-			'browse_1'         => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
-			'browse_2'         => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
-			'structure_review' => array( 'Structure Review', 'structure-review', '[ehrman_structure_review]' ),
+			'keyword_search' => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
+			'ask_ai'         => array( 'Ask AI', 'ask-ai', '[ehrman_ask_ai]' ),
+			'browse_1'       => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
+			'browse_2'       => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
 		);
 
 		foreach ( $pages as $key => [$title, $slug, $content] ) {
@@ -228,21 +217,6 @@ final class Page_Controller {
 	}
 
 	/**
-	 * Excludes the reviewer-only structure page from search-engine indexing.
-	 *
-	 * @param array<string,bool|string> $robots Existing robot directives.
-	 * @return array<string,bool|string> Updated robot directives.
-	 */
-	public function review_page_robots( array $robots ): array {
-		$page_id = Database::integer( get_option( 'ehrman_discovery_page_structure_review', 0 ) );
-		if ( $page_id > 0 && is_page( $page_id ) ) {
-			$robots['noindex']  = true;
-			$robots['nofollow'] = true;
-		}
-		return $robots;
-	}
-
-	/**
 	 * Renders the standalone keyword-search interface.
 	 *
 	 * @return string Search interface markup.
@@ -332,23 +306,6 @@ final class Page_Controller {
 			$this->search->resolve_term_modes( $terms, $this->request->term_modes() ),
 			$this->request->value( 'ebd_sort', 'ranked' ),
 			$this->request->page()
-		);
-	}
-
-	/**
-	 * Renders the reviewer-only subject-area, category, and topic outline.
-	 *
-	 * @return string Structure-review markup.
-	 */
-	public function structure_review_shortcode(): string {
-		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
-			return $this->not_ready();
-		}
-		Assets::enqueue();
-		return $this->structure_review->render(
-			'2' === $this->request->value( 'ebd_path' ) ? 2 : 1,
-			$this->request->key( 'ebd_view' ),
-			$this->page_url( 'structure_review' )
 		);
 	}
 

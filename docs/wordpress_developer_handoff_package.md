@@ -7,7 +7,15 @@ This document defines the materials to provide to the development company for in
 - `ehrman-blog-discovery.zip`
 - Access to the corresponding source-code repository or tagged release
 
-The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, Structure Review, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
+The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
+
+Reviewer Tools is now an optional **demo-only companion plugin**, stored at
+`wordpress-demo-plugins/ehrman-reviewer-tools`. It is excluded from the production
+plugin and handoff package, including its renderer, frontend controls and export
+code. Our demos retain the outlines, category/topic indexes, CSV/PDF downloads,
+menu link and evaluation note. The production plugin neither creates the review
+page nor registers its shortcode. Ingestion approval/review and Ask AI relevance
+review are unrelated features and remain in the production plugin.
 
 The retired topic/keyword Ask AI interpreter and experimental section-search
 plugins are not part of the production plugin. Package the active plugin directory,
@@ -120,6 +128,22 @@ are read-only and block AI requests.
 
 ## 4. Testing and Acceptance Package
 
+### Frontend Source and Build
+
+The public JavaScript and CSS are organized by functionality under the plugin's
+`assets/src/`. See [the frontend source map and build instructions](../wordpress-plugin/ehrman-blog-discovery/assets/README.md).
+Include those sources and the checked-in generated `assets/js/discovery.js` and
+`assets/css/discovery.css` in the source release. Include the root package files,
+`scripts/build_wordpress_assets.cjs`, and frontend tests with developer tooling.
+The pinned build dependency is not required on the WordPress server. CI checks
+that generated files match their sources before running WordPress regressions.
+The build detects the optional demo companion only when it is present; the
+`--production-only` flag explicitly limits builds/checks to production assets.
+Keep reviewer-specific test fixtures with internal demo tests, not the installable
+production plugin. Deliver the production search and ingestion regression tests.
+
+### Acceptance Materials
+
 - JSON and relationship validation scripts
 - Expected database-count checks
 - Search-parity test cases and results
@@ -149,13 +173,15 @@ Do not include:
 - Passwords or hosting credentials
 - Internal auditing files and temporary working scripts
 - The old Python, PHP, or standalone HTML implementations
+- `wordpress-demo-plugins/`, including Reviewer Tools and its internal tests
 - `experiments/`, including Ask AI 3 and other experimental plugins, section
   vectors, benchmark inputs/results, private full-text data and runtime bundles
 - Local recovery archives and database backups
 
 The demo Docker build excludes all of `experiments/` through `.dockerignore` and
-copies only the production plugin, demo theme, explicit canonical data files and
-regression checks. The repository retains experimental source for recovery; that
+copies the production plugin, optional Reviewer Tools companion, demo theme,
+explicit canonical data files and regression checks. This demo image is not the
+production plugin ZIP. The repository retains experimental source for recovery; that
 does not make it part of the installable plugin or the handoff package.
 
 ## Summary

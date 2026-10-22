@@ -21,5 +21,8 @@ wordpress-plugin/ehrman-blog-discovery/phpcs.xml.dist
 wordpress-plugin/ehrman-blog-discovery/phpstan-bootstrap.php
 wordpress-plugin/ehrman-blog-discovery/phpstan.neon.dist
 wordpress-plugin/ehrman-blog-discovery/stubs
+wordpress-demo-plugins/ehrman-reviewer-tools/phpcs.xml.dist
+wordpress-demo-plugins/ehrman-reviewer-tools/phpstan.neon.dist
+wordpress-demo-plugins/ehrman-reviewer-tools/phpstan-bootstrap.php
 *.docx
 *.pptx

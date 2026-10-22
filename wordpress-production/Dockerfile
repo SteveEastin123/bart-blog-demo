@@ -22,6 +22,8 @@ COPY --from=wpcli /usr/local/bin/wp /usr/local/bin/wp
 
 COPY --chown=www-data:www-data wordpress-plugin/ehrman-blog-discovery/ \
     /opt/ehrman-code/plugins/ehrman-blog-discovery/
+COPY --chown=www-data:www-data wordpress-demo-plugins/ehrman-reviewer-tools/ \
+    /opt/ehrman-code/plugins/ehrman-reviewer-tools/
 COPY --chown=www-data:www-data wordpress-theme/ehrman-discovery-demo/ \
     /opt/ehrman-code/themes/ehrman-discovery-demo/
 
@@ -47,6 +49,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/search-page-tests.php 
     /opt/ehrman-tests/search-page-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-naming-tests.php \
     /opt/ehrman-tests/ask-ai-naming-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/reviewer-tools-tests.php \
+    /opt/ehrman-tests/reviewer-tools-tests.php
 
 COPY --chown=www-data:www-data wordpress-production/healthz.html /opt/ehrman-code/healthz
 COPY wordpress-production/initialize-wordpress.sh /usr/local/bin/initialize-ehrman-wordpress

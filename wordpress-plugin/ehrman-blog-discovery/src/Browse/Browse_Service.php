@@ -83,7 +83,7 @@ final class Browse_Service {
 	}
 
 	/**
-	 * Returns every category alphabetically for the structure-review index.
+	 * Returns every category alphabetically with aggregate counts.
 	 *
 	 * @return array<int,array<string,mixed>> Category records and counts.
 	 */
@@ -100,7 +100,7 @@ final class Browse_Service {
 	}
 
 	/**
-	 * Returns every visible topic alphabetically for the structure-review index.
+	 * Returns every visible topic alphabetically with categories and counts.
 	 *
 	 * @return array<int,array<string,mixed>> Topic records, category names, and post counts.
 	 */

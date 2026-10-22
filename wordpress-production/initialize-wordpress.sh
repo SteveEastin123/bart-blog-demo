@@ -60,6 +60,7 @@ fi
 wp option update home "$WORDPRESS_SITE_URL" --allow-root --quiet
 wp option update siteurl "$WORDPRESS_SITE_URL" --allow-root --quiet
 wp plugin activate ehrman-blog-discovery --allow-root --quiet
+wp plugin activate ehrman-reviewer-tools --allow-root --quiet
 wp theme activate ehrman-discovery-demo --allow-root --quiet
 wp rewrite structure '/%postname%/' --allow-root --hard --quiet
 wp ehrman-discovery import --force --allow-root

@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "build:wordpress-assets": "node scripts/build_wordpress_assets.cjs",
+    "check:wordpress-assets": "node scripts/build_wordpress_assets.cjs --check && node --test wordpress-production/tests/frontend-assets.test.cjs"
+  },
   "dependencies": {
     "playwright-core": "^1.60.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
   }
 }

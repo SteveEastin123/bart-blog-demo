@@ -31,10 +31,7 @@ $ai_diagram_url = add_query_arg(
                 <p><?php echo wp_kses_post(__('<strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.', 'ehrman-discovery-demo')); ?></p>
                 <p><?php echo wp_kses_post(__('<strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can optionally select a category and combine up to four topics or secondary keywords.', 'ehrman-discovery-demo')); ?></p>
                 <p><?php echo wp_kses_post(__('<strong>Ask AI</strong> lets readers ask a question or describe a subject they want to explore. Semantic search finds candidate posts by matching the meaning of the query with post titles and summaries. AI then evaluates those titles and summaries against the query and ranks the most relevant posts.', 'ehrman-discovery-demo')); ?></p>
-                <aside class="ehrman-reviewer-note" aria-label="<?php esc_attr_e('Reviewer tools evaluation note', 'ehrman-discovery-demo'); ?>">
-                    <span class="ehrman-reviewer-label"><?php esc_html_e('Evaluation only', 'ehrman-discovery-demo'); ?></span>
-                    <p><?php echo wp_kses_post(__('<strong>Reviewer Tools</strong> provides expandable outlines of both Browse Topics structures, along with complete category and topic indexes for reviewing how the content is organized. These tools are included only for evaluation and will not appear in the final version; they are intended to confirm that subject areas, categories, and topics are organized appropriately before the structure is finalized.', 'ehrman-discovery-demo')); ?></p>
-                </aside>
+                <?php do_action('ehrman_demo_evaluation_note'); ?>
                 <figure class="ehrman-methods-figure">
                     <picture>
                         <source media="(max-width: 700px)" srcset="<?php echo esc_url($mobile_diagram_url); ?>">

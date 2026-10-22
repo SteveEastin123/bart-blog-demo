@@ -13,7 +13,7 @@ if ($LASTEXITCODE -ne 0) {
     throw 'Production Compose validation failed.'
 }
 
-$phpFiles = & docker compose -f $composeFile exec -T wordpress sh -c "find /opt/ehrman-code/plugins/ehrman-blog-discovery /opt/ehrman-code/themes/ehrman-discovery-demo -name '*.php' -type f -print"
+$phpFiles = & docker compose -f $composeFile exec -T wordpress sh -c "find /opt/ehrman-code/plugins /opt/ehrman-code/themes/ehrman-discovery-demo -name '*.php' -type f -print"
 if ($LASTEXITCODE -ne 0 -or @($phpFiles).Count -eq 0) {
     throw 'No packaged plugin or theme PHP files were found for syntax validation.'
 }
@@ -46,6 +46,12 @@ foreach ($property in $expected.PSObject.Properties) {
 if ($LASTEXITCODE -ne 0) {
     throw 'The focused WordPress plugin regression checks failed.'
 }
+
+& docker compose -f $composeFile exec -T wordpress wp eval-file /opt/ehrman-tests/reviewer-tools-tests.php --allow-root --path=/var/www/html
+if ($LASTEXITCODE -ne 0) {
+    throw 'Reviewer Tools lifecycle checks failed.'
+}
+& (Join-Path $PSScriptRoot 'verify-reviewer-isolation.ps1') -Port $Port -ComposeFile $composeFile
 
 $pages = @('/', '/keyword-search/', '/ask-ai/', '/ask-ai-2/', '/browse-topics-1/', '/browse-topics-2/', '/structure-review/')
 foreach ($path in $pages) {

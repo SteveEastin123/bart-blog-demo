@@ -1,0 +1,52 @@
+@media (max-width: 720px) {
+  .ebd-review-paths {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .ebd-review-path {
+    min-width: 0;
+  }
+
+  .ebd-review-path.is-category-link {
+    border-top: 1px solid var(--ebd-blue);
+    border-left: 0;
+  }
+
+  .ebd-review-path.is-topic-link {
+    border-top: 1px solid var(--ebd-blue);
+  }
+
+  .ebd-review-topic-filter {
+    grid-template-columns: 1fr auto;
+  }
+
+  .ebd-review-topic-filter label,
+  .ebd-review-topic-status {
+    grid-column: 1 / -1;
+  }
+
+  .ebd-review-area > summary,
+  .ebd-review-category > summary,
+  .ebd-review-topic-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    align-items: start;
+  }
+
+  .ebd-review-meta {
+    grid-column: 1;
+    grid-row: 2;
+    margin-left: 26px;
+    white-space: normal;
+  }
+
+  .ebd-review-categories {
+    padding-left: 14px;
+  }
+
+  .ebd-review-topic-row .ebd-review-meta {
+    margin-left: 0;
+  }
+}
