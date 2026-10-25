@@ -23,7 +23,8 @@ def payloads(root: Path = ROOT) -> dict[str, bytes]:
     required = {"README.md", "capture.php", "run-regressions.php", "compare.py", "cases/search.json",
                 "test-tools/src/Parity_Service.php", "test-tools/src/Parity_REST_Controller.php",
                 "test-tools/src/Plugin.php", "test-tools/src/Harness.php",
-                "test-tools/ehrman-discovery-test-tools.php", "regressions/plugin-regression-tests.php"}
+                "test-tools/ehrman-discovery-test-tools.php", "regressions/plugin-regression-tests.php",
+                "regressions/install-data-tests.php"}
     if not required <= files.keys():
         raise ValueError("Required developer testing deliverables are missing from the manifest")
     output: dict[str, bytes] = {}

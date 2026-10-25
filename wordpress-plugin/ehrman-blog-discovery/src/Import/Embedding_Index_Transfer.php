@@ -11,7 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Transfers the production title-and-summary embedding index as compressed JSON Lines. */
+/**
+ * Transfers the production title-and-summary embedding index as compressed JSON Lines.
+ *
+ * @phpstan-type VectorRecord array{source_wp_id:int,content_hash:string,model:string,dimensions:int,embedding:string,embedding_norm:float,updated_at:string}
+ */
 final class Embedding_Index_Transfer {
 	private const FORMAT          = 'ehrman-post-embeddings';
 	private const FORMAT_VERSION  = 1;
@@ -120,8 +124,34 @@ final class Embedding_Index_Transfer {
 	 * @throws \Throwable When an unexpected file or database failure occurs.
 	 */
 	public function import( string $file ): array {
-		$file     = self::normalize_path( $file, true );
-		$eligible = $this->eligible_posts();
+		$file    = self::normalize_path( $file, true );
+		$records = $this->read_package( $file, $this->eligible_posts() );
+		$wpdb    = Database::client();
+		if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
+			throw new \RuntimeException( 'The vector import transaction could not be started.' );
+		}
+		try {
+			$result = $this->store_in_transaction( $records );
+			if ( false === $wpdb->query( 'COMMIT' ) ) {
+				throw new \RuntimeException( 'The vector import transaction could not be committed.' );
+			}
+		} catch ( \Throwable $error ) {
+			$wpdb->query( 'ROLLBACK' );
+			throw $error;
+		}
+		return array_merge( array( 'file' => $file ), $result );
+	}
+
+	/**
+	 * Validates a package against supplied post metadata without changing the database.
+	 *
+	 * @param string                         $file Source package.
+	 * @param array<int,array<string,mixed>> $eligible Eligible metadata keyed by WordPress ID.
+	 * @return array<int,VectorRecord> Validated vectors keyed by WordPress ID.
+	 * @throws \RuntimeException When the package is incomplete or incompatible.
+	 */
+	public function read_package( string $file, array $eligible ): array {
+		$file = self::normalize_path( $file, true );
 		if ( empty( $eligible ) ) {
 			throw new \RuntimeException( 'No posts are eligible for semantic indexing.' );
 		}
@@ -171,68 +201,66 @@ final class Embedding_Index_Transfer {
 			);
 		}
 
+		return $records;
+	}
+
+	/**
+	 * Stores validated vectors inside a transaction owned by the caller.
+	 *
+	 * @param array<int,VectorRecord> $records Output of read_package().
+	 * @return array{records:int,imported:int,skipped:int,removed:int,missing:int,rejected:int} Write counts.
+	 * @throws \RuntimeException When writes or final coverage checks fail.
+	 */
+	public function store_in_transaction( array $records ): array {
 		$wpdb     = Database::client();
 		$table    = Database::tables()['post_embeddings'];
 		$existing = $this->stored_rows();
 		$imported = 0;
 		$skipped  = 0;
 		$removed  = 0;
-		if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
-			throw new \RuntimeException( 'The vector import transaction could not be started.' );
+		foreach ( $records as $wp_id => $record ) {
+			$current = $existing[ $wp_id ] ?? null;
+			if ( is_array( $current ) && self::records_match( $record, $current ) ) {
+				++$skipped;
+				continue;
+			}
+
+			$stored = $wpdb->replace(
+				$table,
+				array(
+					'source_wp_id'   => $wp_id,
+					'content_hash'   => $record['content_hash'],
+					'model'          => $record['model'],
+					'dimensions'     => $record['dimensions'],
+					'embedding'      => $record['embedding'],
+					'embedding_norm' => number_format( $record['embedding_norm'], 12, '.', '' ),
+					'updated_at'     => $record['updated_at'],
+				),
+				array( '%d', '%s', '%s', '%d', '%s', '%s', '%s' )
+			);
+			if ( false === $stored ) {
+				throw new \RuntimeException( sprintf( 'Vector for WordPress post %d could not be stored.', $wp_id ) );
+			}
+			++$imported;
 		}
 
-		try {
-			foreach ( $records as $wp_id => $record ) {
-				$current = $existing[ $wp_id ] ?? null;
-				if ( is_array( $current ) && self::records_match( $record, $current ) ) {
-					++$skipped;
-					continue;
-				}
+		foreach ( array_keys( $existing ) as $wp_id ) {
+			if ( isset( $records[ $wp_id ] ) ) {
+				continue;
+			}
+			$deleted = $wpdb->delete( $table, array( 'source_wp_id' => $wp_id ), array( '%d' ) );
+			if ( false === $deleted ) {
+				throw new \RuntimeException( sprintf( 'Obsolete vector for WordPress post %d could not be removed.', $wp_id ) );
+			}
+			$removed += (int) $deleted;
+		}
 
-				$stored = $wpdb->replace(
-					$table,
-					array(
-						'source_wp_id'   => $wp_id,
-						'content_hash'   => $record['content_hash'],
-						'model'          => $record['model'],
-						'dimensions'     => $record['dimensions'],
-						'embedding'      => $record['embedding'],
-						'embedding_norm' => number_format( $record['embedding_norm'], 12, '.', '' ),
-						'updated_at'     => $record['updated_at'],
-					),
-					array( '%d', '%s', '%s', '%d', '%s', '%s', '%s' )
-				);
-				if ( false === $stored ) {
-					throw new \RuntimeException( sprintf( 'Vector for WordPress post %d could not be stored.', $wp_id ) );
-				}
-				++$imported;
-			}
-
-			foreach ( array_keys( $existing ) as $wp_id ) {
-				if ( isset( $records[ $wp_id ] ) ) {
-					continue;
-				}
-				$deleted = $wpdb->delete( $table, array( 'source_wp_id' => $wp_id ), array( '%d' ) );
-				if ( false === $deleted ) {
-					throw new \RuntimeException( sprintf( 'Obsolete vector for WordPress post %d could not be removed.', $wp_id ) );
-				}
-				$removed += (int) $deleted;
-			}
-
-			$status = ( new Semantic_Index_Service() )->status();
-			if ( $status['current'] !== $status['eligible'] || $status['missing'] > 0 || $status['stale'] > 0 || $status['obsolete'] > 0 ) {
-				throw new \RuntimeException( 'Imported vectors did not produce a complete, current semantic index.' );
-			}
-			if ( false === $wpdb->query( 'COMMIT' ) ) {
-				throw new \RuntimeException( 'The vector import transaction could not be committed.' );
-			}
-		} catch ( \Throwable $error ) {
-			$wpdb->query( 'ROLLBACK' );
-			throw $error;
+		$status = ( new Semantic_Index_Service() )->status();
+		if ( $status['current'] !== $status['eligible'] || $status['missing'] > 0 || $status['stale'] > 0 || $status['obsolete'] > 0 ) {
+			throw new \RuntimeException( 'Imported vectors did not produce a complete, current semantic index.' );
 		}
 
 		return array(
-			'file'     => $file,
 			'records'  => count( $records ),
 			'imported' => $imported,
 			'skipped'  => $skipped,

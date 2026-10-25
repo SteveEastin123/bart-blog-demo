@@ -34,11 +34,12 @@ final class Import_Database_Writer {
 	 * Replaces all imported rows and verifies the resulting table counts.
 	 *
 	 * @param array<string,array<int,array<string,mixed>>> $data Validated source datasets.
+	 * @param callable(array<string,int>):void|null        $after_insert Optional coordinated writes before commit.
 	 * @phpstan-param ValidSourceData $data
 	 * @return array<string,int> Imported row counts by table key.
 	 * @throws Throwable When the transactional replacement fails.
 	 */
-	public function replace( array $data ): array {
+	public function replace( array $data, ?callable $after_insert = null ): array {
 		$wpdb = Database::client();
 
 		$this->query_or_throw( 'START TRANSACTION', 'start import transaction' );
@@ -47,6 +48,9 @@ final class Import_Database_Writer {
 			$expected = $this->insert_data( $data );
 			$actual   = Database::counts();
 			$this->assert_counts( $expected, $actual );
+			if ( null !== $after_insert ) {
+				$after_insert( $actual );
+			}
 			$this->query_or_throw( 'COMMIT', 'commit import transaction' );
 			return $actual;
 		} catch ( Throwable $error ) {

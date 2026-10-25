@@ -86,6 +86,7 @@ class DeveloperDeliveryTests(unittest.TestCase):
                 names = archive.namelist()
                 self.assertIn("ehrman-discovery-developer-tests/baseline.json", names)
                 self.assertIn("ehrman-discovery-developer-tests/regressions/search-page-tests.php", names)
+                self.assertIn("ehrman-discovery-developer-tests/regressions/install-data-tests.php", names)
                 self.assertFalse(any("reviewer" in name or "experiments" in name or "data/raw" in name for name in names))
                 archive.extractall(Path(directory) / "unpacked")
             unpacked = Path(directory) / "unpacked/ehrman-discovery-developer-tests"

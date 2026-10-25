@@ -17,6 +17,7 @@
     "regressions/ask-ai-naming-tests.php": "wordpress-production/tests/ask-ai-naming-tests.php",
     "regressions/analytics-dashboard-tests.php": "wordpress-production/tests/analytics-dashboard-tests.php",
     "regressions/post-ingestion-page-tests.php": "wordpress-production/tests/post-ingestion-page-tests.php",
-    "regressions/search-page-tests.php": "wordpress-production/tests/search-page-tests.php"
+    "regressions/search-page-tests.php": "wordpress-production/tests/search-page-tests.php",
+    "regressions/install-data-tests.php": "wordpress-production/tests/install-data-tests.php"
   }
 }

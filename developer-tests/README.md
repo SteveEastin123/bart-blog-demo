@@ -39,6 +39,23 @@ No Docker, Node, retired Python web app, SQLite database, API key, or optional
 test plugin is needed for the command-line comparison below. The PHP regression
 suite requires the complete imported vector index but does not create vectors.
 
+For initial installation, use `wp ehrman-discovery install-data --data-dir=/secure/ehrman-data`.
+The optional `--validate-only` flag checks the package without installation writes.
+Use a separate empty, disposable WordPress site for `regressions/install-data-tests.php`:
+that fixture test deliberately drops the empty plugin tables, injects SQL failures
+and changes storage engines. It requires the site title `Ehrman installation verification`
+and environment variable `EHRMAN_INSTALLATION_TEST=1`, and leaves synthetic fixture
+data behind. It is intentionally NOT part of `run-regressions.php`. Never run this
+fixture test on a real or populated staging site. Maintainers automate it with
+`wordpress-production/verify-installation.ps1` on a uniquely named test stack.
+
+On that empty disposable site, with the plugin activated and WordPress's
+environment type set to `local`, `staging` or `development`, run:
+
+```sh
+EHRMAN_INSTALLATION_TEST=1 wp eval-file /secure/ehrman-discovery-developer-tests/regressions/install-data-tests.php
+```
+
 ## Run the Delivered Tests
 
 Unzip to a private directory such as `/secure/ehrman-discovery-developer-tests`.

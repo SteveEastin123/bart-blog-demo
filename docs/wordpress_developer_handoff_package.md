@@ -74,6 +74,50 @@ Provide a consolidated guide explaining how to:
 
 Include the database schema and technical architecture as appendices.
 
+### Initial Data Installation
+
+Activate the plugin, put the five JSON files and `ehrman_post_embeddings.jsonl.gz`
+in a private directory outside WordPress, and keep
+`EHRMAN_DISCOVERY_POST_SOURCE=json` until the initial import is accepted. Back up
+the database and pause editors, scheduled ingestion and other imports during installation.
+The database user needs table/index creation and upgrade permissions, and named
+lock support. All plugin tables and the WordPress options table must use InnoDB.
+
+```sh
+wp ehrman-discovery install-data --data-dir=/secure/ehrman-data --validate-only
+wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
+```
+
+The first command validates the entire package without installation writes.
+Normal WordPress bootstrap/activation can independently create or upgrade schema.
+Validation checks JSON relationships, vector
+model/dimensions, content hashes, duplicates, binary values and complete coverage.
+Coverage follows the existing search rules: Ignore posts and posts without a search
+summary are excluded. Missing summaries on non-Ignore posts produce a warning.
+The command imports supplied vectors; it never generates them or calls OpenAI.
+
+Installation completes schema setup first, then writes metadata, relationships,
+vectors, import status and a receipt in one transaction. A failed data load rolls
+all those writes back. Schema changes cannot be rolled back by that transaction;
+restore the backup if a schema upgrade itself must be undone. No WordPress articles,
+users or analytics records are imported/replaced. Auto-increment counters can advance
+after a rolled-back attempt even though the rows remain unchanged.
+
+An identical rerun verifies the receipt's data fingerprint and performs no data
+replacement, preserving IDs. A nonempty initial target or a different package needs
+explicit `--replace-existing` consent after backup. This flag does NOT override
+database edits detected since the prior installation, post-ingestion history, or
+`EHRMAN_DISCOVERY_POST_SOURCE=mysql`. The legacy `import --force` command also
+refuses database-authoritative mode. Do not switch back to JSON to bypass protection.
+After the initial import and acceptance tests, the agreed handoff can switch the
+source setting to `mysql`; this installation command does not change that setting.
+
+Maintainers can run `wordpress-production/verify-installation.ps1` after building
+the image. It creates a uniquely named, isolated WordPress/database stack, exercises
+failure and rerun cases, installs the full package and runs regression checks with
+API access disabled. It stops that test stack afterward and preserves its volumes
+as evidence; it never resets the normal demo. CI runs it for MariaDB and MySQL.
+
 ### Analytics Presentation
 
 `src/Analytics/AI_Analytics_Renderer.php` loads reports and prepares display values.

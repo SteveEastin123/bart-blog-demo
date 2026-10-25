@@ -102,6 +102,7 @@ final class Importer {
 	 * @throws Throwable When validation or transactional import fails.
 	 */
 	public function import( bool $force = false ): array {
+		Data_Installer::require_json_source();
 		$started         = microtime( true );
 		$started_at      = gmdate( 'c' );
 		$previous_status = get_option( 'ehrman_discovery_import_status', array() );

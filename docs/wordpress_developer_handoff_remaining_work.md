@@ -33,6 +33,20 @@ The plugin already provides:
 
 ### 2. Provide One Installation Command
 
+Implemented in plugin 0.10.6 as `wp ehrman-discovery install-data`. It validates
+the combined package before installation, coordinates metadata/vector writes in
+one transaction, verifies coverage, and preserves identical reruns. Replacement
+requires explicit consent; later database edits and database-authoritative mode
+are protected. See the installation guide in `wordpress_developer_handoff_package.md`.
+Final acceptance still requires running it against the approved production environment.
+
+Local verification on October 25, 2026 passed on a fresh isolated MariaDB site:
+4,446 metadata records and 4,016 supplied vectors installed, identical reruns
+preserved data, injected write failures rolled back, and all 22 approved search
+cases retained their results and ordering. The extracted developer-test ZIP and
+the plugin regression suite passed. No API calls were made. MySQL coverage is
+configured in CI but was not rerun locally for this change.
+
 - Create or upgrade all required tables.
 - Import the selected authoritative JSON files.
 - Import the supplied vector artifact.
@@ -40,7 +54,7 @@ The plugin already provides:
 - Support repeatable execution without duplicate data.
 - Stop or roll back when critical validation fails.
 
-Suggested interface:
+Available interface:
 
 ```bash
 wp ehrman-discovery install-data --data-dir=/secure/ehrman-data

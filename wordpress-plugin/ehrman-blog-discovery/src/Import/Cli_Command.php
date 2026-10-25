@@ -13,6 +13,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Exposes import and status operations through WP-CLI. */
 final class Cli_Command {
+	/**
+	 * Install validated discovery JSON and supplied vectors together, without API calls.
+	 *
+	 * ## OPTIONS
+	 *
+	 * --data-dir=<directory>
+	 * : Private directory containing the five JSON files and ehrman_post_embeddings.jsonl.gz.
+	 *
+	 * [--validate-only]
+	 * : Validate the package without installing schema or data.
+	 *
+	 * [--replace-existing]
+	 * : Intentionally replace a JSON-managed index after backing it up. Later edits remain protected.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ehrman-discovery install-data --data-dir=/secure/ehrman-data --validate-only
+	 *     wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
+	 *
+	 * @param array<int,string>   $args Positional arguments.
+	 * @param array<string,mixed> $assoc_args Command options.
+	 * @subcommand install-data
+	 */
+	public function install_data( array $args, array $assoc_args ): void {
+		unset( $args );
+		$directory = Database::text( $assoc_args['data-dir'] ?? null );
+		if ( '' === trim( $directory ) ) {
+			\WP_CLI::error( 'The --data-dir option is required.' );
+			return;
+		}
+		try {
+			$result = ( new Data_Installer() )->install( $directory, isset( $assoc_args['replace-existing'] ), isset( $assoc_args['validate-only'] ) );
+		} catch ( \Throwable $error ) {
+			\WP_CLI::error( sanitize_text_field( $error->getMessage() ) );
+			return;
+		}
+		foreach ( $result['warnings'] as $warning ) {
+			\WP_CLI::warning( $warning );
+		}
+		$action = $result['validated_only'] ? 'Validated (no writes)' : ( $result['skipped'] ? 'Already installed; data unchanged' : 'Installed' );
+		\WP_CLI::success( sprintf( '%s: %d posts and %d title/summary vectors. No AI calls.', $action, $result['posts'], $result['vectors'] ) );
+	}
 
 	/**
 	 * Import the authoritative Ehrman Blog discovery JSON files.

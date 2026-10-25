@@ -63,6 +63,9 @@ jobs:
       - name: Verify the separate developer-test delivery
         shell: pwsh
         run: ./wordpress-production/verify-developer-tests.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
+      - name: Verify isolated initial installation and rollback
+        shell: pwsh
+        run: ./wordpress-production/verify-installation.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
       - name: Verify a full database backup and restore
         shell: pwsh
         run: |
