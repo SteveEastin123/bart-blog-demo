@@ -1,0 +1,91 @@
+{
+  "keyword": "Mustard Seed",
+  "auditDate": "2026-10-18",
+  "approval": "User approved the ten proposed assignments after full-post review.",
+  "source": "Complete local post texts in the 3,986-post eligible search collection.",
+  "criterion": "Assign for explanation or comparison of the mustard-seed parable, or a specific supporting claim about its interpretation or the smallest-seed statement. Exclude name-only lists, unrelated metaphors, and a reader's reference not specifically examined in the response.",
+  "reviewedMentionCount": 15,
+  "before": 0,
+  "retained": 10,
+  "added": 10,
+  "removed": 0,
+  "addedPosts": [
+    {
+      "wpId": "49718",
+      "title": "Jesus and Capitalism:  My Next Book (A Big Change)",
+      "reason": "Identifies and rejects reading the parable as a lesson about compound interest. Brief but meaningful supporting example."
+    },
+    {
+      "wpId": "40220",
+      "title": "How Scholarship Changed My Life",
+      "reason": "Uses the smallest-seed statement as a concrete example in reconsidering biblical inerrancy."
+    },
+    {
+      "wpId": "37428",
+      "title": "Could the Gospel of Thomas Be Q?  Could it Be Older Than the NT Gospels?",
+      "reason": "Compares the mustard-seed sayings in Thomas and Mark when considering the relative age of traditions."
+    },
+    {
+      "wpId": "15451",
+      "title": "Thomas, the Synoptic Gospels, and Q",
+      "reason": "Earlier presentation of the comparison between the mustard-seed sayings in Thomas and Mark."
+    },
+    {
+      "wpId": "15277",
+      "title": "Are Contradictions the Real Point?",
+      "reason": "Uses the smallest-seed statement to distinguish factual inerrancy from other understandings of inspiration."
+    },
+    {
+      "wpId": "13211",
+      "title": "The Preaching of Jesus in a Nutshell",
+      "reason": "Explains mustard-seed imagery as the present beginnings and anticipated arrival of the Kingdom of God."
+    },
+    {
+      "wpId": "12552",
+      "title": "How I First Realized There Are Mistakes in the Bible",
+      "reason": "Uses the smallest-seed statement in the account of accepting factual mistakes in the Bible."
+    },
+    {
+      "wpId": "9311",
+      "title": "The Teaching of Jesus",
+      "reason": "Earlier explanation of mustard-seed imagery in relation to the Kingdom of God."
+    },
+    {
+      "wpId": "4388",
+      "title": "On the Cutting Room Floor: Part 3",
+      "reason": "Identifies the smallest-seed statement as a specific difficulty that challenged biblical inerrancy."
+    },
+    {
+      "wpId": "4071",
+      "title": "Moving from the Faith",
+      "reason": "Earlier account using the smallest-seed statement as evidence against biblical inerrancy."
+    }
+  ],
+  "excludedPosts": [
+    {
+      "wpId": "50591",
+      "reason": "Mentioned in a reader's question; the response addresses apocalyptic expectation without specifically interpreting the parable."
+    },
+    {
+      "wpId": "47086",
+      "reason": "Listed in a table of sayings without discussion of the parable itself."
+    },
+    {
+      "wpId": "37690",
+      "reason": "Metaphor for the growth of a modern religious movement."
+    },
+    {
+      "wpId": "26081",
+      "reason": "Named among examples of parables without specific analysis."
+    },
+    {
+      "wpId": "23678",
+      "reason": "Figurative phrase about truth rather than discussion of the biblical saying."
+    }
+  ],
+  "topicChanges": [],
+  "descriptionChanges": [],
+  "searchSummaryChanges": [],
+  "categoryChanges": [],
+  "vectorChanges": []
+}
