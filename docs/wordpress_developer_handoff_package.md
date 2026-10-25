@@ -128,6 +128,32 @@ are read-only and block AI requests.
 
 ## 4. Testing and Acceptance Package
 
+### Required Separate Test ZIP
+
+**Do not omit `ehrman-discovery-developer-tests.zip` from the handoff.** It is a
+separate deliverable alongside the installable plugin, not code to install on
+the live blog. Its maintained instructions are in
+[developer-tests/README.md](../developer-tests/README.md).
+
+The bundle includes a standalone WordPress capture command, deterministic cases,
+the approved baseline, a Python-standard-library comparison command, production
+PHP regression tests and their required partials, and a checksum/version manifest.
+It needs neither the retired Python/SQLite app nor a paid API call. Developers
+run it on a staging copy with matching imported JSON and vectors. An optional
+token-protected HTTP compatibility add-on is supplied for staging only.
+
+`Parity_Service` and `Parity_REST_Controller` now live in `developer-tests/test-tools`,
+not the production plugin. The production plugin never registers the comparison
+route, even if a legacy parity token is configured. Reviewer Tools remains a
+separate demo feature and is not bundled with these developer tests.
+
+Build with `scripts/package_wordpress_tests.py --baseline <approved-capture.json>
+--output <new-zip-path>`. CI checks the explicit delivery manifest and runs the
+extracted ZIP against clean WordPress/database setups. Final release acceptance
+must regenerate a reference against the approved final data/search options,
+verify the extracted bundle, and record the ZIP checksum and successful results.
+The final handoff is incomplete without this test ZIP and its instructions.
+
 ### Frontend Source and Build
 
 The public JavaScript and CSS are organized by functionality under the plugin's

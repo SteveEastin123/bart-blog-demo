@@ -1,0 +1,14 @@
+includes:
+    - ../wordpress-plugin/ehrman-blog-discovery/phpstan.neon.dist
+
+parameters:
+    paths:
+        - test-tools
+        - capture.php
+        - run-regressions.php
+    ignoreErrors:
+        -
+            identifier: argument.type
+            message: '#^Parameter \#1 \$query of method wpdb::prepare\(\) expects literal-string, non-falsy-string given\.$#'
+            paths:
+                - test-tools/src/Parity_Service.php

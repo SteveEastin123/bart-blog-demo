@@ -5,6 +5,7 @@
 wordpress-production/.env
 wordpress-production/backups
 experiments/
+developer-tests/
 __pycache__
 *.pyc
 *.pyo

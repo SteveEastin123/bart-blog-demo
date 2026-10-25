@@ -16,6 +16,13 @@ for the migration evidence and rollback procedure.
 
 ## Local Acceptance Stack
 
+The test-only comparison service is delivered separately in `developer-tests/`.
+It is excluded from this image and the production plugin. Use
+`verify-developer-tests.ps1` to package, extract and exercise that delivery against
+the local demo; the script copies it only into a private temporary directory.
+See [developer test instructions](../developer-tests/README.md). The production
+comparison route stays absent even if an old parity token is configured.
+
 The isolated production-equivalent stack runs on port `8086` by default:
 
 ```powershell

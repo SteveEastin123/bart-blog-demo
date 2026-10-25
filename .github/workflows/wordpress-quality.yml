@@ -15,6 +15,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check:wordpress-assets
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B scripts/package_wordpress_tests.py --check
+      - run: python -B -m unittest discover -s developer-tests/tests -v
 
   static-analysis:
     runs-on: ubuntu-latest
@@ -35,6 +40,10 @@ jobs:
         run: |
           php vendor/bin/phpcs --standard=../../wordpress-demo-plugins/ehrman-reviewer-tools/phpcs.xml.dist
           php vendor/bin/phpstan analyse --configuration=../../wordpress-demo-plugins/ehrman-reviewer-tools/phpstan.neon.dist --no-progress --memory-limit=1G
+      - name: Check the separate developer test tools
+        run: |
+          php vendor/bin/phpcs --standard=../../developer-tests/phpcs.xml.dist
+          php vendor/bin/phpstan analyse --configuration=../../developer-tests/phpstan.neon.dist --no-progress --memory-limit=1G
 
   wordpress-regressions:
     runs-on: ubuntu-latest
@@ -51,6 +60,9 @@ jobs:
       - name: Run production acceptance and regression checks
         shell: pwsh
         run: ./wordpress-production/verify-production-test.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
+      - name: Verify the separate developer-test delivery
+        shell: pwsh
+        run: ./wordpress-production/verify-developer-tests.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
       - name: Verify a full database backup and restore
         shell: pwsh
         run: |

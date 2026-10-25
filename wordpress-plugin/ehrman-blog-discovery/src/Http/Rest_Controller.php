@@ -43,13 +43,6 @@ final class Rest_Controller {
 	 */
 	private Feedback_REST_Controller $feedback;
 
-	/**
-	 * Protected parity endpoint.
-	 *
-	 * @var Parity_REST_Controller
-	 */
-	private Parity_REST_Controller $parity;
-
 	/** Creates the endpoint controllers and their shared services. */
 	public function __construct() {
 		$search_service = new Search_Service();
@@ -59,10 +52,9 @@ final class Rest_Controller {
 		$this->search          = new Search_REST_Controller( $search_service );
 		$this->semantic_ask_ai = new Semantic_Ask_AI_REST_Controller( $reviewer, new Semantic_Search_Service() );
 		$this->feedback        = new Feedback_REST_Controller();
-		$this->parity          = new Parity_REST_Controller();
 	}
 
-	/** Registers all public and test-only REST routes. */
+	/** Registers the production REST routes. */
 	public function register_routes(): void {
 		register_rest_route(
 			self::REST_NAMESPACE,
@@ -73,17 +65,6 @@ final class Rest_Controller {
 				'permission_callback' => '__return_true',
 			)
 		);
-		if ( $this->parity->is_enabled() ) {
-			register_rest_route(
-				self::REST_NAMESPACE,
-				'/parity/batch',
-				array(
-					'methods'             => 'POST',
-					'callback'            => array( $this->parity, 'batch' ),
-					'permission_callback' => array( $this->parity, 'permission' ),
-				)
-			);
-		}
 		register_rest_route(
 			self::REST_NAMESPACE,
 			'/suggestions',

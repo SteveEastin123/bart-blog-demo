@@ -2,10 +2,10 @@
 /**
  * Protected parity-test REST endpoint.
  *
- * @package EhrmanBlogDiscovery
+ * @package EhrmanDiscoveryTests
  */
 
-namespace EhrmanBlogDiscovery;
+namespace EhrmanDiscoveryTests;
 
 use WP_Error;
 use WP_REST_Request;

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="Ehrman Discovery Developer Tests">
+    <file>test-tools</file>
+    <file>capture.php</file>
+    <file>run-regressions.php</file>
+    <arg name="extensions" value="php"/>
+    <arg value="sp"/>
+    <config name="minimum_supported_wp_version" value="6.5"/>
+    <rule ref="WordPress"/>
+    <!-- Same custom-table and exception-boundary conventions as the production plugin. -->
+    <rule ref="WordPress.DB.DirectDatabaseQuery.DirectQuery"><severity>0</severity></rule>
+    <rule ref="WordPress.DB.DirectDatabaseQuery.NoCaching"><severity>0</severity></rule>
+    <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared"><severity>0</severity></rule>
+    <rule ref="WordPress.Security.EscapeOutput.ExceptionNotEscaped"><severity>0</severity></rule>
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array"><element value="ehrman-blog-discovery"/></property>
+        </properties>
+    </rule>
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="EhrmanDiscoveryTests"/>
+                <element value="EHRMAN_DISCOVERY"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+        <exclude-pattern>test-tools/src/*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+        <exclude-pattern>test-tools/src/*</exclude-pattern>
+    </rule>
+</ruleset>

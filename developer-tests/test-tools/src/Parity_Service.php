@@ -2,10 +2,14 @@
 /**
  * Cross-implementation parity-test services.
  *
- * @package EhrmanBlogDiscovery
+ * @package EhrmanDiscoveryTests
  */
 
-namespace EhrmanBlogDiscovery;
+namespace EhrmanDiscoveryTests;
+
+use EhrmanBlogDiscovery\Database;
+use EhrmanBlogDiscovery\Importer;
+use EhrmanBlogDiscovery\Search_Service;
 
 use InvalidArgumentException;
 use RuntimeException;

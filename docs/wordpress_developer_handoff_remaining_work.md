@@ -77,6 +77,11 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Installable, versioned plugin ZIP and corresponding source release.
 - The selected authoritative JSON files.
 - The portable vector export.
+- **Required separate `ehrman-discovery-developer-tests.zip`**, including cases,
+  approved baseline, standalone capture/comparison commands, production regression
+  tests, instructions and checksum manifest. The builder and CI checks now exist
+  in `developer-tests/` and `scripts/package_wordpress_tests.py`; regenerate and
+  verify the extracted ZIP against the final approved data before delivery.
 - Installation, upgrade, rollback, and API-configuration instructions.
 - Database schema and technical architecture reference.
 - Expected counts and acceptance checklist.
@@ -91,6 +96,9 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Test caching, CDN behavior, permalinks, and result links.
 - Test responsive layout, keyboard navigation, accessibility, and supported browsers.
 - Run representative Browse Topics, Keyword Search, and Ask AI acceptance cases.
+- Run the exact delivered test ZIP from a clean private directory on staging;
+  confirm both comparison and PHP regression commands pass without repository
+  dependencies. Record the archive checksum with the final handoff results.
 
 ## Principal Missing Features
 

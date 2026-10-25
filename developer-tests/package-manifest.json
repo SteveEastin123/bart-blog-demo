@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "archiveRoot": "ehrman-discovery-developer-tests",
+  "files": {
+    "README.md": "developer-tests/README.md",
+    "capture.php": "developer-tests/capture.php",
+    "run-regressions.php": "developer-tests/run-regressions.php",
+    "compare.py": "developer-tests/compare.py",
+    "cases/search.json": "developer-tests/cases/search.json",
+    "test-tools/ehrman-discovery-test-tools.php": "developer-tests/test-tools/ehrman-discovery-test-tools.php",
+    "test-tools/src/Plugin.php": "developer-tests/test-tools/src/Plugin.php",
+    "test-tools/src/Parity_Service.php": "developer-tests/test-tools/src/Parity_Service.php",
+    "test-tools/src/Parity_REST_Controller.php": "developer-tests/test-tools/src/Parity_REST_Controller.php",
+    "test-tools/src/Harness.php": "developer-tests/test-tools/src/Harness.php",
+    "regressions/plugin-regression-tests.php": "wordpress-production/tests/plugin-regression-tests.php",
+    "regressions/ask-ai-cleanup-tests.php": "wordpress-production/tests/ask-ai-cleanup-tests.php",
+    "regressions/ask-ai-naming-tests.php": "wordpress-production/tests/ask-ai-naming-tests.php",
+    "regressions/analytics-dashboard-tests.php": "wordpress-production/tests/analytics-dashboard-tests.php",
+    "regressions/post-ingestion-page-tests.php": "wordpress-production/tests/post-ingestion-page-tests.php",
+    "regressions/search-page-tests.php": "wordpress-production/tests/search-page-tests.php"
+  }
+}
