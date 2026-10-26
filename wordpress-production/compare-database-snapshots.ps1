@@ -1,7 +1,8 @@
 param(
     [Parameter(Mandatory = $true)][string]$Before,
     [Parameter(Mandatory = $true)][string]$After,
-    [switch]$IgnoreAutoIncrement
+    [switch]$IgnoreAutoIncrement,
+    [switch]$DiscoveryOnly
 )
 
 $ErrorActionPreference = 'Stop'
@@ -9,6 +10,11 @@ $source = Get-Content -LiteralPath $Before -Raw | ConvertFrom-Json
 $target = Get-Content -LiteralPath $After -Raw | ConvertFrom-Json
 $sourceNames = @($source.tables.PSObject.Properties.Name | Sort-Object)
 $targetNames = @($target.tables.PSObject.Properties.Name | Sort-Object)
+if ($DiscoveryOnly) {
+    $sourceNames = @($sourceNames | Where-Object { $_ -match '_ehrman_' })
+    $targetNames = @($targetNames | Where-Object { $_ -match '_ehrman_' })
+    if (-not $sourceNames.Count) { throw 'No discovery tables were captured.' }
+}
 if (Compare-Object $sourceNames $targetNames) { throw 'The table lists differ.' }
 $errors = @()
 foreach ($name in $sourceNames) {

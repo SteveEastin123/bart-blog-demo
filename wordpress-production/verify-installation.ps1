@@ -34,7 +34,8 @@ try {
     $ready = $false
     for ($attempt = 0; $attempt -lt 60; $attempt++) {
         try {
-            $null = Invoke-WebRequest -Uri "http://localhost:$port/healthz" -TimeoutSec 2
+            # Match the IPv4 binding without waiting for localhost's IPv6 fallback.
+            $null = Invoke-WebRequest -Uri "http://127.0.0.1:$port/healthz" -TimeoutSec 5
             $ready = $true
             break
         } catch { Start-Sleep -Seconds 2 }
@@ -55,6 +56,8 @@ try {
     Write-Output "Isolated installation verified: $project; full package imported, repeated safely and regression-tested without API calls."
 } finally {
     # Keep the isolated volumes as test evidence; never touch the demo's project or volumes.
-    & docker compose -p $project -f $compose stop
-    foreach ($name in $names) { [Environment]::SetEnvironmentVariable($name, $saved[$name]) }
+    try { Invoke-TestDocker @('stop') }
+    finally {
+        foreach ($name in $names) { [Environment]::SetEnvironmentVariable($name, $saved[$name]) }
+    }
 }

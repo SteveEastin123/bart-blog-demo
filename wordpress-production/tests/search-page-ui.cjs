@@ -6,8 +6,8 @@ const { chromium } = require('../../node_modules/playwright-core');
 // Use the PNG reader bundled with the existing browser-test dependency.
 const { PNG } = require('../../node_modules/playwright-core/lib/utilsBundle');
 
-const base = 'http://localhost:8086';
-const output = path.resolve(__dirname, '../../.tmp/search-page-ui');
+const { base, outputFor } = require('./browser-config.cjs');
+const output = outputFor('search-page-ui');
 const capture = process.argv.includes('--capture-before');
 const compare = process.argv.includes('--compare-before');
 assert(!(capture && compare), 'Choose capture or comparison, not both.');

@@ -55,18 +55,26 @@ is `[ehrman_ask_ai]`. Previous numbered URLs redirect to `/ask-ai/`, and existin
 shortcode embeds remain compatible. Historical comparison reports retain their
 original method names.
 
-Run the complete local acceptance suite after plugin, theme, canonical-data, or
-build changes:
+Run the full local regression command after plugin, theme, canonical-data, or
+build changes (PowerShell 7.2+, Docker, Python, Node, PHP and development
+dependencies are required):
 
 ```powershell
-.\wordpress-production\verify-production-test.ps1 `
-  -PythonExecutable 'C:\path\to\python.exe'
+.\wordpress-production\verify-all.ps1 -PythonExecutable 'C:\path\to\python.exe'
 ```
 
-The suite validates the Docker configuration, packaged PHP syntax, imported
-counts, private source placement, public pages, representative searches,
-pagination, and focused regressions for semantic-vector coverage, post
-ingestion, and AI analytics.
+This builds a separate temporary MariaDB/WordPress stack, leaving the normal
+demo untouched. It runs static analysis, unit tests, database/REST regressions,
+desktop/mobile browser checks, installation, developer-test delivery and
+backup/restore checks. Logs and a consolidated `report.txt`/`report.json` are
+saved under `.tmp/full-regression/`. Paid AI calls are disabled.
+
+An approved search baseline is required: the default local path is
+`.tmp/test-tools-approved-baseline.json`; supply `-BaselinePath` elsewhere.
+Never replace a failing baseline with the current output just to pass tests.
+See [full-regression prerequisites and scope](wordpress-production/README.md#full-local-regression).
+The narrower `verify-production-test.ps1` remains available for focused checks
+against an existing demo.
 
 ## Semantic Index
 
@@ -121,9 +129,9 @@ composer install
 composer check
 ```
 
-GitHub Actions runs those static checks and the production-equivalent
-WordPress/MySQL regression suite on pushes and pull requests. The same complete
-regression suite is run locally by `verify-production-test.ps1`.
+GitHub Actions runs static checks and production-equivalent database regressions
+on both MariaDB and MySQL. `verify-all.ps1` adds the local Edge browser workflows
+and approved-baseline comparison; it currently targets MariaDB only.
 
 ## Data Maintenance
 

@@ -4,8 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('../../node_modules/playwright-core');
 
-const base = 'http://localhost:8086';
-const output = path.resolve(__dirname, '../../.tmp/ask-ai-retirement-ui');
+const { base, outputFor } = require('./browser-config.cjs');
+const output = outputFor('ask-ai-retirement-ui');
 const productionOnly = process.argv.includes('--production-only');
 
 (async () => {

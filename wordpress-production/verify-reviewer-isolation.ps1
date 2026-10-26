@@ -1,7 +1,8 @@
 param(
     [int]$Port = 8086,
     [string]$ComposeFile = (Join-Path $PSScriptRoot 'compose.local.yaml'),
-    [switch]$BrowserChecks
+    [switch]$BrowserChecks,
+    [string]$NodeExecutable = 'node'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -33,10 +34,15 @@ try {
         throw 'Disabling the add-on changed discovery counts.'
     }
     if ($BrowserChecks) {
-        if ($Port -ne 8086) { throw 'Browser fixtures currently use the local 8086 demo.' }
-        foreach ($script in @('frontend-assets-ui.cjs', 'ask-ai-retirement-ui.cjs')) {
-            & node (Join-Path $PSScriptRoot "tests/$script") --production-only
-            if ($LASTEXITCODE -ne 0) { throw "Production-only browser regression failed: $script" }
+        $savedBase = $env:EHRMAN_TEST_BASE_URL
+        try {
+            $env:EHRMAN_TEST_BASE_URL = $base
+            foreach ($script in @('frontend-assets-ui.cjs', 'ask-ai-retirement-ui.cjs')) {
+                & $NodeExecutable (Join-Path $PSScriptRoot "tests/$script") --production-only
+                if ($LASTEXITCODE -ne 0) { throw "Production-only browser regression failed: $script" }
+            }
+        } finally {
+            $env:EHRMAN_TEST_BASE_URL = $savedBase
         }
     }
 }

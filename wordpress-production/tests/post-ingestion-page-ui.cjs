@@ -6,15 +6,15 @@ const { execFileSync } = require('node:child_process');
 const { chromium } = require('../../node_modules/playwright-core');
 
 const root = path.resolve(__dirname, '../..');
-const base = 'http://localhost:8086';
+const { base, outputFor, composeFile } = require('./browser-config.cjs');
 const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
-const output = path.join(root, '.tmp/post-ingestion-page-ui');
+const output = outputFor('post-ingestion-page-ui');
 // Optional old/new HTML from the temporary, transaction-scoped parity harness.
 const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'utf8')) : [];
 
 (async () => {
   fs.mkdirSync(output, { recursive: true });
-  const credentials = execFileSync('docker', ['compose', '-f', 'wordpress-production/compose.local.yaml',
+  const credentials = execFileSync('docker', ['compose', '-f', composeFile,
     'exec', '-T', 'wordpress', 'printenv', 'WORDPRESS_ADMIN_USER', 'WORDPRESS_ADMIN_PASSWORD'],
   { cwd: root, encoding: 'utf8' }).trimEnd().split(/\r?\n/);
   assert.equal(credentials.length, 2);

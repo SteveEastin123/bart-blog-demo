@@ -16,6 +16,69 @@ for the migration evidence and rollback procedure.
 
 ## Local Acceptance Stack
 
+### Full Local Regression
+
+Run from the repository root with PowerShell 7.2 or newer:
+
+```powershell
+.\wordpress-production\verify-all.ps1 -PythonExecutable 'C:\path\to\python.exe'
+```
+
+With Python on PATH, `verify-all.ps1` alone is sufficient. Optional
+`-NodeExecutable` and `-PhpExecutable` accept full executable paths. PHP defaults
+to the existing `.tools/php-8.4/php.exe` when present, otherwise `php` on PATH.
+Prerequisites: Docker Desktop running, Python 3.10+, Node with `npm ci` completed,
+PHP with Composer dependencies installed in `wordpress-plugin/ehrman-blog-discovery`,
+Git, and Microsoft Edge for the existing Playwright browser suites. The runner
+does not install missing dependencies or silently skip unavailable checks.
+
+Provide an approved deterministic search capture with `-BaselinePath`.
+The default is `.tmp/test-tools-approved-baseline.json`, used by this workstation.
+A new checkout needs its approved reference supplied separately; the runner
+never generates or overwrites an approved baseline. Data changes may require
+review and explicit approval of a replacement reference.
+
+The command runs data/diagram checks, frontend and developer-package unit tests,
+PHPCS/PHPStan for all three packages, the production PHP/REST suite, the extracted
+developer-test ZIP against the approved baseline, fresh installation/rollback,
+five browser suites, production-only browser checks without Reviewer Tools,
+served landing-page dates/counts, discovery-table fingerprints and backup/restore.
+The new runner, browser configuration and count checker also have focused tests.
+
+Testing uses uniquely named **isolated MariaDB stacks on temporary loopback ports**.
+It builds current source and imports only into those test databases; the normal
+demo is neither stopped nor reimported. A nonfunctional test key enables the
+Ask AI form for browser tests; real keys are never used. The ingestion key is
+empty, WordPress outbound HTTP and scheduled jobs are disabled, and browser AI
+responses are mocked/blocked.
+Discovery-table content and schema must match before/after; fixture-induced
+auto-increment changes and WordPress core lifecycle changes are not treated as
+discovery-data loss. Existing safety guards remain in each underlying script.
+
+Every stage writes a private log plus a consolidated `report.json` and readable
+`report.txt` under `.tmp/full-regression/<run-id>/`. The report identifies the
+commit, uncommitted file list, baseline checksum, tested URL and stage durations.
+The first failure stops dependent work, marks remaining stages skipped and exits
+nonzero. Cleanup is attempted even on failure; cleanup failures also fail the run.
+Services are stopped and isolated volumes retained for investigation. Reports,
+screenshots and backups must not be published or committed.
+
+Landing checks are read-only and reject stale desktop/mobile count labels or
+an incorrect served post date range/total. Regenerate stale count-bearing SVGs
+with `scripts/build_search_methods_diagram.py` using the theme's desktop/mobile
+output paths, review the diff, and rerun. The runner never repairs assets merely
+to make a test pass. Standalone checker:
+
+```powershell
+python -B scripts/check_wordpress_landing.py --base-url http://localhost:8086
+```
+
+This local command does not deploy Render, run live OpenAI calls, grade relevance,
+or test Oracle MySQL. The existing CI database matrix covers MariaDB and MySQL;
+browser tests still run locally. The narrower scripts below remain available.
+
+### Existing Demo Checks
+
 The test-only comparison service is delivered separately in `developer-tests/`.
 It is excluded from this image and the production plugin. Use
 `verify-developer-tests.ps1` to package, extract and exercise that delivery against

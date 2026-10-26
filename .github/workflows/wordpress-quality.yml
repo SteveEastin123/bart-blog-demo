@@ -20,6 +20,12 @@ jobs:
           python-version: '3.12'
       - run: python -B scripts/package_wordpress_tests.py --check
       - run: python -B -m unittest discover -s developer-tests/tests -v
+      - run: python -B scripts/check_wordpress_landing.py
+      - run: python -B -m unittest discover -s wordpress-production/tests -p 'test_*.py' -v
+      - run: node --test wordpress-production/tests/browser-config.test.cjs
+      - name: Check regression reporting
+        shell: pwsh
+        run: ./wordpress-production/tests/regression-runner-tests.ps1
 
   static-analysis:
     runs-on: ubuntu-latest

@@ -5,8 +5,8 @@ const path = require('node:path');
 const { chromium } = require('playwright-core');
 const { PNG } = require('../../node_modules/playwright-core/lib/utilsBundle');
 
-const base = 'http://localhost:8086';
-const output = path.resolve(__dirname, '../../.tmp/frontend-assets-ui');
+const { base, outputFor } = require('./browser-config.cjs');
+const output = outputFor('frontend-assets-ui');
 const capture = process.argv.includes('--capture-before');
 const compare = process.argv.includes('--compare-before');
 const reviewerExtraction = process.argv.includes('--reviewer-extraction');
