@@ -1,5 +1,14 @@
 # Local MariaDB Migration
 
+## Current Status: October 28, 2026
+
+Local builds and CI now target MariaDB only. The Oracle MySQL compatibility job
+and `wordpress-production/compose.mysql.yaml` have been retired. No database
+containers, volumes, or backups were deleted by that removal, and the Render
+blueprint remains unchanged. The migration evidence and rollback commands below
+are historical: recover the old Compose file from Git before attempting a
+separately approved MySQL rollback. They are not part of the current build.
+
 ## Scope
 
 The local demo moves from Oracle MySQL 8.4.11 to MariaDB 13.0.2. WordPress,
@@ -80,8 +89,9 @@ Example capture:
 Acceptance checks cover syntax, ingestion, analytics, vector transfer and
 coverage, shortcodes, public pages, protected routes, search modes, and paging.
 The backup-restore test validates all tables in a new scratch database on the
-same engine. The CI matrix runs clean installation, regressions, and restore
-verification on both MariaDB and MySQL.
+same engine. At migration, the CI matrix was configured for clean installation,
+regressions, and restore verification on both MariaDB and MySQL. Current CI
+targets MariaDB only, as noted above.
 
 ## Rollback
 

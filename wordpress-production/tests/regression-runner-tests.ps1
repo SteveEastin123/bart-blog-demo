@@ -69,3 +69,6 @@ foreach ($case in @('all-tables', 'auto-increment', 'changed-data', 'missing-tab
     Assert-Runner $caught "Database comparison did not reject $case."
 }
 Write-Output 'Database comparison: scoped core changes, sequence changes, data changes and missing tables: OK'
+
+# Expected native failures must not become the GitHub Actions shell's exit code.
+exit 0

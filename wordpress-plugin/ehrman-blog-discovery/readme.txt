@@ -10,16 +10,21 @@ WordPress foundation for browsing and searching the Ehrman Blog index.
 
 == Description ==
 
-This plugin verifies the WordPress/MySQL runtime and imports the authoritative
+This plugin uses the WordPress database connection and imports the authoritative
 post, topic, category, subject-area, and secondary-keyword indexes into
-dedicated MySQL tables. It provides scoped keyword search, autocomplete, and
+dedicated database tables. It provides scoped keyword search, autocomplete, and
 two alternative topic-browsing paths.
 
 Administrators can also prepare full posts in a protected ingestion workflow.
 It uses a dedicated OpenAI project to draft descriptions, search summaries,
 topics, and secondary keywords for review. Approval remains disabled while JSON
-is authoritative and can be enabled after the planned MySQL source-of-truth
+is authoritative and can be enabled after the planned database source-of-truth
 handoff.
+
+MariaDB is the current build and regression-test target. The plugin does not
+bundle or start a database server. The existing EHRMAN_DISCOVERY_POST_SOURCE=mysql
+setting means database-authoritative ingestion on MariaDB as well; it is not a
+database product selector.
 
 The block editor includes a Search Metadata panel for published posts. It uses
 the saved WordPress post as the trusted source, exposes the current proposal and

@@ -52,32 +52,29 @@ jobs:
           php vendor/bin/phpstan analyse --configuration=../../developer-tests/phpstan.neon.dist --no-progress --memory-limit=1G
 
   wordpress-regressions:
+    name: WordPress regressions (MariaDB)
     runs-on: ubuntu-latest
     needs: [static-analysis, frontend-assets]
-    strategy:
-      fail-fast: false
-      matrix:
-        compose: [compose.local.yaml, compose.mysql.yaml]
     steps:
       - uses: actions/checkout@v4
       - name: Build and initialize WordPress/database
         shell: pwsh
-        run: ./wordpress-production/setup-production-test.ps1 -ComposeFile wordpress-production/${{ matrix.compose }}
+        run: ./wordpress-production/setup-production-test.ps1 -ComposeFile wordpress-production/compose.local.yaml
       - name: Run production acceptance and regression checks
         shell: pwsh
-        run: ./wordpress-production/verify-production-test.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
+        run: ./wordpress-production/verify-production-test.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/compose.local.yaml
       - name: Verify the separate developer-test delivery
         shell: pwsh
-        run: ./wordpress-production/verify-developer-tests.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
+        run: ./wordpress-production/verify-developer-tests.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/compose.local.yaml
       - name: Verify isolated initial installation and rollback
         shell: pwsh
-        run: ./wordpress-production/verify-installation.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/${{ matrix.compose }}
+        run: ./wordpress-production/verify-installation.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/compose.local.yaml
       - name: Verify a full database backup and restore
         shell: pwsh
         run: |
-          docker compose -f wordpress-production/${{ matrix.compose }} stop wordpress
+          docker compose -f wordpress-production/compose.local.yaml stop wordpress
           if ($LASTEXITCODE -ne 0) { throw 'Could not stop web writes before backup.' }
-          ./wordpress-production/test-backup-restore.ps1 -ComposeFile wordpress-production/${{ matrix.compose }}
+          ./wordpress-production/test-backup-restore.ps1 -ComposeFile wordpress-production/compose.local.yaml
       - name: Stop the test stack
         if: always()
-        run: docker compose -f wordpress-production/${{ matrix.compose }} down --volumes
+        run: docker compose -f wordpress-production/compose.local.yaml down --volumes

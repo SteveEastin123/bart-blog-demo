@@ -6,11 +6,12 @@ portable title-and-summary vector index, and production acceptance checks in a
 reproducible Docker image. Older Python, PHP/SQLite, and WordPress development
 demos remain reference implementations.
 
-The local default is **MariaDB 13.0.2**, pinned by image digest in
-`compose.local.yaml`. WordPress and PHP versions are unchanged. The original
-MySQL stack remains available in `compose.mysql.yaml`, with its original
-project and volume names. Render still uses MySQL; no remote migration is
-performed by these local scripts. See
+Local builds and GitHub Actions use **MariaDB 13.0.2**, pinned by image digest in
+`compose.local.yaml`. The Oracle MySQL compatibility job and its Compose file
+have been retired; previous configurations remain in Git history. Existing
+database volumes and backups are not deleted by that change. WordPress and PHP
+versions are unchanged. The Render blueprint still specifies MySQL; no remote
+migration is performed by these local scripts. See
 [`docs/wordpress_mariadb_migration.md`](../docs/wordpress_mariadb_migration.md)
 for the migration evidence and rollback procedure.
 
@@ -74,8 +75,8 @@ python -B scripts/check_wordpress_landing.py --base-url http://localhost:8086
 ```
 
 This local command does not deploy Render, run live OpenAI calls, grade relevance,
-or test Oracle MySQL. The existing CI database matrix covers MariaDB and MySQL;
-browser tests still run locally. The narrower scripts below remain available.
+or test Oracle MySQL. CI database checks also use MariaDB only; browser tests
+still run locally. The narrower scripts below remain available.
 
 ### Existing Demo Checks
 
@@ -120,7 +121,7 @@ ranking signals.
 ## Administrator Post Ingestion
 
 The plugin includes an administrator-only **Tools > Post Ingestion** workflow
-for the future MySQL-authoritative deployment. An administrator enters the
+for the future database-authoritative deployment. An administrator enters the
 WordPress post ID, title, URL, author, publication date, and complete post text.
 The separate ingestion OpenAI project analyzes the full text and returns a
 reviewable description, search summary, existing topics, existing secondary
@@ -167,7 +168,8 @@ Configure the workflow with these environment variables:
 - `EHRMAN_INGESTION_REASONING_EFFORT`: defaults to `high`.
 - `EHRMAN_DISCOVERY_POST_SOURCE`: defaults to `json`, which permits draft
   analysis but locks approval. Set it to `mysql` only after the source-of-truth
-  handoff.
+  handoff. The legacy value `mysql` means database-authoritative ingestion,
+  including on MariaDB; it does not select a database product.
 
 Pending drafts retain the supplied full text so they can be revised or
 reanalyzed. Approval writes the normalized post and search relationships in a
@@ -224,11 +226,10 @@ extended content checksum, and removes only that scratch database. Existing
 backups are never overwritten. Backups contain private WordPress data and
 must not be committed or included in a public handoff.
 
-Pass `-ComposeFile wordpress-production/compose.mysql.yaml` to the setup,
-verification, backup, restore-test, snapshot, or vector-export scripts to
-target the retained MySQL stack explicitly. Do not run setup during rollback:
-it force-imports canonical JSON. Use `docker compose ... start` to resume the
-existing rollback containers without changing their data.
+The Oracle MySQL test stack is no longer maintained. Historical migration and
+rollback instructions are retained in `docs/wordpress_mariadb_migration.md`;
+they require the old Compose configuration from Git history. Do not run setup
+during a historical rollback: it force-imports canonical JSON.
 
 ## Production Characteristics
 
@@ -236,7 +237,7 @@ existing rollback containers without changing their data.
 - Import sources live outside Apache's document root at `/opt/ehrman-import`.
 - A runtime synchronizer refreshes image-managed plugin and theme code and
   removes any legacy public import directory on every container start.
-- MariaDB stores local WordPress and discovery-index data; Render remains on MySQL.
+- MariaDB stores local WordPress and discovery-index data; the Render blueprint still specifies MySQL.
 - Only `wp-content/uploads` requires a WordPress persistent disk.
 - Result links open Bart's existing post URLs; full post bodies are not stored.
 - The ingestion workflow retains full post text only in pending administrator

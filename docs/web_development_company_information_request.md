@@ -30,8 +30,8 @@ Please confirm the following production details:
 
 - WordPress version
 - PHP version and enabled extensions
-- The database must be **Oracle MySQL, not MariaDB**
-- Exact MySQL version, preferably MySQL 8.0 or newer
+- Database product and exact version; the current build and regression-test target is **MariaDB 13.0.2**
+- Any difference from the tested MariaDB version that must be validated before handoff
 - Database character set and collation, preferably `utf8mb4`
 - Whether custom plugin tables, indexes, and InnoDB transactions are permitted
 - Whether WordPress Multisite is enabled
@@ -42,7 +42,7 @@ Please confirm the following production details:
 
 Please answer the following question:
 
-> Is the production website rendered directly by WordPress, or does it use a headless or decoupled frontend? If it is conventional WordPress, are there any restrictions on custom PHP plugins, REST endpoints, WP-CLI commands, or dedicated MySQL tables?
+> Is the production website rendered directly by WordPress, or does it use a headless or decoupled frontend? If it is conventional WordPress, are there any restrictions on custom PHP plugins, REST endpoints, WP-CLI commands, or dedicated database tables?
 
 Please also identify:
 
@@ -54,7 +54,7 @@ Please also identify:
 - Whether the preferred integration uses shortcodes, WordPress blocks, theme templates, or REST APIs
 - Any restrictions on direct database access through the WordPress database APIs
 
-For a conventional WordPress site, PHP is the expected language for the plugin. JavaScript and CSS support the interactive interface, while PHP handles WordPress integration, MySQL queries, administration, REST endpoints, and page rendering. A headless frontend or an existing external search platform could require a different integration approach.
+For a conventional WordPress site, PHP is the expected language for the plugin. JavaScript and CSS support the interactive interface, while PHP handles WordPress integration, database queries, administration, REST endpoints, and page rendering. A headless frontend or an existing external search platform could require a different integration approach.
 
 ## Existing Post Structure
 

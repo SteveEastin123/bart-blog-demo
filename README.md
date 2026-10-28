@@ -1,7 +1,7 @@
 # Bart Ehrman Blog Discovery
 
 This repository contains the discovery system for browsing and searching Bart
-Ehrman's blog. The current product and handoff target is the WordPress/MySQL
+Ehrman's blog. The current product and handoff target is the WordPress/MariaDB
 implementation. It provides Browse Topics, Keyword Search, Ask AI,
 reviewer tools, AI analytics, and an administrator post-ingestion workflow.
 
@@ -12,9 +12,9 @@ content. Do not publish the repository or its raw data.
 
 | Component | Location | Purpose |
 | --- | --- | --- |
-| WordPress plugin | `wordpress-plugin/ehrman-blog-discovery/` | Search, browsing, AI retrieval, analytics, ingestion, and custom MySQL tables |
+| WordPress plugin | `wordpress-plugin/ehrman-blog-discovery/` | Search, browsing, AI retrieval, analytics, ingestion, and custom database tables |
 | Demo theme | `wordpress-theme/ehrman-discovery-demo/` | Production-equivalent presentation and landing page |
-| Local/Render image | `wordpress-production/` | Reproducible WordPress/PHP/MySQL build and acceptance tooling |
+| Local/Render image | `wordpress-production/` | Reproducible WordPress/PHP image with MariaDB local build and acceptance tooling |
 | Render blueprint | `render-wordpress.yaml` | WordPress and private MySQL services; applied manually |
 | Canonical discovery data | Five selected files in `data/index/` | Current JSON source of truth for imported posts and taxonomy |
 | Portable semantic index | `data/index/ehrman_post_embeddings.jsonl.gz` | Precomputed Ask AI title-and-summary vectors |
@@ -28,8 +28,8 @@ The five imported JSON files are:
 - `ehrman_post_subject_areas_2.json`
 
 JSON remains authoritative during development. A rebuild imports those files
-into MySQL, preserving the current workflow for downloaded posts. At the final
-source-of-truth handoff, MySQL will become authoritative and the administrator
+into MariaDB, preserving the current workflow for downloaded posts. At the final
+source-of-truth handoff, the database will become authoritative and the administrator
 ingestion workflow will update it directly.
 
 ## Local WordPress Build
@@ -79,7 +79,7 @@ against an existing demo.
 ## Semantic Index
 
 Ask AI uses one title-and-summary vector for every eligible post. The vectors
-are stored in MySQL and are not part of the canonical JSON files. A versioned,
+are stored in the database and are not part of the canonical JSON files. A versioned,
 compressed package at `data/index/ehrman_post_embeddings.jsonl.gz` supplies the
 initial index without paid embedding calls. Fresh production-equivalent
 installations import it automatically.
@@ -104,14 +104,15 @@ reports under `docs/` and `data/evaluations/`.
 
 Import is transactional and idempotent. It validates the package version,
 embedding model, dimensions, post IDs, title-and-summary hashes, binary lengths,
-and vector norms before changing MySQL. The semantic index is ready only when
+and vector norms before changing the database. The semantic index is ready only when
 every eligible post has a current vector. `wp ehrman-discovery status` reports
 current, missing, stale, and obsolete vector counts. See
 `docs/wordpress_portable_vector_index.md` for the package contract.
 
 ## Render
 
-`render-wordpress.yaml` defines the current WordPress/MySQL target. Render
+`render-wordpress.yaml` still defines a WordPress/MySQL target; the local MariaDB
+migration and retirement of MySQL tests do not migrate that remote service. Render
 updates are intentionally manual: commit and push the repository, then apply or
 deploy the WordPress service through Render and run the import/index verification
 steps in `docs/wordpress_render_deployment_runbook.md`.
@@ -130,14 +131,15 @@ composer check
 ```
 
 GitHub Actions runs static checks and production-equivalent database regressions
-on both MariaDB and MySQL. `verify-all.ps1` adds the local Edge browser workflows
-and approved-baseline comparison; it currently targets MariaDB only.
+on MariaDB only. The Oracle MySQL compatibility job and local build configuration
+have been retired. `verify-all.ps1` adds the local Edge browser workflows and
+approved-baseline comparison, also on MariaDB.
 
 ## Data Maintenance
 
 The established post-ingestion workflow downloads new posts, prepares their
 descriptions and search summaries, assigns controlled topics and secondary
-keywords, updates the canonical JSON, rebuilds the local WordPress/MySQL demo,
+keywords, updates the canonical JSON, rebuilds the local WordPress/MariaDB demo,
 and creates missing title-and-summary vectors.
 
 Temporary member credentials belong only in `.ehrman_credentials.env`, which is
