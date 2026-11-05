@@ -162,6 +162,10 @@ usage and estimated cost of both attempts.
 
 Configure the workflow with these environment variables:
 
+- `EHRMAN_DISCOVERY_OPENAI_API_KEY`: dedicated reader-search and embedding key.
+  A PHP constant takes precedence over the environment variable. A nonblank
+  environment value takes precedence over the legacy `OPENAI_API_KEY` fallback.
+  An explicitly blank constant disables reader AI. Keep these values server-side.
 - `EHRMAN_INGESTION_OPENAI_API_KEY`: dedicated ingestion-project key; required
   for analysis and the approved post's title-and-summary vector.
 - `EHRMAN_INGESTION_OPENAI_MODEL`: defaults to `gpt-5.6-sol`.

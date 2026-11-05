@@ -118,6 +118,21 @@ failure and rerun cases, installs the full package and runs regression checks wi
 API access disabled. It stops that test stack afterward and preserves its volumes
 as evidence; it never resets the normal demo. CI now targets MariaDB only.
 
+### Search API Credentials
+
+Search refinement and query embeddings use the same credential resolver in
+`AI_Settings::api_key()`. Precedence is the `EHRMAN_DISCOVERY_OPENAI_API_KEY`
+PHP constant, then a nonblank environment variable of the same name, then the
+legacy `OPENAI_API_KEY` environment variable. Values are trimmed. An explicitly
+defined blank or invalid constant disables reader AI instead of falling back;
+a blank dedicated environment variable allows the legacy fallback. Never expose
+resolved keys in browser configuration, status output, logs or exports.
+
+Administrator ingestion remains separate and uses only
+`EHRMAN_INGESTION_OPENAI_API_KEY`. Its embedding client receives that explicit
+workflow key; it never silently borrows reader credentials. Regression tests
+exercise configuration precedence in isolated PHP processes without API calls.
+
 ### Analytics Presentation
 
 `src/Analytics/AI_Analytics_Renderer.php` loads reports and prepares display values.

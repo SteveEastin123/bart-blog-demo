@@ -190,11 +190,7 @@ final class Embedding_Service {
 
 	/** Returns the API key without exposing it to the browser. */
 	private static function api_key(): string {
-		if ( defined( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) ) {
-			$key = constant( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
-			return is_scalar( $key ) ? trim( (string) $key ) : '';
-		}
-		return trim( (string) getenv( 'OPENAI_API_KEY' ) );
+		return AI_Settings::api_key();
 	}
 
 	/** Returns the workflow-specific key or the default discovery key. */

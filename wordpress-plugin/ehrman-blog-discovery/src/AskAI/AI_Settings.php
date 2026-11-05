@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Resolves the surviving search model and credentials without exposing secrets. */
+/** Resolves the search model and shared search/embedding credentials. */
 final class AI_Settings {
 	private const DEFAULT_MODEL = 'gpt-5.4-mini';
 
@@ -25,6 +25,10 @@ final class AI_Settings {
 		if ( defined( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) ) {
 			$key = constant( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
 			return is_scalar( $key ) ? trim( (string) $key ) : '';
+		}
+		$key = trim( (string) getenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) );
+		if ( '' !== $key ) {
+			return $key;
 		}
 		return trim( (string) getenv( 'OPENAI_API_KEY' ) );
 	}

@@ -25,6 +25,7 @@ $assert( is_string( $asset_config ) && ! str_contains( $asset_config, 'interpret
 /* Preserve the old model/key precedence, defaults and sanitization. */
 $saved_model = getenv( 'EHRMAN_DISCOVERY_AI_MODEL' );
 $saved_key   = getenv( 'OPENAI_API_KEY' );
+$saved_search_key = getenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
 try {
 	if ( ! defined( 'EHRMAN_DISCOVERY_AI_MODEL' ) ) {
 		putenv( 'EHRMAN_DISCOVERY_AI_MODEL' );
@@ -33,6 +34,7 @@ try {
 		$assert_same( 'review-model_1.2', AI_Settings::model_id(), 'Review model sanitization changed.' );
 	}
 	if ( ! defined( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) ) {
+		putenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
 		putenv( 'OPENAI_API_KEY' );
 		$assert_same( false, AI_Settings::is_configured(), 'Missing API key is reported as configured.' );
 		putenv( 'OPENAI_API_KEY= test-only-key ' );
@@ -41,6 +43,7 @@ try {
 } finally {
 	false === $saved_model ? putenv( 'EHRMAN_DISCOVERY_AI_MODEL' ) : putenv( 'EHRMAN_DISCOVERY_AI_MODEL=' . $saved_model );
 	false === $saved_key ? putenv( 'OPENAI_API_KEY' ) : putenv( 'OPENAI_API_KEY=' . $saved_key );
+	false === $saved_search_key ? putenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) : putenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY=' . $saved_search_key );
 }
 
 $cleanup_questions = array();

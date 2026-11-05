@@ -46,6 +46,7 @@ $wpdb   = Database::client();
 $tables = Database::tables();
 
 require __DIR__ . '/ask-ai-naming-tests.php';
+require __DIR__ . '/api-settings-tests.php';
 
 /* Keep retired AI routes unavailable while preserving the semantic endpoint. */
 $rest_routes = rest_get_server()->get_routes();
