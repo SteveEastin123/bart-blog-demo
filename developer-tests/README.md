@@ -38,6 +38,9 @@ extend `cases/search.json` with approved cases as requirements change.
 No Docker, Node, retired Python web app, SQLite database, API key, or optional
 test plugin is needed for the command-line comparison below. The PHP regression
 suite requires the complete imported vector index but does not create vectors.
+It also requires PHP CLI's `proc_open` function for isolated API-configuration
+cases. No additional permission or process-launch capability is required by the
+production plugin.
 
 For initial installation, use `wp ehrman-discovery install-data --data-dir=/secure/ehrman-data`.
 The optional `--validate-only` flag checks the package without installation writes.

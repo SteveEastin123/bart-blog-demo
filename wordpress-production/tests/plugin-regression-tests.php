@@ -17,7 +17,7 @@ use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
 use EhrmanBlogDiscovery\Page_Controller;
-use EhrmanBlogDiscovery\Post_Ingestion_Editor;
+use EhrmanBlogDiscovery\Post_Ingestion_REST_Controller;
 use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
@@ -563,13 +563,14 @@ try {
 	);
 	$assert( ! is_wp_error( $created_post ), is_wp_error( $created_post ) ? $created_post->get_error_message() : 'Could not create the ingestion editor post.' );
 	$editor_post_id = is_wp_error( $created_post ) ? 0 : (int) $created_post;
+	require __DIR__ . '/post-ingestion-editor-tests.php';
 
 	$editor_request = new WP_REST_Request( 'GET' );
 	$editor_request->set_param( 'post_id', (int) $editor_post_id );
-	$assert_same( true, Post_Ingestion_Editor::permission( $editor_request ), 'An administrator could not access the post ingestion editor endpoint.' );
+	$assert_same( true, Post_Ingestion_REST_Controller::permission( $editor_request ), 'An administrator could not access the post ingestion editor endpoint.' );
 
 	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
-	$unconfigured = Post_Ingestion_Editor::analyze( $editor_request );
+	$unconfigured = Post_Ingestion_REST_Controller::analyze( $editor_request );
 	$assert( is_wp_error( $unconfigured ), 'Editor analysis unexpectedly called the API without an ingestion key.' );
 	$assert_same( 'ehrman_ingestion_not_configured', $unconfigured->get_error_code(), 'The editor did not build valid ingestion input from the saved post.' );
 
@@ -577,7 +578,7 @@ try {
 	$editor_taxonomy      = $ingestion_store->vocabulary();
 	$editor_taxonomy_json = wp_json_encode( $editor_taxonomy );
 	$assert( is_string( $editor_taxonomy_json ), 'The editor-ingestion taxonomy fixture could not be encoded.' );
-	$queued_response = Post_Ingestion_Editor::analyze( $editor_request );
+	$queued_response = Post_Ingestion_REST_Controller::analyze( $editor_request );
 	$assert( $queued_response instanceof WP_REST_Response, 'The editor did not return a REST response after queueing analysis.' );
 	$assert_same( 202, $queued_response->get_status(), 'The editor did not identify queued analysis as an accepted background request.' );
 	$queued_data      = $queued_response->get_data();
@@ -588,7 +589,7 @@ try {
 	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The queued ingestion draft did not receive a worker event.' );
 	Post_Ingestion_Queue::cancel( $editor_draft_id );
 	$assert_same( false, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The ingestion worker event could not be cancelled for recovery testing.' );
-	$recovered_response = Post_Ingestion_Editor::status( $editor_request );
+	$recovered_response = Post_Ingestion_REST_Controller::status( $editor_request );
 	$assert( $recovered_response instanceof WP_REST_Response, 'The editor status endpoint did not return a REST response while repairing the queue.' );
 	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The editor status endpoint did not repair a missing queued worker event.' );
 	$assert_same( 'no-store', $recovered_response->get_headers()['Cache-Control'] ?? '', 'The editor workflow response may be cached.' );
@@ -653,7 +654,7 @@ try {
 		$proposal,
 		$metrics
 	);
-	$editor_response = Post_Ingestion_Editor::status( $editor_request );
+	$editor_response = Post_Ingestion_REST_Controller::status( $editor_request );
 	$assert( $editor_response instanceof WP_REST_Response, 'The editor status endpoint did not return a REST response.' );
 	$editor_data = $editor_response->get_data();
 	$assert( is_array( $editor_data ) && is_array( $editor_data['draft'] ?? null ), 'The editor status response omitted the ingestion draft.' );
@@ -669,12 +670,15 @@ try {
 		true
 	);
 	$assert( ! is_wp_error( $updated_post ), is_wp_error( $updated_post ) ? $updated_post->get_error_message() : 'Could not update the ingestion editor fixture.' );
-	$changed_response = Post_Ingestion_Editor::status( $editor_request );
+	$changed_response = Post_Ingestion_REST_Controller::status( $editor_request );
 	$changed_data     = $changed_response instanceof WP_REST_Response ? $changed_response->get_data() : array();
 	$assert_same( true, is_array( $changed_data ) ? ( $changed_data['sourceChanged'] ?? false ) : false, 'A saved post-content change did not require reanalysis.' );
+	$changed_approval = rest_get_server()->dispatch( new WP_REST_Request( 'POST', '/ehrman-discovery/v1/ingestion/post/' . $editor_post_id . '/approve' ) );
+	$assert_same( 409, $changed_approval->get_status(), 'Changed post content was not blocked before approval.' );
+	$assert_same( 'ehrman_ingestion_source_changed', $changed_approval->get_data()['code'], 'Changed-source approval error changed.' );
 
 	wp_set_current_user( 0 );
-	$denied = Post_Ingestion_Editor::permission( $editor_request );
+	$denied = Post_Ingestion_REST_Controller::permission( $editor_request );
 	$assert( is_wp_error( $denied ) && 'ehrman_ingestion_forbidden' === $denied->get_error_code(), 'The editor endpoint allowed an unauthenticated request.' );
 } finally {
 	wp_set_current_user( $previous_user );

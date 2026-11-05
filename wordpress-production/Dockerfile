@@ -43,6 +43,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/api-settings-tests.php
     /opt/ehrman-tests/api-settings-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/semantic-ranking-tests.php \
     /opt/ehrman-tests/semantic-ranking-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-editor-tests.php \
+    /opt/ehrman-tests/post-ingestion-editor-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-cleanup-tests.php \
     /opt/ehrman-tests/ask-ai-cleanup-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/analytics-dashboard-tests.php \

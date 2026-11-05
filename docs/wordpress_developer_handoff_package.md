@@ -144,6 +144,16 @@ database, API or cache access. The extraction preserves the `hybrid-1` pipeline,
 weights, ordering, cache keys and candidate-review prompt; it is not a memory
 optimization or a change to relevance behavior.
 
+### Post-Editor Integration
+
+`Post_Ingestion_Editor` registers only the Gutenberg panel's assets and configuration.
+`Http/Post_Ingestion_REST_Controller` owns the five existing protected editor
+routes, permissions, request handling and safe response payloads; `Rest_Controller`
+registers those routes. `Post_Ingestion_Post_Source` builds input from the saved
+WordPress post and detects changes, shared by REST approval and admin status.
+The URLs, capabilities, WordPress REST nonce protection, response fields, approval
+rules and background jobs are unchanged. The JavaScript panel needs no changes.
+
 ### Analytics Presentation
 
 `src/Analytics/AI_Analytics_Renderer.php` loads reports and prepares display values.

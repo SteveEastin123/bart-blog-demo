@@ -170,7 +170,7 @@ final class Post_Ingestion_Admin_Status {
 	private static function status_label( int $post_id, array $record ): string {
 		$status = sanitize_key( Database::text( $record['status'] ?? null ) );
 		$post   = get_post( $post_id );
-		if ( 'approved' !== $status && $post instanceof WP_Post && Post_Ingestion_Editor::source_changed( $post, $record ) ) {
+		if ( 'approved' !== $status && $post instanceof WP_Post && Post_Ingestion_Post_Source::source_changed( $post, $record ) ) {
 			return __( 'Needs reanalysis', 'ehrman-blog-discovery' );
 		}
 		return match ( $status ) {

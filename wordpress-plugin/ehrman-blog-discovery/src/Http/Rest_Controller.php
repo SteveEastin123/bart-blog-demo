@@ -1,6 +1,6 @@
 <?php
 /**
- * Public REST API route registration.
+ * Public and administrator REST API route registration.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -56,6 +56,7 @@ final class Rest_Controller {
 
 	/** Registers the production REST routes. */
 	public function register_routes(): void {
+		Post_Ingestion_REST_Controller::register_routes();
 		register_rest_route(
 			self::REST_NAMESPACE,
 			'/status',
