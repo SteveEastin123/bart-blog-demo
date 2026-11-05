@@ -116,7 +116,7 @@ Maintainers can run `wordpress-production/verify-installation.ps1` after buildin
 the image. It creates a uniquely named, isolated WordPress/database stack, exercises
 failure and rerun cases, installs the full package and runs regression checks with
 API access disabled. It stops that test stack afterward and preserves its volumes
-as evidence; it never resets the normal demo. CI runs it for MariaDB and MySQL.
+as evidence; it never resets the normal demo. CI now targets MariaDB only.
 
 ### Analytics Presentation
 

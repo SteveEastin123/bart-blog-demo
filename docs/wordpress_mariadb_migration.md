@@ -1,5 +1,15 @@
 # Local MariaDB Migration
 
+## Render Replacement Plan: November 5, 2026
+
+`render-wordpress.yaml` now describes a fresh MariaDB demo database populated
+from the current JSON/vector package, retaining the existing public web service
+and URL. This is a separate deployment, not a copy of the old MySQL state. The
+configuration change alone does not deploy anything or delete old storage. See
+[`the Render rebuild runbook`](wordpress_render_deployment_runbook.md) for backup,
+identity checks, manual initialization, acceptance and approved deletion. The
+October records below describe the completed local migration only.
+
 ## Current Status: October 28, 2026
 
 Local builds and CI now target MariaDB only. The Oracle MySQL compatibility job

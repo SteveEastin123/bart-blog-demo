@@ -10,8 +10,8 @@ Local builds and GitHub Actions use **MariaDB 13.0.2**, pinned by image digest i
 `compose.local.yaml`. The Oracle MySQL compatibility job and its Compose file
 have been retired; previous configurations remain in Git history. Existing
 database volumes and backups are not deleted by that change. WordPress and PHP
-versions are unchanged. The Render blueprint still specifies MySQL; no remote
-migration is performed by these local scripts. See
+versions are unchanged. The Render blueprint now targets a fresh MariaDB service;
+no remote deployment or resource deletion is performed by these local scripts. See
 [`docs/wordpress_mariadb_migration.md`](../docs/wordpress_mariadb_migration.md)
 for the migration evidence and rollback procedure.
 
@@ -237,13 +237,13 @@ during a historical rollback: it force-imports canonical JSON.
 - Import sources live outside Apache's document root at `/opt/ehrman-import`.
 - A runtime synchronizer refreshes image-managed plugin and theme code and
   removes any legacy public import directory on every container start.
-- MariaDB stores local WordPress and discovery-index data; the Render blueprint still specifies MySQL.
+- MariaDB stores WordPress and discovery-index data in the local and target Render configurations.
 - Only `wp-content/uploads` requires a WordPress persistent disk.
 - Result links open Bart's existing post URLs; full post bodies are not stored.
 - The ingestion workflow retains full post text only in pending administrator
   drafts and removes it after approval.
 - `/healthz` does not depend on WordPress installation state.
-- The protected parity route is disabled unless a test token is explicitly set.
+- The production plugin does not register the test-only parity route.
 - Set `EHRMAN_MIGRATION_ISOLATED=1` only for a migration/test copy to disable
   automatic WP-Cron and external WordPress HTTP requests. Leave it unset or
   `0` on the active demo. It is not a substitute for network-level isolation.
@@ -273,8 +273,23 @@ wp ehrman-discovery embeddings --allow-root --path=/var/www/html
 
 ## Render Blueprint
 
-`render-wordpress.yaml` defines the current WordPress web service and private
-MySQL target with persistent disks and generated credentials. Render updates
-are applied manually after the local production-equivalent checks pass. The
-root `render.yaml` belongs to the legacy Python demonstration and is not the
-WordPress handoff definition.
+`render-wordpress.yaml` retains the WordPress web service and defines a new private
+MariaDB target with a separate 5 GB disk. Verify its web service name matches the
+actual live service before syncing, so the current URL is preserved. Disable
+Blueprint Auto Sync separately from service auto-deploy. Run initialization
+manually when switching an existing web service to the fresh database; its
+initial-deployment hook does not run again. The old MySQL resource must be explicitly
+deleted only after verification and approval. See
+[`the Render rebuild runbook`](../docs/wordpress_render_deployment_runbook.md).
+
+After the full regression has built the current image, rehearse a fresh install
+and container recreation using Render's database/web port 10000 locally:
+
+```powershell
+.\wordpress-production\verify-render-rebuild.ps1 -PythonExecutable '<python>'
+```
+
+This uses a unique isolated stack, blocked external API calls, disposable credentials,
+and private evidence under `.tmp/render-rebuild/`. Containers are stopped afterward
+and volumes retained. The normal demo and Render are untouched. The root
+`render.yaml` belongs to the legacy Python demonstration, not this deployment.

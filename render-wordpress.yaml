@@ -1,34 +1,36 @@
-# Current WordPress/MySQL staging blueprint. Repository pushes do not apply this
-# blueprint automatically; Render updates remain an explicit manual step.
+# Fresh WordPress/MariaDB demo. Keep the existing web service to retain its URL.
+# Before syncing, confirm the web service name below matches the live service
+# and disable Blueprint Auto Sync in Render (separate from service auto-deploy).
+# Removing the old MySQL definition does NOT delete its service or disk.
 services:
   - type: pserv
-    name: bart-blog-demo-wordpress-mysql
+    name: bart-blog-demo-wordpress-mariadb
     runtime: image
     image:
-      url: docker.io/library/mysql:8.4
-    dockerCommand: mysqld --port=10000
+      url: docker.io/library/mariadb:13.0.2@sha256:f1bba652ba57bea3099ca2fe1af692af537c27d96e0bcde39dce29e2ba1ec4f3
+    dockerCommand: mariadbd --port=10000
     plan: starter
-    region: virginia
+    region: oregon
     autoDeployTrigger: off
     envVars:
-      - key: MYSQL_DATABASE
+      - key: MARIADB_DATABASE
         value: ehrman_wordpress
-      - key: MYSQL_USER
+      - key: MARIADB_USER
         value: ehrman
-      - key: MYSQL_PASSWORD
+      - key: MARIADB_PASSWORD
         generateValue: true
-      - key: MYSQL_ROOT_PASSWORD
+      - key: MARIADB_ROOT_PASSWORD
         generateValue: true
     disk:
-      name: ehrman-wordpress-mysql-data
+      name: ehrman-wordpress-mariadb-data
       mountPath: /var/lib/mysql
-      sizeGB: 10
+      sizeGB: 5
 
   - type: web
-    name: bart-blog-demo-wordpress
+    name: bart-blog-demo
     runtime: docker
-    plan: starter
-    region: virginia
+    plan: standard
+    region: oregon
     dockerfilePath: ./wordpress-production/Dockerfile
     dockerContext: .
     autoDeployTrigger: off
@@ -38,27 +40,27 @@ services:
       - key: WORDPRESS_DB_HOST
         fromService:
           type: pserv
-          name: bart-blog-demo-wordpress-mysql
+          name: bart-blog-demo-wordpress-mariadb
           property: hostport
       - key: WORDPRESS_DB_NAME
         fromService:
           type: pserv
-          name: bart-blog-demo-wordpress-mysql
-          envVarKey: MYSQL_DATABASE
+          name: bart-blog-demo-wordpress-mariadb
+          envVarKey: MARIADB_DATABASE
       - key: WORDPRESS_DB_USER
         fromService:
           type: pserv
-          name: bart-blog-demo-wordpress-mysql
-          envVarKey: MYSQL_USER
+          name: bart-blog-demo-wordpress-mariadb
+          envVarKey: MARIADB_USER
       - key: WORDPRESS_DB_PASSWORD
         fromService:
           type: pserv
-          name: bart-blog-demo-wordpress-mysql
-          envVarKey: MYSQL_PASSWORD
+          name: bart-blog-demo-wordpress-mariadb
+          envVarKey: MARIADB_PASSWORD
       - key: WORDPRESS_SITE_URL
         fromService:
           type: web
-          name: bart-blog-demo-wordpress
+          name: bart-blog-demo
           envVarKey: RENDER_EXTERNAL_URL
       - key: WORDPRESS_ADMIN_USER
         value: ehrman-admin
@@ -66,6 +68,10 @@ services:
         generateValue: true
       - key: WORDPRESS_ADMIN_EMAIL
         sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: EHRMAN_DISCOVERY_AI_MODEL
+        value: gpt-5.4-mini
       - key: EHRMAN_DISCOVERY_AI_RESULT_GROUPING
         value: tiers
       - key: EHRMAN_INGESTION_OPENAI_API_KEY

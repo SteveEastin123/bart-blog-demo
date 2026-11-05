@@ -6,7 +6,7 @@ This checklist tracks the work required before providing the Ehrman Blog Discove
 
 The plugin already provides:
 
-- Versioned custom MySQL tables created through WordPress activation and upgrade routines.
+- Versioned custom database tables created through WordPress activation and upgrade routines.
 - Authoritative JSON validation and import.
 - Browse Topics, Keyword Search, and the selected Ask AI implementation.
 - AI request analytics, feedback tracking, rate limiting, and cost estimates.
@@ -16,7 +16,7 @@ The plugin already provides:
 - A Search Metadata panel in the normal WordPress post editor with protected
   endpoints, queued background analysis, status polling, duplicate protection,
   stalled-job recovery, and a Tools-page fallback.
-- A production-equivalent WordPress/MySQL Docker environment and acceptance suite.
+- A production-equivalent WordPress/MariaDB Docker environment and acceptance suite.
 
 ## Remaining Work
 
@@ -44,8 +44,8 @@ Local verification on October 25, 2026 passed on a fresh isolated MariaDB site:
 4,446 metadata records and 4,016 supplied vectors installed, identical reruns
 preserved data, injected write failures rolled back, and all 22 approved search
 cases retained their results and ordering. The extracted developer-test ZIP and
-the plugin regression suite passed. No API calls were made. MySQL coverage is
-configured in CI but was not rerun locally for this change.
+the plugin regression suite passed. No API calls were made. CI has targeted
+MariaDB only since October 28; the Oracle MySQL job has been retired.
 
 - Create or upgrade all required tables.
 - Import the selected authoritative JSON files.

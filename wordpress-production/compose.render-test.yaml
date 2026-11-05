@@ -1,0 +1,59 @@
+# Local rehearsal only. The verifier supplies disposable credentials and a unique
+# Compose project; no Render resource or normal demo volume is used.
+services:
+  database:
+    image: mariadb:13.0.2@sha256:f1bba652ba57bea3099ca2fe1af692af537c27d96e0bcde39dce29e2ba1ec4f3
+    command: ["mariadbd", "--port=10000"]
+    mem_limit: 512m
+    cpus: 0.5
+    environment:
+      MARIADB_DATABASE: ${MYSQL_DATABASE:?Run verify-render-rebuild.ps1}
+      MARIADB_USER: ${MYSQL_USER:?Run verify-render-rebuild.ps1}
+      MARIADB_PASSWORD: ${MYSQL_PASSWORD:?Run verify-render-rebuild.ps1}
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Run verify-render-rebuild.ps1}
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+  wordpress:
+    image: ehrman-wordpress-production-test-wordpress
+    mem_limit: 2g
+    cpus: 1
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${WORDPRESS_PRODUCTION_TEST_PORT:?Run verify-render-rebuild.ps1}:10000"
+    environment:
+      PORT: "10000"
+      WORDPRESS_DB_HOST: database:10000
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_SITE_URL: ${WORDPRESS_SITE_URL:?Run verify-render-rebuild.ps1}
+      WORDPRESS_ADMIN_USER: render-rehearsal
+      WORDPRESS_ADMIN_PASSWORD: disposable-render-rehearsal-only
+      WORDPRESS_ADMIN_EMAIL: render-rehearsal@example.test
+      OPENAI_API_KEY: regression-placeholder-not-a-real-api-key
+      EHRMAN_INGESTION_OPENAI_API_KEY: ""
+      EHRMAN_DISCOVERY_POST_SOURCE: json
+      EHRMAN_DISCOVERY_AI_RESULT_GROUPING: tiers
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_ENVIRONMENT_TYPE', 'staging' );
+        define( 'DISABLE_WP_CRON', true );
+        define( 'WP_HTTP_BLOCK_EXTERNAL', true );
+        define( 'EHRMAN_DISCOVERY_IMPORT_DIR', '/opt/ehrman-import' );
+        define( 'DISALLOW_FILE_EDIT', true );
+        define( 'WP_DEBUG_DISPLAY', false );
+        if ( isset( $$_SERVER['HTTP_X_FORWARDED_PROTO'] ) && strpos( $$_SERVER['HTTP_X_FORWARDED_PROTO'], 'https' ) !== false ) {
+            $$_SERVER['HTTPS'] = 'on';
+        }
+    volumes:
+      - uploads:/var/www/html/wp-content/uploads
+volumes:
+  database:
+  uploads:

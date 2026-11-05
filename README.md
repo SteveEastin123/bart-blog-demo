@@ -15,7 +15,7 @@ content. Do not publish the repository or its raw data.
 | WordPress plugin | `wordpress-plugin/ehrman-blog-discovery/` | Search, browsing, AI retrieval, analytics, ingestion, and custom database tables |
 | Demo theme | `wordpress-theme/ehrman-discovery-demo/` | Production-equivalent presentation and landing page |
 | Local/Render image | `wordpress-production/` | Reproducible WordPress/PHP image with MariaDB local build and acceptance tooling |
-| Render blueprint | `render-wordpress.yaml` | WordPress and private MySQL services; applied manually |
+| Render blueprint | `render-wordpress.yaml` | Existing WordPress web service and a fresh private MariaDB target; applied manually |
 | Canonical discovery data | Five selected files in `data/index/` | Current JSON source of truth for imported posts and taxonomy |
 | Portable semantic index | `data/index/ehrman_post_embeddings.jsonl.gz` | Precomputed Ask AI title-and-summary vectors |
 
@@ -111,11 +111,13 @@ current, missing, stale, and obsolete vector counts. See
 
 ## Render
 
-`render-wordpress.yaml` still defines a WordPress/MySQL target; the local MariaDB
-migration and retirement of MySQL tests do not migrate that remote service. Render
-updates are intentionally manual: commit and push the repository, then apply or
-deploy the WordPress service through Render and run the import/index verification
-steps in `docs/wordpress_render_deployment_runbook.md`.
+`render-wordpress.yaml` defines the fresh MariaDB replacement for the demo. Keep
+the existing public web service and URL, deploy current code, and initialize the
+new database from packaged JSON/vectors. Applying this configuration is a separate
+manual operation; a local edit is not evidence of a live migration. Back up first,
+verify the actual service identity, and delete the old MySQL service/disk only
+after acceptance and explicit approval. Disable Blueprint Auto Sync separately
+from service auto-deploy. Follow `docs/wordpress_render_deployment_runbook.md`.
 
 The root `render.yaml` belongs to the legacy Python demonstration and is not the
 WordPress handoff or deployment definition.

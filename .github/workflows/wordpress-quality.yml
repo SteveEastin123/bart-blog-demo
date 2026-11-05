@@ -69,6 +69,9 @@ jobs:
       - name: Verify isolated initial installation and rollback
         shell: pwsh
         run: ./wordpress-production/verify-installation.ps1 -PythonExecutable python3 -ComposeFile wordpress-production/compose.local.yaml
+      - name: Rehearse the fresh Render demo on MariaDB
+        shell: pwsh
+        run: ./wordpress-production/verify-render-rebuild.ps1 -PythonExecutable python3
       - name: Verify a full database backup and restore
         shell: pwsh
         run: |
