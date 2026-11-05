@@ -48,7 +48,10 @@ The current local MariaDB data directory measured about 290 MB on November 5,
 2026. The 5 GB initial allocation leaves working/growth space; confirm the actual
 fresh Render usage after import. Disks can grow, not shrink. Both services must
 be in the same Render workspace and region. The database is private, on port
-10000. The web entrypoint listens on Render's `PORT`, normally 10000.
+10000. Render's Docker Command replaces the image entrypoint, so the database
+command must be `docker-entrypoint.sh mariadbd --port=10000`; invoking `mariadbd`
+alone skips initialization and privilege handling. The web entrypoint listens on
+Render's `PORT`, normally 10000.
 
 ## Local Release Gate
 
