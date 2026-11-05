@@ -25,4 +25,4 @@ parameters:
                 - src/KeywordSearch/Search_Service.php
                 - src/KeywordSearch/Search_Suggestion_Service.php
                 - src/AskAI/Semantic_Index_Service.php
-                - src/AskAI/Semantic_Search_Service.php
+                - src/AskAI/Semantic_Post_Repository.php

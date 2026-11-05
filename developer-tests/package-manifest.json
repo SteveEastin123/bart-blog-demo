@@ -14,6 +14,7 @@
     "test-tools/src/Harness.php": "developer-tests/test-tools/src/Harness.php",
     "regressions/plugin-regression-tests.php": "wordpress-production/tests/plugin-regression-tests.php",
     "regressions/api-settings-tests.php": "wordpress-production/tests/api-settings-tests.php",
+    "regressions/semantic-ranking-tests.php": "wordpress-production/tests/semantic-ranking-tests.php",
     "regressions/ask-ai-cleanup-tests.php": "wordpress-production/tests/ask-ai-cleanup-tests.php",
     "regressions/ask-ai-naming-tests.php": "wordpress-production/tests/ask-ai-naming-tests.php",
     "regressions/analytics-dashboard-tests.php": "wordpress-production/tests/analytics-dashboard-tests.php",

@@ -133,6 +133,17 @@ Administrator ingestion remains separate and uses only
 workflow key; it never silently borrows reader credentials. Regression tests
 exercise configuration precedence in isolated PHP processes without API calls.
 
+### Ask AI Retrieval
+
+`Semantic_Search_Service` coordinates query-vector caching and API calls, then
+applies the candidate limit and returns the existing result contract.
+`Semantic_Post_Repository` owns eligible-vector and assigned-term SQL reads.
+`Semantic_Post_Ranker` performs vector validation, cosine scoring, lexical and
+assigned-term matching, rank fusion and tie-breaking on supplied arrays without
+database, API or cache access. The extraction preserves the `hybrid-1` pipeline,
+weights, ordering, cache keys and candidate-review prompt; it is not a memory
+optimization or a change to relevance behavior.
+
 ### Analytics Presentation
 
 `src/Analytics/AI_Analytics_Renderer.php` loads reports and prepares display values.

@@ -41,6 +41,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/plugin-regression-test
     /opt/ehrman-tests/plugin-regression-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/api-settings-tests.php \
     /opt/ehrman-tests/api-settings-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/semantic-ranking-tests.php \
+    /opt/ehrman-tests/semantic-ranking-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-cleanup-tests.php \
     /opt/ehrman-tests/ask-ai-cleanup-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/analytics-dashboard-tests.php \
