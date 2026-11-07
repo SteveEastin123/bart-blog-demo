@@ -12,14 +12,13 @@ $listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopba
 $listener.Start()
 $port = $listener.LocalEndpoint.Port
 $listener.Stop()
-$names = @('WORDPRESS_PRODUCTION_TEST_PORT', 'WORDPRESS_SITE_URL', 'EHRMAN_MIGRATION_ISOLATED', 'OPENAI_API_KEY', 'EHRMAN_INGESTION_OPENAI_API_KEY', 'EHRMAN_DISCOVERY_POST_SOURCE', 'COMPOSE_PROJECT_NAME')
+$names = @('WORDPRESS_PRODUCTION_TEST_PORT', 'WORDPRESS_SITE_URL', 'EHRMAN_MIGRATION_ISOLATED', 'OPENAI_API_KEY', 'EHRMAN_DISCOVERY_POST_SOURCE', 'COMPOSE_PROJECT_NAME')
 $saved = @{}
 foreach ($name in $names) { $saved[$name] = [Environment]::GetEnvironmentVariable($name) }
 $env:WORDPRESS_PRODUCTION_TEST_PORT = [string]$port
 $env:WORDPRESS_SITE_URL = "http://localhost:$port"
 $env:EHRMAN_MIGRATION_ISOLATED = '1'
 $env:OPENAI_API_KEY = ''
-$env:EHRMAN_INGESTION_OPENAI_API_KEY = ''
 $env:EHRMAN_DISCOVERY_POST_SOURCE = 'json'
 $env:COMPOSE_PROJECT_NAME = $project
 

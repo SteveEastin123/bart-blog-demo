@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Resolves the search model and shared search/embedding credentials. */
+/** Resolves the search model and shared OpenAI credentials. */
 final class AI_Settings {
 	private const DEFAULT_MODEL = 'gpt-5.4-mini';
 
@@ -22,15 +22,7 @@ final class AI_Settings {
 
 	/** Returns the API key for server-side requests only. */
 	public static function api_key(): string {
-		if ( defined( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) ) {
-			$key = constant( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
-			return is_scalar( $key ) ? trim( (string) $key ) : '';
-		}
-		$key = trim( (string) getenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) );
-		if ( '' !== $key ) {
-			return $key;
-		}
-		return trim( (string) getenv( 'OPENAI_API_KEY' ) );
+		return OpenAI_Credentials::api_key();
 	}
 
 	/** Returns the configured candidate-review model identifier. */

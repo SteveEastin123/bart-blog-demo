@@ -52,6 +52,8 @@ final class Semantic_Index_Service {
 		$tables = Database::tables();
 		$sql    = $wpdb->prepare(
 			"SELECT p.* FROM {$tables['external_posts']} p WHERE p.source_wp_id=%d AND p.search_summary IS NOT NULL AND TRIM(p.search_summary)<>'' "
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Visibility SQL is composed only from internal table names.
+			. 'AND p.id IN (' . Post_Visibility::ids_sql() . ') '
 			. "AND NOT EXISTS (SELECT 1 FROM {$tables['post_topics']} pt JOIN {$tables['topics']} t ON t.id=pt.topic_id WHERE pt.post_id=p.id AND t.name='Ignore')",
 			$source_wp_id
 		);
@@ -76,7 +78,9 @@ final class Semantic_Index_Service {
 		if ( is_wp_error( $vectors ) ) {
 			return $vectors;
 		}
-		$this->store_vector( $post, $vectors[0] );
+		if ( ! $this->store_vector( $post, $vectors[0] ) ) {
+			return new WP_Error( 'ehrman_embedding_post_changed', __( 'The vector was not saved because the post changed, was unpublished, or could not be written. Reload before retrying.', 'ehrman-blog-discovery' ) );
+		}
 		return array(
 			'generated' => true,
 			'metrics'   => $this->embeddings->last_metrics(),
@@ -167,6 +171,11 @@ final class Semantic_Index_Service {
 		$pending   = array();
 		$unchanged = 0;
 		foreach ( $posts as $post ) {
+			if ( ! Database::integer( $post['search_visible'] ?? null ) ) {
+				// Retain existing vectors for restoration, but do not generate unpublished content.
+				++$unchanged;
+				continue;
+			}
 			$wp_id = Database::integer( $post['source_wp_id'] ?? null );
 			$hash  = self::content_hash( $post );
 			$row   = $existing[ $wp_id ] ?? null;
@@ -189,7 +198,9 @@ final class Semantic_Index_Service {
 				return $vectors;
 			}
 			foreach ( $batch as $index => $post ) {
-				$this->store_vector( $post, $vectors[ $index ] );
+				if ( ! $this->store_vector( $post, $vectors[ $index ] ) ) {
+					return new WP_Error( 'ehrman_embedding_post_changed', __( 'A post changed or could not be written while its vector was being generated. Rerun the incremental build.', 'ehrman-blog-discovery' ) );
+				}
 				++$generated;
 			}
 			if ( null !== $progress ) {
@@ -224,7 +235,7 @@ final class Semantic_Index_Service {
 	 */
 	public function eligible_posts(): array {
 		$tables = Database::tables();
-		$sql    = "SELECT p.* FROM {$tables['external_posts']} p WHERE p.source_wp_id IS NOT NULL AND p.search_summary IS NOT NULL AND TRIM(p.search_summary)<>'' "
+		$sql    = 'SELECT p.*,p.id IN (' . Post_Visibility::ids_sql() . ") search_visible FROM {$tables['external_posts']} p WHERE p.source_wp_id IS NOT NULL AND p.search_summary IS NOT NULL AND TRIM(p.search_summary)<>'' "
 			. "AND NOT EXISTS (SELECT 1 FROM {$tables['post_topics']} pt JOIN {$tables['topics']} t ON t.id=pt.topic_id WHERE pt.post_id=p.id AND t.name='Ignore') ORDER BY p.source_wp_id";
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table identifiers and the fixed Ignore label are internal.
 		return Database::associative_rows( Database::client()->get_results( $sql, ARRAY_A ) );
@@ -252,21 +263,30 @@ final class Semantic_Index_Service {
 	 * @param array<string,mixed> $post   Source post record.
 	 * @param array<int,float>    $vector Embedding vector.
 	 */
-	private function store_vector( array $post, array $vector ): void {
-		$wpdb = Database::client();
-		$wpdb->replace(
-			Database::tables()['post_embeddings'],
-			array(
-				'source_wp_id'   => Database::integer( $post['source_wp_id'] ?? null ),
-				'content_hash'   => self::content_hash( $post ),
-				'model'          => Embedding_Service::model_id(),
-				'dimensions'     => Embedding_Service::dimensions(),
-				'embedding'      => pack( 'g*', ...$vector ),
-				'embedding_norm' => number_format( self::vector_norm( $vector ), 12, '.', '' ),
-				'updated_at'     => current_time( 'mysql', true ),
-			),
-			array( '%d', '%s', '%s', '%d', '%s', '%s', '%s' )
+	private function store_vector( array $post, array $vector ): bool {
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		// The conditional write cannot resurrect a vector after deletion during the HTTP call.
+		$sql = $wpdb->prepare(
+			'REPLACE INTO %i (source_wp_id,content_hash,model,dimensions,embedding,embedding_norm,updated_at) '
+			. 'SELECT p.source_wp_id,%s,%s,%d,%s,%s,%s FROM %i p WHERE p.id=%d AND p.source_wp_id=%d '
+			. "AND SHA2(CONCAT('Title: ',COALESCE(p.title,''),CHAR(10),'Summary: ',COALESCE(p.search_summary,'')),256)=%s "
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Visibility SQL is composed only from internal table names.
+			. 'AND p.id IN (' . Post_Visibility::ids_sql() . ')',
+			$tables['post_embeddings'],
+			self::content_hash( $post ),
+			Embedding_Service::model_id(),
+			Embedding_Service::dimensions(),
+			pack( 'g*', ...$vector ),
+			number_format( self::vector_norm( $vector ), 12, '.', '' ),
+			current_time( 'mysql', true ),
+			$tables['external_posts'],
+			Database::integer( $post['id'] ?? null ),
+			Database::integer( $post['source_wp_id'] ?? null ),
+			self::content_hash( $post )
 		);
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared immediately above; visibility SQL contains trusted identifiers only.
+		return is_string( $sql ) && $wpdb->query( $sql ) > 0;
 	}
 
 	/**

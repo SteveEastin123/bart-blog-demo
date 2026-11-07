@@ -22,10 +22,9 @@ $assert( ! class_exists( 'EhrmanSectionPublic\\Index' ), 'Experimental section p
 $asset_config = wp_scripts()->get_data( 'ehrman-blog-discovery', 'data' );
 $assert( is_string( $asset_config ) && ! str_contains( $asset_config, 'interpretUrl' ) && ! str_contains( $asset_config, 'refineUrl' ), 'Retired endpoints are still advertised to the browser.' );
 
-/* Preserve the old model/key precedence, defaults and sanitization. */
+/* Preserve search model defaults/sanitization and shared-key resolution. */
 $saved_model = getenv( 'EHRMAN_DISCOVERY_AI_MODEL' );
 $saved_key   = getenv( 'OPENAI_API_KEY' );
-$saved_search_key = getenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
 try {
 	if ( ! defined( 'EHRMAN_DISCOVERY_AI_MODEL' ) ) {
 		putenv( 'EHRMAN_DISCOVERY_AI_MODEL' );
@@ -33,8 +32,7 @@ try {
 		putenv( 'EHRMAN_DISCOVERY_AI_MODEL= review-model_1.2/ ' );
 		$assert_same( 'review-model_1.2', AI_Settings::model_id(), 'Review model sanitization changed.' );
 	}
-	if ( ! defined( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) ) {
-		putenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' );
+	if ( ! defined( 'OPENAI_API_KEY' ) ) {
 		putenv( 'OPENAI_API_KEY' );
 		$assert_same( false, AI_Settings::is_configured(), 'Missing API key is reported as configured.' );
 		putenv( 'OPENAI_API_KEY= test-only-key ' );
@@ -43,7 +41,6 @@ try {
 } finally {
 	false === $saved_model ? putenv( 'EHRMAN_DISCOVERY_AI_MODEL' ) : putenv( 'EHRMAN_DISCOVERY_AI_MODEL=' . $saved_model );
 	false === $saved_key ? putenv( 'OPENAI_API_KEY' ) : putenv( 'OPENAI_API_KEY=' . $saved_key );
-	false === $saved_search_key ? putenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY' ) : putenv( 'EHRMAN_DISCOVERY_OPENAI_API_KEY=' . $saved_search_key );
 }
 
 $cleanup_questions = array();

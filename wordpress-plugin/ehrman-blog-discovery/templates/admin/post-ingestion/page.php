@@ -17,10 +17,10 @@ $view = $ehrman_blog_discovery_context;
 	<h1><?php echo esc_html__( 'Post Ingestion', 'ehrman-blog-discovery' ); ?></h1>
 	<p><?php echo esc_html__( 'Prepare a complete Bart Ehrman Blog post for the discovery index. Analysis creates a reviewable draft; it never changes live search data.', 'ehrman-blog-discovery' ); ?></p>
 	<?php if ( ! $view['analysis_configured'] ) : ?>
-		<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Analysis is not configured.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Add the separate ingestion-project key as EHRMAN_INGESTION_OPENAI_API_KEY.', 'ehrman-blog-discovery' ); ?></p></div>
+		<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Analysis is not configured.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Set OPENAI_API_KEY on the server. Search and post ingestion use this shared key.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
 	<?php if ( ! $view['database_authoritative'] ) : ?>
-		<div class="notice notice-info inline"><p><strong><?php echo esc_html__( 'JSON is the current source of truth.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Draft analysis and review are available, but approval is locked because a JSON import would replace database-only posts. After the handoff, set EHRMAN_DISCOVERY_POST_SOURCE=mysql to enable approval.', 'ehrman-blog-discovery' ); ?></p></div>
+		<div class="notice notice-info inline"><p><strong><?php echo esc_html__( 'JSON is the current source of truth.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Draft analysis and review are available, but approval is disabled in this environment because a JSON import would replace database-only posts.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
 	<?php if ( null !== $view['notice'] ) : ?>
 		<div class="notice <?php echo esc_attr( $view['notice']['success'] ? 'notice-success' : 'notice-error' ); ?> is-dismissible"><p><?php echo esc_html( $view['notice']['message'] ); ?></p></div>

@@ -104,15 +104,16 @@ final class Post_Ingestion_Review_Workflow {
 	/**
 	 * Applies an approved proposal to the live MySQL search index.
 	 *
-	 * @param int  $draft_id            Draft identifier.
-	 * @param bool $approve_new_keywords Explicit approval for proposed new keywords.
+	 * @param int                      $draft_id            Draft identifier.
+	 * @param bool                     $approve_new_keywords Explicit approval for proposed new keywords.
+	 * @param array<string,mixed>|null $input Optional reviewed fields from the post editor.
 	 * @return array<string,mixed>|WP_Error Approved draft or error.
 	 */
-	public function approve( int $draft_id, bool $approve_new_keywords ) {
+	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null ) {
 		if ( ! Post_Ingestion_Settings::database_is_authoritative() ) {
 			return new WP_Error(
 				'ehrman_ingestion_json_authoritative',
-				__( 'Approval is disabled while authoritative post data comes from JSON. Set EHRMAN_DISCOVERY_POST_SOURCE=mysql only after the source-of-truth handoff.', 'ehrman-blog-discovery' )
+				__( 'Approval is disabled in this JSON-managed environment. Ask an administrator to enable database-managed publishing before approving metadata.', 'ehrman-blog-discovery' )
 			);
 		}
 		$draft = $this->repository->draft( $draft_id );
@@ -121,7 +122,10 @@ final class Post_Ingestion_Review_Workflow {
 		}
 
 		$proposal = $this->validator->decode_proposal( Database::text( $draft['proposal_json'] ?? null ) );
-		$checked  = $this->validator->validate_proposal(
+		if ( null !== $input ) {
+			$proposal = $this->validator->proposal_from_input( $input );
+		}
+		$checked = $this->validator->validate_proposal(
 			$proposal,
 			$this->repository->vocabulary(),
 			false,

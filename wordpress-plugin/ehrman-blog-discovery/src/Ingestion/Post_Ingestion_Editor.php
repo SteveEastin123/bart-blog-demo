@@ -40,11 +40,14 @@ final class Post_Ingestion_Editor {
 			array( 'wp-components' ),
 			is_file( $style_path ) ? (string) filemtime( $style_path ) : EHRMAN_DISCOVERY_VERSION
 		);
+		$vocabulary = ( new Post_Ingestion_Service() )->vocabulary();
 		wp_localize_script(
 			'ehrman-post-ingestion-editor',
 			'EhrmanPostIngestion',
 			array(
 				'restBase' => '/ehrman-discovery/v1/ingestion/post/',
+				'topics'   => array_column( $vocabulary['topics'], 'name' ),
+				'keywords' => array_column( $vocabulary['keywords'], 'label' ),
 			)
 		);
 	}

@@ -39,7 +39,7 @@ final class Data_Installer {
 	 */
 	public static function require_json_source(): void {
 		if ( Post_Ingestion_Settings::database_is_authoritative() ) {
-			throw new RuntimeException( 'Package import is disabled while EHRMAN_DISCOVERY_POST_SOURCE=mysql. WordPress-managed data must not be replaced by JSON.' );
+			throw new RuntimeException( 'Package import is disabled for existing database-managed data. WordPress-managed data must not be replaced by JSON.' );
 		}
 	}
 
@@ -53,7 +53,9 @@ final class Data_Installer {
 	 * @throws RuntimeException When a package or installation safety check fails.
 	 */
 	public function install( string $directory, bool $replace_existing = false, bool $validate_only = false ): array {
-		self::require_json_source();
+		if ( $replace_existing && ! $validate_only ) {
+			self::require_json_source();
+		}
 		$resolved = realpath( $directory );
 		$web_root = realpath( ABSPATH );
 		if ( false === $resolved || ! is_dir( $resolved ) || false === $web_root
@@ -110,7 +112,6 @@ final class Data_Installer {
 			throw new RuntimeException( 'Another installation is running, or the database does not permit installation locks.' );
 		}
 		try {
-			self::require_json_source();
 			// DDL implicitly commits in MySQL/MariaDB; finish it before starting the data transaction.
 			Database::install();
 			$this->require_transactional_tables();
@@ -125,10 +126,14 @@ final class Data_Installer {
 					return $result;
 				}
 			}
+			$existing = array_sum( array_intersect_key( $counts, self::DATA_TABLES ) );
+			// The default permits initial seeding and verified no-op reruns, never replacement.
+			if ( $existing > 0 || ( $counts['ingestion_drafts'] ?? 0 ) > 0 || null !== $receipt ) {
+				self::require_json_source();
+			}
 			if ( ( $counts['ingestion_drafts'] ?? 0 ) > 0 ) {
 				throw new RuntimeException( 'Post-ingestion drafts or history exist. Resolve the editorial handoff before replacing discovery data.' );
 			}
-			$existing = array_sum( array_intersect_key( $counts, self::DATA_TABLES ) );
 			if ( $existing > 0 && ! $replace_existing ) {
 				throw new RuntimeException( 'Discovery data already exists. Back up the database and use --replace-existing only for an intentional JSON-managed replacement.' );
 			}

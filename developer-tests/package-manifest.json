@@ -16,6 +16,8 @@
     "regressions/api-settings-tests.php": "wordpress-production/tests/api-settings-tests.php",
     "regressions/semantic-ranking-tests.php": "wordpress-production/tests/semantic-ranking-tests.php",
     "regressions/post-ingestion-editor-tests.php": "wordpress-production/tests/post-ingestion-editor-tests.php",
+    "regressions/post-ingestion-editor-review-tests.php": "wordpress-production/tests/post-ingestion-editor-review-tests.php",
+    "regressions/post-ingestion-lifecycle-tests.php": "wordpress-production/tests/post-ingestion-lifecycle-tests.php",
     "regressions/ask-ai-cleanup-tests.php": "wordpress-production/tests/ask-ai-cleanup-tests.php",
     "regressions/ask-ai-naming-tests.php": "wordpress-production/tests/ask-ai-naming-tests.php",
     "regressions/analytics-dashboard-tests.php": "wordpress-production/tests/analytics-dashboard-tests.php",

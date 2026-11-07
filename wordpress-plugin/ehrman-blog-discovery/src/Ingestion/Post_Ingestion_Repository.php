@@ -47,32 +47,34 @@ final class Post_Ingestion_Repository {
 	 * @param array<string,mixed> $post          Validated post.
 	 * @param string              $taxonomy_hash Taxonomy fingerprint.
 	 * @param int                 $user_id       Administrator user identifier.
+	 * @param int                 $wordpress_post_id Trusted local editor post ID; zero for external submissions.
 	 * @return int|WP_Error Draft identifier or storage error.
 	 * @phpstan-param ValidatedPost $post
 	 */
-	public function create_draft( array $post, string $taxonomy_hash, int $user_id ) {
+	public function create_draft( array $post, string $taxonomy_hash, int $user_id, int $wordpress_post_id = 0 ) {
 		$now      = current_time( 'mysql', true );
 		$wpdb     = Database::client();
 		$inserted = $wpdb->insert(
 			Database::tables()['ingestion_drafts'],
 			array(
-				'status'           => 'queued',
-				'source_wp_id'     => $post['source_wp_id'],
-				'title'            => $post['title'],
-				'url'              => $post['url'],
-				'url_hash'         => hash( 'sha256', $post['url'], true ),
-				'author'           => $post['author'],
-				'date_text'        => $post['date_text'],
-				'published_at'     => $post['published_at'],
-				'post_text'        => $post['post_text'],
-				'model'            => Post_Ingestion_Settings::model_id(),
-				'prompt_version'   => Post_Ingestion_Settings::prompt_version(),
-				'taxonomy_version' => $taxonomy_hash,
-				'created_by'       => max( 0, $user_id ),
-				'created_at'       => $now,
-				'updated_at'       => $now,
+				'status'            => 'queued',
+				'source_wp_id'      => $post['source_wp_id'],
+				'wordpress_post_id' => $wordpress_post_id > 0 ? $wordpress_post_id : null,
+				'title'             => $post['title'],
+				'url'               => $post['url'],
+				'url_hash'          => hash( 'sha256', $post['url'], true ),
+				'author'            => $post['author'],
+				'date_text'         => $post['date_text'],
+				'published_at'      => $post['published_at'],
+				'post_text'         => $post['post_text'],
+				'model'             => Post_Ingestion_Settings::model_id(),
+				'prompt_version'    => Post_Ingestion_Settings::prompt_version(),
+				'taxonomy_version'  => $taxonomy_hash,
+				'created_by'        => max( 0, $user_id ),
+				'created_at'        => $now,
+				'updated_at'        => $now,
 			),
-			array( '%s', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s' )
+			array( '%s', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s' )
 		);
 		return false === $inserted
 			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The ingestion draft could not be stored.', 'ehrman-blog-discovery' ) )

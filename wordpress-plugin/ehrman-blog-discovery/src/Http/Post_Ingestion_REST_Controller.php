@@ -112,7 +112,7 @@ final class Post_Ingestion_REST_Controller {
 				array( 'status' => 409 )
 			);
 		}
-		$result = $service->analyze( Post_Ingestion_Post_Source::input( $post ), get_current_user_id() );
+		$result = $service->analyze( Post_Ingestion_Post_Source::input( $post ), get_current_user_id(), $post->ID );
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
 		}
@@ -177,9 +177,27 @@ final class Post_Ingestion_REST_Controller {
 				array( 'status' => 409 )
 			);
 		}
+		$input = null;
+		if ( $request->has_param( 'proposal' ) ) {
+			if ( ! in_array( Database::text( $draft['status'] ?? null ), array( 'ready', 'held' ), true )
+				|| ! hash_equals( self::draft_revision( $draft ), Database::text( $request->get_param( 'revision' ) ) ) ) {
+				return new WP_Error(
+					'ehrman_ingestion_review_changed',
+					__( 'The metadata changed while it was being reviewed. Reload the metadata before approving.', 'ehrman-blog-discovery' ),
+					array( 'status' => 409 )
+				);
+			}
+			$input = Database::associative_row( $request->get_param( 'proposal' ) );
+			if ( null === $input ) {
+				return new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Reviewed metadata must be an object.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
+			}
+			$proposal                       = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
+			$input['topic_rationales_json'] = wp_json_encode( $proposal['topicRationales'] ?? array() );
+		}
 		$result = $service->approve(
 			Database::integer( $draft['id'] ?? null ),
-			rest_sanitize_boolean( Database::text( $request->get_param( 'approve_new_keywords' ) ) )
+			rest_sanitize_boolean( Database::text( $request->get_param( 'approve_new_keywords' ) ) ),
+			$input
 		);
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
@@ -269,6 +287,7 @@ final class Post_Ingestion_REST_Controller {
 		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
 		return array(
 			'id'                   => Database::integer( $draft['id'] ?? null ),
+			'revision'             => self::draft_revision( $draft ),
 			'status'               => sanitize_key( Database::text( $draft['status'] ?? null ) ),
 			'updatedAt'            => Database::text( $draft['updated_at'] ?? null ),
 			'description'          => Database::text( $proposal['description'] ?? null ),
@@ -285,6 +304,19 @@ final class Post_Ingestion_REST_Controller {
 			'analysisActive'       => Post_Ingestion_Service::analysis_is_active( $draft ),
 			'analysisStalled'      => Post_Ingestion_Service::analysis_is_stale( $draft ),
 		);
+	}
+
+	/**
+	 * Identifies the proposal that the publisher actually reviewed.
+	 *
+	 * @param array<string,mixed> $draft Stored ingestion record.
+	 */
+	private static function draft_revision( array $draft ): string {
+		$values = array();
+		foreach ( array( 'id', 'status', 'proposal_json', 'taxonomy_version', 'analysis_attempt', 'updated_at' ) as $field ) {
+			$values[] = Database::text( $draft[ $field ] ?? null );
+		}
+		return hash( 'sha256', (string) wp_json_encode( $values ) );
 	}
 
 	/**

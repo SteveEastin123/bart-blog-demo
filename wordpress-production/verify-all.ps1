@@ -18,7 +18,7 @@ $steps = @('preflight', 'runner-tests', 'canonical-data', 'landing-assets', 'fro
     'phpcs-core', 'phpstan-core', 'phpcs-reviewer', 'phpstan-reviewer', 'phpcs-developer', 'phpstan-developer',
     'isolated-demo', 'database-before', 'production-regressions', 'developer-delivery', 'initial-installation',
     'browser-frontend-assets-ui', 'browser-search-page-ui', 'browser-analytics-dashboard-ui',
-    'browser-post-ingestion-page-ui', 'browser-ask-ai-retirement-ui', 'production-only-browser',
+    'browser-post-ingestion-page-ui', 'browser-post-ingestion-editor-ui', 'browser-ask-ai-retirement-ui', 'production-only-browser',
     'served-landing', 'data-integrity', 'backup-restore', 'diff-check', 'cleanup')
 $report = New-RegressionReport $work $steps ([ordered]@{ project = $project; database = 'MariaDB (compose.local.yaml)'; baseline = $BaselinePath })
 $environment = @{
@@ -29,8 +29,6 @@ $environment = @{
     EHRMAN_MIGRATION_ISOLATED = '1'
     # Enable the UI for mocked browser requests; outbound WordPress HTTP stays blocked.
     OPENAI_API_KEY = 'regression-placeholder-not-a-real-api-key'
-    EHRMAN_DISCOVERY_OPENAI_API_KEY = ''
-    EHRMAN_INGESTION_OPENAI_API_KEY = ''
     EHRMAN_DISCOVERY_POST_SOURCE = 'json'
     EHRMAN_DISCOVERY_AI_RESULT_GROUPING = 'tiers'
     WORDPRESS_ADMIN_USER = 'regression-admin'
@@ -119,7 +117,7 @@ try {
         $script:stackAttempted = $true
         & (Join-Path $PSScriptRoot 'setup-production-test.ps1') -Port $port -ComposeFile $compose
         Invoke-RegressionCommand docker @('compose', '-p', $project, '-f', $compose, 'exec', '-T', 'wordpress', 'wp', 'eval',
-            'if (!defined("DISABLE_WP_CRON") || !DISABLE_WP_CRON || !defined("WP_HTTP_BLOCK_EXTERNAL") || !WP_HTTP_BLOCK_EXTERNAL || getenv("OPENAI_API_KEY") !== "regression-placeholder-not-a-real-api-key" || getenv("EHRMAN_INGESTION_OPENAI_API_KEY")) { throw new RuntimeException("Regression isolation is not active."); } echo "Cron and external API calls disabled; only a nonfunctional test key is configured.";', '--allow-root')
+            'if (!defined("DISABLE_WP_CRON") || !DISABLE_WP_CRON || !defined("WP_HTTP_BLOCK_EXTERNAL") || !WP_HTTP_BLOCK_EXTERNAL || EhrmanBlogDiscovery\OpenAI_Credentials::api_key() !== "regression-placeholder-not-a-real-api-key") { throw new RuntimeException("Regression isolation is not active."); } echo "Cron and external API calls disabled; only a nonfunctional shared test key is configured.";', '--allow-root')
         $status = Invoke-RestMethod "$($report.context.test_url)/wp-json/ehrman-discovery/v1/status"
         $report.context.plugin_version = $status.plugin_version
     }
@@ -135,7 +133,7 @@ try {
     Invoke-RegressionStep $report 'initial-installation' {
         & (Join-Path $PSScriptRoot 'verify-installation.ps1') -ComposeFile $compose -PythonExecutable $PythonExecutable -BaselinePath $baseline
     }
-    foreach ($browser in @('frontend-assets-ui', 'search-page-ui', 'analytics-dashboard-ui', 'post-ingestion-page-ui', 'ask-ai-retirement-ui')) {
+    foreach ($browser in @('frontend-assets-ui', 'search-page-ui', 'analytics-dashboard-ui', 'post-ingestion-page-ui', 'post-ingestion-editor-ui', 'ask-ai-retirement-ui')) {
         Invoke-RegressionStep $report "browser-$browser" {
             Invoke-RegressionCommand $NodeExecutable @("wordpress-production/tests/$browser.cjs")
         }

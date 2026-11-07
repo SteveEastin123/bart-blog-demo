@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $page_saved_get = $_GET;
 $page_saved_user = get_current_user_id();
 $page_saved_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
-$page_saved_key = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
+$page_saved_key = getenv( 'OPENAI_API_KEY' );
 $page_http_calls = 0;
 $page_block_http = static function () use ( &$page_http_calls ) {
 	++$page_http_calls;
@@ -68,7 +68,7 @@ try {
 	wp_set_current_user( $page_admin );
 	delete_transient( $page_notice_key );
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=json' );
-	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
+	putenv( 'OPENAI_API_KEY=' );
 	$html = $page_render();
 	$dom = $page_dom( $html );
 	$page_check_forms( $dom, array( 'ehrman_ingestion_analyze' ) );
@@ -143,7 +143,7 @@ try {
 		$assert( str_contains( $html, $label ), 'Missing review-state notice.' );
 	}
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
-	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=render-test-only' );
+	putenv( 'OPENAI_API_KEY=render-test-only' );
 	$proposal['newSecondaryKeywords'] = array();
 	$proposal['topicRationales'] = array();
 	$update_page_draft( array( 'proposal_json' => wp_json_encode( $proposal ) ) );
@@ -194,6 +194,6 @@ try {
 	wp_set_current_user( $page_saved_user );
 	$_GET = $page_saved_get;
 	putenv( false === $page_saved_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $page_saved_source );
-	putenv( false === $page_saved_key ? 'EHRMAN_INGESTION_OPENAI_API_KEY' : 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $page_saved_key );
+	putenv( false === $page_saved_key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $page_saved_key );
 }
 echo "Post ingestion page rendering: OK\n";

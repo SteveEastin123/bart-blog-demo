@@ -49,8 +49,8 @@ The new runner, browser configuration and count checker also have focused tests.
 Testing uses uniquely named **isolated MariaDB stacks on temporary loopback ports**.
 It builds current source and imports only into those test databases; the normal
 demo is neither stopped nor reimported. A nonfunctional test key enables the
-Ask AI form for browser tests; real keys are never used. The ingestion key is
-empty, WordPress outbound HTTP and scheduled jobs are disabled, and browser AI
+Ask AI form for browser tests; real keys are never used. The same fake key is
+used for ingestion; WordPress outbound HTTP and scheduled jobs are disabled, and browser AI
 responses are mocked/blocked.
 Discovery-table content and schema must match before/after; fixture-induced
 auto-increment changes and WordPress core lifecycle changes are not treated as
@@ -120,10 +120,24 @@ ranking signals.
 
 ## Administrator Post Ingestion
 
+The normal local copy stays `EHRMAN_DISCOVERY_POST_SOURCE=json` for downloaded
+post preparation. The Render configuration is prepared for `mysql`
+(database-managed, including MariaDB), but this source change is not deployment
+authorization. Do not deploy until explicitly approved. Render publishing tests
+may retain test posts indefinitely; the handoff uses local JSON and validated
+vectors, not Render's database. In database-managed mode, initialization seeds
+an entirely empty discovery database once and preserves existing editorial data
+on subsequent runs. Routine deploys do not reload JSON.
+
+Editor-created records track their native WordPress ownership. Normal WordPress
+Trash/unpublish hides them from search without discarding metadata or vectors;
+republishing restores them. Permanent deletion, only when chosen in WordPress,
+removes the owned records. There is no automatic test-post deletion feature.
+
 The plugin includes an administrator-only **Tools > Post Ingestion** workflow
 for the future database-authoritative deployment. An administrator enters the
 WordPress post ID, title, URL, author, publication date, and complete post text.
-The separate ingestion OpenAI project analyzes the full text and returns a
+The configured ingestion model analyzes the full text using the shared OpenAI key and returns a
 reviewable description, search summary, existing topics, existing secondary
 keywords, explicitly marked new-keyword proposals, a readiness decision, and
 review notes. Analysis only creates a draft; no live search data changes before
@@ -162,18 +176,24 @@ usage and estimated cost of both attempts.
 
 Configure the workflow with these environment variables:
 
-- `EHRMAN_DISCOVERY_OPENAI_API_KEY`: dedicated reader-search and embedding key.
-  A PHP constant takes precedence over the environment variable. A nonblank
-  environment value takes precedence over the legacy `OPENAI_API_KEY` fallback.
-  An explicitly blank constant disables reader AI. Keep these values server-side.
-- `EHRMAN_INGESTION_OPENAI_API_KEY`: dedicated ingestion-project key; required
-  for analysis and the approved post's title-and-summary vector.
+- `OPENAI_API_KEY`: one server-side key for Ask AI, post-ingestion analysis,
+  and embeddings. An optional PHP constant of the same name takes precedence;
+  an explicitly blank constant disables all AI calls. Old per-feature keys are
+  no longer read. Move their value into `OPENAI_API_KEY` before updating if the
+  shared variable is not already configured. Check pending ingestion jobs first.
+- `EHRMAN_DISCOVERY_AI_MODEL`: search model; defaults to `gpt-5.4-mini`.
 - `EHRMAN_INGESTION_OPENAI_MODEL`: defaults to `gpt-5.6-sol`.
 - `EHRMAN_INGESTION_REASONING_EFFORT`: defaults to `high`.
-- `EHRMAN_DISCOVERY_POST_SOURCE`: defaults to `json`, which permits draft
-  analysis but locks approval. Set it to `mysql` only after the source-of-truth
-  handoff. The legacy value `mysql` means database-authoritative ingestion,
-  including on MariaDB; it does not select a database product.
+- `EHRMAN_DISCOVERY_POST_SOURCE`: the plugin defaults to `mysql` when unset or
+  blank, enabling database-managed approval. Local Compose explicitly defaults
+  to `json` to protect the handoff-preparation data; that mode permits analysis
+  and review but locks approval. The legacy value `mysql` also covers MariaDB;
+  it does not select a database product. Production needs no setting change after
+  initial installation. Administrators still review and approve each proposal.
+
+Sharing the key does not combine the plugin's usage records: reader calls remain
+in search analytics, while metadata analysis and post-vector metrics remain on
+the ingestion draft. Model choices remain independent.
 
 Pending drafts retain the supplied full text so they can be revised or
 reanalyzed. Approval writes the normalized post and search relationships in a

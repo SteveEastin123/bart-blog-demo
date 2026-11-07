@@ -22,17 +22,14 @@ final class Post_Ingestion_Settings {
 		return self::API_URL;
 	}
 
-	/** Returns whether the dedicated ingestion project key is configured. */
+	/** Returns whether the shared OpenAI key is configured. */
 	public static function is_configured(): bool {
 		return '' !== self::api_key();
 	}
 
-	/** Returns the ingestion-only API key. */
+	/** Returns the same server-side API key used by search and embeddings. */
 	public static function api_key(): string {
-		$value = defined( 'EHRMAN_INGESTION_OPENAI_API_KEY' )
-			? constant( 'EHRMAN_INGESTION_OPENAI_API_KEY' )
-			: getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
-		return is_scalar( $value ) ? trim( (string) $value ) : '';
+		return OpenAI_Credentials::api_key();
 	}
 
 	/** Returns the configured ingestion model. */
@@ -62,12 +59,17 @@ final class Post_Ingestion_Settings {
 		return in_array( $effort, array( 'low', 'medium', 'high', 'xhigh', 'max' ), true ) ? $effort : 'high';
 	}
 
-	/** Returns the active post source-of-truth mode. */
+	/** Defaults to database-managed publishing; explicit JSON mode disables approval. */
 	public static function post_source(): string {
-		$value = defined( 'EHRMAN_DISCOVERY_POST_SOURCE' )
+		$value  = defined( 'EHRMAN_DISCOVERY_POST_SOURCE' )
 			? constant( 'EHRMAN_DISCOVERY_POST_SOURCE' )
 			: getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
-		return 'mysql' === strtolower( trim( is_scalar( $value ) ? (string) $value : '' ) ) ? 'mysql' : 'json';
+		$source = is_scalar( $value ) ? strtolower( trim( (string) $value ) ) : null;
+		if ( false === $value || '' === $source ) {
+			return 'mysql';
+		}
+		// Keep approval disabled for an unrecognized configuration value.
+		return 'mysql' === $source ? 'mysql' : 'json';
 	}
 
 	/** Returns whether approval may modify the live discovery index. */

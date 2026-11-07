@@ -106,7 +106,7 @@ final class Post_Ingestion_Service {
 		);
 	}
 
-	/** Returns whether the dedicated ingestion project key is configured. */
+	/** Returns whether the shared OpenAI key is configured. */
 	public static function is_configured(): bool {
 		return Post_Ingestion_Settings::is_configured();
 	}
@@ -136,9 +136,10 @@ final class Post_Ingestion_Service {
 	 *
 	 * @param array<string,mixed> $input   Submitted metadata and full text.
 	 * @param int                 $user_id Administrator user identifier.
+	 * @param int                 $wordpress_post_id Trusted local post ID, supplied only by the editor adapter.
 	 * @return array<string,mixed>|WP_Error Stored draft or validation error.
 	 */
-	public function analyze( array $input, int $user_id ) {
+	public function analyze( array $input, int $user_id, int $wordpress_post_id = 0 ) {
 		$validated = $this->validator->validate_submission( $input );
 		if ( is_wp_error( $validated ) ) {
 			return $validated;
@@ -146,7 +147,7 @@ final class Post_Ingestion_Service {
 		if ( ! self::is_configured() ) {
 			return new WP_Error(
 				'ehrman_ingestion_not_configured',
-				__( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before analyzing a post.', 'ehrman-blog-discovery' )
+				__( 'Configure OPENAI_API_KEY on the server before creating metadata.', 'ehrman-blog-discovery' )
 			);
 		}
 
@@ -161,7 +162,7 @@ final class Post_Ingestion_Service {
 
 		$taxonomy      = $this->repository->vocabulary();
 		$taxonomy_hash = $this->repository->vocabulary_hash( $taxonomy );
-		$draft_id      = $this->repository->create_draft( $validated, $taxonomy_hash, $user_id );
+		$draft_id      = $this->repository->create_draft( $validated, $taxonomy_hash, $user_id, $wordpress_post_id );
 		if ( is_wp_error( $draft_id ) ) {
 			return $draft_id;
 		}
@@ -183,7 +184,7 @@ final class Post_Ingestion_Service {
 		if ( ! self::is_configured() ) {
 			return new WP_Error(
 				'ehrman_ingestion_not_configured',
-				__( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before reanalyzing a post.', 'ehrman-blog-discovery' )
+				__( 'Configure OPENAI_API_KEY on the server before regenerating metadata.', 'ehrman-blog-discovery' )
 			);
 		}
 		if ( '' === trim( Database::text( $draft['post_text'] ?? null ) ) ) {
@@ -221,7 +222,7 @@ final class Post_Ingestion_Service {
 		if ( ! self::is_configured() ) {
 			return new WP_Error(
 				'ehrman_ingestion_not_configured',
-				__( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before reanalyzing a post.', 'ehrman-blog-discovery' )
+				__( 'Configure OPENAI_API_KEY on the server before regenerating metadata.', 'ehrman-blog-discovery' )
 			);
 		}
 		if ( self::analysis_is_active( $draft ) && ! self::analysis_is_stale( $draft ) ) {
@@ -264,12 +265,13 @@ final class Post_Ingestion_Service {
 	/**
 	 * Applies an approved proposal to the live MySQL search index.
 	 *
-	 * @param int  $draft_id            Draft identifier.
-	 * @param bool $approve_new_keywords Explicit approval for proposed new keywords.
+	 * @param int                      $draft_id            Draft identifier.
+	 * @param bool                     $approve_new_keywords Explicit approval for proposed new keywords.
+	 * @param array<string,mixed>|null $input Optional reviewed fields from the post editor.
 	 * @return array<string,mixed>|WP_Error Approved draft or error.
 	 */
-	public function approve( int $draft_id, bool $approve_new_keywords ) {
-		return $this->review_workflow->approve( $draft_id, $approve_new_keywords );
+	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null ) {
+		return $this->review_workflow->approve( $draft_id, $approve_new_keywords, $input );
 	}
 
 	/**

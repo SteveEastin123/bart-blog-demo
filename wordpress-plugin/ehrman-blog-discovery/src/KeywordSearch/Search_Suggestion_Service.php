@@ -94,7 +94,7 @@ final class Search_Suggestion_Service {
 		}
 		$context_post_count = ! empty( $selected ) ? count( $eligible ) : null;
 
-		$where  = array( "normalized <> 'ignore'" );
+		$where  = array( "normalized <> 'ignore'", 'post_id IN (' . Post_Visibility::ids_sql() . ')' );
 		$params = array( $query_normalized, $query_normalized . '%', '% ' . $query_normalized . '%' );
 		if ( '' === $query_normalized ) {
 			$where[] = "kind <> 'alias'";
@@ -149,11 +149,11 @@ final class Search_Suggestion_Service {
 				$candidate_normalized[ $normalized ] = true;
 			}
 		}
-		$count_where = '';
+		$count_where = ' WHERE post_id IN (' . Post_Visibility::ids_sql() . ')';
 		if ( is_array( $eligible ) ) {
 			$ids = array_keys( $eligible );
 			sort( $ids, SORT_NUMERIC );
-			$count_where = ' WHERE post_id IN (' . self::integer_list( $ids ) . ')';
+			$count_where .= ' AND post_id IN (' . self::integer_list( $ids ) . ')';
 		}
 		$count_rows     = Database::associative_rows(
 			$wpdb->get_results(

@@ -40,7 +40,7 @@ final class Post_Ingestion_Embedding_Generator {
 		if ( '' === $key ) {
 			$this->repository->mark_embedding_pending(
 				$draft_id,
-				__( 'The ingestion API key is not configured.', 'ehrman-blog-discovery' )
+				__( 'The shared OpenAI API key is not configured. Set OPENAI_API_KEY on the server.', 'ehrman-blog-discovery' )
 			);
 			return;
 		}

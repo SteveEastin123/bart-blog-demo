@@ -3,7 +3,7 @@ Contributors: steveeastin
 Tags: search, topics, discovery
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 0.9.0
+Stable tag: 0.10.12
 License: GPLv2 or later
 
 WordPress foundation for browsing and searching the Ehrman Blog index.
@@ -16,10 +16,11 @@ dedicated database tables. It provides scoped keyword search, autocomplete, and
 two alternative topic-browsing paths.
 
 Administrators can also prepare full posts in a protected ingestion workflow.
-It uses a dedicated OpenAI project to draft descriptions, search summaries,
-topics, and secondary keywords for review. Approval remains disabled while JSON
-is authoritative and can be enabled after the planned database source-of-truth
-handoff.
+It uses the shared server-side OPENAI_API_KEY to draft descriptions, search
+summaries, topics, and secondary keywords for review. Database-managed approval
+is enabled by default. Explicit EHRMAN_DISCOVERY_POST_SOURCE=json disables
+approval for environments rebuilt from JSON. Publishers still approve each proposal;
+metadata is never automatically approved.
 
 MariaDB is the current build and regression-test target. The plugin does not
 bundle or start a database server. The existing EHRMAN_DISCOVERY_POST_SOURCE=mysql
@@ -51,6 +52,11 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 `composer check` to run both standards and static-analysis checks.
 
 == Changelog ==
+
+= 0.10.12 =
+* Enabled database-managed approval by default, with an explicit JSON-mode opt-out.
+* Allowed initial installation and verified no-op reruns without a source-mode
+  switch, while retaining protection against replacing editorial data.
 
 = 0.9.0 =
 * Added an administrator-only full-post ingestion, editorial review, approval,

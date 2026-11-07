@@ -77,9 +77,10 @@ $calls = 0;
 $block_http = static function () use (&$calls) { ++$calls; throw new RuntimeException('Installation must not make API calls.'); };
 add_filter('pre_http_request', $block_http);
 $saved_source = getenv('EHRMAN_DISCOVERY_POST_SOURCE');
-putenv('EHRMAN_DISCOVERY_POST_SOURCE=json');
+putenv('EHRMAN_DISCOVERY_POST_SOURCE');
 $installer = new Data_Installer();
 try {
+    $check(EhrmanBlogDiscovery\Post_Ingestion_Settings::database_is_authoritative(), 'A new installation must enable approval by default.');
     // Remove only the empty fixture site's plugin tables to verify schema creation by the command service.
     foreach ($tables as $table) { $wpdb->query("DROP TABLE {$table}"); }
     $empty = $snapshot();
@@ -107,7 +108,20 @@ try {
     $baseline = $snapshot();
     $check($installer->install($directory)['skipped'], 'Identical rerun was not skipped.');
     $check($snapshot() === $baseline, 'Rerun changed IDs, data or bookkeeping.');
+    $expect_failure(fn() => $installer->install($directory, true), 'Package import is disabled');
+    $changed_docs = $documents;
+    $changed_docs['ehrman_post_search_index.json'][0]['description'] = 'A different package must not replace a database-managed index.';
+    $write_documents($changed_docs);
+    $installer->install($directory, false, true);
+    $check($snapshot() === $baseline, 'Read-only validation changed a database-managed index.');
+    $expect_failure(fn() => $installer->install($directory), 'Package import is disabled');
+    $write_documents($documents);
+    $wpdb->query("UPDATE {$tables['external_posts']} SET description='Editorial change' WHERE source_wp_id=900001");
+    $expect_failure(fn() => $installer->install($directory), 'changed after installation');
+    $wpdb->update($tables['external_posts'], ['description' => $post['description']], ['source_wp_id' => 900001]);
+    $check($snapshot() === $baseline, 'Default-mode fixture restoration failed.');
     putenv('EHRMAN_DISCOVERY_POST_SOURCE=mysql');
+    $check($installer->install($directory)['skipped'], 'Explicit database mode did not allow a verified no-op rerun.');
     $expect_failure(fn() => $installer->install($directory, true), 'Package import is disabled');
     $expect_failure(fn() => (new Importer($directory))->import(true), 'Package import is disabled');
     putenv('EHRMAN_DISCOVERY_POST_SOURCE=json');

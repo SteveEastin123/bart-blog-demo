@@ -24,6 +24,8 @@ final class Semantic_Post_Repository {
 		$sql    = $wpdb->prepare(
 			"SELECT p.*,e.content_hash,e.embedding,e.embedding_norm FROM {$tables['post_embeddings']} e JOIN {$tables['external_posts']} p ON p.source_wp_id=e.source_wp_id "
 			. "WHERE e.model=%s AND e.dimensions=%d AND p.search_summary IS NOT NULL AND TRIM(p.search_summary)<>'' "
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Visibility SQL is composed only from internal table names.
+			. 'AND p.id IN (' . Post_Visibility::ids_sql() . ') '
 			. "AND NOT EXISTS (SELECT 1 FROM {$tables['post_topics']} pt JOIN {$tables['topics']} t ON t.id=pt.topic_id WHERE pt.post_id=p.id AND t.name='Ignore')",
 			Embedding_Service::model_id(),
 			Embedding_Service::dimensions()

@@ -41,8 +41,7 @@ services:
       WORDPRESS_ADMIN_PASSWORD: disposable-render-rehearsal-only
       WORDPRESS_ADMIN_EMAIL: render-rehearsal@example.test
       OPENAI_API_KEY: regression-placeholder-not-a-real-api-key
-      EHRMAN_INGESTION_OPENAI_API_KEY: ""
-      EHRMAN_DISCOVERY_POST_SOURCE: json
+      # Test the production default: no source-mode override is required.
       EHRMAN_DISCOVERY_AI_RESULT_GROUPING: tiers
       WORDPRESS_CONFIG_EXTRA: |
         define( 'WP_ENVIRONMENT_TYPE', 'staging' );

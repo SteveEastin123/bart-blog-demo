@@ -51,15 +51,34 @@ try {
         '$db = new mysqli("database", getenv("WORDPRESS_DB_USER"), getenv("WORDPRESS_DB_PASSWORD"), getenv("WORDPRESS_DB_NAME"), 10000); if (stripos($db->server_info, "MariaDB") === false || $db->query("SHOW TABLES")->num_rows !== 0) { throw new RuntimeException("Expected a fresh MariaDB database."); } echo "Fresh MariaDB on port 10000 confirmed.";')
     Invoke-RehearsalDocker @('exec', '-T', 'wordpress', 'initialize-ehrman-wordpress')
     Invoke-RehearsalDocker @('exec', '-T', 'wordpress', 'wp', 'eval',
-        'if (!WP_HTTP_BLOCK_EXTERNAL || !DISABLE_WP_CRON || getenv("OPENAI_API_KEY") !== "regression-placeholder-not-a-real-api-key" || getenv("EHRMAN_INGESTION_OPENAI_API_KEY")) { throw new RuntimeException("API isolation failed."); } $s = (new EhrmanBlogDiscovery\Semantic_Index_Service())->status(); if (!$s["ready"] || $s["missing"] || $s["stale"] || $s["obsolete"]) { throw new RuntimeException("Bundled vectors are incomplete."); } echo wp_json_encode($s);', '--allow-root')
-    & (Join-Path $PSScriptRoot 'snapshot-database.ps1') -ComposeFile $compose -OutputPath (Join-Path $work 'before.json')
+        'if (!EhrmanBlogDiscovery\Post_Ingestion_Settings::database_is_authoritative()) { throw new RuntimeException("Expected database-managed ingestion."); } echo "Database-managed ingestion enabled in isolated rehearsal.";', '--allow-root')
+    Invoke-RehearsalDocker @('exec', '-T', 'wordpress', 'wp', 'eval',
+        'if (!WP_HTTP_BLOCK_EXTERNAL || !DISABLE_WP_CRON || EhrmanBlogDiscovery\OpenAI_Credentials::api_key() !== "regression-placeholder-not-a-real-api-key") { throw new RuntimeException("API isolation failed."); } $s = (new EhrmanBlogDiscovery\Semantic_Index_Service())->status(); if (!$s["ready"] || $s["missing"] || $s["stale"] || $s["obsolete"]) { throw new RuntimeException("Bundled vectors are incomplete."); } echo wp_json_encode($s);', '--allow-root')
     & (Join-Path $PSScriptRoot 'verify-production-test.ps1') -Port $port -ComposeFile $compose -PythonExecutable $PythonExecutable
     & $PythonExecutable -B (Join-Path $repo 'scripts/check_wordpress_landing.py') --base-url "http://localhost:$port"
     if ($LASTEXITCODE -ne 0) { throw 'Landing-page verification failed.' }
 
+    & (Join-Path $PSScriptRoot 'export-vector-package.ps1') -ComposeFile $compose -OutputPath (Join-Path $work 'approved-vectors.jsonl.gz')
+    $approvedHash = (Get-FileHash -LiteralPath (Join-Path $work 'approved-vectors.jsonl.gz')).Hash
+    Invoke-RehearsalDocker @('cp', (Join-Path $PSScriptRoot 'tests/render-managed-data-fixture.php'), 'wordpress:/tmp/render-managed-data-fixture.php')
+    Invoke-RehearsalDocker @('exec', '-T', 'wordpress', 'wp', 'eval-file', '/tmp/render-managed-data-fixture.php', '--allow-root')
+    $rejected = $false
+    try {
+        & (Join-Path $PSScriptRoot 'export-vector-package.ps1') -ComposeFile $compose -OutputPath (Join-Path $work 'approved-vectors.jsonl.gz')
+    } catch {
+        if ($_.Exception.Message -notlike 'Handoff validation failed.*') { throw }
+        $rejected = $true
+    }
+    if (-not $rejected -or (Get-FileHash -LiteralPath (Join-Path $work 'approved-vectors.jsonl.gz')).Hash -ne $approvedHash) {
+        throw 'A database-only test post was accepted or changed the approved package.'
+    }
+    & (Join-Path $PSScriptRoot 'snapshot-database.ps1') -ComposeFile $compose -OutputPath (Join-Path $work 'before.json')
+
     # Recreate containers without deleting volumes or importing data again.
     Invoke-RehearsalDocker @('up', '-d', '--no-build', '--force-recreate')
     Wait-RehearsalWeb
+    # Re-running initialization must also preserve the database, not just restarting containers.
+    Invoke-RehearsalDocker @('exec', '-T', 'wordpress', 'initialize-ehrman-wordpress')
     $status = Invoke-RestMethod "http://localhost:$port/wp-json/ehrman-discovery/v1/status"
     if (-not $status.database_connected -or $status.import_state -ne 'complete') { throw 'Data did not survive container recreation.' }
     Invoke-RehearsalDocker @('exec', '-T', 'wordpress', 'wp', 'eval',

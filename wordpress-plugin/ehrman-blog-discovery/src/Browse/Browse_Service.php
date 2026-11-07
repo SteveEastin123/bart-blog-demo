@@ -32,7 +32,7 @@ final class Browse_Service {
 			. "COUNT(DISTINCT pt.post_id) post_count FROM {$tables['subject_areas']} sa "
 			. "LEFT JOIN {$tables['subject_area_categories']} sac ON sac.subject_area_id=sa.id "
 			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.category_id=sac.category_id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'WHERE sa.browse_path_id=%d GROUP BY sa.id,sa.name,sa.slug,sa.description,sa.position '
 			. 'ORDER BY sa.position,sa.name';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
@@ -74,7 +74,7 @@ final class Browse_Service {
 			. "FROM {$tables['subject_area_categories']} sac "
 			. "JOIN {$tables['categories']} c ON c.id=sac.category_id "
 			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.category_id=c.id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'WHERE sac.subject_area_id=%d '
 			. 'GROUP BY c.id,c.name,c.slug,c.description,sac.position ORDER BY sac.position,c.name';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
@@ -93,7 +93,7 @@ final class Browse_Service {
 		$sql    = 'SELECT c.id,c.name,c.slug,c.description,COUNT(DISTINCT tc.topic_id) topic_count,'
 			. "COUNT(DISTINCT pt.post_id) post_count FROM {$tables['categories']} c "
 			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.category_id=c.id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'GROUP BY c.id,c.name,c.slug,c.description ORDER BY c.name';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only trusted table identifiers and no variable values.
 		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
@@ -113,7 +113,7 @@ final class Browse_Service {
 			. "FROM {$tables['topics']} t "
 			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.topic_id=t.id "
 			. "LEFT JOIN {$tables['categories']} c ON c.id=tc.category_id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=t.id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=t.id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'WHERE t.display_in_browser=1 '
 			. 'GROUP BY t.id,t.name,t.slug,t.description ORDER BY t.name';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only trusted table identifiers and no variable values.
@@ -133,7 +133,7 @@ final class Browse_Service {
 			. 'COUNT(DISTINCT tc.topic_id) topic_count,COUNT(DISTINCT pt.post_id) post_count '
 			. "FROM {$tables['subject_area_categories']} sac "
 			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.category_id=sac.category_id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'WHERE sac.subject_area_id=%d';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
 		$row = Database::associative_row( $wpdb->get_row( $wpdb->prepare( $sql, $subject_area_id ), ARRAY_A ) );
@@ -171,7 +171,7 @@ final class Browse_Service {
 		$tables = Database::tables();
 		$sql    = 'SELECT t.id,t.name,t.slug,t.description,tc.position,COUNT(DISTINCT pt.post_id) post_count '
 			. "FROM {$tables['topics']} t JOIN {$tables['topic_categories']} tc ON tc.topic_id=t.id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=t.id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=t.id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'WHERE tc.category_id=%d AND t.display_in_browser=1 '
 			. 'GROUP BY t.id,t.name,t.slug,t.description,tc.position '
 			. 'ORDER BY CASE WHEN tc.position>0 THEN 0 ELSE 1 END,tc.position,t.name';
@@ -190,7 +190,7 @@ final class Browse_Service {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
 		$sql    = "SELECT COUNT(DISTINCT pt.post_id) FROM {$tables['post_topics']} pt "
-			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d";
+			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d AND pt.post_id IN (" . Post_Visibility::ids_sql() . ')';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query placeholders are prepared here; identifiers come from Database::tables().
 		return Database::integer( $wpdb->get_var( $wpdb->prepare( $sql, $category_id ) ) );
 	}
@@ -292,7 +292,7 @@ final class Browse_Service {
 		$tables = Database::tables();
 		$sql    = "SELECT c.name,c.slug,COUNT(DISTINCT pt.post_id) post_count FROM {$tables['categories']} c "
 			. "LEFT JOIN {$tables['topic_categories']} tc ON tc.category_id=c.id "
-			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id "
+			. "LEFT JOIN {$tables['post_topics']} pt ON pt.topic_id=tc.topic_id AND pt.post_id IN (" . Post_Visibility::ids_sql() . ') '
 			. 'GROUP BY c.id,c.name,c.slug ORDER BY c.name';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query contains only trusted table identifiers and no variable values.
 		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );

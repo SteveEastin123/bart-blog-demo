@@ -62,9 +62,9 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 
 ### 3. Standardize Secure API Configuration
 
-- Add dedicated `EHRMAN_DISCOVERY_OPENAI_API_KEY` environment-variable support for reader search and embeddings.
-- Retain `OPENAI_API_KEY` temporarily as a backward-compatible fallback.
-- Continue using `EHRMAN_INGESTION_OPENAI_API_KEY` for administrator ingestion.
+- Use one server-side `OPENAI_API_KEY` for reader search, administrator ingestion, and embeddings (implemented).
+- Keep search and ingestion model settings and usage records separate.
+- Migrate any old per-feature keys to `OPENAI_API_KEY` before updating those deployments.
 - Add configuration status that reports only configured or not configured.
 - Include empty secret placeholders in deployment templates and instructions.
 - Never store or expose API keys in Git, JSON, browser code, logs, exports, or the plugin package.
@@ -74,16 +74,28 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Mark search metadata for review when important post content changes.
 - Mark the semantic vector stale when the title or search summary changes.
 - Rebuild stale vectors after approval.
-- Exclude unpublished, trashed, or deleted posts from discovery results.
-- Restore or reanalyze posts when their publication status changes appropriately.
+- Editor-created records now carry explicit native-post ownership. Unpublished,
+  private, trashed, and deleted posts are excluded from discovery results;
+  republishing restores retained metadata/vectors without new AI calls.
+- Permanent WordPress deletion removes only linked records; it is not a test-post
+  purge. Existing imported/unlinked records are not automatically matched to
+  native posts. Production mapping of those records remains an integration task.
 - Provide retry handling for failed AI analysis and vector generation.
 
-### 5. Complete The MySQL Source-Of-Truth Transition
+### 5. Complete The Database Source-Of-Truth Transition
 
 - Use JSON and the supplied vectors for the initial production import.
-- Set `EHRMAN_DISCOVERY_POST_SOURCE=mysql` after the approved handoff.
+- Keep the local preparation copy JSON-managed. Render is prepared for
+  `EHRMAN_DISCOVERY_POST_SOURCE=mysql` publishing tests, but deployment and live
+  enablement still need authorization. Production defaults to database-managed
+  approval without a source-mode setting. The legacy `mysql` value also covers MariaDB.
 - Enable post-editor approval to update the live discovery index.
-- Prevent later JSON imports from accidentally overwriting MySQL-authoritative changes.
+- Database-managed replacements are blocked; initial installation can seed an
+  empty index and verify identical reruns. Initialization preserves an existing
+  index. Future JSON refreshes on Render
+  require a backed-up, explicitly approved reconciliation procedure.
+- Keep Render test posts out of the handoff by packaging approved local JSON and
+  validated vectors, not by deleting test posts or exporting Render's database.
 - Document backup, restore, rollback, and source-of-truth recovery procedures.
 
 ### 6. Prepare The Final Handoff Package

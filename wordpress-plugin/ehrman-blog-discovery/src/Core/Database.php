@@ -112,6 +112,7 @@ CREATE TABLE {$tables['topic_aliases']} (
 CREATE TABLE {$tables['external_posts']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   source_wp_id bigint(20) unsigned DEFAULT NULL,
+  wordpress_post_id bigint(20) unsigned DEFAULT NULL,
   title text NOT NULL,
   url text NOT NULL,
   url_hash binary(32) NOT NULL,
@@ -122,6 +123,7 @@ CREATE TABLE {$tables['external_posts']} (
   search_summary text DEFAULT NULL,
   PRIMARY KEY  (id),
   UNIQUE KEY uq_external_posts_source_wp_id (source_wp_id),
+  KEY idx_external_posts_wordpress (wordpress_post_id),
   UNIQUE KEY uq_external_posts_url_hash (url_hash),
   KEY idx_external_posts_published (published_at,id),
   KEY idx_external_posts_author (author)
@@ -288,6 +290,7 @@ CREATE TABLE {$tables['ingestion_drafts']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   status varchar(32) NOT NULL DEFAULT 'draft',
   source_wp_id bigint(20) unsigned NOT NULL,
+  wordpress_post_id bigint(20) unsigned DEFAULT NULL,
   title text NOT NULL,
   url text NOT NULL,
   url_hash binary(32) NOT NULL,
@@ -322,6 +325,7 @@ CREATE TABLE {$tables['ingestion_drafts']} (
   PRIMARY KEY  (id),
   KEY idx_ingestion_drafts_status_updated (status,updated_at),
   KEY idx_ingestion_drafts_source (source_wp_id,status),
+  KEY idx_ingestion_drafts_wordpress (wordpress_post_id),
   KEY idx_ingestion_drafts_url (url_hash,status)
 ) {$collate};
 ";

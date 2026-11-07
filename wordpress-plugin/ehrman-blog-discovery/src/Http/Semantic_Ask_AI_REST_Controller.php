@@ -74,6 +74,8 @@ final class Semantic_Ask_AI_REST_Controller {
 		$broader_count = count( $broader );
 		$refinement_id = AI_Requests::request_id();
 		$refinement    = $this->reviewer->review( $question, $broader, $refinement_id );
+		$broader       = Post_Visibility::filter_posts( $broader );
+		$broader_count = count( $broader );
 		if ( is_wp_error( $refinement ) ) {
 			AI_Refinements::record(
 				array(

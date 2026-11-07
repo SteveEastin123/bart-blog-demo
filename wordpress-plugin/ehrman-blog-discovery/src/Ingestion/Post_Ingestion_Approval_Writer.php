@@ -45,6 +45,15 @@ final class Post_Ingestion_Approval_Writer {
 			return new WP_Error( 'ehrman_ingestion_transaction', __( 'The approval transaction could not be started.', 'ehrman-blog-discovery' ) );
 		}
 		try {
+			$local_id = Database::integer( $draft['wordpress_post_id'] ?? null );
+			if ( $local_id > 0 ) {
+				// Lock the native post while approving so deletion/unpublishing cannot race this write.
+				$native  = $wpdb->get_row( $wpdb->prepare( 'SELECT ID FROM %i WHERE ID=%d AND post_type=%s AND post_status=%s FOR UPDATE', $wpdb->posts, $local_id, 'post', 'publish' ), ARRAY_A );
+				$pending = $wpdb->get_var( $wpdb->prepare( 'SELECT id FROM %i WHERE id=%d AND wordpress_post_id=%d AND status IN (%s,%s) FOR UPDATE', Database::tables()['ingestion_drafts'], $draft_id, $local_id, 'ready', 'held' ) );
+				if ( null === $native || null === $pending ) {
+					throw new RuntimeException( 'The published post or pending metadata no longer exists. Reload the editor.' );
+				}
+			}
 			$post_id = $this->insert_approved_post( $draft, $proposal, $taxonomy );
 			$updated = $wpdb->update(
 				Database::tables()['ingestion_drafts'],
@@ -86,23 +95,25 @@ final class Post_Ingestion_Approval_Writer {
 	 * @throws RuntimeException When any row cannot be inserted.
 	 */
 	private function insert_approved_post( array $draft, array $proposal, array $taxonomy ): int {
-		$wpdb   = Database::client();
-		$tables = Database::tables();
-		$url    = Database::text( $draft['url'] ?? null );
-		$ok     = $wpdb->insert(
+		$wpdb     = Database::client();
+		$tables   = Database::tables();
+		$url      = Database::text( $draft['url'] ?? null );
+		$local_id = Database::integer( $draft['wordpress_post_id'] ?? null );
+		$ok       = $wpdb->insert(
 			$tables['external_posts'],
 			array(
-				'source_wp_id'   => Database::integer( $draft['source_wp_id'] ?? null ),
-				'title'          => Database::text( $draft['title'] ?? null ),
-				'url'            => $url,
-				'url_hash'       => hash( 'sha256', $url, true ),
-				'author'         => Database::text( $draft['author'] ?? null ),
-				'date_text'      => Database::text( $draft['date_text'] ?? null ),
-				'published_at'   => Database::text( $draft['published_at'] ?? null ),
-				'description'    => $proposal['description'],
-				'search_summary' => $proposal['searchSummary'],
+				'source_wp_id'      => Database::integer( $draft['source_wp_id'] ?? null ),
+				'wordpress_post_id' => $local_id > 0 ? $local_id : null,
+				'title'             => Database::text( $draft['title'] ?? null ),
+				'url'               => $url,
+				'url_hash'          => hash( 'sha256', $url, true ),
+				'author'            => Database::text( $draft['author'] ?? null ),
+				'date_text'         => Database::text( $draft['date_text'] ?? null ),
+				'published_at'      => Database::text( $draft['published_at'] ?? null ),
+				'description'       => $proposal['description'],
+				'search_summary'    => $proposal['searchSummary'],
 			),
-			array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+			array( '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
 		);
 		if ( false === $ok ) {
 			throw new RuntimeException( 'The approved post could not be inserted: ' . $wpdb->last_error );

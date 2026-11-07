@@ -62,8 +62,14 @@ final class Post_Ingestion_Analysis_Worker {
 		if ( null === $draft ) {
 			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The queued ingestion draft was not found.', 'ehrman-blog-discovery' ) );
 		}
+		$local_id = Database::integer( $draft['wordpress_post_id'] ?? null );
+		if ( $local_id > 0 && 'publish' !== get_post_status( $local_id ) ) {
+			$error = new WP_Error( 'ehrman_ingestion_unpublished', __( 'Publish the post before creating metadata.', 'ehrman-blog-discovery' ) );
+			$this->repository->mark_analysis_error( $draft_id, $error->get_error_message(), $attempt );
+			return $error;
+		}
 		if ( ! Post_Ingestion_Settings::is_configured() ) {
-			$error = new WP_Error( 'ehrman_ingestion_not_configured', __( 'Configure EHRMAN_INGESTION_OPENAI_API_KEY before analyzing a post.', 'ehrman-blog-discovery' ) );
+			$error = new WP_Error( 'ehrman_ingestion_not_configured', __( 'Configure OPENAI_API_KEY on the server before creating metadata.', 'ehrman-blog-discovery' ) );
 			$this->repository->mark_analysis_error( $draft_id, $error->get_error_message(), $attempt );
 			return $error;
 		}

@@ -63,15 +63,26 @@ wp plugin activate ehrman-blog-discovery --allow-root --quiet
 wp plugin activate ehrman-reviewer-tools --allow-root --quiet
 wp theme activate ehrman-discovery-demo --allow-root --quiet
 wp rewrite structure '/%postname%/' --allow-root --hard --quiet
-wp ehrman-discovery import --force --allow-root
-
-embedding_count="$(wp eval 'echo \EhrmanBlogDiscovery\Database::counts()["post_embeddings"];' --allow-root --path=/var/www/html)"
-if [[ "$embedding_count" == "0" ]]; then
-  wp ehrman-discovery embeddings import \
-    --file=/opt/ehrman-import/ehrman_post_embeddings.jsonl.gz \
-    --allow-root
+database_managed="$(wp eval 'echo \EhrmanBlogDiscovery\Post_Ingestion_Settings::database_is_authoritative() ? "yes" : "no";' --allow-root)"
+if [[ "$database_managed" == "yes" ]]; then
+  # A fresh database may be seeded once. Existing editorial records must survive deploys.
+  discovery_rows="$(wp eval 'echo array_sum(\EhrmanBlogDiscovery\Database::counts());' --allow-root)"
+  if [[ "$discovery_rows" == "0" ]]; then
+    wp ehrman-discovery install-data \
+      --data-dir=/opt/ehrman-import --allow-root
+  else
+    echo "Preserved database-managed discovery data. JSON refresh requires an intentional, backed-up maintenance operation."
+  fi
 else
-  echo "Preserved ${embedding_count} existing semantic vectors; run the incremental embeddings command after data updates."
+  wp ehrman-discovery import --force --allow-root
+  embedding_count="$(wp eval 'echo \EhrmanBlogDiscovery\Database::counts()["post_embeddings"];' --allow-root --path=/var/www/html)"
+  if [[ "$embedding_count" == "0" ]]; then
+    wp ehrman-discovery embeddings import \
+      --file=/opt/ehrman-import/ehrman_post_embeddings.jsonl.gz \
+      --allow-root
+  else
+    echo "Preserved ${embedding_count} existing semantic vectors; run the incremental embeddings command after data updates."
+  fi
 fi
 
 echo "WordPress initialization and discovery import completed."

@@ -306,7 +306,7 @@ try {
 
 /* Verify vocabulary reads and approval with a pending vector when the API key is absent. */
 $original_source   = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
-$original_key      = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
+$original_key      = getenv( 'OPENAI_API_KEY' );
 $ingestion         = new Post_Ingestion_Service();
 $ingestion_store   = new Post_Ingestion_Repository();
 $review_count      = $ingestion->review_count();
@@ -395,7 +395,7 @@ $assert( is_string( $taxonomy_json ), 'The ingestion regression taxonomy fixture
 
 try {
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
-	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
+	putenv( 'OPENAI_API_KEY=' );
 	$worker_draft = $ingestion_store->create_draft(
 		array(
 			'source_wp_id' => $ingestion_wp_id + 1000000,
@@ -515,6 +515,37 @@ try {
 	$assert_same( 1, (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['post_topics']} WHERE post_id=%d", $approved_post_id ) ), 'The approved topic relationship was not created.' );
 	$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['post_embeddings']} WHERE source_wp_id=%d", $ingestion_wp_id ) ), 'A vector row was created without an API key.' );
 	$assert_same( $review_count, $ingestion->review_count(), 'An approved proposal remained in the awaiting-review count.' );
+
+	/* Sharing credentials must not put ingestion-vector costs in reader analytics. */
+	$reader_usage_before = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']}" );
+	$embedding_calls = 0;
+	$mock_embedding = static function ( $preempt, $args, $url ) use ( &$embedding_calls, $assert_same ) {
+		++$embedding_calls;
+		$assert_same( 'https://api.openai.com/v1/embeddings', $url, 'Ingestion retry called an unexpected endpoint.' );
+		$assert_same( 'Bearer shared-ingestion-regression-key', $args['headers']['Authorization'], 'Ingestion embedding did not use the shared key.' );
+		return array(
+			'response' => array( 'code' => 200 ),
+			'body' => wp_json_encode( array(
+				'model' => Embedding_Service::model_id(),
+				'data' => array( array( 'index' => 0, 'embedding' => array_fill( 0, Embedding_Service::dimensions(), 0.1 ) ) ),
+				'usage' => array( 'prompt_tokens' => 50, 'total_tokens' => 50 ),
+			) ),
+		);
+	};
+	putenv( 'OPENAI_API_KEY=shared-ingestion-regression-key' );
+	add_filter( 'pre_http_request', $mock_embedding, 10, 3 );
+	try {
+		$assert_same( 'shared-ingestion-regression-key', AI_Settings::api_key(), 'Search did not share the ingestion key.' );
+		$retry = $ingestion->retry_embedding( $draft_id );
+		$assert( ! is_wp_error( $retry ), 'The mocked ingestion-vector retry failed.' );
+		$assert_same( 'complete', $retry['embedding_status'], 'The ingestion vector was not completed.' );
+		$assert_same( 50, (int) $retry['embedding_input_tokens'], 'Ingestion did not retain vector usage.' );
+		$assert( (float) $retry['embedding_estimated_cost_usd'] > 0, 'Ingestion did not retain vector cost.' );
+		$assert_same( 1, $embedding_calls, 'The ingestion retry did not make exactly one mocked call.' );
+		$assert_same( $reader_usage_before, (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']}" ), 'Ingestion vector usage leaked into reader analytics.' );
+	} finally {
+		remove_filter( 'pre_http_request', $mock_embedding, 10 );
+	}
 } finally {
 	if ( $approved_post_id > 0 ) {
 		$wpdb->delete( $tables['post_search_terms'], array( 'post_id' => $approved_post_id ) );
@@ -530,7 +561,7 @@ try {
 		$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $worker_draft_id ) );
 	}
 	false === $original_source ? putenv( 'EHRMAN_DISCOVERY_POST_SOURCE' ) : putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $original_source );
-	false === $original_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $original_key );
+	false === $original_key ? putenv( 'OPENAI_API_KEY' ) : putenv( 'OPENAI_API_KEY=' . $original_key );
 }
 
 /* Verify the post-editor bridge is permission-protected and exposes safe workflow state. */
@@ -538,7 +569,7 @@ $editor_user_id  = 0;
 $editor_post_id  = 0;
 $editor_draft_id = 0;
 $previous_user   = get_current_user_id();
-$editor_key      = getenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' );
+$editor_key      = getenv( 'OPENAI_API_KEY' );
 try {
 	$created_user = wp_insert_user(
 		array(
@@ -569,12 +600,12 @@ try {
 	$editor_request->set_param( 'post_id', (int) $editor_post_id );
 	$assert_same( true, Post_Ingestion_REST_Controller::permission( $editor_request ), 'An administrator could not access the post ingestion editor endpoint.' );
 
-	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' );
+	putenv( 'OPENAI_API_KEY=' );
 	$unconfigured = Post_Ingestion_REST_Controller::analyze( $editor_request );
 	$assert( is_wp_error( $unconfigured ), 'Editor analysis unexpectedly called the API without an ingestion key.' );
 	$assert_same( 'ehrman_ingestion_not_configured', $unconfigured->get_error_code(), 'The editor did not build valid ingestion input from the saved post.' );
 
-	putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=regression-placeholder-key' );
+	putenv( 'OPENAI_API_KEY=regression-placeholder-key' );
 	$editor_taxonomy      = $ingestion_store->vocabulary();
 	$editor_taxonomy_json = wp_json_encode( $editor_taxonomy );
 	$assert( is_string( $editor_taxonomy_json ), 'The editor-ingestion taxonomy fixture could not be encoded.' );
@@ -676,6 +707,8 @@ try {
 	$changed_approval = rest_get_server()->dispatch( new WP_REST_Request( 'POST', '/ehrman-discovery/v1/ingestion/post/' . $editor_post_id . '/approve' ) );
 	$assert_same( 409, $changed_approval->get_status(), 'Changed post content was not blocked before approval.' );
 	$assert_same( 'ehrman_ingestion_source_changed', $changed_approval->get_data()['code'], 'Changed-source approval error changed.' );
+	wp_update_post( array( 'ID' => $editor_post_id, 'post_content' => $original_content ) );
+	require __DIR__ . '/post-ingestion-editor-review-tests.php';
 
 	wp_set_current_user( 0 );
 	$denied = Post_Ingestion_REST_Controller::permission( $editor_request );
@@ -691,7 +724,7 @@ try {
 	if ( $editor_user_id > 0 ) {
 		wp_delete_user( $editor_user_id );
 	}
-	false === $editor_key ? putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY' ) : putenv( 'EHRMAN_INGESTION_OPENAI_API_KEY=' . $editor_key );
+	false === $editor_key ? putenv( 'OPENAI_API_KEY' ) : putenv( 'OPENAI_API_KEY=' . $editor_key );
 }
 
 /* Verify direct candidate review retains the original cache key and result contract. */
@@ -799,6 +832,7 @@ $assert_same( 360, $analytics['total_tokens'], 'Analytics tokens were totaled in
 require __DIR__ . '/ask-ai-cleanup-tests.php';
 require __DIR__ . '/analytics-dashboard-tests.php';
 require __DIR__ . '/post-ingestion-page-tests.php';
+require __DIR__ . '/post-ingestion-lifecycle-tests.php';
 require __DIR__ . '/search-page-tests.php';
 
 echo "Plugin regression checks: OK\n";

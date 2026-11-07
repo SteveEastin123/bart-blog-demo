@@ -7,6 +7,7 @@
 	display: flex;
 	gap: 8px;
 	align-items: center;
+	margin-bottom: 14px;
 }
 
 .ehrman-ingestion-editor__status {
@@ -42,5 +43,36 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
+	margin-top: 16px;
+}
+
+.ehrman-ingestion-editor__fields {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.ehrman-ingestion-editor__fields .components-form-token-field {
+	margin-bottom: 18px;
+}
+
+.ehrman-ingestion-editor__fields textarea {
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.ehrman-ingestion-editor__fields .components-form-token-field__token-text {
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+.ehrman-ingestion-editor__actions .components-button {
+	height: auto;
+	min-height: 36px;
+	white-space: normal;
+}
+
+.ehrman-ingestion-editor__history {
 	margin-top: 16px;
 }

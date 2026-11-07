@@ -47,7 +47,7 @@ final class Search_Post_Repository {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
 		$sql    = "SELECT DISTINCT pt.post_id FROM {$tables['post_topics']} pt "
-			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d";
+			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d AND pt.post_id IN (" . Post_Visibility::ids_sql() . ')';
 		/**
 		 * Internal query with trusted custom-table identifiers.
 		 *
@@ -67,7 +67,7 @@ final class Search_Post_Repository {
 	public function topic_post_ids( int $topic_id ): array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$sql    = "SELECT post_id FROM {$tables['post_topics']} WHERE topic_id=%d";
+		$sql    = "SELECT post_id FROM {$tables['post_topics']} WHERE topic_id=%d AND post_id IN (" . Post_Visibility::ids_sql() . ')';
 		/**
 		 * Internal query with a trusted custom-table identifier.
 		 *
@@ -94,7 +94,8 @@ final class Search_Post_Repository {
 		}
 		if ( Search_Service::TERM_MODE_TOPIC === $mode ) {
 			$sql = 'SELECT post_id,MAX(weight+2) score '
-				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind IN ('topic','alias') GROUP BY post_id";
+				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind IN ('topic','alias') "
+				. 'AND post_id IN (' . Post_Visibility::ids_sql() . ') GROUP BY post_id';
 			/**
 			 * Internal query with a trusted custom-table identifier.
 			 *
@@ -107,8 +108,8 @@ final class Search_Post_Repository {
 			);
 		} else {
 			$sql = 'SELECT post_id,MAX(weight+CASE WHEN normalized=%s THEN 2 ELSE 0 END) score '
-				. "FROM {$tables['post_search_terms']} WHERE normalized=%s "
-				. "OR CONCAT(' ',normalized,' ') LIKE %s GROUP BY post_id";
+				. "FROM {$tables['post_search_terms']} WHERE (normalized=%s "
+				. "OR CONCAT(' ',normalized,' ') LIKE %s) AND post_id IN (" . Post_Visibility::ids_sql() . ') GROUP BY post_id';
 			/**
 			 * Internal query with a trusted custom-table identifier.
 			 *
@@ -139,7 +140,7 @@ final class Search_Post_Repository {
 			return array();
 		}
 		$tables = Database::tables();
-		$sql    = "SELECT * FROM {$tables['external_posts']} WHERE id IN (" . $this->integer_list( $post_ids ) . ')';
+		$sql    = "SELECT * FROM {$tables['external_posts']} WHERE id IN (" . $this->integer_list( $post_ids ) . ') AND id IN (' . Post_Visibility::ids_sql() . ')';
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The ID list is reduced to integers by integer_list().
 		return Database::associative_rows( $wpdb->get_results( $sql, ARRAY_A ) );
 	}

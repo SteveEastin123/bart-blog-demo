@@ -118,10 +118,15 @@ database backup. Keep the old service/disk until the replacement is accepted.
    and repository-root build context. Keep `WORDPRESS_SITE_URL` equal to the
    **existing** public URL. Preserve the admin identity or deliberately configure
    the intended replacement admin using Render's secret settings.
-5. Retain/configure `OPENAI_API_KEY` for reader search and the separate
-   `EHRMAN_INGESTION_OPENAI_API_KEY` for ingestion. `sync: false` does not populate
-   an existing service automatically; verify those settings without exposing
-   their values. Keep `EHRMAN_DISCOVERY_POST_SOURCE=json` for this demo.
+5. Retain/configure the shared `OPENAI_API_KEY` for reader search, ingestion,
+   and embeddings. Old per-feature key variables are no longer read and can be
+   removed after the shared key is configured. `sync: false` does not populate an
+   existing service automatically; verify the setting without exposing its value.
+   Check pending ingestion jobs before deployment. After approval to enable
+   publishing tests, use `EHRMAN_DISCOVERY_POST_SOURCE=mysql` on Render; this
+   also means database-managed ingestion for MariaDB. Keep the normal local
+   preparation copy set to `json`. Model settings and plugin usage records
+   remain separate for search and ingestion.
 6. In the **existing web service's shell**, confirm the connection targets
    MariaDB and the new application database contains no tables:
 
@@ -133,7 +138,9 @@ database backup. Keep the old service/disk until the replacement is accepted.
    `initialDeployHook` runs only for a service's initial deployment; replacing
    the database of an existing web service does **not** rerun that hook.
    Initialization installs WordPress, activates the current plugin/Reviewer
-   Tools/theme, creates pages, imports JSON, and imports precomputed vectors.
+   Tools/theme and creates pages. In database-managed mode it seeds JSON and
+   precomputed vectors only when all discovery tables are empty. Otherwise it
+   preserves the existing discovery data and ingestion history.
    No embeddings need generating and no paid API calls are needed for import.
 8. If initialization fails partway, do not delete anything or blindly restart
    these steps. Inspect the failure and target state first. Normal initialization
@@ -178,9 +185,29 @@ New MariaDB activity is not in the old MySQL backup and must be preserved separa
 
 ## Ongoing Updates and Handoff
 
-Keep using canonical JSON and the portable vector package for this demo. Validate,
-rebuild/test, commit/push when approved, deploy manually, then run the normal
-initialization/import and verify coverage. Do not recreate MariaDB on every update.
+The normal local preparation copy remains JSON-managed. New downloaded posts
+continue to update approved local JSON and vectors. Render is a separate
+database-managed publishing test environment; its test posts may remain there.
+Do not export Render's database as handoff data or delete its test posts as part
+of a routine deployment.
+
+Validate and test code locally, commit/push only when approved, and deploy
+manually only with separate authorization. Runtime startup refreshes code, not
+data. Re-running initialization in database-managed mode also preserves existing
+metadata and vectors. A partial/failed initial seed must be investigated before
+retrying; existing rows are never a reason to silently overwrite the database.
+
+A future JSON refresh on Render is an explicit maintenance decision, not part of
+ordinary code deployment. Back up the current database, decide how to reconcile
+editor-created records, and obtain approval before any replacement. Replacement
+imports are blocked in database-managed mode; only initial seeding and verified
+no-op reruns are allowed. Do not switch that protection off merely to
+deploy code or recreate MariaDB on every update.
+
+Before enabling this on Render, run `verify-all.ps1` and the entirely local
+`verify-render-rebuild.ps1` rehearsal. The latter uses disposable MariaDB/WordPress
+containers, blocked outbound HTTP and a fake API key. It verifies a fresh seed
+and preservation across recreation and repeated initialization.
 
 Render hosting and this runbook are internal demo infrastructure, not requirements
 for Bart's production developers. Deliver the production plugin, initial JSON and

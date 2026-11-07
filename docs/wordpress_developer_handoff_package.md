@@ -59,6 +59,14 @@ title-and-summary vector index. The plugin imports it by WordPress post ID and
 rejects stale, malformed, duplicate, or incompatible records before changing
 the database. The vector package does not contain full post text.
 
+Build these files from the approved **local** `data/index/` sources, never a
+Render database dump. Render-only publishing test posts are not handoff data and
+do not need to be deleted. `wordpress-production/export-vector-package.ps1`
+validates exported vectors against the five local JSON files before replacing
+the local package. Unknown/test IDs, missing records and stale content hashes
+fail validation; the previous package remains untouched on failure. The same
+validation runs during initial installation with `--validate-only`.
+
 ## 3. Integration and Maintenance Guide
 
 Provide a consolidated guide explaining how to:
@@ -77,9 +85,9 @@ Include the database schema and technical architecture as appendices.
 ### Initial Data Installation
 
 Activate the plugin, put the five JSON files and `ehrman_post_embeddings.jsonl.gz`
-in a private directory outside WordPress, and keep
-`EHRMAN_DISCOVERY_POST_SOURCE=json` until the initial import is accepted. Back up
-the database and pause editors, scheduled ingestion and other imports during installation.
+in a private directory outside WordPress. No source-mode setting is required:
+database-managed publishing and administrator approval are enabled by default.
+Back up the database and pause editors, scheduled ingestion and other imports during installation.
 The database user needs table/index creation and upgrade permissions, and named
 lock support. All plugin tables and the WordPress options table must use InnoDB.
 
@@ -103,14 +111,20 @@ restore the backup if a schema upgrade itself must be undone. No WordPress artic
 users or analytics records are imported/replaced. Auto-increment counters can advance
 after a rolled-back attempt even though the rows remain unchanged.
 
-An identical rerun verifies the receipt's data fingerprint and performs no data
-replacement, preserving IDs. A nonempty initial target or a different package needs
-explicit `--replace-existing` consent after backup. This flag does NOT override
-database edits detected since the prior installation, post-ingestion history, or
-`EHRMAN_DISCOVERY_POST_SOURCE=mysql`. The legacy `import --force` command also
-refuses database-authoritative mode. Do not switch back to JSON to bypass protection.
-After the initial import and acceptance tests, the agreed handoff can switch the
-source setting to `mysql`; this installation command does not change that setting.
+The default permits installation into an empty discovery index and verified
+identical reruns. An identical rerun verifies the receipt's data fingerprint and
+performs no data replacement, preserving IDs. Later database edits, ingestion
+history, different packages, and existing data without a matching receipt cannot
+be overwritten in database-managed mode, even with `--replace-existing`.
+Read-only `--validate-only` remains available in either mode.
+
+The local preparation workflow explicitly sets `EHRMAN_DISCOVERY_POST_SOURCE=json`.
+Only that JSON-managed mode permits an intentional `--replace-existing` after
+backup; it still refuses edits detected since installation and ingestion history.
+The legacy `import --force` also requires JSON-managed mode. Do not change the
+source mode merely to bypass protection of production editorial data.
+Production needs no post-import setting change to enable approval. An administrator
+must still review and explicitly approve metadata; approval is never automatic.
 
 Maintainers can run `wordpress-production/verify-installation.ps1` after building
 the image. It creates a uniquely named, isolated WordPress/database stack, exercises
@@ -118,20 +132,26 @@ failure and rerun cases, installs the full package and runs regression checks wi
 API access disabled. It stops that test stack afterward and preserves its volumes
 as evidence; it never resets the normal demo. CI now targets MariaDB only.
 
-### Search API Credentials
+### Shared API Credentials
 
-Search refinement and query embeddings use the same credential resolver in
-`AI_Settings::api_key()`. Precedence is the `EHRMAN_DISCOVERY_OPENAI_API_KEY`
-PHP constant, then a nonblank environment variable of the same name, then the
-legacy `OPENAI_API_KEY` environment variable. Values are trimmed. An explicitly
-defined blank or invalid constant disables reader AI instead of falling back;
-a blank dedicated environment variable allows the legacy fallback. Never expose
-resolved keys in browser configuration, status output, logs or exports.
+Ask AI, post-ingestion analysis, and semantic embeddings use one server-side
+`OPENAI_API_KEY` through `OpenAI_Credentials::api_key()`. Supply it as an
+environment variable. A PHP constant of the same name takes precedence; an
+explicitly blank or invalid constant disables all AI calls instead of falling
+back. Values are trimmed. Never expose resolved keys in browser configuration,
+status output, logs or exports.
 
-Administrator ingestion remains separate and uses only
-`EHRMAN_INGESTION_OPENAI_API_KEY`. Its embedding client receives that explicit
-workflow key; it never silently borrows reader credentials. Regression tests
-exercise configuration precedence in isolated PHP processes without API calls.
+Migration: configure `OPENAI_API_KEY` before updating a deployment that only has
+`EHRMAN_DISCOVERY_OPENAI_API_KEY` or `EHRMAN_INGESTION_OPENAI_API_KEY`. Those old
+per-feature variables/constants are no longer read and can be removed from the
+server's secret configuration. Deployments already using `OPENAI_API_KEY` need
+no additional key. Check for queued ingestion jobs before enabling the key.
+
+Model settings remain independent: `EHRMAN_DISCOVERY_AI_MODEL` for search and
+`EHRMAN_INGESTION_OPENAI_MODEL` for metadata. Reader usage stays in search
+analytics; ingestion analysis and embedding metrics stay with the ingestion
+draft. Ingestion embeddings do not create reader-analytics entries. Regression
+tests exercise shared credentials and model independence without API calls.
 
 ### Ask AI Retrieval
 
@@ -151,8 +171,13 @@ optimization or a change to relevance behavior.
 routes, permissions, request handling and safe response payloads; `Rest_Controller`
 registers those routes. `Post_Ingestion_Post_Source` builds input from the saved
 WordPress post and detects changes, shared by REST approval and admin status.
-The URLs, capabilities, WordPress REST nonce protection, response fields, approval
-rules and background jobs are unchanged. The JavaScript panel needs no changes.
+The URLs, capabilities, WordPress REST nonce protection and background jobs remain
+unchanged. The editor now supports **Create Metadata**, inline review/editing and
+**Approve and Add to Search**. Approval optionally accepts reviewed fields and a
+proposal revision; the same validation, JSON-mode lock, vocabulary checks and
+explicit new-keyword consent apply. Unchanged callers can still approve a stored
+proposal. The status payload includes a revision fingerprint, not full post text.
+See the post-ingestion guide for the publisher workflow and its current limits.
 
 ### Analytics Presentation
 
