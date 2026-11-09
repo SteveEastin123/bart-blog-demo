@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ehrman Reviewer Tools
  * Description: Optional demo-only taxonomy outlines, indexes, and exports. Not part of the production handoff.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Requires Plugins: ehrman-blog-discovery
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EHRMAN_REVIEWER_VERSION', '1.0.0' );
+define( 'EHRMAN_REVIEWER_VERSION', '1.0.1' );
 define( 'EHRMAN_REVIEWER_URL', plugin_dir_url( __FILE__ ) );
 
 require_once __DIR__ . '/src/Plugin.php';

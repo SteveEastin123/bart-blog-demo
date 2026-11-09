@@ -88,7 +88,7 @@ final class Browse_Page_Renderer {
 	 * @return string Subject-area list markup.
 	 */
 	private function render_subject_areas( int $path_number ): string {
-		$areas = $this->browse->subject_areas( $path_number );
+		$areas = $this->alphabetical_records( $this->browse->subject_areas( $path_number ) );
 		$items = array();
 		foreach ( $areas as $area ) {
 			$url     = $this->url( $path_number, array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) );
@@ -99,13 +99,14 @@ final class Browse_Page_Renderer {
 				Database::text( $area['name'] ?? null ),
 				$url,
 				$meta,
-				Database::text( $area['description'] ?? null )
+				Database::text( $area['description'] ?? null ),
+				Database::integer( $area['post_count'] ?? null )
 			);
 		}
 		return $this->markup->shell(
 			$this->markup->heading( __( 'Choose a Subject Area', 'ehrman-blog-discovery' ), $this->markup->plural( count( $areas ), 'subject area' ) )
-			. $this->markup->description_control( 'hover', 'browse' )
-			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
+			. $this->browse_controls()
+			. '<ul class="ebd-item-list" data-ebd-browse-list>' . implode( '', $items ) . '</ul>',
 			'browse'
 		);
 	}
@@ -123,7 +124,7 @@ final class Browse_Page_Renderer {
 			return $this->not_found();
 		}
 		$area_id    = Database::integer( $area['id'] ?? null );
-		$categories = $this->browse->subject_area_categories( $area_id );
+		$categories = $this->alphabetical_records( $this->browse->subject_area_categories( $area_id ) );
 		$counts     = $this->browse->subject_area_counts( $area_id );
 		$items      = array();
 		foreach ( $categories as $category ) {
@@ -140,7 +141,8 @@ final class Browse_Page_Renderer {
 				Database::text( $category['name'] ?? null ),
 				$url,
 				$meta,
-				Database::text( $category['description'] ?? null )
+				Database::text( $category['description'] ?? null ),
+				Database::integer( $category['post_count'] ?? null )
 			);
 		}
 		$meta        = $this->markup->plural( (int) $counts['category_count'], 'category', 'categories' ) . ' &bull; '
@@ -152,8 +154,8 @@ final class Browse_Page_Renderer {
 		);
 		return $this->markup->shell(
 			$this->markup->heading( Database::text( $area['name'] ?? null ), $meta, $breadcrumbs )
-			. $this->markup->description_control( 'hover', 'browse' )
-			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
+			. $this->browse_controls()
+			. '<ul class="ebd-item-list" data-ebd-browse-list>' . implode( '', $items ) . '</ul>',
 			'browse'
 		);
 	}
@@ -173,7 +175,7 @@ final class Browse_Page_Renderer {
 		}
 		$category_id = Database::integer( $category['id'] ?? null );
 		$area        = $this->browse->primary_subject_area( $path_number, $category_id, $subject_slug );
-		$topics      = $this->browse->category_topics( $category_id );
+		$topics      = $this->alphabetical_records( $this->browse->category_topics( $category_id ) );
 		$post_count  = $this->browse->category_post_count( $category_id );
 		$items       = array();
 		foreach ( $topics as $topic ) {
@@ -188,7 +190,8 @@ final class Browse_Page_Renderer {
 				Database::text( $topic['name'] ?? null ),
 				$this->url( $path_number, $args ),
 				$this->markup->plural( Database::integer( $topic['post_count'] ?? null ), 'post' ),
-				Database::text( $topic['description'] ?? null )
+				Database::text( $topic['description'] ?? null ),
+				Database::integer( $topic['post_count'] ?? null )
 			);
 		}
 		$post_args = array(
@@ -217,8 +220,8 @@ final class Browse_Page_Renderer {
 				$breadcrumbs,
 				$actions
 			)
-			. $this->markup->description_control( 'hover', 'browse' )
-			. '<ul class="ebd-item-list">' . implode( '', $items ) . '</ul>',
+			. $this->browse_controls()
+			. '<ul class="ebd-item-list" data-ebd-browse-list>' . implode( '', $items ) . '</ul>',
 			'browse'
 		);
 	}
@@ -361,16 +364,44 @@ final class Browse_Page_Renderer {
 	}
 
 	/**
+	 * Sorts reader-facing lists without changing stored taxonomy positions.
+	 *
+	 * @param array<int,array<string,mixed>> $records Browse records.
+	 * @return list<array<string,mixed>> Alphabetical browse records.
+	 */
+	private function alphabetical_records( array $records ): array {
+		usort(
+			$records,
+			static fn( array $left, array $right ): int => strnatcasecmp( Database::text( $left['name'] ?? null ), Database::text( $right['name'] ?? null ) )
+		);
+		return $records;
+	}
+
+	/**
+	 * Builds the shared description and sort controls for all browse levels.
+	 *
+	 * @return string Accessible browse controls.
+	 */
+	private function browse_controls(): string {
+		$sort_id = wp_unique_id( 'ebd-browse-sort-' );
+		return '<div class="ebd-browse-controls">' . $this->markup->description_control( 'hover', 'browse' )
+			. '<div class="ebd-browse-sort" data-ebd-browse-sort-control hidden><label for="' . esc_attr( $sort_id ) . '">' . esc_html__( 'Sort by:', 'ehrman-blog-discovery' ) . '</label>'
+			. '<select id="' . esc_attr( $sort_id ) . '" data-ebd-browse-sort><option value="alphabetical">' . esc_html__( 'Alphabetical (A-Z)', 'ehrman-blog-discovery' ) . '</option>'
+			. '<option value="posts">' . esc_html__( 'Most posts', 'ehrman-blog-discovery' ) . '</option></select></div></div>';
+	}
+
+	/**
 	 * Builds one subject-area, category, or topic navigation item.
 	 *
 	 * @param string $title       Item title.
 	 * @param string $url         Destination URL.
 	 * @param string $meta        Count metadata.
 	 * @param string $description Hover and expanded description.
+	 * @param int    $post_count  Distinct post count for client-side sorting.
 	 * @return string Navigation-item markup.
 	 */
-	private function browse_item( string $title, string $url, string $meta, string $description ): string {
-		return '<li class="ebd-list-item ebd-navigation-item"><a class="ebd-item-title ebd-navigation-link" href="'
+	private function browse_item( string $title, string $url, string $meta, string $description, int $post_count ): string {
+		return '<li class="ebd-list-item ebd-navigation-item" data-ebd-post-count="' . esc_attr( (string) $post_count ) . '"><a class="ebd-item-title ebd-navigation-link" href="'
 			. esc_url( $url ) . '" data-description="' . esc_attr( $description ) . '"><span class="ebd-navigation-name">'
 			. '<span>' . esc_html( $title ) . '</span><span class="ebd-navigation-arrow" aria-hidden="true">&#8594;</span>'
 			. '</span><span class="ebd-item-meta">' . wp_kses_post( $meta ) . '</span></a>'

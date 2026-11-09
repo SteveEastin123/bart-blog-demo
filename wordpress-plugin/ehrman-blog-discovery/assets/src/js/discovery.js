@@ -5,12 +5,14 @@ import { setupDescriptionMode, setupTitleTooltips } from "./descriptions.js";
 import { semanticPageResult, renderResults } from "./results.js";
 import { updateBrowserUrl } from "./search-state.js";
 import { setupStatus } from "./status.js";
+import { setupBrowseSort } from "./browse-topics.js";
 
 setupResultViews();
 setupFeedback();
 document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
 document.querySelectorAll("[data-ebd-semantic-form]").forEach(setupSemanticForm);
 document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);
+document.querySelectorAll("[data-ebd-browse-sort-control]").forEach(setupBrowseSort);
 setupTitleTooltips(document);
 
 document.addEventListener("click", (event) => {

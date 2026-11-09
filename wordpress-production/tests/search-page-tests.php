@@ -6,6 +6,7 @@
  */
 
 use EhrmanBlogDiscovery\Browse_Service;
+use EhrmanBlogDiscovery\Browse_Page_Renderer;
 use EhrmanBlogDiscovery\Discovery_Markup;
 use EhrmanBlogDiscovery\Search_Page_Renderer;
 use EhrmanBlogDiscovery\Search_Service;
@@ -144,6 +145,55 @@ try {
 		$actual_titles[] = $link->textContent;
 	}
 	$assert_same( array_column( $expected['posts'], 'title' ), $actual_titles, 'Server-rendered post order differs from search results.' );
+	$browse = new Browse_Service();
+	$browse_renderer = new Browse_Page_Renderer(
+		$browse,
+		new Search_Service(),
+		new Discovery_Markup(),
+		$renderer,
+		static fn( int $path, array $args = array() ): string => add_query_arg( $args, '/browse-topics-' . $path . '/' )
+	);
+	$assert_browse_list = static function ( string $html, array $records, string $parameter, array $context = array() ) use ( $search_page_dom, $assert_same ): void {
+		usort( $records, static fn( array $a, array $b ): int => strnatcasecmp( $a['name'], $b['name'] ) );
+		$dom = $search_page_dom( $html );
+		$assert_same( 1, $dom->query( '//*[@data-ebd-browse-sort-control][@hidden]/select[@data-ebd-browse-sort]' )->length, 'Sort menu must be hidden until enhanced.' );
+		$assert_same( $dom->evaluate( 'string(//*[@data-ebd-browse-sort-control]/label/@for)' ), $dom->evaluate( 'string(//select[@data-ebd-browse-sort]/@id)' ), 'Browse sort must have an associated label.' );
+		$assert_same( 'alphabetical', $dom->evaluate( 'string((//select[@data-ebd-browse-sort]/option)[1]/@value)' ), 'Default browse sort changed.' );
+		$rows = $dom->query( '//ul[@data-ebd-browse-list]/li' );
+		$assert_same( count( $records ), $rows->length, 'Sorting changed list membership.' );
+		foreach ( $rows as $index => $row ) {
+			$record = $records[ $index ];
+			$assert_same( $record['name'], $dom->evaluate( 'string(.//span[@class="ebd-navigation-name"]/span[1])', $row ), 'Browse list is not alphabetical.' );
+			$assert_same( (string) $record['post_count'], $row->getAttribute( 'data-ebd-post-count' ), 'Sort count does not match the distinct post count.' );
+			parse_str( (string) wp_parse_url( $dom->evaluate( 'string(./a/@href)', $row ), PHP_URL_QUERY ), $query );
+			$assert_same( $record['slug'], $query[ $parameter ], 'Sorted browse link changed.' );
+			foreach ( $context as $key => $value ) {
+				$assert_same( $value, $query[ $key ], 'Sorted browse link lost its context.' );
+			}
+		}
+	};
+	foreach ( array( 1, 2 ) as $path ) {
+		$areas = $browse->subject_areas( $path );
+		$assert_browse_list( $browse_renderer->render( $path, '', '', '', '', array(), array(), 'ranked', 1 ), $areas, 'ebd_subject' );
+		foreach ( $areas as $area ) {
+			$categories = $browse->subject_area_categories( (int) $area['id'] );
+			$assert_browse_list(
+				$browse_renderer->render( $path, $area['slug'], '', '', '', array(), array(), 'ranked', 1 ),
+				$categories,
+				'ebd_category',
+				array( 'ebd_subject' => $area['slug'] )
+			);
+		}
+		foreach ( $browse->categories() as $category ) {
+			$topics = $browse->category_topics( (int) $category['id'] );
+			$assert_browse_list(
+				$browse_renderer->render( $path, '', $category['slug'], '', '', array(), array(), 'ranked', 1 ),
+				$topics,
+				'ebd_topic',
+				array( 'ebd_category' => $category['slug'] )
+			);
+		}
+	}
 	$assert_same( 0, $search_page_http_calls, 'Rendering attempted a provider request.' );
 } finally {
 	remove_filter( 'pre_http_request', $search_page_block_http );

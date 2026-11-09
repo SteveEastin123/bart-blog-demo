@@ -17,6 +17,7 @@ DOM hooks, storage keys, and REST request formats are unchanged.
 | `ask-ai.js` | Question submission and refined/broader result switching |
 | `feedback.js` | Reader feedback controls and submission |
 | `descriptions.js` | Description preferences and tooltips |
+| `browse-topics.js` | Subject-area, category and topic sorting with one per-tab session preference |
 | `status.js` | Status refresh control |
 
 These are standard ES modules with explicit imports. They have no circular
@@ -54,6 +55,7 @@ With the local demo running, also run:
 
 ```sh
 node wordpress-production/tests/search-page-ui.cjs
+node wordpress-production/tests/browse-sort-ui.cjs
 node wordpress-production/tests/ask-ai-retirement-ui.cjs
 node wordpress-production/tests/frontend-assets-ui.cjs
 ```

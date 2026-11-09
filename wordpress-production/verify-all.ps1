@@ -17,7 +17,7 @@ $work = Join-Path $repo ".tmp/full-regression/$runId"
 $steps = @('preflight', 'runner-tests', 'canonical-data', 'landing-assets', 'frontend', 'developer-unit-tests',
     'phpcs-core', 'phpstan-core', 'phpcs-reviewer', 'phpstan-reviewer', 'phpcs-developer', 'phpstan-developer',
     'isolated-demo', 'database-before', 'production-regressions', 'developer-delivery', 'initial-installation',
-    'browser-frontend-assets-ui', 'browser-search-page-ui', 'browser-analytics-dashboard-ui',
+    'browser-frontend-assets-ui', 'browser-search-page-ui', 'browser-browse-sort-ui', 'browser-analytics-dashboard-ui',
     'browser-post-ingestion-page-ui', 'browser-post-ingestion-editor-ui', 'browser-ask-ai-retirement-ui', 'production-only-browser',
     'served-landing', 'data-integrity', 'backup-restore', 'diff-check', 'cleanup')
 $report = New-RegressionReport $work $steps ([ordered]@{ project = $project; database = 'MariaDB (compose.local.yaml)'; baseline = $BaselinePath })
@@ -133,7 +133,7 @@ try {
     Invoke-RegressionStep $report 'initial-installation' {
         & (Join-Path $PSScriptRoot 'verify-installation.ps1') -ComposeFile $compose -PythonExecutable $PythonExecutable -BaselinePath $baseline
     }
-    foreach ($browser in @('frontend-assets-ui', 'search-page-ui', 'analytics-dashboard-ui', 'post-ingestion-page-ui', 'post-ingestion-editor-ui', 'ask-ai-retirement-ui')) {
+    foreach ($browser in @('frontend-assets-ui', 'search-page-ui', 'browse-sort-ui', 'analytics-dashboard-ui', 'post-ingestion-page-ui', 'post-ingestion-editor-ui', 'ask-ai-retirement-ui')) {
         Invoke-RegressionStep $report "browser-$browser" {
             Invoke-RegressionCommand $NodeExecutable @("wordpress-production/tests/$browser.cjs")
         }

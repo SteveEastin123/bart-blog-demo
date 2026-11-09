@@ -1191,12 +1191,49 @@
     }
   }
 
+  // wordpress-plugin/ehrman-blog-discovery/assets/src/js/browse-topics.js
+  var BROWSE_SORT_KEY = "ebd.browseTopicSort";
+  function savedBrowseSort() {
+    try {
+      return window.sessionStorage.getItem(BROWSE_SORT_KEY) === "posts" ? "posts" : "alphabetical";
+    } catch (_error) {
+      return "alphabetical";
+    }
+  }
+  function setupBrowseSort(control) {
+    const select = control.querySelector("[data-ebd-browse-sort]");
+    const list = control.closest(".ebd-discovery")?.querySelector("[data-ebd-browse-list]");
+    if (!select || !list) return;
+    const items = Array.from(list.children, (element, index) => ({
+      element,
+      index,
+      count: Number(element.dataset.ebdPostCount) || 0
+    }));
+    const apply = (mode) => {
+      select.value = mode;
+      const sorted = [...items].sort((left, right) => (mode === "posts" ? right.count - left.count : 0) || left.index - right.index);
+      sorted.forEach((item) => list.appendChild(item.element));
+    };
+    select.addEventListener("change", () => {
+      const mode = select.value === "posts" ? "posts" : "alphabetical";
+      apply(mode);
+      try {
+        window.sessionStorage.setItem(BROWSE_SORT_KEY, mode);
+      } catch (_error) {
+      }
+    });
+    apply(savedBrowseSort());
+    control.hidden = false;
+    window.addEventListener("pageshow", () => apply(savedBrowseSort()));
+  }
+
   // wordpress-plugin/ehrman-blog-discovery/assets/src/js/discovery.js
   setupResultViews();
   setupFeedback();
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
   document.querySelectorAll("[data-ebd-semantic-form]").forEach(setupSemanticForm);
   document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);
+  document.querySelectorAll("[data-ebd-browse-sort-control]").forEach(setupBrowseSort);
   setupTitleTooltips(document);
   document.addEventListener("click", (event) => {
     const pagination = event.target.closest(".ebd-pagination-link[href]");

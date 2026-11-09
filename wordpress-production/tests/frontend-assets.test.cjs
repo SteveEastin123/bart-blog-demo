@@ -9,13 +9,13 @@ const { compileAssets } = require('../../scripts/build_wordpress_assets.cjs');
 const root = path.resolve(__dirname, '../..');
 const source = 'wordpress-plugin/ehrman-blog-discovery/assets/src/js';
 
-function load(name) {
+function load(name, windowOverrides = {}) {
   const result = buildSync({
     absWorkingDir: root,
     entryPoints: [`${source}/${name}.js`],
     bundle: true, write: false, format: 'cjs', platform: 'browser',
   });
-  const context = { module: { exports: {} }, window: { EhrmanDiscovery: {}, location: { origin: 'https://blog.example' } }, URL };
+  const context = { module: { exports: {} }, window: { EhrmanDiscovery: {}, location: { origin: 'https://blog.example' }, ...windowOverrides }, URL };
   vm.runInNewContext(result.outputFiles[0].text, context);
   return context.module.exports;
 }
@@ -66,6 +66,38 @@ test('result sorting and pagination preserve ranked data', () => {
   const empty = semanticPageResult({ posts: [] }, 99);
   assert.equal(empty.page, 1);
   assert.equal(empty.total_pages, 0);
+});
+
+test('browse sorting preserves alphabetical ties and tolerates unavailable session storage', () => {
+  for (const initial of ['', 'posts', 'invalid', 'blocked']) {
+    let stored = initial;
+    const events = {};
+    const select = { value: 'alphabetical', addEventListener: (name, handler) => { events[name] = handler; } };
+    const nodes = ['3', '10', '10', '0'].map((count, index) => ({ index, dataset: { ebdPostCount: count } }));
+    const list = { children: [...nodes], appendChild(node) { this.children = this.children.filter(item => item !== node); this.children.push(node); } };
+    const control = { hidden: true, querySelector: () => select, closest: () => ({ querySelector: () => list }) };
+    const { setupBrowseSort } = load('browse-topics', {
+      sessionStorage: {
+        getItem() { if (initial === 'blocked') throw Error('Storage blocked'); return stored; },
+        setItem(_key, value) { if (initial === 'blocked') throw Error('Storage blocked'); stored = value; },
+      },
+      addEventListener: (name, handler) => { events[name] = handler; },
+    });
+    setupBrowseSort(control);
+    assert.equal(control.hidden, false);
+    assert.equal(select.value, initial === 'posts' ? 'posts' : 'alphabetical');
+    assert.deepEqual(list.children.map(n => n.index), initial === 'posts' ? [1, 2, 0, 3] : [0, 1, 2, 3]);
+    select.value = 'posts';
+    events.change();
+    assert.deepEqual(list.children.map(n => n.index), [1, 2, 0, 3]);
+    if (initial !== 'blocked') assert.equal(stored, 'posts');
+    select.value = 'alphabetical';
+    events.change();
+    assert.deepEqual(list.children, nodes);
+    stored = 'posts';
+    events.pageshow();
+    assert.equal(select.value, initial === 'blocked' ? 'alphabetical' : 'posts');
+  }
 });
 
 test('search URLs preserve terms, modes, questions and request IDs', () => {

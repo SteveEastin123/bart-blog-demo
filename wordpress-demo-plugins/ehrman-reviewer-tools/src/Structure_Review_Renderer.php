@@ -40,13 +40,13 @@ final class Structure_Review_Renderer {
 	public function render( int $path_number, string $review_view, string $base_url ): string {
 		$category_index = 'categories' === $review_view;
 		$topic_index    = 'topics' === $review_view;
-		$areas          = $category_index || $topic_index ? array() : $this->browse->subject_areas( $path_number );
+		$areas          = $category_index || $topic_index ? array() : $this->alphabetical_records( $this->browse->subject_areas( $path_number ) );
 		$sections       = array();
 		$topics         = array();
 		$heading        = __( 'Category and Topic Review', 'ehrman-blog-discovery' );
 
 		if ( $topic_index ) {
-			$topics   = $this->browse->topics();
+			$topics   = $this->alphabetical_records( $this->browse->topics() );
 			$sections = $this->topic_sections( $topics );
 			$meta     = $this->markup->plural( count( $topics ), 'topic' );
 			$intro    = __( 'Review every topic alphabetically, including its assigned category and post count.', 'ehrman-blog-discovery' );
@@ -151,8 +151,8 @@ final class Structure_Review_Renderer {
 	 */
 	private function category_sections( array $categories ): array {
 		$sections = array();
-		foreach ( $categories as $category ) {
-			$topics      = $this->browse->category_topics( Database::integer( $category['id'] ?? null ) );
+		foreach ( $this->alphabetical_records( $categories ) as $category ) {
+			$topics      = $this->alphabetical_records( $this->browse->category_topics( Database::integer( $category['id'] ?? null ) ) );
 			$topic_items = array();
 			foreach ( $topics as $topic ) {
 				$topic_items[] = '<li class="ebd-review-topic"><div class="ebd-review-topic-row"><span class="ebd-review-name ebd-review-topic-name">'
@@ -173,6 +173,20 @@ final class Structure_Review_Renderer {
 				. implode( '', $topic_items ) . '</ul></details>';
 		}
 		return $sections;
+	}
+
+	/**
+	 * Orders review lists without changing stored taxonomy positions.
+	 *
+	 * @param array<int,array<string,mixed>> $records Taxonomy records.
+	 * @return list<array<string,mixed>> Alphabetical records.
+	 */
+	private function alphabetical_records( array $records ): array {
+		usort(
+			$records,
+			static fn( array $left, array $right ): int => strnatcasecmp( Database::text( $left['name'] ?? null ), Database::text( $right['name'] ?? null ) )
+		);
+		return $records;
 	}
 
 	/**

@@ -10,6 +10,12 @@ $check = static function (bool $value, string $message): void {
         throw new RuntimeException($message);
     }
 };
+$check_alphabetical = static function (DOMNodeList $nodes) use ($check): void {
+    $names = array_map(static fn(DOMNode $node): string => $node->textContent, iterator_to_array($nodes));
+    $expected = $names;
+    usort($expected, 'strnatcasecmp');
+    $check($names === $expected, 'Reviewer list is not alphabetical: ' . implode(', ', $names));
+};
 $check(shortcode_exists('ehrman_structure_review'), 'The optional review shortcode is unavailable.');
 $check(!method_exists(Page_Controller::class, 'structure_review_shortcode'), 'Production still owns Reviewer Tools.');
 $check(!class_exists('EhrmanBlogDiscovery\\Structure_Review_Renderer'), 'Production still ships the review renderer.');
@@ -35,6 +41,25 @@ try {
             $check(str_contains($html, 'data-ebd-review-tree'), 'Missing review tree.');
             $check(str_contains($html, 'data-ebd-review-pdf') && str_contains($html, 'data-ebd-review-csv'), 'Missing export controls.');
             $check(!str_contains($html, '[ehrman_structure_review]'), 'Raw shortcode leaked.');
+            $document = new DOMDocument();
+            $previous_errors = libxml_use_internal_errors(true);
+            try {
+                $document->loadHTML('<?xml encoding="UTF-8">' . $html);
+            } finally {
+                libxml_clear_errors();
+                libxml_use_internal_errors($previous_errors);
+            }
+            $xpath = new DOMXPath($document);
+            $check_alphabetical($xpath->query('//details[@class="ebd-review-area"]/summary/span[@class="ebd-review-name"]/span[last()]'));
+            foreach ($xpath->query('//*[@data-ebd-review-tree] | //*[@class="ebd-review-categories"]') as $parent) {
+                $check_alphabetical($xpath->query('./details[@class="ebd-review-category"]/summary/span[@class="ebd-review-name"]/span[last()]', $parent));
+            }
+            foreach ($xpath->query('//ul[@class="ebd-review-topic-list"]') as $list) {
+                $check_alphabetical($xpath->query('./li/div/span[contains(@class,"ebd-review-topic-name")]/span[last()]', $list));
+            }
+            if (($query['ebd_view'] ?? '') === 'topics') {
+                $check_alphabetical($xpath->query('//*[@data-ebd-review-topic-item]/div/span[contains(@class,"ebd-review-topic-name")]/span[last()]'));
+            }
         } finally {
             $_GET = $before_get;
         }
@@ -79,4 +104,4 @@ try {
     $wpdb->query('ROLLBACK');
     wp_cache_flush();
 }
-echo "Reviewer Tools lifecycle, four views, exports, robots and data isolation: OK\n";
+echo "Reviewer Tools lifecycle, four alphabetical views, exports, robots and data isolation: OK\n";
