@@ -64,14 +64,18 @@ try {
             $_GET = $before_get;
         }
     }
+    ob_start();
+    Reviewer_Plugin::evaluation_note();
+    $note = ob_get_clean();
+    $check(str_contains($note, '<a href="' . esc_url(add_query_arg('ebd_path', '1', get_permalink($page_id))) . '">Reviewer Tools</a>'), 'Landing-page explanation is missing its review link.');
+    $check(false === has_action('ehrman_demo_extra_search_links'), 'Reviewer Tools still adds a header link.');
     Reviewer_Plugin::deactivate();
     $check(get_post_status($page_id) === 'draft', 'Deactivation did not hide the page.');
     Page_Controller::ensure_pages();
     $check(get_post_status($page_id) === 'draft', 'Production recreated the review page.');
     ob_start();
-    Reviewer_Plugin::navigation();
     Reviewer_Plugin::evaluation_note();
-    $check(ob_get_clean() === '', 'Draft review page still appears in the demo navigation.');
+    $check(ob_get_clean() === '', 'Draft review page still appears in the landing-page explanation.');
     Reviewer_Plugin::activate();
     $check((int) get_option('ehrman_discovery_page_structure_review') === $page_id, 'Reactivation created a duplicate page.');
     $check(get_post_field('post_content', $page_id) === $page_content, 'Page content was altered.');

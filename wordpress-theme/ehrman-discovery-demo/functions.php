@@ -21,6 +21,7 @@ function ehrman_demo_assets(): void
         null
     );
     wp_enqueue_style('ehrman-discovery-demo', get_stylesheet_uri(), array('ehrman-discovery-demo-fonts'), $version);
+    wp_enqueue_script('ehrman-demo-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), $version, true);
 }
 add_action('wp_enqueue_scripts', 'ehrman_demo_assets');
 

@@ -38,7 +38,6 @@ final class Plugin {
 		}
 		add_shortcode( 'ehrman_structure_review', array( self::class, 'render' ) );
 		add_filter( 'wp_robots', array( self::class, 'robots' ) );
-		add_action( 'ehrman_demo_extra_search_links', array( self::class, 'navigation' ) );
 		add_action( 'ehrman_demo_evaluation_note', array( self::class, 'evaluation_note' ) );
 	}
 
@@ -157,26 +156,26 @@ final class Plugin {
 		);
 	}
 
-	/** Adds a menu link only while the optional demo page is published. */
-	public static function navigation(): void {
-		$url = self::page_url();
-		if ( '' === $url ) {
-			return;
-		}
-		echo '<a href="' . esc_url( add_query_arg( 'ebd_path', '1', $url ) ) . '"'
-			. ( is_page( Database::integer( get_option( self::PAGE_OPTION, 0 ) ) ) ? ' aria-current="page"' : '' ) . '>'
-			. esc_html__( 'Reviewer Tools', 'ehrman-reviewer-tools' ) . '</a>';
-	}
-
 	/** Adds the demo landing-page explanation only when the tools are available. */
 	public static function evaluation_note(): void {
-		if ( '' === self::page_url() ) {
+		$url = self::page_url();
+		if ( '' === $url ) {
 			return;
 		}
 		?>
 		<aside class="ehrman-reviewer-note" aria-label="<?php esc_attr_e( 'Reviewer tools evaluation note', 'ehrman-reviewer-tools' ); ?>">
 			<span class="ehrman-reviewer-label"><?php esc_html_e( 'Evaluation only', 'ehrman-reviewer-tools' ); ?></span>
-			<p><?php echo wp_kses_post( __( '<strong>Reviewer Tools</strong> provides expandable outlines of both Browse Topics structures, along with complete category and topic indexes for reviewing how the content is organized. These tools are included only for evaluation and will not appear in the final version; they are intended to confirm that subject areas, categories, and topics are organized appropriately before the structure is finalized.', 'ehrman-reviewer-tools' ) ); ?></p>
+			<p>
+				<?php
+				echo wp_kses_post(
+					sprintf(
+						/* translators: %s: URL of the optional Reviewer Tools page. */
+						__( '<strong><a href="%s">Reviewer Tools</a></strong> provides expandable outlines of both Browse Topics structures, along with complete category and topic indexes for reviewing how the content is organized. These tools are included only for evaluation and will not appear in the final version; they are intended to confirm that subject areas, categories, and topics are organized appropriately before the structure is finalized.', 'ehrman-reviewer-tools' ),
+						esc_url( add_query_arg( 'ebd_path', '1', $url ) )
+					)
+				);
+				?>
+			</p>
 		</aside>
 		<?php
 	}

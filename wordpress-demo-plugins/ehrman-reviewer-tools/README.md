@@ -9,7 +9,7 @@ The production plugin has no dependency on this directory.
 - Both Browse Topics outlines and the complete Categories and Topics indexes.
 - Expand/collapse, topic filtering, description preferences and tooltips.
 - CSV and PDF downloads generated locally in the browser.
-- Reviewer Tools menu link and evaluation note in the companion demo theme.
+- Reviewer Tools link within the landing-page evaluation note in the companion demo theme.
 - The existing `/structure-review/` URL and `ehrman_discovery_page_structure_review`
   page option; existing page content and identifiers are preserved.
 

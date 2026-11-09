@@ -13,10 +13,6 @@
         <div class="ehrman-utility-inner">
             <div class="ehrman-tagline"><?php esc_html_e('Engaging Discussions about Early Christianity', 'ehrman-discovery-demo'); ?></div>
             <div class="ehrman-utility-actions" aria-label="<?php esc_attr_e('Site utility controls', 'ehrman-discovery-demo'); ?>">
-                <div class="ehrman-site-search" aria-disabled="true">
-                    <input type="search" placeholder="<?php esc_attr_e('Search...', 'ehrman-discovery-demo'); ?>" aria-label="<?php esc_attr_e('Site search', 'ehrman-discovery-demo'); ?>" disabled>
-                    <button type="button" disabled><?php esc_html_e('All', 'ehrman-discovery-demo'); ?></button>
-                </div>
                 <span class="ehrman-utility-item" aria-disabled="true"><?php esc_html_e('Join Now!', 'ehrman-discovery-demo'); ?></span>
                 <span class="ehrman-utility-item" aria-disabled="true"><?php esc_html_e('Login', 'ehrman-discovery-demo'); ?></span>
                 <span class="ehrman-utility-item" aria-disabled="true"><?php esc_html_e('Account', 'ehrman-discovery-demo'); ?></span>
@@ -32,12 +28,28 @@
             </span>
         </a>
         <nav class="ehrman-navigation" aria-label="<?php esc_attr_e('Primary navigation', 'ehrman-discovery-demo'); ?>">
-            <a href="<?php echo esc_url(home_url('/')); ?>"<?php echo is_front_page() ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Home', 'ehrman-discovery-demo'); ?></a>
-            <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-1')); ?>"<?php echo is_page('browse-topics-1') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 1', 'ehrman-discovery-demo'); ?></a>
-            <a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-2')); ?>"<?php echo is_page('browse-topics-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 2', 'ehrman-discovery-demo'); ?></a>
-            <a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"<?php echo is_page('keyword-search') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a>
-            <a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai')); ?>"<?php echo is_page('ask-ai') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI', 'ehrman-discovery-demo'); ?></a>
-            <?php do_action('ehrman_demo_extra_search_links'); ?>
+            <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('Join!', 'ehrman-discovery-demo'); ?></span>
+            <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('Recent Posts', 'ehrman-discovery-demo'); ?></span>
+            <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('Forum', 'ehrman-discovery-demo'); ?></span>
+            <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('About Blog', 'ehrman-discovery-demo'); ?></span>
+            <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('About Bart', 'ehrman-discovery-demo'); ?></span>
+            <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('Help', 'ehrman-discovery-demo'); ?></span>
+            <details class="ehrman-search-menu" data-ehrman-search-menu>
+                <summary><?php esc_html_e('Search', 'ehrman-discovery-demo'); ?></summary>
+                <ul class="ehrman-search-options">
+                    <li>
+                        <details class="ehrman-browse-menu">
+                            <summary><?php esc_html_e('Browse Topics', 'ehrman-discovery-demo'); ?></summary>
+                            <ul>
+                                <li><a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-1')); ?>"<?php echo is_page('browse-topics-1') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 1', 'ehrman-discovery-demo'); ?></a></li>
+                                <li><a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics-2')); ?>"<?php echo is_page('browse-topics-2') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics 2', 'ehrman-discovery-demo'); ?></a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"<?php echo is_page('keyword-search') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a></li>
+                    <li><a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai')); ?>"<?php echo is_page('ask-ai') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI', 'ehrman-discovery-demo'); ?></a></li>
+                </ul>
+            </details>
         </nav>
     </div>
 </header>

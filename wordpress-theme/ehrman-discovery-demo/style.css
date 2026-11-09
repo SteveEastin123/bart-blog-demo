@@ -3,7 +3,7 @@ Theme Name: Ehrman Discovery Demo
 Theme URI: https://ehrmanblog.org/
 Author: Ehrman Blog Discovery Demo
 Description: A lightweight companion theme for demonstrating the Ehrman Blog discovery plugin.
-Version: 0.1.9
+Version: 0.1.10
 Requires at least: 6.5
 Requires PHP: 8.1
 Text Domain: ehrman-discovery-demo
@@ -81,6 +81,8 @@ a:hover {
 }
 
 .ehrman-site-header {
+  position: relative;
+  z-index: 10;
   border-bottom: 8px solid var(--ehrman-maroon);
   background: var(--ehrman-maroon);
 }
@@ -115,40 +117,12 @@ a:hover {
   align-items: stretch;
 }
 
-.ehrman-site-search {
-  display: flex;
-  align-items: stretch;
-  margin-left: 18px;
-  opacity: 0.58;
-  pointer-events: none;
-}
-
-.ehrman-site-search input,
-.ehrman-site-search button,
 .ehrman-utility-item {
   border: 0;
   border-left: 1px solid rgb(255 255 255 / 22%);
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 600;
-}
-
-.ehrman-site-search input {
-  width: 155px;
-  padding: 0 10px;
-  background: rgb(255 255 255 / 17%);
-  color: rgb(255 255 255 / 78%);
-}
-
-.ehrman-site-search input::placeholder {
-  color: rgb(255 255 255 / 74%);
-  opacity: 1;
-}
-
-.ehrman-site-search button {
-  padding: 0 11px;
-  background: rgb(0 0 0 / 12%);
-  color: rgb(255 255 255 / 74%);
 }
 
 .ehrman-utility-item {
@@ -166,7 +140,7 @@ a:hover {
   gap: 28px;
   min-height: 116px;
   padding: 14px clamp(22px, 5vw, 70px);
-  overflow: hidden;
+  overflow: visible;
   border-top: 1px solid rgb(255 255 255 / 45%);
   border-bottom: 1px solid rgb(117 31 27 / 36%);
   background-color: var(--ehrman-paper);
@@ -225,15 +199,16 @@ a:hover {
 }
 
 .ehrman-navigation {
+  position: relative;
   display: flex;
   flex: 1 1 650px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: clamp(14px, 1.8vw, 28px);
   max-width: 850px;
   font-family: Oswald, "Arial Narrow", Arial, Helvetica, sans-serif;
-  font-size: clamp(18px, 1.55vw, 22px);
+  font-size: 20px;
   font-weight: 400;
   line-height: 22px;
 }
@@ -251,12 +226,72 @@ a:hover {
 }
 
 .ehrman-navigation .is-disabled {
-  color: #6f6a64;
+  color: var(--ehrman-maroon);
   cursor: default;
-  font-weight: 600;
-  opacity: 0.62;
   user-select: none;
   white-space: nowrap;
+}
+
+.ehrman-search-menu {
+  position: relative;
+  color: var(--ehrman-maroon);
+}
+
+.ehrman-navigation summary {
+  padding: 10px 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ehrman-search-menu > summary {
+  font-weight: 500;
+}
+
+.ehrman-search-menu[open] > summary,
+.ehrman-navigation summary:hover {
+  color: var(--ehrman-maroon-dark);
+}
+
+.ehrman-search-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 270px;
+  max-width: calc(100vw - 24px);
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--ehrman-line);
+  border-top: 3px solid var(--ehrman-maroon);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 15%);
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  list-style: none;
+}
+
+.ehrman-search-options a,
+.ehrman-search-options summary {
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+.ehrman-search-options a {
+  display: block;
+}
+
+.ehrman-search-options a:hover,
+.ehrman-search-options a[aria-current="page"],
+.ehrman-search-options summary:hover {
+  background: #f3f4f4;
+}
+
+.ehrman-browse-menu ul {
+  margin: 0 0 4px 16px;
+  padding: 0;
+  border-left: 2px solid var(--ehrman-line);
+  list-style: none;
 }
 
 .ehrman-main {
@@ -410,7 +445,7 @@ a:hover {
   margin: 0;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1100px) {
   .ehrman-utility-actions {
     display: none;
   }
@@ -433,19 +468,12 @@ a:hover {
   .ehrman-navigation {
     flex: 0 0 auto;
     max-width: none;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 24px;
     width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
   }
 
-  .ehrman-navigation::-webkit-scrollbar {
-    display: none;
-  }
-
-  .ehrman-navigation a,
   .ehrman-navigation .is-disabled {
     display: inline-flex;
     align-items: center;
@@ -485,8 +513,12 @@ a:hover {
   }
 
   .ehrman-navigation {
-    gap: 15px;
-    font-size: 16px;
+    gap: 0 20px;
+    font-size: 18px;
+  }
+
+  .ehrman-search-menu {
+    position: static;
   }
 
   .ehrman-hero {
