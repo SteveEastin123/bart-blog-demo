@@ -156,26 +156,13 @@ final class Search_Suggestion_Service {
 			sort( $ids, SORT_NUMERIC );
 			$count_where = ' WHERE post_id IN (' . self::integer_list( $ids ) . ')';
 		}
-		$count_rows     = Database::associative_rows(
+		$count_rows  = Database::associative_rows(
 			$wpdb->get_results(
 				"SELECT DISTINCT post_id,normalized,kind FROM {$tables['post_search_terms']}{$count_where}",
 				ARRAY_A
 			)
 		);
-		$matching_posts = array_fill_keys( array_keys( $candidate_normalized ), array() );
-		$topic_posts    = array_fill_keys( array_keys( $candidate_normalized ), array() );
-		foreach ( $count_rows as $count_row ) {
-			$indexed = Database::text( $count_row['normalized'] ?? null );
-			$post_id = Database::integer( $count_row['post_id'] ?? null );
-			foreach ( $candidate_normalized as $candidate => $_unused ) {
-				if ( $indexed === $candidate || str_contains( " {$indexed} ", " {$candidate} " ) ) {
-					$matching_posts[ $candidate ][ $post_id ] = true;
-				}
-				if ( $indexed === $candidate && in_array( Database::text( $count_row['kind'] ?? null ), array( 'topic', 'alias' ), true ) ) {
-					$topic_posts[ $candidate ][ $post_id ] = true;
-				}
-			}
-		}
+		$post_counts = self::count_suggestion_posts( $count_rows, $candidate_normalized );
 
 		$description_rows   = Database::associative_rows(
 			$wpdb->get_results(
@@ -191,7 +178,7 @@ final class Search_Suggestion_Service {
 		$suggestions = array();
 		foreach ( $rows as $row ) {
 			$normalized = Database::text( $row['normalized'] ?? null );
-			$post_count = count( $matching_posts[ $normalized ] ?? array() );
+			$post_count = $post_counts[ $normalized ]['posts'] ?? 0;
 			if ( 0 === $post_count ) {
 				continue;
 			}
@@ -206,7 +193,7 @@ final class Search_Suggestion_Service {
 					: '',
 			);
 			if ( $has_topic ) {
-				$topic_count = count( $topic_posts[ $normalized ] ?? array() );
+				$topic_count = $post_counts[ $normalized ]['topics'] ?? 0;
 				if ( $topic_count > 0 && ( null === $context_post_count || $topic_count < $context_post_count ) ) {
 					$suggestions[] = $base + array(
 						'postCount' => $topic_count,
@@ -258,6 +245,47 @@ final class Search_Suggestion_Service {
 			),
 			$suggestions
 		);
+	}
+
+	/**
+	 * Counts distinct eligible posts after matching each indexed term only once.
+	 *
+	 * @param array<int,array<string,mixed>> $rows       Eligible post-term rows.
+	 * @param array<int|string,bool>         $candidates Normalized suggestion terms.
+	 * @return array<int|string,array{posts:int,topics:int}> Combined and exact-topic counts.
+	 */
+	private static function count_suggestion_posts( array $rows, array $candidates ): array {
+		$indexed_posts = array();
+		$topic_posts   = array();
+		foreach ( $rows as $row ) {
+			$indexed                               = Database::text( $row['normalized'] ?? null );
+			$post_id                               = Database::integer( $row['post_id'] ?? null );
+			$indexed_posts[ $indexed ][ $post_id ] = true;
+			if ( in_array( Database::text( $row['kind'] ?? null ), array( 'topic', 'alias' ), true ) ) {
+				$topic_posts[ $indexed ][ $post_id ] = true;
+			}
+		}
+
+		$counts = array();
+		foreach ( $candidates as $candidate => $_unused ) {
+			$matching    = array();
+			$topic_count = 0;
+			foreach ( $indexed_posts as $indexed => $post_ids ) {
+				$indexed = (string) $indexed;
+				if ( $indexed === $candidate || str_contains( " {$indexed} ", " {$candidate} " ) ) {
+					// Set union preserves distinct post IDs across overlapping terms and kinds.
+					$matching += $post_ids;
+				}
+				if ( $indexed === $candidate ) {
+					$topic_count = count( $topic_posts[ $indexed ] ?? array() );
+				}
+			}
+			$counts[ $candidate ] = array(
+				'posts'  => count( $matching ),
+				'topics' => $topic_count,
+			);
+		}
+		return $counts;
 	}
 
 	/**

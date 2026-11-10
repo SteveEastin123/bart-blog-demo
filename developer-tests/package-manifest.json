@@ -15,6 +15,7 @@
     "regressions/plugin-regression-tests.php": "wordpress-production/tests/plugin-regression-tests.php",
     "regressions/api-settings-tests.php": "wordpress-production/tests/api-settings-tests.php",
     "regressions/semantic-ranking-tests.php": "wordpress-production/tests/semantic-ranking-tests.php",
+    "regressions/search-suggestion-count-tests.php": "wordpress-production/tests/search-suggestion-count-tests.php",
     "regressions/post-ingestion-editor-tests.php": "wordpress-production/tests/post-ingestion-editor-tests.php",
     "regressions/post-ingestion-editor-review-tests.php": "wordpress-production/tests/post-ingestion-editor-review-tests.php",
     "regressions/post-ingestion-lifecycle-tests.php": "wordpress-production/tests/post-ingestion-lifecycle-tests.php",
