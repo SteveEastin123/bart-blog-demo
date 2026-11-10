@@ -1,8 +1,8 @@
 {
   "version": 1,
   "createdAt": "2026-08-02",
-  "updatedAt": "2026-10-12",
-  "auditScope": "All 4446 posts in the canonical search index",
+  "updatedAt": "2026-11-10",
+  "auditScope": "All 4469 posts in the canonical search index",
   "auditMethod": "Each full local post text was reviewed individually. Existing topics were retained only when they represented a primary or major sustained subject; only existing topics could be added.",
   "sourceFiles": [
     "data/index/ehrman_post_search_index.json",
@@ -10,7 +10,7 @@
     "data/raw/posts.jsonl"
   ],
   "canonicalAssignmentsChanged": true,
-  "reviewedPostCount": 4446,
+  "reviewedPostCount": 4469,
   "noChangeCount": 3774,
   "pendingApprovalCount": 0,
   "posts": [
@@ -85715,8 +85715,486 @@
       "topicsRemoved": [],
       "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
       "appliedAt": "2026-10-12"
+    },
+    {
+      "auditSequence": 4447,
+      "sourceIndex": 0,
+      "wpId": "50908",
+      "dateText": "November 10, 2026",
+      "title": "Advice About Money From a Different Universe",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Jesus on Wealth and Poverty",
+        "Christianity and Capitalism",
+        "Wealth and Poverty in Antiquity"
+      ],
+      "topicsAdded": [
+        "Jesus on Wealth and Poverty",
+        "Christianity and Capitalism",
+        "Wealth and Poverty in Antiquity"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4448,
+      "sourceIndex": 1,
+      "wpId": "50882",
+      "dateText": "November 8, 2026",
+      "title": "Outdated Religion and Modern Life",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Jesus on Wealth and Poverty",
+        "Apocalyptic Jesus"
+      ],
+      "topicsAdded": [
+        "Jesus on Wealth and Poverty",
+        "Apocalyptic Jesus"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4449,
+      "sourceIndex": 2,
+      "wpId": "50880",
+      "dateText": "November 7, 2026",
+      "title": "Changing Times and the Question of Relevance",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics"
+      ],
+      "topicsAdded": [
+        "Jesus on Wealth and Poverty",
+        "Jesus' Ethics"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4450,
+      "sourceIndex": 3,
+      "wpId": "50872",
+      "dateText": "November 5, 2026",
+      "title": "Expecting the End? Was Mark Written in Aramaic? And Was a Key Verse Added to John?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Modern End-Times Interpretation",
+        "Gospel of Mark",
+        "Gospel of John",
+        "Textual Variants",
+        "Scribal Changes"
+      ],
+      "topicsAdded": [
+        "Modern End-Times Interpretation",
+        "Gospel of Mark",
+        "Gospel of John",
+        "Textual Variants",
+        "Scribal Changes"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4451,
+      "sourceIndex": 4,
+      "wpId": "50870",
+      "dateText": "November 4, 2026",
+      "title": "The (Ir)relevance of Biblical Moral Teachings",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Moral Problems in Scripture",
+        "Jesus' Ethics",
+        "Jesus on Wealth and Poverty"
+      ],
+      "topicsAdded": [
+        "Moral Problems in Scripture",
+        "Jesus' Ethics",
+        "Jesus on Wealth and Poverty"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4452,
+      "sourceIndex": 5,
+      "wpId": "50856",
+      "dateText": "November 3, 2026",
+      "title": "A Modern Scholar Who Also Argues Jesus Did Not Die on the Cross",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Crucifixion of Jesus",
+        "Modern Forgery Claims"
+      ],
+      "topicsAdded": [
+        "Crucifixion of Jesus",
+        "Modern Forgery Claims"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4453,
+      "sourceIndex": 6,
+      "wpId": "50853",
+      "dateText": "November 1, 2026",
+      "title": "Did Jesus Survive His Crucifixion?  Depends Which Gospel You Read….",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Modern Forgery Claims",
+        "Crucifixion of Jesus"
+      ],
+      "topicsAdded": [
+        "Modern Forgery Claims",
+        "Crucifixion of Jesus"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4454,
+      "sourceIndex": 7,
+      "wpId": "50851",
+      "dateText": "October 31, 2026",
+      "title": "Ghosts in the Bible?  Check Out This New Blog by Travis Proctor",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Genesis",
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "topicsAdded": [
+        "Genesis",
+        "Divine Beings in the Hebrew Bible"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4455,
+      "sourceIndex": 8,
+      "wpId": "50833",
+      "dateText": "October 29, 2026",
+      "title": "Did Jesus Go to India and Tibet?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Modern Forgery Claims",
+        "Historical Jesus (General)"
+      ],
+      "topicsAdded": [
+        "Modern Forgery Claims",
+        "Historical Jesus (General)"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4456,
+      "sourceIndex": 9,
+      "wpId": "50804",
+      "dateText": "October 28, 2026",
+      "title": "The Best Forgery Story of Modern Times (IMHO)",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Modern Forgery Claims"
+      ],
+      "topicsAdded": [
+        "Modern Forgery Claims"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4457,
+      "sourceIndex": 10,
+      "wpId": "50831",
+      "dateText": "October 27, 2026",
+      "title": "Did Mark Make Up the Idea Jesus Was a Carpenter?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Gospel of Mark",
+        "Messianic Secret"
+      ],
+      "topicsAdded": [
+        "Gospel of Mark",
+        "Messianic Secret"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4458,
+      "sourceIndex": 11,
+      "wpId": "50818",
+      "dateText": "October 25, 2026",
+      "title": "Casting Doubt on Jesus as the Carpenter…",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Historical Jesus (General)",
+        "Parables of Jesus"
+      ],
+      "topicsAdded": [
+        "Historical Jesus (General)",
+        "Parables of Jesus"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4459,
+      "sourceIndex": 12,
+      "wpId": "50809",
+      "dateText": "October 24, 2026",
+      "title": "What’s Wrong with Being a Carpenter??",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Social Class in Antiquity",
+        "Redaction Criticism",
+        "Gospel of Mark"
+      ],
+      "topicsAdded": [
+        "Social Class in Antiquity",
+        "Redaction Criticism",
+        "Gospel of Mark"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4460,
+      "sourceIndex": 13,
+      "wpId": "50845",
+      "dateText": "October 23, 2026",
+      "title": "Next Platinum Lecture on November 14th",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Ignore"
+      ],
+      "topicsAdded": [
+        "Ignore"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4461,
+      "sourceIndex": 14,
+      "wpId": "50799",
+      "dateText": "October 22, 2026",
+      "title": "Was Jesus a Carpenter?  The Surprisingly Thin Evidence.",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Gospel Historical Reliability"
+      ],
+      "topicsAdded": [
+        "Gospel of Mark",
+        "Scribal Changes",
+        "Gospel Historical Reliability"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4462,
+      "sourceIndex": 15,
+      "wpId": "50791",
+      "dateText": "October 21, 2026",
+      "title": "Supernatural “History.” Church Fathers. Atonement. Gospel Sources.  All Sorts of Questions!",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Historical Study of Miracles",
+        "Church Fathers as Textual Evidence",
+        "Atonement (General)",
+        "Source Criticism"
+      ],
+      "topicsAdded": [
+        "Historical Study of Miracles",
+        "Church Fathers as Textual Evidence",
+        "Atonement (General)",
+        "Source Criticism"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4463,
+      "sourceIndex": 16,
+      "wpId": "50763",
+      "dateText": "October 20, 2026",
+      "title": "An Even Stranger View of Eternity in the Book of Revelation",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Book of Revelation",
+        "Heaven and Hell Beliefs"
+      ],
+      "topicsAdded": [
+        "Book of Revelation",
+        "Heaven and Hell Beliefs"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4464,
+      "sourceIndex": 17,
+      "wpId": "50761",
+      "dateText": "October 18, 2026",
+      "title": "The Irony of Jesus as the King of the Coming Kingdom",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Kingdom of God",
+        "Heaven and Hell Beliefs"
+      ],
+      "topicsAdded": [
+        "Kingdom of God",
+        "Heaven and Hell Beliefs"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4465,
+      "sourceIndex": 18,
+      "wpId": "50753",
+      "dateText": "October 17, 2026",
+      "title": "A Head-Scratcher in the Sermon on the Mount: Who Gets Into the Kingdom?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Sermon on the Mount",
+        "Jewish Law and Torah",
+        "Kingdom of God"
+      ],
+      "topicsAdded": [
+        "Sermon on the Mount",
+        "Jewish Law and Torah",
+        "Kingdom of God"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4466,
+      "sourceIndex": 19,
+      "wpId": "50796",
+      "dateText": "October 16, 2026",
+      "title": "November 2026 Gold Q&A",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Ignore"
+      ],
+      "topicsAdded": [
+        "Ignore"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4467,
+      "sourceIndex": 20,
+      "wpId": "50738",
+      "dateText": "October 15, 2026",
+      "title": "How Much Reward Do You Want?  The Tiers of Heaven",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Afterlife Journeys",
+        "Heaven and Hell Beliefs",
+        "Eternal Punishment"
+      ],
+      "topicsAdded": [
+        "Afterlife Journeys",
+        "Heaven and Hell Beliefs",
+        "Eternal Punishment"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4468,
+      "sourceIndex": 21,
+      "wpId": "50735",
+      "dateText": "October 14, 2026",
+      "title": "Are People Treated Equally in the Age to Come?",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Apocalypse of Peter"
+      ],
+      "topicsAdded": [
+        "Heaven and Hell Beliefs",
+        "Afterlife Journeys",
+        "Apocalypse of Peter"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
+    },
+    {
+      "auditSequence": 4469,
+      "sourceIndex": 22,
+      "wpId": "50533",
+      "dateText": "October 13, 2026",
+      "title": "Great News For the Blog!  A Significant Milestone",
+      "status": "applied",
+      "topicsBefore": [],
+      "topicsRecommended": [
+        "Blog Updates and Fundraising",
+        "Writing and Publishing Process"
+      ],
+      "topicsAdded": [
+        "Blog Updates and Fundraising",
+        "Writing and Publishing Process"
+      ],
+      "topicsRemoved": [],
+      "reason": "The newly downloaded post was reviewed in full before its topic assignments were approved.",
+      "appliedAt": "2026-11-10"
     }
   ],
-  "appliedChangeCount": 672,
+  "appliedChangeCount": 695,
   "pendingDescriptionRecommendations": []
 }
