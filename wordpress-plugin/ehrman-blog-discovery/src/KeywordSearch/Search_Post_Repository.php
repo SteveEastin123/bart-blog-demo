@@ -40,14 +40,18 @@ final class Search_Post_Repository {
 	/**
 	 * Returns the unique posts connected to a category.
 	 *
-	 * @param int $category_id Category identifier.
+	 * @param int  $category_id Category identifier.
+	 * @param bool $public_only Check publication status; autocomplete alone opts out.
 	 * @return array<int,bool> Post-ID set.
 	 */
-	public function category_post_ids( int $category_id ): array {
+	public function category_post_ids( int $category_id, bool $public_only = true ): array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
 		$sql    = "SELECT DISTINCT pt.post_id FROM {$tables['post_topics']} pt "
-			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d AND pt.post_id IN (" . Post_Visibility::ids_sql() . ')';
+			. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=pt.topic_id WHERE tc.category_id=%d";
+		if ( $public_only ) {
+			$sql .= ' AND pt.post_id IN (' . Post_Visibility::ids_sql() . ')';
+		}
 		/**
 		 * Internal query with trusted custom-table identifiers.
 		 *
@@ -61,13 +65,17 @@ final class Search_Post_Repository {
 	/**
 	 * Returns the posts assigned directly to a topic.
 	 *
-	 * @param int $topic_id Topic identifier.
+	 * @param int  $topic_id    Topic identifier.
+	 * @param bool $public_only Check publication status; autocomplete alone opts out.
 	 * @return array<int,bool> Post-ID set.
 	 */
-	public function topic_post_ids( int $topic_id ): array {
+	public function topic_post_ids( int $topic_id, bool $public_only = true ): array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$sql    = "SELECT post_id FROM {$tables['post_topics']} WHERE topic_id=%d AND post_id IN (" . Post_Visibility::ids_sql() . ')';
+		$sql    = "SELECT post_id FROM {$tables['post_topics']} WHERE topic_id=%d";
+		if ( $public_only ) {
+			$sql .= ' AND post_id IN (' . Post_Visibility::ids_sql() . ')';
+		}
 		/**
 		 * Internal query with a trusted custom-table identifier.
 		 *
@@ -81,21 +89,23 @@ final class Search_Post_Repository {
 	/**
 	 * Returns matching post IDs and index weights for one term.
 	 *
-	 * @param string $term Search term.
-	 * @param string $mode Search-term mode.
+	 * @param string $term        Search term.
+	 * @param string $mode        Search-term mode.
+	 * @param bool   $public_only Check publication status; autocomplete alone opts out.
 	 * @return array<int,int> Scores keyed by post ID.
 	 */
-	public function post_scores_for_term( string $term, string $mode = Search_Service::TERM_MODE_COMBINED ): array {
+	public function post_scores_for_term( string $term, string $mode = Search_Service::TERM_MODE_COMBINED, bool $public_only = true ): array {
 		$wpdb       = Database::client();
 		$tables     = Database::tables();
 		$normalized = Search_Service::normalize( $term );
 		if ( '' === $normalized ) {
 			return array();
 		}
+		$visibility = $public_only ? ' AND post_id IN (' . Post_Visibility::ids_sql() . ')' : '';
 		if ( Search_Service::TERM_MODE_TOPIC === $mode ) {
 			$sql = 'SELECT post_id,MAX(weight+2) score '
-				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind IN ('topic','alias') "
-				. 'AND post_id IN (' . Post_Visibility::ids_sql() . ') GROUP BY post_id';
+				. "FROM {$tables['post_search_terms']} WHERE normalized=%s AND kind IN ('topic','alias')"
+				. $visibility . ' GROUP BY post_id';
 			/**
 			 * Internal query with a trusted custom-table identifier.
 			 *
@@ -109,7 +119,7 @@ final class Search_Post_Repository {
 		} else {
 			$sql = 'SELECT post_id,MAX(weight+CASE WHEN normalized=%s THEN 2 ELSE 0 END) score '
 				. "FROM {$tables['post_search_terms']} WHERE (normalized=%s "
-				. "OR CONCAT(' ',normalized,' ') LIKE %s) AND post_id IN (" . Post_Visibility::ids_sql() . ') GROUP BY post_id';
+				. "OR CONCAT(' ',normalized,' ') LIKE %s)" . $visibility . ' GROUP BY post_id';
 			/**
 			 * Internal query with a trusted custom-table identifier.
 			 *

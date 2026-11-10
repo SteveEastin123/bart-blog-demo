@@ -95,7 +95,7 @@ class SearchParityTests(unittest.TestCase):
         self.assertEqual(app.description_match_boost(rows[1]["description"], term), 2)
 
     def test_multiword_terms_use_a_modest_anchor_word_boost(self) -> None:
-        term = "Non-Pauline Epistle Authorship"
+        term = "General Epistle Authorship"
         self.assertEqual(app.ranking_anchor_token(term), "authorship")
         self.assertEqual(app.ranking_anchor_token("Translation Issues"), "translation")
         self.assertEqual(app.ranking_anchor_token("Paul"), "")

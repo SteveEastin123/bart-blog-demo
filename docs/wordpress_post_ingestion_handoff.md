@@ -91,16 +91,21 @@ IDs are not assumed to refer to local WordPress posts in a demo installation.
 Existing unlinked records are not automatically reassigned during upgrade.
 
 - Unpublishing, making private, or trashing an editor-indexed post hides it from
-  all three searches and their post counts. Its approved metadata and vector
+  all three searches' post results and result counts. Its approved metadata and vector
   remain stored for restoration. Pending jobs are canceled and late analysis
   responses cannot overwrite the canceled attempt.
+- Autocomplete suggestions and their counts use stored index metadata without
+  publication-status checks. Retained terms from unpublished posts can still
+  appear there, including when a category, topic, or selected term narrows the
+  suggestions. Selecting a suggestion does not bypass result visibility checks.
 - Republishing restores visibility without a new AI call. Content edits still
   require a separate metadata review; restoration does not regenerate metadata.
 - If a publisher chooses **Delete Permanently** in WordPress, the plugin removes
   only that native post's linked discovery record, assignments, vector and
   ingestion history. Shared topic/keyword definitions and reader analytics remain.
   Failed cleanup is retried through WordPress cron and reported to administrators;
-  the removed post stays hidden even while cleanup is pending.
+  the removed post stays hidden from actual post results even while cleanup is
+  pending. Autocomplete metadata remains until cleanup succeeds.
 - Approval and vector writes recheck their source so deletion during a slow AI
   call cannot recreate an orphan record.
 

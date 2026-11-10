@@ -64,7 +64,7 @@ final class Search_Suggestion_Service {
 				return array();
 			}
 			$category_id = Database::integer( $category['id'] ?? null );
-			$eligible    = $this->repository->category_post_ids( $category_id );
+			$eligible    = $this->repository->category_post_ids( $category_id, false );
 			$sql         = "SELECT t.name FROM {$tables['topics']} t "
 				. "JOIN {$tables['topic_categories']} tc ON tc.topic_id=t.id "
 				. 'WHERE tc.category_id=%d AND t.display_in_browser=1';
@@ -77,14 +77,14 @@ final class Search_Suggestion_Service {
 			if ( null === $topic ) {
 				return array();
 			}
-			$eligible = self::intersect_id_sets( $eligible, $this->repository->topic_post_ids( Database::integer( $topic['id'] ?? null ) ) );
+			$eligible = self::intersect_id_sets( $eligible, $this->repository->topic_post_ids( Database::integer( $topic['id'] ?? null ), false ) );
 		}
 
 		foreach ( $selected as $index => $term ) {
 			$eligible = self::intersect_id_sets(
 				$eligible,
 				array_fill_keys(
-					array_keys( $this->repository->post_scores_for_term( $term, $selected_modes[ $index ] ?? Search_Service::TERM_MODE_COMBINED ) ),
+					array_keys( $this->repository->post_scores_for_term( $term, $selected_modes[ $index ] ?? Search_Service::TERM_MODE_COMBINED, false ) ),
 					true
 				)
 			);
@@ -94,7 +94,8 @@ final class Search_Suggestion_Service {
 		}
 		$context_post_count = ! empty( $selected ) ? count( $eligible ) : null;
 
-		$where  = array( "normalized <> 'ignore'", 'post_id IN (' . Post_Visibility::ids_sql() . ')' );
+		// Autocomplete reads stored index metadata; final search results still check publication status.
+		$where  = array( "normalized <> 'ignore'" );
 		$params = array( $query_normalized, $query_normalized . '%', '% ' . $query_normalized . '%' );
 		if ( '' === $query_normalized ) {
 			$where[] = "kind <> 'alias'";
@@ -149,11 +150,11 @@ final class Search_Suggestion_Service {
 				$candidate_normalized[ $normalized ] = true;
 			}
 		}
-		$count_where = ' WHERE post_id IN (' . Post_Visibility::ids_sql() . ')';
+		$count_where = '';
 		if ( is_array( $eligible ) ) {
 			$ids = array_keys( $eligible );
 			sort( $ids, SORT_NUMERIC );
-			$count_where .= ' AND post_id IN (' . self::integer_list( $ids ) . ')';
+			$count_where = ' WHERE post_id IN (' . self::integer_list( $ids ) . ')';
 		}
 		$count_rows     = Database::associative_rows(
 			$wpdb->get_results(

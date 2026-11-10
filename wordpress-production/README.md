@@ -134,6 +134,12 @@ Trash/unpublish hides them from search without discarding metadata or vectors;
 republishing restores them. Permanent deletion, only when chosen in WordPress,
 removes the owned records. There is no automatic test-post deletion feature.
 
+Autocomplete deliberately reads the stored search index without checking native
+WordPress publication status on each keystroke. Suggestions and their counts can
+therefore include metadata retained for trashed, draft, or private posts. Actual
+Keyword Search, Browse Topics, and Ask AI results still enforce publication
+visibility. Permanent-deletion cleanup removes the owned autocomplete metadata.
+
 The plugin includes an administrator-only **Tools > Post Ingestion** workflow
 for the future database-authoritative deployment. An administrator enters the
 WordPress post ID, title, URL, author, publication date, and complete post text.

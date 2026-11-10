@@ -46,6 +46,36 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 	$category = $browse->topic_category( (int) $topic['id'] );
 	$base_count = $category ? $browse->category_post_count( (int) $category['id'] ) : 0;
 	$base_topic_count = count( $search->topic_post_ids( (int) $topic['id'] ) );
+	$autocomplete_cases = array(
+		'unscoped' => array( $topic['name'] ),
+		'topic-scope' => array( '', array(), '', $topic['slug'] ),
+		'selected-topic' => array( '', array( $topic['name'] ), '', '', array( Search_Service::TERM_MODE_TOPIC ) ),
+		'selected-keyword' => array( '', array( $proposal['secondaryKeywords'][0] ), '', '', array( Search_Service::TERM_MODE_KEYWORD ) ),
+		'selected-combined' => array( '', array( $topic['name'] ), '', '', array( Search_Service::TERM_MODE_COMBINED ) ),
+	);
+	if ( $category ) {
+		$autocomplete_cases['category-list'] = array( '', array(), $category['slug'] );
+		$autocomplete_cases['category-prefix'] = array( $topic['name'], array(), $category['slug'] );
+	}
+	$capture_autocomplete = static function () use ( $autocomplete_cases, $wpdb, $assert ): array {
+		$queries = array();
+		$record_query = static function ( $sql ) use ( &$queries ) { $queries[] = $sql; return $sql; };
+		add_filter( 'query', $record_query );
+		try {
+			$results = array();
+			$autocomplete = new Search_Service();
+			foreach ( $autocomplete_cases as $name => $args ) {
+				$results[$name] = $autocomplete->suggestions( ...$args );
+			}
+		} finally {
+			remove_filter( 'query', $record_query );
+		}
+		$assert( ! empty( $queries ), 'Autocomplete did not execute its index queries.' );
+		foreach ( $queries as $sql ) {
+			$assert( ! str_contains( $sql, $wpdb->posts ), 'Autocomplete queried native publication status.' );
+		}
+		return $results;
+	};
 	$package = get_temp_dir() . 'lifecycle-handoff-' . wp_generate_uuid4() . '.jsonl.gz';
 	$http_calls = 0;
 	$delete_during_embedding = 0;
@@ -76,6 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 	try {
 		putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
 		putenv( 'OPENAI_API_KEY=lifecycle-mock-key' );
+		$autocomplete_before = $capture_autocomplete();
 		$id = $make_post();
 		$draft = $make_draft( $id );
 		$store->store_analysis( $draft, $proposal, $metrics );
@@ -88,6 +119,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$vector = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE source_wp_id=%d', $tables['post_embeddings'], $id ), ARRAY_A );
 		$assert( ! empty( $vector ), 'Approved post vector missing.' );
 		$assert_same( $base_topic_count + 1, count( $search->topic_post_ids( (int) $topic['id'] ) ), 'Published post was not counted.' );
+		$autocomplete_published = $capture_autocomplete();
+		$assert( ! empty( $autocomplete_published['unscoped'] ), 'Autocomplete fixture produced no suggestions.' );
+		$assert( $autocomplete_before['unscoped'] !== $autocomplete_published['unscoped'], 'Autocomplete did not count the fixture metadata.' );
 		$candidates = ( new Semantic_Post_Repository() )->candidate_rows();
 		$assert( in_array( $external_id, array_map( 'intval', array_column( $candidates, 'id' ) ), true ), 'Published post missing from semantic candidates.' );
 
@@ -108,6 +142,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert( $version !== AI_Usage::cache_version(), 'Trashing did not invalidate cached search results.' );
 		foreach ( array( 'trash', 'draft', 'private' ) as $status ) {
 			wp_update_post( array( 'ID' => $id, 'post_status' => $status ) );
+			$assert_same( $autocomplete_published, $capture_autocomplete(), 'Autocomplete stopped using retained index metadata after unpublishing.' );
+			$results = ( new Search_Service() )->search( array( $topic['name'] ), 'ranked', '', '', 1, 0, array( Search_Service::TERM_MODE_TOPIC ) );
+			$assert( ! in_array( $external_id, array_map( 'intval', array_column( $results['posts'], 'id' ) ), true ), 'Autocomplete opt-out exposed an unpublished search result.' );
 			$assert_same( array(), $search->posts_by_ids( array( $external_id ) ), 'An unpublished post remained searchable.' );
 			$assert_same( array(), Post_Visibility::filter_posts( array( array( 'id' => $external_id ) ) ), 'An in-flight candidate remained visible after unpublishing.' );
 			$assert_same( $base_topic_count, count( $search->topic_post_ids( (int) $topic['id'] ) ), 'Hidden post changed topic counts.' );
@@ -137,6 +174,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		foreach ( array( 'post_topics', 'post_keywords', 'post_search_terms' ) as $key ) {
 			$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE post_id=%d', $tables[$key], $external_id ) ), 'Permanent deletion left search assignments.' );
 		}
+		$assert_same( $autocomplete_before, $capture_autocomplete(), 'Permanent deletion did not restore autocomplete counts and suggestions.' );
 
 		$id = $make_post();
 		$draft = $make_draft( $id );
