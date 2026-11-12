@@ -27,8 +27,8 @@ $ai_diagram_url = add_query_arg(
         <div class="ehrman-hero" role="img" aria-label="<?php esc_attr_e('Bart Ehrman lecturing', 'ehrman-discovery-demo'); ?>"></div>
         <section class="ehrman-intro-band" aria-label="<?php esc_attr_e('Demo introduction', 'ehrman-discovery-demo'); ?>">
             <div class="ehrman-intro-inner">
-                <p><?php echo wp_kses_post(__('This demo offers three ways to find posts on Bart\'s blog: <strong>Browse Topics</strong>, <strong>Keyword Search</strong>, and <strong>AI-assisted search</strong>. Two alternative Browse Topics structures are included for evaluation.', 'ehrman-discovery-demo')); ?></p>
-                <p><?php echo wp_kses_post(__('<strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts. <strong>Browse Topics 1</strong> and <strong>Browse Topics 2</strong> organize the same collection differently; only one will appear in the final version.', 'ehrman-discovery-demo')); ?></p>
+                <p><?php echo wp_kses_post(__('This demo offers three ways to find posts on Bart\'s blog: <strong>Browse Topics</strong>, <strong>Keyword Search</strong>, and <strong>AI-assisted search</strong>.', 'ehrman-discovery-demo')); ?></p>
+                <p><?php echo wp_kses_post(__('<strong>Browse Topics</strong> guides readers from subject areas to categories, topics, and related posts.', 'ehrman-discovery-demo')); ?></p>
                 <p><?php echo wp_kses_post(__('<strong>Keyword Search</strong> works best for readers who already know what they want to find. Readers can optionally select a category and combine up to four topics or secondary keywords.', 'ehrman-discovery-demo')); ?></p>
                 <p><?php echo wp_kses_post(__('<strong>Ask AI</strong> lets readers ask a question or describe a subject they want to explore. Semantic search finds candidate posts by matching the meaning of the query with post titles and summaries. AI then evaluates those titles and summaries against the query and ranks the most relevant posts.', 'ehrman-discovery-demo')); ?></p>
                 <?php do_action('ehrman_demo_evaluation_note'); ?>

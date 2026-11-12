@@ -17,7 +17,7 @@ final class Browse_Page_Renderer {
 	/**
 	 * Browse URL builder supplied by the page controller.
 	 *
-	 * @var \Closure(int,array<string,mixed>):string
+	 * @var \Closure(array<string,mixed>):string
 	 */
 	private \Closure $browse_url;
 
@@ -29,7 +29,7 @@ final class Browse_Page_Renderer {
 	 * @param Discovery_Markup     $markup      Shared discovery-page markup.
 	 * @param Search_Page_Renderer $search_page Shared search-page renderer.
 	 * @param callable             $browse_url  Browse URL builder.
-	 * @phpstan-param callable(int,array<string,mixed>):string $browse_url
+	 * @phpstan-param callable(array<string,mixed>):string $browse_url
 	 */
 	public function __construct(
 		private Browse_Service $browse,
@@ -44,7 +44,6 @@ final class Browse_Page_Renderer {
 	/**
 	 * Renders the requested Browse Topics view.
 	 *
-	 * @param int               $path_number  Browse-path number.
 	 * @param string            $subject_slug Subject-area slug.
 	 * @param string            $category_slug Category slug.
 	 * @param string            $topic_slug   Topic slug.
@@ -56,7 +55,6 @@ final class Browse_Page_Renderer {
 	 * @return string Browse interface markup.
 	 */
 	public function render(
-		int $path_number,
 		string $subject_slug,
 		string $category_slug,
 		string $topic_slug,
@@ -67,31 +65,30 @@ final class Browse_Page_Renderer {
 		int $page
 	): string {
 		if ( '' !== $topic_slug ) {
-			return $this->render_topic_posts( $path_number, $subject_slug, $category_slug, $topic_slug, $terms, $term_modes, $sort, $page );
+			return $this->render_topic_posts( $subject_slug, $category_slug, $topic_slug, $terms, $term_modes, $sort, $page );
 		}
 		if ( '' !== $category_slug && 'posts' === $view ) {
-			return $this->render_category_posts( $path_number, $subject_slug, $category_slug, $terms, $term_modes, $sort, $page );
+			return $this->render_category_posts( $subject_slug, $category_slug, $terms, $term_modes, $sort, $page );
 		}
 		if ( '' !== $category_slug ) {
-			return $this->render_category( $path_number, $subject_slug, $category_slug );
+			return $this->render_category( $subject_slug, $category_slug );
 		}
 		if ( '' !== $subject_slug ) {
-			return $this->render_subject_area( $path_number, $subject_slug );
+			return $this->render_subject_area( $subject_slug );
 		}
-		return $this->render_subject_areas( $path_number );
+		return $this->render_subject_areas();
 	}
 
 	/**
 	 * Renders the subject-area index for a browse path.
 	 *
-	 * @param int $path_number Browse-path number.
 	 * @return string Subject-area list markup.
 	 */
-	private function render_subject_areas( int $path_number ): string {
-		$areas = $this->alphabetical_records( $this->browse->subject_areas( $path_number ) );
+	private function render_subject_areas(): string {
+		$areas = $this->alphabetical_records( $this->browse->subject_areas() );
 		$items = array();
 		foreach ( $areas as $area ) {
-			$url     = $this->url( $path_number, array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) );
+			$url     = $this->url( array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) );
 			$meta    = $this->markup->plural( Database::integer( $area['category_count'] ?? null ), 'category', 'categories' ) . ' &bull; '
 				. $this->markup->plural( Database::integer( $area['topic_count'] ?? null ), 'topic' ) . ' &bull; '
 				. $this->markup->plural( Database::integer( $area['post_count'] ?? null ), 'post' );
@@ -114,12 +111,11 @@ final class Browse_Page_Renderer {
 	/**
 	 * Renders the categories within a subject area.
 	 *
-	 * @param int    $path_number  Browse-path number.
 	 * @param string $subject_slug Subject-area slug.
 	 * @return string Category list markup.
 	 */
-	private function render_subject_area( int $path_number, string $subject_slug ): string {
-		$area = $this->browse->subject_area( $path_number, $subject_slug );
+	private function render_subject_area( string $subject_slug ): string {
+		$area = $this->browse->subject_area( $subject_slug );
 		if ( null === $area ) {
 			return $this->not_found();
 		}
@@ -129,7 +125,6 @@ final class Browse_Page_Renderer {
 		$items      = array();
 		foreach ( $categories as $category ) {
 			$url     = $this->url(
-				$path_number,
 				array(
 					'ebd_subject'  => $subject_slug,
 					'ebd_category' => Database::text( $category['slug'] ?? null ),
@@ -149,7 +144,7 @@ final class Browse_Page_Renderer {
 			. $this->markup->plural( (int) $counts['topic_count'], 'topic' ) . ' &bull; '
 			. $this->markup->plural( (int) $counts['post_count'], 'post' );
 		$breadcrumbs = array(
-			array( 'Browse Topics ' . $path_number, $this->url( $path_number ) ),
+			array( 'Browse Topics', $this->url() ),
 			array( Database::text( $area['name'] ?? null ), '' ),
 		);
 		return $this->markup->shell(
@@ -163,18 +158,17 @@ final class Browse_Page_Renderer {
 	/**
 	 * Renders the topics within a category.
 	 *
-	 * @param int    $path_number  Browse-path number.
 	 * @param string $subject_slug Subject-area slug.
 	 * @param string $category_slug Category slug.
 	 * @return string Topic list markup.
 	 */
-	private function render_category( int $path_number, string $subject_slug, string $category_slug ): string {
+	private function render_category( string $subject_slug, string $category_slug ): string {
 		$category = $this->browse->category( $category_slug );
 		if ( null === $category ) {
 			return $this->not_found();
 		}
 		$category_id = Database::integer( $category['id'] ?? null );
-		$area        = $this->browse->primary_subject_area( $path_number, $category_id, $subject_slug );
+		$area        = $this->browse->primary_subject_area( $category_id, $subject_slug );
 		$topics      = $this->alphabetical_records( $this->browse->category_topics( $category_id ) );
 		$post_count  = $this->browse->category_post_count( $category_id );
 		$items       = array();
@@ -188,7 +182,7 @@ final class Browse_Page_Renderer {
 			}
 			$items[] = $this->browse_item(
 				Database::text( $topic['name'] ?? null ),
-				$this->url( $path_number, $args ),
+				$this->url( $args ),
 				$this->markup->plural( Database::integer( $topic['post_count'] ?? null ), 'post' ),
 				Database::text( $topic['description'] ?? null ),
 				Database::integer( $topic['post_count'] ?? null )
@@ -203,10 +197,10 @@ final class Browse_Page_Renderer {
 		}
 		/* translators: %s: formatted number of posts. */
 		$view_all_label                              = sprintf( __( 'View all %s in this category', 'ehrman-blog-discovery' ), $this->markup->plural( $post_count, 'post' ) );
-		$actions                                     = '<a class="ebd-primary-link" href="' . esc_url( $this->url( $path_number, $post_args ) ) . '">'
+		$actions                                     = '<a class="ebd-primary-link" href="' . esc_url( $this->url( $post_args ) ) . '">'
 			. esc_html( $view_all_label )
 			. '</a>';
-		$breadcrumbs                                 = $this->category_breadcrumbs( $path_number, $category, $area );
+		$breadcrumbs                                 = $this->category_breadcrumbs( $category, $area );
 		$breadcrumbs[ count( $breadcrumbs ) - 1 ][1] = '';
 		/**
 		 * Validated breadcrumb tuples.
@@ -229,7 +223,6 @@ final class Browse_Page_Renderer {
 	/**
 	 * Renders and filters the posts assigned to a topic.
 	 *
-	 * @param int               $path_number  Browse-path number.
 	 * @param string            $subject_slug Subject-area slug.
 	 * @param string            $category_slug Category slug.
 	 * @param string            $topic_slug   Topic slug.
@@ -240,7 +233,6 @@ final class Browse_Page_Renderer {
 	 * @return string Topic-post view markup.
 	 */
 	private function render_topic_posts(
-		int $path_number,
 		string $subject_slug,
 		string $category_slug,
 		string $topic_slug,
@@ -256,7 +248,7 @@ final class Browse_Page_Renderer {
 		$category = $this->browse->topic_category( Database::integer( $topic['id'] ?? null ), $category_slug );
 		$area     = null === $category
 			? null
-			: $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
+			: $this->browse->primary_subject_area( Database::integer( $category['id'] ?? null ), $subject_slug );
 		if ( empty( $terms ) ) {
 			$terms      = array( Database::text( $topic['name'] ?? null ) );
 			$term_modes = array( Search_Service::TERM_MODE_TOPIC );
@@ -265,7 +257,7 @@ final class Browse_Page_Renderer {
 		$breadcrumbs = null === $category
 			? array()
 			: array_merge(
-				$this->category_breadcrumbs( $path_number, $category, $area ),
+				$this->category_breadcrumbs( $category, $area ),
 				array( array( Database::text( $topic['name'] ?? null ), '' ) )
 			);
 		/**
@@ -274,7 +266,6 @@ final class Browse_Page_Renderer {
 		 * @var list<array{0:string,1:string}> $breadcrumbs
 		 */
 		$action = $this->url(
-			$path_number,
 			array_filter(
 				array(
 					'ebd_subject'  => null === $area ? '' : Database::text( $area['slug'] ?? null ),
@@ -295,7 +286,6 @@ final class Browse_Page_Renderer {
 	/**
 	 * Renders and filters all posts connected to a category.
 	 *
-	 * @param int               $path_number  Browse-path number.
 	 * @param string            $subject_slug Subject-area slug.
 	 * @param string            $category_slug Category slug.
 	 * @param array<int,string> $terms        Selected search terms.
@@ -305,7 +295,6 @@ final class Browse_Page_Renderer {
 	 * @return string Category-post view markup.
 	 */
 	private function render_category_posts(
-		int $path_number,
 		string $subject_slug,
 		string $category_slug,
 		array $terms,
@@ -317,10 +306,10 @@ final class Browse_Page_Renderer {
 		if ( null === $category ) {
 			return $this->not_found();
 		}
-		$area        = $this->browse->primary_subject_area( $path_number, Database::integer( $category['id'] ?? null ), $subject_slug );
+		$area        = $this->browse->primary_subject_area( Database::integer( $category['id'] ?? null ), $subject_slug );
 		$result      = $this->search->search( $terms, $sort, $category_slug, '', $page, Search_Service::POSTS_PER_PAGE, $term_modes );
 		$breadcrumbs = array_merge(
-			$this->category_breadcrumbs( $path_number, $category, $area ),
+			$this->category_breadcrumbs( $category, $area ),
 			array( array( __( 'Posts', 'ehrman-blog-discovery' ), '' ) )
 		);
 		$form_args   = array(
@@ -332,7 +321,7 @@ final class Browse_Page_Renderer {
 		}
 		return $this->markup->shell(
 			$this->markup->heading( Database::text( $category['name'] ?? null ), $this->markup->plural( $result['count'], 'post' ), $breadcrumbs, '', true )
-			. $this->search_page->search_panel( $result['terms'], $term_modes, $result['sort'], true, $this->url( $path_number, $form_args ), $category_slug, '' )
+			. $this->search_page->search_panel( $result['terms'], $term_modes, $result['sort'], true, $this->url( $form_args ), $category_slug, '' )
 			. '<div id="ebd-results" class="ebd-results" data-ebd-results data-context="' . esc_attr( Database::text( $category['name'] ?? null ) ) . '">'
 			. $this->search_page->results_markup( $result, Database::text( $category['name'] ?? null ) ) . '</div>',
 			'posts'
@@ -342,24 +331,23 @@ final class Browse_Page_Renderer {
 	/**
 	 * Builds breadcrumbs leading to a category.
 	 *
-	 * @param int                      $path_number Browse-path number.
 	 * @param array<string,mixed>      $category    Category record.
 	 * @param array<string,mixed>|null $area        Subject-area record.
 	 * @return array<int,array{0:string,1:string}> Breadcrumb labels and URLs.
 	 */
-	private function category_breadcrumbs( int $path_number, array $category, ?array $area ): array {
-		$items = array( array( 'Browse Topics ' . $path_number, $this->url( $path_number ) ) );
+	private function category_breadcrumbs( array $category, ?array $area ): array {
+		$items = array( array( 'Browse Topics', $this->url() ) );
 		if ( null !== $area ) {
 			$items[] = array(
 				Database::text( $area['name'] ?? null ),
-				$this->url( $path_number, array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) ),
+				$this->url( array( 'ebd_subject' => Database::text( $area['slug'] ?? null ) ) ),
 			);
 		}
 		$args = array( 'ebd_category' => Database::text( $category['slug'] ?? null ) );
 		if ( null !== $area ) {
 			$args['ebd_subject'] = Database::text( $area['slug'] ?? null );
 		}
-		$items[] = array( Database::text( $category['name'] ?? null ), $this->url( $path_number, $args ) );
+		$items[] = array( Database::text( $category['name'] ?? null ), $this->url( $args ) );
 		return $items;
 	}
 
@@ -411,12 +399,11 @@ final class Browse_Page_Renderer {
 	/**
 	 * Invokes the controller's browse URL builder.
 	 *
-	 * @param int                 $path_number Browse-path number.
 	 * @param array<string,mixed> $args        Optional query arguments.
 	 * @return string Browse URL.
 	 */
-	private function url( int $path_number, array $args = array() ): string {
-		return ( $this->browse_url )( $path_number, $args );
+	private function url( array $args = array() ): string {
+		return ( $this->browse_url )( $args );
 	}
 
 	/**

@@ -32,15 +32,14 @@ final class Structure_Review_Renderer {
 	/**
 	 * Renders the selected structure-review view.
 	 *
-	 * @param int    $path_number Browse Topics path number.
 	 * @param string $review_view Optional categories or topics index.
 	 * @param string $base_url    Structure Review page URL.
 	 * @return string Structure-review markup.
 	 */
-	public function render( int $path_number, string $review_view, string $base_url ): string {
+	public function render( string $review_view, string $base_url ): string {
 		$category_index = 'categories' === $review_view;
 		$topic_index    = 'topics' === $review_view;
-		$areas          = $category_index || $topic_index ? array() : $this->alphabetical_records( $this->browse->subject_areas( $path_number ) );
+		$areas          = $category_index || $topic_index ? array() : $this->alphabetical_records( $this->browse->subject_areas() );
 		$sections       = array();
 		$topics         = array();
 		$heading        = __( 'Category and Topic Review', 'ehrman-blog-discovery' );
@@ -77,8 +76,7 @@ final class Structure_Review_Renderer {
 		}
 
 		$path_links  = '<nav class="ebd-review-paths" aria-label="' . esc_attr__( 'Browse Topics structure', 'ehrman-blog-discovery' ) . '">'
-			. $this->path_link( $base_url, 1, 1 === $path_number && ! $category_index && ! $topic_index )
-			. $this->path_link( $base_url, 2, 2 === $path_number && ! $category_index && ! $topic_index )
+			. $this->path_link( $base_url, ! $category_index && ! $topic_index )
 			. $this->category_link( $base_url, $category_index )
 			. $this->topic_link( $base_url, $topic_index )
 			. '</nav>';
@@ -108,13 +106,11 @@ final class Structure_Review_Renderer {
 	 * Builds one Browse Topics path selector.
 	 *
 	 * @param string $base_url    Structure Review page URL.
-	 * @param int    $path_number Browse Topics path number.
 	 * @param bool   $active      Whether the path is active.
 	 */
-	private function path_link( string $base_url, int $path_number, bool $active ): string {
-		$url = add_query_arg( 'ebd_path', $path_number, $base_url );
-		return '<a class="ebd-review-path' . ( $active ? ' is-active' : '' ) . '" href="' . esc_url( $url ) . '"'
-			. ( $active ? ' aria-current="page"' : '' ) . '>Browse Topics ' . $path_number . '</a>';
+	private function path_link( string $base_url, bool $active ): string {
+		return '<a class="ebd-review-path' . ( $active ? ' is-active' : '' ) . '" href="' . esc_url( $base_url ) . '"'
+			. ( $active ? ' aria-current="page"' : '' ) . '>Browse Topics</a>';
 	}
 
 	/**

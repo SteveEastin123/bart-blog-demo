@@ -25,14 +25,12 @@ def source_counts(index: Path) -> dict[str, int]:
         topics=index / "ehrman_post_topics.json",
         categories=index / "ehrman_post_categories.json",
         subject_areas=index / "ehrman_post_subject_areas.json",
-        subject_areas_2=index / "ehrman_post_subject_areas_2.json",
     ))
 
 
 def check_svg(svg: str, counts: dict[str, int]) -> None:
     expected = Counter([
         f"{counts['subject_areas']:,} subject areas",
-        f"{counts['subject_areas_2']:,} subject areas",
         f"{counts['categories']:,} categories",
         f"{counts['topics']:,} topics", f"{counts['topics']:,} topics",
         f"{counts['secondary_keywords']:,} keywords",

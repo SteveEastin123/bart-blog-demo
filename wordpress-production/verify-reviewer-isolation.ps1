@@ -16,7 +16,7 @@ if ($LASTEXITCODE -ne 0 -or $missingDependency.Trim() -ne 'absent') { throw 'Rev
 try {
     & docker compose -f $composeFile exec -T wordpress wp plugin deactivate ehrman-reviewer-tools --allow-root
     if ($LASTEXITCODE -ne 0) { throw 'Could not deactivate Reviewer Tools for isolation testing.' }
-    foreach ($route in @('/', '/keyword-search/', '/browse-topics-1/', '/browse-topics-2/', '/ask-ai/')) {
+    foreach ($route in @('/', '/keyword-search/', '/browse-topics/', '/ask-ai/')) {
         $response = Invoke-WebRequest -Uri "$base$route" -UseBasicParsing
         if ($response.StatusCode -ne 200 -or $response.Content -match 'Reviewer Tools|ehrman-reviewer-tools|ehrman_structure_review') {
             throw "Production-only page failed or contains Reviewer Tools: $route"

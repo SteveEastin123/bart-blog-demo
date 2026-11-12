@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Validates source structure and cross-document relationships.
  *
  * @phpstan-type SourceRecord array<string,mixed>
- * @phpstan-type SourceLists array{posts:list<mixed>,topics:list<mixed>,categories:list<mixed>,subject_areas_1:list<mixed>,subject_areas_2:list<mixed>}
- * @phpstan-type ValidSourceData array{posts:list<SourceRecord>,topics:list<SourceRecord>,categories:list<SourceRecord>,subject_areas_1:list<SourceRecord>,subject_areas_2:list<SourceRecord>}
+ * @phpstan-type SourceLists array{posts:list<mixed>,topics:list<mixed>,categories:list<mixed>,subject_areas:list<mixed>}
+ * @phpstan-type ValidSourceData array{posts:list<SourceRecord>,topics:list<SourceRecord>,categories:list<SourceRecord>,subject_areas:list<SourceRecord>}
  */
 final class Import_Data_Validator {
 	/**
@@ -102,30 +102,28 @@ final class Import_Data_Validator {
 			}
 		}
 
-		foreach ( array( 1, 2 ) as $path_number ) {
-			$records       = $data[ "subject_areas_{$path_number}" ];
-			$subject_names = array();
-			$subject_slugs = array();
-			foreach ( $records as $index => $subject_area ) {
-				if ( ! $this->is_record( $subject_area ) ) {
-					$errors[] = "Browse path {$path_number} subject-area record {$index} is not an object.";
-					continue;
-				}
-				$name = $this->required_string( $subject_area['name'] ?? null, "Browse path {$path_number} subject-area name", $errors );
-				if ( isset( $subject_names[ $name ] ) ) {
-					$errors[] = "Browse path {$path_number} repeats subject area {$name}.";
-				}
-				$subject_names[ $name ] = true;
-				$slug                   = $this->slugify( $name );
-				if ( isset( $subject_slugs[ $slug ] ) ) {
-					$errors[] = "Browse path {$path_number} has a subject-area slug collision for {$name}.";
-				}
-				$subject_slugs[ $slug ] = true;
-				$this->require_string_field( $subject_area, 'description', "subject area {$name}", $errors );
-				foreach ( $this->validate_string_list( $subject_area['categories'] ?? null, "subject area {$name} categories", $errors ) as $category_name ) {
-					if ( ! isset( $category_names[ $category_name ] ) ) {
-						$errors[] = "Subject area {$name} references unknown category {$category_name}.";
-					}
+		$records       = $data['subject_areas'];
+		$subject_names = array();
+		$subject_slugs = array();
+		foreach ( $records as $index => $subject_area ) {
+			if ( ! $this->is_record( $subject_area ) ) {
+				$errors[] = "Browse Topics subject-area record {$index} is not an object.";
+				continue;
+			}
+			$name = $this->required_string( $subject_area['name'] ?? null, 'Browse Topics subject-area name', $errors );
+			if ( isset( $subject_names[ $name ] ) ) {
+				$errors[] = "Browse Topics repeats subject area {$name}.";
+			}
+			$subject_names[ $name ] = true;
+			$slug                   = $this->slugify( $name );
+			if ( isset( $subject_slugs[ $slug ] ) ) {
+				$errors[] = "Browse Topics has a subject-area slug collision for {$name}.";
+			}
+			$subject_slugs[ $slug ] = true;
+			$this->require_string_field( $subject_area, 'description', "subject area {$name}", $errors );
+			foreach ( $this->validate_string_list( $subject_area['categories'] ?? null, "subject area {$name} categories", $errors ) as $category_name ) {
+				if ( ! isset( $category_names[ $category_name ] ) ) {
+					$errors[] = "Subject area {$name} references unknown category {$category_name}.";
 				}
 			}
 		}

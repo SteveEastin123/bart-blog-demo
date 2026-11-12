@@ -166,7 +166,7 @@ assert(!baselineAssets || capture, 'Original-asset overrides are only allowed wh
       await page.locator('[data-ebd-description-mode] input[value="hidden"]').check();
       assert(!(await page.locator('.ebd-tooltip').isVisible()));
 
-      const reviewViews = productionOnly ? [] : [['browse-1', '?ebd_path=1'], ['browse-2', '?ebd_path=2'], ['categories', '?ebd_view=categories'], ['topics', '?ebd_view=topics']];
+      const reviewViews = productionOnly ? [] : [['browse', ''], ['categories', '?ebd_view=categories'], ['topics', '?ebd_view=topics']];
       for (const [name, query] of reviewViews) {
         await page.goto(`${base}/structure-review/${query}`);
         await page.evaluate(() => sessionStorage.clear());

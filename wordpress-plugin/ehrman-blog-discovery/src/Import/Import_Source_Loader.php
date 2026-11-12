@@ -17,11 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Import_Source_Loader {
 	/** Required source files keyed by logical dataset name. */
 	private const SOURCE_FILES = array(
-		'posts'           => 'ehrman_post_search_index.json',
-		'topics'          => 'ehrman_post_topics.json',
-		'categories'      => 'ehrman_post_categories.json',
-		'subject_areas_1' => 'ehrman_post_subject_areas.json',
-		'subject_areas_2' => 'ehrman_post_subject_areas_2.json',
+		'posts'         => 'ehrman_post_search_index.json',
+		'topics'        => 'ehrman_post_topics.json',
+		'categories'    => 'ehrman_post_categories.json',
+		'subject_areas' => 'ehrman_post_subject_areas.json',
 	);
 
 	/**
@@ -54,7 +53,7 @@ final class Import_Source_Loader {
 	/**
 	 * Loads and decodes the required JSON documents.
 	 *
-	 * @return array{posts:list<mixed>,topics:list<mixed>,categories:list<mixed>,subject_areas_1:list<mixed>,subject_areas_2:list<mixed>}
+	 * @return array{posts:list<mixed>,topics:list<mixed>,categories:list<mixed>,subject_areas:list<mixed>} Source lists.
 	 * @throws RuntimeException When a source file is missing or invalid.
 	 */
 	public function load(): array {
@@ -79,11 +78,10 @@ final class Import_Source_Loader {
 		}
 
 		$data = array(
-			'posts'           => $documents['posts'],
-			'topics'          => is_array( $documents['topics'] ) ? ( $documents['topics']['topics'] ?? null ) : null,
-			'categories'      => is_array( $documents['categories'] ) ? ( $documents['categories']['categories'] ?? null ) : null,
-			'subject_areas_1' => is_array( $documents['subject_areas_1'] ) ? ( $documents['subject_areas_1']['subjectAreas'] ?? null ) : null,
-			'subject_areas_2' => is_array( $documents['subject_areas_2'] ) ? ( $documents['subject_areas_2']['subjectAreas'] ?? null ) : null,
+			'posts'         => $documents['posts'],
+			'topics'        => is_array( $documents['topics'] ) ? ( $documents['topics']['topics'] ?? null ) : null,
+			'categories'    => is_array( $documents['categories'] ) ? ( $documents['categories']['categories'] ?? null ) : null,
+			'subject_areas' => is_array( $documents['subject_areas'] ) ? ( $documents['subject_areas']['subjectAreas'] ?? null ) : null,
 		);
 
 		foreach ( $data as $key => $records ) {
@@ -95,7 +93,7 @@ final class Import_Source_Loader {
 		/**
 		 * Validated logical source lists.
 		 *
-		 * @var array{posts:list<mixed>,topics:list<mixed>,categories:list<mixed>,subject_areas_1:list<mixed>,subject_areas_2:list<mixed>} $data
+		 * @var array{posts:list<mixed>,topics:list<mixed>,categories:list<mixed>,subject_areas:list<mixed>} $data
 		 */
 		return $data;
 	}

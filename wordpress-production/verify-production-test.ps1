@@ -53,7 +53,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 & (Join-Path $PSScriptRoot 'verify-reviewer-isolation.ps1') -Port $Port -ComposeFile $composeFile
 
-$pages = @('/', '/keyword-search/', '/ask-ai/', '/ask-ai-2/', '/browse-topics-1/', '/browse-topics-2/', '/structure-review/')
+$pages = @('/', '/keyword-search/', '/ask-ai/', '/ask-ai-2/', '/browse-topics/', '/structure-review/')
 foreach ($path in $pages) {
     $response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:$Port$path"
     if ($response.StatusCode -ne 200) {

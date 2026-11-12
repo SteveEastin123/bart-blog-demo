@@ -32,7 +32,6 @@ $documents = [
     'ehrman_post_topics.json' => ['topics' => [$topic, ['name' => 'Ignore', 'description' => 'Informational.', 'categories' => [], 'aliases' => [], 'displayInBrowser' => false]]],
     'ehrman_post_categories.json' => ['categories' => [['name' => 'Test Category', 'description' => 'A category.', 'topicOrder' => ['Test Topic']]]],
     'ehrman_post_subject_areas.json' => ['subjectAreas' => [['name' => 'Test Area One', 'description' => 'An area.', 'categories' => ['Test Category']]]],
-    'ehrman_post_subject_areas_2.json' => ['subjectAreas' => [['name' => 'Test Area Two', 'description' => 'An area.', 'categories' => ['Test Category']]]],
 ];
 $write_documents = static function (array $docs) use ($directory): void {
     foreach ($docs as $name => $data) { file_put_contents($directory . '/' . $name, json_encode($data, JSON_THROW_ON_ERROR)); }

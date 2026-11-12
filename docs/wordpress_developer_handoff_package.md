@@ -19,8 +19,8 @@ review are unrelated features and remain in the production plugin.
 
 The retired topic/keyword Ask AI interpreter and experimental section-search
 plugins are not part of the production plugin. Package the active plugin directory,
-not the repository root. Both Browse Topics structures remain until the final
-structure is selected. A single Ask AI Analytics dashboard reports on the active
+not the repository root. Browse Topics uses the selected first structure; the
+second structure is retired. A single Ask AI Analytics dashboard reports on the active
 semantic method; retired-method records are retained locally but excluded from
 the dashboard and its exports. Historical test data is not part of the discovery
 data package.
@@ -42,15 +42,29 @@ semantic form. The REST endpoint, stored request types, vector model, retrieval
 algorithm, reviewer prompt and caches are unchanged. Historical comparison
 reports keep their original names.
 
+### Browse Topics Naming and Upgrade
+
+Version 0.10.15 retains the first hierarchy as **Browse Topics** at
+`/browse-topics/`, using `[ehrman_browse_topics]`. The upgrade reuses the first
+managed page and leaves a retired second page as a recoverable draft. Both old
+numbered URLs redirect permanently to the new page. Category/topic selections,
+search filters and pagination are preserved; obsolete subject-area selections
+fall back to the current hierarchy. Alphabetical and Most posts sorting remain.
+
+The data migration removes only the second hierarchy's subject areas and their
+category links, then renames the retained browse-path record. Shared categories,
+topics, posts, keywords, vectors, ingestion history and analytics are not replaced.
+New packages contain only the four JSON sources listed below. Historical
+presentations, reports and retired prototypes retain their original labels.
+
 ## 2. Discovery Data
 
-Provide the five authoritative JSON files:
+Provide the four authoritative JSON files:
 
 - `ehrman_post_search_index.json`
 - `ehrman_post_topics.json`
 - `ehrman_post_categories.json`
 - `ehrman_post_subject_areas.json`
-- `ehrman_post_subject_areas_2.json`
 
 The data includes post metadata, concise descriptions, optional AI-refinement summaries, secondary keywords, organizational structures, and relationships among posts, topics, categories, and subject areas. It does not include the full text of Bart's posts.
 
@@ -62,7 +76,7 @@ the database. The vector package does not contain full post text.
 Build these files from the approved **local** `data/index/` sources, never a
 Render database dump. Render-only publishing test posts are not handoff data and
 do not need to be deleted. `wordpress-production/export-vector-package.ps1`
-validates exported vectors against the five local JSON files before replacing
+validates exported vectors against the four local JSON files before replacing
 the local package. Unknown/test IDs, missing records and stale content hashes
 fail validation; the previous package remains untouched on failure. The same
 validation runs during initial installation with `--validate-only`.
@@ -84,7 +98,7 @@ Include the database schema and technical architecture as appendices.
 
 ### Initial Data Installation
 
-Activate the plugin, put the five JSON files and `ehrman_post_embeddings.jsonl.gz`
+Activate the plugin, put the four JSON files and `ehrman_post_embeddings.jsonl.gz`
 in a private directory outside WordPress. No source-mode setting is required:
 database-managed publishing and administrator approval are enabled by default.
 Back up the database and pause editors, scheduled ingestion and other imports during installation.
@@ -223,7 +237,7 @@ attributes must be preserved when updating these templates.
 `wordpress-production/tests/search-page-tests.php` is included in the production
 acceptance suite. It covers term limits and modes, category selection, sorting,
 escaping, empty states, result ordering, pagination, and repeated control IDs.
-`search-page-ui.cjs` checks the live Keyword Search and both Browse Topics paths
+`search-page-ui.cjs` checks the live Keyword Search and the Browse Topics path
 at desktop and mobile sizes, including keyboard controls and no-JavaScript
 pagination. Run it with Node from the repository root while the local demo is
 running. Optional `--capture-before` and `--compare-before` modes save and compare

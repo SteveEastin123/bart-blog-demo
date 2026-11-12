@@ -10,7 +10,6 @@ DEFAULT_SEARCH_INDEX = ROOT / "data" / "index" / "ehrman_post_search_index.json"
 DEFAULT_TOPICS = ROOT / "data" / "index" / "ehrman_post_topics.json"
 DEFAULT_CATEGORIES = ROOT / "data" / "index" / "ehrman_post_categories.json"
 DEFAULT_SUBJECT_AREAS = ROOT / "data" / "index" / "ehrman_post_subject_areas.json"
-DEFAULT_SUBJECT_AREAS_2 = ROOT / "data" / "index" / "ehrman_post_subject_areas_2.json"
 DEFAULT_DESKTOP_OUTPUT = ROOT / "webapp" / "static" / "ehrman-search-methods.svg"
 DEFAULT_MOBILE_OUTPUT = ROOT / "webapp" / "static" / "ehrman-search-methods-mobile.svg"
 
@@ -47,7 +46,6 @@ def collect_counts(args: argparse.Namespace) -> dict[str, int]:
         "topics": len(visible_topics),
         "categories": count_items(load_json(args.categories), "categories"),
         "subject_areas": count_items(load_json(args.subject_areas), "subjectAreas"),
-        "subject_areas_2": count_items(load_json(args.subject_areas_2), "subjectAreas"),
         "secondary_keywords": len(secondary_keywords),
     }
 
@@ -102,15 +100,14 @@ def desktop_svg(counts: dict[str, int]) -> str:
     keywords = fmt(counts["secondary_keywords"])
     categories = fmt(counts["categories"])
     areas_1 = fmt(counts["subject_areas"])
-    areas_2 = fmt(counts["subject_areas_2"])
     body = f'''
   <rect class="panel" x="60" y="45" width="800" height="865" rx="16"/>
   <rect class="panel" x="940" y="45" width="800" height="865" rx="16"/>
 
   <text class="heading" x="105" y="115">Browse Topics</text>
   <line class="accent" x1="105" y1="143" x2="205" y2="143"/>
-  <text class="subheading" x="105" y="185">Explore posts through one of two subject-area</text>
-  <text class="subheading" x="105" y="217">structures.</text>
+  <text class="subheading" x="105" y="185">Explore posts through subject areas,</text>
+  <text class="subheading" x="105" y="217">categories, and topics.</text>
 
   <text class="heading" x="985" y="115">Keyword Search</text>
   <line class="accent" x1="985" y1="143" x2="1085" y2="143"/>
@@ -120,12 +117,9 @@ def desktop_svg(counts: dict[str, int]) -> str:
   <text class="stage" x="145" y="258">START WITH</text>
   <text class="stage" x="1025" y="258">START WITH</text>
 
-  <rect class="box subject" x="145" y="275" width="315" height="120" rx="12"/>
-  <rect class="box subject" x="460" y="275" width="315" height="120" rx="12"/>
-  <text class="label" x="302" y="323" text-anchor="middle">Browse Topics 1</text>
-  <text class="count" x="302" y="361" text-anchor="middle">{areas_1} subject areas</text>
-  <text class="label" x="617" y="323" text-anchor="middle">Browse Topics 2</text>
-  <text class="count" x="617" y="361" text-anchor="middle">{areas_2} subject areas</text>
+  <rect class="box subject" x="145" y="275" width="630" height="120" rx="12"/>
+  <text class="label" x="460" y="323" text-anchor="middle">Subject Areas</text>
+  <text class="count" x="460" y="361" text-anchor="middle">{areas_1} subject areas</text>
 
   <rect class="box topic" x="1025" y="275" width="315" height="120" rx="12"/>
   <rect class="box keyword" x="1340" y="275" width="315" height="120" rx="12"/>
@@ -192,7 +186,6 @@ def mobile_svg(counts: dict[str, int]) -> str:
     keywords = fmt(counts["secondary_keywords"])
     categories = fmt(counts["categories"])
     areas_1 = fmt(counts["subject_areas"])
-    areas_2 = fmt(counts["subject_areas_2"])
     body = f'''
   <style>
     .heading {{ font-size: 30px; }}
@@ -210,15 +203,12 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <rect class="panel" x="15" y="15" width="350" height="700" rx="12"/>
   <text class="heading" x="35" y="60">Browse Topics</text>
   <line class="accent" x1="35" y1="74" x2="95" y2="74"/>
-  <text class="subheading" x="35" y="95">Explore posts through one of two</text>
-  <text class="subheading" x="35" y="118">subject-area structures.</text>
+  <text class="subheading" x="35" y="95">Explore posts through subject</text>
+  <text class="subheading" x="35" y="118">areas, categories, and topics.</text>
   <text class="stage" x="35" y="145">START WITH</text>
-  <rect class="box subject" x="35" y="155" width="155" height="100" rx="12"/>
-  <rect class="box subject" x="190" y="155" width="155" height="100" rx="12"/>
-  <text class="label-small label-fit" x="112" y="195" text-anchor="middle">Browse Topics 1</text>
-  <text class="count" x="112" y="228" text-anchor="middle">{areas_1} subject areas</text>
-  <text class="label-small label-fit" x="267" y="195" text-anchor="middle">Browse Topics 2</text>
-  <text class="count" x="267" y="228" text-anchor="middle">{areas_2} subject areas</text>
+  <rect class="box subject" x="45" y="155" width="290" height="100" rx="12"/>
+  <text class="label" x="190" y="195" text-anchor="middle">Subject Areas</text>
+  <text class="count" x="190" y="228" text-anchor="middle">{areas_1} subject areas</text>
   <path class="arrow" d="M190 255 L190 305"/>
   <rect class="box category" x="45" y="305" width="290" height="75" rx="12"/>
   <text class="label" x="190" y="336" text-anchor="middle">Categories</text>
@@ -234,8 +224,8 @@ def mobile_svg(counts: dict[str, int]) -> str:
   <rect class="panel" x="15" y="745" width="350" height="700" rx="12"/>
   <text class="heading" x="35" y="790">Keyword Search</text>
   <line class="accent" x1="35" y1="804" x2="95" y2="804"/>
-  <text class="subheading" x="35" y="825">Combine up to four topics or secondary</text>
-  <text class="subheading" x="35" y="848">keywords to find relevant posts.</text>
+  <text class="subheading" x="35" y="825">Combine up to four search terms</text>
+  <text class="subheading" x="35" y="848">to find relevant posts.</text>
   <text class="stage" x="35" y="875">START WITH</text>
   <rect class="box topic" x="35" y="885" width="115" height="100" rx="12"/>
   <rect class="box keyword" x="150" y="885" width="195" height="100" rx="12"/>
@@ -276,7 +266,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--topics", type=Path, default=DEFAULT_TOPICS)
     parser.add_argument("--categories", type=Path, default=DEFAULT_CATEGORIES)
     parser.add_argument("--subject-areas", type=Path, default=DEFAULT_SUBJECT_AREAS)
-    parser.add_argument("--subject-areas-2", type=Path, default=DEFAULT_SUBJECT_AREAS_2)
     parser.add_argument("--desktop-output", type=Path, default=DEFAULT_DESKTOP_OUTPUT)
     parser.add_argument("--mobile-output", type=Path, default=DEFAULT_MOBILE_OUTPUT)
     return parser.parse_args()
@@ -297,7 +286,6 @@ def build_search_methods_diagrams_from_paths(
     topics: Path = DEFAULT_TOPICS,
     categories: Path = DEFAULT_CATEGORIES,
     subject_areas: Path = DEFAULT_SUBJECT_AREAS,
-    subject_areas_2: Path = DEFAULT_SUBJECT_AREAS_2,
     desktop_output: Path = DEFAULT_DESKTOP_OUTPUT,
     mobile_output: Path = DEFAULT_MOBILE_OUTPUT,
 ) -> dict[str, int]:
@@ -307,7 +295,6 @@ def build_search_methods_diagrams_from_paths(
             topics=topics,
             categories=categories,
             subject_areas=subject_areas,
-            subject_areas_2=subject_areas_2,
             desktop_output=desktop_output,
             mobile_output=mobile_output,
         )
@@ -322,7 +309,7 @@ def main() -> int:
     print(
         f"Counts: {counts['posts']} posts, {counts['topics']} topics, "
         f"{counts['secondary_keywords']} secondary keywords, {counts['categories']} categories, "
-        f"{counts['subject_areas']} and {counts['subject_areas_2']} subject areas."
+        f"{counts['subject_areas']} subject areas."
     )
     return 0
 

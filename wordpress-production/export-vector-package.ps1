@@ -44,7 +44,7 @@ try {
     # Validate against approved LOCAL JSON, never a Render database export.
     & docker compose -f $composeFile exec -T wordpress mkdir -p $validationPath
     if ($LASTEXITCODE -ne 0) { throw 'Could not prepare handoff validation.' }
-    foreach ($name in @('ehrman_post_search_index.json', 'ehrman_post_topics.json', 'ehrman_post_categories.json', 'ehrman_post_subject_areas.json', 'ehrman_post_subject_areas_2.json')) {
+    foreach ($name in @('ehrman_post_search_index.json', 'ehrman_post_topics.json', 'ehrman_post_categories.json', 'ehrman_post_subject_areas.json')) {
         & docker compose -f $composeFile cp (Join-Path $repoRoot "data/index/$name") "wordpress:$validationPath/$name"
         if ($LASTEXITCODE -ne 0) { throw "Could not copy approved JSON for validation: $name" }
     }

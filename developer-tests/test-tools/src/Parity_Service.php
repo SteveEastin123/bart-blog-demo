@@ -30,11 +30,10 @@ final class Parity_Service {
 
 	/** Authoritative files included in the data fingerprint. */
 	private const SOURCE_FILES = array(
-		'data/index/ehrman_post_search_index.json'    => 'ehrman_post_search_index.json',
-		'data/index/ehrman_post_topics.json'          => 'ehrman_post_topics.json',
-		'data/index/ehrman_post_categories.json'      => 'ehrman_post_categories.json',
-		'data/index/ehrman_post_subject_areas.json'   => 'ehrman_post_subject_areas.json',
-		'data/index/ehrman_post_subject_areas_2.json' => 'ehrman_post_subject_areas_2.json',
+		'data/index/ehrman_post_search_index.json'  => 'ehrman_post_search_index.json',
+		'data/index/ehrman_post_topics.json'        => 'ehrman_post_topics.json',
+		'data/index/ehrman_post_categories.json'    => 'ehrman_post_categories.json',
+		'data/index/ehrman_post_subject_areas.json' => 'ehrman_post_subject_areas.json',
 	);
 
 	/**
@@ -249,11 +248,10 @@ final class Parity_Service {
 	 */
 	private function browse_case(): array {
 		return array(
-			'operation'     => 'browse',
-			'subjectAreas1' => $this->subject_area_records( 'browse-topics-1' ),
-			'subjectAreas2' => $this->subject_area_records( 'browse-topics-2' ),
-			'categories'    => $this->category_records(),
-			'topics'        => $this->topic_records(),
+			'operation'    => 'browse',
+			'subjectAreas' => $this->subject_area_records( 'browse-topics' ),
+			'categories'   => $this->category_records(),
+			'topics'       => $this->topic_records(),
 		);
 	}
 
@@ -489,8 +487,7 @@ final class Parity_Service {
 		$tables      = Database::tables();
 		$path_counts = array();
 		foreach ( array(
-			1 => 'browse-topics-1',
-			2 => 'browse-topics-2',
+			1 => 'browse-topics',
 		) as $number => $slug ) {
 			$path_counts[ $number ] = Database::integer(
 				$wpdb->get_var(
@@ -515,8 +512,7 @@ final class Parity_Service {
 			),
 			'counts'          => array(
 				'posts'             => Database::integer( $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['external_posts']}" ) ),
-				'subjectAreas1'     => $path_counts[1],
-				'subjectAreas2'     => $path_counts[2],
+				'subjectAreas'      => $path_counts[1],
 				'categories'        => Database::integer( $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['categories']}" ) ),
 				'topics'            => Database::integer( $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['topics']}" ) ),
 				'secondaryKeywords' => Database::integer( $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['keywords']}" ) ),

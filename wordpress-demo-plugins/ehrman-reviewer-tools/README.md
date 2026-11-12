@@ -6,7 +6,7 @@ The production plugin has no dependency on this directory.
 
 ## Features
 
-- Both Browse Topics outlines and the complete Categories and Topics indexes.
+- The Browse Topics outline and the complete Categories and Topics indexes.
 - Expand/collapse, topic filtering, description preferences and tooltips.
 - CSV and PDF downloads generated locally in the browser.
 - Reviewer Tools link within the landing-page evaluation note in the companion demo theme.
@@ -20,7 +20,7 @@ directives are not access controls.
 
 ## Installation and Removal
 
-Activate Ehrman Blog Discovery 0.10.4+ first, then activate Ehrman Reviewer Tools.
+Activate Ehrman Blog Discovery 0.10.15+ first, then activate Ehrman Reviewer Tools.
 WordPress 6.5+, PHP 8.1+ are required, matching the production plugin.
 
 ```sh

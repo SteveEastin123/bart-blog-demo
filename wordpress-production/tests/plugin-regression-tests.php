@@ -837,5 +837,6 @@ require __DIR__ . '/metadata-cost-tests.php';
 require __DIR__ . '/post-ingestion-page-tests.php';
 require __DIR__ . '/post-ingestion-lifecycle-tests.php';
 require __DIR__ . '/search-page-tests.php';
+require __DIR__ . '/browse-retirement-tests.php';
 
 echo "Plugin regression checks: OK\n";

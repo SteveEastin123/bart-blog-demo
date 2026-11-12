@@ -3,7 +3,7 @@ Contributors: steveeastin
 Tags: search, topics, discovery
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 0.10.14
+Stable tag: 0.10.15
 License: GPLv2 or later
 
 WordPress foundation for browsing and searching the Ehrman Blog index.
@@ -13,7 +13,7 @@ WordPress foundation for browsing and searching the Ehrman Blog index.
 This plugin uses the WordPress database connection and imports the authoritative
 post, topic, category, subject-area, and secondary-keyword indexes into
 dedicated database tables. It provides scoped keyword search, autocomplete, and
-two alternative topic-browsing paths.
+hierarchical topic browsing through subject areas and categories.
 
 Administrators can also prepare full posts in a protected ingestion workflow.
 It uses the shared server-side OPENAI_API_KEY to draft descriptions, search
@@ -40,8 +40,8 @@ fallback.
 1. Copy the plugin directory to `wp-content/plugins/ehrman-blog-discovery`.
 2. Activate Ehrman Blog Discovery in WordPress.
 3. Add `[ehrman_discovery_status]` to a page to verify the environment.
-4. Use `[ehrman_keyword_search]` and `[ehrman_browse_topics path="1"]` or
-   `[ehrman_browse_topics path="2"]` on WordPress pages.
+4. Use `[ehrman_keyword_search]`, `[ehrman_browse_topics]`, and `[ehrman_ask_ai]`
+   on WordPress pages. The managed browsing page is `/browse-topics/`.
 
 == Development ==
 
@@ -52,6 +52,12 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 `composer check` to run both standards and static-analysis checks.
 
 == Changelog ==
+
+= 0.10.15 =
+* Retire Browse Topics 2 and rename the retained first structure to Browse Topics.
+* Redirect both numbered browsing URLs to /browse-topics/ and preserve supported filters.
+* Upgrade existing hierarchies without replacing shared posts, taxonomy, vectors or analytics.
+* Update the demo, Reviewer Tools, four-file import and developer regression package.
 
 = 0.10.14 =
 * Add Overview, Ask AI and Post Metadata tabs under Tools > AI Analytics.

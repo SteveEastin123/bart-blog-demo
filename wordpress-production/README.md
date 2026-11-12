@@ -1,7 +1,7 @@
 # Production-Equivalent WordPress Package
 
 This directory packages the current Ehrman Blog Discovery WordPress/database
-target: the plugin, companion demo theme, five authoritative JSON sources, the
+target: the plugin, companion demo theme, four authoritative JSON sources, the
 portable title-and-summary vector index, and production acceptance checks in a
 reproducible Docker image. Older Python, PHP/SQLite, and WordPress development
 demos remain reference implementations.

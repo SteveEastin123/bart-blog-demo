@@ -88,18 +88,18 @@ final class Page_Controller {
 		add_shortcode( 'ehrman_ask_ai_2', array( $this, 'ask_ai_shortcode' ) );
 		add_shortcode( 'ehrman_browse_topics', array( $this, 'browse_topics_shortcode' ) );
 		add_action( 'template_redirect', array( $this, 'redirect_legacy_ask_ai' ), 5 );
+		add_action( 'template_redirect', array( $this, 'redirect_legacy_browse' ), 5 );
 	}
 
 	/** Creates or reconnects the public discovery pages. */
 	public static function ensure_pages(): void {
-		if ( ! self::migrate_ask_ai_page() ) {
+		if ( ! self::migrate_ask_ai_page() || ! Browse_Upgrade::migrate_pages() ) {
 			return;
 		}
 		$pages = array(
 			'keyword_search' => array( 'Keyword Search', 'keyword-search', '[ehrman_keyword_search]' ),
 			'ask_ai'         => array( 'Ask AI', 'ask-ai', '[ehrman_ask_ai]' ),
-			'browse_1'       => array( 'Browse Topics 1', 'browse-topics-1', '[ehrman_browse_topics path="1"]' ),
-			'browse_2'       => array( 'Browse Topics 2', 'browse-topics-2', '[ehrman_browse_topics path="2"]' ),
+			'browse_topics'  => array( 'Browse Topics', 'browse-topics', '[ehrman_browse_topics]' ),
 		);
 
 		foreach ( $pages as $key => [$title, $slug, $content] ) {
@@ -283,13 +283,11 @@ final class Page_Controller {
 	 * @return string Browse interface markup.
 	 */
 	public function browse_topics_shortcode( array $attributes, ?string $content = null, string $tag = '' ): string {
-		unset( $content, $tag );
+		unset( $attributes, $content, $tag );
 		if ( 'complete' !== Plugin::status_data()['import_state'] ) {
 			return $this->not_ready();
 		}
 		Assets::enqueue();
-		$attributes    = shortcode_atts( array( 'path' => '1' ), $attributes, 'ehrman_browse_topics' );
-		$path_number   = '2' === Database::text( $attributes['path'] ) ? 2 : 1;
 		$subject_slug  = $this->request->slug( 'ebd_subject' );
 		$category_slug = $this->request->slug( 'ebd_category' );
 		$topic_slug    = $this->request->slug( 'ebd_topic' );
@@ -297,7 +295,6 @@ final class Page_Controller {
 		$terms         = $this->request->terms();
 
 		return $this->browse_page->render(
-			$path_number,
 			$subject_slug,
 			$category_slug,
 			$topic_slug,
@@ -334,12 +331,56 @@ final class Page_Controller {
 	/**
 	 * Builds a browse-path URL with optional query arguments.
 	 *
-	 * @param int                 $path_number Browse-path number.
 	 * @param array<string,mixed> $args        Optional query arguments.
 	 * @return string Browse URL.
 	 */
-	private function browse_url( int $path_number, array $args = array() ): string {
-		$url = $this->page_url( 2 === $path_number ? 'browse_2' : 'browse_1' );
+	private function browse_url( array $args = array() ): string {
+		$url = $this->page_url( 'browse_topics' );
 		return empty( $args ) ? $url : add_query_arg( $args, $url );
+	}
+
+	/** Redirects bookmarked experimental browsing URLs to the current structure. */
+	public function redirect_legacy_browse(): void {
+		$target = $this->retired_browse_target();
+		if ( '' !== $target ) {
+			wp_safe_redirect( $target, 301, 'Ehrman Blog Discovery' );
+			exit;
+		}
+	}
+
+	/** Resolves old browsing URLs while preserving supported, sanitized filters. */
+	public function retired_browse_target(): string {
+		if ( is_admin() || ! isset( $_SERVER['REQUEST_URI'] ) || ! is_string( $_SERVER['REQUEST_URI'] ) ) {
+			return '';
+		}
+		$path = wp_parse_url( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH );
+		foreach ( array( 'browse-topics-1', 'browse-topics-2' ) as $slug ) {
+			$old_path = wp_parse_url( home_url( '/' . $slug . '/' ), PHP_URL_PATH );
+			if ( ! is_page( $slug ) && ( ! is_string( $path ) || ! is_string( $old_path ) || untrailingslashit( $path ) !== untrailingslashit( $old_path ) ) ) {
+				continue;
+			}
+			$args = array();
+			foreach ( array( 'ebd_subject', 'ebd_category', 'ebd_topic' ) as $key ) {
+				$value = $this->request->slug( $key );
+				if ( '' !== $value && ( 'ebd_subject' !== $key || null !== $this->browse->subject_area( $value ) ) ) {
+					$args[ $key ] = $value;
+				}
+			}
+			foreach ( array( 'ebd_view', 'ebd_sort' ) as $key ) {
+				$value = $this->request->key( $key );
+				if ( '' !== $value ) {
+					$args[ $key ] = $value;
+				}
+			}
+			if ( $this->request->terms() ) {
+				$args['ebd_keyword']   = array_map( 'rawurlencode', $this->request->terms() );
+				$args['ebd_term_mode'] = $this->request->term_modes();
+			}
+			if ( $this->request->page() > 1 ) {
+				$args['ebd_page'] = $this->request->page();
+			}
+			return $this->browse_url( $args );
+		}
+		return '';
 	}
 }

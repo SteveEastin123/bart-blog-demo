@@ -38,6 +38,5 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Output "Production-equivalent WordPress: http://localhost:$Port"
 Write-Output "Keyword Search: http://localhost:$Port/keyword-search/"
-Write-Output "Browse Topics 1: http://localhost:$Port/browse-topics-1/"
-Write-Output "Browse Topics 2: http://localhost:$Port/browse-topics-2/"
+Write-Output "Browse Topics: http://localhost:$Port/browse-topics/"
 Write-Output "Structure Review: http://localhost:$Port/structure-review/"

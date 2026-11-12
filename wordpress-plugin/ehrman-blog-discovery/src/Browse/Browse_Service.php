@@ -17,13 +17,12 @@ final class Browse_Service {
 	/**
 	 * Returns the subject areas in a browse path.
 	 *
-	 * @param int $path_number Browse-path number.
 	 * @return array<int,array<string,mixed>> Subject-area records and counts.
 	 */
-	public function subject_areas( int $path_number ): array {
+	public function subject_areas(): array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$path   = $this->browse_path( $path_number );
+		$path   = $this->browse_path();
 		if ( null === $path ) {
 			return array();
 		}
@@ -43,14 +42,13 @@ final class Browse_Service {
 	/**
 	 * Finds one subject area by path and slug.
 	 *
-	 * @param int    $path_number Browse-path number.
 	 * @param string $slug        Subject-area slug.
 	 * @return array<string,mixed>|null Subject-area record when found.
 	 */
-	public function subject_area( int $path_number, string $slug ): ?array {
+	public function subject_area( string $slug ): ?array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$path   = $this->browse_path( $path_number );
+		$path   = $this->browse_path();
 		if ( null === $path ) {
 			return null;
 		}
@@ -246,15 +244,14 @@ final class Browse_Service {
 	/**
 	 * Selects the requested or first subject area containing a category.
 	 *
-	 * @param int    $path_number    Browse-path number.
 	 * @param int    $category_id    Category database identifier.
 	 * @param string $requested_slug Preferred subject-area slug.
 	 * @return array<string,mixed>|null Subject-area record when available.
 	 */
-	public function primary_subject_area( int $path_number, int $category_id, string $requested_slug = '' ): ?array {
+	public function primary_subject_area( int $category_id, string $requested_slug = '' ): ?array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$path   = $this->browse_path( $path_number );
+		$path   = $this->browse_path();
 		if ( null === $path ) {
 			return null;
 		}
@@ -299,15 +296,14 @@ final class Browse_Service {
 	}
 
 	/**
-	 * Finds a browse-path record by its numeric path selector.
+	 * Finds the retained Browse Topics hierarchy.
 	 *
-	 * @param int $path_number Browse-path number.
 	 * @return array<string,mixed>|null Browse-path record when found.
 	 */
-	public function browse_path( int $path_number ): ?array {
+	public function browse_path(): ?array {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
-		$slug   = 'browse-topics-' . ( 2 === $path_number ? '2' : '1' );
+		$slug   = 'browse-topics';
 		$row    = $wpdb->get_row(
 			$wpdb->prepare( "SELECT * FROM {$tables['browse_paths']} WHERE slug=%s LIMIT 1", $slug ),
 			ARRAY_A

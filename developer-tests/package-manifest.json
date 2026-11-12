@@ -25,6 +25,7 @@
     "regressions/metadata-cost-tests.php": "wordpress-production/tests/metadata-cost-tests.php",
     "regressions/post-ingestion-page-tests.php": "wordpress-production/tests/post-ingestion-page-tests.php",
     "regressions/search-page-tests.php": "wordpress-production/tests/search-page-tests.php",
+    "regressions/browse-retirement-tests.php": "wordpress-production/tests/browse-retirement-tests.php",
     "regressions/install-data-tests.php": "wordpress-production/tests/install-data-tests.php"
   }
 }

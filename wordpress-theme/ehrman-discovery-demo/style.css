@@ -287,13 +287,6 @@ a:hover {
   background: #f3f4f4;
 }
 
-.ehrman-browse-menu ul {
-  margin: 0 0 4px 16px;
-  padding: 0;
-  border-left: 2px solid var(--ehrman-line);
-  list-style: none;
-}
-
 .ehrman-main {
   min-height: 55vh;
 }

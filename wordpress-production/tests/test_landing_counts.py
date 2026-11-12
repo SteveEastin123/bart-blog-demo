@@ -10,7 +10,7 @@ from check_wordpress_landing import check_svg, check_live, post_range, source_co
 
 class LandingCountTests(unittest.TestCase):
     counts = dict(posts=2, topics=295, categories=41, subject_areas=10,
-                  subject_areas_2=9, secondary_keywords=902)
+                  secondary_keywords=902)
 
     def test_both_layouts(self):
         for builder in (desktop_svg, mobile_svg):

@@ -46,7 +46,7 @@ final class Data_Installer {
 	/**
 	 * Installs a complete package, or validates an identical previous installation.
 	 *
-	 * @param string $directory Private directory containing five JSON files and the vector package.
+	 * @param string $directory Private directory containing four JSON files and the vector package.
 	 * @param bool   $replace_existing Explicit consent to replace an existing JSON-managed index.
 	 * @param bool   $validate_only Validate files without schema or data writes.
 	 * @return array{skipped:bool,validated_only:bool,posts:int,vectors:int,warnings:list<string>} Installation result.

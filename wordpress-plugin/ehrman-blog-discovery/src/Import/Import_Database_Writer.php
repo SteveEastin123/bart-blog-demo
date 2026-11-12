@@ -24,8 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *     posts:list<SourceRecord>,
  *     topics:list<SourceRecord>,
  *     categories:list<SourceRecord>,
- *     subject_areas_1:list<SourceRecord>,
- *     subject_areas_2:list<SourceRecord>
+ *     subject_areas:list<SourceRecord>,
  * }
  */
 final class Import_Database_Writer {
@@ -82,22 +81,19 @@ final class Import_Database_Writer {
 		$post_keyword_rows     = array();
 		$search_term_rows      = array();
 
-		$path_ids = array();
-		foreach ( array( 1, 2 ) as $path_number ) {
-			$this->insert_record(
-				$tables['browse_paths'],
-				array(
-					'name'        => "Browse Topics {$path_number}",
-					'slug'        => "browse-topics-{$path_number}",
-					'description' => "Browse Topics {$path_number} hierarchy.",
-					'position'    => $path_number,
-					'is_active'   => 1,
-				),
-				array( '%s', '%s', '%s', '%d', '%d' ),
-				"browse path {$path_number}"
-			);
-			$path_ids[ $path_number ] = (int) $wpdb->insert_id;
-		}
+		$this->insert_record(
+			$tables['browse_paths'],
+			array(
+				'name'        => 'Browse Topics',
+				'slug'        => 'browse-topics',
+				'description' => 'Browse Topics hierarchy.',
+				'position'    => 1,
+				'is_active'   => 1,
+			),
+			array( '%s', '%s', '%s', '%d', '%d' ),
+			'browse path'
+		);
+		$path_id = (int) $wpdb->insert_id;
 
 		$category_slugs = array();
 		foreach ( $data['categories'] as $category ) {
@@ -119,30 +115,28 @@ final class Import_Database_Writer {
 			}
 		}
 
-		foreach ( array( 1, 2 ) as $path_number ) {
-			$used_slugs = array();
-			foreach ( $data[ "subject_areas_{$path_number}" ] as $position => $subject_area ) {
-				$name = $this->clean( $subject_area['name'] );
-				$this->insert_record(
-					$tables['subject_areas'],
-					array(
-						'browse_path_id' => $path_ids[ $path_number ],
-						'name'           => $name,
-						'slug'           => $this->unique_slug( $name, $used_slugs ),
-						'description'    => $this->clean( $subject_area['description'] ),
-						'position'       => $position + 1,
-					),
-					array( '%d', '%s', '%s', '%s', '%d' ),
-					"subject area {$name}"
+		$used_slugs = array();
+		foreach ( $data['subject_areas'] as $position => $subject_area ) {
+			$name = $this->clean( $subject_area['name'] );
+			$this->insert_record(
+				$tables['subject_areas'],
+				array(
+					'browse_path_id' => $path_id,
+					'name'           => $name,
+					'slug'           => $this->unique_slug( $name, $used_slugs ),
+					'description'    => $this->clean( $subject_area['description'] ),
+					'position'       => $position + 1,
+				),
+				array( '%d', '%s', '%s', '%s', '%d' ),
+				"subject area {$name}"
+			);
+			$subject_area_id = (int) $wpdb->insert_id;
+			foreach ( $this->string_list( $subject_area['categories'] ) as $category_position => $category_name ) {
+				$subject_category_rows[] = array(
+					$subject_area_id,
+					$category_ids[ $category_name ],
+					$category_position + 1,
 				);
-				$subject_area_id = (int) $wpdb->insert_id;
-				foreach ( $this->string_list( $subject_area['categories'] ) as $category_position => $category_name ) {
-					$subject_category_rows[] = array(
-						$subject_area_id,
-						$category_ids[ $category_name ],
-						$category_position + 1,
-					);
-				}
 			}
 		}
 
@@ -284,8 +278,8 @@ final class Import_Database_Writer {
 		);
 
 		return array(
-			'browse_paths'            => count( $path_ids ),
-			'subject_areas'           => count( $data['subject_areas_1'] ) + count( $data['subject_areas_2'] ),
+			'browse_paths'            => 1,
+			'subject_areas'           => count( $data['subject_areas'] ),
 			'categories'              => count( $category_ids ),
 			'topics'                  => count( $topic_ids ),
 			'topic_aliases'           => count( $topic_alias_rows ),

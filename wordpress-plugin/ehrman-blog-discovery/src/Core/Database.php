@@ -323,6 +323,7 @@ CREATE TABLE {$tables['ingestion_drafts']} (
 ";
 
 		dbDelta( $sql );
+		Browse_Upgrade::migrate_data();
 		AI_Metadata_Usage::import_history();
 		update_option( 'ehrman_discovery_schema_version', EHRMAN_DISCOVERY_SCHEMA_VERSION, false );
 	}

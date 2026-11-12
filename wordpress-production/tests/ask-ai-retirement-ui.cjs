@@ -60,7 +60,7 @@ const productionOnly = process.argv.includes('--production-only');
       await page.setViewportSize({ width, height: 950 });
       await page.goto(base);
       assert.deepEqual(await page.locator('nav.ehrman-navigation a').allTextContents(),
-        ['Browse Topics 1', 'Browse Topics 2', 'Keyword Search', 'Ask AI']);
+        ['Browse Topics', 'Keyword Search', 'Ask AI']);
       assert.equal(await page.locator('.ehrman-reviewer-note a').count(), productionOnly ? 0 : 1);
       await page.locator('.ehrman-search-menu > summary').click();
       assert(!/Ask AI [123]|two alternative AI search methods/i.test(await page.locator('main').innerText()));
@@ -115,7 +115,7 @@ const productionOnly = process.argv.includes('--production-only');
 
     // Read-only database searches exercise the shared controls on both browse paths and keyword search.
     await page.setViewportSize({ width: 1440, height: 950 });
-    for (const path of ['/keyword-search/?ebd_keyword[]=Paul', '/browse-topics-1/', '/browse-topics-2/']) {
+    for (const path of ['/keyword-search/?ebd_keyword[]=Paul', '/browse-topics/']) {
       await page.goto(`${base}${path}`);
       if (path.startsWith('/browse')) {
         await page.locator('main a[href*="ebd_subject="]').first().click();

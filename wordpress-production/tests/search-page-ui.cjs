@@ -40,13 +40,11 @@ const beforeFile = path.join(output, 'before.json');
       { name: 'keyword-no-results', url: base + '/keyword-search/?ebd_keyword%5B%5D=zz-no-match-fixture-2026', expand: true },
       { name: 'keyword-four', url: base + '/keyword-search/?ebd_keyword%5B%5D=Paul&ebd_keyword%5B%5D=Luke&ebd_keyword%5B%5D=Jesus&ebd_keyword%5B%5D=Atonement', expand: true },
     ];
-    for (const number of [1, 2]) {
-      await page.goto(`${base}/browse-topics-${number}/`);
-      await page.locator('main a[href*="ebd_subject="]').first().click();
-      await page.locator('main a[href*="ebd_category="]').first().click();
-      targets.push({ name: `browse-${number}-category`, url: await page.locator('main a[href*="ebd_view=posts"]').getAttribute('href'), expand: true });
-      targets.push({ name: `browse-${number}-topic`, url: await page.locator('main a[href*="ebd_topic="]').first().getAttribute('href'), expand: true });
-    }
+    await page.goto(`${base}/browse-topics/`);
+    await page.locator('main a[href*="ebd_subject="]').first().click();
+    await page.locator('main a[href*="ebd_category="]').first().click();
+    targets.push({ name: `browse-category`, url: await page.locator('main a[href*="ebd_view=posts"]').getAttribute('href'), expand: true });
+    targets.push({ name: `browse-topic`, url: await page.locator('main a[href*="ebd_topic="]').first().getAttribute('href'), expand: true });
     const expand = async () => {
       if (!(await page.locator('[data-ebd-search-expanded]').isVisible())) {
         await page.locator('[data-ebd-search-edit]').click();

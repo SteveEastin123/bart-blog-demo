@@ -25,8 +25,7 @@ def main() -> None:
     posts = load("ehrman_post_search_index.json")
     topics = load("ehrman_post_topics.json")["topics"]
     categories = load("ehrman_post_categories.json")["categories"]
-    subject_areas_1 = load("ehrman_post_subject_areas.json")["subjectAreas"]
-    subject_areas_2 = load("ehrman_post_subject_areas_2.json")["subjectAreas"]
+    subject_areas = load("ehrman_post_subject_areas.json")["subjectAreas"]
 
     keywords = {
         normalize(keyword)
@@ -51,15 +50,15 @@ def main() -> None:
     )
 
     counts = {
-        "browse_paths": 2,
-        "subject_areas": len(subject_areas_1) + len(subject_areas_2),
+        "browse_paths": 1,
+        "subject_areas": len(subject_areas),
         "categories": len(categories),
         "topics": len(topics),
         "external_posts": len(posts),
         "keywords": len(keywords),
         "subject_area_categories": sum(
             len(area.get("categories", []))
-            for area in subject_areas_1 + subject_areas_2
+            for area in subject_areas
         ),
         "topic_categories": sum(len(topic.get("categories", [])) for topic in topics),
         "post_topics": post_topics,

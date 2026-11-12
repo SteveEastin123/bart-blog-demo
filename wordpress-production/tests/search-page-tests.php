@@ -151,7 +151,7 @@ try {
 		new Search_Service(),
 		new Discovery_Markup(),
 		$renderer,
-		static fn( int $path, array $args = array() ): string => add_query_arg( $args, '/browse-topics-' . $path . '/' )
+		static fn( array $args = array() ): string => add_query_arg( $args, '/browse-topics/' )
 	);
 	$assert_browse_list = static function ( string $html, array $records, string $parameter, array $context = array() ) use ( $search_page_dom, $assert_same ): void {
 		usort( $records, static fn( array $a, array $b ): int => strnatcasecmp( $a['name'], $b['name'] ) );
@@ -172,27 +172,25 @@ try {
 			}
 		}
 	};
-	foreach ( array( 1, 2 ) as $path ) {
-		$areas = $browse->subject_areas( $path );
-		$assert_browse_list( $browse_renderer->render( $path, '', '', '', '', array(), array(), 'ranked', 1 ), $areas, 'ebd_subject' );
-		foreach ( $areas as $area ) {
-			$categories = $browse->subject_area_categories( (int) $area['id'] );
-			$assert_browse_list(
-				$browse_renderer->render( $path, $area['slug'], '', '', '', array(), array(), 'ranked', 1 ),
-				$categories,
-				'ebd_category',
-				array( 'ebd_subject' => $area['slug'] )
-			);
-		}
-		foreach ( $browse->categories() as $category ) {
-			$topics = $browse->category_topics( (int) $category['id'] );
-			$assert_browse_list(
-				$browse_renderer->render( $path, '', $category['slug'], '', '', array(), array(), 'ranked', 1 ),
-				$topics,
-				'ebd_topic',
-				array( 'ebd_category' => $category['slug'] )
-			);
-		}
+	$areas = $browse->subject_areas();
+	$assert_browse_list( $browse_renderer->render( '', '', '', '', array(), array(), 'ranked', 1 ), $areas, 'ebd_subject' );
+	foreach ( $areas as $area ) {
+		$categories = $browse->subject_area_categories( (int) $area['id'] );
+		$assert_browse_list(
+			$browse_renderer->render( $area['slug'], '', '', '', array(), array(), 'ranked', 1 ),
+			$categories,
+			'ebd_category',
+			array( 'ebd_subject' => $area['slug'] )
+		);
+	}
+	foreach ( $browse->categories() as $category ) {
+		$topics = $browse->category_topics( (int) $category['id'] );
+		$assert_browse_list(
+			$browse_renderer->render( '', $category['slug'], '', '', array(), array(), 'ranked', 1 ),
+			$topics,
+			'ebd_topic',
+			array( 'ebd_category' => $category['slug'] )
+		);
 	}
 	$assert_same( 0, $search_page_http_calls, 'Rendering attempted a provider request.' );
 } finally {

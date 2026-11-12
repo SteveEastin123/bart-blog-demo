@@ -26,7 +26,7 @@ final class Plugin {
 	/** Returns whether the matching production plugin is available. */
 	private static function available(): bool {
 		return defined( 'EHRMAN_DISCOVERY_VERSION' )
-			&& version_compare( EHRMAN_DISCOVERY_VERSION, '0.10.4', '>=' )
+			&& version_compare( EHRMAN_DISCOVERY_VERSION, '0.10.15', '>=' )
 			&& class_exists( Discovery_Plugin::class );
 	}
 
@@ -45,7 +45,7 @@ final class Plugin {
 	public static function dependency_notice(): void {
 		if ( current_user_can( 'activate_plugins' ) ) {
 			echo '<div class="notice notice-warning"><p>'
-				. esc_html__( 'Reviewer Tools requires Ehrman Blog Discovery 0.10.4 or newer to be active.', 'ehrman-reviewer-tools' )
+				. esc_html__( 'Reviewer Tools requires Ehrman Blog Discovery 0.10.15 or newer to be active.', 'ehrman-reviewer-tools' )
 				. '</p></div>';
 		}
 	}
@@ -53,7 +53,7 @@ final class Plugin {
 	/** Creates or reconnects the demo page only when this add-on is activated. */
 	public static function activate(): void {
 		if ( ! self::available() ) {
-			wp_die( esc_html__( 'Activate Ehrman Blog Discovery 0.10.4 or newer before Reviewer Tools.', 'ehrman-reviewer-tools' ) );
+			wp_die( esc_html__( 'Activate Ehrman Blog Discovery 0.10.15 or newer before Reviewer Tools.', 'ehrman-reviewer-tools' ) );
 		}
 		$page_id = Database::integer( get_option( self::PAGE_OPTION, 0 ) );
 		$page    = $page_id > 0 ? get_post( $page_id ) : null;
@@ -150,7 +150,6 @@ final class Plugin {
 		$renderer = new Structure_Review_Renderer( new Browse_Service(), new Discovery_Markup() );
 		$url      = self::page_url();
 		return $renderer->render(
-			'2' === $request->value( 'ebd_path' ) ? 2 : 1,
 			$request->key( 'ebd_view' ),
 			'' === $url ? home_url( '/' ) : $url
 		);
@@ -170,8 +169,8 @@ final class Plugin {
 				echo wp_kses_post(
 					sprintf(
 						/* translators: %s: URL of the optional Reviewer Tools page. */
-						__( '<strong><a href="%s">Reviewer Tools</a></strong> provides expandable outlines of both Browse Topics structures, along with complete category and topic indexes for reviewing how the content is organized. These tools are included only for evaluation and will not appear in the final version; they are intended to confirm that subject areas, categories, and topics are organized appropriately before the structure is finalized.', 'ehrman-reviewer-tools' ),
-						esc_url( add_query_arg( 'ebd_path', '1', $url ) )
+						__( '<strong><a href="%s">Reviewer Tools</a></strong> provides an expandable outline of Browse Topics, along with complete category and topic indexes for reviewing how the content is organized. These tools are included only for evaluation and will not appear in the final version.', 'ehrman-reviewer-tools' ),
+						esc_url( $url )
 					)
 				);
 				?>

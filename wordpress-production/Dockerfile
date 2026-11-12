@@ -32,7 +32,6 @@ COPY --chown=www-data:www-data data/index/ehrman_post_search_index.json \
     data/index/ehrman_post_topics.json \
     data/index/ehrman_post_categories.json \
     data/index/ehrman_post_subject_areas.json \
-    data/index/ehrman_post_subject_areas_2.json \
     data/index/ehrman_post_embeddings.jsonl.gz \
     /opt/ehrman-import/
 
@@ -61,6 +60,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-page-te
     /opt/ehrman-tests/post-ingestion-page-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/search-page-tests.php \
     /opt/ehrman-tests/search-page-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/browse-retirement-tests.php \
+    /opt/ehrman-tests/browse-retirement-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-naming-tests.php \
     /opt/ehrman-tests/ask-ai-naming-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/reviewer-tools-tests.php \

@@ -9,7 +9,7 @@ production plugin or install it on the live blog.
 ## What Is Tested
 
 - Keyword Search results, counts and ordering, including combined search terms.
-- Autocomplete suggestions and both Browse Topics structures and relationships.
+- Autocomplete suggestions and the Browse Topics hierarchy and relationships.
 - Source-file fingerprints and imported counts for like-for-like comparisons.
 - The separate PHP regression suite covers search rendering, Ask AI contracts,
   analytics, ingestion approval and queues, vector import/export and error cases.
@@ -22,10 +22,10 @@ extend `cases/search.json` with approved cases as requirements change.
 ## Prerequisites
 
 1. Use a disposable staging/local WordPress site with the production plugin active.
-2. Import the matching discovery JSON and supplied vectors. Keep the five JSON
+2. Import the matching discovery JSON and supplied vectors. Keep the four JSON
    files available through `EHRMAN_DISCOVERY_IMPORT_DIR` for fingerprint checks.
    They must be the same files used for the supplied baseline, not just similarly
-   sized files. These tests currently cover both Browse Topics structures.
+   sized files. These tests currently cover the Browse Topics hierarchy.
 3. Set WordPress `WP_ENVIRONMENT_TYPE` to `staging`, `development` or `local`.
    The command entry points refuse production, including WordPress's default.
 4. Have WP-CLI and PHP on the WordPress host. Python 3.10+ (standard library only)
