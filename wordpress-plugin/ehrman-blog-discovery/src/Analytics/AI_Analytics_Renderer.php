@@ -252,7 +252,7 @@ final class AI_Analytics_Renderer {
 	 * @param array<string,mixed> $row Analytics row.
 	 * @return array{total:string,details:string} Token display values.
 	 */
-	private static function token_details( array $row ): array {
+	public static function token_details( array $row ): array {
 		return array(
 			'total'   => number_format_i18n( self::total_tokens( $row ) ),
 			'details' => sprintf(
@@ -313,7 +313,7 @@ final class AI_Analytics_Renderer {
 	 * @param float $value    Cost value in dollars.
 	 * @param int   $decimals Decimal places in cents.
 	 */
-	private static function cents( float $value, int $decimals = 3 ): string {
+	public static function cents( float $value, int $decimals = 3 ): string {
 		return number_format( $value * 100, $decimals ) . '¢';
 	}
 

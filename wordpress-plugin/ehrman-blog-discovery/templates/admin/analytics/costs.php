@@ -15,6 +15,7 @@ $view     = $ehrman_blog_discovery_context;
 $metadata = 'post-metadata' === $view['tab'];
 $summary  = $view['summary'];
 $overview = $view['overview'];
+$unknown  = $metadata ? $summary['unknown'] : $overview['metadata']['unknown'];
 ?>
 <div class="wrap">
 	<h1><?php echo esc_html__( 'AI Analytics', 'ehrman-blog-discovery' ); ?></h1>
@@ -40,30 +41,10 @@ $overview = $view['overview'];
 		<button class="button button-primary" type="submit"><?php echo esc_html__( 'Apply filters', 'ehrman-blog-discovery' ); ?></button>
 		<a class="button" href="<?php echo esc_url( $view['clear_url'] ); ?>"><?php echo esc_html__( 'Clear', 'ehrman-blog-discovery' ); ?></a>
 	</form>
-	<p style="font-size:20px"><strong><?php echo esc_html__( 'Total estimated cost:', 'ehrman-blog-discovery' ); ?> <?php echo esc_html( AI_Cost_Renderer::money( $metadata ? $summary['total'] : $overview['total'] ) ); ?></strong></p>
-	<?php if ( ! $metadata ) : ?>
-		<div style="overflow-x:auto">
-		<table class="widefat striped" data-ebd-cost-overview>
-			<thead><tr><th><?php echo esc_html__( 'Activity', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Volume', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Average cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
-			<tbody>
-				<tr><td><?php echo esc_html__( 'Ask AI', 'ehrman-blog-discovery' ); ?></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['search']['total_cost'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( $overview['search']['questions'] ) . ' ' . __( 'questions', 'ehrman-blog-discovery' ) ); ?></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['search']['average_question'] ) . ' ' . __( 'per question', 'ehrman-blog-discovery' ) ); ?></td></tr>
-				<tr><td><?php echo esc_html__( 'Post Metadata', 'ehrman-blog-discovery' ); ?></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['metadata']['total'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( $overview['metadata']['runs'] ) . ' ' . __( 'generation runs', 'ehrman-blog-discovery' ) ); ?></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['metadata']['average'] ) . ' ' . __( 'per run', 'ehrman-blog-discovery' ) ); ?></td></tr>
-				<tr><td><?php echo esc_html__( 'Bulk / index vectors', 'ehrman-blog-discovery' ); ?></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['index']['total'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( $overview['index']['calls'] ) . ' ' . __( 'recorded calls', 'ehrman-blog-discovery' ) ); ?></td><td><?php echo esc_html__( 'Not included in per-question or per-run averages', 'ehrman-blog-discovery' ); ?></td></tr>
-			</tbody>
-		</table>
-		</div>
-		<p><?php echo esc_html__( 'Ask AI includes query embeddings and candidate review. Post Metadata includes metadata generation and post vectors. Bulk vector generation is separate; importing existing vectors incurs no new API charge.', 'ehrman-blog-discovery' ); ?></p>
-	<?php else : ?>
-		<p><?php echo esc_html( __( 'Metadata generation:', 'ehrman-blog-discovery' ) . ' ' . AI_Cost_Renderer::money( $summary['metadata'] ) . ' | ' . __( 'Post vectors:', 'ehrman-blog-discovery' ) . ' ' . AI_Cost_Renderer::money( $summary['vectors'] ) ); ?></p>
-		<p><?php echo esc_html( number_format_i18n( $summary['runs'] ) . ' ' . __( 'generation runs; average recorded cost per run:', 'ehrman-blog-discovery' ) . ' ' . AI_Cost_Renderer::money( $summary['average'] ) ); ?></p>
-		<p><a class="button" href="<?php echo esc_url( $view['export_url'] ); ?>"><?php echo esc_html__( 'Export metadata costs CSV', 'ehrman-blog-discovery' ); ?></a></p>
-		<?php
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted partial escapes all event fields.
-		echo Template::render( 'admin/analytics/metadata-runs.php', array( 'rows' => $view['runs'] ) );
-		?>
-		<p><?php echo wp_kses_post( $view['pagination'] ); ?></p>
-	<?php endif; ?>
-	<?php $unknown = $metadata ? $summary['unknown'] : $overview['metadata']['unknown'] + $overview['index']['unknown']; ?>
+	<?php
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The shared partial escapes metric values and labels.
+	echo Template::render( 'admin/analytics/metrics.php', array( 'metrics' => $view['metrics'] ) );
+	?>
 	<?php if ( $unknown > 0 ) : ?>
 		<div class="notice notice-warning inline"><p>
 		<?php
@@ -72,7 +53,40 @@ $overview = $view['overview'];
 		?>
 		<?php echo esc_html__( 'Totals and averages are incomplete, not zero-cost estimates for those calls.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
-	<p><?php echo esc_html__( 'Costs are estimates based on recorded usage and pricing, not an invoice. Dates use Eastern time. Ask AI groups costs by question submission date; metadata and bulk-vector costs use the API-call date. A run spanning the selected dates includes only calls in that range.', 'ehrman-blog-discovery' ); ?></p>
+	<?php if ( ! $metadata ) : ?>
+		<p><?php echo esc_html__( 'Total estimated cost includes Ask AI and Post Metadata only. Historical bulk/index preparation charges are excluded.', 'ehrman-blog-discovery' ); ?></p>
+		<div style="overflow-x:auto;max-width:1200px">
+		<table class="widefat striped" style="min-width:560px" data-ebd-cost-overview>
+			<thead><tr><th><?php echo esc_html__( 'Activity', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Questions / runs', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Average cost', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+			<tbody>
+				<tr><td><a href="<?php echo esc_url( $view['activities']['ask-ai'] ); ?>"><?php echo esc_html__( 'Ask AI', 'ehrman-blog-discovery' ); ?></a></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['search']['total_cost'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( $overview['search']['questions'] ) . ' ' . __( 'questions', 'ehrman-blog-discovery' ) ); ?></td><td><?php echo esc_html( AI_Analytics_Renderer::cents( $overview['search']['average_question'] ) . ' ' . __( 'per question', 'ehrman-blog-discovery' ) ); ?></td></tr>
+				<tr><td><a href="<?php echo esc_url( $view['activities']['post-metadata'] ); ?>"><?php echo esc_html__( 'Post Metadata', 'ehrman-blog-discovery' ); ?></a></td><td><?php echo esc_html( AI_Cost_Renderer::money( $overview['metadata']['total'] ) ); ?></td><td><?php echo esc_html( number_format_i18n( $overview['metadata']['runs'] ) . ' ' . __( 'generation runs', 'ehrman-blog-discovery' ) ); ?></td><td><?php echo esc_html( AI_Analytics_Renderer::cents( $overview['metadata']['average'] ) . ' ' . __( 'per run', 'ehrman-blog-discovery' ) ); ?></td></tr>
+			</tbody>
+		</table>
+		</div>
+		<p><?php echo esc_html__( 'Ask AI includes query embeddings and candidate review. Post Metadata includes metadata generation and post vectors.', 'ehrman-blog-discovery' ); ?></p>
+	<?php else : ?>
+		<p><?php echo esc_html__( 'Totals and averages include metadata generation and post vectors within the active filters. Retries belong to the same run; generating metadata again starts a new run. Historical bulk/index preparation charges are excluded.', 'ehrman-blog-discovery' ); ?></p>
+		<p><?php echo esc_html__( 'Costs are estimates based on API-reported usage and recorded pricing. Confirm billed amounts in the OpenAI usage dashboard.', 'ehrman-blog-discovery' ); ?></p>
+		<details style="margin:18px 0" data-ebd-metadata-tokens>
+			<summary><strong><?php echo esc_html__( 'Token and cache details', 'ehrman-blog-discovery' ); ?></strong></summary>
+			<p>
+			<?php
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The shared partial escapes token values.
+			echo Template::render( 'admin/analytics/tokens.php', $view['tokens'] );
+			?>
+			</p>
+			<p><?php echo esc_html__( 'Cached input tokens are provider-side prompt-cache reads and are included in input tokens. Reasoning tokens are included in output tokens. Totals reflect recorded usage within the active filters; unreported usage is not included.', 'ehrman-blog-discovery' ); ?></p>
+		</details>
+		<h2><?php echo esc_html__( 'Generation runs', 'ehrman-blog-discovery' ); ?></h2>
+		<p><a class="button" href="<?php echo esc_url( $view['export_url'] ); ?>"><?php echo esc_html__( 'Export metadata costs CSV', 'ehrman-blog-discovery' ); ?></a></p>
+		<?php
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted partial escapes all event fields.
+		echo Template::render( 'admin/analytics/metadata-runs.php', array( 'rows' => $view['runs'] ) );
+		?>
+		<p><?php echo wp_kses_post( $view['pagination'] ); ?></p>
+	<?php endif; ?>
+	<p><?php echo esc_html__( 'Costs are estimates based on recorded usage and pricing, not an invoice. Dates use Eastern time. Ask AI groups costs by question submission date; metadata costs use the API-call date. A run spanning the selected dates includes only calls in that range.', 'ehrman-blog-discovery' ); ?></p>
 	<p><?php echo esc_html__( 'Historical totals cover retained records only. Older metadata snapshots may omit retries, deleted drafts, and previous generations; their dates may be approximate. Calls made outside this plugin are not included.', 'ehrman-blog-discovery' ); ?></p>
 	<p><?php echo esc_html( __( 'Per-attempt metadata tracking enabled:', 'ehrman-blog-discovery' ) . ' ' . $view['since'] ); ?></p>
 </div>

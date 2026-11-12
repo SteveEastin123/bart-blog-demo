@@ -19,7 +19,7 @@ final class Cli_Command {
 	 * ## OPTIONS
 	 *
 	 * --data-dir=<directory>
-	 * : Private directory containing the five JSON files and ehrman_post_embeddings.jsonl.gz.
+	 * : Private directory containing the four JSON files and ehrman_post_embeddings.jsonl.gz.
 	 *
 	 * [--validate-only]
 	 * : Validate the package without installing schema or data.

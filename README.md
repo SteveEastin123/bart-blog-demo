@@ -16,16 +16,15 @@ content. Do not publish the repository or its raw data.
 | Demo theme | `wordpress-theme/ehrman-discovery-demo/` | Production-equivalent presentation and landing page |
 | Local/Render image | `wordpress-production/` | Reproducible WordPress/PHP image with MariaDB local build and acceptance tooling |
 | Render blueprint | `render-wordpress.yaml` | Existing WordPress web service and a fresh private MariaDB target; applied manually |
-| Canonical discovery data | Five selected files in `data/index/` | Current JSON source of truth for imported posts and taxonomy |
+| Canonical discovery data | Four selected files in `data/index/` | Current JSON source of truth for imported posts and taxonomy |
 | Portable semantic index | `data/index/ehrman_post_embeddings.jsonl.gz` | Precomputed Ask AI title-and-summary vectors |
 
-The five imported JSON files are:
+The four imported JSON files are:
 
 - `ehrman_post_search_index.json`
 - `ehrman_post_topics.json`
 - `ehrman_post_categories.json`
 - `ehrman_post_subject_areas.json`
-- `ehrman_post_subject_areas_2.json`
 
 JSON remains authoritative during development. A rebuild imports those files
 into MariaDB, preserving the current workflow for downloaded posts. At the final
@@ -44,11 +43,14 @@ local system on port `8086`:
 The main entry points are:
 
 - `http://localhost:8086/`
-- `http://localhost:8086/browse-topics-1/`
-- `http://localhost:8086/browse-topics-2/`
+- `http://localhost:8086/browse-topics/`
 - `http://localhost:8086/keyword-search/`
 - `http://localhost:8086/ask-ai/`
 - `http://localhost:8086/structure-review/`
+
+Browse Topics uses the selected first hierarchy and `[ehrman_browse_topics]`.
+Both old numbered browsing URLs redirect to `/browse-topics/`; the second
+hierarchy and its JSON source are no longer part of the import or handoff.
 
 Ask AI is the selected title-and-summary semantic search. Its public shortcode
 is `[ehrman_ask_ai]`. Previous numbered URLs redirect to `/ask-ai/`, and existing

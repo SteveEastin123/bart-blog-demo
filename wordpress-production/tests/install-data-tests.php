@@ -2,6 +2,7 @@
 /** Destructive fixture tests: ONLY an empty, disposable installation-test site. */
 
 use EhrmanBlogDiscovery\Data_Installer;
+use EhrmanBlogDiscovery\Browse_Upgrade;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Service;
 use EhrmanBlogDiscovery\Importer;
@@ -180,8 +181,78 @@ try {
     $check($wpdb->get_results("SELECT * FROM {$legacy_feedback}", ARRAY_A) === $legacy_snapshot, 'Schema upgrade changed historical feedback.');
     $check($wpdb->get_results("SELECT * FROM {$tables['ai_requests']}", ARRAY_A) === $request_snapshot, 'Schema upgrade changed request history.');
     $wpdb->delete($tables['ai_requests'], ['request_id' => $legacy_id]);
+    // Upgrade a previously installed two-structure package, including its saved receipt.
+    $database_hash = new ReflectionMethod(Data_Installer::class, 'database_hash');
+    $database_hash->setAccessible(true);
+    $seed_legacy_browse = static function () use ($wpdb, $tables, $database_hash, $installer, $check): array {
+        $check(false !== $wpdb->query("UPDATE {$tables['browse_paths']} SET name='Browse Topics 1',slug='browse-topics-1',description='Original hierarchy.' WHERE slug='browse-topics'"), 'Could not restore legacy path.');
+        $check(false !== $wpdb->insert($tables['browse_paths'], ['name' => 'Browse Topics 2', 'slug' => 'browse-topics-2', 'description' => 'Alternate hierarchy.']), 'Could not seed second path.');
+        $path_id = (int) $wpdb->insert_id;
+        $check(false !== $wpdb->insert($tables['subject_areas'], ['browse_path_id' => $path_id, 'name' => 'Alternate Area', 'slug' => 'alternate-area', 'description' => 'Fixture.']), 'Could not seed alternate area.');
+        $check(false !== $wpdb->insert($tables['subject_area_categories'], ['subject_area_id' => (int) $wpdb->insert_id, 'category_id' => (int) $wpdb->get_var("SELECT id FROM {$tables['categories']} LIMIT 1")]), 'Could not seed alternate relationship.');
+        $receipt = get_option('ehrman_discovery_install_receipt');
+        $receipt['database_hash'] = $database_hash->invoke($installer);
+        $receipt['source_checksum'] = hash('sha256', 'Legacy five-file package');
+        $receipt['plugin_version'] = '0.10.14';
+        update_option('ehrman_discovery_install_receipt', $receipt, false);
+        return $receipt;
+    };
+    $shared_hash = static function () use ($wpdb, $tables): string {
+        $rows = [];
+        foreach (array_diff_key($tables, array_flip(['browse_paths', 'subject_areas', 'subject_area_categories'])) as $key => $table) {
+            $rows[$key] = array_map('serialize', $wpdb->get_results("SELECT * FROM {$table}", ARRAY_A));
+            sort($rows[$key]);
+        }
+        return hash('sha256', serialize($rows));
+    };
+    $old_receipt = $seed_legacy_browse();
+    $shared_before = $shared_hash();
+    Database::install();
+    $migrated_receipt = get_option('ehrman_discovery_install_receipt');
+    $check($migrated_receipt['database_hash'] === $database_hash->invoke($installer), 'Browse upgrade left a stale installation receipt.');
+    $check($migrated_receipt['source_checksum'] === $old_receipt['source_checksum'] && $migrated_receipt['vector_checksum'] === $old_receipt['vector_checksum'], 'Migration incorrectly approved a different source package.');
+    $check($shared_before === $shared_hash(), 'Receipt migration changed shared metadata, vectors or history.');
+    $after_upgrade = $snapshot();
+    Database::install();
+    $check($snapshot() === $after_upgrade, 'Repeated upgrade changed data or bookkeeping.');
+    putenv('EHRMAN_DISCOVERY_POST_SOURCE=mysql');
+    $expect_failure(fn() => $installer->install($directory), 'Package import is disabled');
+    putenv('EHRMAN_DISCOVERY_POST_SOURCE=json');
+    $expect_failure(fn() => $installer->install($directory), 'already exists');
+    $check(!$installer->install($directory, true)['skipped'], 'Explicit package replacement after upgrade failed.');
+    $check($installer->install($directory)['skipped'], 'Upgraded installation could not be repeated.');
+    $current_receipt = get_option('ehrman_discovery_install_receipt');
+
+    $old_receipt = $seed_legacy_browse();
+    $description = $wpdb->get_var("SELECT description FROM {$tables['external_posts']} WHERE source_wp_id=900001");
+    $wpdb->update($tables['external_posts'], ['description' => 'Editorial change before upgrade'], ['source_wp_id' => 900001]);
+    Browse_Upgrade::migrate_data();
+    $check(get_option('ehrman_discovery_install_receipt') === $old_receipt, 'Migration blessed pre-existing editorial changes.');
+    $expect_failure(fn() => $installer->install($directory, true), 'changed after installation');
+    $wpdb->update($tables['external_posts'], ['description' => $description], ['source_wp_id' => 900001]);
+    Browse_Upgrade::migrate_data();
+    $check(get_option('ehrman_discovery_install_receipt') === $old_receipt, 'No-op migration repaired an unverified receipt.');
+    $expect_failure(fn() => $installer->install($directory, true), 'changed after installation');
+    update_option('ehrman_discovery_install_receipt', $current_receipt, false);
+    $check($installer->install($directory)['skipped'], 'Could not restore editorial-change fixture.');
+
+    $seed_legacy_browse();
+    $saved_errors = $wpdb->suppress_errors(true);
+    add_filter('query', $fail_receipt);
+    try { $expect_failure(fn() => Browse_Upgrade::migrate_data(), 'Could not store installation bookkeeping'); }
+    finally { remove_filter('query', $fail_receipt); $wpdb->suppress_errors($saved_errors); }
+    Browse_Upgrade::migrate_data();
+    $check(get_option('ehrman_discovery_install_receipt')['database_hash'] === $database_hash->invoke($installer), 'Receipt migration could not recover after rollback.');
+    $installer->install($directory, true);
+    $current_receipt = get_option('ehrman_discovery_install_receipt');
+    $seed_legacy_browse();
+    delete_option('ehrman_discovery_install_receipt');
+    Browse_Upgrade::migrate_data();
+    $check(get_option('ehrman_discovery_install_receipt', null) === null, 'Migration invented an installation receipt.');
+    update_option('ehrman_discovery_install_receipt', $current_receipt, false);
+    $check($installer->install($directory)['skipped'], 'Could not restore no-receipt fixture.');
     $check($calls === 0, 'Installation made an external call.');
-    echo "Installation fixture tests: fresh schema, feedback retirement/upgrade, validation, no-op rerun, source protection, drift, lock, rollback and storage-engine guards: OK\n";
+    echo "Installation fixture tests: fresh schema, feedback retirement/upgrade, browse receipt migration/rollback/drift protection, validation, no-op rerun, source protection, drift, lock, rollback and storage-engine guards: OK\n";
 } finally {
     remove_filter('pre_http_request', $block_http);
     putenv($saved_source === false ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $saved_source);

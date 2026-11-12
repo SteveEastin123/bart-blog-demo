@@ -57,6 +57,16 @@ topics, posts, keywords, vectors, ingestion history and analytics are not replac
 New packages contain only the four JSON sources listed below. Historical
 presentations, reports and retired prototypes retain their original labels.
 
+For an installation with a saved data receipt, the migration checks its database
+fingerprint before changing the hierarchy. Only a matching receipt advances to
+the migrated fingerprint, in the same transaction. Existing editorial drift is
+not accepted, missing receipts are not invented, and a receipt-write failure
+rolls back the hierarchy changes. Already-mismatched receipts are not silently repaired.
+Source and vector checksums remain unchanged: the new four-file package is not
+assumed identical to an old five-file package. Loading a different package still
+requires an intentional JSON-managed replacement; database-managed replacements
+remain blocked. Pause editorial writes during plugin/data upgrades.
+
 ## 2. Discovery Data
 
 Provide the four authoritative JSON files:

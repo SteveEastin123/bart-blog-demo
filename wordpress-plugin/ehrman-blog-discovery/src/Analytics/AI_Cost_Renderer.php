@@ -29,18 +29,28 @@ final class AI_Cost_Renderer {
 			$tabs[] = array(
 				'label'  => $label,
 				'active' => $active === $key,
-				'url'    => add_query_arg(
-					array(
-						'page'      => 'ehrman-ai-analytics',
-						'tab'       => $key,
-						'date_from' => $filters['date_from'] ?? '',
-						'date_to'   => $filters['date_to'] ?? '',
-					),
-					admin_url( 'tools.php' )
-				),
+				'url'    => self::tab_url( $key, $filters ),
 			);
 		}
 		return Template::render( 'admin/analytics/navigation.php', array( 'tabs' => $tabs ) );
+	}
+
+	/**
+	 * Links to an activity while preserving only the common date filters.
+	 *
+	 * @param string               $tab     Analytics tab.
+	 * @param array<string,string> $filters Validated date filters.
+	 */
+	private static function tab_url( string $tab, array $filters ): string {
+		return add_query_arg(
+			array(
+				'page'      => 'ehrman-ai-analytics',
+				'tab'       => $tab,
+				'date_from' => $filters['date_from'] ?? '',
+				'date_to'   => $filters['date_to'] ?? '',
+			),
+			admin_url( 'tools.php' )
+		);
 	}
 
 	/**
@@ -93,6 +103,24 @@ final class AI_Cost_Renderer {
 				'periods'    => $periods,
 				'overview'   => $overview,
 				'summary'    => $summary,
+				'activities' => array(
+					'ask-ai'        => self::tab_url( 'ask-ai', $filters ),
+					'post-metadata' => self::tab_url( 'post-metadata', $filters ),
+				),
+				'metrics'    => ! empty( $overview ) ? array(
+					array( __( 'Total estimated cost', 'ehrman-blog-discovery' ), self::money( $overview['total'] ) ),
+					array( __( 'Ask AI cost', 'ehrman-blog-discovery' ), self::money( $overview['search']['total_cost'] ) ),
+					array( __( 'Post Metadata cost', 'ehrman-blog-discovery' ), self::money( $overview['metadata']['total'] ) ),
+					array( __( 'Questions', 'ehrman-blog-discovery' ), number_format_i18n( $overview['search']['questions'] ) ),
+					array( __( 'Metadata generation runs', 'ehrman-blog-discovery' ), number_format_i18n( $overview['metadata']['runs'] ) ),
+				) : array(
+					array( __( 'Total estimated cost', 'ehrman-blog-discovery' ), self::money( $summary['total'] ) ),
+					array( __( 'Average cost per generation run', 'ehrman-blog-discovery' ), AI_Analytics_Renderer::cents( $summary['average'] ) ),
+					array( __( 'Generation runs', 'ehrman-blog-discovery' ), number_format_i18n( $summary['runs'] ) ),
+					array( __( 'Metadata generation cost', 'ehrman-blog-discovery' ), self::money( $summary['metadata'] ) ),
+					array( __( 'Post-vector cost', 'ehrman-blog-discovery' ), self::money( $summary['vectors'] ) ),
+				),
+				'tokens'     => AI_Analytics_Renderer::token_details( $builder->tokens( $events ) ),
 				'runs'       => array_slice( $runs, ( $page - 1 ) * 50, 50 ),
 				'pagination' => $pages > 1 ? paginate_links(
 					array(

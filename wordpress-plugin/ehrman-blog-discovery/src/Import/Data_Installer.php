@@ -44,6 +44,23 @@ final class Data_Installer {
 	}
 
 	/**
+	 * Carries a verified receipt through a migration in the caller's transaction.
+	 *
+	 * @param callable(): void $migration Data-only migration to execute.
+	 * @throws RuntimeException When fingerprinting or storing the receipt fails.
+	 */
+	public function preserve_receipt( callable $migration ): void {
+		$receipt  = Database::associative_row( get_option( 'ehrman_discovery_install_receipt', null ) );
+		$verified = is_array( $receipt ) && hash_equals( Database::text( $receipt['database_hash'] ?? null ), $this->database_hash() );
+		$migration();
+		if ( $verified ) {
+			// Preserve package identity; only a verified pre-migration database may advance.
+			$receipt['database_hash'] = $this->database_hash();
+			$this->store_option( 'ehrman_discovery_install_receipt', $receipt );
+		}
+	}
+
+	/**
 	 * Installs a complete package, or validates an identical previous installation.
 	 *
 	 * @param string $directory Private directory containing four JSON files and the vector package.

@@ -17,24 +17,47 @@ final class Browse_Upgrade {
 	 * Removes only the retired hierarchy, leaving shared taxonomy and posts intact.
 	 *
 	 * @throws \RuntimeException When an upgrade query fails.
+	 * @throws \Throwable When migration fails and its transaction is rolled back.
 	 */
 	public static function migrate_data(): void {
-		$wpdb    = Database::client();
-		$tables  = Database::tables();
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Trusted table identifier and literal legacy slugs.
+		$legacy = $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['browse_paths']} WHERE slug IN ('browse-topics-1','browse-topics-2')" );
+		if ( null === $legacy || '' !== $wpdb->last_error ) {
+			throw new \RuntimeException( 'Could not inspect the legacy Browse Topics hierarchy.' );
+		}
+		if ( 0 === Database::integer( $legacy ) ) {
+			return;
+		}
 		$queries = array(
-			'START TRANSACTION',
 			"DELETE sac FROM {$tables['subject_area_categories']} sac JOIN {$tables['subject_areas']} sa ON sa.id=sac.subject_area_id JOIN {$tables['browse_paths']} bp ON bp.id=sa.browse_path_id WHERE bp.slug='browse-topics-2'",
 			"DELETE sa FROM {$tables['subject_areas']} sa JOIN {$tables['browse_paths']} bp ON bp.id=sa.browse_path_id WHERE bp.slug='browse-topics-2'",
 			"DELETE FROM {$tables['browse_paths']} WHERE slug='browse-topics-2'",
 			"UPDATE {$tables['browse_paths']} SET name='Browse Topics',slug='browse-topics',description='Browse Topics hierarchy.' WHERE slug='browse-topics-1'",
-			'COMMIT',
 		);
-		foreach ( $queries as $query ) {
-			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Static migration SQL uses only trusted table identifiers and literal values.
-			if ( false === $wpdb->query( $query ) ) {
-				$wpdb->query( 'ROLLBACK' );
+		try {
+			if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
+				throw new \RuntimeException( 'Could not start the Browse Topics upgrade transaction.' );
+			}
+			( new Data_Installer() )->preserve_receipt(
+				static function () use ( $wpdb, $queries ): void {
+					foreach ( $queries as $query ) {
+						// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Static migration SQL uses only trusted table identifiers and literal values.
+						if ( false === $wpdb->query( $query ) ) {
+							throw new \RuntimeException( 'Browse Topics upgrade failed; the hierarchy was not changed.' );
+						}
+					}
+				}
+			);
+			if ( false === $wpdb->query( 'COMMIT' ) ) {
 				throw new \RuntimeException( 'Browse Topics upgrade failed; the hierarchy was not changed.' );
 			}
+		} catch ( \Throwable $error ) {
+			$wpdb->query( 'ROLLBACK' );
+			throw $error;
+		} finally {
+			wp_cache_delete( 'ehrman_discovery_install_receipt', 'options' );
 		}
 	}
 

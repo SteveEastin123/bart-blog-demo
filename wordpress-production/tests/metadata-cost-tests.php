@@ -19,6 +19,30 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 	$old_key = getenv( 'OPENAI_API_KEY' );
 	$old_get = $_GET;
 	$report = new AI_Cost_Report();
+	$render = static function ( array $values, int $page = 1, string $tab = 'post-metadata' ): string {
+		ob_start();
+		try {
+			( new AI_Cost_Renderer() )->render( $tab, $values, $page );
+			return (string) ob_get_contents();
+		} finally { ob_end_clean(); }
+	};
+	$cards = static function ( string $markup ): array {
+		$document = new DOMDocument();
+		$previous = libxml_use_internal_errors( true );
+		try { $document->loadHTML( '<?xml encoding="UTF-8">' . $markup ); }
+		finally { libxml_clear_errors(); libxml_use_internal_errors( $previous ); }
+		$xpath = new DOMXPath( $document );
+		$values = array();
+		foreach ( $xpath->query( '//div[@data-ebd-analytics-metrics]/div' ) as $card ) {
+			$values[ $xpath->evaluate( 'string(span)', $card ) ] = $xpath->evaluate( 'string(strong)', $card );
+		}
+		return $values;
+	};
+	$assert_same( array( 'input_tokens' => 150, 'cached_input_tokens' => 30, 'cache_write_tokens' => 0, 'output_tokens' => 20, 'reasoning_tokens' => 5, 'total_tokens' => 170 ), $report->tokens( array(
+		array( 'input_tokens' => 100, 'output_tokens' => 20, 'cached_input_tokens' => 30, 'reasoning_tokens' => 5, 'total_tokens' => 120 ),
+		array( 'input_tokens' => 50, 'total_tokens' => 0 ),
+		array(),
+	) ), 'Token totals double-counted cached/reasoning subsets or lost legacy totals.' );
 	$filters = array( 'search' => $marker, 'date_from' => '', 'date_to' => '', 'zero_results' => '' );
 	$baseline = $report->overview( $filters );
 	$store = new Post_Ingestion_Repository();
@@ -37,7 +61,22 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 	$native = 0;
 	$legacy = 0;
 	$boundary = array();
+	$bulk_ids = array();
 	try {
+		$baseline_html = $render( $filters, 1, 'overview' );
+		$index_count = count( $report->index( $filters ) );
+		foreach ( array( array( 'index_embedding', 1.25, 1 ), array( '', 2.5, 0 ), array( 'index_embedding', 0, 0 ) ) as $bulk ) {
+			$assert( false !== $wpdb->insert( $tables['ai_usage'], array(
+				'created_at' => '2026-11-01 12:00:00', 'model' => 'text-embedding-3-small',
+				'purpose' => $bulk[0], 'estimated_cost_usd' => $bulk[1], 'cost_known' => $bulk[2],
+			) ), 'Could not insert historical bulk-cost fixture.' );
+			$bulk_ids[] = (int) $wpdb->insert_id;
+		}
+		$bulk_events = $report->index( $filters );
+		$assert_same( $index_count + 3, count( $bulk_events ), 'Bulk history was not retained.' );
+		$assert_same( $baseline, $report->overview( $filters ), 'Known, legacy or unknown bulk charges leaked into ongoing costs.' );
+		$assert_same( $baseline_html, $render( $filters, 1, 'overview' ), 'Bulk history changed the Overview cards or incomplete-cost warnings.' );
+		$assert( ! str_contains( $baseline_html, 'Bulk / index vectors' ) && str_contains( $baseline_html, 'Historical bulk/index preparation charges are excluded.' ), 'Overview does not clearly exclude the retired bulk-cost row.' );
 		putenv( 'OPENAI_API_KEY=mock-metadata-cost-key' );
 		$native = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => $marker, 'post_content' => 'Temporary metadata cost fixture.' ) );
 		$assert( $native > 0, 'Could not create native cost fixture.' );
@@ -87,9 +126,37 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 		$assert( abs( $summary['vectors'] - 0.000002 ) < 0.000000001, 'Embedding cost separation is wrong.' );
 		$overview = $report->overview( $filters );
 		$assert_same( $baseline['search'], $overview['search'], 'Ingestion changed Ask AI totals.' );
-		$assert_same( $baseline['index'], $overview['index'], 'Ingestion changed bulk-vector totals.' );
+		$assert_same( $bulk_events, $report->index( $filters ), 'Ingestion or Overview changed bulk-vector history.' );
 		$assert( abs( $overview['total'] - $baseline['total'] - $summary['total'] ) < 0.00000001, 'Combined cost double-counted an event.' );
+		$assert_same( $overview['search']['total_cost'] + $overview['metadata']['total'], $overview['total'], 'Overview includes costs outside its two activities.' );
+		$overview_html = $render( $filters, 1, 'overview' );
+		$assert_same( array(
+			'Total estimated cost' => AI_Cost_Renderer::money( $overview['total'] ),
+			'Ask AI cost' => AI_Cost_Renderer::money( $overview['search']['total_cost'] ),
+			'Post Metadata cost' => AI_Cost_Renderer::money( $overview['metadata']['total'] ),
+			'Questions' => number_format_i18n( $overview['search']['questions'] ),
+			'Metadata generation runs' => number_format_i18n( $overview['metadata']['runs'] ),
+		), $cards( $overview_html ), 'Overview card labels, order or accounting changed.' );
+		$assert( str_contains( $overview_html, 'Totals and averages are incomplete' ), 'Overview lost the metadata unknown-cost warning.' );
 		$assert( abs( $summary['average'] - $summary['total'] / 2 ) < 0.00000001, 'Average did not include failed generation runs.' );
+		$tokens = $report->tokens( $events );
+		$assert_same( 460, $tokens['total_tokens'], 'Token summary omitted retries or post embeddings.' );
+		$assert_same( 400, $tokens['input_tokens'], 'Input tokens were not scoped to metadata and post embeddings.' );
+		$expected_cards = array(
+			'Total estimated cost' => '$0.0024',
+			'Average cost per generation run' => '0.120' . html_entity_decode( '&cent;', ENT_QUOTES, 'UTF-8' ),
+			'Generation runs' => '2',
+			'Metadata generation cost' => '$0.0024',
+			'Post-vector cost' => '$0.00000200',
+		);
+		$html = $render( $filters );
+		$assert_same( $expected_cards, $cards( $html ), 'Metadata cards have incorrect labels, order, totals or currency precision.' );
+		$assert_same( $expected_cards, $cards( $render( $filters, 2 ) ), 'Card totals were limited to the table page.' );
+		$assert( strpos( $html, 'Totals and averages are incomplete' ) < strpos( $html, 'data-ebd-metadata-runs' ), 'Unknown-cost warning is hidden below the detail table.' );
+		$assert( str_contains( $html, 'data-ebd-metadata-tokens' ) && str_contains( $html, '400 in; 0 cached; 0 written; 60 out; 0 reasoning' ), 'Expandable token summary is missing or incorrect.' );
+		$empty_html = $render( array_merge( $filters, array( 'search' => $marker . '-no-match' ) ) );
+		$assert_same( array( '$0.0000', '0.000' . html_entity_decode( '&cent;', ENT_QUOTES, 'UTF-8' ), '0', '$0.0000', '$0.0000' ), array_values( $cards( $empty_html ) ), 'Empty metadata filters did not return five zero cards.' );
+		$assert( str_contains( $empty_html, 'No metadata runs match these filters.' ), 'Empty-state detail table was lost.' );
 
 		wp_delete_post( $native, true );
 		$assert_same( null, $store->draft( $draft ), 'Deletion did not remove the native draft.' );
@@ -121,6 +188,9 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 			AI_Metadata_Usage::record( array( 'model' => 'gpt-5.6-sol', 'estimated_cost_usd' => 0.01 ), array_merge( $boundary, array( 'created_at' => $date ) ), 'metadata_generation', true, '', true );
 		}
 		$assert_same( 2, count( $report->metadata( array( 'date_from' => '2026-11-01', 'date_to' => '2026-11-01', 'search' => $marker . '-boundary' ) ) ), 'Eastern date filtering mishandled DST midnight.' );
+		$filtered_cards = $cards( $render( array_merge( $filters, array( 'date_from' => '2026-11-01', 'date_to' => '2026-11-01', 'search' => $marker . '-boundary' ) ) ) );
+		$assert_same( '$0.0200', $filtered_cards['Total estimated cost'], 'Card totals ignored the date or post-title filter.' );
+		$assert_same( '1', $filtered_cards['Generation runs'], 'Filtered attempts were counted as separate runs.' );
 		$assert_same( array(), $report->metadata( array( 'search' => "%' OR 1=1 --" ) ), 'Title filtering was not escaped.' );
 
 		$stream = fopen( 'php://temp', 'w+' );
@@ -142,6 +212,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 		}
 		if ( $legacy > 0 ) { $wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $legacy ) ); }
 		if ( isset( $boundary['run_id'] ) ) { $wpdb->delete( $tables['ai_usage'], array( 'run_id' => $boundary['run_id'] ) ); }
+		foreach ( $bulk_ids as $bulk_id ) { $wpdb->delete( $tables['ai_usage'], array( 'id' => $bulk_id ) ); }
 		$_GET = $old_get;
 		false === $old_key ? putenv( 'OPENAI_API_KEY' ) : putenv( 'OPENAI_API_KEY=' . $old_key );
 	}

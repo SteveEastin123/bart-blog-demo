@@ -34,6 +34,7 @@ const output = outputFor('analytics-dashboard-ui');
     await page.goto(url);
     const metrics = page.locator('[data-ebd-analytics-metrics]');
     const initial = await metrics.innerText();
+    const metricsLayout = await metrics.getAttribute('style');
     assert(initial.includes('Total estimated cost') && initial.includes('Average cost per question'));
     assert(!initial.includes('Helpful rate'));
     for (const view of ['ask-ai', 'ask-ai-2', 'comparison', 'combined']) {
@@ -83,6 +84,36 @@ const output = outputFor('analytics-dashboard-ui');
         assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), tab === 'overview' ? 'Overview' : 'Post Metadata');
         assert.equal(await page.locator('form input[name="tab"]').inputValue(), tab);
         assert(await page.getByText('Per-attempt metadata tracking enabled:', { exact: false }).isVisible());
+        assert.equal(await metrics.getAttribute('style'), metricsLayout, 'Analytics tabs do not share the card layout');
+        assert(await metrics.evaluate(element => [...element.children].every(card => {
+          const bounds = card.getBoundingClientRect();
+          return bounds.left >= 0 && bounds.right <= innerWidth && card.scrollWidth <= card.clientWidth + 1;
+        })), 'Analytics cards clip or overflow: ' + tab + ' ' + width);
+        if (tab === 'post-metadata') {
+          assert.deepEqual(await metrics.locator(':scope > div > span').allTextContents(), [
+            'Total estimated cost', 'Average cost per generation run', 'Generation runs',
+            'Metadata generation cost', 'Post-vector cost',
+          ]);
+          assert((await metrics.locator(':scope > div').nth(1).innerText()).includes('\u00a2'), 'Average cost is not shown in cents');
+          const details = page.locator('[data-ebd-metadata-tokens]');
+          assert.equal(await details.getAttribute('open'), null);
+          await details.locator('summary').click();
+          assert(await details.locator('p').first().isVisible(), 'Token details did not expand');
+          await details.locator('summary').click();
+          assert.deepEqual(await page.locator('[data-ebd-metadata-runs] th').allTextContents(), [
+            'Latest call (ET)', 'Post', 'Total cost', 'Generation details',
+          ]);
+        } else {
+          assert.deepEqual(await metrics.locator(':scope > div > span').allTextContents(), [
+            'Total estimated cost', 'Ask AI cost', 'Post Metadata cost', 'Questions', 'Metadata generation runs',
+          ]);
+          const table = page.locator('[data-ebd-cost-overview]');
+          assert.equal(await table.locator('tbody tr').count(), 2);
+          assert.deepEqual(await table.locator('tbody a').allTextContents(), ['Ask AI', 'Post Metadata']);
+          assert((await table.locator('tbody tr td:last-child').allTextContents()).every(text => text.includes('\u00a2')));
+          assert(!(await table.innerText()).includes('Bulk'));
+          assert(await page.getByText('Total estimated cost includes Ask AI and Post Metadata only.', { exact: false }).isVisible());
+        }
         assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Cost tab overflow: ' + tab + ' ' + width);
         await page.screenshot({ path: path.join(output, tab + '-' + width + '.png'), fullPage: true });
       }
@@ -94,10 +125,25 @@ const output = outputFor('analytics-dashboard-ui');
     const noMetadataNonce = new URL(metadataExport);
     noMetadataNonce.searchParams.delete('_wpnonce');
     assert.equal((await context.request.get(noMetadataNonce.href)).status(), 403);
+    await page.goto(rootUrl + '&tab=post-metadata&search=unmatched-regression-post-924135');
+    assert(await page.getByText('No metadata runs match these filters.', { exact: true }).isVisible());
+    assert.deepEqual(await metrics.locator(':scope > div > strong').allTextContents(), ['$0.0000', '0.000\u00a2', '0', '$0.0000', '$0.0000']);
     await page.goto(rootUrl + '&tab=post-metadata&date_from=2026-11-01&date_to=2026-11-02');
     await page.getByRole('link', { name: 'Ask AI', exact: true }).click();
     assert.equal(await page.locator('input[name="date_from"]').inputValue(), '2026-11-01');
     assert.equal(await page.locator('input[name="date_to"]').inputValue(), '2026-11-02');
+    for (const [activity, tab] of [['Ask AI', 'ask-ai'], ['Post Metadata', 'post-metadata']]) {
+      await page.goto(rootUrl + '&tab=overview&date_from=2026-11-01&date_to=2026-11-02&search=ignored&zero_results=1');
+      await page.locator('[data-ebd-cost-overview]').getByRole('link', { name: activity, exact: true }).click();
+      const destination = new URL(page.url());
+      assert.equal(destination.searchParams.get('tab'), tab);
+      assert.equal(destination.searchParams.get('date_from'), '2026-11-01');
+      assert.equal(destination.searchParams.get('date_to'), '2026-11-02');
+      assert.equal(destination.searchParams.get('search'), null);
+      assert.equal(destination.searchParams.get('zero_results'), null);
+    }
+    await page.goto(rootUrl + '&tab=overview&date_from=1900-01-01&date_to=1900-01-01');
+    assert.deepEqual(await metrics.locator(':scope > div > strong').allTextContents(), ['$0.0000', '$0.0000', '$0.0000', '0', '0']);
     await page.goto(rootUrl);
     assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), 'Overview');
     assert.deepEqual(errors, []);

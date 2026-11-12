@@ -4,7 +4,7 @@
 
 Replace the old Render demo database with a fresh MariaDB database populated from
 the current repository. Deploy the current WordPress plugin, demo-only Reviewer
-Tools, theme, five canonical JSON files, and supplied title-and-summary vectors.
+Tools, theme, four canonical JSON files, and supplied title-and-summary vectors.
 This is a clean rebuild, not a transfer of the old database's live state.
 
 **Keep the existing web service and its URL.** Replace only its database service
@@ -154,7 +154,7 @@ database backup. Keep the old service/disk until the replacement is accepted.
 - Compare counts with `scripts/wordpress_expected_counts.py` for this release.
 - Run `wp ehrman-discovery status --allow-root --path=/var/www/html`; all eligible
   title-and-summary vectors must be current, with no missing/stale/obsolete ones.
-- Check landing-page dates/counts, both Browse Topics structures, Keyword Search,
+- Check landing-page dates/counts, Browse Topics and its legacy redirects, Keyword Search,
   Ask AI, Reviewer Tools and external article links at desktop/mobile widths.
 - Verify admin login, empty new analytics/feedback, and intended settings.
 - Run deterministic acceptance checks with outbound API calls disabled. Separately

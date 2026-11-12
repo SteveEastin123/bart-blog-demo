@@ -36,12 +36,9 @@ $reset_context  = array(
 	<?php
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 	echo Template::render( 'admin/analytics/filters.php', $filter_context );
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The shared partial escapes metric values and labels.
+	echo Template::render( 'admin/analytics/metrics.php', array( 'metrics' => $view['metrics'] ) );
 	?>
-	<div style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0" data-ebd-analytics-metrics>
-		<?php foreach ( $view['metrics'] as $metric ) : ?>
-			<div style="min-width:140px;padding:14px 18px;border:1px solid #c3c4c7;background:#fff"><strong style="display:block;font-size:22px"><?php echo esc_html( $metric[1] ); ?></strong><span><?php echo esc_html( $metric[0] ); ?></span></div>
-		<?php endforeach; ?>
-	</div>
 	<p><?php echo esc_html( $view['cost_details'] ); ?></p>
 	<p><?php echo esc_html__( 'Costs are estimates based on API-reported usage and recorded pricing. Confirm billed amounts in the OpenAI usage dashboard. Index preparation is reported separately.', 'ehrman-blog-discovery' ); ?></p>
 	<details style="margin:18px 0">

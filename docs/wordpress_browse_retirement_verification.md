@@ -35,3 +35,34 @@ Analytics and ingestion-history tables also retained identical row hashes. All 2
 - The new browse-retirement browser test is included in `wordpress-production/verify-all.ps1`; the PHP upgrade fixtures are included in the main regression suite and developer-test package.
 
 This verification did not rerun the separate backup/restore exercise. Render was not updated.
+
+## Installation Receipt Follow-Up
+
+The November 12 code-review follow-up reproduced the stale-receipt failure on
+the previous code using a disposable two-hierarchy installation fixture. The fix
+advances the database fingerprint only when the receipt matched before migration,
+and writes it in the same transaction as the hierarchy changes. Package checksums
+are preserved; editorial changes and database-managed replacements remain protected.
+
+Added installation fixtures cover verified upgrades, unchanged shared data,
+repeatability, explicit JSON-managed replacement, pre-existing editorial changes,
+already-mismatched receipts, receipt-write rollback and installations without receipts.
+Updated the setup, CLI help and handoff documentation to list one Browse Topics
+hierarchy, its canonical URL and four JSON source files.
+
+The complete `verify-all.ps1` suite passed on isolated MariaDB/WordPress stacks:
+
+- PHPCS and PHPStan passed for all three packages, along with unit and frontend checks.
+- All 22 saved pre-change search cases retained identical fingerprints, counts,
+  results and ordering, including through the extracted developer-test ZIP.
+- Fresh/repeat installation, the new receipt fixtures, production regressions and
+  desktop/mobile browser workflows passed.
+- Before/after schema, indexes, row counts and binary-safe content hashes matched
+  across all 17 discovery tables. All 4,037 eligible vectors remained current.
+- Backup restoration matched all 29 tables by row counts and extended content checksums.
+
+Evidence: `.tmp/full-regression/7f8f815ddd8f4e12b1e5039da59d6a3c/report.txt`.
+The comparison used the saved November 11 capture at
+`.tmp/developer-test-verification/c300e4b37b934242a38b8f1aa483ecc6/actual.json`,
+not a newly generated baseline. Test containers were stopped; the normal local
+demo and Render were not changed, and no paid AI calls were made.

@@ -21,16 +21,19 @@ The plugin already provides:
 
 ## Remaining Work
 
-### 1. Finalize Production Search Options
+### 1. Verify The Selected Production Search Options
 
-- Select one Browse Topics structure.
+- Browse Topics is selected: the first hierarchy is retained at `/browse-topics/`
+  with `[ehrman_browse_topics]`. The second hierarchy and its JSON file are retired.
 - Ask AI is selected. Ask AI 1 is retired from the public plugin; the local
   section-based Ask AI 3 is parked. See [recovery instructions](ask_ai_retirement.md)
   for the GitHub checkpoint and required private vector backups.
-- Ask AI is now the public name and `/ask-ai/` the canonical URL. Rename the
-  selected Browse Topics structure after that choice is finalized.
-- Remove evaluation numbering, alternative public routes, comparisons, and Reviewer Tools from the production package.
-- Preserve experimental implementations and results in repository history or an evaluation archive.
+- Ask AI is now the public name and `/ask-ai/` the canonical URL.
+- Numbered browsing URLs remain only as compatibility redirects. Historical
+  implementations and evaluation reports are retained outside the production plugin.
+- Reviewer Tools and comparison tooling are separate from the production plugin.
+  Verify the final package excludes the demo-only reviewer companion and includes
+  the required separate developer-test ZIP.
 
 ### 2. Provide One Installation Command
 
@@ -102,7 +105,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 ### 6. Prepare The Final Handoff Package
 
 - Installable, versioned plugin ZIP and corresponding source release.
-- The selected authoritative JSON files.
+- The four authoritative JSON files (posts, topics, categories and the selected subject areas).
 - The portable vector export.
 - **Required separate `ehrman-discovery-developer-tests.zip`**, including cases,
   approved baseline, standalone capture/comparison commands, production regression

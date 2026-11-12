@@ -70,6 +70,26 @@ final class AI_Cost_Report {
 	}
 
 	/**
+	 * Totals recorded tokens across the same filtered events as the cost cards.
+	 *
+	 * @param list<array<string,mixed>> $events Usage events.
+	 * @return array<string,int> Token totals; cached input and reasoning are subsets.
+	 */
+	public function tokens( array $events ): array {
+		$tokens = array_fill_keys( array( 'input_tokens', 'cached_input_tokens', 'cache_write_tokens', 'output_tokens', 'reasoning_tokens', 'total_tokens' ), 0 );
+		foreach ( $events as $event ) {
+			foreach ( $tokens as $key => $value ) {
+				$count = Database::integer( $event[ $key ] ?? 0 );
+				if ( 'total_tokens' === $key && 0 === $count ) {
+					$count = Database::integer( $event['input_tokens'] ?? 0 ) + Database::integer( $event['output_tokens'] ?? 0 );
+				}
+				$tokens[ $key ] += $count;
+			}
+		}
+		return $tokens;
+	}
+
+	/**
 	 * Groups attempts and post vectors by the generation run that incurred them.
 	 *
 	 * @param list<array<string,mixed>> $events Usage events, newest first.
@@ -96,10 +116,10 @@ final class AI_Cost_Report {
 	}
 
 	/**
-	 * Builds the combined table using the same Ask AI report as its detail tab.
+	 * Combines ongoing search and metadata costs, excluding historical index preparation.
 	 *
 	 * @param array<string,string> $filters Validated date filters.
-	 * @return array<string,mixed> Combined totals and separate activity summaries.
+	 * @return array{search:array<string,int|float>,metadata:array<string,int|float>,total:float} Ongoing activity totals.
 	 */
 	public function overview( array $filters ): array {
 		$filters['search']       = '';
@@ -109,12 +129,10 @@ final class AI_Cost_Report {
 		$ids                     = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ), $requests ), true );
 		$search                  = $builder->summary( $requests, $builder->filtered_refinements( AI_Refinements::recent( 0 ), $ids ) );
 		$metadata                = $this->summary( $this->metadata( $filters ) );
-		$index                   = $this->summary( $this->index( $filters ) );
 		return array(
 			'search'   => $search,
 			'metadata' => $metadata,
-			'index'    => $index,
-			'total'    => $search['total_cost'] + $metadata['total'] + $index['total'],
+			'total'    => $search['total_cost'] + $metadata['total'],
 		);
 	}
 
