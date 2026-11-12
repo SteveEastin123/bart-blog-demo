@@ -1,6 +1,6 @@
 <?php
 /**
- * Post ingestion page layout and notices.
+ * Metadata history page layout and notices.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -14,8 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $view = $ehrman_blog_discovery_context;
 ?>
 <div class="wrap ehrman-ingestion">
-	<h1><?php echo esc_html__( 'Post Ingestion', 'ehrman-blog-discovery' ); ?></h1>
-	<p><?php echo esc_html__( 'Prepare a complete Bart Ehrman Blog post for the discovery index. Analysis creates a reviewable draft; it never changes live search data.', 'ehrman-blog-discovery' ); ?></p>
+	<h1><?php echo esc_html__( 'Metadata History', 'ehrman-blog-discovery' ); ?></h1>
 	<?php if ( ! $view['analysis_configured'] ) : ?>
 		<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Analysis is not configured.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Set OPENAI_API_KEY on the server. Search and post ingestion use this shared key.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
@@ -34,10 +33,7 @@ $view = $ehrman_blog_discovery_context;
 		<?php if ( $view['missing_draft'] ) : ?>
 			<div class="notice notice-error"><p><?php echo esc_html__( 'The requested ingestion record was not found.', 'ehrman-blog-discovery' ); ?></p></div>
 		<?php endif; ?>
-		<?php
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
-		echo Template::render( 'admin/post-ingestion-new.php', array( 'analysis_configured' => $view['analysis_configured'] ) );
-		?>
+		<p><a class="button" href="<?php echo esc_url( admin_url( 'edit.php' ) ); ?>"><?php echo esc_html__( 'Posts', 'ehrman-blog-discovery' ); ?></a></p>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 		echo Template::render( 'admin/post-ingestion/history.php', array( 'rows' => $view['history'] ) );

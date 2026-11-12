@@ -1,6 +1,6 @@
 <?php
 /**
- * Administrator post-ingestion page.
+ * Administrator metadata history page.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -11,14 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Provides the protected draft, review, approval, and audit interface. */
+/** Provides the protected metadata history, review, and recovery interface. */
 final class Post_Ingestion_Page {
 	private const PAGE_SLUG = 'ehrman-post-ingestion';
 
 	/** Registers administration hooks. */
 	public static function register(): void {
 		add_action( 'admin_menu', array( self::class, 'add_page' ) );
-		add_action( 'admin_post_ehrman_ingestion_analyze', array( self::class, 'handle_analyze' ) );
 		add_action( 'admin_post_ehrman_ingestion_proposal', array( self::class, 'handle_proposal' ) );
 		add_action( 'admin_post_ehrman_ingestion_reanalyze', array( self::class, 'handle_reanalyze' ) );
 		add_action( 'admin_post_ehrman_ingestion_retry_embedding', array( self::class, 'handle_retry_embedding' ) );
@@ -28,15 +27,15 @@ final class Post_Ingestion_Page {
 	/** Adds the page beneath WordPress Tools. */
 	public static function add_page(): void {
 		add_management_page(
-			__( 'Post Ingestion', 'ehrman-blog-discovery' ),
-			Post_Ingestion_Admin_Status::menu_title( __( 'Post Ingestion', 'ehrman-blog-discovery' ) ),
+			__( 'Metadata History', 'ehrman-blog-discovery' ),
+			Post_Ingestion_Admin_Status::menu_title( __( 'Metadata History', 'ehrman-blog-discovery' ) ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( self::class, 'render' )
 		);
 	}
 
-	/** Renders the submission, review, and audit interface. */
+	/** Renders metadata history and retained review and recovery actions. */
 	public static function render(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
@@ -65,18 +64,6 @@ final class Post_Ingestion_Page {
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted templates escape values at their output boundaries.
 		echo $html;
-	}
-
-	/** Handles a new analysis request. */
-	public static function handle_analyze(): void {
-		self::authorize( 'ehrman_ingestion_analyze' );
-		$service = new Post_Ingestion_Service();
-		$result  = $service->analyze( self::posted_values(), get_current_user_id() );
-		if ( is_wp_error( $result ) ) {
-			self::redirect_with_notice( 0, false, $result->get_error_message() );
-		}
-		$draft_id = Database::integer( $result['id'] ?? null );
-		self::redirect_with_notice( $draft_id, true, __( 'Analysis queued. This post will not be added to search until the results are reviewed and approved.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles proposal revisions or final approval. */

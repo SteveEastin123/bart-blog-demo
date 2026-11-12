@@ -49,10 +49,10 @@ key. Check for queued ingestion jobs before enabling the shared key.
    `202` without waiting for the AI response.
 4. The panel displays **Creating metadata...** and polls every three seconds
    while analysis is active. Results appear in the same panel. Leaving the page
-   does not cancel the job. **Tools > Post Ingestion** remains the history and
+   does not cancel the job. **Tools > Metadata History** remains the history and
    administrative fallback, not a required step in routine publishing.
 5. When analysis finishes, WordPress displays a persistent administrative
-   notice, a count beside **Post Ingestion**, and an **Awaiting approval** or
+   notice, a count beside **Metadata History**, and an **Awaiting approval** or
    **Review required** status on the Posts screen. These reminders remain
    until the proposal is approved or discarded.
 6. Edit the description, search summary, existing topics, secondary keywords,
@@ -82,6 +82,15 @@ metadata after subsequent content edits.
 Publishing first remains the chosen workflow. Unpublished posts show only the
 publish-first prerequisite; the save-changes reminder appears only for published
 posts with unsaved edits. Draft analysis and prepublication approval are not enabled.
+
+Metadata History no longer provides a standalone form for entering a WordPress
+ID or copying post content. New metadata generation starts from the normal post
+editor, which supplies all post fields automatically. The history page retains
+existing records, review and approval, pending-analysis retries, vector retries,
+and draft discard actions. Its URL remains
+`tools.php?page=ehrman-post-ingestion` so existing history and review links work.
+The retired manual-entry `admin_post_ehrman_ingestion_analyze` action is no longer
+registered; the post-editor REST analysis endpoint is unchanged.
 
 ## Native Post Lifecycle
 

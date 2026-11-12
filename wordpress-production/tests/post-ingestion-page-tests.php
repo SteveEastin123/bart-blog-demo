@@ -66,16 +66,23 @@ try {
 	wp_set_current_user( 0 );
 	$assert_same( '', $page_render(), 'Unauthenticated visitors can see ingestion controls.' );
 	wp_set_current_user( $page_admin );
+	$assert_same( false, has_action( 'admin_post_ehrman_ingestion_analyze' ), 'Retired manual-entry handler is still registered.' );
+	$assert( ! is_file( EHRMAN_DISCOVERY_PLUGIN_DIR . 'templates/admin/post-ingestion-new.php' ), 'Retired manual-entry template is still packaged.' );
+	foreach ( array( 'proposal', 'reanalyze', 'retry_embedding', 'discard' ) as $action ) {
+		$assert( false !== has_action( 'admin_post_ehrman_ingestion_' . $action ), 'Metadata history lost its ' . $action . ' handler.' );
+	}
 	delete_transient( $page_notice_key );
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=json' );
 	putenv( 'OPENAI_API_KEY=' );
 	$html = $page_render();
 	$dom = $page_dom( $html );
-	$page_check_forms( $dom, array( 'ehrman_ingestion_analyze' ) );
+	$page_check_forms( $dom, array() );
+	$assert_same( 'Metadata History', $dom->evaluate( 'string(//h1)' ), 'Metadata history heading is incorrect.' );
+	$assert_same( admin_url( 'edit.php' ), $dom->evaluate( 'string(//a[text()="Posts"]/@href)' ), 'History no longer links to the normal Posts screen.' );
+	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Manual post-entry fields are still displayed.' );
 	$assert( str_contains( $html, 'Analysis is not configured.' ) && str_contains( $html, 'JSON is the current source of truth.' ), 'Configuration warnings are missing.' );
-	$assert_same( 1, $dom->query( '//input[@type="submit"][@disabled]' )->length, 'Unconfigured analysis should be disabled.' );
 	$empty = Template::render( 'admin/post-ingestion/history.php', array( 'rows' => array() ) );
-	$assert( str_contains( $empty, 'No ingestion records yet.' ) && ! str_contains( $empty, '<table' ), 'Empty history state changed.' );
+	$assert( str_contains( $empty, 'No metadata records yet.' ) && ! str_contains( $empty, '<table' ), 'Empty history state changed.' );
 
 	$repository = new Post_Ingestion_Repository();
 	$vocabulary = $repository->vocabulary();
@@ -112,6 +119,7 @@ try {
 	$update_page_draft( array( 'proposal_json' => wp_json_encode( $proposal ), 'model' => 'test-model', 'input_tokens' => 1234, 'output_tokens' => 56, 'estimated_cost_usd' => 0.0123 ) );
 	$html = $page_render( $id );
 	$page_check_forms( $page_dom( $html ), array() );
+	$assert_same( Post_Ingestion_Page::page_url(), $page_dom( $html )->evaluate( 'string(//a[contains(., "Metadata History")]/@href)' ), 'Draft lost its metadata-history return link.' );
 	$assert( str_contains( $html, 'Refresh status' ) && ! str_contains( $html, 'Review proposal' ), 'Queued analysis exposed proposal controls.' );
 	$assert( str_contains( $html, '1,234 input tokens, 56 output tokens, approximately $0.0123' ), 'Analysis usage formatting changed.' );
 	$update_page_draft( array( 'status' => 'analyzing', 'analysis_started_at' => current_time( 'mysql', true ) ) );
@@ -150,7 +158,8 @@ try {
 	$dom = $page_dom( $page_render( $id ) );
 	$assert_same( 0, $dom->query( '//button[@value="approve"][@disabled]|//input[@name="approve_new_keywords"]|//ul[@class="ehrman-ingestion__rationales"]' )->length, 'Approval or optional fields changed in database-authoritative mode.' );
 	$dom = $page_dom( $page_render() );
-	$assert_same( 0, $dom->query( '//input[@type="submit"][@disabled]' )->length, 'Configured analysis should be enabled.' );
+	$page_check_forms( $dom, array() );
+	$assert_same( 0, $dom->query( '//input|//textarea' )->length, 'Configured history page still offers manual entry.' );
 	$assert( str_contains( $page_render( $id + 1000000 ), 'The requested ingestion record was not found.' ), 'Missing draft notice is absent.' );
 
 	foreach ( array( 'failed', 'ready' ) as $status ) {

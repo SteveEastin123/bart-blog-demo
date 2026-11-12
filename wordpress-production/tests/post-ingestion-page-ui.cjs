@@ -38,9 +38,12 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(url);
-      assert.equal(await page.locator('.ehrman-ingestion h1').innerText(), 'Post Ingestion');
-      assert(await page.getByLabel('WordPress post ID', { exact: true }).isVisible());
-      assert(await page.getByLabel('Complete post text', { exact: true }).isVisible());
+      assert.equal(await page.locator('.ehrman-ingestion h1').innerText(), 'Metadata History');
+      assert.match(await page.locator('#menu-tools a[href="tools.php?page=ehrman-post-ingestion"]').innerText(), /^Metadata History/);
+      assert.equal(await page.locator('.ehrman-ingestion form').count(), 0, 'History still exposes the manual submission form');
+      assert.equal(await page.getByLabel('WordPress post ID', { exact: true }).count(), 0);
+      assert.equal(await page.getByLabel('Complete post text', { exact: true }).count(), 0);
+      assert.equal(await page.locator('.ehrman-ingestion').getByRole('link', { name: 'Posts', exact: true }).getAttribute('href'), base + '/wp-admin/edit.php');
       await page.screenshot({ path: path.join(output, 'ingestion-' + width + '.png'), fullPage: true });
       const liveContent = await page.locator('#wpbody-content').innerHTML();
       for (let index = 0; index < samples.length; index++) {
@@ -57,13 +60,20 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       }
       await page.locator('#wpbody-content').evaluate((element, html) => { element.innerHTML = html; }, liveContent);
     }
-    for (const action of ['analyze', 'proposal', 'reanalyze', 'retry_embedding', 'discard']) {
+    const retired = await context.request.post(base + '/wp-admin/admin-post.php', {
+      form: { action: 'ehrman_ingestion_analyze' },
+    });
+    assert.equal(retired.status(), 400, 'Retired manual-entry action is still available');
+    for (const action of ['proposal', 'reanalyze', 'retry_embedding', 'discard']) {
       const response = await context.request.post(base + '/wp-admin/admin-post.php', {
         form: { action: 'ehrman_ingestion_' + action, _wpnonce: 'intentionally-invalid' },
       });
       assert.equal(response.status(), 403, `Ingestion ${action} accepted an invalid nonce`);
       nonceChecks++;
     }
+    await page.goto(url + '&draft=2147483647');
+    assert(await page.getByText('The requested ingestion record was not found.', { exact: true }).isVisible());
+    assert.equal(await page.locator('.ehrman-ingestion form').count(), 0, 'Missing record reopened manual entry');
     await page.goto(url);
     assert.equal(await page.locator('.ehrman-ingestion').textContent(), initial, 'Read-only UI checks changed ingestion records');
     assert.deepEqual(errors, []);

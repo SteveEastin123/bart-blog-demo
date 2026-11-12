@@ -223,8 +223,10 @@ pagination, empty states, cached/failed requests, exports, and reset protection.
 `src/Ingestion/Post_Ingestion_Page.php` retains page authorization, form handlers,
 notice consumption, and display-data preparation. Its remaining page, draft,
 review, approved-result, history, and action markup lives in
-`templates/admin/post-ingestion/`; the existing new-submission template remains
-at `templates/admin/post-ingestion-new.php`. Templates escape display values and
+`templates/admin/post-ingestion/`. **Tools > Metadata History** uses the existing
+`ehrman-post-ingestion` page slug to preserve review links. The manual-entry form
+and its submit handler have been removed; new metadata creation starts in the
+normal WordPress post editor's **Search Metadata** panel. Templates escape display values and
 render nonce-protected forms; they do not query the database or run ingestion.
 
 Analysis, review, approval, background processing, and vector generation remain

@@ -140,9 +140,12 @@ therefore include metadata retained for trashed, draft, or private posts. Actual
 Keyword Search, Browse Topics, and Ask AI results still enforce publication
 visibility. Permanent-deletion cleanup removes the owned autocomplete metadata.
 
-The plugin includes an administrator-only **Tools > Post Ingestion** workflow
-for the future database-authoritative deployment. An administrator enters the
-WordPress post ID, title, URL, author, publication date, and complete post text.
+The plugin includes an administrator-only **Search Metadata** panel in the normal
+WordPress post editor. After publishing, select **Create Metadata**; WordPress
+supplies the post ID, title, URL, author, publication date, and complete text.
+No manual ID entry or copying is required. **Tools > Metadata History** retains
+review, approval, retry and history functions at the existing
+`tools.php?page=ehrman-post-ingestion` URL, without a separate post-entry form.
 The configured ingestion model analyzes the full text using the shared OpenAI key and returns a
 reviewable description, search summary, existing topics, existing secondary
 keywords, explicitly marked new-keyword proposals, a readiness decision, and

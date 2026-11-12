@@ -89,6 +89,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await page.locator('#wp-submit').click();
     await page.waitForURL('**/wp-admin/**');
     await open();
+    assert.equal(await panel.getByRole('link', { name: 'Metadata History', exact: true }).getAttribute('href'), record.reviewUrl);
     assert.equal(actions.length, 0, 'Opening the panel started a paid action');
     const publishNotice = panel.getByText('Publish this post before creating metadata.', { exact: true });
     const saveNotice = panel.getByText('Save your changes before continuing.', { exact: true });
