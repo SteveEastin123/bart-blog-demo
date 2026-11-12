@@ -23,7 +23,12 @@ $reset_context  = array(
 );
 ?>
 <div class="wrap">
-	<h1><?php echo esc_html__( 'Ask AI Analytics', 'ehrman-blog-discovery' ); ?></h1>
+	<h1><?php echo esc_html__( 'AI Analytics', 'ehrman-blog-discovery' ); ?></h1>
+	<?php
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted navigation partial escapes all labels and URLs.
+	echo $view['navigation'];
+	?>
+	<h2><?php echo esc_html__( 'Ask AI', 'ehrman-blog-discovery' ); ?></h2>
 	<?php if ( $view['was_reset'] ) : ?>
 		<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Active Ask AI analytics and search caches were reset. Retired-method history, post vectors and index-preparation history were preserved.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>

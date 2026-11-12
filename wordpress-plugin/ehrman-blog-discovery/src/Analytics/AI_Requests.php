@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Stores anonymous Ask AI requests and connects results, usage, and feedback. */
+/** Stores anonymous Ask AI requests and connects results and usage. */
 final class AI_Requests {
 	private const RETENTION_DAYS = 90;
 
@@ -87,35 +87,12 @@ final class AI_Requests {
 	}
 
 	/**
-	 * Records Yes or No feedback on an existing request.
-	 *
-	 * @param string $request_id Correlation identifier.
-	 * @param bool   $helpful    Whether the results were helpful.
-	 */
-	public static function set_feedback( string $request_id, bool $helpful ): bool {
-		if ( ! self::valid_id( $request_id ) ) {
-			return false;
-		}
-		$updated = Database::client()->update(
-			Database::tables()['ai_requests'],
-			array(
-				'feedback'    => $helpful ? 1 : 0,
-				'feedback_at' => current_time( 'mysql', true ),
-			),
-			array( 'request_id' => $request_id ),
-			array( '%d', '%s' ),
-			array( '%s' )
-		);
-		return false !== $updated && 0 < $updated;
-	}
-
-	/**
 	 * Returns filtered request rows and aggregate values.
 	 *
 	 * @param array<string,string> $filters Filter values.
 	 * @param int                  $page    Page number.
 	 * @param int                  $per_page Rows per page, or zero for all.
-	 * @return array{rows:list<array<string,mixed>>,total:int,yes:int,no:int,unanswered:int,response_rate:float,helpful_rate:float}
+	 * @return array{rows:list<array<string,mixed>>,total:int}
 	 */
 	public static function analytics( array $filters, int $page = 1, int $per_page = 50 ): array {
 		$filters['date_from_utc'] = self::eastern_boundary( $filters['date_from'] ?? '', false );
@@ -123,20 +100,12 @@ final class AI_Requests {
 		$rows                     = self::rows();
 		$filtered                 = array_values( array_filter( $rows, static fn( array $row ): bool => self::matches( $row, $filters ) ) );
 		$total                    = count( $filtered );
-		$yes                      = count( array_filter( $filtered, static fn( array $row ): bool => '1' === Database::text( $row['feedback'] ?? null ) ) );
-		$no                       = count( array_filter( $filtered, static fn( array $row ): bool => '0' === Database::text( $row['feedback'] ?? null ) ) );
-		$answered                 = $yes + $no;
 		if ( 0 < $per_page ) {
 			$filtered = array_slice( $filtered, ( max( 1, $page ) - 1 ) * $per_page, $per_page );
 		}
 		return array(
-			'rows'          => $filtered,
-			'total'         => $total,
-			'yes'           => $yes,
-			'no'            => $no,
-			'unanswered'    => max( 0, $total - $answered ),
-			'response_rate' => 0 < $total ? ( $answered / $total ) * 100 : 0.0,
-			'helpful_rate'  => 0 < $answered ? ( $yes / $answered ) * 100 : 0.0,
+			'rows'  => $filtered,
+			'total' => $total,
 		);
 	}
 
@@ -162,17 +131,6 @@ final class AI_Requests {
 	 * @param array<string,string> $filters Administrator filters.
 	 */
 	private static function matches( array $row, array $filters ): bool {
-		$feedback = $filters['feedback'] ?? 'all';
-		$value    = Database::text( $row['feedback'] ?? null );
-		if ( 'yes' === $feedback && '1' !== $value ) {
-			return false;
-		}
-		if ( 'no' === $feedback && '0' !== $value ) {
-			return false;
-		}
-		if ( 'unanswered' === $feedback && '' !== $value ) {
-			return false;
-		}
 		if ( '1' === ( $filters['zero_results'] ?? '' ) && ( 1 !== Database::integer( $row['result_recorded'] ?? 0 ) || 0 !== Database::integer( $row['result_count'] ?? 0 ) ) ) {
 			return false;
 		}

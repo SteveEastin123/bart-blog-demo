@@ -18,6 +18,7 @@ const productionOnly = process.argv.includes('--production-only');
     page.on('pageerror', error => errors.push(error.message));
     for (const endpoint of [
       'ehrman-discovery/v1/interpret', 'ehrman-discovery/v1/refine',
+      'ehrman-discovery/v1/feedback',
       'ehrman-section-public/v1/search', 'ehrman-section-pilot/v1/search',
     ]) {
       const response = await context.request.post(`${base}/wp-json/${endpoint}`, { data: { question: '' } });
@@ -35,8 +36,7 @@ const productionOnly = process.argv.includes('--production-only');
     }));
     await page.route('**/wp-json/ehrman-discovery/v1/feedback', async route => {
       feedbackCalls++;
-      assert.deepEqual(route.request().postDataJSON(), { request_id: 'test-retirement', helpful: true });
-      await route.fulfill({ json: { success: true } });
+      await route.abort();
     });
     await page.route('**/wp-json/ehrman-discovery/v1/semantic-search', async route => {
       calls++;
@@ -95,8 +95,7 @@ const productionOnly = process.argv.includes('--production-only');
       assert.equal(await page.locator('.ebd-post-title').first().textContent(), 'Test candidate 2');
       await page.locator('input[name="ebd_sort"][value="ranked"]').check();
       assert.equal(await page.locator('.ebd-post-title').first().textContent(), candidates[0].title);
-      await page.locator('[data-ebd-feedback-value="yes"]').click();
-      await page.locator('[data-ebd-ai-feedback][data-submitted="true"]').waitFor();
+      assert.equal(await page.locator('[data-ebd-ai-feedback],[data-ebd-feedback-value]').count(), 0);
       assert.equal(calls, beforeControls, 'Result controls must not rerun AI');
       fail = true;
       await page.locator('[data-ebd-semantic-submit]').click();
@@ -112,7 +111,7 @@ const productionOnly = process.argv.includes('--production-only');
     assert.equal(new URL(page.url()).pathname, '/ask-ai/');
     await page.locator('[data-ebd-show-broader]').waitFor();
     assert.equal(calls, 7, 'Saved question should autorun once');
-    assert.equal(feedbackCalls, 3);
+    assert.equal(feedbackCalls, 0, 'Feedback requests must not be submitted');
 
     // Read-only database searches exercise the shared controls on both browse paths and keyword search.
     await page.setViewportSize({ width: 1440, height: 950 });

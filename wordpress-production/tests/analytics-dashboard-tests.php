@@ -15,7 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $marker = 'analytics-regression-' . wp_generate_uuid4();
-$filters = array( 'search' => $marker, 'feedback' => 'all', 'date_from' => '', 'date_to' => '', 'zero_results' => '' );
+$filters = array( 'search' => $marker, 'date_from' => '', 'date_to' => '', 'zero_results' => '' );
+$legacy_feedback_table = $wpdb->prefix . 'ehrman_ai_feedback';
+$has_legacy_feedback = EhrmanBlogDiscovery\Database::table_exists( $legacy_feedback_table );
 $builder = new AI_Analytics_Report();
 $exporter = new AI_Analytics_Exporter();
 $saved_get = $_GET;
@@ -57,7 +59,6 @@ try {
 			'model' => 'test-review', 'prompt_version' => 'experiment' === $kind ? 'hybrid-metadata-1' : 'hybrid-1',
 			'result_count' => 'paid' === $kind ? 2 : 0, 'result_recorded' => 'failed' === $kind ? 0 : 1,
 			'cache_hit' => 'cached' === $kind ? 1 : 0, 'request_succeeded' => 'failed' === $kind ? 0 : 1,
-			'feedback' => 'paid' === $kind ? 1 : ( 'cached' === $kind ? 0 : null ),
 		) );
 	}
 	$usage = static function ( $id, $cost, $input, $output = 0, $cached = false ) use ( $insert, $tables ) {
@@ -90,10 +91,12 @@ try {
 	$usage( '', 20, 1000 ); // Index preparation must never enter question costs or resets.
 	$orphan = wp_generate_uuid4();
 	$usage( $orphan, 10, 500 );
-	$insert( $tables['ai_feedback'], array(
-		'created_at' => '2026-10-18 04:00:00', 'question' => $marker, 'selected_terms' => '[]',
-		'helpful' => 1, 'model' => 'legacy', 'prompt_version' => 'legacy',
-	) );
+	if ( $has_legacy_feedback ) {
+		$insert( $legacy_feedback_table, array(
+			'created_at' => '2026-10-18 04:00:00', 'question' => $marker, 'selected_terms' => '[]',
+			'helpful' => 1, 'model' => 'legacy', 'prompt_version' => 'legacy',
+		) );
+	}
 
 	$report = AI_Requests::analytics( $filters, 1, 0 );
 	$ids = array_fill_keys( array_column( $report['rows'], 'request_id' ), true );
@@ -110,10 +113,12 @@ try {
 		$assert( ! array_key_exists( $obsolete_key, $summary ), 'Unused analytics metric remains: ' . $obsolete_key );
 	}
 	$assert_same( 1, $summary['zero_results'], 'Failed retrieval was counted as a completed zero-result search.' );
-	$assert( abs( $report['helpful_rate'] - 50 ) < 0.00001, 'Helpful rate denominator must exclude unanswered feedback.' );
-	$assert_same( 1, AI_Requests::analytics( array_merge( $filters, array( 'feedback' => 'yes' ) ) )['total'], 'Yes filter failed.' );
-	$assert_same( 1, AI_Requests::analytics( array_merge( $filters, array( 'feedback' => 'no' ) ) )['total'], 'No filter failed.' );
-	$assert_same( 1, AI_Requests::analytics( array_merge( $filters, array( 'feedback' => 'unanswered' ) ) )['total'], 'Unanswered filter failed.' );
+	foreach ( array( 'yes', 'no', 'unanswered', 'response_rate', 'helpful_rate' ) as $obsolete_key ) {
+		$assert( ! array_key_exists( $obsolete_key, $report ), 'Feedback metric remains: ' . $obsolete_key );
+	}
+	foreach ( array( 'yes', 'no', 'unanswered' ) as $old_filter ) {
+		$assert_same( 3, AI_Requests::analytics( array_merge( $filters, array( 'feedback' => $old_filter ) ) )['total'], 'Retired feedback filter still hides questions.' );
+	}
 	$assert_same( 1, AI_Requests::analytics( array_merge( $filters, array( 'zero_results' => '1' ) ) )['total'], 'Zero-result filter includes incomplete searches.' );
 	$assert_same( 3, AI_Requests::analytics( array_merge( $filters, array( 'date_from' => '2026-10-18', 'date_to' => '2026-10-18' ) ) )['total'], 'Eastern midnight boundary failed.' );
 	$assert_same( 0, AI_Requests::analytics( array_merge( $filters, array( 'date_to' => '2026-10-17' ) ) )['total'], 'Eastern end-of-day boundary failed.' );
@@ -126,9 +131,10 @@ try {
 	$assert( abs( $periods['All retained']['total_cost'] - $baseline_periods['All retained']['total_cost'] - 0.012 ) < 0.0000001, 'Period totals include archived or index costs.' );
 
 	foreach ( array( 'ask-ai', 'ask-ai-2', 'combined', 'comparison' ) as $view ) {
-		$_GET = array( 'view' => $view, 'interface' => 'taxonomy', 'date_from' => '2026-02-30', 'search' => $marker );
+		$_GET = array( 'view' => $view, 'interface' => 'taxonomy', 'feedback' => 'no', 'date_from' => '2026-02-30', 'search' => $marker );
 		$parsed = ( new AI_Analytics_Request() )->filters();
 		$assert( ! isset( $parsed['view'] ) && ! isset( $parsed['interface'] ), 'Legacy URL still selects a method.' );
+		$assert( ! isset( $parsed['feedback'] ), 'Legacy URL still selects a feedback filter.' );
 		$assert_same( '', $parsed['date_from'], 'Invalid calendar date was accepted.' );
 		$assert_same( 3, AI_Requests::analytics( $parsed )['total'], 'Legacy analytics URL does not resolve to the unified dashboard.' );
 	}
@@ -136,14 +142,15 @@ try {
 	ob_start();
 	( new AI_Analytics_Renderer() )->render( $filters, 1, false );
 	$html = ob_get_clean();
-	$assert( str_contains( $html, 'Ask AI Analytics' ) && ! str_contains( $html, 'nav-tab-wrapper' ), 'Dashboard still has method tabs.' );
+	$assert( str_contains( $html, 'AI Analytics' ) && str_contains( $html, 'Post Metadata' ) && ! str_contains( $html, 'Ask AI 2' ), 'Dashboard tabs do not separate costs by activity.' );
 	$assert( ! str_contains( $html, 'Topics and keywords' ) && ! str_contains( $html, 'Side-by-side' ), 'Comparison content remains.' );
 	$assert( ! str_contains( $html, $marker . ' taxonomy' ) && ! str_contains( $html, $marker . ' experiment' ), 'Hidden methods appeared in dashboard details.' );
 	$assert( str_contains( $html, '1.200' ) && str_contains( $html, '0.400' ), 'Combined and average costs are missing from dashboard.' );
 	$dashboard = $dashboard_dom( $html );
 	$question_table = '//table[@data-ebd-analytics-questions]';
 	$review_table = '//details[summary/strong[text()="AI review details"]]//table';
-	$assert_same( 7, $dashboard->query( $question_table . '/thead/tr/th' )->length, 'Question columns changed.' );
+	$assert_same( 6, $dashboard->query( $question_table . '/thead/tr/th' )->length, 'Question columns changed.' );
+	$assert( ! str_contains( strtolower( $html ), 'feedback' ) && ! str_contains( $html, 'Helpful rate' ), 'Feedback controls or reporting remain on the dashboard.' );
 	$assert_same( 8, $dashboard->query( $review_table . '/thead/tr/th' )->length, 'Review columns changed.' );
 	$assert_same( 3, $dashboard->query( $question_table . '/tbody/tr' )->length, 'Question template dropped rows.' );
 	$assert_same( 3, $dashboard->query( $review_table . '/tbody/tr' )->length, 'Review template dropped retries.' );
@@ -152,9 +159,9 @@ try {
 	$assert_same( 'Oct 18, 2026 12:00 AM EDT', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[1])' ) ), 'Question timezone display changed.' );
 	$assert_same( '1.200¢', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[3]/strong)' ) ), 'Question total is not displayed first.' );
 	$assert_same( 'Embedding: 0.100¢; AI review: 1.100¢', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[3]/small)' ) ), 'Question cost breakdown changed.' );
-	$assert_same( '380', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[7]/strong)' ) ), 'Question token total changed.' );
+	$assert_same( '380', trim( $dashboard->evaluate( 'string(' . $paid_row . '/td[6]/strong)' ) ), 'Question token total changed.' );
 	$assert_same( 'Not recorded', trim( $dashboard->evaluate( 'string(' . $failed_row . '/td[4])' ) ), 'Incomplete search result label changed.' );
-	foreach ( array( 'WordPress cache', 'Failed; broader results returned.', 'No AI review recorded.', 'Not provided' ) as $label ) {
+	foreach ( array( 'WordPress cache', 'Failed; broader results returned.', 'No AI review recorded.' ) as $label ) {
 		$assert( str_contains( $html, $label ), 'Dashboard state is missing: ' . $label );
 	}
 	$assert_same( 0, $dashboard->query( '//div[@class="tablenav"]' )->length, 'Single-page dashboard unexpectedly has pagination.' );
@@ -162,13 +169,13 @@ try {
 	$nonce = $dashboard->evaluate( 'string(' . $reset_form . '/input[@name="_wpnonce"]/@value)' );
 	$assert( false !== wp_verify_nonce( $nonce, 'ehrman_ai_analytics_reset' ), 'Reset form nonce is missing or invalid.' );
 	$assert( str_contains( $dashboard->evaluate( 'string(' . $reset_form . '/@onsubmit)' ), 'window.confirm(' ), 'Reset confirmation was removed.' );
-	$empty_filters = array_merge( $filters, array( 'search' => $marker . ' "><img src=x onerror=alert(1)>', 'feedback' => 'unanswered', 'zero_results' => '1', 'date_from' => '2026-10-01', 'date_to' => '2026-10-20' ) );
+	$empty_filters = array_merge( $filters, array( 'search' => $marker . ' "><img src=x onerror=alert(1)>', 'zero_results' => '1', 'date_from' => '2026-10-01', 'date_to' => '2026-10-20' ) );
 	$empty_html = $render_dashboard( $empty_filters, 1, true );
 	$empty_dom = $dashboard_dom( $empty_html );
 	$assert( str_contains( $empty_html, 'No requests match these filters.' ) && str_contains( $empty_html, 'No AI reviews match these filters.' ), 'Empty template states are missing.' );
 	$assert( str_contains( $empty_html, 'notice-success' ), 'Reset success notice was removed.' );
 	$assert_same( $empty_filters['search'], $empty_dom->evaluate( 'string(//input[@name="search"]/@value)' ), 'Search filter was not preserved safely.' );
-	$assert_same( 'unanswered', $empty_dom->evaluate( 'string(//select[@name="feedback"]/option[@selected]/@value)' ), 'Feedback selection changed.' );
+	$assert_same( '6', $empty_dom->evaluate( 'string(' . $question_table . '/tbody/tr/td/@colspan)' ), 'Empty question table has an incorrect column span.' );
 	$assert_same( 1, $empty_dom->query( '//input[@name="zero_results"][@checked]' )->length, 'Zero-results selection changed.' );
 	$assert_same( '2026-10-01', $empty_dom->evaluate( 'string(//input[@name="date_from"]/@value)' ), 'From date changed.' );
 	$assert_same( '2026-10-20', $empty_dom->evaluate( 'string(//input[@name="date_to"]/@value)' ), 'To date changed.' );
@@ -187,8 +194,8 @@ try {
 		$escaped_dom = $dashboard_dom( $escaped_html );
 		$assert( str_contains( $escaped_html, esc_html( $unsafe_question ) ) && str_contains( $escaped_html, esc_html( '<b>failure</b>' ) ), 'Question or error text was not escaped.' );
 		$assert( str_contains( $escaped_html, esc_html( $unsafe_source . ' (priority)' ) ) && str_contains( $escaped_html, esc_html( '<b>price</b>' ) ), 'Model, service tier or pricing display changed.' );
-		$assert_same( $unsafe_id, $escaped_dom->evaluate( 'string(' . $paid_row . '/td[6]//code/@title)' ), 'Full response ID was not preserved safely.' );
-		$assert_same( substr( $unsafe_id, 0, 14 ) . '…' . substr( $unsafe_id, -7 ), $escaped_dom->evaluate( 'string(' . $paid_row . '/td[6]//code)' ), 'Response ID shortening changed.' );
+		$assert_same( $unsafe_id, $escaped_dom->evaluate( 'string(' . $paid_row . '/td[5]//code/@title)' ), 'Full response ID was not preserved safely.' );
+		$assert_same( substr( $unsafe_id, 0, 14 ) . '…' . substr( $unsafe_id, -7 ), $escaped_dom->evaluate( 'string(' . $paid_row . '/td[5]//code)' ), 'Response ID shortening changed.' );
 		$assert( str_contains( $escaped_html, 'Alpha &amp; Omega' ), 'Retained post titles were not escaped.' );
 		$assert_same( 0, $escaped_dom->query( '//img|//script|//*[@onmouseover]' )->length, 'Stored analytics text became executable markup.' );
 	} finally {
@@ -205,6 +212,7 @@ try {
 			$csv[] = array_combine( $headers, $line );
 		}
 		$assert_same( 3, count( $csv ), 'Question CSV leaked retired data.' );
+		$assert( ! in_array( 'Feedback', $headers, true ), 'Question CSV retains the feedback column.' );
 		$assert( ! in_array( 'Method', $headers, true ) && ! in_array( 'Topics and keywords', $headers, true ), 'Question CSV retains comparison columns.' );
 		$paid = array_values( array_filter( $csv, static fn( $row ) => $row['Request ID'] === $requests['paid'] ) )[0];
 		$assert( abs( (float) $paid['Total cost USD'] - 0.012 ) < 0.0000001, 'CSV total omits a stage or retry.' );
@@ -254,8 +262,11 @@ try {
 	}
 
 	// Invoke the deletion operation inside this transaction, then roll everything back.
+	$metadata_run = wp_generate_uuid4();
+	EhrmanBlogDiscovery\AI_Metadata_Usage::record( array( 'model' => 'gpt-5.6-sol', 'estimated_cost_usd' => 0.05 ), array( 'run_id' => $metadata_run, 'post_title' => $marker ), 'metadata_generation', true, '', true );
 	$delete = new ReflectionMethod( AI_Analytics_Reset_Handler::class, 'delete_test_analytics' );
 	$delete->invoke( new AI_Analytics_Reset_Handler() );
+	$assert_same( '1', (string) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE run_id=%s', $tables['ai_usage'], $metadata_run ) ), 'Ask AI reset erased metadata-generation spending.' );
 	$assert_same( 0, AI_Requests::analytics( array(), 1, 0 )['total'], 'Reset left active-method questions behind.' );
 	foreach ( array( 'taxonomy', 'experiment' ) as $kind ) {
 		$assert_same( '1', (string) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['ai_requests']} WHERE request_id=%s", $requests[ $kind ] ) ), 'Reset removed retired-method requests.' );
@@ -263,7 +274,9 @@ try {
 		$assert_same( '1', (string) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['ai_usage']} WHERE request_id=%s", $review_ids[ $kind ] ) ), 'Reset removed retired-method usage.' );
 	}
 	$assert_same( '0', (string) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['ai_usage']} WHERE request_id IN (%s,%s,%s)", $requests['paid'], $review_ids['paid'], $retry ) ), 'Reset left active usage behind.' );
-	$assert_same( '1', (string) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['ai_feedback']} WHERE question=%s", $marker ) ), 'Reset removed legacy feedback.' );
+	if ( $has_legacy_feedback ) {
+		$assert_same( '1', (string) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$legacy_feedback_table} WHERE question=%s", $marker ) ), 'Reset removed legacy feedback.' );
+	}
 	$assert( (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']} WHERE request_id=''" ) > 0, 'Reset removed index preparation.' );
 	$assert_same( '1', (string) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['ai_usage']} WHERE request_id=%s", $orphan ) ), 'Reset removed unrelated usage.' );
 } finally {

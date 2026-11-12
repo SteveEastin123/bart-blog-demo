@@ -43,6 +43,7 @@ final class AI_Analytics_Reset_Handler {
 			add_query_arg(
 				array(
 					'page'            => 'ehrman-ai-analytics',
+					'tab'             => 'ask-ai',
 					'analytics_reset' => '1',
 				),
 				admin_url( 'tools.php' )

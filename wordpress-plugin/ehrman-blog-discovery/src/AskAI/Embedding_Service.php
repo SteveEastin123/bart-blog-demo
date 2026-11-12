@@ -42,14 +42,23 @@ final class Embedding_Service {
 	private array $last_metrics = array();
 
 	/**
+	 * Durable metadata-run context, empty for reader searches.
+	 *
+	 * @var array<string,mixed>
+	 */
+	private array $usage_context;
+
+	/**
 	 * Creates an embedding client.
 	 *
-	 * @param string|null $api_key_override Optional workflow-specific API key.
-	 * @param bool        $record_usage     Include calls in reader-search analytics.
+	 * @param string|null         $api_key_override Optional workflow-specific API key.
+	 * @param bool                $record_usage     Include calls in reader-search analytics.
+	 * @param array<string,mixed> $usage_context Optional metadata-generation context.
 	 */
-	public function __construct( ?string $api_key_override = null, bool $record_usage = true ) {
+	public function __construct( ?string $api_key_override = null, bool $record_usage = true, array $usage_context = array() ) {
 		$this->api_key_override = null === $api_key_override ? null : trim( $api_key_override );
 		$this->record_usage     = $record_usage;
+		$this->usage_context    = $usage_context;
 	}
 
 	/** Returns whether server-side OpenAI credentials are available. */
@@ -205,6 +214,10 @@ final class Embedding_Service {
 	 * @param string $request_id Correlation identifier.
 	 */
 	private function record_failure( string $error_code, string $request_id ): void {
+		if ( ! empty( $this->usage_context ) ) {
+			AI_Metadata_Usage::record( array( 'model' => self::model_id() ), $this->usage_context, 'post_embedding', false, $error_code, false );
+			return;
+		}
 		if ( $this->record_usage ) {
 			AI_Usage::record_failure( self::model_id(), $error_code, $request_id );
 		}
@@ -229,7 +242,9 @@ final class Embedding_Service {
 			'succeeded'          => $succeeded ? 1 : 0,
 			'error_code'         => sanitize_key( $error_code ),
 		);
-		if ( $this->record_usage ) {
+		if ( ! empty( $this->usage_context ) ) {
+			AI_Metadata_Usage::record( $this->last_metrics, $this->usage_context, 'post_embedding', $succeeded, $error_code, ( isset( $usage['prompt_tokens'] ) || isset( $usage['input_tokens'] ) ) && 'text-embedding-3-small' === $this->last_metrics['model'] );
+		} elseif ( $this->record_usage ) {
 			AI_Usage::record_embedding_response( $body, $succeeded, $error_code, $request_id );
 		}
 	}

@@ -37,7 +37,7 @@ final class AI_Usage {
 	 * @param string $request_id Correlation identifier.
 	 */
 	public static function record_cache_hit( string $model, string $request_id = '' ): void {
-		self::insert( self::empty_metrics( $model ), true, true, '', $request_id );
+		self::insert( self::empty_metrics( $model ), true, true, '', $request_id, array( 'cost_known' => 1 ) );
 	}
 
 	/**
@@ -51,7 +51,7 @@ final class AI_Usage {
 	public static function record_response( array $response_body, bool $succeeded, string $error_code = '', string $request_id = '' ): void {
 		$metrics = self::response_metrics( $response_body );
 
-		self::insert( $metrics, false, $succeeded, $error_code, $request_id );
+		self::insert( $metrics, false, $succeeded, $error_code, $request_id, array( 'cost_known' => isset( $response_body['usage'] ) ? 1 : 0 ) );
 	}
 
 	/**
@@ -79,7 +79,7 @@ final class AI_Usage {
 			'estimated_cost_usd'  => ( $input_tokens * self::EMBEDDING_RATE ) / 1000000,
 		);
 
-		self::insert( $metrics, false, $succeeded, $error_code, $request_id );
+		self::insert( $metrics, false, $succeeded, $error_code, $request_id, array( 'cost_known' => isset( $response_body['usage'] ) ? 1 : 0 ) );
 	}
 
 	/**
@@ -146,7 +146,7 @@ final class AI_Usage {
 			);
 		}
 		$sql = $wpdb->prepare(
-			'SELECT COUNT(*) calls,SUM(input_tokens) input_tokens,SUM(estimated_cost_usd) total_cost FROM %i WHERE request_id=\'\' AND model LIKE %s',
+			'SELECT COUNT(*) calls,SUM(input_tokens) input_tokens,SUM(estimated_cost_usd) total_cost FROM %i WHERE request_id=\'\' AND purpose IN (\'\',\'index_embedding\') AND model LIKE %s',
 			$table,
 			'text-embedding-%'
 		);
@@ -179,14 +179,18 @@ final class AI_Usage {
 	 * @param bool                           $succeeded  Whether the review or embedding request succeeded.
 	 * @param string                         $error_code Stable local error code.
 	 * @param string                         $request_id Correlation identifier.
+	 * @param array<string,mixed>            $context    Purpose and durable workflow identifiers.
+	 * @return bool Whether the event was stored.
 	 */
-	private static function insert( array $metrics, bool $cache_hit, bool $succeeded, string $error_code, string $request_id ): void {
-		$wpdb  = Database::client();
-		$table = Database::tables()['ai_usage'];
-		$wpdb->insert(
+	public static function insert( array $metrics, bool $cache_hit, bool $succeeded, string $error_code, string $request_id, array $context = array() ): bool {
+		$wpdb    = Database::client();
+		$table   = Database::tables()['ai_usage'];
+		$model   = Database::text( $metrics['model'] ?? '' );
+		$purpose = str_starts_with( $model, 'text-embedding-' ) ? ( '' === $request_id ? 'index_embedding' : 'query_embedding' ) : 'candidate_review';
+		return false !== $wpdb->insert(
 			$table,
 			array(
-				'created_at'          => current_time( 'mysql', true ),
+				'created_at'          => Database::text( $context['created_at'] ?? current_time( 'mysql', true ) ),
 				'response_id'         => sanitize_text_field( Database::text( $metrics['response_id'] ?? '' ) ),
 				'model'               => sanitize_text_field( Database::text( $metrics['model'] ?? '' ) ),
 				'service_tier'        => sanitize_key( Database::text( $metrics['service_tier'] ?? '' ) ),
@@ -200,10 +204,17 @@ final class AI_Usage {
 				'cache_hit'           => $cache_hit ? 1 : 0,
 				'request_succeeded'   => $succeeded ? 1 : 0,
 				'error_code'          => sanitize_key( $error_code ),
-				'pricing_version'     => self::PRICING_VERSION,
+				'pricing_version'     => Database::text( $context['pricing_version'] ?? self::PRICING_VERSION ),
 				'request_id'          => sanitize_text_field( $request_id ),
+				'purpose'             => sanitize_key( Database::text( $context['purpose'] ?? $purpose ) ),
+				'run_id'              => sanitize_text_field( Database::text( $context['run_id'] ?? '' ) ),
+				'post_id'             => max( 0, Database::integer( $context['post_id'] ?? 0 ) ),
+				'post_title'          => sanitize_text_field( Database::text( $context['post_title'] ?? '' ) ),
+				'cost_known'          => empty( $context['cost_known'] ) ? 0 : 1,
+				'history_import'      => empty( $context['history_import'] ) ? 0 : 1,
+				'event_key'           => isset( $context['event_key'] ) ? Database::text( $context['event_key'] ) : null,
 			),
-			array( '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%s', '%d', '%d', '%s', '%s', '%s' )
+			array( '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%s', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%d', '%d', '%s' )
 		);
 	}
 

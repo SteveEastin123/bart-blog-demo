@@ -9,7 +9,8 @@ The plugin already provides:
 - Versioned custom database tables created through WordPress activation and upgrade routines.
 - Authoritative JSON validation and import.
 - Browse Topics, Keyword Search, and the selected Ask AI implementation.
-- AI request analytics, feedback tracking, rate limiting, and cost estimates.
+- AI request analytics, rate limiting, and cost estimates. Helpfulness voting has
+  been retired; no feedback endpoint, controls, filters, or CSV column are delivered.
 - Title-and-summary vector generation and semantic retrieval.
 - Versioned, compressed vector export and transactional, idempotent import by WordPress post ID.
 - An administrator-only Post Ingestion workflow with AI analysis, review, approval, audit evidence, and vector generation.

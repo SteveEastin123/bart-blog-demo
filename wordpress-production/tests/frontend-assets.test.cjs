@@ -68,6 +68,15 @@ test('result sorting and pagination preserve ranked data', () => {
   assert.equal(empty.total_pages, 0);
 });
 
+test('public bundles no longer contain helpfulness feedback controls or requests', () => {
+  assert(!fs.existsSync(path.join(root, source, 'feedback.js')));
+  for (const result of compileAssets()) {
+    for (const file of result.outputFiles) {
+      assert(!/ebd-ai-feedback|ebd-feedback-value|feedbackUrl|Were these search results helpful/.test(file.text));
+    }
+  }
+});
+
 test('browse sorting preserves alphabetical ties and tolerates unavailable session storage', () => {
   for (const initial of ['', 'posts', 'invalid', 'blocked']) {
     let stored = initial;

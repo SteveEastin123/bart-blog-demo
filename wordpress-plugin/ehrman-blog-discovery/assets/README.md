@@ -15,7 +15,6 @@ DOM hooks, storage keys, and REST request formats are unchanged.
 | `keyword-search.js` | Keyword and Browse Topics controls, suggestions, AJAX search |
 | `results.js` | Post lists, relevance groups, sorting and pagination |
 | `ask-ai.js` | Question submission and refined/broader result switching |
-| `feedback.js` | Reader feedback controls and submission |
 | `descriptions.js` | Description preferences and tooltips |
 | `browse-topics.js` | Subject-area, category and topic sorting with one per-tab session preference |
 | `status.js` | Status refresh control |
@@ -61,7 +60,8 @@ node wordpress-production/tests/frontend-assets-ui.cjs
 ```
 
 The last script checks all Reviewer Tools views and exports, descriptions and
-tooltips, Ask AI result groups and pagination, feedback retry, and status refresh.
+tooltips, Ask AI result groups and pagination, absence of retired feedback controls,
+and status refresh.
 All AI requests are mocked. For a visual-only/refactoring change, run both
 `search-page-ui.cjs` and `frontend-assets-ui.cjs` with `--capture-before` before
 refreshing WordPress, then with `--compare-before` afterward. These compare DOM

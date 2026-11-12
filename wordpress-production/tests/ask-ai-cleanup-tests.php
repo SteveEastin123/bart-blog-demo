@@ -16,11 +16,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 $assert( ! class_exists( 'EhrmanBlogDiscovery\\AI_Interpreter' ), 'Retired interpreter is still packaged.' );
 $assert( ! class_exists( 'EhrmanBlogDiscovery\\AI_Term_Selector' ), 'Retired term selector is still packaged.' );
 $assert( ! class_exists( 'EhrmanBlogDiscovery\\AI_Feedback' ), 'Unused legacy feedback reader is still packaged.' );
+$assert( ! class_exists( 'EhrmanBlogDiscovery\\Feedback_REST_Controller' ), 'Feedback controller is still packaged.' );
+$assert( ! method_exists( 'EhrmanBlogDiscovery\\AI_Requests', 'set_feedback' ), 'Feedback writer is still packaged.' );
+$assert( ! isset( $tables['ai_feedback'] ), 'Feedback table is still part of the active schema.' );
+$feedback_response = rest_do_request( new WP_REST_Request( 'POST', '/ehrman-discovery/v1/feedback' ) );
+$assert_same( 404, $feedback_response->get_status(), 'Retired feedback route remains available.' );
 $assert( ! method_exists( AI_Usage::class, 'report' ), 'Unused aggregate usage report is still packaged.' );
 $assert( ! method_exists( 'EhrmanBlogDiscovery\\AI_Refinements', 'count' ), 'Unused refinement counter is still packaged.' );
 $assert( ! class_exists( 'EhrmanSectionPublic\\Index' ), 'Experimental section plugin is active.' );
 $asset_config = wp_scripts()->get_data( 'ehrman-blog-discovery', 'data' );
 $assert( is_string( $asset_config ) && ! str_contains( $asset_config, 'interpretUrl' ) && ! str_contains( $asset_config, 'refineUrl' ), 'Retired endpoints are still advertised to the browser.' );
+$assert( is_string( $asset_config ) && ! str_contains( strtolower( $asset_config ), 'feedback' ), 'Feedback configuration is still sent to the browser.' );
 
 /* Preserve search model defaults/sanitization and shared-key resolution. */
 $saved_model = getenv( 'EHRMAN_DISCOVERY_AI_MODEL' );

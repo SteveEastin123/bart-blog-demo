@@ -1,7 +1,6 @@
 import { strings, normalized, postWord } from "./shared.js";
 import { browserUrl, updateBrowserUrl } from "./search-state.js";
 import { applyDescriptionMode, setupTitleTooltips } from "./descriptions.js";
-import { feedbackControl } from "./feedback.js";
 const BACK_TO_TOP_THRESHOLD = 10;
 
 function resultSummaryLabel(result) {
@@ -166,7 +165,6 @@ export function renderResults(container, result, form) {
     } else if (!result.refined && form.ebdRefinedResult) {
       container.append(resultViewControl("refined"));
     }
-    container.append(feedbackControl(requestId));
   }
   if (!Array.isArray(result.posts) || !result.posts.length) {
     const empty = document.createElement("p");

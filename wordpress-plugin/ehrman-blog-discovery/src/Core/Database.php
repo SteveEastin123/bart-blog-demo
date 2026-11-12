@@ -41,7 +41,6 @@ final class Database {
 			'ai_usage'                => $base . 'ai_usage',
 			'ai_requests'             => $base . 'ai_requests',
 			'ai_refinements'          => $base . 'ai_refinements',
-			'ai_feedback'             => $base . 'ai_feedback',
 			'ingestion_drafts'        => $base . 'ingestion_drafts',
 		);
 	}
@@ -212,7 +211,17 @@ CREATE TABLE {$tables['ai_usage']} (
   error_code varchar(100) NOT NULL DEFAULT '',
   pricing_version varchar(32) NOT NULL DEFAULT '',
   request_id char(36) NOT NULL DEFAULT '',
+  purpose varchar(32) NOT NULL DEFAULT '',
+  run_id varchar(64) NOT NULL DEFAULT '',
+  post_id bigint(20) unsigned NOT NULL DEFAULT 0,
+  post_title text DEFAULT NULL,
+  cost_known tinyint(1) unsigned NOT NULL DEFAULT 0,
+  history_import tinyint(1) unsigned NOT NULL DEFAULT 0,
+  event_key varchar(100) DEFAULT NULL,
   PRIMARY KEY  (id),
+  UNIQUE KEY uq_ai_usage_event (event_key),
+  KEY idx_ai_usage_purpose_date (purpose,created_at),
+  KEY idx_ai_usage_run (run_id),
   KEY idx_ai_usage_created (created_at),
   KEY idx_ai_usage_response (response_id),
   KEY idx_ai_usage_model (model),
@@ -235,13 +244,10 @@ CREATE TABLE {$tables['ai_requests']} (
   cache_hit tinyint(1) unsigned NOT NULL DEFAULT 0,
   request_succeeded tinyint(1) unsigned NOT NULL DEFAULT 0,
   error_code varchar(100) NOT NULL DEFAULT '',
-  feedback tinyint(1) unsigned DEFAULT NULL,
-  feedback_at datetime DEFAULT NULL,
   PRIMARY KEY  (id),
   UNIQUE KEY uq_ai_requests_request (request_id),
   KEY idx_ai_requests_created (created_at),
   KEY idx_ai_requests_type (request_type,created_at),
-  KEY idx_ai_requests_feedback (feedback,created_at),
   KEY idx_ai_requests_succeeded (request_succeeded,created_at)
 ) {$collate};
 
@@ -271,21 +277,6 @@ CREATE TABLE {$tables['ai_refinements']} (
   KEY idx_ai_refinements_succeeded (request_succeeded,created_at)
 ) {$collate};
 
-CREATE TABLE {$tables['ai_feedback']} (
-  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  created_at datetime NOT NULL,
-  question text NOT NULL,
-  selected_terms text NOT NULL,
-  helpful tinyint(1) unsigned NOT NULL,
-  result_count int(10) unsigned NOT NULL DEFAULT 0,
-  model varchar(100) NOT NULL,
-  prompt_version varchar(32) NOT NULL,
-  PRIMARY KEY  (id),
-  KEY idx_ai_feedback_created (created_at),
-  KEY idx_ai_feedback_helpful (helpful,created_at),
-  KEY idx_ai_feedback_model (model)
-) {$collate};
-
 CREATE TABLE {$tables['ingestion_drafts']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   status varchar(32) NOT NULL DEFAULT 'draft',
@@ -310,6 +301,7 @@ CREATE TABLE {$tables['ingestion_drafts']} (
   estimated_cost_usd decimal(14,8) unsigned NOT NULL DEFAULT 0,
   error_message text DEFAULT NULL,
   analysis_attempt bigint(20) unsigned NOT NULL DEFAULT 0,
+  usage_run_id varchar(64) NOT NULL DEFAULT '',
   analysis_started_at datetime DEFAULT NULL,
   created_by bigint(20) unsigned NOT NULL,
   created_at datetime NOT NULL,
@@ -331,6 +323,7 @@ CREATE TABLE {$tables['ingestion_drafts']} (
 ";
 
 		dbDelta( $sql );
+		AI_Metadata_Usage::import_history();
 		update_option( 'ehrman_discovery_schema_version', EHRMAN_DISCOVERY_SCHEMA_VERSION, false );
 	}
 

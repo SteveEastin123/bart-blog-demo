@@ -1,4 +1,4 @@
-// Public frontend checks. All AI, feedback and status responses are mocked.
+// Public frontend checks. All AI and status responses are mocked.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -23,8 +23,6 @@ assert(!baselineAssets || capture, 'Original-asset overrides are only allowed wh
   const pixelDifferences = [];
   const baseline = compare ? JSON.parse(fs.readFileSync(path.join(output, 'before.json'))) : null;
   let aiCalls = 0;
-  let feedbackCalls = 0;
-  let feedbackFails = true;
   try {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     await context.addInitScript(() => {
@@ -58,10 +56,6 @@ assert(!baselineAssets || capture, 'Original-asset overrides are only allowed wh
           original_count: 30, terms: [], sort: 'ranked', page: 1, total_pages: 1,
           broader: { posts: candidates, count: 30, per_page: 25, page: 1, total_pages: 2, semantic: true },
         } });
-      } else if (url.pathname.endsWith('/feedback')) {
-        feedbackCalls++;
-        assert.deepEqual(route.request().postDataJSON(), { request_id: 'frontend-test', helpful: true });
-        await route.fulfill({ status: feedbackFails ? 503 : 200, json: { success: !feedbackFails } });
       } else if (url.pathname.endsWith('/status')) {
         await route.fulfill({ json: { database_connected: true, import_state: 'complete' } });
       } else {
@@ -157,13 +151,8 @@ assert(!baselineAssets || capture, 'Original-asset overrides are only allowed wh
       await page.locator('[data-ebd-show-broader]').waitFor();
       assert.equal(await page.locator('.ebd-relevance-group').count(), 3);
       await snapshot(`ask-refined-${width}`);
-      feedbackFails = true;
-      await page.locator('[data-ebd-feedback-value="yes"]').click();
-      await page.getByText('The feedback could not be saved. Please try again.', { exact: true }).waitFor();
-      assert(await page.locator('[data-ebd-feedback-value="yes"]').isEnabled());
-      feedbackFails = false;
-      await page.locator('[data-ebd-feedback-value="yes"]').click();
-      await page.locator('[data-ebd-ai-feedback][data-submitted="true"]').waitFor();
+      assert.equal(await page.locator('[data-ebd-ai-feedback],[data-ebd-feedback-value]').count(), 0);
+      assert(!(await page.locator('[data-ebd-results]').innerText()).includes('Were these search results helpful?'));
       await page.locator('[data-ebd-show-broader]').click();
       assert.equal(await page.locator('.ebd-post-item').count(), 25);
       await snapshot(`ask-broader-${width}`);
@@ -223,7 +212,6 @@ assert(!baselineAssets || capture, 'Original-asset overrides are only allowed wh
     await page.getByText('WordPress is connected to MySQL. Import state: complete.', { exact: true }).waitFor();
     assert.deepEqual(errors, []);
     assert.equal(aiCalls, 2);
-    assert.equal(feedbackCalls, 4);
     if (capture) fs.writeFileSync(path.join(output, 'before.json'), JSON.stringify({ stylesheet, snapshots }));
     console.log(JSON.stringify({ status: 'passed', snapshots: snapshots.length, cssRules: stylesheet.length, pixelDifferences, mockedAiCalls: aiCalls, paidCalls: 0 }));
   } finally {

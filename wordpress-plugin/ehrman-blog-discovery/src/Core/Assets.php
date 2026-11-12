@@ -48,7 +48,6 @@ final class Assets {
 				'suggestionsUrl' => esc_url_raw( rest_url( 'ehrman-discovery/v1/suggestions' ) ),
 				'searchUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/search' ) ),
 				'semanticUrl'    => esc_url_raw( rest_url( 'ehrman-discovery/v1/semantic-search' ) ),
-				'feedbackUrl'    => esc_url_raw( rest_url( 'ehrman-discovery/v1/feedback' ) ),
 				'statusUrl'      => esc_url_raw( rest_url( 'ehrman-discovery/v1/status' ) ),
 				'strings'        => array(
 					'topic'           => __( 'Topic', 'ehrman-blog-discovery' ),
@@ -67,8 +66,6 @@ final class Assets {
 					'zeroResults'     => __( 'No posts match all the selected terms. Remove a term or try a different search.', 'ehrman-blog-discovery' ),
 					'requestFailed'   => __( 'The search could not be completed. Please try again.', 'ehrman-blog-discovery' ),
 					'unknownAuthor'   => __( 'unknown author', 'ehrman-blog-discovery' ),
-					'feedbackThanks'  => __( 'Thank you. Your feedback will help improve the search.', 'ehrman-blog-discovery' ),
-					'feedbackFailed'  => __( 'The feedback could not be saved. Please try again.', 'ehrman-blog-discovery' ),
 					'showBroader'     => __( 'Show broader results', 'ehrman-blog-discovery' ),
 					'showRefined'     => __( 'Show refined results', 'ehrman-blog-discovery' ),
 					'directAnswers'   => __( 'Directly answers the question', 'ehrman-blog-discovery' ),

@@ -233,62 +233,6 @@
     applyDescriptionMode(root);
   }
 
-  // wordpress-plugin/ehrman-blog-discovery/assets/src/js/feedback.js
-  function feedbackControl(requestId) {
-    const section = document.createElement("section");
-    const prompt = document.createElement("span");
-    const status = document.createElement("span");
-    section.className = "ebd-ai-feedback";
-    section.dataset.ebdAiFeedback = "true";
-    section.dataset.requestId = requestId;
-    prompt.textContent = "Were these search results helpful?";
-    section.append(prompt);
-    ["Yes", "No"].forEach((label) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.dataset.ebdFeedbackValue = label.toLowerCase();
-      button.textContent = label;
-      section.append(button);
-    });
-    status.className = "ebd-ai-feedback-status";
-    status.dataset.ebdFeedbackStatus = "true";
-    status.setAttribute("aria-live", "polite");
-    section.append(status);
-    return section;
-  }
-  function setupFeedback() {
-    document.addEventListener("click", async (event) => {
-      const button = event.target.closest("[data-ebd-feedback-value]");
-      if (!button || !config.feedbackUrl) return;
-      const section = button.closest("[data-ebd-ai-feedback]");
-      const status = section?.querySelector("[data-ebd-feedback-status]");
-      if (!section || !status || section.dataset.submitted === "true") return;
-      const buttons = section.querySelectorAll("[data-ebd-feedback-value]");
-      buttons.forEach((item) => {
-        item.disabled = true;
-      });
-      try {
-        const response = await fetch(config.feedbackUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            request_id: section.dataset.requestId || "",
-            helpful: button.dataset.ebdFeedbackValue === "yes"
-          })
-        });
-        if (!response.ok) throw new Error("Feedback request failed");
-        section.dataset.submitted = "true";
-        button.classList.add("is-selected");
-        status.textContent = strings.feedbackThanks || "Thank you. Your feedback will help improve the search.";
-      } catch (error) {
-        buttons.forEach((item) => {
-          item.disabled = false;
-        });
-        status.textContent = strings.feedbackFailed || "The feedback could not be saved. Please try again.";
-      }
-    });
-  }
-
   // wordpress-plugin/ehrman-blog-discovery/assets/src/js/results.js
   var BACK_TO_TOP_THRESHOLD = 10;
   function resultSummaryLabel(result) {
@@ -443,7 +387,6 @@
       } else if (!result.refined && form.ebdRefinedResult) {
         container.append(resultViewControl("refined"));
       }
-      container.append(feedbackControl(requestId));
     }
     if (!Array.isArray(result.posts) || !result.posts.length) {
       const empty = document.createElement("p");
@@ -1229,7 +1172,6 @@
 
   // wordpress-plugin/ehrman-blog-discovery/assets/src/js/discovery.js
   setupResultViews();
-  setupFeedback();
   document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
   document.querySelectorAll("[data-ebd-semantic-form]").forEach(setupSemanticForm);
   document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);

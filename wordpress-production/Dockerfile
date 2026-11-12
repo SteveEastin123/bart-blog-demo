@@ -55,6 +55,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-cleanup-tests.p
     /opt/ehrman-tests/ask-ai-cleanup-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/analytics-dashboard-tests.php \
     /opt/ehrman-tests/analytics-dashboard-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/metadata-cost-tests.php \
+    /opt/ehrman-tests/metadata-cost-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-page-tests.php \
     /opt/ehrman-tests/post-ingestion-page-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/search-page-tests.php \

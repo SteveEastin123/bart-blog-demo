@@ -90,9 +90,10 @@ final class Post_Ingestion_Repository {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ingestion_drafts'];
 		$sql   = $wpdb->prepare(
-			'UPDATE %i SET status=%s,error_message=NULL,analysis_attempt=analysis_attempt+1,analysis_started_at=%s,updated_at=%s WHERE id=%d AND status=%s',
+			'UPDATE %i SET status=%s,error_message=NULL,analysis_attempt=analysis_attempt+1,usage_run_id=%s,analysis_started_at=%s,updated_at=%s WHERE id=%d AND status=%s',
 			$table,
 			'analyzing',
+			wp_generate_uuid4(),
 			current_time( 'mysql', true ),
 			current_time( 'mysql', true ),
 			$draft_id,

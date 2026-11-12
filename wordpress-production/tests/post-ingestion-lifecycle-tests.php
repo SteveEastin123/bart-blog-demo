@@ -170,6 +170,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$delete_during_embedding = 0;
 		$assert( is_wp_error( $result ), 'A deleted post accepted a late vector response.' );
 		$assert_same( null, $store->draft( $draft ), 'Permanent deletion retained owned ingestion history.' );
+		$assert( (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE post_id=%d AND purpose=%s', $tables['ai_usage'], $id, 'post_embedding' ) ) > 0, 'Permanent deletion erased recorded post-vector costs.' );
 		$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['post_embeddings'], $id ) ), 'Permanent deletion left an orphan vector.' );
 		foreach ( array( 'post_topics', 'post_keywords', 'post_search_terms' ) as $key ) {
 			$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE post_id=%d', $tables[$key], $external_id ) ), 'Permanent deletion left search assignments.' );
@@ -201,6 +202,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 	} finally {
 		remove_filter( 'pre_http_request', $mock_http, 99 );
 		foreach ( $posts as $id ) { wp_delete_post( $id, true ); Post_Ingestion_Lifecycle::cleanup_deleted( $id ); }
+		foreach ( $posts as $id ) { $wpdb->delete( $tables['ai_usage'], array( 'post_id' => $id ) ); }
 		if ( is_file( $package ) ) { unlink( $package ); }
 		false === $old_source ? putenv( 'EHRMAN_DISCOVERY_POST_SOURCE' ) : putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $old_source );
 		false === $old_key ? putenv( 'OPENAI_API_KEY' ) : putenv( 'OPENAI_API_KEY=' . $old_key );

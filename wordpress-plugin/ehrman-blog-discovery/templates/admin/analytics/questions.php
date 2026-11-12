@@ -15,10 +15,10 @@ $rows = $ehrman_blog_discovery_context['rows'];
 ?>
 <div style="overflow-x:auto">
 <table class="widefat striped" data-ebd-analytics-questions>
-	<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Feedback', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total tokens', 'ehrman-blog-discovery' ); ?></th></tr></thead>
+	<thead><tr><th><?php echo esc_html__( 'Date (ET)', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Question', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total cost', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Results', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Source', 'ehrman-blog-discovery' ); ?></th><th><?php echo esc_html__( 'Total tokens', 'ehrman-blog-discovery' ); ?></th></tr></thead>
 	<tbody>
 	<?php if ( empty( $rows ) ) : ?>
-		<tr><td colspan="7"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
+		<tr><td colspan="6"><?php echo esc_html__( 'No requests match these filters.', 'ehrman-blog-discovery' ); ?></td></tr>
 	<?php else : ?>
 		<?php foreach ( $rows as $row ) : ?>
 			<tr>
@@ -32,7 +32,6 @@ $rows = $ehrman_blog_discovery_context['rows'];
 					<br><small><?php echo esc_html( $row['cost_details'] ); ?></small>
 				</td>
 				<td><?php echo esc_html( $row['results'] ); ?></td>
-				<td><?php echo esc_html( $row['feedback'] ); ?></td>
 				<td>
 					<details><summary><?php echo esc_html__( 'Embedding and AI review', 'ehrman-blog-discovery' ); ?></summary>
 					<p><?php echo esc_html__( 'Embedding:', 'ehrman-blog-discovery' ); ?><br>

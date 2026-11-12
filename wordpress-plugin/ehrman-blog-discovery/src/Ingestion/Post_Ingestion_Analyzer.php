@@ -52,11 +52,12 @@ final class Post_Ingestion_Analyzer {
 	 * @param array<string,mixed> $taxonomy      Vocabulary.
 	 * @param string              $taxonomy_hash Taxonomy fingerprint.
 	 * @param int                 $user_id       Administrator identifier.
+	 * @param array<string,mixed> $usage_context Durable generation-run identifiers.
 	 * @phpstan-param ValidatedPost $post
 	 * @phpstan-param Vocabulary $taxonomy
 	 * @phpstan-return AnalysisResult|WP_Error
 	 */
-	public function analyze( array $post, array $taxonomy, string $taxonomy_hash, int $user_id ) {
+	public function analyze( array $post, array $taxonomy, string $taxonomy_hash, int $user_id, array $usage_context = array() ) {
 		$limits             = array( self::INITIAL_MAX_OUTPUT_TOKENS, self::RETRY_MAX_OUTPUT_TOKENS );
 		$combined_metrics   = null;
 		$last_invalid_error = null;
@@ -78,19 +79,27 @@ final class Post_Ingestion_Analyzer {
 				)
 			);
 			if ( is_wp_error( $response ) ) {
+				AI_Metadata_Usage::record( array( 'model' => Post_Ingestion_Settings::model_id() ), $usage_context, 'metadata_generation', false, 'transport_error', false );
 				return new WP_Error( 'ehrman_ingestion_unavailable', __( 'The ingestion analysis service is temporarily unavailable.', 'ehrman-blog-discovery' ) );
 			}
 			$status = wp_remote_retrieve_response_code( $response );
 			$body   = Database::associative_row( json_decode( wp_remote_retrieve_body( $response ), true ) );
+			$usage  = Database::associative_row( $body['usage'] ?? null );
 			if ( null === $body || $status < 200 || $status >= 300 ) {
+				$failed_metrics          = $this->response_metrics( $body ?? array() );
+				$failed_metrics['model'] = Database::text( $body['model'] ?? Post_Ingestion_Settings::model_id() );
+				AI_Metadata_Usage::record( $failed_metrics, $usage_context, 'metadata_generation', false, 'response_error', isset( $usage['input_tokens'], $usage['output_tokens'] ) && AI_Metadata_Usage::has_pricing( $failed_metrics['model'] ) );
 				return new WP_Error( 'ehrman_ingestion_response_error', __( 'The ingestion analysis service returned an error.', 'ehrman-blog-discovery' ) );
 			}
-			$metrics          = $this->response_metrics( $body );
-			$combined_metrics = null === $combined_metrics ? $metrics : $this->combine_metrics( $combined_metrics, $metrics );
-			$output           = Database::associative_row( json_decode( $this->output_text( $body ), true ) );
-			$proposal         = null !== $output
+			$metrics                = $this->response_metrics( $body );
+			$combined_metrics       = null === $combined_metrics ? $metrics : $this->combine_metrics( $combined_metrics, $metrics );
+			$output                 = Database::associative_row( json_decode( $this->output_text( $body ), true ) );
+			$proposal               = null !== $output
 				? $this->validator->validate_proposal( $output, $taxonomy, true, true, $post['title'] )
 				: null;
+			$event_metrics          = $metrics;
+			$event_metrics['model'] = Database::text( $body['model'] ?? Post_Ingestion_Settings::model_id() );
+			AI_Metadata_Usage::record( $event_metrics, $usage_context, 'metadata_generation', is_array( $proposal ), is_array( $proposal ) ? '' : 'invalid_output', isset( $usage['input_tokens'], $usage['output_tokens'] ) && AI_Metadata_Usage::has_pricing( $event_metrics['model'] ) );
 			if ( is_array( $proposal ) ) {
 				return array(
 					'proposal' => $proposal,
@@ -266,7 +275,7 @@ final class Post_Ingestion_Analyzer {
 		$reasoning      = min( $output_tokens, Database::integer( $output_details['reasoning_tokens'] ?? null ) );
 		$uncached       = max( 0, $input_tokens - $cached_tokens );
 		$cost           = 0.0;
-		if ( str_starts_with( Post_Ingestion_Settings::model_id(), 'gpt-5.6-sol' ) || 'gpt-5.6' === Post_Ingestion_Settings::model_id() ) {
+		if ( AI_Metadata_Usage::has_pricing( Database::text( $body['model'] ?? Post_Ingestion_Settings::model_id() ) ) ) {
 			$cost = ( ( $uncached * 4.0 ) + ( $cached_tokens * 0.4 ) + ( $output_tokens * 20.0 ) ) / 1000000;
 		}
 		return array(

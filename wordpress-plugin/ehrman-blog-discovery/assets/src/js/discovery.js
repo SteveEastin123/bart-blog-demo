@@ -1,6 +1,5 @@
 import { setupForm, closeSuggestions } from "./keyword-search.js";
 import { setupSemanticForm, setupResultViews } from "./ask-ai.js";
-import { setupFeedback } from "./feedback.js";
 import { setupDescriptionMode, setupTitleTooltips } from "./descriptions.js";
 import { semanticPageResult, renderResults } from "./results.js";
 import { updateBrowserUrl } from "./search-state.js";
@@ -8,7 +7,6 @@ import { setupStatus } from "./status.js";
 import { setupBrowseSort } from "./browse-topics.js";
 
 setupResultViews();
-setupFeedback();
 document.querySelectorAll("[data-ebd-search-form]").forEach(setupForm);
 document.querySelectorAll("[data-ebd-semantic-form]").forEach(setupSemanticForm);
 document.querySelectorAll("[data-ebd-description-mode]").forEach(setupDescriptionMode);

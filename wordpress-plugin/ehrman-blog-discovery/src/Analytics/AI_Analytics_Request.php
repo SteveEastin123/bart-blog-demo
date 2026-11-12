@@ -13,16 +13,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Reads and sanitizes analytics dashboard request values. */
 final class AI_Analytics_Request {
+	/** Returns the selected tab, preserving old Ask AI bookmarks. */
+	public function tab(): string {
+		$tab = $this->query_value( 'tab' );
+		if ( in_array( $tab, array( 'overview', 'ask-ai', 'post-metadata' ), true ) ) {
+			return $tab;
+		}
+		return '' !== $this->query_value( 'view' ) || '' !== $this->query_value( 'analytics_reset' ) ? 'ask-ai' : 'overview';
+	}
+
 	/**
 	 * Returns sanitized filters from the current request.
 	 *
-	 * @return array{feedback:string,date_from:string,date_to:string,search:string,zero_results:string} Sanitized filters.
+	 * @return array{date_from:string,date_to:string,search:string,zero_results:string} Sanitized filters.
 	 */
 	public function filters(): array {
-		$feedback = sanitize_key( $this->query_value( 'feedback', 'all' ) );
-
 		return array(
-			'feedback'     => in_array( $feedback, array( 'all', 'yes', 'no', 'unanswered' ), true ) ? $feedback : 'all',
 			'date_from'    => $this->date( $this->query_value( 'date_from' ) ),
 			'date_to'      => $this->date( $this->query_value( 'date_to' ) ),
 			'search'       => sanitize_text_field( $this->query_value( 'search' ) ),

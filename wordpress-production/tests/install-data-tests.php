@@ -103,6 +103,10 @@ try {
     $write_vectors([$header, $record]);
     $result = $installer->install($directory);
     $check(!$result['skipped'] && $result['posts'] === 3 && $result['vectors'] === 1, 'Fresh install counts incorrect.');
+    $legacy_feedback = $wpdb->prefix . 'ehrman_ai_feedback';
+    $check(!Database::table_exists($legacy_feedback), 'Fresh install created a retired feedback table.');
+    $request_columns = $wpdb->get_col("SHOW COLUMNS FROM {$tables['ai_requests']}");
+    $check(!in_array('feedback', $request_columns, true) && !in_array('feedback_at', $request_columns, true), 'Fresh install created retired feedback columns.');
     $check((bool) array_filter($result['warnings'], fn($warning) => str_contains($warning, '900003')), 'Missing-summary exclusion was not reported.');
     $check((new Semantic_Index_Service())->status()['ready'], 'Fresh index is not ready.');
     $baseline = $snapshot();
@@ -156,8 +160,29 @@ try {
     $wpdb->query("ALTER TABLE {$tables['post_embeddings']} ENGINE=MyISAM");
     $expect_failure(fn() => $installer->install($directory), 'use InnoDB');
     $wpdb->query("ALTER TABLE {$tables['post_embeddings']} ENGINE=InnoDB");
+    // Simulate a pre-retirement schema only in this disposable database.
+    $check(false !== $wpdb->query("CREATE TABLE {$legacy_feedback} (
+        id bigint unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY, created_at datetime NOT NULL,
+        question text NOT NULL, selected_terms text NOT NULL, helpful tinyint unsigned NOT NULL,
+        model varchar(100) NOT NULL, prompt_version varchar(32) NOT NULL
+    ) ENGINE=InnoDB"), 'Could not create legacy feedback fixture.');
+    $check(false !== $wpdb->insert($legacy_feedback, ['created_at' => '2026-11-11 00:00:00', 'question' => 'Legacy fixture',
+        'selected_terms' => '[]', 'helpful' => 1, 'model' => 'fixture', 'prompt_version' => 'fixture']), 'Could not seed legacy feedback.');
+    $check(false !== $wpdb->query("ALTER TABLE {$tables['ai_requests']} ADD feedback tinyint unsigned DEFAULT NULL,
+        ADD feedback_at datetime DEFAULT NULL, ADD KEY idx_ai_requests_feedback (feedback,created_at)"), 'Could not create legacy request columns.');
+    $legacy_id = wp_generate_uuid4();
+    $check(false !== $wpdb->insert($tables['ai_requests'], ['request_id' => $legacy_id, 'created_at' => '2026-11-11 00:00:00',
+        'question' => 'Legacy fixture', 'selected_terms' => '[]', 'model' => 'fixture', 'prompt_version' => 'fixture',
+        'feedback' => 1, 'feedback_at' => '2026-11-11 00:01:00']), 'Could not seed legacy request feedback.');
+    $legacy_snapshot = $wpdb->get_results("SELECT * FROM {$legacy_feedback}", ARRAY_A);
+    $request_snapshot = $wpdb->get_results("SELECT * FROM {$tables['ai_requests']}", ARRAY_A);
+    Database::install();
+    Database::install();
+    $check($wpdb->get_results("SELECT * FROM {$legacy_feedback}", ARRAY_A) === $legacy_snapshot, 'Schema upgrade changed historical feedback.');
+    $check($wpdb->get_results("SELECT * FROM {$tables['ai_requests']}", ARRAY_A) === $request_snapshot, 'Schema upgrade changed request history.');
+    $wpdb->delete($tables['ai_requests'], ['request_id' => $legacy_id]);
     $check($calls === 0, 'Installation made an external call.');
-    echo "Installation fixture tests: fresh schema, validation, no-op rerun, source protection, drift, lock, rollback and storage-engine guards: OK\n";
+    echo "Installation fixture tests: fresh schema, feedback retirement/upgrade, validation, no-op rerun, source protection, drift, lock, rollback and storage-engine guards: OK\n";
 } finally {
     remove_filter('pre_http_request', $block_http);
     putenv($saved_source === false ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $saved_source);

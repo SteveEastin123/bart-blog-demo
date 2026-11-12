@@ -3,7 +3,7 @@ Contributors: steveeastin
 Tags: search, topics, discovery
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 0.10.12
+Stable tag: 0.10.14
 License: GPLv2 or later
 
 WordPress foundation for browsing and searching the Ehrman Blog index.
@@ -52,6 +52,18 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 `composer check` to run both standards and static-analysis checks.
 
 == Changelog ==
+
+= 0.10.14 =
+* Add Overview, Ask AI and Post Metadata tabs under Tools > AI Analytics.
+* Preserve metadata-generation and post-vector costs per attempt, including reported usage for failed outputs, retries and regenerated metadata.
+* Retain usage when posts are deleted; label incomplete historical snapshots and unknown costs.
+* Keep API keys, models, search and publishing behavior unchanged.
+
+= 0.10.13 =
+* Removed Ask AI helpfulness voting, its public endpoint, and feedback reporting.
+* Preserved question, token, cost, cache, and failure analytics.
+* New installations no longer create feedback storage. Upgrades leave historical
+  feedback tables and columns untouched; the plugin no longer uses them.
 
 = 0.10.12 =
 * Enabled database-managed approval by default, with an explicit JSON-mode opt-out.

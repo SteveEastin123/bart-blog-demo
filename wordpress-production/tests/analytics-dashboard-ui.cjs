@@ -7,7 +7,8 @@ const { chromium } = require('../../node_modules/playwright-core');
 
 const root = path.resolve(__dirname, '../..');
 const { base, outputFor, composeFile } = require('./browser-config.cjs');
-const url = base + '/wp-admin/tools.php?page=ehrman-ai-analytics';
+const rootUrl = base + '/wp-admin/tools.php?page=ehrman-ai-analytics';
+const url = rootUrl + '&tab=ask-ai';
 const output = outputFor('analytics-dashboard-ui');
 
 (async () => {
@@ -34,16 +35,20 @@ const output = outputFor('analytics-dashboard-ui');
     const metrics = page.locator('[data-ebd-analytics-metrics]');
     const initial = await metrics.innerText();
     assert(initial.includes('Total estimated cost') && initial.includes('Average cost per question'));
+    assert(!initial.includes('Helpful rate'));
     for (const view of ['ask-ai', 'ask-ai-2', 'comparison', 'combined']) {
-      await page.goto(url + '&view=' + view + '&interface=taxonomy');
-      assert.equal(await page.locator('#wpbody .nav-tab-wrapper').count(), 0);
+      await page.goto(rootUrl + '&view=' + view + '&interface=taxonomy&feedback=no');
+      assert.equal(await page.locator('#wpbody .nav-tab-wrapper a').count(), 3);
       assert.equal(await metrics.innerText(), initial, 'A legacy URL changed the method scope');
     }
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(url);
-      assert.equal(await page.locator('#wpbody h1').innerText(), 'Ask AI Analytics');
+      assert.equal(await page.locator('#wpbody h1').innerText(), 'AI Analytics');
       assert.equal(await page.locator('select[name="interface"]').count(), 0);
+      assert.equal(await page.locator('[name="feedback"]').count(), 0);
+      assert.equal(await page.locator('[data-ebd-analytics-questions] th').count(), 6);
+      assert(!(await page.locator('[data-ebd-analytics-questions] thead').innerText()).includes('Feedback'));
       await page.screenshot({ path: path.join(output, 'dashboard-' + width + '.png') });
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Horizontal overflow at ' + width);
     }
@@ -59,6 +64,7 @@ const output = outputFor('analytics-dashboard-ui');
     const csv = await exported.text();
     assert(csv.includes('"Total cost USD"') && csv.includes('"AI review cost USD"'));
     assert(!csv.split('\n')[0].includes('Method'));
+    assert(!csv.split('\n')[0].includes('Feedback'));
     const missingNonce = new URL(questionExport);
     missingNonce.searchParams.delete('_wpnonce');
     assert.equal((await context.request.get(missingNonce.href)).status(), 403, 'CSV endpoint accepted a missing nonce');
@@ -69,6 +75,31 @@ const output = outputFor('analytics-dashboard-ui');
     assert(await page.getByText('No requests match these filters.', { exact: true }).isVisible());
     await page.goto(url);
     assert.equal(await metrics.innerText(), initial, 'Read-only UI tests changed analytics');
+    for (const tab of ['overview', 'post-metadata']) {
+      for (const width of [1440, 1024, 390]) {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto(rootUrl + '&tab=' + tab);
+        assert.equal(await page.locator('#wpbody .nav-tab-wrapper a').count(), 3);
+        assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), tab === 'overview' ? 'Overview' : 'Post Metadata');
+        assert.equal(await page.locator('form input[name="tab"]').inputValue(), tab);
+        assert(await page.getByText('Per-attempt metadata tracking enabled:', { exact: false }).isVisible());
+        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Cost tab overflow: ' + tab + ' ' + width);
+        await page.screenshot({ path: path.join(output, tab + '-' + width + '.png'), fullPage: true });
+      }
+    }
+    const metadataExport = await page.getByRole('link', { name: 'Export metadata costs CSV', exact: true }).getAttribute('href');
+    const metadataCsv = await context.request.get(metadataExport);
+    assert.equal(metadataCsv.status(), 200);
+    assert((await metadataCsv.text()).includes('"Cost known"'));
+    const noMetadataNonce = new URL(metadataExport);
+    noMetadataNonce.searchParams.delete('_wpnonce');
+    assert.equal((await context.request.get(noMetadataNonce.href)).status(), 403);
+    await page.goto(rootUrl + '&tab=post-metadata&date_from=2026-11-01&date_to=2026-11-02');
+    await page.getByRole('link', { name: 'Ask AI', exact: true }).click();
+    assert.equal(await page.locator('input[name="date_from"]').inputValue(), '2026-11-01');
+    assert.equal(await page.locator('input[name="date_to"]').inputValue(), '2026-11-02');
+    await page.goto(rootUrl);
+    assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), 'Overview');
     assert.deepEqual(errors, []);
     console.log(JSON.stringify({ status: 'passed', viewports: [1440, 1024, 390], legacyViews: 4,
       filters: true, csv: true, nonceProtection: true, validResetSubmitted: false, paidCalls: 0 }, null, 2));

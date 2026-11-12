@@ -91,7 +91,7 @@ final class Post_Ingestion_Analysis_Worker {
 		try {
 			$taxonomy      = $this->repository->vocabulary();
 			$taxonomy_hash = $this->repository->vocabulary_hash( $taxonomy );
-			$result        = $this->analyzer->analyze( $input, $taxonomy, $taxonomy_hash, Database::integer( $draft['created_by'] ?? null ) );
+			$result        = $this->analyzer->analyze( $input, $taxonomy, $taxonomy_hash, Database::integer( $draft['created_by'] ?? null ), AI_Metadata_Usage::context( $draft ) );
 			if ( is_wp_error( $result ) ) {
 				$this->repository->mark_analysis_error( $draft_id, $result->get_error_message(), $attempt );
 				return $result;

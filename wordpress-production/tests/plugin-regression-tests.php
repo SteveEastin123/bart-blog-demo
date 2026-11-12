@@ -123,7 +123,7 @@ try {
 	);
 	$analytics_filters = ( new AI_Analytics_Request() )->filters();
 	$assert( ! isset( $analytics_filters['view'], $analytics_filters['interface'] ), 'Retired analytics selectors were retained.' );
-	$assert_same( 'all', $analytics_filters['feedback'], 'An invalid analytics feedback filter was retained.' );
+	$assert( ! array_key_exists( 'feedback', $analytics_filters ), 'The retired analytics feedback filter was retained.' );
 	$assert_same( '', $analytics_filters['date_from'], 'An invalid analytics start date was retained.' );
 	$assert_same( '2026-09-18', $analytics_filters['date_to'], 'A valid analytics end date was discarded.' );
 	$assert_same( 'Paul', $analytics_filters['search'], 'The analytics text filter was not sanitized.' );
@@ -518,7 +518,7 @@ try {
 	$assert_same( $review_count, $ingestion->review_count(), 'An approved proposal remained in the awaiting-review count.' );
 
 	/* Sharing credentials must not put ingestion-vector costs in reader analytics. */
-	$reader_usage_before = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']}" );
+	$reader_usage_before = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']} WHERE purpose NOT IN ('metadata_generation','post_embedding')" );
 	$embedding_calls = 0;
 	$mock_embedding = static function ( $preempt, $args, $url ) use ( &$embedding_calls, $assert_same ) {
 		++$embedding_calls;
@@ -543,7 +543,7 @@ try {
 		$assert_same( 50, (int) $retry['embedding_input_tokens'], 'Ingestion did not retain vector usage.' );
 		$assert( (float) $retry['embedding_estimated_cost_usd'] > 0, 'Ingestion did not retain vector cost.' );
 		$assert_same( 1, $embedding_calls, 'The ingestion retry did not make exactly one mocked call.' );
-		$assert_same( $reader_usage_before, (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']}" ), 'Ingestion vector usage leaked into reader analytics.' );
+		$assert_same( $reader_usage_before, (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tables['ai_usage']} WHERE purpose NOT IN ('metadata_generation','post_embedding')" ), 'Ingestion vector usage leaked into reader analytics.' );
 	} finally {
 		remove_filter( 'pre_http_request', $mock_embedding, 10 );
 	}
@@ -555,6 +555,7 @@ try {
 	}
 	$wpdb->delete( $tables['post_embeddings'], array( 'source_wp_id' => $ingestion_wp_id ) );
 	$wpdb->delete( $tables['external_posts'], array( 'source_wp_id' => $ingestion_wp_id ) );
+	$wpdb->delete( $tables['ai_usage'], array( 'post_id' => $ingestion_wp_id ) );
 	if ( $draft_id > 0 ) {
 		$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $draft_id ) );
 	}
@@ -832,6 +833,7 @@ $assert_same( 360, $analytics['total_tokens'], 'Analytics tokens were totaled in
 
 require __DIR__ . '/ask-ai-cleanup-tests.php';
 require __DIR__ . '/analytics-dashboard-tests.php';
+require __DIR__ . '/metadata-cost-tests.php';
 require __DIR__ . '/post-ingestion-page-tests.php';
 require __DIR__ . '/post-ingestion-lifecycle-tests.php';
 require __DIR__ . '/search-page-tests.php';

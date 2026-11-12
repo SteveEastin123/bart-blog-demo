@@ -45,7 +45,11 @@ final class Post_Ingestion_Embedding_Generator {
 			return;
 		}
 
-		$client  = new Embedding_Service( $key, false );
+		$draft = $this->repository->draft( $draft_id );
+		if ( null === $draft ) {
+			return;
+		}
+		$client  = new Embedding_Service( $key, false, AI_Metadata_Usage::context( $draft ) );
 		$service = new Semantic_Index_Service( $client );
 		$result  = $service->build_post_embedding( $source_wp_id, true );
 		if ( is_wp_error( $result ) ) {

@@ -36,13 +36,6 @@ final class Rest_Controller {
 	 */
 	private Semantic_Ask_AI_REST_Controller $semantic_ask_ai;
 
-	/**
-	 * Search feedback endpoint.
-	 *
-	 * @var Feedback_REST_Controller
-	 */
-	private Feedback_REST_Controller $feedback;
-
 	/** Creates the endpoint controllers and their shared services. */
 	public function __construct() {
 		$search_service = new Search_Service();
@@ -51,7 +44,6 @@ final class Rest_Controller {
 		$this->status          = new Status_REST_Controller();
 		$this->search          = new Search_REST_Controller( $search_service );
 		$this->semantic_ask_ai = new Semantic_Ask_AI_REST_Controller( $reviewer, new Semantic_Search_Service() );
-		$this->feedback        = new Feedback_REST_Controller();
 	}
 
 	/** Registers the production REST routes. */
@@ -90,15 +82,6 @@ final class Rest_Controller {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this->semantic_ask_ai, 'semantic_search' ),
-				'permission_callback' => '__return_true',
-			)
-		);
-		register_rest_route(
-			self::REST_NAMESPACE,
-			'/feedback',
-			array(
-				'methods'             => 'POST',
-				'callback'            => array( $this->feedback, 'feedback' ),
 				'permission_callback' => '__return_true',
 			)
 		);

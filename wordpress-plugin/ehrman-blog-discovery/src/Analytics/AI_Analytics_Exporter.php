@@ -22,6 +22,12 @@ final class AI_Analytics_Exporter {
 	 * @param string               $dataset Dataset identifier.
 	 */
 	public function export( array $filters, string $dataset ): void {
+		if ( 'post-metadata' === $dataset ) {
+			$output = $this->open_output( 'post-metadata-costs-' . gmdate( 'Y-m-d' ) . '.csv' );
+			$this->write_metadata( $output, $filters );
+			$this->close_output( $output );
+			return;
+		}
 		$reviews = 'refinements' === $dataset;
 		$output  = $this->open_output( ( $reviews ? 'ask-ai-reviews-' : 'ask-ai-analytics-' ) . gmdate( 'Y-m-d' ) . '.csv' );
 		if ( $reviews ) {
@@ -30,6 +36,38 @@ final class AI_Analytics_Exporter {
 			$this->write_questions( $output, $filters );
 		}
 		$this->close_output( $output );
+	}
+
+	/**
+	 * Writes per-attempt metadata costs, retaining unknown and historical markers.
+	 *
+	 * @param resource             $output  Writable CSV stream.
+	 * @param array<string,string> $filters Sanitized dates and post-title filter.
+	 */
+	public function write_metadata( $output, array $filters ): void {
+		$this->write_row( $output, array( 'Date (Eastern)', 'Run ID', 'Post ID', 'Post title', 'Stage', 'Model', 'Status', 'Estimated cost USD', 'Cost known', 'Input tokens', 'Cached input tokens', 'Output tokens', 'Historical snapshot', 'Pricing version' ) );
+		foreach ( ( new AI_Cost_Report() )->metadata( $filters ) as $row ) {
+			$known = 1 === Database::integer( $row['cost_known'] );
+			$this->write_row(
+				$output,
+				array(
+					$this->csv_datetime( $row ),
+					Database::text( $row['run_id'] ),
+					Database::integer( $row['post_id'] ),
+					Database::text( $row['post_title'] ),
+					Database::text( $row['purpose'] ),
+					Database::text( $row['model'] ),
+					1 === Database::integer( $row['request_succeeded'] ) ? 'Success' : 'Failed',
+					$known ? Database::text( $row['estimated_cost_usd'] ) : '',
+					$known ? 'Yes' : 'No',
+					Database::integer( $row['input_tokens'] ),
+					Database::integer( $row['cached_input_tokens'] ),
+					Database::integer( $row['output_tokens'] ),
+					Database::integer( $row['history_import'] ),
+					Database::text( $row['pricing_version'] ),
+				)
+			);
+		}
 	}
 
 	/**
@@ -49,7 +87,6 @@ final class AI_Analytics_Exporter {
 				'Request ID',
 				'Question',
 				'Results',
-				'Feedback',
 				'Total cost USD',
 				'Embedding cost USD',
 				'AI review cost USD',
@@ -80,7 +117,6 @@ final class AI_Analytics_Exporter {
 					Database::text( $row['request_id'] ?? '' ),
 					Database::text( $row['question'] ?? '' ),
 					1 === Database::integer( $row['result_recorded'] ?? 0 ) ? Database::integer( $row['result_count'] ?? 0 ) : '',
-					$this->feedback_label( $row ),
 					Database::text( $usage['total_cost'] ?? 0 ),
 					Database::text( $usage['initial_cost'] ?? 0 ),
 					Database::text( $usage['refinement_cost'] ?? 0 ),
@@ -270,15 +306,5 @@ final class AI_Analytics_Exporter {
 	private function source_model( array $row ): string {
 		$model = Database::text( $row['usage_model'] ?? '' );
 		return '' !== $model ? $model : Database::text( $row['model'] ?? '' );
-	}
-
-	/**
-	 * Returns the three-state feedback label.
-	 *
-	 * @param array<string,mixed> $row Request row.
-	 */
-	private function feedback_label( array $row ): string {
-		$value = Database::text( $row['feedback'] ?? null );
-		return '1' === $value ? 'Yes' : ( '0' === $value ? 'No' : 'Not provided' );
 	}
 }

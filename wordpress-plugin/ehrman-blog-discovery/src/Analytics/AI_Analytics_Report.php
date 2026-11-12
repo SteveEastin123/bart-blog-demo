@@ -68,7 +68,6 @@ final class AI_Analytics_Report {
 	 */
 	public function periods(): array {
 		$filters     = array(
-			'feedback'     => 'all',
 			'date_from'    => '',
 			'date_to'      => '',
 			'search'       => '',

@@ -23,8 +23,8 @@ final class AI_Analytics_Page {
 	/** Adds the analytics page under Tools. */
 	public static function add_page(): void {
 		add_management_page(
-			__( 'Ask AI Analytics', 'ehrman-blog-discovery' ),
-			__( 'Ask AI Analytics', 'ehrman-blog-discovery' ),
+			__( 'AI Analytics', 'ehrman-blog-discovery' ),
+			__( 'AI Analytics', 'ehrman-blog-discovery' ),
 			'manage_options',
 			'ehrman-ai-analytics',
 			array( self::class, 'render' )
@@ -38,6 +38,10 @@ final class AI_Analytics_Page {
 		}
 
 		$request = new AI_Analytics_Request();
+		if ( 'ask-ai' !== $request->tab() ) {
+			( new AI_Cost_Renderer() )->render( $request->tab(), $request->filters(), max( 1, absint( $request->query_value( 'paged', '1' ) ) ) );
+			return;
+		}
 		( new AI_Analytics_Renderer() )->render(
 			$request->filters(),
 			max( 1, absint( $request->query_value( 'paged', '1' ) ) ),

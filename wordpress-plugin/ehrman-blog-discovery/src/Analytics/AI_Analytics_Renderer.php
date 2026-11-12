@@ -54,9 +54,16 @@ final class AI_Analytics_Renderer {
 		$html                  = Template::render(
 			'admin/analytics/dashboard.php',
 			array(
+				'navigation'            => AI_Cost_Renderer::navigation( 'ask-ai', $filters ),
 				'was_reset'             => $was_reset,
 				'filters'               => $filters,
-				'clear_url'             => add_query_arg( array( 'page' => 'ehrman-ai-analytics' ), admin_url( 'tools.php' ) ),
+				'clear_url'             => add_query_arg(
+					array(
+						'page' => 'ehrman-ai-analytics',
+						'tab'  => 'ask-ai',
+					),
+					admin_url( 'tools.php' )
+				),
 				'export_url'            => $export_url,
 				'refinement_export_url' => $refinement_export_url,
 				'metrics'               => array(
@@ -64,7 +71,6 @@ final class AI_Analytics_Renderer {
 					array( __( 'Average cost per question', 'ehrman-blog-discovery' ), self::cents( $summary['average_question'] ) ),
 					array( __( 'Questions', 'ehrman-blog-discovery' ), number_format_i18n( $summary['questions'] ) ),
 					array( __( 'Average posts returned', 'ehrman-blog-discovery' ), number_format_i18n( $summary['average_results'], 1 ) ),
-					array( __( 'Helpful rate', 'ehrman-blog-discovery' ), self::percentage( $report['helpful_rate'], $report['yes'] + $report['no'] ) ),
 					array( __( 'Zero-result questions', 'ehrman-blog-discovery' ), number_format_i18n( $summary['zero_results'] ) ),
 				),
 				'cost_details'          => sprintf(
@@ -91,7 +97,7 @@ final class AI_Analytics_Renderer {
 					number_format_i18n( $semantic_index_usage['input_tokens'] ),
 					self::usd( $semantic_index_usage['total_cost'], 6 )
 				),
-				'reset_confirmation'    => __( 'Permanently clear ALL active Ask AI questions, reviews, feedback and question costs, regardless of the filters above? Retired-method history, post vectors and index-preparation history will be preserved.', 'ehrman-blog-discovery' ),
+				'reset_confirmation'    => __( 'Permanently clear ALL active Ask AI questions, reviews and question costs, regardless of the filters above? Retired-method history, post vectors and index-preparation history will be preserved.', 'ehrman-blog-discovery' ),
 			)
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted templates escape values at their output boundaries.
@@ -143,7 +149,6 @@ final class AI_Analytics_Renderer {
 				self::cents( $refinement_cost )
 			),
 			'results'      => 1 === Database::integer( $row['result_recorded'] ?? 0 ) ? number_format_i18n( Database::integer( $row['result_count'] ?? 0 ) ) : __( 'Not recorded', 'ehrman-blog-discovery' ),
-			'feedback'     => self::feedback_label( $row ),
 			'source'       => self::source_details( $row ),
 			'reviews'      => array_map( self::source_details( ... ), $reviews ),
 			'tokens'       => self::token_details( $usage ),
@@ -313,16 +318,6 @@ final class AI_Analytics_Renderer {
 	}
 
 	/**
-	 * Formats a percentage or an unavailable marker when no responses exist.
-	 *
-	 * @param float $value Percentage value.
-	 * @param int   $count Number of observations behind the percentage.
-	 */
-	private static function percentage( float $value, int $count ): string {
-		return 0 < $count ? number_format_i18n( $value, 1 ) . '%' : '—';
-	}
-
-	/**
 	 * Builds pagination links for the template.
 	 *
 	 * @param int                  $page        Current page.
@@ -339,6 +334,7 @@ final class AI_Analytics_Renderer {
 					array_merge(
 						array(
 							'page'  => 'ehrman-ai-analytics',
+							'tab'   => 'ask-ai',
 							'paged' => '%#%',
 						),
 						$filters
@@ -364,15 +360,5 @@ final class AI_Analytics_Renderer {
 	private static function source_model( array $row ): string {
 		$model = Database::text( $row['usage_model'] ?? '' );
 		return '' !== $model ? $model : Database::text( $row['model'] ?? '' );
-	}
-
-	/**
-	 * Returns the three-state feedback label.
-	 *
-	 * @param array<string,mixed> $row Request row.
-	 */
-	private static function feedback_label( array $row ): string {
-		$value = Database::text( $row['feedback'] ?? null );
-		return '1' === $value ? 'Yes' : ( '0' === $value ? 'No' : 'Not provided' );
 	}
 }
