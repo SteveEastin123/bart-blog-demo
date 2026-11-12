@@ -146,16 +146,23 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 			'Total estimated cost' => '$0.0024',
 			'Average cost per generation run' => '0.120' . html_entity_decode( '&cent;', ENT_QUOTES, 'UTF-8' ),
 			'Generation runs' => '2',
-			'Metadata generation cost' => '$0.0024',
-			'Post-vector cost' => '$0.00000200',
 		);
 		$html = $render( $filters );
 		$assert_same( $expected_cards, $cards( $html ), 'Metadata cards have incorrect labels, order, totals or currency precision.' );
 		$assert_same( $expected_cards, $cards( $render( $filters, 2 ) ), 'Card totals were limited to the table page.' );
+		$document = new DOMDocument();
+		$previous = libxml_use_internal_errors( true );
+		try { $document->loadHTML( '<?xml encoding="UTF-8">' . $html ); }
+		finally { libxml_clear_errors(); libxml_use_internal_errors( $previous ); }
+		$xpath = new DOMXPath( $document );
+		$details = $xpath->query( '//table[@data-ebd-metadata-runs]//details//li' );
+		$assert_same( 5, $details->length, 'Expandable details lost a metadata or vector attempt.' );
+		$assert_same( 3, $xpath->query( '//table[@data-ebd-metadata-runs]//details//li/strong[text()="Metadata generation"]' )->length, 'Metadata generation details were removed with the cards.' );
+		$assert_same( 2, $xpath->query( '//table[@data-ebd-metadata-runs]//details//li[strong="Post vector" and contains(., "$0.00000100")]' )->length, 'Vector detail costs lost their precision or were removed with the cards.' );
 		$assert( strpos( $html, 'Totals and averages are incomplete' ) < strpos( $html, 'data-ebd-metadata-runs' ), 'Unknown-cost warning is hidden below the detail table.' );
 		$assert( str_contains( $html, 'data-ebd-metadata-tokens' ) && str_contains( $html, '400 in; 0 cached; 0 written; 60 out; 0 reasoning' ), 'Expandable token summary is missing or incorrect.' );
 		$empty_html = $render( array_merge( $filters, array( 'search' => $marker . '-no-match' ) ) );
-		$assert_same( array( '$0.0000', '0.000' . html_entity_decode( '&cent;', ENT_QUOTES, 'UTF-8' ), '0', '$0.0000', '$0.0000' ), array_values( $cards( $empty_html ) ), 'Empty metadata filters did not return five zero cards.' );
+		$assert_same( array( '$0.0000', '0.000' . html_entity_decode( '&cent;', ENT_QUOTES, 'UTF-8' ), '0' ), array_values( $cards( $empty_html ) ), 'Empty metadata filters did not return three zero cards.' );
 		$assert( str_contains( $empty_html, 'No metadata runs match these filters.' ), 'Empty-state detail table was lost.' );
 
 		wp_delete_post( $native, true );

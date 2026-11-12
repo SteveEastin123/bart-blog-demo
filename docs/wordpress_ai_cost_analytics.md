@@ -13,9 +13,10 @@ bulk/index preparation charges are excluded from the cards, table and Overview
 total; their underlying usage records are preserved. New-post vectors remain
 included in Post Metadata.
 
-Post Metadata shows total estimated cost, average cost per generation run (in cents),
-generation runs, metadata generation cost, and post-vector cost. Tiny nonzero
-vector charges retain extra decimal places. The expandable token breakdown uses
+Post Metadata shows three cards: total estimated cost, average cost per generation
+run (in cents), and generation runs. Metadata-generation and post-vector costs
+remain in each run's expandable details rather than separate summary cards. Tiny
+nonzero vector charges retain extra decimal places. The expandable token breakdown uses
 the same filtered events as the cards, across all result pages; cached input and
 reasoning tokens are subsets, not extra tokens. Unknown-cost warnings remain
 visible above the detail table. Each run shows its total cost before the

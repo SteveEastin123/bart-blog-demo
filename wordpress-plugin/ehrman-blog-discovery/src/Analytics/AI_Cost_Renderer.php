@@ -117,8 +117,6 @@ final class AI_Cost_Renderer {
 					array( __( 'Total estimated cost', 'ehrman-blog-discovery' ), self::money( $summary['total'] ) ),
 					array( __( 'Average cost per generation run', 'ehrman-blog-discovery' ), AI_Analytics_Renderer::cents( $summary['average'] ) ),
 					array( __( 'Generation runs', 'ehrman-blog-discovery' ), number_format_i18n( $summary['runs'] ) ),
-					array( __( 'Metadata generation cost', 'ehrman-blog-discovery' ), self::money( $summary['metadata'] ) ),
-					array( __( 'Post-vector cost', 'ehrman-blog-discovery' ), self::money( $summary['vectors'] ) ),
 				),
 				'tokens'     => AI_Analytics_Renderer::token_details( $builder->tokens( $events ) ),
 				'runs'       => array_slice( $runs, ( $page - 1 ) * 50, 50 ),

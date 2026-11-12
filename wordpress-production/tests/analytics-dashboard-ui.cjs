@@ -92,7 +92,6 @@ const output = outputFor('analytics-dashboard-ui');
         if (tab === 'post-metadata') {
           assert.deepEqual(await metrics.locator(':scope > div > span').allTextContents(), [
             'Total estimated cost', 'Average cost per generation run', 'Generation runs',
-            'Metadata generation cost', 'Post-vector cost',
           ]);
           assert((await metrics.locator(':scope > div').nth(1).innerText()).includes('\u00a2'), 'Average cost is not shown in cents');
           const details = page.locator('[data-ebd-metadata-tokens]');
@@ -127,7 +126,7 @@ const output = outputFor('analytics-dashboard-ui');
     assert.equal((await context.request.get(noMetadataNonce.href)).status(), 403);
     await page.goto(rootUrl + '&tab=post-metadata&search=unmatched-regression-post-924135');
     assert(await page.getByText('No metadata runs match these filters.', { exact: true }).isVisible());
-    assert.deepEqual(await metrics.locator(':scope > div > strong').allTextContents(), ['$0.0000', '0.000\u00a2', '0', '$0.0000', '$0.0000']);
+    assert.deepEqual(await metrics.locator(':scope > div > strong').allTextContents(), ['$0.0000', '0.000\u00a2', '0']);
     await page.goto(rootUrl + '&tab=post-metadata&date_from=2026-11-01&date_to=2026-11-02');
     await page.getByRole('link', { name: 'Ask AI', exact: true }).click();
     assert.equal(await page.locator('input[name="date_from"]').inputValue(), '2026-11-01');
