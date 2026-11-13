@@ -16,6 +16,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** Shares trusted post input and change detection across ingestion interfaces. */
 final class Post_Ingestion_Post_Source {
 	/**
+	 * Resolves a linked published post without treating imported source IDs as local IDs.
+	 *
+	 * @param array<string,mixed> $draft Stored ingestion record.
+	 * @return WP_Post|\WP_Error|null Published post, error, or null for an external record.
+	 */
+	public static function published_post( array $draft ) {
+		$id = Database::integer( $draft['wordpress_post_id'] ?? null );
+		if ( $id < 1 ) {
+			return null;
+		}
+		$post = get_post( $id );
+		if ( ! $post instanceof WP_Post || 'post' !== $post->post_type || 'publish' !== $post->post_status ) {
+			return new \WP_Error( 'ehrman_ingestion_unpublished', __( 'Publish the post before creating or approving search metadata.', 'ehrman-blog-discovery' ) );
+		}
+		return $post;
+	}
+
+	/**
 	 * Builds trusted ingestion input from the saved WordPress post.
 	 *
 	 * @param WP_Post $post Published post.

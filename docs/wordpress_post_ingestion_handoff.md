@@ -92,6 +92,13 @@ and draft discard actions. Its URL remains
 The retired manual-entry `admin_post_ehrman_ingestion_analyze` action is no longer
 registered; the post-editor REST analysis endpoint is unchanged.
 
+Both review interfaces use the same workflow checks: a linked WordPress post must
+still be published and match the analyzed source, and submitted edits must match
+the reviewed proposal revision. A rejected approval does not save the submitted
+edits. Retrying analysis from Metadata History refreshes the draft from the current
+saved WordPress post. Legacy external drafts without a native-post link continue
+to use their retained source text; source IDs are never assumed to be local IDs.
+
 ## Native Post Lifecycle
 
 Metadata created from the WordPress editor explicitly records its native

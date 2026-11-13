@@ -23,7 +23,7 @@ $new_page = static function ( string $slug, string $shortcode ): int {
 	}
 	return (int) $result;
 };
-foreach ( array( 'fresh', 'legacy-only', 'both', 'stale-option' ) as $scenario ) {
+foreach ( array( 'fresh', 'legacy-only', 'both', 'stale-option', 'unrelated-canonical', 'unrelated-legacy' ) as $scenario ) {
 	$assert( false !== $wpdb->query( 'START TRANSACTION' ), 'Could not start the page-upgrade fixture transaction.' );
 	try {
 		foreach ( array( 'ask-ai', 'ask-ai-2' ) as $slug ) {
@@ -42,6 +42,15 @@ foreach ( array( 'fresh', 'legacy-only', 'both', 'stale-option' ) as $scenario )
 		}
 		if ( 'both' === $scenario ) {
 			$canonical_id = $new_page( 'ask-ai', '[ehrman_ask_question]' );
+		}
+		if ( str_starts_with( $scenario, 'unrelated-' ) ) {
+			$unrelated_id = 'unrelated-canonical' === $scenario ? $new_page( 'ask-ai', 'Site help content, not a plugin shortcode.' ) : $legacy_id;
+			wp_update_post( array( 'ID' => $unrelated_id, 'post_title' => 'Existing site help', 'post_content' => 'Original content without discovery shortcodes.' ) );
+			$unrelated_before = get_post( $unrelated_id )->to_array();
+			Page_Controller::ensure_pages();
+			$assert_same( $unrelated_before, get_post( $unrelated_id )->to_array(), 'Upgrade modified an unrelated page.' );
+			$assert_same( false, get_option( 'ehrman_discovery_page_ask_ai', false ), 'Upgrade adopted an unrelated Ask AI page.' );
+			continue;
 		}
 		// get_post(0) must not accidentally select the current global page.
 		$GLOBALS['post'] = get_post( $page_id );

@@ -7,6 +7,9 @@
 
 use EhrmanBlogDiscovery\Post_Ingestion_Page;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
+use EhrmanBlogDiscovery\Post_Ingestion_Post_Source;
+use EhrmanBlogDiscovery\Post_Ingestion_Review_Workflow;
+use EhrmanBlogDiscovery\Post_Ingestion_Validator;
 use EhrmanBlogDiscovery\Template;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $page_saved_get = $_GET;
+$page_saved_post = $_POST;
+$page_saved_request = $_REQUEST;
 $page_saved_user = get_current_user_id();
 $page_saved_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
 $page_saved_key = getenv( 'OPENAI_API_KEY' );
@@ -146,6 +151,7 @@ try {
 		$assert_same( 1, $dom->query( '//button[@value="approve"][@disabled]' )->length, 'JSON-authoritative approval should be disabled.' );
 		$assert_same( 1, $dom->query( '//input[@name="approve_new_keywords"]' )->length, 'New keywords lost explicit approval.' );
 		$assert_same( (string) $id, $dom->evaluate( 'string(//input[@name="draft_id"]/@value)' ), 'Form draft identifier changed.' );
+		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $dom->evaluate( 'string(//input[@name="revision"]/@value)' ), 'History review lost its proposal revision.' );
 		$assert( str_contains( $dom->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/@onsubmit)' ), 'window.confirm(' ), 'Discard confirmation is missing.' );
 		$label = 'ready' === $status ? 'Search metadata is ready for review.' : 'Search metadata requires review.';
 		$assert( str_contains( $html, $label ), 'Missing review-state notice.' );
@@ -192,9 +198,73 @@ try {
 		$assert_same( $unsafe, $dom->evaluate( 'string(//div[@class="notice ' . $notice_class . ' is-dismissible"]/p)' ), 'Action notice changed or was not escaped.' );
 		$assert_same( false, get_transient( $page_notice_key ), 'Action notice was not consumed.' );
 	}
-	$assert_same( 0, $page_http_calls, 'Ingestion page rendering attempted an API call.' );
+	// Exercise the actual fallback POST handlers, intercepting only their final redirect.
+	$native = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'Metadata history source fixture', 'post_author' => $page_admin, 'post_content' => 'Original saved content for the metadata history regression.' ), true );
+	$assert( ! is_wp_error( $native ), 'Could not create the saved-post fixture.' );
+	$input = ( new Post_Ingestion_Validator() )->validate_submission( Post_Ingestion_Post_Source::input( get_post( $native ) ) );
+	$assert( ! is_wp_error( $input ), 'Saved-post fixture was invalid.' );
+	$native_draft = $repository->create_draft( $input, $repository->vocabulary_hash( $vocabulary ), $page_admin, $native );
+	$assert( ! is_wp_error( $native_draft ), 'Could not create the linked draft.' );
+	$fields = array(
+		'description' => 'Explains how reviewed metadata enters the search index only after an administrator approves the proposed topics and supporting keywords.',
+		'search_summary' => 'Explains how inline approval saves revised search metadata without changing the original WordPress article. Distinguishes approved topics from supporting secondary keywords and preserves validation of both selections. Describes how a failed embedding remains pending for retry after metadata has been safely committed to the discovery index, while the temporary full text is removed from the ingestion record after the administrator approves it.',
+		'topics' => array( $topic_name ), 'secondary_keywords' => '', 'new_secondary_keywords' => '', 'status' => 'ready', 'review_notes' => '',
+	);
+	$valid_proposal = ( new Post_Ingestion_Validator() )->proposal_from_input( $fields );
+	$wpdb->update( $table, array( 'status' => 'ready', 'proposal_json' => wp_json_encode( $valid_proposal ) ), array( 'id' => $native_draft ) );
+	$pending = $repository->draft( $native_draft );
+	$revision = Post_Ingestion_Review_Workflow::revision( $pending );
+	$send_action = static function ( string $action, array $values ) use ( $page_notice_key ): array {
+		$_POST = array_merge( $values, array( 'action' => $action, '_wpnonce' => wp_create_nonce( $action ) ) );
+		$_REQUEST = $_POST;
+		$redirect = static function () { throw new RuntimeException( 'history-test-redirect' ); };
+		add_filter( 'wp_redirect', $redirect, 0 );
+		try { do_action( 'admin_post_' . $action ); }
+		catch ( RuntimeException $error ) { if ( 'history-test-redirect' !== $error->getMessage() ) { throw $error; } }
+		finally { remove_filter( 'wp_redirect', $redirect, 0 ); }
+		return get_transient( $page_notice_key );
+	};
+	$body = array_merge( $fields, array( 'draft_id' => $native_draft, 'revision' => $revision ) );
+	wp_update_post( array( 'ID' => $native, 'post_content' => 'The publisher changed the article after its original analysis.' ) );
+	foreach ( array( 'save', 'approve' ) as $intent ) {
+		$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => $intent ) ) );
+		$assert_same( false, $notice['success'], 'History accepted a changed source.' );
+		$assert( str_contains( $notice['message'], 'changed after analysis' ), 'History did not explain the changed source.' );
+		$assert_same( $pending, $repository->draft( $native_draft ), 'Rejected history action mutated the draft.' );
+	}
+	foreach ( array( 'draft', 'private', 'trash' ) as $status ) {
+		wp_update_post( array( 'ID' => $native, 'post_status' => $status ) );
+		$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'approve' ) ) );
+		$assert_same( false, $notice['success'], 'History approved an unpublished post.' );
+		$assert( str_contains( $notice['message'], 'Publish the post' ), 'History lost the publish-first prerequisite.' );
+	}
+	wp_update_post( array( 'ID' => $native, 'post_status' => 'publish', 'post_content' => $input['post_text'] ) );
+	foreach ( array( '', str_repeat( '0', 64 ) ) as $bad_revision ) {
+		foreach ( array( 'save', 'approve' ) as $intent ) {
+			$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'revision' => $bad_revision, 'ingestion_intent' => $intent ) ) );
+			$assert_same( false, $notice['success'], 'History accepted a missing or stale revision.' );
+			$assert_same( $pending, $repository->draft( $native_draft ), 'Revision rejection changed stored metadata.' );
+		}
+	}
+	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'approve', 'new_secondary_keywords' => 'History Fixture New Keyword', 'review_notes' => 'Requires explicit publisher consent.' ) ) );
+	$assert_same( false, $notice['success'], 'History bypassed explicit new-keyword consent.' );
+	$assert_same( $pending, $repository->draft( $native_draft ), 'Failed approval saved unapproved revisions.' );
+	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'save', 'review_notes' => 'Reviewed through Metadata History.' ) ) );
+	$assert_same( true, $notice['success'], 'Valid history revisions could not be saved.' );
+	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'approve' ) ) );
+	$assert_same( false, $notice['success'], 'An old history form replaced newly saved revisions.' );
+	wp_update_post( array( 'ID' => $native, 'post_title' => 'Current saved title', 'post_content' => 'Current saved content used by the next metadata run.' ) );
+	$notice = $send_action( 'ehrman_ingestion_reanalyze', array( 'draft_id' => $native_draft ) );
+	$assert_same( true, $notice['success'], 'History could not queue fresh analysis.' );
+	$refreshed = $repository->draft( $native_draft );
+	$assert_same( 'queued', $refreshed['status'], 'History retry was not queued.' );
+	$assert_same( 'Current saved title', $refreshed['title'], 'History retried the old title.' );
+	$assert_same( false, Post_Ingestion_Post_Source::source_changed( get_post( $native ), $refreshed ), 'History retried an old source snapshot.' );
+	$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['external_posts'], $native ) ), 'Rejected history approval changed the live index.' );
+	$assert_same( 0, $page_http_calls, 'History rendering or rejected actions attempted an API call.' );
 } finally {
 	$wpdb->query( 'ROLLBACK' );
+	wp_cache_flush();
 	remove_filter( 'pre_http_request', $page_block_http );
 	wp_cache_delete( $page_notice_key, 'transient' );
 	wp_cache_delete( '_transient_' . $page_notice_key, 'options' );
@@ -202,6 +272,8 @@ try {
 	wp_cache_delete( 'notoptions', 'options' );
 	wp_set_current_user( $page_saved_user );
 	$_GET = $page_saved_get;
+	$_POST = $page_saved_post;
+	$_REQUEST = $page_saved_request;
 	putenv( false === $page_saved_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $page_saved_source );
 	putenv( false === $page_saved_key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $page_saved_key );
 }

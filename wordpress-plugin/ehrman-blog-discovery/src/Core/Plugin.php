@@ -29,13 +29,6 @@ final class Plugin {
 	private Rest_Controller $rest_controller;
 
 	/**
-	 * Authoritative JSON importer.
-	 *
-	 * @var Importer
-	 */
-	private Importer $importer;
-
-	/**
 	 * Public page and shortcode controller.
 	 *
 	 * @var Page_Controller
@@ -45,7 +38,6 @@ final class Plugin {
 	/** Creates the plugin service graph. */
 	private function __construct() {
 		$this->rest_controller = new Rest_Controller();
-		$this->importer        = new Importer();
 		$this->page_controller = new Page_Controller();
 	}
 
@@ -70,7 +62,6 @@ final class Plugin {
 		add_action( 'init', array( $this, 'maybe_ensure_pages' ), 20 );
 		add_action( 'rest_api_init', array( $this->rest_controller, 'register_routes' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
-		add_action( 'admin_post_ehrman_discovery_import', array( $this, 'handle_admin_import' ) );
 		AI_Analytics_Page::register();
 		Post_Ingestion_Queue::register();
 		Post_Ingestion_Lifecycle::register();
@@ -102,70 +93,20 @@ final class Plugin {
 		);
 	}
 
-	/** Renders the administration status and import page. */
+	/** Renders the read-only administration status page. */
 	public function render_admin_page(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		$status = self::status_data();
-		$notice = get_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
-		if ( false !== $notice ) {
-			delete_transient( 'ehrman_discovery_notice_' . get_current_user_id() );
-		}
 		$html = Template::render(
 			'admin/plugin-status.php',
 			array(
-				'status'            => $status,
-				'notice'            => $notice,
-				'notice_class'      => is_array( $notice ) && ! empty( $notice['success'] ) ? 'notice-success' : 'notice-error',
-				'sources_available' => $this->importer->sources_available(),
+				'status' => self::status_data(),
 			)
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted template escapes each dynamic value at output.
 		echo $html;
-	}
-
-	/** Handles a nonce-protected administrative import request. */
-	public function handle_admin_import(): void {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You are not allowed to import discovery data.', 'ehrman-blog-discovery' ) );
-		}
-		check_admin_referer( 'ehrman_discovery_import' );
-		if ( function_exists( 'set_time_limit' ) ) {
-			set_time_limit( 300 );
-		}
-
-		try {
-			$summary = $this->importer->import( true );
-			$message = sprintf(
-				/* translators: 1: post count, 2: topic count, 3: keyword count */
-				__( 'Imported %1$s posts, %2$s topics, and %3$s keywords.', 'ehrman-blog-discovery' ),
-				number_format_i18n( (int) $summary['counts']['external_posts'] ),
-				number_format_i18n( (int) $summary['counts']['topics'] ),
-				number_format_i18n( (int) $summary['counts']['keywords'] )
-			);
-			set_transient(
-				'ehrman_discovery_notice_' . get_current_user_id(),
-				array(
-					'success' => true,
-					'message' => $message,
-				),
-				MINUTE_IN_SECONDS
-			);
-		} catch ( \Throwable $error ) {
-			set_transient(
-				'ehrman_discovery_notice_' . get_current_user_id(),
-				array(
-					'success' => false,
-					'message' => sanitize_text_field( $error->getMessage() ),
-				),
-				MINUTE_IN_SECONDS
-			);
-		}
-
-		wp_safe_redirect( admin_url( 'tools.php?page=ehrman-blog-discovery' ) );
-		exit;
 	}
 
 	/**

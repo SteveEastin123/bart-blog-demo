@@ -145,6 +145,12 @@ final class Page_Controller {
 		if ( ! $page instanceof \WP_Post ) {
 			return true;
 		}
+		if ( ! has_shortcode( $page->post_content, 'ehrman_ask_ai' )
+			&& ! has_shortcode( $page->post_content, 'ehrman_ask_ai_2' )
+			&& ! has_shortcode( $page->post_content, 'ehrman_ask_question' ) ) {
+			// An unrelated page at a reserved URL is not ours to rename or adopt.
+			return false;
+		}
 		$content = str_replace( array( '[ehrman_ask_question]', '[ehrman_ask_ai_2]' ), '[ehrman_ask_ai]', $page->post_content );
 		if ( 'Ask AI' !== $page->post_title || 'ask-ai' !== $page->post_name || $content !== $page->post_content ) {
 			$result = wp_update_post(

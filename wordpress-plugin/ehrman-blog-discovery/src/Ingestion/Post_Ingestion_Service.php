@@ -187,7 +187,11 @@ final class Post_Ingestion_Service {
 				__( 'Configure OPENAI_API_KEY on the server before regenerating metadata.', 'ehrman-blog-discovery' )
 			);
 		}
-		if ( '' === trim( Database::text( $draft['post_text'] ?? null ) ) ) {
+		$post = Post_Ingestion_Post_Source::published_post( $draft );
+		if ( is_wp_error( $post ) ) {
+			return $post;
+		}
+		if ( null === $post && '' === trim( Database::text( $draft['post_text'] ?? null ) ) ) {
 			return new WP_Error( 'ehrman_ingestion_missing_text', __( 'The draft no longer contains full post text.', 'ehrman-blog-discovery' ) );
 		}
 		$status = sanitize_key( Database::text( $draft['status'] ?? null ) );
@@ -197,6 +201,18 @@ final class Post_Ingestion_Service {
 		if ( self::STATUS_ANALYZING === $status && ! self::analysis_is_stale( $draft ) ) {
 			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Analysis is already running in the background.', 'ehrman-blog-discovery' ) );
 		}
+		if ( null !== $post ) {
+			$validated = $this->validator->validate_submission( Post_Ingestion_Post_Source::input( $post ) );
+			if ( is_wp_error( $validated ) ) {
+				return $validated;
+			}
+			if ( Database::integer( $draft['source_wp_id'] ?? null ) !== $validated['source_wp_id'] ) {
+				return new WP_Error( 'ehrman_ingestion_post_mismatch', __( 'The saved post does not match this ingestion draft.', 'ehrman-blog-discovery' ) );
+			}
+			if ( ! $this->repository->update_pending_source( $draft_id, $validated ) ) {
+				return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The saved post could not be copied into the ingestion draft.', 'ehrman-blog-discovery' ) );
+			}
+		}
 
 		$taxonomy      = $this->repository->vocabulary();
 		$taxonomy_hash = $this->repository->vocabulary_hash( $taxonomy );
@@ -205,40 +221,6 @@ final class Post_Ingestion_Service {
 		}
 		Post_Ingestion_Queue::cancel( $draft_id );
 		return $this->schedule_draft( $draft_id );
-	}
-
-	/**
-	 * Refreshes a pending draft from a saved WordPress post before reanalysis.
-	 *
-	 * @param int                 $draft_id Draft identifier.
-	 * @param array<string,mixed> $input    Current saved post values.
-	 * @return array<string,mixed>|WP_Error Updated draft or error.
-	 */
-	public function reanalyze_post( int $draft_id, array $input ) {
-		$draft = $this->draft( $draft_id );
-		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
-			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
-		}
-		if ( ! self::is_configured() ) {
-			return new WP_Error(
-				'ehrman_ingestion_not_configured',
-				__( 'Configure OPENAI_API_KEY on the server before regenerating metadata.', 'ehrman-blog-discovery' )
-			);
-		}
-		if ( self::analysis_is_active( $draft ) && ! self::analysis_is_stale( $draft ) ) {
-			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Analysis is already queued or running in the background.', 'ehrman-blog-discovery' ) );
-		}
-		$validated = $this->validator->validate_submission( $input );
-		if ( is_wp_error( $validated ) ) {
-			return $validated;
-		}
-		if ( Database::integer( $draft['source_wp_id'] ?? null ) !== $validated['source_wp_id'] ) {
-			return new WP_Error( 'ehrman_ingestion_post_mismatch', __( 'The saved post does not match this ingestion draft.', 'ehrman-blog-discovery' ) );
-		}
-		if ( ! $this->repository->update_pending_source( $draft_id, $validated ) ) {
-			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The saved post could not be copied into the ingestion draft.', 'ehrman-blog-discovery' ) );
-		}
-		return $this->reanalyze( $draft_id );
 	}
 
 	/**
@@ -256,10 +238,11 @@ final class Post_Ingestion_Service {
 	 *
 	 * @param int                 $draft_id Draft identifier.
 	 * @param array<string,mixed> $input    Revised proposal fields.
+	 * @param string|null         $revision Reviewed proposal revision.
 	 * @return array<string,mixed>|WP_Error Updated draft or error.
 	 */
-	public function save_proposal( int $draft_id, array $input ) {
-		return $this->review_workflow->save_proposal( $draft_id, $input );
+	public function save_proposal( int $draft_id, array $input, ?string $revision = null ) {
+		return $this->review_workflow->save_proposal( $draft_id, $input, $revision );
 	}
 
 	/**
@@ -268,10 +251,11 @@ final class Post_Ingestion_Service {
 	 * @param int                      $draft_id            Draft identifier.
 	 * @param bool                     $approve_new_keywords Explicit approval for proposed new keywords.
 	 * @param array<string,mixed>|null $input Optional reviewed fields from the post editor.
+	 * @param string|null              $revision Reviewed proposal revision.
 	 * @return array<string,mixed>|WP_Error Approved draft or error.
 	 */
-	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null ) {
-		return $this->review_workflow->approve( $draft_id, $approve_new_keywords, $input );
+	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null, ?string $revision = null ) {
+		return $this->review_workflow->approve( $draft_id, $approve_new_keywords, $input, $revision );
 	}
 
 	/**

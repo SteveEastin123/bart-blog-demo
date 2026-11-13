@@ -59,11 +59,20 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
         matchedScreenshots++;
       }
       await page.locator('#wpbody-content').evaluate((element, html) => { element.innerHTML = html; }, liveContent);
+
+      await page.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
+      const status = page.locator('#wpbody-content .wrap').first();
+      assert.equal(await status.getByRole('heading', { name: 'Ehrman Blog Discovery', exact: true }).count(), 1);
+      assert.equal(await status.locator('form').count(), 0, 'Discovery status still exposes a bulk import form');
+      assert.doesNotMatch(await status.innerText(), /Authoritative JSON import|All five authoritative JSON files/);
+      assert.equal(await status.getByRole('rowheader', { name: 'Imported posts', exact: true }).count(), 1);
+      assert.equal(await status.getByRole('link', { name: 'Open AI Search Analytics', exact: true }).getAttribute('href'), base + '/wp-admin/tools.php?page=ehrman-ai-analytics');
+      await page.screenshot({ path: path.join(output, 'discovery-status-' + width + '.png'), fullPage: true });
     }
-    const retired = await context.request.post(base + '/wp-admin/admin-post.php', {
-      form: { action: 'ehrman_ingestion_analyze' },
-    });
-    assert.equal(retired.status(), 400, 'Retired manual-entry action is still available');
+    for (const action of ['ehrman_ingestion_analyze', 'ehrman_discovery_import']) {
+      const retired = await context.request.post(base + '/wp-admin/admin-post.php', { form: { action } });
+      assert.equal(retired.status(), 400, `Retired action is still available: ${action}`);
+    }
     for (const action of ['proposal', 'reanalyze', 'retry_embedding', 'discard']) {
       const response = await context.request.post(base + '/wp-admin/admin-post.php', {
         form: { action: 'ehrman_ingestion_' + action, _wpnonce: 'intentionally-invalid' },

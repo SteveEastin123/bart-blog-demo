@@ -177,6 +177,16 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 		AI_Metadata_Usage::import_history();
 		$assert_same( $imported, $report->metadata( $filters ), 'Repeated upgrade duplicated historical costs.' );
 		$assert_same( 2, $report->summary( $imported )['historical'], 'Historical snapshots were not identified.' );
+		// Ignore posts never required a vector; do not manufacture a failed API call.
+		$wpdb->delete( $tables['ai_usage'], array( 'run_id' => AI_Metadata_Usage::context( $store->draft( $legacy ) )['run_id'], 'purpose' => 'post_embedding' ) );
+		$wpdb->update( $tables['ingestion_drafts'], array( 'embedding_status' => 'not_applicable', 'embedding_model' => '', 'embedding_input_tokens' => 0, 'embedding_estimated_cost_usd' => 0 ), array( 'id' => $legacy ) );
+		$before_ignore = $report->metadata( $filters );
+		AI_Metadata_Usage::import_history();
+		$assert_same( $before_ignore, $report->metadata( $filters ), 'Ignore post created a fictitious vector charge or unknown-cost warning.' );
+		// A real attempted call with missing usage must still remain unknown.
+		$wpdb->update( $tables['ingestion_drafts'], array( 'embedding_status' => 'pending' ), array( 'id' => $legacy ) );
+		AI_Metadata_Usage::import_history();
+		$assert_same( $report->summary( $before_ignore )['unknown'] + 1, $report->summary( $report->metadata( $filters ) )['unknown'], 'A genuine legacy pending vector was treated as free.' );
 
 		$unknown_before = $report->summary( $report->metadata( $filters ) )['unknown'];
 		$missing_usage = static function () {

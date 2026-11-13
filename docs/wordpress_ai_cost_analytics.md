@@ -55,6 +55,11 @@ regenerations, overwritten costs, deleted drafts and missing responses cannot be
 reconstructed. Historical timestamps may be approximate. Repeating installation
 does not duplicate the snapshots.
 
+Legacy vector states `not_requested` and `not_applicable` with no recorded usage or
+cost do not create synthetic embedding events. In particular, an Ignore post does
+not imply a failed or unknown-cost vector call. Attempted calls whose usage is
+missing remain unknown, and recorded charges are preserved.
+
 Unknown usage or unsupported metadata-model pricing is labeled unknown, not free.
 Dollar totals sum known costs and warn when incomplete; CSV leaves unknown amounts
 blank. Stored estimates use the existing model rate schedules, recorded with a

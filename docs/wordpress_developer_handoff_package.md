@@ -108,6 +108,13 @@ Include the database schema and technical architecture as appendices.
 
 ### Initial Data Installation
 
+**Tools > Ehrman Discovery** is a read-only status page with database information,
+record counts, and an analytics link. The former browser JSON-import form and
+`admin_post_ehrman_discovery_import` handler have been removed in all source modes.
+Use the validated WP-CLI installation below for the initial handoff data. The
+CLI importer and local JSON-managed rebuild workflow remain available; publishers
+create metadata through the normal WordPress post editor.
+
 Activate the plugin, put the four JSON files and `ehrman_post_embeddings.jsonl.gz`
 in a private directory outside WordPress. No source-mode setting is required:
 database-managed publishing and administrator approval are enabled by default.
@@ -149,6 +156,11 @@ The legacy `import --force` also requires JSON-managed mode. Do not change the
 source mode merely to bypass protection of production editorial data.
 Production needs no post-import setting change to enable approval. An administrator
 must still review and explicitly approve metadata; approval is never automatic.
+
+Managed-page upgrades only adopt Ask AI or Browse Topics pages containing a
+recognized plugin shortcode. If an unrelated page occupies the canonical search
+URL, resolve that conflict explicitly before retrying page setup; the upgrade
+does not rename or replace the unrelated page.
 
 Maintainers can run `wordpress-production/verify-installation.ps1` after building
 the image. It creates a uniquely named, isolated WordPress/database stack, exercises

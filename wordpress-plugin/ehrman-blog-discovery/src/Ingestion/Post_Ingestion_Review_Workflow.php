@@ -71,12 +71,13 @@ final class Post_Ingestion_Review_Workflow {
 	 *
 	 * @param int                 $draft_id Draft identifier.
 	 * @param array<string,mixed> $input    Revised proposal fields.
+	 * @param string|null         $revision Reviewed proposal revision, when supplied by an interface.
 	 * @return array<string,mixed>|WP_Error Updated draft or error.
 	 */
-	public function save_proposal( int $draft_id, array $input ) {
-		$draft = $this->repository->draft( $draft_id );
-		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
-			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+	public function save_proposal( int $draft_id, array $input, ?string $revision = null ) {
+		$draft = $this->reviewable_draft( $draft_id, $revision );
+		if ( is_wp_error( $draft ) ) {
+			return $draft;
 		}
 		$proposal = $this->validator->proposal_from_input( $input );
 		$checked  = $this->validator->validate_proposal(
@@ -107,20 +108,20 @@ final class Post_Ingestion_Review_Workflow {
 	 * @param int                      $draft_id            Draft identifier.
 	 * @param bool                     $approve_new_keywords Explicit approval for proposed new keywords.
 	 * @param array<string,mixed>|null $input Optional reviewed fields from the post editor.
+	 * @param string|null              $revision Reviewed proposal revision, when supplied by an interface.
 	 * @return array<string,mixed>|WP_Error Approved draft or error.
 	 */
-	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null ) {
+	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null, ?string $revision = null ) {
+		$draft = $this->reviewable_draft( $draft_id, $revision );
+		if ( is_wp_error( $draft ) ) {
+			return $draft;
+		}
 		if ( ! Post_Ingestion_Settings::database_is_authoritative() ) {
 			return new WP_Error(
 				'ehrman_ingestion_json_authoritative',
 				__( 'Approval is disabled in this JSON-managed environment. Ask an administrator to enable database-managed publishing before approving metadata.', 'ehrman-blog-discovery' )
 			);
 		}
-		$draft = $this->repository->draft( $draft_id );
-		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
-			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
-		}
-
 		$proposal = $this->validator->decode_proposal( Database::text( $draft['proposal_json'] ?? null ) );
 		if ( null !== $input ) {
 			$proposal = $this->validator->proposal_from_input( $input );
@@ -171,5 +172,44 @@ final class Post_Ingestion_Review_Workflow {
 		return null === $stored
 			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The approved audit record could not be reloaded.', 'ehrman-blog-discovery' ) )
 			: $stored;
+	}
+
+	/**
+	 * Identifies the proposal that the publisher actually reviewed.
+	 *
+	 * @param array<string,mixed> $draft Stored ingestion record.
+	 */
+	public static function revision( array $draft ): string {
+		$values = array();
+		foreach ( array( 'id', 'status', 'proposal_json', 'taxonomy_version', 'analysis_attempt', 'updated_at' ) as $field ) {
+			$values[] = Database::text( $draft[ $field ] ?? null );
+		}
+		return hash( 'sha256', (string) wp_json_encode( $values ) );
+	}
+
+	/**
+	 * Applies the same source and proposal checks to every review interface.
+	 *
+	 * @param int         $draft_id Stored ingestion identifier.
+	 * @param string|null $revision Reviewed revision, or null for internal callers.
+	 * @return array<string,mixed>|WP_Error Current draft or a review error.
+	 */
+	private function reviewable_draft( int $draft_id, ?string $revision ) {
+		$draft = $this->repository->draft( $draft_id );
+		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
+			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+		}
+		$post = Post_Ingestion_Post_Source::published_post( $draft );
+		if ( is_wp_error( $post ) ) {
+			return $post;
+		}
+		if ( null !== $post && Post_Ingestion_Post_Source::source_changed( $post, $draft ) ) {
+			return new WP_Error( 'ehrman_ingestion_source_changed', __( 'The saved WordPress post changed after analysis. Reanalyze it before approval.', 'ehrman-blog-discovery' ) );
+		}
+		if ( ! in_array( $draft['status'], array( 'ready', 'held' ), true )
+			|| ( null !== $revision && ! hash_equals( self::revision( $draft ), $revision ) ) ) {
+			return new WP_Error( 'ehrman_ingestion_review_changed', __( 'The metadata changed while it was being reviewed. Reload the metadata before approving.', 'ehrman-blog-discovery' ) );
+		}
+		return $draft;
 	}
 }

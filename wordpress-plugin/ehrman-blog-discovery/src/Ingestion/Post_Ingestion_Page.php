@@ -72,18 +72,20 @@ final class Post_Ingestion_Page {
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before absint validates it.
 		$draft_id = isset( $_POST['draft_id'] ) ? absint( Database::text( wp_unslash( $_POST['draft_id'] ) ) ) : 0;
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before sanitize_key validates it.
-		$intent  = isset( $_POST['ingestion_intent'] ) ? sanitize_key( Database::text( wp_unslash( $_POST['ingestion_intent'] ) ) ) : 'save';
-		$service = new Post_Ingestion_Service();
-		$saved   = $service->save_proposal( $draft_id, self::posted_values() );
-		if ( is_wp_error( $saved ) ) {
-			self::redirect_with_notice( $draft_id, false, $saved->get_error_message() );
-		}
+		$intent   = isset( $_POST['ingestion_intent'] ) ? sanitize_key( Database::text( wp_unslash( $_POST['ingestion_intent'] ) ) ) : 'save';
+		$service  = new Post_Ingestion_Service();
+		$input    = self::posted_values();
+		$revision = Database::text( $input['revision'] ?? null );
 		if ( 'approve' !== $intent ) {
+			$saved = $service->save_proposal( $draft_id, $input, $revision );
+			if ( is_wp_error( $saved ) ) {
+				self::redirect_with_notice( $draft_id, false, $saved->get_error_message() );
+			}
 			self::redirect_with_notice( $draft_id, true, __( 'Draft revisions saved. Live search data was not changed.', 'ehrman-blog-discovery' ) );
 		}
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before sanitize_text_field validates it.
 		$approve_new = isset( $_POST['approve_new_keywords'] ) && '1' === sanitize_text_field( Database::text( wp_unslash( $_POST['approve_new_keywords'] ) ) );
-		$approved    = $service->approve( $draft_id, $approve_new );
+		$approved    = $service->approve( $draft_id, $approve_new, $input, $revision );
 		if ( is_wp_error( $approved ) ) {
 			self::redirect_with_notice( $draft_id, false, $approved->get_error_message() );
 		}
@@ -182,6 +184,7 @@ final class Post_Ingestion_Page {
 		$rationales = self::topic_rationale_list( $proposal['topicRationales'] ?? null );
 		return array(
 			'id'                     => Database::text( $draft['id'] ?? null ),
+			'revision'               => Post_Ingestion_Review_Workflow::revision( $draft ),
 			'action_id'              => Database::integer( $draft['id'] ?? null ),
 			'description'            => Database::text( $proposal['description'] ?? null ),
 			'summary'                => Database::text( $proposal['searchSummary'] ?? null ),

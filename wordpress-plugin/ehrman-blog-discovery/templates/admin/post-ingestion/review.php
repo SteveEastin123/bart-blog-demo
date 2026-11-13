@@ -17,6 +17,7 @@ $view = $ehrman_blog_discovery_context;
 <p><?php echo esc_html__( 'Revise any field as needed. Saving remains a draft; approval is the only action that writes to the live index.', 'ehrman-blog-discovery' ); ?></p>
 <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 	<input type="hidden" name="action" value="ehrman_ingestion_proposal"><input type="hidden" name="draft_id" value="<?php echo esc_attr( $view['id'] ); ?>">
+	<input type="hidden" name="revision" value="<?php echo esc_attr( $view['revision'] ); ?>">
 	<input type="hidden" name="topic_rationales_json" value="<?php echo esc_attr( $view['rationales_json'] ); ?>">
 	<?php wp_nonce_field( 'ehrman_ingestion_proposal' ); ?>
 	<table class="form-table" role="presentation">

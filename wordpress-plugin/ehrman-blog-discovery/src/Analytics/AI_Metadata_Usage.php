@@ -78,12 +78,14 @@ final class AI_Metadata_Usage {
 			$context['history_import'] = 1;
 			$context['created_at']     = Database::text( $draft['analysis_started_at'] ?? $draft['updated_at'] );
 			foreach ( array( 'metadata_generation', 'post_embedding' ) as $purpose ) {
-				$embedding = 'post_embedding' === $purpose;
-				$prefix    = $embedding ? 'embedding_' : '';
-				$input     = Database::integer( $draft[ $prefix . 'input_tokens' ] ?? 0 );
-				$output    = $embedding ? 0 : Database::integer( $draft['output_tokens'] ?? 0 );
-				$cost      = (float) Database::text( $draft[ $prefix . 'estimated_cost_usd' ] ?? 0 );
-				if ( $embedding ? 'not_requested' === $draft['embedding_status'] : 0 === Database::integer( $draft['analysis_attempt'] ?? 0 ) && 0 === $input + $output && 0.0 === $cost ) {
+				$embedding       = 'post_embedding' === $purpose;
+				$prefix          = $embedding ? 'embedding_' : '';
+				$input           = Database::integer( $draft[ $prefix . 'input_tokens' ] ?? 0 );
+				$output          = $embedding ? 0 : Database::integer( $draft['output_tokens'] ?? 0 );
+				$cost            = (float) Database::text( $draft[ $prefix . 'estimated_cost_usd' ] ?? 0 );
+				$unused_vector   = $embedding && in_array( $draft['embedding_status'], array( 'not_requested', 'not_applicable' ), true ) && 0 === $input && 0.0 === $cost;
+				$unused_analysis = ! $embedding && 0 === Database::integer( $draft['analysis_attempt'] ?? 0 ) && 0 === $input + $output && 0.0 === $cost;
+				if ( $unused_vector || $unused_analysis ) {
 					continue;
 				}
 				$context['event_key'] = 'history-' . hash( 'sha256', Database::text( $context['run_id'] ) . ':' . $purpose );

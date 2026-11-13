@@ -17,6 +17,7 @@ use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Embedding_Index_Transfer;
 use EhrmanBlogDiscovery\Embedding_Service;
 use EhrmanBlogDiscovery\Page_Controller;
+use EhrmanBlogDiscovery\Plugin;
 use EhrmanBlogDiscovery\Post_Ingestion_REST_Controller;
 use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
@@ -44,6 +45,46 @@ $assert_same = static function ( $expected, $actual, string $message ) use ( $as
 
 $wpdb   = Database::client();
 $tables = Database::tables();
+
+/* Retiring the browser importer must retain read-only status and CLI installation. */
+$assert_same( false, has_action( 'admin_post_ehrman_discovery_import' ), 'The retired browser import action is registered.' );
+$assert_same( false, has_action( 'admin_post_nopriv_ehrman_discovery_import' ), 'The retired import action is available anonymously.' );
+$assert_same( false, method_exists( Plugin::class, 'handle_admin_import' ), 'The retired browser import handler remains callable.' );
+foreach ( array( 'install_data', 'import', 'status' ) as $command ) {
+	$assert( method_exists( EhrmanBlogDiscovery\Cli_Command::class, $command ), 'CLI command was removed: ' . $command );
+}
+$status_user = get_current_user_id();
+$status_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
+$render_admin_status = static function (): string {
+	ob_start();
+	try {
+		Plugin::instance()->render_admin_page();
+		return (string) ob_get_contents();
+	} finally {
+		ob_end_clean();
+	}
+};
+try {
+	wp_set_current_user( 0 );
+	$assert_same( '', $render_admin_status(), 'Anonymous visitors can render the administration status page.' );
+	$status_admins = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
+	$assert( ! empty( $status_admins ), 'An administrator is required for the status-page tests.' );
+	wp_set_current_user( (int) $status_admins[0] );
+	foreach ( array( 'json', 'mysql' ) as $source ) {
+		putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $source );
+		$html = $render_admin_status();
+		$assert( ! str_contains( $html, '<form' ) && ! str_contains( $html, 'Authoritative JSON' ), 'Browser import controls remain in ' . $source . ' mode.' );
+		foreach ( array( 'Plugin version', 'Schema version', 'Database connection', 'Import state', 'Imported posts', 'Topics', 'Secondary keywords' ) as $label ) {
+			$assert( str_contains( $html, $label ), 'Status page lost ' . $label );
+		}
+		$assert( str_contains( $html, number_format_i18n( Database::counts()['external_posts'] ) ), 'Status page lost the current post count.' );
+		$assert( str_contains( $html, esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ) ), 'Status page lost its analytics link.' );
+	}
+} finally {
+	wp_set_current_user( $status_user );
+	putenv( false === $status_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $status_source );
+}
+echo "Discovery status: read-only in both source modes; browser import retired, CLI retained: OK\n";
 
 require __DIR__ . '/ask-ai-naming-tests.php';
 require __DIR__ . '/api-settings-tests.php';
