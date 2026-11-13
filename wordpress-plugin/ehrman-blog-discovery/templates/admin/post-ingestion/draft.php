@@ -40,8 +40,8 @@ $retry_context = array(
 <div class="notice notice-error inline"><p><?php echo esc_html( $view['error'] ); ?></p></div>
 <?php endif; ?>
 <?php if ( $view['analysis_active'] ) : ?>
-	<?php if ( $view['analysis_stale'] ) : ?>
-		<div class="notice notice-warning inline"><p><?php echo esc_html__( 'Background analysis appears to have stopped. Start a fresh attempt below.', 'ehrman-blog-discovery' ); ?></p></div>
+	<?php if ( $view['analysis_stale'] || 'queued' === $view['status'] ) : ?>
+		<div class="notice notice-warning inline"><p><?php echo esc_html__( 'Metadata generation appears to have stopped. Start a fresh attempt below.', 'ehrman-blog-discovery' ); ?></p></div>
 		<div class="ehrman-ingestion__actions">
 			<?php
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
@@ -49,7 +49,7 @@ $retry_context = array(
 			?>
 		</div>
 	<?php else : ?>
-		<div class="notice notice-info inline"><p><?php echo esc_html__( 'Analysis is running in the background. This post will not be added to search until the results are reviewed and approved. You may leave this page and return later.', 'ehrman-blog-discovery' ); ?></p></div>
+		<div class="notice notice-info inline"><p><?php echo esc_html__( 'Metadata generation has not finished. Refresh its status before starting another attempt.', 'ehrman-blog-discovery' ); ?></p></div>
 		<p><a class="button" href="<?php echo esc_url( $view['refresh_url'] ); ?>"><?php echo esc_html__( 'Refresh status', 'ehrman-blog-discovery' ); ?></a></p>
 	<?php endif; ?>
 	<?php return; ?>
@@ -71,7 +71,7 @@ $retry_context = array(
 <?php if ( 'ready' === $view['status'] ) : ?>
 	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
 <?php elseif ( 'held' === $view['status'] ) : ?>
-	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata requires review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Resolve the review notes and mark the proposal ready before approval.', 'ehrman-blog-discovery' ); ?></p></div>
+	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Metadata cannot be approved yet.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Check the warnings below and regenerate metadata after correcting the post or vocabulary.', 'ehrman-blog-discovery' ); ?></p></div>
 <?php endif; ?>
 
 <?php if ( null === $view['review'] ) : ?>

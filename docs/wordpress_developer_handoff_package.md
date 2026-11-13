@@ -207,12 +207,13 @@ optimization or a change to relevance behavior.
 routes, permissions, request handling and safe response payloads; `Rest_Controller`
 registers those routes. `Post_Ingestion_Post_Source` builds input from the saved
 WordPress post and detects changes, shared by REST approval and admin status.
-The URLs, capabilities, WordPress REST nonce protection and background jobs remain
-unchanged. The editor now supports **Create Metadata**, inline review/editing and
-**Approve and Add to Search**. Approval optionally accepts reviewed fields and a
-proposal revision; the same validation, JSON-mode lock, vocabulary checks and
-explicit new-keyword consent apply. Unchanged callers can still approve a stored
-proposal. The status payload includes a revision fingerprint, not full post text.
+The URLs, capabilities and WordPress REST nonce protection remain unchanged.
+**Create Metadata** now waits for AI generation in the request; it does not queue
+new background work. The editor shows Description, Summary, AI-selected Topics,
+and one Keywords list. **Approve and Add to Search** approves all displayed
+metadata, including new keyword labels. Only Description and Summary are editable;
+the server retains stored AI selections and validation state. Revision checks,
+the JSON-mode lock, source checks and vocabulary validation still apply. The status payload includes a revision fingerprint, not full post text.
 See the post-ingestion guide for the publisher workflow and its current limits.
 
 ### Analytics Presentation
@@ -244,7 +245,7 @@ database-side counts, filters, and 25-row pagination, including existing importe
 metadata without a generation-history record. Templates escape display values and
 render nonce-protected forms; they do not query the database or run ingestion.
 
-Analysis, review, approval, background processing, and vector generation remain
+Analysis, review, approval, legacy-job recovery, and post-approval vector generation remain
 in the existing ingestion services. The production regression suite exercises
 the page's workflow states, form nonces, JSON-mode approval lock, escaping,
 history, and notices with rolled-back fixtures and no API calls.

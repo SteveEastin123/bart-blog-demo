@@ -44,23 +44,25 @@ key. Check for queued ingestion jobs before enabling the shared key.
 
 1. Save and publish the WordPress post normally.
 2. Open the **Search Metadata** panel in the block editor.
-3. Select **Create Metadata**. The REST request validates the saved post, creates a
-   queued draft, schedules a one-time WordPress cron event, and returns HTTP
-   `202` without waiting for the AI response.
-4. The panel displays **Creating metadata...** and polls every three seconds
-   while analysis is active. Results appear in the same panel. Leaving the page
-   does not cancel the job. **Tools > Search Metadata** provides a worklist and
+3. Select **Create Metadata**. The REST request validates the saved post, persists
+   a draft, and runs analysis in that request. It returns HTTP `200` with the
+   completed metadata, or an error if generation fails. New requests do not
+   schedule a WordPress cron job.
+4. The panel displays **Creating metadata...** while waiting, then shows the
+   results and approval button in the same panel. Keep the page open until
+   generation finishes. **Tools > Search Metadata** provides a worklist and
    administrative fallback, not a required step in routine publishing.
 5. When analysis finishes, WordPress displays a persistent administrative
    notice, a count beside **Search Metadata**, and an **Awaiting approval** or
    **Review required** status on the Posts screen. These reminders remain
    until the proposal is approved or discarded.
-6. Edit the description, search summary, existing topics, secondary keywords,
-   proposed new keywords, and review notes directly in the editor panel. Approve
-   proposed new keyword labels explicitly. A held proposal requires resolving
-   its issues and marking it ready; existing server-side validation still applies.
-   **Regenerate Metadata** requests a fresh AI pass. Topic rationale evidence and
-   the extended history remain available on the Tools page.
+6. Review **Description**, **Summary**, the AI-selected **Topics**, and one
+   combined **Keywords** list. Description and Summary remain editable. Topics
+   and keywords come from the stored AI result; there is no vocabulary dropdown,
+   separate new-keyword form, or Reviewer Notes field. Overall approval includes
+   the displayed new keyword labels. A held result cannot be approved; its
+   blocking warnings remain visible. Correct the source or vocabulary as needed,
+   then use **Regenerate Metadata** for a fresh AI pass.
 7. Select **Approve and Add to Search** after review. The submitted edits are
    validated and approved in one request, without a separate save action.
    A revision check rejects metadata that changed since the publisher loaded it.
@@ -95,8 +97,8 @@ filters and retains access to records older than the former 100-row limit.
 The normal post editor remains the primary workflow. Administrators may also
 select **Create Metadata** for an unprocessed published post on the worklist.
 This nonce-protected POST checks administrator and post-edit permissions, reads
-the saved post server-side, rejects existing records, and queues the existing
-analysis workflow. It never accepts manually supplied post text or metadata.
+the saved post server-side, rejects existing records, and waits for the same
+analysis workflow to finish before returning the review page. It never accepts manually supplied post text or metadata.
 Opening, filtering, or paging through the list does not start an AI request.
 The page retains review and approval, pending-analysis retries, vector retries,
 and draft discard actions, plus read-only inspection of imported metadata. Its URL remains
@@ -153,10 +155,10 @@ and its validated vector package, never from the Render database.
 
 | State | Meaning | Administrator action |
 | --- | --- | --- |
-| `queued` | Waiting for a one-time WordPress cron worker | Usually none; loading status repairs a missing event |
+| `queued` | Persisted draft awaiting its atomic claim, or a legacy queued job | Regenerate if a legacy job is stranded; status reads do not start work |
 | `analyzing` | A worker atomically claimed the draft | Wait; a second worker cannot claim the same attempt |
 | `ready` | Proposal passed validation and is ready for review | Review, revise, reanalyze, or approve |
-| `held` | Proposal requires administrator attention | Review warnings and revise or reanalyze |
+| `held` | Proposal failed approval requirements | Correct the source or vocabulary, then regenerate |
 | `error` | Analysis failed before producing a usable proposal | Correct the reported issue and retry |
 | `approved` | Proposal was committed to the live discovery index | Retry the vector if its status is not complete |
 
@@ -164,11 +166,18 @@ An `analyzing` draft is considered stalled after ten minutes. The editor and
 fallback page then offer a fresh attempt. Each worker receives an incrementing
 attempt number; a late response from an older attempt cannot overwrite newer
 work. Duplicate submissions for the same WordPress post or canonical URL are
-rejected before another AI request can be scheduled.
+rejected before another AI request is started.
 
-WordPress cron depends on site traffic unless production uses a real cron
-runner. For predictable processing, invoke `wp-cron.php` from the platform
-scheduler and disable request-driven cron only after that scheduler is proven.
+New generation requests do not depend on WordPress cron. The legacy cron
+callback remains compatible with jobs already scheduled before this change;
+it uses the same atomic claim to prevent duplicate processing.
+
+Allow sufficient HTTP/proxy time for foreground generation: the upstream request
+has a 180-second timeout and may retry once if structured output is truncated.
+A timeout is reported as a failure, not approval-ready metadata. Reload status
+before retrying after a browser/proxy disconnect, because PHP may have completed
+the request. A fatal interruption remains recoverable through the ten-minute
+stalled-attempt check. No request automatically approves or indexes a proposal.
 
 ## Security And Data Retention
 
@@ -204,8 +213,8 @@ Run the server-side regression suite with an available Python runtime:
   -PythonExecutable 'C:\path\to\python.exe'
 ```
 
-The regression suite covers editor authorization, queued HTTP responses,
-missing-event repair, duplicate prevention, atomic worker claims, stale-job
+The regression suite covers editor authorization, completed foreground responses,
+timeout recovery, read-only status requests, duplicate prevention, atomic worker claims, stale-job
 recovery, attempt fencing, full-text redaction, source-change detection,
 inline approval validation, revision checks, audit relationships, vector
 failure recovery, native-post ownership, publication visibility, restoration,
@@ -215,8 +224,8 @@ key and does not make a paid AI request.
 The repository's `wordpress-production/verify-all.ps1` also runs
 `tests/post-ingestion-editor-ui.cjs` on its isolated WordPress site. These
 browser checks use real editor components with mocked ingestion responses to
-verify progress, inline edits, approval, regeneration, failure recovery, new
-keyword consent, and desktop/mobile layouts without paid API calls.
+verify progress, inline text edits, overall approval, regeneration, failure recovery,
+combined keywords, and desktop/mobile layouts without paid API calls.
 
 `wordpress-production/verify-render-rebuild.ps1` is also entirely local. It
 verifies one-time initial seeding, preservation of database-only editorial data

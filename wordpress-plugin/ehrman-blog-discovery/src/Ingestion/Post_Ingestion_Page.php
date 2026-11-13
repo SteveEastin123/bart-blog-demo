@@ -94,7 +94,7 @@ final class Post_Ingestion_Page {
 		if ( is_wp_error( $result ) ) {
 			self::redirect_with_notice( 0, false, $result->get_error_message() );
 		}
-		self::redirect_with_notice( Database::integer( $result['id'] ?? null ), true, __( 'Metadata generation started. Review and approve the results when they are ready.', 'ehrman-blog-discovery' ) );
+		self::redirect_with_notice( Database::integer( $result['id'] ?? null ), true, __( 'Metadata generation finished. Review the results below.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles proposal revisions or final approval. */
@@ -107,6 +107,11 @@ final class Post_Ingestion_Page {
 		$service  = new Post_Ingestion_Service();
 		$input    = self::posted_values();
 		$revision = Database::text( $input['revision'] ?? null );
+		$draft    = $service->draft( $draft_id );
+		if ( null === $draft ) {
+			self::redirect_with_notice( 0, false, __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+		}
+		$input = Post_Ingestion_Review_Workflow::review_input( $draft, $input );
 		if ( 'approve' !== $intent ) {
 			$saved = $service->save_proposal( $draft_id, $input, $revision );
 			if ( is_wp_error( $saved ) ) {
@@ -114,9 +119,7 @@ final class Post_Ingestion_Page {
 			}
 			self::redirect_with_notice( $draft_id, true, __( 'Draft revisions saved. Live search data was not changed.', 'ehrman-blog-discovery' ) );
 		}
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before sanitize_text_field validates it.
-		$approve_new = isset( $_POST['approve_new_keywords'] ) && '1' === sanitize_text_field( Database::text( wp_unslash( $_POST['approve_new_keywords'] ) ) );
-		$approved    = $service->approve( $draft_id, $approve_new, $input, $revision );
+		$approved = $service->approve( $draft_id, true, $input, $revision );
 		if ( is_wp_error( $approved ) ) {
 			self::redirect_with_notice( $draft_id, false, $approved->get_error_message() );
 		}
@@ -136,7 +139,7 @@ final class Post_Ingestion_Page {
 		if ( is_wp_error( $result ) ) {
 			self::redirect_with_notice( $draft_id, false, $result->get_error_message() );
 		}
-		self::redirect_with_notice( $draft_id, true, __( 'Reanalysis queued. This post will not be updated in search until the results are reviewed and approved.', 'ehrman-blog-discovery' ) );
+		self::redirect_with_notice( $draft_id, true, __( 'Metadata generation finished. Review the results before approving.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles a vector-generation retry. */
@@ -198,35 +201,28 @@ final class Post_Ingestion_Page {
 			'history_url'      => self::page_url(),
 			'refresh_url'      => self::page_url( $draft_id ),
 			'approved'         => self::approved_view( $proposal ),
-			'review'           => ! $active && 'approved' !== $status && ! empty( $proposal ) ? self::review_view( $service, $draft, $proposal ) : null,
+			'review'           => ! $active && 'approved' !== $status && ! empty( $proposal ) ? self::review_view( $draft, $proposal ) : null,
 		);
 	}
 
 	/**
 	 * Prepares editable proposal fields and approval availability.
 	 *
-	 * @param Post_Ingestion_Service $service  Ingestion service.
-	 * @param array<string,mixed>    $draft    Draft record.
-	 * @param array<string,mixed>    $proposal Proposed enrichment.
+	 * @param array<string,mixed> $draft    Draft record.
+	 * @param array<string,mixed> $proposal Proposed enrichment.
 	 * @return array<string,mixed> Review display values.
 	 */
-	private static function review_view( Post_Ingestion_Service $service, array $draft, array $proposal ): array {
-		$vocabulary = $service->vocabulary();
-		$rationales = self::topic_rationale_list( $proposal['topicRationales'] ?? null );
+	private static function review_view( array $draft, array $proposal ): array {
 		return array(
 			'id'                     => Database::text( $draft['id'] ?? null ),
 			'revision'               => Post_Ingestion_Review_Workflow::revision( $draft ),
 			'action_id'              => Database::integer( $draft['id'] ?? null ),
 			'description'            => Database::text( $proposal['description'] ?? null ),
 			'summary'                => Database::text( $proposal['searchSummary'] ?? null ),
-			'vocabulary_topics'      => $vocabulary['topics'],
 			'topics'                 => self::string_list( $proposal['topics'] ?? null ),
-			'rationales'             => $rationales,
-			'rationales_json'        => (string) wp_json_encode( $rationales ),
-			'keywords'               => implode( "\n", self::string_list( $proposal['secondaryKeywords'] ?? null ) ),
-			'new_keywords'           => self::string_list( $proposal['newSecondaryKeywords'] ?? null ),
-			'status'                 => Database::text( $proposal['status'] ?? null ),
-			'notes'                  => implode( "\n", self::string_list( $proposal['reviewNotes'] ?? null ) ),
+			'keywords'               => array_merge( self::string_list( $proposal['secondaryKeywords'] ?? null ), self::string_list( $proposal['newSecondaryKeywords'] ?? null ) ),
+			'status'                 => Database::text( $draft['status'] ?? null ),
+			'warnings'               => self::string_list( $proposal['reviewNotes'] ?? null ),
 			'database_authoritative' => Post_Ingestion_Service::database_is_authoritative(),
 		);
 	}
@@ -327,27 +323,6 @@ final class Post_Ingestion_Page {
 		return $strings;
 	}
 
-	/**
-	 * Returns displayable topic-rationale records.
-	 *
-	 * @param mixed $value Candidate rationale records.
-	 * @return list<array{topic:string,rationale:string}> Rationale records.
-	 */
-	private static function topic_rationale_list( $value ): array {
-		$rationales = array();
-		foreach ( is_array( $value ) ? $value : array() as $item ) {
-			$row       = Database::associative_row( $item );
-			$topic     = Database::text( $row['topic'] ?? null );
-			$rationale = Database::text( $row['rationale'] ?? null );
-			if ( '' !== $topic && '' !== $rationale ) {
-				$rationales[] = array(
-					'topic'     => $topic,
-					'rationale' => $rationale,
-				);
-			}
-		}
-		return $rationales;
-	}
 
 	/**
 	 * Stores a notice and redirects back to the relevant page.

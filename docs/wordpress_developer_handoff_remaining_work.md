@@ -15,8 +15,8 @@ The plugin already provides:
 - Versioned, compressed vector export and transactional, idempotent import by WordPress post ID.
 - An administrator-only Post Ingestion workflow with AI analysis, review, approval, audit evidence, and vector generation.
 - A Search Metadata panel in the normal WordPress post editor with protected
-  endpoints, queued background analysis, status polling, duplicate protection,
-  stalled-job recovery, and a Tools-page fallback.
+  endpoints, foreground metadata generation, one approval for AI-selected topics
+  and keywords, duplicate protection, stalled-attempt recovery, and a Tools-page fallback.
 - A production-equivalent WordPress/MariaDB Docker environment and acceptance suite.
 
 ## Remaining Work
@@ -132,7 +132,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 
 ## Principal Missing Features
 
-The post-editor ingestion integration and recoverable background analysis are
+The post-editor ingestion integration and recoverable foreground analysis are
 complete. The largest remaining development item is automatic handling of the
 WordPress post lifecycle, followed by the MySQL source-of-truth transition.
 The other items consolidate the selected production experience and package and

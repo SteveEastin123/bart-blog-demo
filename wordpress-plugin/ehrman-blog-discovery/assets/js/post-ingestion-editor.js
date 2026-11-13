@@ -15,12 +15,10 @@
 	const Button = wp.components.Button;
 	const Notice = wp.components.Notice;
 	const Spinner = wp.components.Spinner;
-	const { CheckboxControl, FormTokenField, TextareaControl } = wp.components;
+	const { TextareaControl } = wp.components;
 	const PluginDocumentSettingPanel = wp.editor.PluginDocumentSettingPanel;
 	const registerPlugin = wp.plugins.registerPlugin;
 	const __ = wp.i18n.__;
-	const topics = ( config.topics || [] ).slice().sort( ( a, b ) => a.localeCompare( b ) );
-	const keywords = ( config.keywords || [] ).slice().sort( ( a, b ) => a.localeCompare( b ) );
 
 	function readableStatus( value ) {
 		if ( ! value ) {
@@ -62,7 +60,6 @@
 		const [ error, setError ] = useState( '' );
 		const [ fields, setFields ] = useState( null );
 		const [ revision, setRevision ] = useState( '' );
-		const [ approveNew, setApproveNew ] = useState( false );
 		const dirty = useRef( false );
 		const requestId = useRef( 0 );
 		const polling = useRef( false );
@@ -72,27 +69,22 @@
 			if ( ! dirty.current ) {
 				setFields( draft ? {
 					description: draft.description || '', search_summary: draft.searchSummary || '',
-					topics: draft.topics || [], secondary_keywords: draft.secondaryKeywords || [],
-					new_secondary_keywords: draft.newSecondaryKeywords || [],
-					review_notes: ( draft.reviewNotes || [] ).join( '\n' ), status: draft.status,
 				} : null );
 				setRevision( draft ? draft.revision : '' );
-				setApproveNew( false );
 			}
 		}, [ draft && draft.revision ] );
 
 		useEffect( function () {
 			function warn( event ) {
-				if ( dirty.current ) { event.preventDefault(); event.returnValue = ''; }
+				if ( dirty.current || busyAction ) { event.preventDefault(); event.returnValue = ''; }
 			}
 			window.addEventListener( 'beforeunload', warn );
 			return () => window.removeEventListener( 'beforeunload', warn );
-		}, [] );
+		}, [ busyAction ] );
 
 		function change( name, value ) {
 			dirty.current = true;
 			setFields( current => ( { ...current, [ name ]: value } ) );
-			if ( 'new_secondary_keywords' === name ) setApproveNew( false );
 		}
 
 		function load( silent ) {
@@ -161,7 +153,14 @@
 					}
 				} )
 				.catch( function ( requestError ) {
-					if ( ticket === requestId.current ) setError( requestError.message || __( 'The requested action could not be completed.', 'ehrman-blog-discovery' ) );
+					if ( ticket === requestId.current ) {
+						setError( requestError.message || __( 'The requested action could not be completed. Reload metadata to check its status before trying again.', 'ehrman-blog-discovery' ) );
+						if ( [ 'analyze', 'reanalyze' ].includes( action ) ) {
+							return apiFetch( { path: config.restBase + editor.postId } ).then( response => {
+								if ( ticket === requestId.current ) { dirty.current = false; setRecord( response ); }
+							} ).catch( () => {} );
+						}
+					}
 				} )
 				.finally( function () {
 					if ( ticket === requestId.current ) setBusyAction( '' );
@@ -169,10 +168,7 @@
 		}
 
 		function approve() {
-			perform( 'approve', { revision, approve_new_keywords: approveNew, proposal: {
-				...fields, secondary_keywords: fields.secondary_keywords.join( '\n' ),
-				new_secondary_keywords: fields.new_secondary_keywords.join( '\n' ),
-			} } );
+			perform( 'approve', { revision, proposal: fields } );
 		}
 
 		function reload() {
@@ -183,23 +179,18 @@
 			load( false );
 		}
 
-		function tokens( name, label, suggestions ) {
-			return el( FormTokenField, { label, value: fields[ name ], suggestions, disabled: !! busyAction,
-				__experimentalValidateInput: value => suggestions.includes( value ),
-				onChange: values => change( name, values.filter( value => suggestions.includes( value ) ) ),
-			} );
-		}
-
 		const savedPostRequired = editor.isDirty || editor.isSaving;
 		const publishRequired = 'publish' !== editor.postStatus;
 		const actionDisabled = !! busyAction || savedPostRequired || publishRequired;
 		const canAnalyze = record && ! draft;
 		const canReanalyze = record && record.configured && draft && 'approved' !== draft.status &&
-			( ! draft.analysisActive || draft.analysisStalled );
+			( ! draft.analysisActive || draft.analysisStalled || 'queued' === draft.status );
 		const needsReview = draft && ( 'ready' === draft.status || 'held' === draft.status );
 		const changedReview = needsReview && revision !== draft.revision;
-		const canApprove = needsReview && fields && 'ready' === fields.status && record.databaseAuthoritative &&
-			! record.sourceChanged && ! changedReview && ( ! fields.new_secondary_keywords.length || approveNew );
+		const canApprove = needsReview && fields && 'ready' === draft.status && record.databaseAuthoritative &&
+			! record.sourceChanged && ! changedReview;
+		const keywords = draft ? [ ...( draft.secondaryKeywords || [] ), ...( draft.newSecondaryKeywords || [] ) ] : [];
+		const generating = [ 'analyze', 'reanalyze' ].includes( busyAction );
 		const canRetry = draft && 'approved' === draft.status &&
 			'complete' !== draft.embeddingStatus && 'not_applicable' !== draft.embeddingStatus;
 
@@ -219,9 +210,9 @@
 				( draft && draft.analysisActive && ! draft.analysisStalled ) || [ 'analyze', 'reanalyze' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), __( 'Creating metadata...', 'ehrman-blog-discovery' ) ) : null,
 				[ 'approve', 'retry-embedding' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), 'approve' === busyAction ? __( 'Adding to search and creating vector...', 'ehrman-blog-discovery' ) : __( 'Creating vector...', 'ehrman-blog-discovery' ) ) : null,
 				draft && draft.analysisStalled ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Metadata creation stopped responding. Regenerate metadata to try again.', 'ehrman-blog-discovery' ) ) : null,
-				draft && 'ready' === draft.status ? el( 'p', { role: 'status' }, __( 'Metadata is ready for review.', 'ehrman-blog-discovery' ) ) : null,
+				draft && 'ready' === draft.status && ! generating ? el( 'p', { role: 'status' }, __( 'Metadata is ready for review.', 'ehrman-blog-discovery' ) ) : null,
 				draft && 'approved' === draft.status ? el( Notice, { status: 'success', isDismissible: false }, __( 'Added to Search', 'ehrman-blog-discovery' ) ) : null,
-				draft && 'held' === draft.status ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Search metadata requires review. Resolve the review notes and mark the proposal ready before approval.', 'ehrman-blog-discovery' ) ) : null,
+				draft && 'held' === draft.status ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Metadata could not be approved. Check the warnings below and regenerate metadata after correcting the post or vocabulary.', 'ehrman-blog-discovery' ), el( 'ul', null, ( draft.reviewNotes || [] ).map( ( note, index ) => el( 'li', { key: index }, note ) ) ) ) : null,
 				draft && 'approved' === draft.status ? el(
 					'dl',
 					{ className: 'ehrman-ingestion-editor__status' },
@@ -230,25 +221,17 @@
 				) : null,
 				draft && draft.errorMessage ? el( Notice, { status: 'error', isDismissible: false }, draft.errorMessage ) : null,
 				draft && draft.embeddingError ? el( Notice, { status: 'warning', isDismissible: false }, draft.embeddingError ) : null,
-				needsReview && fields ? el( 'fieldset', { className: 'ehrman-ingestion-editor__fields', disabled: !! busyAction },
+				needsReview && fields && ! generating ? el( 'fieldset', { className: 'ehrman-ingestion-editor__fields', disabled: !! busyAction },
 					el( TextareaControl, { label: __( 'Description', 'ehrman-blog-discovery' ), value: fields.description, rows: 4, onChange: value => change( 'description', value ) } ),
-					el( TextareaControl, { label: __( 'Search Summary', 'ehrman-blog-discovery' ), value: fields.search_summary, rows: 8, onChange: value => change( 'search_summary', value ) } ),
-					tokens( 'topics', __( 'Topics', 'ehrman-blog-discovery' ), topics ),
-					tokens( 'secondary_keywords', __( 'Secondary Keywords', 'ehrman-blog-discovery' ), keywords ),
-					( fields.new_secondary_keywords.length || draft.newSecondaryKeywords.length ) ? el( Fragment, null,
-						el( FormTokenField, { label: __( 'Proposed New Keywords', 'ehrman-blog-discovery' ), value: fields.new_secondary_keywords, disabled: !! busyAction, onChange: values => change( 'new_secondary_keywords', values ) } ),
-						fields.new_secondary_keywords.length ? el( CheckboxControl, { label: __( 'Approve these new keyword labels', 'ehrman-blog-discovery' ), checked: approveNew, onChange: setApproveNew } ) : null
-					) : null,
-					fields.review_notes || 'held' === draft.status ? el( TextareaControl, { label: __( 'Review Notes and Warnings', 'ehrman-blog-discovery' ), value: fields.review_notes, rows: 5, onChange: value => change( 'review_notes', value ) } ) : null,
-					'held' === draft.status ? el( CheckboxControl, { label: __( 'Review issues resolved; metadata is ready', 'ehrman-blog-discovery' ), checked: 'ready' === fields.status, onChange: checked => change( 'status', checked ? 'ready' : 'held' ) } ) : null
+					el( TextareaControl, { label: __( 'Summary', 'ehrman-blog-discovery' ), value: fields.search_summary, rows: 8, onChange: value => change( 'search_summary', value ) } ),
+					el( Detail, { label: __( 'Topics', 'ehrman-blog-discovery' ), value: draft.topics } ),
+					el( Detail, { label: __( 'Keywords', 'ehrman-blog-discovery' ), value: keywords } )
 				) : null,
 				! needsReview ? el( Fragment, null,
 				el( Detail, { label: __( 'Description', 'ehrman-blog-discovery' ), value: draft && draft.description } ),
-				el( Detail, { label: __( 'Search summary', 'ehrman-blog-discovery' ), value: draft && draft.searchSummary } ),
+				el( Detail, { label: __( 'Summary', 'ehrman-blog-discovery' ), value: draft && draft.searchSummary } ),
 				el( Detail, { label: __( 'Topics', 'ehrman-blog-discovery' ), value: draft && draft.topics } ),
-				el( Detail, { label: __( 'Secondary keywords', 'ehrman-blog-discovery' ), value: draft && draft.secondaryKeywords } ),
-				el( Detail, { label: __( 'New secondary keywords', 'ehrman-blog-discovery' ), value: draft && draft.newSecondaryKeywords } ),
-				el( Detail, { label: __( 'Review notes', 'ehrman-blog-discovery' ), value: draft && draft.reviewNotes } ),
+				el( Detail, { label: __( 'Keywords', 'ehrman-blog-discovery' ), value: keywords } ),
 				) : null,
 				el(
 					'div',
@@ -258,7 +241,7 @@
 						disabled: actionDisabled || ! record.configured,
 						onClick: function () { perform( 'analyze' ); },
 					}, __( 'Create Metadata', 'ehrman-blog-discovery' ) ) : null,
-					needsReview ? el( Button, { variant: 'primary', disabled: actionDisabled || ! canApprove, onClick: approve }, __( 'Approve and Add to Search', 'ehrman-blog-discovery' ) ) : null,
+					needsReview && ! generating ? el( Button, { variant: 'primary', disabled: actionDisabled || ! canApprove, onClick: approve }, __( 'Approve and Add to Search', 'ehrman-blog-discovery' ) ) : null,
 					canReanalyze ? el( Button, {
 						variant: 'secondary',
 						disabled: actionDisabled,

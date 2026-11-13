@@ -652,20 +652,44 @@ try {
 	$editor_taxonomy      = $ingestion_store->vocabulary();
 	$editor_taxonomy_json = wp_json_encode( $editor_taxonomy );
 	$assert( is_string( $editor_taxonomy_json ), 'The editor-ingestion taxonomy fixture could not be encoded.' );
-	$queued_response = Post_Ingestion_REST_Controller::analyze( $editor_request );
-	$assert( $queued_response instanceof WP_REST_Response, 'The editor did not return a REST response after queueing analysis.' );
-	$assert_same( 202, $queued_response->get_status(), 'The editor did not identify queued analysis as an accepted background request.' );
-	$queued_data      = $queued_response->get_data();
-	$editor_draft_id = is_array( $queued_data ) && is_array( $queued_data['draft'] ?? null ) ? (int) $queued_data['draft']['id'] : 0;
-	$assert( $editor_draft_id > 0, 'The editor did not return the queued ingestion draft.' );
-	$assert_same( 'queued', $queued_data['draft']['status'], 'The editor ran analysis inside the REST request instead of queueing it.' );
-	$assert_same( true, $queued_data['draft']['analysisActive'], 'The editor did not identify queued analysis as active.' );
-	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The queued ingestion draft did not receive a worker event.' );
-	Post_Ingestion_Queue::cancel( $editor_draft_id );
-	$assert_same( false, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The ingestion worker event could not be cancelled for recovery testing.' );
+	$generation_calls = 0;
+	$generation_fail = true;
+	$generated_proposal = $proposal;
+	$generated_proposal['topicRationales'] = array( array( 'topic' => $proposal['topics'][0], 'rationale' => 'This subject is central throughout the complete post.' ) );
+	$mock_generation = static function ( $preempt, $args, $url ) use ( &$generation_calls, &$generation_fail, $generated_proposal, $assert_same ) {
+		++$generation_calls;
+		$assert_same( 'https://api.openai.com/v1/responses', $url, 'Generation unexpectedly requested a vector before approval.' );
+		if ( $generation_fail ) return new WP_Error( 'test_timeout', 'Simulated request timeout.' );
+		return array( 'response' => array( 'code' => 200 ), 'body' => wp_json_encode( array(
+			'id' => 'foreground-regression', 'status' => 'completed', 'output_text' => wp_json_encode( $generated_proposal ),
+			'usage' => array( 'input_tokens' => 10, 'output_tokens' => 10 ),
+		) ) );
+	};
+	add_filter( 'pre_http_request', $mock_generation, 10, 3 );
+	try {
+		$failed = Post_Ingestion_REST_Controller::analyze( $editor_request );
+		$assert( is_wp_error( $failed ), 'A failed foreground request appeared successful.' );
+		$assert_same( 'ehrman_ingestion_unavailable', $failed->get_error_code(), 'Timeout response changed.' );
+		$failed_draft = $ingestion->latest_for_post( $editor_post_id );
+		$editor_draft_id = (int) $failed_draft['id'];
+		$assert_same( 'error', $failed_draft['status'], 'Timeout did not leave a retryable record.' );
+		$generation_fail = false;
+		$completed = Post_Ingestion_REST_Controller::reanalyze( $editor_request );
+		$assert( $completed instanceof WP_REST_Response, is_wp_error( $completed ) ? $completed->get_error_message() : 'Generation failed.' );
+		$assert_same( 200, $completed->get_status(), 'Generation returned before completion.' );
+		$assert_same( 'ready', $completed->get_data()['draft']['status'], 'Finished metadata was not returned for approval.' );
+		$assert_same( false, $completed->get_data()['draft']['analysisActive'], 'Finished metadata still appears active.' );
+		$assert_same( 'not_requested', $completed->get_data()['draft']['embeddingStatus'], 'Vector ran before approval.' );
+		$assert_same( 2, $generation_calls, 'Unexpected generation requests.' );
+		$assert_same( false, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'Foreground generation scheduled background work.' );
+	} finally {
+		remove_filter( 'pre_http_request', $mock_generation, 10 );
+	}
+	// Preserve coverage of legacy leases and stale-worker fencing.
+	$wpdb->update( $tables['ingestion_drafts'], array( 'status' => 'queued', 'analysis_attempt' => 0 ), array( 'id' => $editor_draft_id ) );
 	$recovered_response = Post_Ingestion_REST_Controller::status( $editor_request );
-	$assert( $recovered_response instanceof WP_REST_Response, 'The editor status endpoint did not return a REST response while repairing the queue.' );
-	$assert( false !== wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'The editor status endpoint did not repair a missing queued worker event.' );
+	$assert( $recovered_response instanceof WP_REST_Response, 'The status endpoint did not return a response.' );
+	$assert_same( false, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $editor_draft_id ) ), 'Reading status scheduled background work.' );
 	$assert_same( 'no-store', $recovered_response->get_headers()['Cache-Control'] ?? '', 'The editor workflow response may be cached.' );
 	$duplicate_pending = $ingestion->analyze(
 		array(
@@ -762,6 +786,7 @@ try {
 		$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $editor_draft_id ) );
 	}
 	if ( $editor_post_id > 0 ) {
+		$wpdb->delete( $tables['ai_usage'], array( 'post_id' => $editor_post_id ) );
 		wp_delete_post( $editor_post_id, true );
 	}
 	if ( $editor_user_id > 0 ) {

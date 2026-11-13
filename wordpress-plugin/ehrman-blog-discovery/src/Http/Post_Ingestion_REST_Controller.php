@@ -80,9 +80,6 @@ final class Post_Ingestion_REST_Controller {
 			return $post;
 		}
 		$draft = ( new Post_Ingestion_Service() )->latest_for_post( $post->ID );
-		if ( null !== $draft && 'queued' === sanitize_key( Database::text( $draft['status'] ?? null ) ) ) {
-			Post_Ingestion_Queue::schedule( Database::integer( $draft['id'] ?? null ) );
-		}
 		return self::response( $post, $draft );
 	}
 
@@ -116,7 +113,7 @@ final class Post_Ingestion_REST_Controller {
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
 		}
-		return self::response( $post, $result, 202 );
+		return self::response( get_post( $post->ID ) ?? $post, $result );
 	}
 
 	/**
@@ -141,14 +138,14 @@ final class Post_Ingestion_REST_Controller {
 		if ( null === $draft ) {
 			return self::missing_record();
 		}
-		if ( Post_Ingestion_Service::analysis_is_active( $draft ) && ! Post_Ingestion_Service::analysis_is_stale( $draft ) ) {
-			return self::service_error( new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Analysis is already queued or running in the background.', 'ehrman-blog-discovery' ) ) );
+		if ( 'analyzing' === $draft['status'] && ! Post_Ingestion_Service::analysis_is_stale( $draft ) ) {
+			return self::service_error( new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Metadata generation is already running.', 'ehrman-blog-discovery' ) ) );
 		}
 		$result = $service->reanalyze( Database::integer( $draft['id'] ?? null ) );
 		if ( is_wp_error( $result ) ) {
 			return self::service_error( $result );
 		}
-		return self::response( $post, $result, 202 );
+		return self::response( get_post( $post->ID ) ?? $post, $result );
 	}
 
 	/**
@@ -179,12 +176,11 @@ final class Post_Ingestion_REST_Controller {
 			if ( null === $input ) {
 				return new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Reviewed metadata must be an object.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 			}
-			$proposal                       = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
-			$input['topic_rationales_json'] = wp_json_encode( $proposal['topicRationales'] ?? array() );
+			$input = Post_Ingestion_Review_Workflow::review_input( $draft, $input );
 		}
 		$result = $service->approve(
 			Database::integer( $draft['id'] ?? null ),
-			rest_sanitize_boolean( Database::text( $request->get_param( 'approve_new_keywords' ) ) ),
+			true,
 			$input,
 			null !== $input ? Database::text( $request->get_param( 'revision' ) ) : null
 		);

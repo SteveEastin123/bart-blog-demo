@@ -100,7 +100,7 @@ final class Post_Ingestion_Analysis_Worker {
 				return $this->repository->draft( $draft_id );
 			}
 		} catch ( Throwable $error ) {
-			$message = __( 'Background analysis stopped unexpectedly. Retry the analysis.', 'ehrman-blog-discovery' );
+			$message = __( 'Metadata generation stopped unexpectedly. Regenerate the metadata to try again.', 'ehrman-blog-discovery' );
 			$this->repository->mark_analysis_error( $draft_id, $message, $attempt );
 			return new WP_Error( 'ehrman_ingestion_analysis_failed', $message, $error->getMessage() );
 		}

@@ -32,7 +32,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
   };
   let record = { postId, postStatus: 'draft', configured: true, databaseAuthoritative: true, sourceChanged: false,
     reviewUrl: base + '/wp-admin/tools.php?page=ehrman-post-ingestion', draft: null };
-  let finishAnalysis = false;
+  let finishAnalysis;
+  let analysisDelay = 500;
   let failure = null;
   let approveDelay = 0;
   const actions = [];
@@ -48,17 +49,19 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
         await route.fulfill({ status: response.status, json: { code: 'test_failure', message: response.message } });
         return;
       }
-      if (action === 'analyze' || action === 'reanalyze') record.draft = { ...original, revision: 'queued', status: 'queued', analysisActive: true };
+      if (action === 'analyze' || action === 'reanalyze') {
+        if (action === 'analyze') await new Promise(resolve => { finishAnalysis = resolve; });
+        else await new Promise(resolve => setTimeout(resolve, analysisDelay));
+        record.draft = { ...original, revision: action === 'reanalyze' ? 'ready-regenerated' : original.revision };
+      }
       if (action === 'approve') {
         approvalBody = request.postDataJSON();
         await new Promise(resolve => setTimeout(resolve, approveDelay));
         record.draft = { ...original, revision: 'approved', status: 'approved', embeddingStatus: 'complete',
           description: approvalBody.proposal.description, searchSummary: approvalBody.proposal.search_summary,
-          topics: approvalBody.proposal.topics };
+          topics: original.topics };
       }
       if (action === 'retry-embedding') record.draft = { ...record.draft, revision: 'retried', embeddingStatus: 'complete', embeddingError: '' };
-    } else if (finishAnalysis && record.draft?.analysisActive) {
-      record.draft = { ...original };
     }
     await route.fulfill({ status: request.method() === 'POST' && record.draft?.analysisActive ? 202 : 200, json: record });
   });
@@ -120,13 +123,16 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await button('Create Metadata').click();
     await panel.getByText('Creating metadata...', { exact: true }).waitFor();
     await shot('creating-desktop');
-    finishAnalysis = true;
+    assert(await button('Create Metadata').isDisabled());
+    assert.equal(await button('Approve and Add to Search').count(), 0, 'Approval appeared before generation finished');
+    assert.deepEqual(actions, ['analyze']);
+    finishAnalysis();
     await panel.getByLabel('Description', { exact: true }).waitFor();
     await panel.getByLabel('Description', { exact: true }).fill('Explains the publisher revised description.');
-    await panel.getByLabel('Search Summary', { exact: true }).fill('Explores the publisher revised summary.');
-    const topicInput = panel.getByRole('combobox', { name: 'Topics', exact: true });
-    await topicInput.fill(topicNames[1]);
-    await topicInput.press('Enter');
+    await panel.getByLabel('Summary', { exact: true }).fill('Explores the publisher revised summary.');
+    assert.equal(await panel.getByRole('combobox').count(), 0, 'Manual taxonomy picker is still present');
+    assert.equal(await panel.getByLabel('Review Notes and Warnings').count(), 0);
+    assert(await panel.getByText(topicNames[0], { exact: true }).isVisible());
     await shot('review-desktop');
     failure = { status: 400, message: 'Please correct the description.' };
     await button('Approve and Add to Search').click();
@@ -137,7 +143,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await panel.getByText('Adding to search and creating vector...', { exact: true }).waitFor();
     assert(await button('Approve and Add to Search').isDisabled());
     await panel.getByText('Added to Search', { exact: true }).waitFor();
-    assert(approvalBody.proposal.topics.includes(topicNames[1]));
+    assert.equal(approvalBody.proposal.topics, undefined, 'Client submitted mutable AI selections');
     assert.equal(approvalBody.revision, 'ready-1');
     assert.equal(approvalBody.proposal.description, 'Explains the publisher revised description.');
     assert.equal(approvalBody.proposal.search_summary, 'Explores the publisher revised summary.');
@@ -146,10 +152,11 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
 
     record.draft = { ...original, newSecondaryKeywords: ['New Keyword Fixture'], reviewNotes: ['Confirm this new label.'] };
     await reloadState();
-    assert(await button('Approve and Add to Search').isDisabled());
-    await panel.getByLabel('Approve these new keyword labels', { exact: true }).check();
     assert(await button('Approve and Add to Search').isEnabled());
-    await shot('new-keyword-approval');
+    assert.equal(await panel.getByRole('checkbox').count(), 0);
+    assert.equal(await panel.getByText('Proposed New Keywords', { exact: true }).count(), 0);
+    assert(await panel.getByText('New Keyword Fixture', { exact: true }).isVisible());
+    await shot('combined-keywords');
 
     record.databaseAuthoritative = false;
     record.draft = { ...original };
@@ -164,8 +171,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     record.draft = { ...original, status: 'held', reviewNotes: ['Select a suitable topic.'] };
     await reloadState();
     assert(await button('Approve and Add to Search').isDisabled());
-    await panel.getByLabel('Review issues resolved; metadata is ready', { exact: true }).check();
-    assert(await button('Approve and Add to Search').isEnabled());
+    assert.equal(await panel.getByRole('checkbox').count(), 0);
+    assert(await panel.getByText('Select a suitable topic.', { exact: true }).isVisible());
     await shot('held-review');
 
     record.draft = { ...original };
@@ -179,8 +186,10 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     acceptDialog = true;
     await button('Regenerate Metadata').click();
     await panel.getByText('Creating metadata...', { exact: true }).waitFor();
+    assert.equal(await button('Approve and Add to Search').count(), 0);
     await panel.getByLabel('Description', { exact: true }).waitFor();
     assert.equal(actions.at(-1), 'reanalyze');
+    await page.waitForFunction(expected => document.querySelector('.ehrman-ingestion-editor textarea')?.value === expected, original.description);
     assert.equal(await panel.getByLabel('Description', { exact: true }).inputValue(), original.description);
 
     await panel.getByLabel('Description', { exact: true }).fill('Preserve this edit when the review becomes stale.');

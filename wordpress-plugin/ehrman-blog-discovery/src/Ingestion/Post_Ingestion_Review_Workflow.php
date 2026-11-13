@@ -188,6 +188,27 @@ final class Post_Ingestion_Review_Workflow {
 	}
 
 	/**
+	 * Allows text edits while retaining the AI selections and validation state.
+	 *
+	 * @param array<string,mixed> $draft Stored proposal being reviewed.
+	 * @param array<string,mixed> $input Submitted description and summary.
+	 * @return array<string,mixed> Complete review input for the validator.
+	 */
+	public static function review_input( array $draft, array $input ): array {
+		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
+		return array(
+			'description'            => $input['description'] ?? $proposal['description'] ?? '',
+			'search_summary'         => $input['search_summary'] ?? $proposal['searchSummary'] ?? '',
+			'topics'                 => $proposal['topics'] ?? array(),
+			'secondary_keywords'     => implode( "\n", Database::strings( $proposal['secondaryKeywords'] ?? array() ) ),
+			'new_secondary_keywords' => implode( "\n", Database::strings( $proposal['newSecondaryKeywords'] ?? array() ) ),
+			'topic_rationales_json'  => wp_json_encode( $proposal['topicRationales'] ?? array() ),
+			'review_notes'           => implode( "\n", Database::strings( $proposal['reviewNotes'] ?? array() ) ),
+			'status'                 => $draft['status'] ?? 'held',
+		);
+	}
+
+	/**
 	 * Applies the same source and proposal checks to every review interface.
 	 *
 	 * @param int         $draft_id Stored ingestion identifier.

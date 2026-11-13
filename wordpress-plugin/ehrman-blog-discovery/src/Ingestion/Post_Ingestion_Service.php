@@ -132,7 +132,7 @@ final class Post_Ingestion_Service {
 	}
 
 	/**
-	 * Validates post metadata, stores a pending draft, and queues its analysis.
+	 * Validates post metadata and waits for its analysis before returning.
 	 *
 	 * @param array<string,mixed> $input   Submitted metadata and full text.
 	 * @param int                 $user_id Administrator user identifier.
@@ -167,11 +167,11 @@ final class Post_Ingestion_Service {
 			return $draft_id;
 		}
 
-		return $this->schedule_draft( $draft_id );
+		return $this->analyze_draft( $draft_id );
 	}
 
 	/**
-	 * Queues a stored draft after a temporary failure or requested revision.
+	 * Analyzes a stored draft after a temporary failure or requested revision.
 	 *
 	 * @param int $draft_id Draft identifier.
 	 * @return array<string,mixed>|WP_Error Updated draft or error.
@@ -195,11 +195,8 @@ final class Post_Ingestion_Service {
 			return new WP_Error( 'ehrman_ingestion_missing_text', __( 'The draft no longer contains full post text.', 'ehrman-blog-discovery' ) );
 		}
 		$status = sanitize_key( Database::text( $draft['status'] ?? null ) );
-		if ( self::STATUS_QUEUED === $status ) {
-			return $this->schedule_draft( $draft_id );
-		}
 		if ( self::STATUS_ANALYZING === $status && ! self::analysis_is_stale( $draft ) ) {
-			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Analysis is already running in the background.', 'ehrman-blog-discovery' ) );
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Metadata generation is already running.', 'ehrman-blog-discovery' ) );
 		}
 		if ( null !== $post ) {
 			$validated = $this->validator->validate_submission( Post_Ingestion_Post_Source::input( $post ) );
@@ -220,7 +217,7 @@ final class Post_Ingestion_Service {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The ingestion draft could not be queued for analysis.', 'ehrman-blog-discovery' ) );
 		}
 		Post_Ingestion_Queue::cancel( $draft_id );
-		return $this->schedule_draft( $draft_id );
+		return $this->analyze_draft( $draft_id );
 	}
 
 	/**
@@ -372,20 +369,16 @@ final class Post_Ingestion_Service {
 	}
 
 	/**
-	 * Schedules a stored draft and returns its current state.
+	 * Runs analysis in this request; legacy queued jobs use the same atomic claim.
 	 *
 	 * @param int $draft_id Draft identifier.
-	 * @return array<string,mixed>|WP_Error Queued draft or scheduling error.
+	 * @return array<string,mixed>|WP_Error Completed draft or analysis error.
 	 */
-	private function schedule_draft( int $draft_id ) {
-		$scheduled = Post_Ingestion_Queue::schedule( $draft_id );
-		if ( is_wp_error( $scheduled ) ) {
-			$this->repository->mark_analysis_error( $draft_id, $scheduled->get_error_message() );
-			return $scheduled;
-		}
-		$stored = $this->draft( $draft_id );
-		return null === $stored
-			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The queued draft could not be reloaded.', 'ehrman-blog-discovery' ) )
-			: $stored;
+	private function analyze_draft( int $draft_id ) {
+		Post_Ingestion_Queue::cancel( $draft_id );
+		$result = $this->analysis_worker->process_queued( $draft_id );
+		return null === $result
+			? new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Metadata generation is already running. Reload the metadata to check its status.', 'ehrman-blog-discovery' ) )
+			: $result;
 	}
 }

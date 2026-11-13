@@ -124,9 +124,9 @@ try {
 	};
 	$update_page_draft( array( 'proposal_json' => wp_json_encode( $proposal ), 'model' => 'test-model', 'input_tokens' => 1234, 'output_tokens' => 56, 'estimated_cost_usd' => 0.0123 ) );
 	$html = $page_render( $id );
-	$page_check_forms( $page_dom( $html ), array() );
+	$page_check_forms( $page_dom( $html ), array( 'ehrman_ingestion_reanalyze' ) );
 	$assert_same( Post_Ingestion_Page::page_url(), $page_dom( $html )->evaluate( 'string(//a[contains(., "Search Metadata")]/@href)' ), 'Draft lost its worklist return link.' );
-	$assert( str_contains( $html, 'Refresh status' ) && ! str_contains( $html, 'Review proposal' ), 'Queued analysis exposed proposal controls.' );
+	$assert( str_contains( $html, 'Retry analysis' ) && ! str_contains( $html, 'Review metadata' ), 'Legacy queued analysis lost its retry control.' );
 	$assert( str_contains( $html, '1,234 input tokens, 56 output tokens, approximately $0.0123' ), 'Analysis usage formatting changed.' );
 	$update_page_draft( array( 'status' => 'analyzing', 'analysis_started_at' => current_time( 'mysql', true ) ) );
 	$assert( str_contains( $page_render( $id ), 'Refresh status' ), 'Running analysis lost its refresh link.' );
@@ -144,24 +144,23 @@ try {
 		$assert_same( 0, $dom->query( '//img|//script|//*[@onerror]' )->length, 'Proposal text became executable markup.' );
 		$assert_same( $proposal['description'], $dom->evaluate( 'string(//textarea[@name="description"])' ), 'Description did not round-trip safely.' );
 		$assert_same( $proposal['searchSummary'], $dom->evaluate( 'string(//textarea[@name="search_summary"])' ), 'Summary did not round-trip safely.' );
-		$assert_same( implode( "\n", $proposal['secondaryKeywords'] ), $dom->evaluate( 'string(//textarea[@name="secondary_keywords"])' ), 'Existing keyword lines changed.' );
-		$assert_same( implode( "\n", $proposal['newSecondaryKeywords'] ), $dom->evaluate( 'string(//textarea[@name="new_secondary_keywords"])' ), 'New keyword lines changed.' );
-		$assert_same( $proposal['topicRationales'], json_decode( $dom->evaluate( 'string(//input[@name="topic_rationales_json"]/@value)' ), true ), 'Rationale evidence was not preserved.' );
-		$assert_same( $topic_name, $dom->evaluate( 'string(//select[@name="topics[]"]/option[@selected]/@value)' ), 'Selected topic changed.' );
-		$assert_same( $status, $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Selected decision changed.' );
+		$assert_same( implode( ', ', array_merge( $proposal['secondaryKeywords'], $proposal['newSecondaryKeywords'] ) ), $dom->evaluate( 'string(//tr[th="Keywords"]/td)' ), 'Combined keywords changed.' );
+		$assert_same( $topic_name, $dom->evaluate( 'string(//tr[th="Topics"]/td)' ), 'AI-selected topic changed.' );
+		$assert_same( 'Summary', $dom->evaluate( 'string(//label[@for="search_summary"])' ), 'Summary label changed.' );
+		$assert_same( 0, $dom->query( '//select|//textarea[@name="review_notes"]|//textarea[@name="new_secondary_keywords"]' )->length, 'Removed manual controls remain.' );
 		$assert_same( 1, $dom->query( '//button[@value="approve"][@disabled]' )->length, 'JSON-authoritative approval should be disabled.' );
-		$assert_same( 1, $dom->query( '//input[@name="approve_new_keywords"]' )->length, 'New keywords lost explicit approval.' );
+		$assert_same( 0, $dom->query( '//input[@name="approve_new_keywords"]' )->length, 'Separate keyword approval remains.' );
 		$assert_same( (string) $id, $dom->evaluate( 'string(//input[@name="draft_id"]/@value)' ), 'Form draft identifier changed.' );
 		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $dom->evaluate( 'string(//input[@name="revision"]/@value)' ), 'History review lost its proposal revision.' );
 		$assert( str_contains( $dom->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/@onsubmit)' ), 'window.confirm(' ), 'Discard confirmation is missing.' );
-		$label = 'ready' === $status ? 'Search metadata is ready for review.' : 'Search metadata requires review.';
+		$label = 'ready' === $status ? 'Search metadata is ready for review.' : 'Metadata cannot be approved yet.';
 		$assert( str_contains( $html, $label ), 'Missing review-state notice.' );
 	}
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
 	putenv( 'OPENAI_API_KEY=render-test-only' );
 	$proposal['newSecondaryKeywords'] = array();
 	$proposal['topicRationales'] = array();
-	$update_page_draft( array( 'proposal_json' => wp_json_encode( $proposal ) ) );
+	$update_page_draft( array( 'status' => 'ready', 'proposal_json' => wp_json_encode( $proposal ) ) );
 	$dom = $page_dom( $page_render( $id ) );
 	$assert_same( 0, $dom->query( '//button[@value="approve"][@disabled]|//input[@name="approve_new_keywords"]|//ul[@class="ehrman-ingestion__rationales"]' )->length, 'Approval or optional fields changed in database-authoritative mode.' );
 	$dom = $page_dom( $page_render() );
@@ -246,35 +245,39 @@ try {
 			$assert_same( $pending, $repository->draft( $native_draft ), 'Revision rejection changed stored metadata.' );
 		}
 	}
-	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'approve', 'new_secondary_keywords' => 'History Fixture New Keyword', 'review_notes' => 'Requires explicit publisher consent.' ) ) );
-	$assert_same( false, $notice['success'], 'History bypassed explicit new-keyword consent.' );
-	$assert_same( $pending, $repository->draft( $native_draft ), 'Failed approval saved unapproved revisions.' );
-	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'save', 'review_notes' => 'Reviewed through Metadata History.' ) ) );
+	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array(
+		'ingestion_intent' => 'save',
+		'description' => 'Explains how updated metadata enters the search index only after an administrator approves the proposed topics and supporting keywords.',
+		'topics' => array( 'Injected topic' ), 'new_secondary_keywords' => 'Injected keyword', 'review_notes' => 'Injected note',
+	) ) );
+	$saved_proposal = json_decode( $repository->draft( $native_draft )['proposal_json'], true );
+	$assert_same( $valid_proposal['topics'], $saved_proposal['topics'], 'History allowed overriding AI topics.' );
+	$assert_same( array(), $saved_proposal['newSecondaryKeywords'], 'History allowed injecting new keywords.' );
 	$assert_same( true, $notice['success'], 'Valid history revisions could not be saved.' );
 	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'approve' ) ) );
 	$assert_same( false, $notice['success'], 'An old history form replaced newly saved revisions.' );
 	wp_update_post( array( 'ID' => $native, 'post_title' => 'Current saved title', 'post_content' => 'Current saved content used by the next metadata run.' ) );
 	$notice = $send_action( 'ehrman_ingestion_reanalyze', array( 'draft_id' => $native_draft ) );
-	$assert_same( true, $notice['success'], 'History could not queue fresh analysis.' );
+	$assert_same( false, $notice['success'], 'Failed foreground generation was reported as successful.' );
 	$refreshed = $repository->draft( $native_draft );
-	$assert_same( 'queued', $refreshed['status'], 'History retry was not queued.' );
+	$assert_same( 'error', $refreshed['status'], 'Failed foreground generation was not retained for retry.' );
 	$assert_same( 'Current saved title', $refreshed['title'], 'History retried the old title.' );
 	$assert_same( false, Post_Ingestion_Post_Source::source_changed( get_post( $native ), $refreshed ), 'History retried an old source snapshot.' );
 	$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['external_posts'], $native ) ), 'Rejected history approval changed the live index.' );
-	$assert_same( 0, $page_http_calls, 'History rendering or rejected actions attempted an API call.' );
+	$assert_same( 1, $page_http_calls, 'Regeneration did not run once in the foreground.' );
 	// Start from a native published post without accepting submitted text or metadata.
 	$new_post = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'Worklist create metadata fixture', 'post_content' => 'Saved article content used by the protected worklist generation action.', 'post_author' => $page_admin ), true );
 	$assert( ! is_wp_error( $new_post ), 'Could not create worklist generation fixture.' );
 	$notice = $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post, 'post_text' => 'UNTRUSTED OVERRIDE' ) );
-	$assert_same( true, $notice['success'], 'Worklist could not start metadata generation.' );
+	$assert_same( false, $notice['success'], 'Worklist did not return the generation failure.' );
 	$created = $repository->latest_for_source_wp_id( $new_post );
-	$assert_same( 'queued', $created['status'], 'Worklist generation was not queued.' );
+	$assert_same( 'error', $created['status'], 'Worklist did not wait for generation.' );
 	$assert_same( $new_post, (int) $created['wordpress_post_id'], 'Worklist lost native-post ownership.' );
 	$assert_same( false, str_contains( $created['post_text'], 'UNTRUSTED' ), 'Worklist accepted submitted post content.' );
 	$assert_same( false, $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post ) )['success'], 'Repeated Create Metadata queued duplicate work.' );
 	wp_update_post( array( 'ID' => $new_post, 'post_status' => 'draft' ) );
 	$assert_same( false, $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post ) )['success'], 'Worklist accepted an unpublished post.' );
-	$assert_same( 0, $page_http_calls, 'Worklist made a foreground API request.' );
+	$assert_same( 2, $page_http_calls, 'Worklist must run one foreground request, without duplicating it.' );
 } finally {
 	$wpdb->query( 'ROLLBACK' );
 	wp_cache_flush();
