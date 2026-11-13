@@ -18,6 +18,7 @@ final class Post_Ingestion_Page {
 	/** Registers administration hooks. */
 	public static function register(): void {
 		add_action( 'admin_menu', array( self::class, 'add_page' ) );
+		add_action( 'admin_post_ehrman_ingestion_create_metadata', array( self::class, 'handle_create_metadata' ) );
 		add_action( 'admin_post_ehrman_ingestion_proposal', array( self::class, 'handle_proposal' ) );
 		add_action( 'admin_post_ehrman_ingestion_reanalyze', array( self::class, 'handle_reanalyze' ) );
 		add_action( 'admin_post_ehrman_ingestion_retry_embedding', array( self::class, 'handle_retry_embedding' ) );
@@ -27,8 +28,8 @@ final class Post_Ingestion_Page {
 	/** Adds the page beneath WordPress Tools. */
 	public static function add_page(): void {
 		add_management_page(
-			__( 'Metadata History', 'ehrman-blog-discovery' ),
-			Post_Ingestion_Admin_Status::menu_title( __( 'Metadata History', 'ehrman-blog-discovery' ) ),
+			__( 'Search Metadata', 'ehrman-blog-discovery' ),
+			Post_Ingestion_Admin_Status::menu_title( __( 'Search Metadata', 'ehrman-blog-discovery' ) ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( self::class, 'render' )
@@ -44,7 +45,12 @@ final class Post_Ingestion_Page {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Read-only navigation; Database::text normalizes the value before absint validates it.
 		$draft_id = isset( $_GET['draft'] ) ? absint( Database::text( wp_unslash( $_GET['draft'] ) ) ) : 0;
 		$draft    = $draft_id > 0 ? $service->draft( $draft_id ) : null;
-		$notice   = get_transient( self::notice_key() );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Read-only filters are normalized by the worklist before query/display.
+		$input      = Database::associative_row( wp_unslash( $_GET ) ) ?? array();
+		$worklist   = new Post_Ingestion_Worklist();
+		$indexed_id = absint( Database::text( $input['indexed'] ?? null ) );
+		$indexed    = $indexed_id > 0 ? $worklist->indexed_post( $indexed_id ) : null;
+		$notice     = get_transient( self::notice_key() );
 		if ( false !== $notice ) {
 			delete_transient( self::notice_key() );
 		}
@@ -57,13 +63,38 @@ final class Post_Ingestion_Page {
 					'success' => ! empty( $notice['success'] ),
 					'message' => Database::text( $notice['message'] ?? null ),
 				) : null,
-				'missing_draft'          => null === $draft && $draft_id > 0,
+				'missing_draft'          => ( null === $draft && $draft_id > 0 ) || ( null === $indexed && $indexed_id > 0 ),
 				'draft'                  => null !== $draft ? self::draft_view( $service, $draft ) : null,
-				'history'                => null === $draft ? self::history_rows( $service->drafts() ) : array(),
+				'indexed'                => $indexed,
+				'worklist'               => null === $draft && null === $indexed ? self::worklist_view( $worklist->page( $input ) ) : null,
 			)
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted templates escape values at their output boundaries.
 		echo $html;
+	}
+
+	/** Generates metadata only for an explicitly selected, editable, published native post. */
+	public static function handle_create_metadata(): void {
+		self::authorize( 'ehrman_ingestion_create_metadata' );
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce checked above; absint validates the trusted identifier, never submitted post content.
+		$post_id = isset( $_POST['post_id'] ) ? absint( Database::text( wp_unslash( $_POST['post_id'] ) ) ) : 0;
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			wp_die( esc_html__( 'You are not allowed to manage search metadata for this post.', 'ehrman-blog-discovery' ), '', array( 'response' => 403 ) );
+		}
+		$post = Post_Ingestion_Post_Source::published_post( array( 'wordpress_post_id' => $post_id ) );
+		if ( is_wp_error( $post ) || null === $post ) {
+			self::redirect_with_notice( 0, false, __( 'Publish the post before creating search metadata.', 'ehrman-blog-discovery' ) );
+		}
+		$service  = new Post_Ingestion_Service();
+		$existing = $service->latest_for_post( $post_id );
+		if ( null !== $existing || ( new Post_Ingestion_Worklist() )->is_indexed( $post_id ) ) {
+			self::redirect_with_notice( 0, false, __( 'This post already has metadata or a generation record. Refresh the list before continuing.', 'ehrman-blog-discovery' ) );
+		}
+		$result = $service->analyze( Post_Ingestion_Post_Source::input( $post ), get_current_user_id(), $post_id );
+		if ( is_wp_error( $result ) ) {
+			self::redirect_with_notice( 0, false, $result->get_error_message() );
+		}
+		self::redirect_with_notice( Database::integer( $result['id'] ?? null ), true, __( 'Metadata generation started. Review and approve the results when they are ready.', 'ehrman-blog-discovery' ) );
 	}
 
 	/** Handles proposal revisions or final approval. */
@@ -216,7 +247,7 @@ final class Post_Ingestion_Page {
 	}
 
 	/**
-	 * Prepares recent draft and approval history.
+	 * Prepares paginated native posts, imported metadata, and generation records.
 	 *
 	 * @param list<array<string,mixed>> $drafts Draft and approval records.
 	 * @return list<array<string,string>> History display rows.
@@ -224,32 +255,38 @@ final class Post_Ingestion_Page {
 	private static function history_rows( array $drafts ): array {
 		$rows = array();
 		foreach ( $drafts as $draft ) {
-			$status = sanitize_key( Database::text( $draft['status'] ?? null ) );
+			$status = sanitize_key( Database::text( $draft['workflow_status'] ?? null ) );
+			$id     = Database::integer( $draft['id'] ?? null );
+			$kind   = Database::text( $draft['kind'] ?? null );
+			$url    = 'indexed' === $kind ? add_query_arg( 'indexed', $id, self::page_url() ) : self::page_url( $id );
 			$rows[] = array(
-				'updated' => get_date_from_gmt( Database::text( $draft['updated_at'] ?? null ), 'M j, Y g:i A' ),
-				'title'   => Database::text( $draft['title'] ?? null ),
-				'wp_id'   => '#' . Database::text( $draft['source_wp_id'] ?? null ),
-				'status'  => ucfirst( $status ),
-				'vector'  => str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ),
-				'url'     => self::page_url( Database::integer( $draft['id'] ?? null ) ),
-				'action'  => self::draft_action_label( $status ),
+				'published' => substr( Database::text( $draft['published_at'] ?? null ), 0, 10 ),
+				'title'     => Database::text( $draft['title'] ?? null ),
+				'post_id'   => (string) Database::integer( $draft['wordpress_post_id'] ?? null ),
+				'kind'      => $kind,
+				'status'    => Post_Ingestion_Worklist::statuses()[ $status ] ?? $status,
+				'vector'    => str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ),
+				'url'       => $url,
+				'action'    => 'needs_approval' === $status ? __( 'Review and approve', 'ehrman-blog-discovery' ) : __( 'View', 'ehrman-blog-discovery' ),
 			);
 		}
 		return $rows;
 	}
 
 	/**
-	 * Returns the ingestion-history action appropriate for a workflow status.
+	 * Prepares filter-preserving pagination and display rows.
 	 *
-	 * @param string $status Ingestion workflow status.
+	 * @param array<string,mixed> $page Bounded worklist result.
+	 * @return array<string,mixed> Template context.
 	 */
-	private static function draft_action_label( string $status ): string {
-		return match ( $status ) {
-			'ready'    => __( 'Review and approve', 'ehrman-blog-discovery' ),
-			'held'     => __( 'Review required', 'ehrman-blog-discovery' ),
-			'approved' => __( 'View', 'ehrman-blog-discovery' ),
-			default    => __( 'Review', 'ehrman-blog-discovery' ),
-		};
+	private static function worklist_view( array $page ): array {
+		$filters              = Post_Ingestion_Worklist::filters( Database::associative_row( $page['filters'] ?? null ) ?? array() );
+		$page['rows']         = self::history_rows( Database::associative_rows( $page['rows'] ?? null ) );
+		$page['statuses']     = Post_Ingestion_Worklist::statuses();
+		$page['previous_url'] = $filters['paged'] > 1 ? add_query_arg( array_merge( $filters, array( 'paged' => $filters['paged'] - 1 ) ), self::page_url() ) : '';
+		$page['next_url']     = $filters['paged'] < Database::integer( $page['pages'] ?? null ) ? add_query_arg( array_merge( $filters, array( 'paged' => $filters['paged'] + 1 ) ), self::page_url() ) : '';
+		$page['configured']   = Post_Ingestion_Service::is_configured();
+		return $page;
 	}
 
 	/**

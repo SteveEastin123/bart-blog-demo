@@ -58,6 +58,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/metadata-cost-tests.ph
     /opt/ehrman-tests/metadata-cost-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-page-tests.php \
     /opt/ehrman-tests/post-ingestion-page-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-worklist-tests.php \
+    /opt/ehrman-tests/post-ingestion-worklist-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/search-page-tests.php \
     /opt/ehrman-tests/search-page-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/browse-retirement-tests.php \

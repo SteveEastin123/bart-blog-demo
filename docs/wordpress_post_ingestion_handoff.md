@@ -49,10 +49,10 @@ key. Check for queued ingestion jobs before enabling the shared key.
    `202` without waiting for the AI response.
 4. The panel displays **Creating metadata...** and polls every three seconds
    while analysis is active. Results appear in the same panel. Leaving the page
-   does not cancel the job. **Tools > Metadata History** remains the history and
+   does not cancel the job. **Tools > Search Metadata** provides a worklist and
    administrative fallback, not a required step in routine publishing.
 5. When analysis finishes, WordPress displays a persistent administrative
-   notice, a count beside **Metadata History**, and an **Awaiting approval** or
+   notice, a count beside **Search Metadata**, and an **Awaiting approval** or
    **Review required** status on the Posts screen. These reminders remain
    until the proposal is approved or discarded.
 6. Edit the description, search summary, existing topics, secondary keywords,
@@ -83,19 +83,39 @@ Publishing first remains the chosen workflow. Unpublished posts show only the
 publish-first prerequisite; the save-changes reminder appears only for published
 posts with unsaved edits. Draft analysis and prepublication approval are not enabled.
 
-Metadata History no longer provides a standalone form for entering a WordPress
-ID or copying post content. New metadata generation starts from the normal post
-editor, which supplies all post fields automatically. The history page retains
-existing records, review and approval, pending-analysis retries, vector retries,
-and draft discard actions. Its URL remains
+**Tools > Search Metadata** defaults to **Needs attention**: published posts whose
+metadata has not been generated, proposals requiring approval, and failures
+(including pending vector retries). Filters also expose Generating, Complete,
+and All records, with title search and inclusive publication-date bounds.
+Results are ordered by publication date, newest first, with deterministic
+tie-breakers. Counts and 25-row pages are queried in the database; list queries
+do not load post bodies, proposals, or vector payloads. Pagination preserves
+filters and retains access to records older than the former 100-row limit.
+
+The normal post editor remains the primary workflow. Administrators may also
+select **Create Metadata** for an unprocessed published post on the worklist.
+This nonce-protected POST checks administrator and post-edit permissions, reads
+the saved post server-side, rejects existing records, and queues the existing
+analysis workflow. It never accepts manually supplied post text or metadata.
+Opening, filtering, or paging through the list does not start an AI request.
+The page retains review and approval, pending-analysis retries, vector retries,
+and draft discard actions, plus read-only inspection of imported metadata. Its URL remains
 `tools.php?page=ehrman-post-ingestion` so existing history and review links work.
 The retired manual-entry `admin_post_ehrman_ingestion_analyze` action is no longer
 registered; the post-editor REST analysis endpoint is unchanged.
 
+Completed metadata is detected from discovery-index records, not merely the
+presence of an ingestion history row. Explicit native ownership takes priority.
+For imported records without native ownership, source IDs are matched only when
+their URL belongs to the current site's home URL (HTTP/HTTPS variants accepted).
+A source ID from another site cannot claim an unrelated demo post. On a staging
+site with a different hostname, imported source IDs are deliberately not assumed
+to be native IDs. This display-only recognition never changes imported ownership.
+
 Both review interfaces use the same workflow checks: a linked WordPress post must
 still be published and match the analyzed source, and submitted edits must match
 the reviewed proposal revision. A rejected approval does not save the submitted
-edits. Retrying analysis from Metadata History refreshes the draft from the current
+edits. Retrying analysis from Search Metadata refreshes the draft from the current
 saved WordPress post. Legacy external drafts without a native-post link continue
 to use their retained source text; source IDs are never assumed to be local IDs.
 

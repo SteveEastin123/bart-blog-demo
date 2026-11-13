@@ -17,7 +17,7 @@ $retry_context = array(
 	'label' => __( 'Retry analysis', 'ehrman-blog-discovery' ),
 );
 ?>
-<p><a href="<?php echo esc_url( $view['history_url'] ); ?>">&larr; <?php echo esc_html__( 'Metadata History', 'ehrman-blog-discovery' ); ?></a></p>
+<p><a href="<?php echo esc_url( $view['history_url'] ); ?>">&larr; <?php echo esc_html__( 'Search Metadata', 'ehrman-blog-discovery' ); ?></a></p>
 <h2><?php echo esc_html( $view['title'] ); ?></h2>
 <table class="widefat striped ehrman-ingestion__meta">
 	<tbody>

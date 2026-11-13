@@ -876,6 +876,7 @@ require __DIR__ . '/ask-ai-cleanup-tests.php';
 require __DIR__ . '/analytics-dashboard-tests.php';
 require __DIR__ . '/metadata-cost-tests.php';
 require __DIR__ . '/post-ingestion-page-tests.php';
+require __DIR__ . '/post-ingestion-worklist-tests.php';
 require __DIR__ . '/post-ingestion-lifecycle-tests.php';
 require __DIR__ . '/search-page-tests.php';
 require __DIR__ . '/browse-retirement-tests.php';

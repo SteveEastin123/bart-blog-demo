@@ -271,7 +271,7 @@
 					}, 'retry-embedding' === busyAction ? __( 'Retrying...', 'ehrman-blog-discovery' ) : __( 'Retry Vector', 'ehrman-blog-discovery' ) ) : null,
 					error || changedReview ? el( Button, { variant: 'secondary', disabled: !! busyAction, onClick: reload }, __( 'Reload Metadata', 'ehrman-blog-discovery' ) ) : null
 				),
-				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Metadata History', 'ehrman-blog-discovery' ) ) : null
+				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Search Metadata', 'ehrman-blog-discovery' ) ) : null
 			);
 		}
 

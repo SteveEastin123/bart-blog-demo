@@ -27,8 +27,8 @@ $page_block_http = static function () use ( &$page_http_calls ) {
 	++$page_http_calls;
 	return new WP_Error( 'ingestion_page_test', 'Page rendering must not call an API.' );
 };
-$page_render = static function ( int $id = 0 ): string {
-	$_GET = $id > 0 ? array( 'draft' => (string) $id ) : array();
+$page_render = static function ( int $id = 0, array $filters = array() ): string {
+	$_GET = $id > 0 ? array( 'draft' => (string) $id ) : $filters;
 	ob_start();
 	try {
 		Post_Ingestion_Page::render();
@@ -73,7 +73,7 @@ try {
 	wp_set_current_user( $page_admin );
 	$assert_same( false, has_action( 'admin_post_ehrman_ingestion_analyze' ), 'Retired manual-entry handler is still registered.' );
 	$assert( ! is_file( EHRMAN_DISCOVERY_PLUGIN_DIR . 'templates/admin/post-ingestion-new.php' ), 'Retired manual-entry template is still packaged.' );
-	foreach ( array( 'proposal', 'reanalyze', 'retry_embedding', 'discard' ) as $action ) {
+	foreach ( array( 'create_metadata', 'proposal', 'reanalyze', 'retry_embedding', 'discard' ) as $action ) {
 		$assert( false !== has_action( 'admin_post_ehrman_ingestion_' . $action ), 'Metadata history lost its ' . $action . ' handler.' );
 	}
 	delete_transient( $page_notice_key );
@@ -81,13 +81,14 @@ try {
 	putenv( 'OPENAI_API_KEY=' );
 	$html = $page_render();
 	$dom = $page_dom( $html );
-	$page_check_forms( $dom, array() );
-	$assert_same( 'Metadata History', $dom->evaluate( 'string(//h1)' ), 'Metadata history heading is incorrect.' );
+	$assert_same( 1, $dom->query( '//form[@method="get"]' )->length, 'Worklist filters are missing.' );
+	$assert_same( 'attention', $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Worklist does not default to Needs attention.' );
+	$assert_same( 'Search Metadata', $dom->evaluate( 'string(//h1)' ), 'Search Metadata heading is incorrect.' );
 	$assert_same( admin_url( 'edit.php' ), $dom->evaluate( 'string(//a[text()="Posts"]/@href)' ), 'History no longer links to the normal Posts screen.' );
 	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Manual post-entry fields are still displayed.' );
 	$assert( str_contains( $html, 'Analysis is not configured.' ) && str_contains( $html, 'JSON is the current source of truth.' ), 'Configuration warnings are missing.' );
-	$empty = Template::render( 'admin/post-ingestion/history.php', array( 'rows' => array() ) );
-	$assert( str_contains( $empty, 'No metadata records yet.' ) && ! str_contains( $empty, '<table' ), 'Empty history state changed.' );
+	$empty = $page_render( 0, array( 'search' => 'no-such-worklist-record-781924' ) );
+	$assert( str_contains( $empty, 'No posts match these filters.' ) && ! str_contains( $empty, '<table' ), 'Empty worklist state changed.' );
 
 	$repository = new Post_Ingestion_Repository();
 	$vocabulary = $repository->vocabulary();
@@ -124,7 +125,7 @@ try {
 	$update_page_draft( array( 'proposal_json' => wp_json_encode( $proposal ), 'model' => 'test-model', 'input_tokens' => 1234, 'output_tokens' => 56, 'estimated_cost_usd' => 0.0123 ) );
 	$html = $page_render( $id );
 	$page_check_forms( $page_dom( $html ), array() );
-	$assert_same( Post_Ingestion_Page::page_url(), $page_dom( $html )->evaluate( 'string(//a[contains(., "Metadata History")]/@href)' ), 'Draft lost its metadata-history return link.' );
+	$assert_same( Post_Ingestion_Page::page_url(), $page_dom( $html )->evaluate( 'string(//a[contains(., "Search Metadata")]/@href)' ), 'Draft lost its worklist return link.' );
 	$assert( str_contains( $html, 'Refresh status' ) && ! str_contains( $html, 'Review proposal' ), 'Queued analysis exposed proposal controls.' );
 	$assert( str_contains( $html, '1,234 input tokens, 56 output tokens, approximately $0.0123' ), 'Analysis usage formatting changed.' );
 	$update_page_draft( array( 'status' => 'analyzing', 'analysis_started_at' => current_time( 'mysql', true ) ) );
@@ -164,8 +165,7 @@ try {
 	$dom = $page_dom( $page_render( $id ) );
 	$assert_same( 0, $dom->query( '//button[@value="approve"][@disabled]|//input[@name="approve_new_keywords"]|//ul[@class="ehrman-ingestion__rationales"]' )->length, 'Approval or optional fields changed in database-authoritative mode.' );
 	$dom = $page_dom( $page_render() );
-	$page_check_forms( $dom, array() );
-	$assert_same( 0, $dom->query( '//input|//textarea' )->length, 'Configured history page still offers manual entry.' );
+	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Configured worklist still offers manual entry.' );
 	$assert( str_contains( $page_render( $id + 1000000 ), 'The requested ingestion record was not found.' ), 'Missing draft notice is absent.' );
 
 	foreach ( array( 'failed', 'ready' ) as $status ) {
@@ -182,11 +182,11 @@ try {
 		$assert( str_contains( $html, 'Approved enrichment' ) && ! str_contains( $html, 'Review proposal' ), 'Approved records became editable.' );
 		$assert_same( 0, $dom->query( '//textarea|//select|//img|//script' )->length, 'Approved display is unsafe or editable.' );
 	}
-	$history = $page_dom( $page_render() );
-	$fixture_row = '//table[@class="widefat striped"]/tbody/tr[td[2]/span[text()="#999999991"]]';
+	$history = $page_dom( $page_render( 0, array( 'status' => 'all', 'search' => 'Ingestion page fixture' ) ) );
+	$fixture_row = '//table[@class="widefat striped"]/tbody/tr[td[5]/a[contains(@href,"draft=' . $id . '")]]';
 	$assert_same( 'View', trim( $history->evaluate( 'string(' . $fixture_row . '/td[5]/a)' ) ), 'Approved history action changed.' );
 	$assert_same( 'not applicable', trim( $history->evaluate( 'string(' . $fixture_row . '/td[4])' ) ), 'History vector label changed.' );
-	foreach ( array( 'ready' => 'Review and approve', 'held' => 'Review required', 'failed' => 'Review' ) as $status => $label ) {
+	foreach ( array( 'ready' => 'Review and approve', 'held' => 'Review and approve', 'failed' => 'View' ) as $status => $label ) {
 		$update_page_draft( array( 'status' => $status ) );
 		$history = $page_dom( $page_render() );
 		$assert_same( $label, trim( $history->evaluate( 'string(' . $fixture_row . '/td[5]/a)' ) ), 'History action changed for ' . $status );
@@ -262,6 +262,19 @@ try {
 	$assert_same( false, Post_Ingestion_Post_Source::source_changed( get_post( $native ), $refreshed ), 'History retried an old source snapshot.' );
 	$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['external_posts'], $native ) ), 'Rejected history approval changed the live index.' );
 	$assert_same( 0, $page_http_calls, 'History rendering or rejected actions attempted an API call.' );
+	// Start from a native published post without accepting submitted text or metadata.
+	$new_post = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'Worklist create metadata fixture', 'post_content' => 'Saved article content used by the protected worklist generation action.', 'post_author' => $page_admin ), true );
+	$assert( ! is_wp_error( $new_post ), 'Could not create worklist generation fixture.' );
+	$notice = $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post, 'post_text' => 'UNTRUSTED OVERRIDE' ) );
+	$assert_same( true, $notice['success'], 'Worklist could not start metadata generation.' );
+	$created = $repository->latest_for_source_wp_id( $new_post );
+	$assert_same( 'queued', $created['status'], 'Worklist generation was not queued.' );
+	$assert_same( $new_post, (int) $created['wordpress_post_id'], 'Worklist lost native-post ownership.' );
+	$assert_same( false, str_contains( $created['post_text'], 'UNTRUSTED' ), 'Worklist accepted submitted post content.' );
+	$assert_same( false, $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post ) )['success'], 'Repeated Create Metadata queued duplicate work.' );
+	wp_update_post( array( 'ID' => $new_post, 'post_status' => 'draft' ) );
+	$assert_same( false, $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post ) )['success'], 'Worklist accepted an unpublished post.' );
+	$assert_same( 0, $page_http_calls, 'Worklist made a foreground API request.' );
 } finally {
 	$wpdb->query( 'ROLLBACK' );
 	wp_cache_flush();
