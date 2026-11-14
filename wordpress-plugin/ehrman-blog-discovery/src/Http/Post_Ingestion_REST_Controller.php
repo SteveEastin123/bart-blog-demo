@@ -295,6 +295,8 @@ final class Post_Ingestion_REST_Controller {
 				'model'                 => Post_Ingestion_Service::model_id(),
 				'reviewUrl'             => Post_Ingestion_Page::page_url( $draft_id ),
 				'sourceChanged'         => $source_changed,
+				'hasPublished'          => (bool) get_post_meta( $post->ID, Post_Ingestion_Automation::PUBLISHED_META, true ) || 'publish' === $post->post_status,
+				'automaticError'        => null === $draft ? Database::text( get_post_meta( $post->ID, Post_Ingestion_Automation::ERROR_META, true ) ) : '',
 				'draft'                 => self::draft_payload( $draft ),
 			),
 			$status
@@ -316,6 +318,8 @@ final class Post_Ingestion_REST_Controller {
 		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
 		return array(
 			'id'                   => Database::integer( $draft['id'] ?? null ),
+			'automaticActive'      => Post_Ingestion_Automation::busy( $draft ),
+			'approvalMode'         => Database::text( $draft['approval_mode'] ?? 'manual' ),
 			'isRevision'           => Database::integer( $draft['revision_parent_id'] ?? null ) > 0,
 			'previousVersionUrl'   => Database::integer( $draft['revision_parent_id'] ?? null ) > 0 ? Post_Ingestion_Page::page_url( Database::integer( $draft['revision_parent_id'] ) ) : '',
 			'revision'             => Post_Ingestion_Review_Workflow::revision( $draft ),

@@ -111,10 +111,11 @@ final class Post_Ingestion_Review_Workflow {
 	 * @param bool                     $approve_new_keywords Explicit approval for proposed new keywords.
 	 * @param array<string,mixed>|null $input Optional reviewed fields from the post editor.
 	 * @param string|null              $revision Reviewed proposal revision, when supplied by an interface.
+	 * @param bool                     $automatic Internal publishing worker.
 	 * @return array<string,mixed>|WP_Error Approved draft or error.
 	 */
-	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null, ?string $revision = null ) {
-		$draft = $this->reviewable_draft( $draft_id, $revision );
+	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null, ?string $revision = null, bool $automatic = false ) {
+		$draft = $this->reviewable_draft( $draft_id, $revision, $automatic );
 		if ( is_wp_error( $draft ) ) {
 			return $draft;
 		}
@@ -172,7 +173,7 @@ final class Post_Ingestion_Review_Workflow {
 				return new WP_Error( 'ehrman_ingestion_embedding_failed', __( 'Changes were not approved because the replacement vector could not be created. Existing search metadata is unchanged. ', 'ehrman-blog-discovery' ) . $vector->get_error_message() );
 			}
 		}
-		$post_id = $this->approval_writer->approve( $draft_id, $draft, $checked, $current_taxonomy, $approved_json, $vector );
+		$post_id = $this->approval_writer->approve( $draft_id, $draft, $checked, $current_taxonomy, $approved_json, $vector, $automatic );
 		if ( is_wp_error( $post_id ) ) {
 			return $post_id;
 		}
@@ -267,12 +268,16 @@ final class Post_Ingestion_Review_Workflow {
 	 *
 	 * @param int         $draft_id Stored ingestion identifier.
 	 * @param string|null $revision Reviewed revision, or null for internal callers.
+	 * @param bool        $automatic Internal publishing worker.
 	 * @return array<string,mixed>|WP_Error Current draft or a review error.
 	 */
-	private function reviewable_draft( int $draft_id, ?string $revision ) {
+	private function reviewable_draft( int $draft_id, ?string $revision, bool $automatic = false ) {
 		$draft = $this->repository->draft( $draft_id );
 		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
 			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+		}
+		if ( $automatic ? ! Post_Ingestion_Automation::authorized( $draft ) : Post_Ingestion_Automation::busy( $draft ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Automatic metadata is running or its authorization changed. Reload its status.', 'ehrman-blog-discovery' ) );
 		}
 		$post = Post_Ingestion_Post_Source::published_post( $draft );
 		if ( is_wp_error( $post ) ) {

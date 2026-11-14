@@ -168,6 +168,9 @@ final class Post_Ingestion_Admin_Status {
 	 * @param array<string,mixed> $record  Ingestion record.
 	 */
 	private static function status_label( int $post_id, array $record ): string {
+		if ( Post_Ingestion_Automation::active( $record ) ) {
+			return Post_Ingestion_Automation::stalled( $record ) ? __( 'Needs attention', 'ehrman-blog-discovery' ) : __( 'Automatic metadata running', 'ehrman-blog-discovery' );
+		}
 		$status = sanitize_key( Database::text( $record['status'] ?? null ) );
 		$post   = get_post( $post_id );
 		if ( 'approved' !== $status && $post instanceof WP_Post && Post_Ingestion_Post_Source::source_changed( $post, $record ) ) {

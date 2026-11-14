@@ -108,8 +108,12 @@ Include the database schema and technical architecture as appendices.
 
 ### Initial Data Installation
 
-**Tools > Ehrman Discovery** is a read-only status page with database information,
-record counts, and an analytics link. The former browser JSON-import form and
+**Tools > Ehrman Discovery** provides database information, record counts, an
+analytics link, and the administrator-only Manual/Automatic metadata default.
+Manual is the default; Automatic requires reliable WordPress cron and applies
+only to first publication, with per-post overrides in the editor. See
+`wordpress_post_ingestion_handoff.md` for configuration and recovery.
+The former browser JSON-import form and
 `admin_post_ehrman_discovery_import` handler have been removed in all source modes.
 Use the validated WP-CLI installation below for the initial handoff data. The
 CLI importer and local JSON-managed rebuild workflow remain available; publishers

@@ -51,7 +51,7 @@ final class Post_Ingestion_Lifecycle {
 				Post_Ingestion_Queue::cancel( Database::integer( $draft_id ) );
 			}
 			$sql = $wpdb->prepare(
-				'UPDATE %i SET status=%s,analysis_attempt=analysis_attempt+1,error_message=%s,updated_at=%s WHERE wordpress_post_id=%d AND status IN (%s,%s)',
+				"UPDATE %i SET status=%s,automatic_status='',analysis_attempt=analysis_attempt+1,error_message=%s,updated_at=%s WHERE wordpress_post_id=%d AND status IN (%s,%s)",
 				$tables['ingestion_drafts'],
 				'error',
 				__( 'The post is no longer published. Publish it and regenerate metadata to continue.', 'ehrman-blog-discovery' ),

@@ -144,7 +144,9 @@ final class Post_Ingestion_Worklist {
 		) . $match . ')';
 		$drafts = $wpdb->prepare(
 			"SELECT d.id,'draft' kind,d.wordpress_post_id,d.title,d.published_at,d.updated_at,
-			CASE WHEN d.status IN ('ready','held') THEN 'needs_approval'
+			CASE WHEN d.automatic_status IN ('queued','running') AND d.updated_at >= UTC_TIMESTAMP() - INTERVAL 10 MINUTE THEN 'generating'
+			WHEN d.automatic_status IN ('queued','running') THEN 'failed'
+			WHEN d.status IN ('ready','held') THEN 'needs_approval'
 			WHEN d.status='error' OR (d.status='approved' AND d.embedding_status='pending') THEN 'failed'
 			WHEN d.status IN ('queued','analyzing') THEN 'generating'
 			WHEN d.status='approved' THEN 'complete' ELSE 'failed' END workflow_status,d.embedding_status

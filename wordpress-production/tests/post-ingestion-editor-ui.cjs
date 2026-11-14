@@ -101,9 +101,37 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     credentials.fill('');
     await page.locator('#wp-submit').click();
     await page.waitForURL('**/wp-admin/**');
+    await page.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
+    const siteMode = page.getByLabel('Metadata generation', { exact: true });
+    assert.equal(await siteMode.inputValue(), 'manual');
+    const deniedSave = await context.request.post(base + '/wp-admin/options.php', { form: {
+      option_page: 'ehrman_ingestion_publishing', action: 'update', _wpnonce: 'invalid-fixture', ehrman_ingestion_default_mode: 'automatic',
+    } });
+    assert.equal(deniedSave.status(), 403, 'Settings accepted a missing/invalid nonce');
+    await page.reload();
+    assert.equal(await siteMode.inputValue(), 'manual');
+    await siteMode.selectOption('automatic');
+    await Promise.all([page.waitForNavigation(), page.getByRole('button', { name: 'Save publishing settings', exact: true }).click()]);
+    assert.equal(await siteMode.inputValue(), 'automatic');
+    await shot('publishing-settings');
+    await siteMode.selectOption('manual');
+    await Promise.all([page.waitForNavigation(), page.getByRole('button', { name: 'Save publishing settings', exact: true }).click()]);
+    assert.equal(await siteMode.inputValue(), 'manual');
     await open();
     assert.equal(await panel.getByRole('link', { name: 'Search Metadata', exact: true }).getAttribute('href'), record.reviewUrl);
     assert.equal(actions.length, 0, 'Opening the panel started a paid action');
+    const mode = panel.getByRole('combobox', { name: 'Metadata mode', exact: true });
+    assert.equal(await mode.inputValue(), 'inherit');
+    assert(await mode.isEnabled());
+    await mode.selectOption('automatic');
+    await panel.getByText('Metadata will be created and approved automatically after publication.', { exact: true }).waitFor();
+    await page.evaluate(() => wp.data.dispatch('core/editor').savePost());
+    await reloadState();
+    assert.equal(await mode.inputValue(), 'automatic', 'Per-post mode did not persist through the core WordPress REST save');
+    await shot('automatic-mode');
+    await mode.selectOption('manual');
+    await page.evaluate(() => wp.data.dispatch('core/editor').savePost());
+    await reloadState();
     const publishNotice = panel.getByText('Publish this post before creating metadata.', { exact: true });
     const saveNotice = panel.getByText('Save your changes before continuing.', { exact: true });
     await publishNotice.waitFor();
@@ -119,6 +147,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     cli(['post', 'update', String(postId), '--post_status=publish']);
     record.postStatus = 'publish';
     await reloadState();
+    assert(await mode.isDisabled(), 'First-publication mode remained editable after publishing');
     assert.equal(await publishNotice.count(), 0);
     assert(await button('Create Metadata').isEnabled());
     await page.evaluate(() => wp.data.dispatch('core/editor').editPost({ title: 'Unsaved published fixture edit' }));
@@ -140,7 +169,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await panel.getByLabel('Description', { exact: true }).waitFor();
     await panel.getByLabel('Description', { exact: true }).fill('Explains the publisher revised description.');
     await panel.getByLabel('Summary', { exact: true }).fill('Explores the publisher revised summary.');
-    assert.equal(await panel.getByRole('combobox').count(), 0, 'Manual taxonomy picker is still present');
+    assert.equal(await panel.getByRole('combobox').count(), 1, 'Unexpected manual taxonomy picker');
     assert.equal(await panel.getByLabel('Review Notes and Warnings').count(), 0);
     assert(await panel.getByText(topicNames[0], { exact: true }).isVisible());
     await button('Remove topic: ' + topicNames[1]).click();
@@ -267,6 +296,25 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await panel.getByText('Complete', { exact: true }).waitFor();
     assert.equal(await button('Retry Vector').count(), 0);
 
+    const beforeAutomatic = actions.length;
+    record.draft = { ...original, status: 'queued', automaticActive: true, analysisActive: true };
+    await reloadState();
+    await panel.getByText('Creating metadata...', { exact: true }).waitFor();
+    assert(await button('Regenerate Metadata').isDisabled());
+    assert.equal(await button('Approve and Add to Search').count(), 0);
+    await shot('automatic-queued');
+    record.draft = { ...original, status: 'approved', automaticActive: true, analysisActive: true, approvalMode: 'automatic', embeddingStatus: 'pending' };
+    await panel.getByText('Creating vector...', { exact: true }).waitFor();
+    assert(await button('Edit Metadata').isDisabled());
+    assert(await button('Retry Vector').isDisabled());
+    record.draft = { ...record.draft, automaticActive: false, analysisActive: false, embeddingStatus: 'complete' };
+    await panel.getByText('Added to Search', { exact: true }).waitFor();
+    assert(await panel.locator('dd').filter({ hasText: /^Automatic$/ }).isVisible());
+    assert(await button('Edit Metadata').isEnabled());
+    assert(await button('Regenerate Metadata').isEnabled());
+    assert.equal(actions.length, beforeAutomatic, 'Automatic progress polling submitted a paid action');
+    await shot('automatic-complete');
+
     for (const width of [1024, 390]) {
       record.draft = { ...original };
       await page.setViewportSize({ width, height: 1000 });
@@ -284,6 +332,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     console.log(JSON.stringify({ status: 'passed', viewports: [1440, 1024, 390], actions, realAiRequests: 0, inlineReview: true }, null, 2));
   } finally {
     await browser.close();
+    cli(['option', 'delete', 'ehrman_ingestion_default_mode']);
     cli(['post', 'delete', String(postId), '--force']);
   }
 })().catch(error => { console.error(error); process.exitCode = 1; });

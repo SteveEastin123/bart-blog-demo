@@ -35,12 +35,13 @@ final class Post_Ingestion_Approval_Writer {
 	 * @param array<string,mixed>      $taxonomy      Current vocabulary.
 	 * @param string                   $approved_json Encoded approved proposal.
 	 * @param array<string,mixed>|null $vector Prepared replacement vector; null for initial ingestion.
+	 * @param bool                     $automatic Whether the publishing worker approved this proposal.
 	 * @return int|WP_Error New internal post identifier or error.
 	 * @phpstan-param Proposal $proposal
 	 * @phpstan-param Vocabulary $taxonomy
 	 * @throws RuntimeException When approval state cannot be persisted.
 	 */
-	public function approve( int $draft_id, array $draft, array $proposal, array $taxonomy, string $approved_json, ?array $vector = null ) {
+	public function approve( int $draft_id, array $draft, array $proposal, array $taxonomy, string $approved_json, ?array $vector = null, bool $automatic = false ) {
 		$wpdb = Database::client();
 		if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
 			return new WP_Error( 'ehrman_ingestion_transaction', __( 'The approval transaction could not be started.', 'ehrman-blog-discovery' ) );
@@ -53,6 +54,9 @@ final class Post_Ingestion_Approval_Writer {
 				$pending = Database::associative_row( $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE id=%d AND wordpress_post_id=%d AND status IN (%s,%s) FOR UPDATE', Database::tables()['ingestion_drafts'], $draft_id, $local_id, 'ready', 'held' ), ARRAY_A ) );
 				if ( null === $native || null === $pending ) {
 					throw new RuntimeException( 'The published post or pending metadata no longer exists. Reload the editor.' );
+				}
+				if ( $automatic ? ! Post_Ingestion_Automation::authorized( $pending ) : Post_Ingestion_Automation::busy( $pending ) ) {
+					throw new RuntimeException( 'Automatic metadata ownership changed. Reload its status before approval.' );
 				}
 				if ( ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Post_Ingestion_Review_Workflow::revision( $pending ) )
 					|| Post_Ingestion_Post_Source::source_changed( new \WP_Post( sanitize_post( $native, 'raw' ) ), $draft ) ) {
@@ -82,6 +86,8 @@ final class Post_Ingestion_Approval_Writer {
 				Database::tables()['ingestion_drafts'],
 				array(
 					'status'                       => 'approved',
+					'approval_mode'                => $automatic ? 'automatic' : 'manual',
+					'automatic_status'             => $automatic ? 'running' : '',
 					'proposal_json'                => $approved_json,
 					'post_text'                    => null,
 					'error_message'                => null,
@@ -96,7 +102,7 @@ final class Post_Ingestion_Approval_Writer {
 					'updated_at'                   => current_time( 'mysql', true ),
 				),
 				array( 'id' => $draft_id ),
-				array( '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%d', '%s', '%s' ),
+				array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%d', '%s', '%s' ),
 				array( '%d' )
 			);
 			if ( false === $updated ) {

@@ -48,16 +48,18 @@ final class Post_Ingestion_Repository {
 	 * @param string              $taxonomy_hash Taxonomy fingerprint.
 	 * @param int                 $user_id       Administrator user identifier.
 	 * @param int                 $wordpress_post_id Trusted local editor post ID; zero for external submissions.
+	 * @param bool                $automatic Whether this is a first-publication automatic job.
 	 * @return int|WP_Error Draft identifier or storage error.
 	 * @phpstan-param ValidatedPost $post
 	 */
-	public function create_draft( array $post, string $taxonomy_hash, int $user_id, int $wordpress_post_id = 0 ) {
+	public function create_draft( array $post, string $taxonomy_hash, int $user_id, int $wordpress_post_id = 0, bool $automatic = false ) {
 		$now      = current_time( 'mysql', true );
 		$wpdb     = Database::client();
 		$inserted = $wpdb->insert(
 			Database::tables()['ingestion_drafts'],
 			array(
 				'status'            => 'queued',
+				'automatic_status'  => $automatic ? 'queued' : '',
 				'source_wp_id'      => $post['source_wp_id'],
 				'wordpress_post_id' => $wordpress_post_id > 0 ? $wordpress_post_id : null,
 				'title'             => $post['title'],
@@ -74,11 +76,40 @@ final class Post_Ingestion_Repository {
 				'created_at'        => $now,
 				'updated_at'        => $now,
 			),
-			array( '%s', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s' )
+			array( '%s', '%s', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s' )
 		);
 		return false === $inserted
 			? new WP_Error( 'ehrman_ingestion_storage_error', __( 'The ingestion draft could not be stored.', 'ehrman-blog-discovery' ) )
 			: (int) $wpdb->insert_id;
+	}
+
+	/**
+	 * Serializes native draft creation across manual and automatic submissions.
+	 *
+	 * @param array<string,mixed> $post Validated source.
+	 * @param string              $hash Vocabulary fingerprint.
+	 * @param int                 $user_id Authorizing administrator.
+	 * @param int                 $post_id Native WordPress post.
+	 * @param bool                $automatic Whether to queue automatic approval.
+	 * @return int|WP_Error Created draft or a duplicate/storage error.
+	 * @phpstan-param ValidatedPost $post
+	 */
+	public function create_for_post( array $post, string $hash, int $user_id, int $post_id, bool $automatic = false ): int|WP_Error {
+		$wpdb = Database::client();
+		$lock = 'ehrman-ingestion-' . md5( Database::text( $wpdb->get_var( 'SELECT DATABASE()' ) ) . $wpdb->prefix . ':' . $post_id );
+		if ( '1' !== (string) $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s,0)', $lock ) ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Metadata creation is already starting. Reload its status.', 'ehrman-blog-discovery' ) );
+		}
+		try {
+			$duplicate = $this->duplicate_message( $post['source_wp_id'], $post['url'] );
+			$pending   = $this->pending_duplicate_message( $post['source_wp_id'], $post['url'] );
+			if ( '' !== $duplicate || '' !== $pending || null !== $this->latest_for_source_wp_id( $post['source_wp_id'] ) ) {
+				return new WP_Error( 'ehrman_ingestion_duplicate', __( 'This post already has metadata or an ingestion record. Open Search Metadata to review it.', 'ehrman-blog-discovery' ) );
+			}
+			return $this->create_draft( $post, $hash, $user_id, $post_id, $automatic );
+		} finally {
+			$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock ) );
+		}
 	}
 
 	/**
@@ -120,7 +151,7 @@ final class Post_Ingestion_Repository {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ingestion_drafts'];
 		$sql   = $wpdb->prepare(
-			'UPDATE %i SET status=%s,proposal_json=NULL,model=%s,prompt_version=%s,taxonomy_version=%s,response_id=%s,input_tokens=0,cached_input_tokens=0,output_tokens=0,reasoning_tokens=0,estimated_cost_usd=0,error_message=NULL,analysis_started_at=NULL,updated_at=%s WHERE id=%d AND status<>%s',
+			"UPDATE %i SET status=%s,automatic_status='',proposal_json=NULL,model=%s,prompt_version=%s,taxonomy_version=%s,response_id=%s,input_tokens=0,cached_input_tokens=0,output_tokens=0,reasoning_tokens=0,estimated_cost_usd=0,error_message=NULL,analysis_started_at=NULL,updated_at=%s WHERE id=%d AND status<>%s",
 			$table,
 			'queued',
 			Post_Ingestion_Settings::model_id(),
@@ -234,9 +265,10 @@ final class Post_Ingestion_Repository {
 		$updated = Database::client()->update(
 			Database::tables()['ingestion_drafts'],
 			array(
-				'status'        => $status,
-				'proposal_json' => $proposal_json,
-				'updated_at'    => current_time( 'mysql', true ),
+				'status'           => $status,
+				'automatic_status' => '',
+				'proposal_json'    => $proposal_json,
+				'updated_at'       => current_time( 'mysql', true ),
 			),
 			array(
 				'id'               => Database::integer( $draft['id'] ?? null ),
@@ -245,7 +277,7 @@ final class Post_Ingestion_Repository {
 				'analysis_attempt' => Database::integer( $draft['analysis_attempt'] ?? null ),
 				'updated_at'       => Database::text( $draft['updated_at'] ?? null ),
 			),
-			array( '%s', '%s', '%s' ),
+			array( '%s', '%s', '%s', '%s' ),
 			array( '%d', '%s', '%s', '%d', '%s' )
 		);
 		$current = $this->draft( Database::integer( $draft['id'] ?? null ) );
@@ -383,7 +415,7 @@ final class Post_Ingestion_Repository {
 	public function review_count(): int {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ingestion_drafts'];
-		$sql   = $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE status IN (%s,%s)', $table, 'ready', 'held' );
+		$sql   = $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status IN (%s,%s) AND automatic_status NOT IN ('queued','running')", $table, 'ready', 'held' );
 		if ( ! is_string( $sql ) ) {
 			return 0;
 		}

@@ -54,6 +54,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-vocabul
     /opt/ehrman-tests/post-ingestion-vocabulary-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-lifecycle-tests.php \
     /opt/ehrman-tests/post-ingestion-lifecycle-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-automation-tests.php \
+    /opt/ehrman-tests/post-ingestion-automation-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-cleanup-tests.php \
     /opt/ehrman-tests/ask-ai-cleanup-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/analytics-dashboard-tests.php \

@@ -73,7 +73,8 @@ try {
 	foreach ( array( 'json', 'mysql' ) as $source ) {
 		putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $source );
 		$html = $render_admin_status();
-		$assert( ! str_contains( $html, '<form' ) && ! str_contains( $html, 'Authoritative JSON' ), 'Browser import controls remain in ' . $source . ' mode.' );
+		$assert( ! str_contains( $html, 'ehrman_discovery_import' ) && ! str_contains( $html, 'Authoritative JSON' ), 'Browser import controls remain in ' . $source . ' mode.' );
+		$assert( str_contains( $html, 'ehrman_ingestion_default_mode' ) && str_contains( $html, 'options.php' ), 'Publishing mode settings are missing.' );
 		foreach ( array( 'Plugin version', 'Schema version', 'Database connection', 'Import state', 'Imported posts', 'Topics', 'Secondary keywords' ) as $label ) {
 			$assert( str_contains( $html, $label ), 'Status page lost ' . $label );
 		}
@@ -84,7 +85,7 @@ try {
 	wp_set_current_user( $status_user );
 	putenv( false === $status_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $status_source );
 }
-echo "Discovery status: read-only in both source modes; browser import retired, CLI retained: OK\n";
+echo "Discovery status and publishing preferences: browser import retired, CLI retained: OK\n";
 
 require __DIR__ . '/ask-ai-naming-tests.php';
 require __DIR__ . '/api-settings-tests.php';
@@ -918,6 +919,7 @@ require __DIR__ . '/metadata-cost-tests.php';
 require __DIR__ . '/post-ingestion-page-tests.php';
 require __DIR__ . '/post-ingestion-worklist-tests.php';
 require __DIR__ . '/post-ingestion-lifecycle-tests.php';
+require __DIR__ . '/post-ingestion-automation-tests.php';
 require __DIR__ . '/search-page-tests.php';
 require __DIR__ . '/browse-retirement-tests.php';
 

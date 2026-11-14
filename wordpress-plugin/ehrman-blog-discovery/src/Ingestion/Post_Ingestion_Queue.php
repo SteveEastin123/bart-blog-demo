@@ -58,6 +58,12 @@ final class Post_Ingestion_Queue {
 	 * @param int $draft_id Draft identifier.
 	 */
 	public static function process( int $draft_id ): void {
-		( new Post_Ingestion_Service() )->process_queued( $draft_id );
+		$service = new Post_Ingestion_Service();
+		$draft   = $service->draft( $draft_id );
+		if ( '' !== ( $draft['automatic_status'] ?? '' ) ) {
+			Post_Ingestion_Automation::process( $draft_id );
+			return;
+		}
+		$service->process_queued( $draft_id );
 	}
 }

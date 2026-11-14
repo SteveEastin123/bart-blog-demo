@@ -45,7 +45,9 @@ final class Post_Ingestion_Editor {
 			'ehrman-post-ingestion-editor',
 			'EhrmanPostIngestion',
 			array(
-				'restBase' => '/ehrman-discovery/v1/ingestion/post/',
+				'restBase'    => '/ehrman-discovery/v1/ingestion/post/',
+				'modeMeta'    => Post_Ingestion_Publishing_Settings::META,
+				'defaultMode' => Post_Ingestion_Publishing_Settings::default_mode(),
 			)
 		);
 	}

@@ -15,7 +15,7 @@
 	const Button = wp.components.Button;
 	const Notice = wp.components.Notice;
 	const Spinner = wp.components.Spinner;
-	const { TextareaControl } = wp.components;
+	const { TextareaControl, SelectControl } = wp.components;
 	const PluginDocumentSettingPanel = wp.editor.PluginDocumentSettingPanel;
 	const registerPlugin = wp.plugins.registerPlugin;
 	const __ = wp.i18n.__;
@@ -80,6 +80,7 @@
 			return {
 				postId: store.getCurrentPostId(),
 				postStatus: store.getEditedPostAttribute( 'status' ),
+				meta: store.getEditedPostAttribute( 'meta' ) || {},
 				isDirty: store.isEditedPostDirty(),
 				isSaving: store.isSavingPost(),
 			};
@@ -94,6 +95,10 @@
 		const requestId = useRef( 0 );
 		const polling = useRef( false );
 		const draft = record && record.draft;
+		const modeKey = config.modeMeta || '_ehrman_metadata_mode';
+		const mode = editor.meta[ modeKey ] || 'inherit';
+		const effectiveMode = mode === 'inherit' ? ( config.defaultMode || 'manual' ) : mode;
+		const automaticBusy = !! ( draft && draft.automaticActive );
 
 		useEffect( function () {
 			if ( ! dirty.current ) {
@@ -218,11 +223,11 @@
 
 		const savedPostRequired = editor.isDirty || editor.isSaving;
 		const publishRequired = 'publish' !== editor.postStatus;
-		const actionDisabled = !! busyAction || savedPostRequired || publishRequired;
+		const actionDisabled = !! busyAction || automaticBusy || savedPostRequired || publishRequired;
 		const canAnalyze = record && ! draft;
 		const canReanalyze = record && record.configured && draft &&
 			( ! draft.analysisActive || draft.analysisStalled || 'queued' === draft.status );
-		const needsReview = draft && ( 'ready' === draft.status || 'held' === draft.status );
+		const needsReview = draft && ! automaticBusy && ( 'ready' === draft.status || 'held' === draft.status );
 		const changedReview = needsReview && revision !== draft.revision;
 		const missingTopics = needsReview && fields && 'ready' === draft.status && ! ( draft.topics || [] ).some( topic => ! fields.removed_topics.includes( topic ) );
 		const canApprove = needsReview && fields && 'ready' === draft.status && record.databaseAuthoritative &&
@@ -241,22 +246,24 @@
 				Fragment,
 				null,
 				error ? el( Notice, { status: 'error', isDismissible: false }, error ) : null,
-				publishRequired ? el( Notice, { status: 'info', isDismissible: false }, __( 'Publish this post before creating metadata.', 'ehrman-blog-discovery' ) ) : savedPostRequired ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Save your changes before continuing.', 'ehrman-blog-discovery' ) ) : null,
+				record && record.automaticError ? el( Notice, { status: 'error', isDismissible: false }, record.automaticError ) : null,
+				publishRequired ? el( Notice, { status: 'info', isDismissible: false }, effectiveMode === 'automatic' && ! ( record && record.hasPublished ) ? __( 'Metadata will be created and approved automatically after publication.', 'ehrman-blog-discovery' ) : __( 'Publish this post before creating metadata.', 'ehrman-blog-discovery' ) ) : savedPostRequired ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Save your changes before continuing.', 'ehrman-blog-discovery' ) ) : null,
 				record && ! record.configured ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The shared OpenAI API key is not configured. Ask an administrator to set OPENAI_API_KEY on the server.', 'ehrman-blog-discovery' ) ) : null,
 				record && ! record.databaseAuthoritative ? el( Notice, { status: 'info', isDismissible: false }, __( 'Review is available, but approval remains locked while JSON is authoritative.', 'ehrman-blog-discovery' ) ) : null,
 				record && record.sourceChanged ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The saved post changed. Regenerate metadata before approval.', 'ehrman-blog-discovery' ) ) : null,
 				changedReview ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The metadata changed elsewhere. Reload it before approval.', 'ehrman-blog-discovery' ) ) : null,
 				pendingRevision ? el( Notice, { status: 'info', isDismissible: false }, __( 'Approved metadata remains active until these changes are approved.', 'ehrman-blog-discovery' ) ) : null,
-				( draft && draft.analysisActive && ! draft.analysisStalled ) || [ 'analyze', 'reanalyze' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), __( 'Creating metadata...', 'ehrman-blog-discovery' ) ) : null,
+				( draft && draft.analysisActive && ! draft.analysisStalled ) || [ 'analyze', 'reanalyze' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), automaticBusy && draft.status === 'approved' ? __( 'Creating vector...', 'ehrman-blog-discovery' ) : __( 'Creating metadata...', 'ehrman-blog-discovery' ) ) : null,
 				[ 'approve', 'retry-embedding' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), 'approve' === busyAction ? __( 'Adding to search and creating vector...', 'ehrman-blog-discovery' ) : __( 'Creating vector...', 'ehrman-blog-discovery' ) ) : null,
 				draft && draft.analysisStalled ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Metadata creation stopped responding. Regenerate metadata to try again.', 'ehrman-blog-discovery' ) ) : null,
-				draft && 'ready' === draft.status && ! generating ? el( 'p', { role: 'status' }, __( 'Metadata is ready for review.', 'ehrman-blog-discovery' ) ) : null,
-				draft && 'approved' === draft.status ? el( Notice, { status: 'success', isDismissible: false }, __( 'Added to Search', 'ehrman-blog-discovery' ) ) : null,
+				draft && 'ready' === draft.status && ! generating && ! automaticBusy ? el( 'p', { role: 'status' }, __( 'Metadata is ready for review.', 'ehrman-blog-discovery' ) ) : null,
+				draft && 'approved' === draft.status && ! automaticBusy ? el( Notice, { status: 'success', isDismissible: false }, __( 'Added to Search', 'ehrman-blog-discovery' ) ) : null,
 				draft && 'held' === draft.status ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Metadata could not be approved. Check the warnings below and regenerate metadata after correcting the post or vocabulary.', 'ehrman-blog-discovery' ), el( 'ul', null, ( draft.reviewNotes || [] ).map( ( note, index ) => el( 'li', { key: index }, note ) ) ) ) : null,
 				draft && 'approved' === draft.status ? el(
 					'dl',
 					{ className: 'ehrman-ingestion-editor__status' },
 					el( 'div', null, el( 'dt', null, __( 'Workflow', 'ehrman-blog-discovery' ) ), el( 'dd', null, readableStatus( draft && draft.status ) ) ),
+					el( 'div', null, el( 'dt', null, __( 'Approval', 'ehrman-blog-discovery' ) ), el( 'dd', null, readableStatus( draft.approvalMode || 'manual' ) ) ),
 					draft ? el( 'div', null, el( 'dt', null, __( 'Vector', 'ehrman-blog-discovery' ) ), el( 'dd', null, readableStatus( draft.embeddingStatus ) ) ) : null
 				) : null,
 				draft && draft.errorMessage ? el( Notice, { status: 'error', isDismissible: false }, draft.errorMessage ) : null,
@@ -309,6 +316,16 @@
 				title: __( 'Search Metadata', 'ehrman-blog-discovery' ),
 				className: 'ehrman-ingestion-editor',
 			},
+			el( SelectControl, {
+				label: __( 'Metadata mode', 'ehrman-blog-discovery' ), value: mode,
+				disabled: !! busyAction || editor.isSaving || editor.postStatus === 'publish' || !! ( record && record.hasPublished ),
+				options: [
+					{ label: wp.i18n.sprintf( __( 'Use site default (%s)', 'ehrman-blog-discovery' ), readableStatus( config.defaultMode || 'manual' ) ), value: 'inherit' },
+					{ label: __( 'Manual', 'ehrman-blog-discovery' ), value: 'manual' },
+					{ label: __( 'Automatic', 'ehrman-blog-discovery' ), value: 'automatic' },
+				],
+				onChange: value => wp.data.dispatch( 'core/editor' ).editPost( { meta: { ...editor.meta, [ modeKey ]: value } } ),
+			} ),
 			content
 		);
 	}

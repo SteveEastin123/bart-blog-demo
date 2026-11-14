@@ -12,8 +12,10 @@ publication date, and complete text. The ingestion workflow generates and
 stores only discovery metadata: a description, search summary, topics,
 secondary keywords, review evidence, and a title-and-summary vector.
 
-Analysis never changes live discovery data. An administrator must review and
-approve a completed proposal first. Database-managed approval is enabled by default;
+Analysis produces a validated proposal before live discovery data changes.
+Manual mode requires administrator review and approval. Opt-in Automatic mode
+approves a valid proposal and creates its vector after first publication.
+Database-managed approval is enabled by default;
 no source-mode setting is needed for production. Explicit JSON-managed mode locks
 approval. The local preparation copy remains JSON-managed;
 Render testing and the eventual production installation use database-managed mode.
@@ -40,7 +42,44 @@ reader-search analytics. The old `EHRMAN_INGESTION_OPENAI_API_KEY` is no longer
 read; configure `OPENAI_API_KEY` before upgrading a server that only has the old
 key. Check for queued ingestion jobs before enabling the shared key.
 
-## Editor Workflow
+## Publishing Mode
+
+**Tools > Ehrman Discovery > Publishing settings** sets the site default:
+**Manual** (the installation default) or **Automatic**. Only administrators can
+change it. The **Metadata mode** selector in the post editor's Search Metadata
+panel offers **Use site default**, **Manual**, or **Automatic** before first
+publication. Save the choice with the post; the selector locks after publication.
+It does not change the separate JSON/database-authority setting.
+
+Automatic mode queues one background job when a new post is first published.
+Publication itself does not wait for OpenAI. The job generates and validates
+metadata, approves it through the existing transactional writer, and generates
+the title-and-summary vector. Validated new keywords are included. Ignore-only
+posts do not receive vectors. The editor checks status and shows progress and
+completion; Search Metadata history identifies the approval as **Automatic**.
+Usage and costs are recorded in the existing post-ingestion analytics.
+
+Automatic mode requires a working WordPress cron runner, database-managed mode,
+the shared OpenAI key, and an administrator authorized to edit the post.
+Scheduled publication retains the authorizing administrator from the saved post.
+Permissions, the effective mode, the saved post and vocabulary are rechecked
+before approval. Changing the site default does not process existing posts.
+Updates, autosaves, restores and later republication never regenerate metadata.
+Existing imported records are not automatically linked or overwritten.
+
+Invalid/held output, changed source, missing configuration or revoked permissions
+stop automatic approval and leave a recoverable status. There are no automatic
+job retries; the existing one-time retry for truncated model output still applies.
+If the initial vector fails, approved metadata remains available to Browse Topics
+and Keyword Search; **Retry Vector** retries only that stage. A queue or worker
+stalled for ten minutes becomes actionable in **Needs attention/Failed**. Use
+manual regeneration or review to recover; do not repeatedly republish the post.
+Automatic processing never prevents the article from being published.
+
+Schema 1.16.0 adds automatic-work status and approval-mode audit columns in place.
+Existing installations and posts stay Manual unless explicitly opted in.
+
+## Manual Editor Workflow
 
 1. Save and publish the WordPress post normally.
 2. Open the **Search Metadata** panel in the block editor.
@@ -241,22 +280,24 @@ attempt number; a late response from an older attempt cannot overwrite newer
 work. Duplicate submissions for the same WordPress post or canonical URL are
 rejected before another AI request is started.
 
-New generation requests do not depend on WordPress cron. The legacy cron
-callback remains compatible with jobs already scheduled before this change;
-it uses the same atomic claim to prevent duplicate processing.
+Manual generation requests do not depend on WordPress cron. Automatic publication
+and legacy queued jobs use the one-time cron callback, with atomic claims to
+prevent duplicate processing. The host must run WordPress cron reliably before
+enabling Automatic mode.
 
 Allow sufficient HTTP/proxy time for foreground generation: the upstream request
 has a 180-second timeout and may retry once if structured output is truncated.
 A timeout is reported as a failure, not approval-ready metadata. Reload status
 before retrying after a browser/proxy disconnect, because PHP may have completed
 the request. A fatal interruption remains recoverable through the ten-minute
-stalled-attempt check. No request automatically approves or indexes a proposal.
+stalled-attempt check. Manual generation never automatically approves or indexes
+a proposal.
 
 Prompt version 9 supplies the exact description/summary opening-verb list from
 `Post_Ingestion_Proposal_Validator` to the model. The generation instructions and
 validator therefore use one source of truth for this house-style rule. Invalid
 output still requires regeneration; this change does not add automatic paid
-retries, bypass validation, or approve metadata without the publisher.
+retries or bypass validation. Automatic mode uses the same validator.
 
 ## Security And Data Retention
 
@@ -292,7 +333,10 @@ Run the server-side regression suite with an available Python runtime:
   -PythonExecutable 'C:\path\to\python.exe'
 ```
 
-The regression suite covers editor authorization, completed foreground responses,
+The regression suite covers Manual defaults, per-post overrides saved during REST
+publication, scheduled publication, automatic approval and vectors, duplicate-job
+protection, permission/configuration changes, and failure recovery. It also covers
+editor authorization, completed foreground responses,
 timeout recovery, read-only status requests, duplicate prevention, atomic worker claims, stale-job
 recovery, attempt fencing, full-text redaction, source-change detection,
 inline approval validation, revision checks, audit relationships, vector

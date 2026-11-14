@@ -281,6 +281,8 @@ CREATE TABLE {$tables['ingestion_drafts']} (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   revision_parent_id bigint(20) unsigned DEFAULT NULL,
   revision_base_hash char(64) NOT NULL DEFAULT '',
+  automatic_status varchar(20) NOT NULL DEFAULT '',
+  approval_mode varchar(16) NOT NULL DEFAULT 'manual',
   status varchar(32) NOT NULL DEFAULT 'draft',
   source_wp_id bigint(20) unsigned NOT NULL,
   wordpress_post_id bigint(20) unsigned DEFAULT NULL,

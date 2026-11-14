@@ -143,14 +143,17 @@ visibility. Permanent-deletion cleanup removes the owned autocomplete metadata.
 The plugin includes an administrator-only **Search Metadata** panel in the normal
 WordPress post editor. After publishing, select **Create Metadata**; WordPress
 supplies the post ID, title, URL, author, publication date, and complete text.
-No manual ID entry or copying is required. **Tools > Metadata History** retains
+No manual ID entry or copying is required. **Tools > Search Metadata** retains
 review, approval, retry and history functions at the existing
 `tools.php?page=ehrman-post-ingestion` URL, without a separate post-entry form.
 The configured ingestion model analyzes the full text using the shared OpenAI key and returns a
 reviewable description, search summary, existing topics, existing secondary
 keywords, explicitly marked new-keyword proposals, a readiness decision, and
-review notes. Analysis only creates a draft; no live search data changes before
-explicit approval.
+review notes. Manual mode requires explicit approval before live search changes.
+Administrators can opt into Automatic mode at **Tools > Ehrman Discovery**, with
+a per-post override in the editor before first publication. Automatic mode
+validates and approves metadata and creates its vector in a background job.
+The installation default remains Manual; existing posts are not bulk processed.
 
 Descriptions and search summaries follow the existing index house style: each
 begins with an active, present-tense verb and a declarative statement rather
@@ -198,7 +201,7 @@ Configure the workflow with these environment variables:
   to `json` to protect the handoff-preparation data; that mode permits analysis
   and review but locks approval. The legacy value `mysql` also covers MariaDB;
   it does not select a database product. Production needs no setting change after
-  initial installation. Administrators still review and approve each proposal.
+  initial installation. Manual mode still requires review and approval.
 
 Sharing the key does not combine the plugin's usage records: reader calls remain
 in search analytics, while metadata analysis and post-vector metrics remain on
@@ -213,9 +216,10 @@ action. While JSON remains authoritative, continue using the existing download
 skill and rebuild/import workflow for live data changes.
 
 Published WordPress posts can be analyzed from the block editor's **Search
-Metadata** panel. Analysis runs through a one-time WordPress cron event and the
-panel polls for status, so a slow API response does not block publishing or
-editing. Atomic claims, a ten-minute stalled-job threshold, and attempt fencing
+Metadata** panel. Manual **Create Metadata** waits for generation and displays
+the proposal for approval. Opt-in Automatic mode queues first-publication work
+through WordPress cron and the panel polls for status. A working cron runner is
+required for Automatic mode. Atomic claims, a ten-minute stalled-job threshold, and attempt fencing
 make retries recoverable without allowing an older response to replace newer
 work. See `docs/wordpress_post_ingestion_handoff.md` for the complete operator
 and developer guide.

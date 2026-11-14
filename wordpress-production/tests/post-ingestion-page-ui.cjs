@@ -65,7 +65,10 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       await page.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
       const status = page.locator('#wpbody-content .wrap').first();
       assert.equal(await status.getByRole('heading', { name: 'Ehrman Blog Discovery', exact: true }).count(), 1);
-      assert.equal(await status.locator('form').count(), 0, 'Discovery status still exposes a bulk import form');
+      assert.equal(await status.locator('input[name="action"][value="ehrman_discovery_import"]').count(), 0, 'Discovery status still exposes a bulk import form');
+      assert.equal(await status.locator('form').count(), 1, 'Unexpected Discovery settings form');
+      assert.equal(await status.getByLabel('Metadata generation', { exact: true }).count(), 1);
+      assert.equal(await status.locator('form').getAttribute('action'), base + '/wp-admin/options.php');
       assert.doesNotMatch(await status.innerText(), /Authoritative JSON import|All five authoritative JSON files/);
       assert.equal(await status.getByRole('rowheader', { name: 'Imported posts', exact: true }).count(), 1);
       assert.equal(await status.getByRole('link', { name: 'Open AI Search Analytics', exact: true }).getAttribute('href'), base + '/wp-admin/tools.php?page=ehrman-ai-analytics');

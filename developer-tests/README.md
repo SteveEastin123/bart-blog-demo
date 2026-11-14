@@ -12,7 +12,8 @@ production plugin or install it on the live blog.
 - Autocomplete suggestions and the Browse Topics hierarchy and relationships.
 - Source-file fingerprints and imported counts for like-for-like comparisons.
 - The separate PHP regression suite covers search rendering, Ask AI contracts,
-  analytics, foreground ingestion and approval, legacy job recovery, vector import/export and error cases.
+  analytics, foreground ingestion and approval, opt-in automatic publication,
+  legacy job recovery, vector import/export and error cases.
 
 The comparison is a deterministic regression check, **not an AI relevance grade**.
 It does not call OpenAI or generate embeddings. Ask AI and ingestion regression

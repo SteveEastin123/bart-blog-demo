@@ -321,6 +321,8 @@ final class Post_Ingestion_Page {
 		$can_revise = $native_id > 0 && 'publish' === get_post_status( $native_id ) && current_user_can( 'edit_post', $native_id ) && Database::integer( $latest['id'] ?? null ) === $draft_id;
 		return array(
 			'is_revision'      => $parent_id > 0,
+			'automatic'        => Post_Ingestion_Automation::active( $draft ),
+			'approval_mode'    => Database::text( $draft['approval_mode'] ?? 'manual' ),
 			'parent_url'       => $parent_id > 0 ? self::page_url( $parent_id ) : '',
 			'can_revise'       => $can_revise,
 			'latest_url'       => null !== $latest && Database::integer( $latest['id'] ) !== $draft_id ? self::page_url( Database::integer( $latest['id'] ) ) : '',

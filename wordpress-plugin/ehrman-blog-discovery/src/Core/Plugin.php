@@ -64,6 +64,8 @@ final class Plugin {
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		AI_Analytics_Page::register();
 		Post_Ingestion_Queue::register();
+		Post_Ingestion_Publishing_Settings::register();
+		Post_Ingestion_Automation::register();
 		Post_Ingestion_Lifecycle::register();
 		Post_Ingestion_Page::register();
 		Post_Ingestion_Editor::register();
@@ -93,7 +95,7 @@ final class Plugin {
 		);
 	}
 
-	/** Renders the read-only administration status page. */
+	/** Renders administration status and publishing preferences. */
 	public function render_admin_page(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;

@@ -162,12 +162,32 @@ final class Post_Ingestion_Service {
 
 		$taxonomy      = $this->repository->vocabulary();
 		$taxonomy_hash = $this->repository->vocabulary_hash( $taxonomy );
-		$draft_id      = $this->repository->create_draft( $validated, $taxonomy_hash, $user_id, $wordpress_post_id );
+		$draft_id      = $wordpress_post_id > 0
+			? $this->repository->create_for_post( $validated, $taxonomy_hash, $user_id, $wordpress_post_id )
+			: $this->repository->create_draft( $validated, $taxonomy_hash, $user_id );
 		if ( is_wp_error( $draft_id ) ) {
 			return $draft_id;
 		}
 
 		return $this->analyze_draft( $draft_id );
+	}
+
+	/**
+	 * Persists an authorized publication snapshot without calling AI in the publish request.
+	 *
+	 * @param \WP_Post $post Published native post.
+	 * @param int      $user_id Authorizing administrator.
+	 * @return int|WP_Error Queued draft or validation error.
+	 */
+	public function queue_automatic( \WP_Post $post, int $user_id ): int|WP_Error {
+		if ( 'publish' !== $post->post_status || ! user_can( $user_id, 'manage_options' ) || ! user_can( $user_id, 'edit_post', $post->ID ) ) {
+			return new WP_Error( 'ehrman_ingestion_forbidden', __( 'Automatic metadata requires an authorized administrator and a published post.', 'ehrman-blog-discovery' ) );
+		}
+		$input = $this->validator->validate_submission( Post_Ingestion_Post_Source::input( $post ) );
+		if ( is_wp_error( $input ) ) {
+			return $input;
+		}
+		return $this->repository->create_for_post( $input, $this->repository->vocabulary_hash( $this->repository->vocabulary() ), $user_id, $post->ID, true );
 	}
 
 	/**
@@ -180,6 +200,9 @@ final class Post_Ingestion_Service {
 		$draft = $this->draft( $draft_id );
 		if ( null === $draft ) {
 			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
+		}
+		if ( Post_Ingestion_Automation::busy( $draft ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Automatic metadata is still running. Wait for its result before regenerating.', 'ehrman-blog-discovery' ) );
 		}
 		if ( ! self::is_configured() ) {
 			return new WP_Error(
@@ -234,6 +257,9 @@ final class Post_Ingestion_Service {
 	 * @return array<string,mixed>|WP_Error Separate review record.
 	 */
 	public function edit_metadata( int $draft_id ): array|WP_Error {
+		if ( Post_Ingestion_Automation::busy( $this->draft( $draft_id ) ?? array() ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Automatic metadata is still running.', 'ehrman-blog-discovery' ) );
+		}
 		return Post_Ingestion_Revisions::start( $draft_id );
 	}
 
@@ -266,10 +292,11 @@ final class Post_Ingestion_Service {
 	 * @param bool                     $approve_new_keywords Explicit approval for proposed new keywords.
 	 * @param array<string,mixed>|null $input Optional reviewed fields from the post editor.
 	 * @param string|null              $revision Reviewed proposal revision.
+	 * @param bool                     $automatic Internal automatic worker, never a browser input.
 	 * @return array<string,mixed>|WP_Error Approved draft or error.
 	 */
-	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null, ?string $revision = null ) {
-		return $this->review_workflow->approve( $draft_id, $approve_new_keywords, $input, $revision );
+	public function approve( int $draft_id, bool $approve_new_keywords, ?array $input = null, ?string $revision = null, bool $automatic = false ) {
+		return $this->review_workflow->approve( $draft_id, $approve_new_keywords, $input, $revision, $automatic );
 	}
 
 	/**
@@ -283,9 +310,26 @@ final class Post_Ingestion_Service {
 		if ( null === $draft || self::STATUS_APPROVED !== $draft['status'] ) {
 			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The approved ingestion record was not found.', 'ehrman-blog-discovery' ) );
 		}
+		if ( Post_Ingestion_Automation::busy( $draft ) ) {
+			return new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Automatic vector creation is still running.', 'ehrman-blog-discovery' ) );
+		}
 		$latest = $this->latest_for_post( Database::integer( $draft['source_wp_id'] ?? null ) );
 		if ( Database::integer( $draft['wordpress_post_id'] ?? null ) > 0 && Database::integer( $latest['id'] ?? null ) !== $draft_id ) {
 			return new WP_Error( 'ehrman_ingestion_review_changed', __( 'Open the latest metadata record before retrying its vector.', 'ehrman-blog-discovery' ) );
+		}
+		if ( Post_Ingestion_Automation::active( $draft ) ) {
+			$released = Database::client()->update(
+				Database::tables()['ingestion_drafts'],
+				array( 'automatic_status' => '' ),
+				array(
+					'id'               => $draft_id,
+					'automatic_status' => Database::text( $draft['automatic_status'] ),
+					'updated_at'       => Database::text( $draft['updated_at'] ),
+				)
+			);
+			if ( 1 !== $released ) {
+				return new WP_Error( 'ehrman_ingestion_review_changed', __( 'Vector status changed. Reload before retrying.', 'ehrman-blog-discovery' ) );
+			}
 		}
 		$this->embedding_generator->generate( $draft_id, Database::integer( $draft['source_wp_id'] ?? null ) );
 		$stored = $this->draft( $draft_id );
@@ -302,7 +346,7 @@ final class Post_Ingestion_Service {
 	 */
 	public function discard( int $draft_id, string $revision ): bool {
 		$draft = $this->draft( $draft_id );
-		if ( null === $draft || in_array( $draft['status'], array( self::STATUS_ANALYZING, self::STATUS_APPROVED ), true )
+		if ( null === $draft || Post_Ingestion_Automation::busy( $draft ) || in_array( $draft['status'], array( self::STATUS_ANALYZING, self::STATUS_APPROVED ), true )
 			|| ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), $revision )
 			|| ! $this->repository->delete_draft( $draft ) ) {
 			return false;
@@ -317,7 +361,7 @@ final class Post_Ingestion_Service {
 	 * @param array<string,mixed> $draft Draft record.
 	 */
 	public static function analysis_is_active( array $draft ): bool {
-		return in_array(
+		return Post_Ingestion_Automation::active( $draft ) || in_array(
 			sanitize_key( Database::text( $draft['status'] ?? null ) ),
 			array( self::STATUS_QUEUED, self::STATUS_ANALYZING ),
 			true
@@ -330,6 +374,9 @@ final class Post_Ingestion_Service {
 	 * @param array<string,mixed> $draft Draft record.
 	 */
 	public static function analysis_is_stale( array $draft ): bool {
+		if ( Post_Ingestion_Automation::active( $draft ) ) {
+			return Post_Ingestion_Automation::stalled( $draft );
+		}
 		if ( self::STATUS_ANALYZING !== sanitize_key( Database::text( $draft['status'] ?? null ) ) ) {
 			return false;
 		}
