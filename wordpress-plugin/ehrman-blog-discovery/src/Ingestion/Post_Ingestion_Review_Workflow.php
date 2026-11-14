@@ -150,7 +150,7 @@ final class Post_Ingestion_Review_Workflow {
 		if ( ! is_string( $approved_json ) ) {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The approved proposal could not be encoded.', 'ehrman-blog-discovery' ) );
 		}
-		if ( ! hash_equals( Database::text( $draft['taxonomy_version'] ?? null ), $this->repository->vocabulary_hash( $current_taxonomy ) ) ) {
+		if ( ! $this->repository->vocabulary_matches( Database::text( $draft['taxonomy_version'] ?? null ), $current_taxonomy ) ) {
 			return new WP_Error( 'ehrman_ingestion_taxonomy_changed', __( 'The topic or keyword vocabulary changed after analysis. Reanalyze the draft before approval.', 'ehrman-blog-discovery' ) );
 		}
 

@@ -408,6 +408,17 @@ final class Post_Ingestion_Repository {
 	}
 
 	/**
+	 * Checks current definitions, with exact-snapshot compatibility for older drafts.
+	 *
+	 * @param string              $hash     Stored vocabulary fingerprint.
+	 * @param array<string,mixed> $taxonomy Current approved vocabulary.
+	 * @phpstan-param Vocabulary $taxonomy
+	 */
+	public function vocabulary_matches( string $hash, array $taxonomy ): bool {
+		return $this->vocabulary_reader->vocabulary_matches( $hash, $taxonomy );
+	}
+
+	/**
 	 * Returns a duplicate error message, or an empty string.
 	 *
 	 * @param int    $source_wp_id Source WordPress post identifier.

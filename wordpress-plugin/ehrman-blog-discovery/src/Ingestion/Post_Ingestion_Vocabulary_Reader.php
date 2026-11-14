@@ -72,13 +72,32 @@ final class Post_Ingestion_Vocabulary_Reader {
 	}
 
 	/**
-	 * Returns a stable hash of an approved vocabulary snapshot.
+	 * Fingerprints vocabulary definitions, not changing keyword usage counts.
 	 *
 	 * @param array<string,mixed> $taxonomy Approved vocabulary.
 	 * @phpstan-param Vocabulary $taxonomy
 	 */
 	public function vocabulary_hash( array $taxonomy ): string {
+		foreach ( array_keys( $taxonomy['keywords'] ) as $index ) {
+			unset( $taxonomy['keywords'][ $index ]['count'] );
+		}
 		$taxonomy_json = wp_json_encode( $taxonomy );
 		return hash( 'sha256', is_string( $taxonomy_json ) ? $taxonomy_json : '' );
+	}
+
+	/**
+	 * Also accepts an older draft when its complete, count-bearing snapshot matches.
+	 *
+	 * @param string              $hash     Stored vocabulary fingerprint.
+	 * @param array<string,mixed> $taxonomy Current approved vocabulary.
+	 * @phpstan-param Vocabulary $taxonomy
+	 */
+	public function vocabulary_matches( string $hash, array $taxonomy ): bool {
+		if ( hash_equals( $hash, $this->vocabulary_hash( $taxonomy ) ) ) {
+			return true;
+		}
+		// Legacy drafts have no definition-only snapshot; never guess what changed.
+		$legacy_json = wp_json_encode( $taxonomy );
+		return is_string( $legacy_json ) && hash_equals( $hash, hash( 'sha256', $legacy_json ) );
 	}
 }

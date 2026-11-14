@@ -173,6 +173,17 @@ edits. Retrying analysis from Search Metadata refreshes the draft from the curre
 saved WordPress post. Legacy external drafts without a native-post link continue
 to use their retained source text; source IDs are never assumed to be local IDs.
 
+Vocabulary approval fingerprints cover topic and keyword definitions, including
+topic aliases, but exclude keyword usage counts. Approving or removing another
+post that uses existing keywords therefore does not invalidate newly generated
+metadata or manual revisions. Usage counts remain available to the generation
+prompt. Actual vocabulary changes still require regeneration.
+
+Older pending drafts retain their original count-bearing fingerprint and can be
+approved only if that full snapshot still matches. If it no longer matches,
+regenerate metadata: the old hash cannot distinguish count-only changes from
+definition changes. No upgrade rewrites pending drafts or approved history.
+
 ## Native Post Lifecycle
 
 Metadata created from the WordPress editor explicitly records its native

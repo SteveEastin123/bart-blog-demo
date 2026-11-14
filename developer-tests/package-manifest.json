@@ -19,6 +19,7 @@
     "regressions/post-ingestion-editor-tests.php": "wordpress-production/tests/post-ingestion-editor-tests.php",
     "regressions/post-ingestion-editor-review-tests.php": "wordpress-production/tests/post-ingestion-editor-review-tests.php",
     "regressions/post-ingestion-revision-tests.php": "wordpress-production/tests/post-ingestion-revision-tests.php",
+    "regressions/post-ingestion-vocabulary-tests.php": "wordpress-production/tests/post-ingestion-vocabulary-tests.php",
     "regressions/post-ingestion-lifecycle-tests.php": "wordpress-production/tests/post-ingestion-lifecycle-tests.php",
     "regressions/ask-ai-cleanup-tests.php": "wordpress-production/tests/ask-ai-cleanup-tests.php",
     "regressions/ask-ai-naming-tests.php": "wordpress-production/tests/ask-ai-naming-tests.php",
