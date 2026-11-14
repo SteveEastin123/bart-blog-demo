@@ -109,6 +109,15 @@ final class Post_Ingestion_Proposal_Validator {
 	);
 
 	/**
+	 * Shares the exact accepted opening words with the generation prompt.
+	 *
+	 * @return list<string> Accepted active, present-tense verbs.
+	 */
+	public static function house_style_opening_verbs(): array {
+		return self::HOUSE_STYLE_OPENING_VERBS;
+	}
+
+	/**
 	 * Validates and canonicalizes a proposal.
 	 *
 	 * @param array<string,mixed> $proposal           Candidate proposal.

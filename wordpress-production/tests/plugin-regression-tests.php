@@ -395,6 +395,16 @@ $assert_same( array( $topic['name'] ), $checked_proposal['topics'], 'The proposa
 $assert_same( $topic['name'], $checked_proposal['topicRationales'][0]['topic'], 'The proposal validator did not canonicalize its topic rationale.' );
 $assert_same( 1, count( array_intersect( $checked_proposal['reviewNotes'], array( 'Reviewed by editor' ) ) ), 'The proposal validator did not deduplicate review notes.' );
 
+$opening_verbs = EhrmanBlogDiscovery\Post_Ingestion_Proposal_Validator::house_style_opening_verbs();
+$assert( count( $opening_verbs ) > 0, 'The shared opening-verb list is empty.' );
+foreach ( $opening_verbs as $verb ) {
+	$style_proposal = $valid_proposal;
+	$style_proposal['description'] = ucfirst( $verb ) . ' how a representative post exercises approval while preserving its assigned topic, summary, description, and searchable metadata for readers.';
+	$style_proposal['searchSummary'] = ucfirst( $verb ) . ' how this representative post exercises the administrator approval workflow and its database updates. Describes the selected topic and associated records. Confirms that approval precedes vector generation.';
+	$checked_style = $validator->validate_proposal( $style_proposal, $taxonomy, false, true );
+	$assert( ! is_wp_error( $checked_style ), 'The generation prompt recommends an opening verb rejected by validation: ' . $verb );
+}
+
 $held_proposal = $proposal;
 $held_proposal['topics'] = array();
 $held_proposal['status'] = 'held';
@@ -656,9 +666,13 @@ try {
 	$generation_fail = true;
 	$generated_proposal = $proposal;
 	$generated_proposal['topicRationales'] = array( array( 'topic' => $proposal['topics'][0], 'rationale' => 'This subject is central throughout the complete post.' ) );
-	$mock_generation = static function ( $preempt, $args, $url ) use ( &$generation_calls, &$generation_fail, $generated_proposal, $assert_same ) {
+	$mock_generation = static function ( $preempt, $args, $url ) use ( &$generation_calls, &$generation_fail, $generated_proposal, $opening_verbs, $assert, $assert_same ) {
 		++$generation_calls;
 		$assert_same( 'https://api.openai.com/v1/responses', $url, 'Generation unexpectedly requested a vector before approval.' );
+		$sent = json_decode( $args['body'], true );
+		$assert( str_contains( $sent['instructions'], 'The first word of both description and searchSummary must be one of these exact approved verbs' ), 'The prompt omits the required opening-word rule.' );
+		$assert( str_contains( $sent['instructions'], implode( ', ', $opening_verbs ) ), 'The prompt and validator do not share the same allowed opening verbs.' );
+		$assert( str_starts_with( $sent['prompt_cache_key'], 'ehrman-ingestion-v' . EhrmanBlogDiscovery\Post_Ingestion_Settings::prompt_version() . '-' ), 'The request does not use the configured prompt version.' );
 		if ( $generation_fail ) return new WP_Error( 'test_timeout', 'Simulated request timeout.' );
 		return array( 'response' => array( 'code' => 200 ), 'body' => wp_json_encode( array(
 			'id' => 'foreground-regression', 'status' => 'completed', 'output_text' => wp_json_encode( $generated_proposal ),

@@ -99,6 +99,10 @@ select **Create Metadata** for an unprocessed published post on the worklist.
 This nonce-protected POST checks administrator and post-edit permissions, reads
 the saved post server-side, rejects existing records, and waits for the same
 analysis workflow to finish before returning the review page. It never accepts manually supplied post text or metadata.
+The redirect opens that post's metadata record regardless of the list's active
+filters. If generation fails after creating a record, or the same Create Metadata
+action is submitted again, the page opens that existing record for review or
+recovery rather than returning to a list that may no longer show the post.
 Opening, filtering, or paging through the list does not start an AI request.
 The page retains review and approval, pending-analysis retries, vector retries,
 and draft discard actions, plus read-only inspection of imported metadata. Its URL remains
@@ -178,6 +182,12 @@ A timeout is reported as a failure, not approval-ready metadata. Reload status
 before retrying after a browser/proxy disconnect, because PHP may have completed
 the request. A fatal interruption remains recoverable through the ten-minute
 stalled-attempt check. No request automatically approves or indexes a proposal.
+
+Prompt version 9 supplies the exact description/summary opening-verb list from
+`Post_Ingestion_Proposal_Validator` to the model. The generation instructions and
+validator therefore use one source of truth for this house-style rule. Invalid
+output still requires regeneration; this change does not add automatic paid
+retries, bypass validation, or approve metadata without the publisher.
 
 ## Security And Data Retention
 

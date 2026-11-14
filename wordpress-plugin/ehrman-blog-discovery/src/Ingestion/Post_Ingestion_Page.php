@@ -87,12 +87,16 @@ final class Post_Ingestion_Page {
 		}
 		$service  = new Post_Ingestion_Service();
 		$existing = $service->latest_for_post( $post_id );
-		if ( null !== $existing || ( new Post_Ingestion_Worklist() )->is_indexed( $post_id ) ) {
+		if ( null !== $existing ) {
+			self::redirect_with_notice( Database::integer( $existing['id'] ?? null ), false, __( 'This post already has a metadata record. Review its current status below.', 'ehrman-blog-discovery' ) );
+		}
+		if ( ( new Post_Ingestion_Worklist() )->is_indexed( $post_id ) ) {
 			self::redirect_with_notice( 0, false, __( 'This post already has metadata or a generation record. Refresh the list before continuing.', 'ehrman-blog-discovery' ) );
 		}
 		$result = $service->analyze( Post_Ingestion_Post_Source::input( $post ), get_current_user_id(), $post_id );
 		if ( is_wp_error( $result ) ) {
-			self::redirect_with_notice( 0, false, $result->get_error_message() );
+			$draft = $service->latest_for_post( $post_id );
+			self::redirect_with_notice( Database::integer( $draft['id'] ?? null ), false, $result->get_error_message() );
 		}
 		self::redirect_with_notice( Database::integer( $result['id'] ?? null ), true, __( 'Metadata generation finished. Review the results below.', 'ehrman-blog-discovery' ) );
 	}

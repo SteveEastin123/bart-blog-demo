@@ -213,10 +213,15 @@ try {
 	$wpdb->update( $table, array( 'status' => 'ready', 'proposal_json' => wp_json_encode( $valid_proposal ) ), array( 'id' => $native_draft ) );
 	$pending = $repository->draft( $native_draft );
 	$revision = Post_Ingestion_Review_Workflow::revision( $pending );
-	$send_action = static function ( string $action, array $values ) use ( $page_notice_key ): array {
+	$last_action_location = '';
+	$send_action = static function ( string $action, array $values ) use ( $page_notice_key, &$last_action_location ): array {
 		$_POST = array_merge( $values, array( 'action' => $action, '_wpnonce' => wp_create_nonce( $action ) ) );
 		$_REQUEST = $_POST;
-		$redirect = static function () { throw new RuntimeException( 'history-test-redirect' ); };
+		$last_action_location = '';
+		$redirect = static function ( $location ) use ( &$last_action_location ) {
+			$last_action_location = $location;
+			throw new RuntimeException( 'history-test-redirect' );
+		};
 		add_filter( 'wp_redirect', $redirect, 0 );
 		try { do_action( 'admin_post_' . $action ); }
 		catch ( RuntimeException $error ) { if ( 'history-test-redirect' !== $error->getMessage() ) { throw $error; } }
@@ -271,13 +276,52 @@ try {
 	$notice = $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post, 'post_text' => 'UNTRUSTED OVERRIDE' ) );
 	$assert_same( false, $notice['success'], 'Worklist did not return the generation failure.' );
 	$created = $repository->latest_for_source_wp_id( $new_post );
+	$assert_same( Post_Ingestion_Page::page_url( (int) $created['id'] ), $last_action_location, 'Failed generation returned to the worklist instead of the affected metadata record.' );
 	$assert_same( 'error', $created['status'], 'Worklist did not wait for generation.' );
 	$assert_same( $new_post, (int) $created['wordpress_post_id'], 'Worklist lost native-post ownership.' );
 	$assert_same( false, str_contains( $created['post_text'], 'UNTRUSTED' ), 'Worklist accepted submitted post content.' );
 	$assert_same( false, $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post ) )['success'], 'Repeated Create Metadata queued duplicate work.' );
+	$assert_same( Post_Ingestion_Page::page_url( (int) $created['id'] ), $last_action_location, 'Repeated Create Metadata lost the existing record.' );
 	wp_update_post( array( 'ID' => $new_post, 'post_status' => 'draft' ) );
 	$assert_same( false, $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post ) )['success'], 'Worklist accepted an unpublished post.' );
 	$assert_same( 2, $page_http_calls, 'Worklist must run one foreground request, without duplicating it.' );
+	// A successful POST from a filtered list must open the generated record, not that list.
+	$generated_proposal = $valid_proposal;
+	$generated_proposal['topicRationales'] = array( array( 'topic' => $topic_name, 'rationale' => 'This topic is the primary sustained subject.' ) );
+	$mock_generation = static function ( $preempt, $args, $url ) use ( &$generated_proposal, $assert_same ) {
+		$assert_same( 'https://api.openai.com/v1/responses', $url, 'Creating metadata requested a vector before approval.' );
+		return array( 'response' => array( 'code' => 200 ), 'body' => wp_json_encode( array(
+			'id' => 'worklist-redirect-fixture', 'status' => 'completed', 'output_text' => wp_json_encode( $generated_proposal ),
+			'usage' => array( 'input_tokens' => 10, 'output_tokens' => 10 ),
+		) ) );
+	};
+	add_filter( 'pre_http_request', $mock_generation, 20, 3 );
+	try {
+		foreach ( array( 'ready', 'held' ) as $generated_status ) {
+			$generated_proposal['status'] = $generated_status;
+			$generated_proposal['reviewNotes'] = 'held' === $generated_status ? array( 'This proposal needs further review.' ) : array();
+			$generated_post = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'Worklist redirect fixture ' . $generated_status, 'post_content' => 'Saved article for the worklist generation redirect regression.', 'post_author' => $page_admin ), true );
+			$assert( ! is_wp_error( $generated_post ), 'Could not create the redirect fixture.' );
+			$_GET = array( 'page' => 'ehrman-post-ingestion', 'status' => 'not_generated', 'search' => 'Worklist redirect fixture', 'paged' => '2' );
+			$notice = $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $generated_post ) );
+			$generated = $repository->latest_for_source_wp_id( $generated_post );
+			$assert_same( true, $notice['success'], 'Worklist did not finish metadata generation.' );
+			$assert_same( $generated_status, $generated['status'], 'The generated review state changed.' );
+			$assert_same( Post_Ingestion_Page::page_url( (int) $generated['id'] ), $last_action_location, 'Create Metadata did not redirect directly to review.' );
+			parse_str( (string) wp_parse_url( $last_action_location, PHP_URL_QUERY ), $destination );
+			$review_dom = $page_dom( $page_render( 0, $destination ) );
+			$assert_same( 0, $review_dom->query( '//table[@data-ebd-metadata-worklist]|//form[@method="get"]' )->length, 'The redirect displayed the filtered worklist.' );
+			$assert_same( $generated_proposal['description'], $review_dom->evaluate( 'string(//textarea[@name="description"])' ), 'Generated description is not displayed at the redirect destination.' );
+			$assert_same( $generated_proposal['searchSummary'], $review_dom->evaluate( 'string(//textarea[@name="search_summary"])' ), 'Generated summary is not displayed at the redirect destination.' );
+			$assert_same( 'Approve and Add to Search', trim( $review_dom->evaluate( 'string(//button[@value="approve"])' ) ), 'The redirect destination lacks the approval action.' );
+			$assert_same( 'ready' === $generated_status ? 0 : 1, $review_dom->query( '//button[@value="approve"][@disabled]' )->length, 'Approval availability does not respect validation.' );
+			$assert_same( 'not_requested', $generated['embedding_status'], 'Generation created a vector before approval.' );
+			$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['external_posts'], $generated_post ) ), 'Generation indexed metadata without approval.' );
+		}
+	} finally {
+		remove_filter( 'pre_http_request', $mock_generation, 20 );
+	}
+	$assert_same( 4, $page_http_calls, 'Ready and held redirect checks should generate exactly once each.' );
 } finally {
 	$wpdb->query( 'ROLLBACK' );
 	wp_cache_flush();

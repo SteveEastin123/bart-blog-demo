@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Post_Ingestion_Settings {
 	private const API_URL        = 'https://api.openai.com/v1/responses';
 	private const DEFAULT_MODEL  = 'gpt-5.6-sol';
-	private const PROMPT_VERSION = '8';
+	private const PROMPT_VERSION = '9';
 
 	/** Returns the Responses API endpoint. */
 	public static function api_url(): string {
