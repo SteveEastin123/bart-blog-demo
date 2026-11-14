@@ -94,7 +94,9 @@ final class Post_Ingestion_Review_Workflow {
 		if ( ! is_string( $encoded ) ) {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The revised proposal could not be encoded.', 'ehrman-blog-discovery' ) );
 		}
-		$this->repository->store_proposal( $draft_id, $encoded, $checked['status'] );
+		if ( ! $this->repository->store_proposal( $draft, $encoded, $checked['status'] ) ) {
+			return new WP_Error( 'ehrman_ingestion_review_changed', __( 'The metadata changed before the revisions could be saved. Reload its current status.', 'ehrman-blog-discovery' ) );
+		}
 
 		$stored = $this->repository->draft( $draft_id );
 		return null === $stored
@@ -154,18 +156,29 @@ final class Post_Ingestion_Review_Workflow {
 
 		$source_wp_id = Database::integer( $draft['source_wp_id'] ?? null );
 		$url          = Database::text( $draft['url'] ?? null );
-		$duplicate    = $this->repository->duplicate_message( $source_wp_id, $url );
+		$is_revision  = Database::integer( $draft['revision_parent_id'] ?? null ) > 0;
+		$duplicate    = $is_revision ? '' : $this->repository->duplicate_message( $source_wp_id, $url );
 		if ( '' !== $duplicate ) {
 			return new WP_Error( 'ehrman_ingestion_duplicate', $duplicate );
 		}
 
-		$post_id = $this->approval_writer->approve( $draft_id, $draft, $checked, $current_taxonomy, $approved_json );
+		$vector = null;
+		if ( $is_revision ) {
+			if ( ! Post_Ingestion_Revisions::matches( $draft, Post_Ingestion_Revisions::live_post( $draft ) ) ) {
+				return new WP_Error( 'ehrman_ingestion_review_changed', __( 'The live metadata changed. Cancel this revision and start from the current version.', 'ehrman-blog-discovery' ) );
+			}
+			$vector = $this->embedding_generator->prepare_revision( $draft, $checked );
+			if ( is_wp_error( $vector ) ) {
+				return new WP_Error( 'ehrman_ingestion_embedding_failed', __( 'Changes were not approved because the replacement vector could not be created. Existing search metadata is unchanged. ', 'ehrman-blog-discovery' ) . $vector->get_error_message() );
+			}
+		}
+		$post_id = $this->approval_writer->approve( $draft_id, $draft, $checked, $current_taxonomy, $approved_json, $vector );
 		if ( is_wp_error( $post_id ) ) {
 			return $post_id;
 		}
 
 		AI_Usage::invalidate_search_caches();
-		if ( ! in_array( 'Ignore', $checked['topics'], true ) ) {
+		if ( ! $is_revision && ! in_array( 'Ignore', $checked['topics'], true ) ) {
 			$this->embedding_generator->generate( $draft_id, $source_wp_id );
 		}
 		$stored = $this->repository->draft( $draft_id );

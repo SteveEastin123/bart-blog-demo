@@ -11,8 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$view       = $ehrman_blog_discovery_context;
-$return_url = add_query_arg(
+$view            = $ehrman_blog_discovery_context;
+$fallback_action = ! empty( $view['draft_id'] ) ? 'ehrman_ingestion_reanalyze' : 'ehrman_ingestion_create_metadata';
+$return_url      = add_query_arg(
 	array(
 		'status' => 'all',
 		'search' => $view['title'],
@@ -33,9 +34,11 @@ $return_url = add_query_arg(
 		<style>.ehrman-ingestion__waiting, [data-ebd-generation-detail] { display: none; }</style>
 		<p><?php echo esc_html__( 'JavaScript is disabled. Continue to generate metadata and wait for the review page to load.', 'ehrman-blog-discovery' ); ?></p>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-			<input type="hidden" name="action" value="ehrman_ingestion_create_metadata">
+			<input type="hidden" name="action" value="<?php echo esc_attr( $fallback_action ); ?>">
+			<input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) ( $view['draft_id'] ?? 0 ) ); ?>">
+			<input type="hidden" name="revision" value="<?php echo esc_attr( $view['revision'] ?? '' ); ?>">
 			<input type="hidden" name="post_id" value="<?php echo esc_attr( (string) $view['post_id'] ); ?>">
-			<?php wp_nonce_field( 'ehrman_ingestion_create_metadata' ); ?>
+			<?php wp_nonce_field( $fallback_action ); ?>
 			<button class="button button-primary"><?php echo esc_html__( 'Continue', 'ehrman-blog-discovery' ); ?></button>
 		</form>
 	</noscript>

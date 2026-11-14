@@ -21,10 +21,11 @@
 		}
 	} );
 
-	function request( method, suffix = '' ) {
+	function request( method, suffix = '', data = undefined ) {
 		return window.wp.apiFetch( {
 			path: config.restPath + suffix,
 			method: method,
+			data: data,
 			headers: { 'X-WP-Nonce': config.nonce },
 		} );
 	}
@@ -58,16 +59,22 @@
 	async function generate() {
 		try {
 			// Reuse any saved record instead of repeating a paid request after a retry or another tab.
-			if ( await openRecord( await request( 'GET' ) ) ) {
+			const current = await request( 'GET' );
+			const regenerating = config.action === 'reanalyze';
+			if ( regenerating && ! current.draft ) {
+				throw new Error( __( 'The metadata record is no longer available.', 'ehrman-blog-discovery' ) );
+			}
+			if ( ( ! regenerating || changedRecord( current ) ) && await openRecord( current ) ) {
 				return;
 			}
-			if ( ! await openRecord( await request( 'POST', '/analyze' ) ) ) {
+			if ( ! await openRecord( await request( 'POST', regenerating ? '/reanalyze' : '/analyze', regenerating ? { revision: config.expectedRevision } : undefined ) ) ) {
 				throw new Error( __( 'The server did not return a metadata record.', 'ehrman-blog-discovery' ) );
 			}
 		} catch ( error ) {
 			// Recover a saved record and follow its status without repeating generation.
 			try {
-				if ( await openRecord( await request( 'GET' ) ) ) {
+				const recovered = await request( 'GET' );
+				if ( ( config.action !== 'reanalyze' || changedRecord( recovered ) ) && await openRecord( recovered ) ) {
 					return;
 				}
 			} catch ( statusError ) {
@@ -80,6 +87,11 @@
 			errorNotice.querySelector( 'p' ).textContent = error.message || __( 'The request could not be completed.', 'ehrman-blog-discovery' );
 			errorNotice.hidden = false;
 		}
+	}
+
+	function changedRecord( result ) {
+		const draft = result && result.draft;
+		return draft && ( Number( draft.id ) !== Number( config.expectedDraftId ) || draft.revision !== config.expectedRevision );
 	}
 
 	// Allow the progress screen to paint before starting the foreground server request.

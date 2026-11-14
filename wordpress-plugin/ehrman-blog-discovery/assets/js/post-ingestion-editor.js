@@ -173,7 +173,8 @@
 		}, [ editor.postId, !! ( draft && draft.analysisActive ), !! ( draft && draft.analysisStalled ), busyAction ] );
 
 		function perform( action, data ) {
-			if ( 'reanalyze' === action && dirty.current && ! window.confirm( __( 'Discard these edits and regenerate metadata?', 'ehrman-blog-discovery' ) ) ) return;
+			if ( 'reanalyze' === action && ! window.confirm( __( 'Regenerate metadata using AI? This incurs an AI charge and replaces any unapproved edits. Approved metadata stays active until the new version is approved.', 'ehrman-blog-discovery' ) ) ) return;
+			if ( 'cancel-revision' === action && ! window.confirm( __( 'Cancel these changes and keep the approved metadata?', 'ehrman-blog-discovery' ) ) ) return;
 			const ticket = ++requestId.current;
 			setBusyAction( action );
 			setError( '' );
@@ -219,7 +220,7 @@
 		const publishRequired = 'publish' !== editor.postStatus;
 		const actionDisabled = !! busyAction || savedPostRequired || publishRequired;
 		const canAnalyze = record && ! draft;
-		const canReanalyze = record && record.configured && draft && 'approved' !== draft.status &&
+		const canReanalyze = record && record.configured && draft &&
 			( ! draft.analysisActive || draft.analysisStalled || 'queued' === draft.status );
 		const needsReview = draft && ( 'ready' === draft.status || 'held' === draft.status );
 		const changedReview = needsReview && revision !== draft.revision;
@@ -228,6 +229,7 @@
 			! record.sourceChanged && ! changedReview && ! missingTopics;
 		const keywords = draft ? [ ...( draft.secondaryKeywords || [] ), ...( draft.newSecondaryKeywords || [] ) ] : [];
 		const generating = [ 'analyze', 'reanalyze' ].includes( busyAction );
+		const pendingRevision = draft && draft.isRevision && 'approved' !== draft.status;
 		const canRetry = draft && 'approved' === draft.status &&
 			'complete' !== draft.embeddingStatus && 'not_applicable' !== draft.embeddingStatus;
 
@@ -244,6 +246,7 @@
 				record && ! record.databaseAuthoritative ? el( Notice, { status: 'info', isDismissible: false }, __( 'Review is available, but approval remains locked while JSON is authoritative.', 'ehrman-blog-discovery' ) ) : null,
 				record && record.sourceChanged ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The saved post changed. Regenerate metadata before approval.', 'ehrman-blog-discovery' ) ) : null,
 				changedReview ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The metadata changed elsewhere. Reload it before approval.', 'ehrman-blog-discovery' ) ) : null,
+				pendingRevision ? el( Notice, { status: 'info', isDismissible: false }, __( 'Approved metadata remains active until these changes are approved.', 'ehrman-blog-discovery' ) ) : null,
 				( draft && draft.analysisActive && ! draft.analysisStalled ) || [ 'analyze', 'reanalyze' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), __( 'Creating metadata...', 'ehrman-blog-discovery' ) ) : null,
 				[ 'approve', 'retry-embedding' ].includes( busyAction ) ? el( 'div', { className: 'ehrman-ingestion-editor__loading', role: 'status' }, el( Spinner ), 'approve' === busyAction ? __( 'Adding to search and creating vector...', 'ehrman-blog-discovery' ) : __( 'Creating vector...', 'ehrman-blog-discovery' ) ) : null,
 				draft && draft.analysisStalled ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Metadata creation stopped responding. Regenerate metadata to try again.', 'ehrman-blog-discovery' ) ) : null,
@@ -279,12 +282,14 @@
 						disabled: actionDisabled || ! record.configured,
 						onClick: function () { perform( 'analyze' ); },
 					}, __( 'Create Metadata', 'ehrman-blog-discovery' ) ) : null,
-					needsReview && ! generating ? el( Button, { variant: 'primary', disabled: actionDisabled || ! canApprove, onClick: approve }, __( 'Approve and Add to Search', 'ehrman-blog-discovery' ) ) : null,
+					draft && 'approved' === draft.status ? el( Button, { variant: 'secondary', disabled: actionDisabled, onClick: () => perform( 'edit-metadata' ) }, __( 'Edit Metadata', 'ehrman-blog-discovery' ) ) : null,
+					needsReview && ! generating ? el( Button, { variant: 'primary', disabled: actionDisabled || ! canApprove, onClick: approve }, pendingRevision ? __( 'Approve Changes', 'ehrman-blog-discovery' ) : __( 'Approve and Add to Search', 'ehrman-blog-discovery' ) ) : null,
 					canReanalyze ? el( Button, {
 						variant: 'secondary',
 						disabled: actionDisabled,
-						onClick: function () { perform( 'reanalyze' ); },
+						onClick: function () { perform( 'reanalyze', { revision: draft.revision } ); },
 					}, __( 'Regenerate Metadata', 'ehrman-blog-discovery' ) ) : null,
+					pendingRevision && ! draft.analysisActive ? el( Button, { variant: 'secondary', disabled: !! busyAction, onClick: () => perform( 'cancel-revision', { revision: draft.revision } ) }, __( 'Cancel Changes', 'ehrman-blog-discovery' ) ) : null,
 					canRetry ? el( Button, {
 						variant: 'secondary',
 						disabled: actionDisabled,
@@ -292,6 +297,7 @@
 					}, 'retry-embedding' === busyAction ? __( 'Retrying...', 'ehrman-blog-discovery' ) : __( 'Retry Vector', 'ehrman-blog-discovery' ) ) : null,
 					error || changedReview ? el( Button, { variant: 'secondary', disabled: !! busyAction, onClick: reload }, __( 'Reload Metadata', 'ehrman-blog-discovery' ) ) : null
 				),
+				draft && draft.previousVersionUrl ? el( Button, { variant: 'link', href: draft.previousVersionUrl }, __( 'Previous approved version', 'ehrman-blog-discovery' ) ) : null,
 				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Search Metadata', 'ehrman-blog-discovery' ) ) : null
 			);
 		}

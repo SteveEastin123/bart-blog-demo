@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$routes = $server->get_routes();
 	$pattern = '/ehrman-discovery/v1/ingestion/post/(?P<post_id>\d+)';
 	$base = '/ehrman-discovery/v1/ingestion/post/' . $editor_post_id;
-	$actions = array( '' => 'status', '/analyze' => 'analyze', '/reanalyze' => 'reanalyze', '/approve' => 'approve', '/retry-embedding' => 'retry_embedding' );
+	$actions = array( '' => 'status', '/analyze' => 'analyze', '/reanalyze' => 'reanalyze', '/approve' => 'approve', '/retry-embedding' => 'retry_embedding', '/edit-metadata' => 'edit_metadata', '/cancel-revision' => 'cancel_revision' );
 	foreach ( $actions as $suffix => $callback ) {
 		$endpoint = $routes[ $pattern . $suffix ][0] ?? array();
 		$assert_same( array( Post_Ingestion_REST_Controller::class, $callback ), $endpoint['callback'] ?? null, 'The ingestion route has the wrong owner.' );
@@ -81,5 +81,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$changed[ $field ] = 'source_wp_id' === $field ? $editor_post_id + 1 : 'changed fixture';
 		$assert_same( true, Post_Ingestion_Post_Source::source_changed( $post, $changed ), 'A changed source field was ignored: ' . $field );
 	}
-	echo "Post-editor contracts: five protected routes, safe status, admin-only access and saved-source comparison: OK\n";
+	echo "Post-editor contracts: seven protected routes, safe status, admin-only access and saved-source comparison: OK\n";
 } )();

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'EHRMAN_DISCOVERY_VERSION', '0.10.15' );
-define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.14.0' );
+define( 'EHRMAN_DISCOVERY_SCHEMA_VERSION', '1.15.0' );
 define( 'EHRMAN_DISCOVERY_PLUGIN_FILE', __FILE__ );
 define( 'EHRMAN_DISCOVERY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EHRMAN_DISCOVERY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

@@ -291,7 +291,7 @@ try {
 	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => 'approve' ) ) );
 	$assert_same( false, $notice['success'], 'An old history form replaced newly saved revisions.' );
 	wp_update_post( array( 'ID' => $native, 'post_title' => 'Current saved title', 'post_content' => 'Current saved content used by the next metadata run.' ) );
-	$notice = $send_action( 'ehrman_ingestion_reanalyze', array( 'draft_id' => $native_draft ) );
+	$notice = $send_action( 'ehrman_ingestion_reanalyze', array( 'draft_id' => $native_draft, 'revision' => Post_Ingestion_Review_Workflow::revision( $repository->draft( $native_draft ) ) ) );
 	$assert_same( false, $notice['success'], 'Failed foreground generation was reported as successful.' );
 	$refreshed = $repository->draft( $native_draft );
 	$assert_same( 'error', $refreshed['status'], 'Failed foreground generation was not retained for retry.' );

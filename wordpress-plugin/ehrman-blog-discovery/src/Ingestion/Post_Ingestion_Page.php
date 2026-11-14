@@ -22,6 +22,13 @@ final class Post_Ingestion_Page {
 	 */
 	private static ?\WP_Post $progress_post = null;
 
+	/**
+	 * Record explicitly selected for regeneration.
+	 *
+	 * @var array<string,mixed>|null
+	 */
+	private static ?array $progress_draft = null;
+
 	/** Registers administration hooks. */
 	public static function register(): void {
 		add_action( 'admin_menu', array( self::class, 'add_page' ) );
@@ -31,20 +38,33 @@ final class Post_Ingestion_Page {
 		add_action( 'admin_post_ehrman_ingestion_create_metadata', array( self::class, 'handle_create_metadata' ) );
 		add_action( 'admin_post_ehrman_ingestion_proposal', array( self::class, 'handle_proposal' ) );
 		add_action( 'admin_post_ehrman_ingestion_reanalyze', array( self::class, 'handle_reanalyze' ) );
+		add_action( 'admin_post_ehrman_ingestion_edit_metadata', array( self::class, 'handle_edit_metadata' ) );
 		add_action( 'admin_post_ehrman_ingestion_retry_embedding', array( self::class, 'handle_retry_embedding' ) );
 		add_action( 'admin_post_ehrman_ingestion_discard', array( self::class, 'handle_discard' ) );
 	}
 
 	/** Opens the progress screen without starting generation during page rendering. */
 	public static function prepare_progress(): void {
-		self::$progress_post = null;
+		self::$progress_post  = null;
+		self::$progress_draft = null;
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Only detects the form action; creation_post verifies its nonce and permissions below.
 		$action = isset( $_POST['action'] ) ? sanitize_key( Database::text( wp_unslash( $_POST['action'] ) ) ) : '';
 		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Strict comparison validates the method; it is never stored or displayed.
-		if ( 'POST' !== wp_unslash( $_SERVER['REQUEST_METHOD'] ?? '' ) || 'ehrman_ingestion_prepare_metadata' !== $action ) {
+		if ( 'POST' !== wp_unslash( $_SERVER['REQUEST_METHOD'] ?? '' ) ) {
 			return;
 		}
-		self::$progress_post = self::creation_post();
+		if ( 'ehrman_ingestion_prepare_metadata' === $action ) {
+			self::$progress_post = self::creation_post();
+		} elseif ( 'ehrman_ingestion_prepare_regeneration' === $action ) {
+			self::authorize( 'ehrman_ingestion_reanalyze' );
+			$draft = self::selected_draft();
+			$post  = Post_Ingestion_Post_Source::published_post( $draft );
+			if ( is_wp_error( $post ) || null === $post || ! current_user_can( 'edit_post', $post->ID ) ) {
+				self::redirect_with_notice( Database::integer( $draft['id'] ), false, __( 'Regeneration requires an editable, published WordPress post.', 'ehrman-blog-discovery' ) );
+			}
+			self::$progress_post  = $post;
+			self::$progress_draft = $draft;
+		}
 	}
 
 	/** Loads the foreground request client only for an authorized progress screen. */
@@ -64,10 +84,13 @@ final class Post_Ingestion_Page {
 			'ehrman-post-ingestion-progress',
 			'EhrmanMetadataProgress',
 			array(
-				'postId'   => self::$progress_post->ID,
-				'restPath' => '/ehrman-discovery/v1/ingestion/post/' . self::$progress_post->ID,
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
-				'pageUrl'  => self::page_url(),
+				'postId'           => self::$progress_post->ID,
+				'restPath'         => '/ehrman-discovery/v1/ingestion/post/' . self::$progress_post->ID,
+				'nonce'            => wp_create_nonce( 'wp_rest' ),
+				'pageUrl'          => self::page_url(),
+				'action'           => null === self::$progress_draft ? 'analyze' : 'reanalyze',
+				'expectedDraftId'  => Database::integer( self::$progress_draft['id'] ?? null ),
+				'expectedRevision' => null === self::$progress_draft ? '' : Post_Ingestion_Review_Workflow::revision( self::$progress_draft ),
 			)
 		);
 	}
@@ -119,8 +142,10 @@ final class Post_Ingestion_Page {
 			'admin/post-ingestion/page.php',
 			array(
 				'progress'               => null !== self::$progress_post ? array(
-					'post_id' => self::$progress_post->ID,
-					'title'   => self::$progress_post->post_title,
+					'post_id'  => self::$progress_post->ID,
+					'title'    => self::$progress_post->post_title,
+					'draft_id' => Database::integer( self::$progress_draft['id'] ?? null ),
+					'revision' => null === self::$progress_draft ? '' : Post_Ingestion_Review_Workflow::revision( self::$progress_draft ),
 				) : null,
 				'analysis_configured'    => Post_Ingestion_Service::is_configured(),
 				'database_authoritative' => Post_Ingestion_Service::database_is_authoritative(),
@@ -209,19 +234,48 @@ final class Post_Ingestion_Page {
 		$message          = 'complete' === $embedding_status || 'not_applicable' === $embedding_status
 			? __( 'Post approved and added to the live index.', 'ehrman-blog-discovery' )
 			: __( 'Post approved and added to the live index. Its semantic vector is pending and can be retried below.', 'ehrman-blog-discovery' );
+		if ( Database::integer( $approved['revision_parent_id'] ?? null ) > 0 ) {
+			$message = __( 'Metadata changes approved and applied to search.', 'ehrman-blog-discovery' );
+		}
 		self::redirect_with_notice( $draft_id, true, $message );
 	}
 
 	/** Handles reanalysis of retained full text. */
 	public static function handle_reanalyze(): void {
 		self::authorize( 'ehrman_ingestion_reanalyze' );
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before absint validates it.
-		$draft_id = isset( $_POST['draft_id'] ) ? absint( Database::text( wp_unslash( $_POST['draft_id'] ) ) ) : 0;
-		$result   = ( new Post_Ingestion_Service() )->reanalyze( $draft_id );
+		$draft   = self::selected_draft();
+		$service = new Post_Ingestion_Service();
+		$result  = $service->reanalyze( Database::integer( $draft['id'] ) );
 		if ( is_wp_error( $result ) ) {
-			self::redirect_with_notice( $draft_id, false, $result->get_error_message() );
+			$current = $service->latest_for_post( Database::integer( $draft['wordpress_post_id'] ?? null ) ) ?? $draft;
+			self::redirect_with_notice( Database::integer( $current['id'] ), false, $result->get_error_message() );
 		}
-		self::redirect_with_notice( $draft_id, true, __( 'Metadata generation finished. Review the results before approving.', 'ehrman-blog-discovery' ) );
+		self::redirect_with_notice( Database::integer( $result['id'] ), true, __( 'Metadata generation finished. Review the results before approving.', 'ehrman-blog-discovery' ) );
+	}
+
+	/** Creates an editable revision without changing the approved search entry. */
+	public static function handle_edit_metadata(): void {
+		self::authorize( 'ehrman_ingestion_edit_metadata' );
+		$draft  = self::selected_draft();
+		$result = ( new Post_Ingestion_Service() )->edit_metadata( Database::integer( $draft['id'] ) );
+		if ( is_wp_error( $result ) ) {
+			self::redirect_with_notice( Database::integer( $draft['id'] ), false, $result->get_error_message() );
+		}
+		self::redirect_with_notice( Database::integer( $result['id'] ), true, __( 'Edit the revision below. Approved metadata stays active until you approve these changes.', 'ehrman-blog-discovery' ) );
+	}
+
+	/**
+	 * Validates the submitted record and revision token.
+	 *
+	 * @return array<string,mixed> Selected record.
+	 */
+	private static function selected_draft(): array {
+		$input = self::posted_values();
+		$draft = ( new Post_Ingestion_Service() )->draft( absint( Database::text( $input['draft_id'] ?? null ) ) );
+		if ( null === $draft || ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Database::text( $input['revision'] ?? null ) ) ) {
+			self::redirect_with_notice( Database::integer( $draft['id'] ?? null ), false, __( 'The metadata record changed. Reload it before continuing.', 'ehrman-blog-discovery' ) );
+		}
+		return $draft;
 	}
 
 	/** Handles a vector-generation retry. */
@@ -242,9 +296,12 @@ final class Post_Ingestion_Page {
 	public static function handle_discard(): void {
 		self::authorize( 'ehrman_ingestion_discard' );
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before absint validates it.
-		$draft_id = isset( $_POST['draft_id'] ) ? absint( Database::text( wp_unslash( $_POST['draft_id'] ) ) ) : 0;
-		$deleted  = ( new Post_Ingestion_Service() )->discard( $draft_id );
-		self::redirect_with_notice( 0, $deleted, $deleted ? __( 'Pending draft discarded.', 'ehrman-blog-discovery' ) : __( 'The draft could not be discarded.', 'ehrman-blog-discovery' ) );
+		$draft_id  = isset( $_POST['draft_id'] ) ? absint( Database::text( wp_unslash( $_POST['draft_id'] ) ) ) : 0;
+		$service   = new Post_Ingestion_Service();
+		$draft     = $service->draft( $draft_id );
+		$parent_id = Database::integer( $draft['revision_parent_id'] ?? null );
+		$deleted   = $service->discard( $draft_id );
+		self::redirect_with_notice( $deleted ? $parent_id : $draft_id, $deleted, $deleted ? __( 'Pending changes discarded. Approved metadata was not changed.', 'ehrman-blog-discovery' ) : __( 'The draft could not be discarded.', 'ehrman-blog-discovery' ) );
 	}
 
 	/**
@@ -255,11 +312,25 @@ final class Post_Ingestion_Page {
 	 * @return array<string,mixed> Draft display values.
 	 */
 	private static function draft_view( Post_Ingestion_Service $service, array $draft ): array {
-		$draft_id = Database::integer( $draft['id'] ?? null );
-		$status   = Database::text( $draft['status'] ?? null );
-		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
-		$active   = Post_Ingestion_Service::analysis_is_active( $draft );
+		$draft_id   = Database::integer( $draft['id'] ?? null );
+		$status     = Database::text( $draft['status'] ?? null );
+		$proposal   = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
+		$active     = Post_Ingestion_Service::analysis_is_active( $draft );
+		$native_id  = Database::integer( $draft['wordpress_post_id'] ?? null );
+		$latest     = $service->latest_for_post( $native_id );
+		$parent_id  = Database::integer( $draft['revision_parent_id'] ?? null );
+		$can_revise = $native_id > 0 && 'publish' === get_post_status( $native_id ) && current_user_can( 'edit_post', $native_id ) && Database::integer( $latest['id'] ?? null ) === $draft_id;
 		return array(
+			'is_revision'      => $parent_id > 0,
+			'parent_url'       => $parent_id > 0 ? self::page_url( $parent_id ) : '',
+			'can_revise'       => $can_revise,
+			'latest_url'       => null !== $latest && Database::integer( $latest['id'] ) !== $draft_id ? self::page_url( Database::integer( $latest['id'] ) ) : '',
+			'regenerate'       => array(
+				'id'        => $draft_id,
+				'native_id' => $native_id,
+				'revision'  => Post_Ingestion_Review_Workflow::revision( $draft ),
+				'label'     => __( 'Regenerate Metadata', 'ehrman-blog-discovery' ),
+			),
 			'id'               => $draft_id,
 			'status'           => $status,
 			'title'            => Database::text( $draft['title'] ?? null ),
@@ -267,7 +338,7 @@ final class Post_Ingestion_Page {
 			'author'           => Database::text( $draft['author'] ?? null ),
 			'wp_id'            => (string) Database::integer( $draft['source_wp_id'] ?? null ),
 			'url'              => Database::text( $draft['url'] ?? null ),
-			'model'            => Database::text( $draft['model'] ?? null ),
+			'model'            => $parent_id > 0 && 0 === Database::integer( $draft['analysis_attempt'] ?? null ) ? __( 'Manual revision', 'ehrman-blog-discovery' ) : Database::text( $draft['model'] ?? null ),
 			'usage'            => sprintf(
 				/* translators: 1: input token count, 2: output token count, 3: estimated US-dollar cost. */
 				__( '%1$s input tokens, %2$s output tokens, approximately $%3$s', 'ehrman-blog-discovery' ),
@@ -297,6 +368,8 @@ final class Post_Ingestion_Page {
 	private static function review_view( array $draft, array $proposal ): array {
 		return array(
 			'id'                     => Database::text( $draft['id'] ?? null ),
+			'is_revision'            => Database::integer( $draft['revision_parent_id'] ?? null ) > 0,
+			'native_id'              => Database::integer( $draft['wordpress_post_id'] ?? null ),
 			'revision'               => Post_Ingestion_Review_Workflow::revision( $draft ),
 			'action_id'              => Database::integer( $draft['id'] ?? null ),
 			'description'            => Database::text( $proposal['description'] ?? null ),

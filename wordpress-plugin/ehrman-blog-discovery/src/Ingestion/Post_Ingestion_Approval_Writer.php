@@ -29,17 +29,18 @@ final class Post_Ingestion_Approval_Writer {
 	/**
 	 * Applies one approved proposal inside a transaction.
 	 *
-	 * @param int                 $draft_id      Draft identifier.
-	 * @param array<string,mixed> $draft         Draft record.
-	 * @param array<string,mixed> $proposal      Approved proposal.
-	 * @param array<string,mixed> $taxonomy      Current vocabulary.
-	 * @param string              $approved_json Encoded approved proposal.
+	 * @param int                      $draft_id      Draft identifier.
+	 * @param array<string,mixed>      $draft         Draft record.
+	 * @param array<string,mixed>      $proposal      Approved proposal.
+	 * @param array<string,mixed>      $taxonomy      Current vocabulary.
+	 * @param string                   $approved_json Encoded approved proposal.
+	 * @param array<string,mixed>|null $vector Prepared replacement vector; null for initial ingestion.
 	 * @return int|WP_Error New internal post identifier or error.
 	 * @phpstan-param Proposal $proposal
 	 * @phpstan-param Vocabulary $taxonomy
 	 * @throws RuntimeException When approval state cannot be persisted.
 	 */
-	public function approve( int $draft_id, array $draft, array $proposal, array $taxonomy, string $approved_json ) {
+	public function approve( int $draft_id, array $draft, array $proposal, array $taxonomy, string $approved_json, ?array $vector = null ) {
 		$wpdb = Database::client();
 		if ( false === $wpdb->query( 'START TRANSACTION' ) ) {
 			return new WP_Error( 'ehrman_ingestion_transaction', __( 'The approval transaction could not be started.', 'ehrman-blog-discovery' ) );
@@ -48,27 +49,54 @@ final class Post_Ingestion_Approval_Writer {
 			$local_id = Database::integer( $draft['wordpress_post_id'] ?? null );
 			if ( $local_id > 0 ) {
 				// Lock the native post while approving so deletion/unpublishing cannot race this write.
-				$native  = $wpdb->get_row( $wpdb->prepare( 'SELECT ID FROM %i WHERE ID=%d AND post_type=%s AND post_status=%s FOR UPDATE', $wpdb->posts, $local_id, 'post', 'publish' ), ARRAY_A );
-				$pending = $wpdb->get_var( $wpdb->prepare( 'SELECT id FROM %i WHERE id=%d AND wordpress_post_id=%d AND status IN (%s,%s) FOR UPDATE', Database::tables()['ingestion_drafts'], $draft_id, $local_id, 'ready', 'held' ) );
+				$native  = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE ID=%d AND post_type=%s AND post_status=%s FOR UPDATE', $wpdb->posts, $local_id, 'post', 'publish' ) );
+				$pending = Database::associative_row( $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE id=%d AND wordpress_post_id=%d AND status IN (%s,%s) FOR UPDATE', Database::tables()['ingestion_drafts'], $draft_id, $local_id, 'ready', 'held' ), ARRAY_A ) );
 				if ( null === $native || null === $pending ) {
 					throw new RuntimeException( 'The published post or pending metadata no longer exists. Reload the editor.' );
 				}
+				if ( ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Post_Ingestion_Review_Workflow::revision( $pending ) )
+					|| Post_Ingestion_Post_Source::source_changed( new \WP_Post( sanitize_post( $native, 'raw' ) ), $draft ) ) {
+					throw new RuntimeException( 'The post or metadata changed during approval. Reload before trying again.' );
+				}
 			}
-			$post_id = $this->insert_approved_post( $draft, $proposal, $taxonomy );
+			$replacement_id = 0;
+			$row            = Database::associative_row( $vector['row'] ?? null );
+			if ( Database::integer( $draft['revision_parent_id'] ?? null ) > 0 ) {
+				$live = Post_Ingestion_Revisions::live_post( $draft, true );
+				if ( null === $vector || ! Post_Ingestion_Revisions::matches( $draft, $live ) ) {
+					throw new RuntimeException( 'The approved metadata changed. Cancel this revision and start from the current version.' );
+				}
+				$replacement_id = Database::integer( $live['id'] ?? null );
+			}
+			$post_id = $this->insert_approved_post( $draft, $proposal, $taxonomy, $replacement_id );
+			if ( null !== $vector ) {
+				$written = null === $row
+					? $wpdb->delete( Database::tables()['post_embeddings'], array( 'source_wp_id' => Database::integer( $draft['source_wp_id'] ?? null ) ), array( '%d' ) )
+					: $wpdb->replace( Database::tables()['post_embeddings'], $row );
+				if ( false === $written ) {
+					throw new RuntimeException( 'The replacement vector could not be stored. Existing metadata was retained.' );
+				}
+			}
+			$metrics = Database::associative_row( $vector['metrics'] ?? null ) ?? array();
 			$updated = $wpdb->update(
 				Database::tables()['ingestion_drafts'],
 				array(
-					'status'           => 'approved',
-					'proposal_json'    => $approved_json,
-					'post_text'        => null,
-					'error_message'    => null,
-					'approved_at'      => current_time( 'mysql', true ),
-					'approved_post_id' => $post_id,
-					'embedding_status' => in_array( 'Ignore', $proposal['topics'], true ) ? 'not_applicable' : 'pending',
-					'updated_at'       => current_time( 'mysql', true ),
+					'status'                       => 'approved',
+					'proposal_json'                => $approved_json,
+					'post_text'                    => null,
+					'error_message'                => null,
+					'approved_at'                  => current_time( 'mysql', true ),
+					'approved_post_id'             => $post_id,
+					'embedding_status'             => in_array( 'Ignore', $proposal['topics'], true ) ? 'not_applicable' : ( null !== $vector ? 'complete' : 'pending' ),
+					'embedding_error'              => null,
+					'embedding_model'              => Database::text( $row['model'] ?? null ),
+					'embedding_response_id'        => Database::text( $metrics['response_id'] ?? null ),
+					'embedding_input_tokens'       => Database::integer( $metrics['input_tokens'] ?? null ),
+					'embedding_estimated_cost_usd' => number_format( (float) Database::text( $metrics['estimated_cost_usd'] ?? 0 ), 8, '.', '' ),
+					'updated_at'                   => current_time( 'mysql', true ),
 				),
 				array( 'id' => $draft_id ),
-				array( '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s' ),
+				array( '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%d', '%s', '%s' ),
 				array( '%d' )
 			);
 			if ( false === $updated ) {
@@ -90,35 +118,43 @@ final class Post_Ingestion_Approval_Writer {
 	 * @param array<string,mixed> $draft    Draft record.
 	 * @param array<string,mixed> $proposal Approved proposal.
 	 * @param array<string,mixed> $taxonomy Vocabulary.
+	 * @param int                 $replacement_id Existing search entry, or zero for initial ingestion.
 	 * @phpstan-param Proposal $proposal
 	 * @phpstan-param Vocabulary $taxonomy
 	 * @throws RuntimeException When any row cannot be inserted.
 	 */
-	private function insert_approved_post( array $draft, array $proposal, array $taxonomy ): int {
+	private function insert_approved_post( array $draft, array $proposal, array $taxonomy, int $replacement_id = 0 ): int {
 		$wpdb     = Database::client();
 		$tables   = Database::tables();
 		$url      = Database::text( $draft['url'] ?? null );
 		$local_id = Database::integer( $draft['wordpress_post_id'] ?? null );
-		$ok       = $wpdb->insert(
-			$tables['external_posts'],
-			array(
-				'source_wp_id'      => Database::integer( $draft['source_wp_id'] ?? null ),
-				'wordpress_post_id' => $local_id > 0 ? $local_id : null,
-				'title'             => Database::text( $draft['title'] ?? null ),
-				'url'               => $url,
-				'url_hash'          => hash( 'sha256', $url, true ),
-				'author'            => Database::text( $draft['author'] ?? null ),
-				'date_text'         => Database::text( $draft['date_text'] ?? null ),
-				'published_at'      => Database::text( $draft['published_at'] ?? null ),
-				'description'       => $proposal['description'],
-				'search_summary'    => $proposal['searchSummary'],
-			),
-			array( '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+		$data     = array(
+			'source_wp_id'      => Database::integer( $draft['source_wp_id'] ?? null ),
+			'wordpress_post_id' => $local_id > 0 ? $local_id : null,
+			'title'             => Database::text( $draft['title'] ?? null ),
+			'url'               => $url,
+			'url_hash'          => hash( 'sha256', $url, true ),
+			'author'            => Database::text( $draft['author'] ?? null ),
+			'date_text'         => Database::text( $draft['date_text'] ?? null ),
+			'published_at'      => Database::text( $draft['published_at'] ?? null ),
+			'description'       => $proposal['description'],
+			'search_summary'    => $proposal['searchSummary'],
 		);
+		$formats  = array( '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' );
+		$ok       = $replacement_id > 0
+			? $wpdb->update( $tables['external_posts'], $data, array( 'id' => $replacement_id ), $formats, array( '%d' ) )
+			: $wpdb->insert( $tables['external_posts'], $data, $formats );
 		if ( false === $ok ) {
 			throw new RuntimeException( 'The approved post could not be inserted: ' . $wpdb->last_error );
 		}
-		$post_id = (int) $wpdb->insert_id;
+		$post_id = $replacement_id > 0 ? $replacement_id : (int) $wpdb->insert_id;
+		if ( $replacement_id > 0 ) {
+			foreach ( array( 'post_topics', 'post_keywords', 'post_search_terms' ) as $table ) {
+				if ( false === $wpdb->delete( $tables[ $table ], array( 'post_id' => $post_id ), array( '%d' ) ) ) {
+					throw new RuntimeException( 'The old search relationships could not be replaced.' );
+				}
+			}
+		}
 
 		$topic_ids = array();
 		foreach ( $taxonomy['topics'] as $topic ) {

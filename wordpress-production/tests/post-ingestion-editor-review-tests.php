@@ -91,7 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$body['proposal']['removed_keywords'] = array( $existing_keyword, $removed_new );
 		$body['proposal']['search_summary'] = 'Explains how inline approval saves revised search metadata without changing the original WordPress article. Distinguishes approved topics from supporting secondary keywords and preserves validation of both selections. Describes how a failed embedding remains pending for retry after metadata has been safely committed to the discovery index, while the temporary full text is removed from the ingestion record after the administrator approves it.';
 		$response = $send( $body );
-		$assert_same( 200, $response->get_status(), 'Revised metadata could not be approved in the editor.' );
+		$assert_same( 200, $response->get_status(), 'Revised metadata could not be approved in the editor: ' . wp_json_encode( $response->get_data() ) );
 		$approved = $ingestion_store->draft( $editor_draft_id );
 		$approved_id = (int) $approved['approved_post_id'];
 		$assert( $approved_id > 0, 'Inline approval did not create a discovery record.' );
@@ -112,6 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$assert_same( 1, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['external_posts'], $editor_post_id ) ), 'Inline approval duplicated the post.' );
 		$assert( $send( $body )->get_status() >= 400, 'A second approval was accepted.' );
 		$assert_same( 0, $http_calls, 'Regression attempted a paid API call.' );
+		require __DIR__ . '/post-ingestion-revision-tests.php';
 	} finally {
 		remove_filter( 'pre_http_request', $block_http );
 		if ( $approved_id > 0 ) {

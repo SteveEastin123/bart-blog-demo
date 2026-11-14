@@ -58,4 +58,53 @@ final class Post_Ingestion_Embedding_Generator {
 		}
 		$this->repository->mark_embedding_complete( $draft_id, $result['metrics'] );
 	}
+
+	/**
+	 * Prepares a revision vector without touching the live vector or metadata.
+	 *
+	 * @param array<string,mixed> $draft Pending revision.
+	 * @param array<string,mixed> $proposal Reviewed proposal.
+	 * @return array<string,mixed>|\WP_Error Prepared vector row and new-call metrics.
+	 */
+	public function prepare_revision( array $draft, array $proposal ): array|\WP_Error {
+		if ( in_array( 'Ignore', Database::strings( $proposal['topics'] ?? array() ), true ) ) {
+			return array(
+				'row'     => null,
+				'metrics' => array(),
+			);
+		}
+		$post = array(
+			'title'          => $draft['title'],
+			'search_summary' => $proposal['searchSummary'],
+		);
+		$wpdb = Database::client();
+		$row  = Database::associative_row( $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE source_wp_id=%d', Database::tables()['post_embeddings'], Database::integer( $draft['source_wp_id'] ?? null ) ), ARRAY_A ) );
+		if ( null !== $row && Semantic_Index_Service::content_hash( $post ) === $row['content_hash']
+			&& Embedding_Service::model_id() === $row['model'] && Embedding_Service::dimensions() === Database::integer( $row['dimensions'] )
+			&& strlen( Database::text( $row['embedding'] ?? null ) ) === 4 * Embedding_Service::dimensions()
+			&& (float) Database::text( $row['embedding_norm'] ?? null ) > 0 ) {
+			return array(
+				'row'     => $row,
+				'metrics' => array(),
+			);
+		}
+		$client  = new Embedding_Service( Post_Ingestion_Settings::api_key(), false, AI_Metadata_Usage::context( $draft ) );
+		$vectors = $client->embed( array( Semantic_Index_Service::content_text( $post ) ) );
+		if ( is_wp_error( $vectors ) ) {
+			return $vectors;
+		}
+		$norm = sqrt( array_sum( array_map( static fn( float $value ): float => $value * $value, $vectors[0] ) ) );
+		return array(
+			'row'     => array(
+				'source_wp_id'   => Database::integer( $draft['source_wp_id'] ?? null ),
+				'content_hash'   => Semantic_Index_Service::content_hash( $post ),
+				'model'          => Embedding_Service::model_id(),
+				'dimensions'     => Embedding_Service::dimensions(),
+				'embedding'      => pack( 'g*', ...$vectors[0] ),
+				'embedding_norm' => number_format( $norm, 12, '.', '' ),
+				'updated_at'     => current_time( 'mysql', true ),
+			),
+			'metrics' => $client->last_metrics(),
+		);
+	}
 }

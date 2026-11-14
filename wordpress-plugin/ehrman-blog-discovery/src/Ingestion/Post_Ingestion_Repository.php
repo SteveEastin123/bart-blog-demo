@@ -226,32 +226,42 @@ final class Post_Ingestion_Repository {
 	/**
 	 * Stores administrator revisions to a pending proposal.
 	 *
-	 * @param int    $draft_id     Draft identifier.
-	 * @param string $proposal_json Encoded proposal.
-	 * @param string $status       Validated workflow status.
+	 * @param array<string,mixed> $draft Expected pending record.
+	 * @param string              $proposal_json Encoded proposal.
+	 * @param string              $status       Validated workflow status.
 	 */
-	public function store_proposal( int $draft_id, string $proposal_json, string $status ): void {
-		Database::client()->update(
+	public function store_proposal( array $draft, string $proposal_json, string $status ): bool {
+		$updated = Database::client()->update(
 			Database::tables()['ingestion_drafts'],
 			array(
 				'status'        => $status,
 				'proposal_json' => $proposal_json,
 				'updated_at'    => current_time( 'mysql', true ),
 			),
-			array( 'id' => $draft_id ),
+			array(
+				'id'               => Database::integer( $draft['id'] ?? null ),
+				'status'           => Database::text( $draft['status'] ?? null ),
+				'proposal_json'    => Database::text( $draft['proposal_json'] ?? null ),
+				'analysis_attempt' => Database::integer( $draft['analysis_attempt'] ?? null ),
+				'updated_at'       => Database::text( $draft['updated_at'] ?? null ),
+			),
 			array( '%s', '%s', '%s' ),
-			array( '%d' )
+			array( '%d', '%s', '%s', '%d', '%s' )
 		);
+		$current = $this->draft( Database::integer( $draft['id'] ?? null ) );
+		return 1 === $updated || ( 0 === $updated && null !== $current
+			&& $status === $current['status'] && $proposal_json === $current['proposal_json']
+			&& hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Post_Ingestion_Review_Workflow::revision( $current ) ) );
 	}
 
 	/**
 	 * Refreshes a pending draft from the current saved WordPress post.
 	 *
-	 * @param int                 $draft_id Draft identifier.
+	 * @param array<string,mixed> $draft Expected pending record.
 	 * @param array<string,mixed> $post     Validated current post values.
 	 * @phpstan-param ValidatedPost $post
 	 */
-	public function update_pending_source( int $draft_id, array $post ): bool {
+	public function update_pending_source( array $draft, array $post ): bool {
 		$updated = Database::client()->update(
 			Database::tables()['ingestion_drafts'],
 			array(
@@ -264,11 +274,15 @@ final class Post_Ingestion_Repository {
 				'post_text'    => $post['post_text'],
 				'updated_at'   => current_time( 'mysql', true ),
 			),
-			array( 'id' => $draft_id ),
+			array(
+				'id'     => Database::integer( $draft['id'] ?? null ),
+				'status' => Database::text( $draft['status'] ?? null ),
+			),
 			array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ),
-			array( '%d' )
+			array( '%d', '%s' )
 		);
-		return false !== $updated;
+		$current = $this->draft( Database::integer( $draft['id'] ?? null ) );
+		return false !== $updated && null !== $current && $current['status'] === $draft['status'];
 	}
 
 	/**
@@ -277,7 +291,10 @@ final class Post_Ingestion_Repository {
 	 * @param int $draft_id Draft identifier.
 	 */
 	public function delete_draft( int $draft_id ): bool {
-		return false !== Database::client()->delete( Database::tables()['ingestion_drafts'], array( 'id' => $draft_id ), array( '%d' ) );
+		$wpdb = Database::client();
+		$sql  = $wpdb->prepare( 'DELETE FROM %i WHERE id=%d AND status NOT IN (%s,%s)', Database::tables()['ingestion_drafts'], $draft_id, 'approved', 'analyzing' );
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared above with fixed status exclusions.
+		return is_string( $sql ) && 1 === $wpdb->query( $sql );
 	}
 
 	/**
@@ -304,7 +321,7 @@ final class Post_Ingestion_Repository {
 		$wpdb  = Database::client();
 		$table = Database::tables()['ingestion_drafts'];
 		$sql   = $wpdb->prepare(
-			'SELECT * FROM %i WHERE source_wp_id=%d ORDER BY updated_at DESC,id DESC LIMIT 1',
+			'SELECT * FROM %i WHERE source_wp_id=%d ORDER BY id DESC LIMIT 1',
 			$table,
 			$source_wp_id
 		);
@@ -329,7 +346,7 @@ final class Post_Ingestion_Repository {
 		$table        = Database::tables()['ingestion_drafts'];
 		$placeholders = implode( ',', array_fill( 0, count( $source_wp_ids ), '%d' ) );
 		$sql          = $wpdb->prepare(
-			"SELECT * FROM %i WHERE source_wp_id IN ({$placeholders}) ORDER BY updated_at DESC,id DESC",
+			"SELECT * FROM %i WHERE source_wp_id IN ({$placeholders}) ORDER BY id DESC",
 			array_merge( array( $table ), $source_wp_ids )
 		);
 		if ( ! is_string( $sql ) ) {

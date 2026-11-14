@@ -34,7 +34,7 @@ final class Post_Ingestion_REST_Controller {
 			)
 		);
 
-		foreach ( array( 'analyze', 'reanalyze', 'approve', 'retry-embedding' ) as $action ) {
+		foreach ( array( 'analyze', 'reanalyze', 'approve', 'retry-embedding', 'edit-metadata', 'cancel-revision' ) as $action ) {
 			$callback = str_replace( '-', '_', $action );
 			register_rest_route(
 				self::REST_NAMESPACE,
@@ -138,6 +138,9 @@ final class Post_Ingestion_REST_Controller {
 		if ( null === $draft ) {
 			return self::missing_record();
 		}
+		if ( $request->has_param( 'revision' ) && ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Database::text( $request->get_param( 'revision' ) ) ) ) {
+			return self::service_error( new WP_Error( 'ehrman_ingestion_review_changed', __( 'The metadata changed. Reload it before regenerating.', 'ehrman-blog-discovery' ) ) );
+		}
 		if ( 'analyzing' === $draft['status'] && ! Post_Ingestion_Service::analysis_is_stale( $draft ) ) {
 			return self::service_error( new WP_Error( 'ehrman_ingestion_analysis_active', __( 'Metadata generation is already running.', 'ehrman-blog-discovery' ) ) );
 		}
@@ -146,6 +149,45 @@ final class Post_Ingestion_REST_Controller {
 			return self::service_error( $result );
 		}
 		return self::response( get_post( $post->ID ) ?? $post, $result );
+	}
+
+	/**
+	 * Opens a separate manual revision of approved metadata.
+	 *
+	 * @param WP_REST_Request $request REST request.
+	 */
+	public static function edit_metadata( WP_REST_Request $request ): WP_REST_Response|WP_Error {
+		$post = self::post( self::request_post_id( $request ) );
+		if ( is_wp_error( $post ) ) {
+			return $post;
+		}
+		$service = new Post_Ingestion_Service();
+		$draft   = $service->latest_for_post( $post->ID );
+		if ( null === $draft ) {
+			return self::missing_record();
+		}
+		$result = $service->edit_metadata( Database::integer( $draft['id'] ?? null ) );
+		return is_wp_error( $result ) ? self::service_error( $result ) : self::response( $post, $result );
+	}
+
+	/**
+	 * Discards only the current pending revision, never approved metadata.
+	 *
+	 * @param WP_REST_Request $request REST request.
+	 */
+	public static function cancel_revision( WP_REST_Request $request ): WP_REST_Response|WP_Error {
+		$post = self::post( self::request_post_id( $request ) );
+		if ( is_wp_error( $post ) ) {
+			return $post;
+		}
+		$service = new Post_Ingestion_Service();
+		$draft   = $service->latest_for_post( $post->ID );
+		if ( null === $draft || Database::integer( $draft['revision_parent_id'] ?? null ) < 1
+			|| ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Database::text( $request->get_param( 'revision' ) ) )
+			|| ! $service->discard( Database::integer( $draft['id'] ?? null ) ) ) {
+			return self::service_error( new WP_Error( 'ehrman_ingestion_review_changed', __( 'The revision could not be cancelled. Reload its current status.', 'ehrman-blog-discovery' ) ) );
+		}
+		return self::response( $post, $service->latest_for_post( $post->ID ) );
 	}
 
 	/**
@@ -275,6 +317,8 @@ final class Post_Ingestion_REST_Controller {
 		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
 		return array(
 			'id'                   => Database::integer( $draft['id'] ?? null ),
+			'isRevision'           => Database::integer( $draft['revision_parent_id'] ?? null ) > 0,
+			'previousVersionUrl'   => Database::integer( $draft['revision_parent_id'] ?? null ) > 0 ? Post_Ingestion_Page::page_url( Database::integer( $draft['revision_parent_id'] ) ) : '',
 			'revision'             => Post_Ingestion_Review_Workflow::revision( $draft ),
 			'status'               => sanitize_key( Database::text( $draft['status'] ?? null ) ),
 			'updatedAt'            => Database::text( $draft['updated_at'] ?? null ),

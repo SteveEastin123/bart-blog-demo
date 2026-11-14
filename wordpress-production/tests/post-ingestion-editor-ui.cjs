@@ -38,6 +38,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
   let approveDelay = 0;
   const actions = [];
   let approvalBody;
+  let approvedVersion;
   await page.route(url => url.pathname.includes('/ehrman-discovery/v1/ingestion/post/'), async route => {
     const request = route.request();
     if (request.method() === 'POST') {
@@ -50,10 +51,17 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
         return;
       }
       if (action === 'analyze' || action === 'reanalyze') {
+        const revising = record.draft?.status === 'approved' || record.draft?.isRevision;
+        if (record.draft?.status === 'approved') approvedVersion = { ...record.draft };
         if (action === 'analyze') await new Promise(resolve => { finishAnalysis = resolve; });
         else await new Promise(resolve => setTimeout(resolve, analysisDelay));
-        record.draft = { ...original, revision: action === 'reanalyze' ? 'ready-regenerated' : original.revision };
+        record.draft = { ...original, isRevision: revising, revision: action === 'reanalyze' ? 'ready-regenerated' : original.revision };
       }
+      if (action === 'edit-metadata') {
+        approvedVersion = { ...record.draft };
+        record.draft = { ...record.draft, id: 900002, revision: 'editable-revision', status: 'ready', isRevision: true, previousVersionUrl: record.reviewUrl + '&draft=900001' };
+      }
+      if (action === 'cancel-revision') record.draft = { ...approvedVersion };
       if (action === 'approve') {
         approvalBody = request.postDataJSON();
         await new Promise(resolve => setTimeout(resolve, approveDelay));
@@ -169,6 +177,29 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     assert.equal(await button('Remove topic: ' + topicNames[0]).count(), 0, 'Approved metadata remained editable');
     assert.equal(await panel.getByText(topicNames[1], { exact: true }).count(), 0, 'Removed topic remained after approval');
     await shot('approved-desktop');
+
+    assert(await button('Edit Metadata').isEnabled());
+    assert(await button('Regenerate Metadata').isEnabled());
+    await button('Edit Metadata').click();
+    await button('Approve Changes').waitFor();
+    assert(await panel.getByLabel('Description', { exact: true }).isEditable());
+    await button('Remove keyword: New Keyword Fixture').click();
+    await shot('approved-revision-desktop');
+    acceptDialog = false;
+    const beforeCancel = actions.length;
+    await button('Cancel Changes').click();
+    assert.equal(actions.length, beforeCancel);
+    acceptDialog = true;
+    await button('Cancel Changes').click();
+    await button('Edit Metadata').waitFor();
+    assert.equal(record.draft.description, approvedVersion.description);
+    await button('Regenerate Metadata').click();
+    await panel.getByText('Creating metadata...', { exact: true }).waitFor();
+    await button('Approve Changes').waitFor();
+    await panel.getByLabel('Description', { exact: true }).fill('Explains the newly approved revision.');
+    await button('Approve Changes').click();
+    await button('Edit Metadata').waitFor();
+    assert.equal(record.draft.description, 'Explains the newly approved revision.');
 
     record.draft = { ...original, newSecondaryKeywords: ['New Keyword Fixture'], reviewNotes: ['Confirm this new label.'] };
     await reloadState();

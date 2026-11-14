@@ -12,13 +12,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $view          = $ehrman_blog_discovery_context;
-$retry_context = array(
-	'id'    => $view['id'],
-	'label' => __( 'Retry analysis', 'ehrman-blog-discovery' ),
-);
+$retry_context = $view['regenerate'];
+if ( $view['analysis_active'] ) {
+	$retry_context['label'] = __( 'Retry analysis', 'ehrman-blog-discovery' );
+}
 ?>
 <p><a href="<?php echo esc_url( $view['history_url'] ); ?>">&larr; <?php echo esc_html__( 'Search Metadata', 'ehrman-blog-discovery' ); ?></a></p>
 <h2><?php echo esc_html( $view['title'] ); ?></h2>
+<?php if ( $view['is_revision'] && 'approved' !== $view['status'] ) : ?>
+	<p><?php echo esc_html__( 'Approved metadata remains active until you approve these changes.', 'ehrman-blog-discovery' ); ?></p>
+<?php endif; ?>
+<?php if ( '' !== $view['parent_url'] ) : ?>
+	<p><a href="<?php echo esc_url( $view['parent_url'] ); ?>"><?php echo esc_html__( 'View previous approved version', 'ehrman-blog-discovery' ); ?></a></p>
+<?php endif; ?>
+<?php if ( '' !== $view['latest_url'] ) : ?>
+	<p><a href="<?php echo esc_url( $view['latest_url'] ); ?>"><?php echo esc_html__( 'View latest metadata record', 'ehrman-blog-discovery' ); ?></a></p>
+<?php endif; ?>
 <table class="widefat striped ehrman-ingestion__meta">
 	<tbody>
 		<tr><th><?php echo esc_html__( 'Status', 'ehrman-blog-discovery' ); ?></th><td><span class="ehrman-ingestion__status"><?php echo esc_html( $view['status'] ); ?></span></td></tr>
@@ -59,7 +68,22 @@ $retry_context = array(
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 	echo Template::render( 'admin/post-ingestion/approved.php', $view['approved'] );
 	?>
-	<?php if ( 'pending' === $view['embedding_status'] ) : ?>
+	<?php if ( $view['can_revise'] ) : ?>
+		<div class="ehrman-ingestion__actions">
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="ehrman_ingestion_edit_metadata">
+				<input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $view['id'] ); ?>">
+				<input type="hidden" name="revision" value="<?php echo esc_attr( $retry_context['revision'] ); ?>">
+				<?php wp_nonce_field( 'ehrman_ingestion_edit_metadata' ); ?>
+				<button class="button" type="submit"><?php echo esc_html__( 'Edit Metadata', 'ehrman-blog-discovery' ); ?></button>
+			</form>
+			<?php
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The partial escapes its values.
+			echo Template::render( 'admin/post-ingestion/reanalyze.php', $retry_context );
+			?>
+		</div>
+	<?php endif; ?>
+	<?php if ( '' === $view['latest_url'] && 'pending' === $view['embedding_status'] ) : ?>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="ehrman_ingestion_retry_embedding"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $view['id'] ); ?>">
 			<?php wp_nonce_field( 'ehrman_ingestion_retry_embedding' ); ?>
@@ -69,7 +93,7 @@ $retry_context = array(
 	<?php return; ?>
 <?php endif; ?>
 <?php if ( 'ready' === $view['status'] ) : ?>
-	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
+	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo $view['is_revision'] ? esc_html__( 'Review and approve the changes to update search.', 'ehrman-blog-discovery' ) : esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
 <?php elseif ( 'held' === $view['status'] ) : ?>
 	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Metadata cannot be approved yet.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Check the warnings below and regenerate metadata after correcting the post or vocabulary.', 'ehrman-blog-discovery' ); ?></p></div>
 <?php endif; ?>
@@ -78,11 +102,11 @@ $retry_context = array(
 	<div class="ehrman-ingestion__actions">
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
-		echo Template::render( 'admin/post-ingestion/reanalyze.php', array( 'id' => $view['id'] ) );
+		echo Template::render( 'admin/post-ingestion/reanalyze.php', $retry_context );
 		?>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
-		echo Template::render( 'admin/post-ingestion/discard.php', array( 'id' => $view['id'] ) );
+		echo Template::render( 'admin/post-ingestion/discard.php', $view );
 		?>
 	</div>
 	<?php return; ?>

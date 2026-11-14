@@ -178,7 +178,7 @@ final class Post_Ingestion_Service {
 	 */
 	public function reanalyze( int $draft_id ) {
 		$draft = $this->draft( $draft_id );
-		if ( null === $draft || self::STATUS_APPROVED === $draft['status'] ) {
+		if ( null === $draft ) {
 			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
 		}
 		if ( ! self::is_configured() ) {
@@ -186,6 +186,13 @@ final class Post_Ingestion_Service {
 				'ehrman_ingestion_not_configured',
 				__( 'Configure OPENAI_API_KEY on the server before regenerating metadata.', 'ehrman-blog-discovery' )
 			);
+		}
+		if ( self::STATUS_APPROVED === $draft['status'] ) {
+			$draft = $this->edit_metadata( $draft_id );
+			if ( is_wp_error( $draft ) ) {
+				return $draft;
+			}
+			$draft_id = Database::integer( $draft['id'] ?? null );
 		}
 		$post = Post_Ingestion_Post_Source::published_post( $draft );
 		if ( is_wp_error( $post ) ) {
@@ -206,7 +213,7 @@ final class Post_Ingestion_Service {
 			if ( Database::integer( $draft['source_wp_id'] ?? null ) !== $validated['source_wp_id'] ) {
 				return new WP_Error( 'ehrman_ingestion_post_mismatch', __( 'The saved post does not match this ingestion draft.', 'ehrman-blog-discovery' ) );
 			}
-			if ( ! $this->repository->update_pending_source( $draft_id, $validated ) ) {
+			if ( ! $this->repository->update_pending_source( $draft, $validated ) ) {
 				return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The saved post could not be copied into the ingestion draft.', 'ehrman-blog-discovery' ) );
 			}
 		}
@@ -218,6 +225,16 @@ final class Post_Ingestion_Service {
 		}
 		Post_Ingestion_Queue::cancel( $draft_id );
 		return $this->analyze_draft( $draft_id );
+	}
+
+	/**
+	 * Begins a manual revision without calling AI or changing the live index.
+	 *
+	 * @param int $draft_id Current approved record.
+	 * @return array<string,mixed>|WP_Error Separate review record.
+	 */
+	public function edit_metadata( int $draft_id ): array|WP_Error {
+		return Post_Ingestion_Revisions::start( $draft_id );
 	}
 
 	/**
@@ -265,6 +282,10 @@ final class Post_Ingestion_Service {
 		$draft = $this->draft( $draft_id );
 		if ( null === $draft || self::STATUS_APPROVED !== $draft['status'] ) {
 			return new WP_Error( 'ehrman_ingestion_missing_draft', __( 'The approved ingestion record was not found.', 'ehrman-blog-discovery' ) );
+		}
+		$latest = $this->latest_for_post( Database::integer( $draft['source_wp_id'] ?? null ) );
+		if ( Database::integer( $draft['wordpress_post_id'] ?? null ) > 0 && Database::integer( $latest['id'] ?? null ) !== $draft_id ) {
+			return new WP_Error( 'ehrman_ingestion_review_changed', __( 'Open the latest metadata record before retrying its vector.', 'ehrman-blog-discovery' ) );
 		}
 		$this->embedding_generator->generate( $draft_id, Database::integer( $draft['source_wp_id'] ?? null ) );
 		$stored = $this->draft( $draft_id );

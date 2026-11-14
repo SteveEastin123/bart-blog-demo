@@ -84,8 +84,36 @@ key. Check for queued ingestion jobs before enabling the shared key.
 
 The panel still requires a saved, published post, administrator permissions and
 database-authoritative mode for approval. Merely opening it never starts a paid
-AI request. This workflow is for initial indexing, not automatic regeneration of
-metadata after subsequent content edits.
+AI request. Later revisions are explicit actions, not automatic regeneration
+after subsequent content edits.
+
+### Revising Approved Metadata
+
+Both the post editor and Tools record offer **Edit Metadata** and **Regenerate
+Metadata** for the latest approved metadata linked to an editable, published
+WordPress post. Imported records without a native link remain read-only.
+
+- **Edit Metadata** copies the approved proposal into a separate pending revision,
+  without an AI call. Edit Description or Summary and remove/restore selected
+  topics and keywords. It does not introduce manual vocabulary pickers.
+- **Regenerate Metadata** asks for confirmation of the API charge, reads the current
+  saved post, and generates a new proposal. Tools opens the progress screen first;
+  the editor shows progress inline. Neither schedules background generation.
+- **Approve Changes** validates the pending revision. The existing live metadata
+  and vector remain active until the replacement can be committed atomically.
+  A changed title or summary requires a replacement vector; unchanged input reuses
+  a valid current vector without a paid call. An Ignore assignment removes the
+  vector. Vector or storage failure leaves the existing live version unchanged.
+- **Cancel Changes** discards only the pending revision, retaining approved history
+  and live search data. Recorded API usage is retained even if changes are cancelled.
+
+Approved records are immutable history, linked through `revision_parent_id`.
+`revision_base_hash` detects intervening live metadata changes. Only one pending
+revision may be opened for the current approved record. Old history links lead
+to the latest record instead of offering actions on obsolete versions. Approval
+also rechecks the saved post and pending proposal after any vector request.
+No full post text is retained on an approved history record. Schema 1.15.0 adds
+the revision fields in place; it does not reimport or replace discovery data.
 
 Publishing first remains the chosen workflow. Unpublished posts show only the
 publish-first prerequisite; the save-changes reminder appears only for published
@@ -184,7 +212,7 @@ and its validated vector package, never from the Render database.
 | `ready` | Proposal passed validation and is ready for review | Review, revise, reanalyze, or approve |
 | `held` | Proposal failed approval requirements | Correct the source or vocabulary, then regenerate |
 | `error` | Analysis failed before producing a usable proposal | Correct the reported issue and retry |
-| `approved` | Proposal was committed to the live discovery index | Retry the vector if its status is not complete |
+| `approved` | Proposal was committed to the live discovery index | Edit or regenerate a separate revision; retry a pending vector on the latest record |
 
 An `analyzing` draft is considered stalled after ten minutes. The editor and
 fallback page then offer a fresh attempt. Each worker receives an incrementing
@@ -252,7 +280,9 @@ and deletion during an in-flight embedding request. It uses a shared placeholder
 key and does not make a paid AI request.
 
 The repository's `wordpress-production/verify-all.ps1` also runs
-`tests/post-ingestion-editor-ui.cjs` on its isolated WordPress site. These
+`tests/post-ingestion-editor-ui.cjs` and `tests/post-ingestion-revision-ui.cjs`
+on its isolated WordPress site. The revision checks use a synthetic vector and
+intercept regeneration, so they do not make paid API calls. These
 browser checks use real editor components with mocked ingestion responses to
 verify progress, inline text edits, overall approval, regeneration, failure recovery,
 combined keywords, and desktop/mobile layouts without paid API calls.
