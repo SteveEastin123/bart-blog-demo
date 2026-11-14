@@ -26,8 +26,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
   page.on('pageerror', error => errors.push(error.message));
   const original = {
     id: 900001, revision: 'ready-1', status: 'ready', description: 'Explains the original description.',
-    searchSummary: 'Explores the original summary.', topics: [topicNames[0]], secondaryKeywords: [],
-    newSecondaryKeywords: [], reviewNotes: [], errorMessage: '', embeddingError: '',
+    searchSummary: 'Explores the original summary.', topics: [topicNames[0], topicNames[1]], secondaryKeywords: ['Existing Keyword Fixture'],
+    newSecondaryKeywords: ['New Keyword Fixture'], reviewNotes: [], errorMessage: '', embeddingError: '',
     embeddingStatus: 'not_requested', analysisActive: false, analysisStalled: false,
   };
   let record = { postId, postStatus: 'draft', configured: true, databaseAuthoritative: true, sourceChanged: false,
@@ -59,7 +59,9 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
         await new Promise(resolve => setTimeout(resolve, approveDelay));
         record.draft = { ...original, revision: 'approved', status: 'approved', embeddingStatus: 'complete',
           description: approvalBody.proposal.description, searchSummary: approvalBody.proposal.search_summary,
-          topics: original.topics };
+          topics: original.topics.filter(value => !approvalBody.proposal.removed_topics.includes(value)),
+          secondaryKeywords: original.secondaryKeywords.filter(value => !approvalBody.proposal.removed_keywords.includes(value)),
+          newSecondaryKeywords: original.newSecondaryKeywords.filter(value => !approvalBody.proposal.removed_keywords.includes(value)) };
       }
       if (action === 'retry-embedding') record.draft = { ...record.draft, revision: 'retried', embeddingStatus: 'complete', embeddingError: '' };
     }
@@ -133,21 +135,39 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     assert.equal(await panel.getByRole('combobox').count(), 0, 'Manual taxonomy picker is still present');
     assert.equal(await panel.getByLabel('Review Notes and Warnings').count(), 0);
     assert(await panel.getByText(topicNames[0], { exact: true }).isVisible());
+    await button('Remove topic: ' + topicNames[1]).click();
+    assert(await button('Restore topic: ' + topicNames[1]).isVisible());
+    await button('Remove topic: ' + topicNames[0]).focus();
+    await page.keyboard.press('Enter');
+    assert(await button('Approve and Add to Search').isDisabled());
+    assert(await panel.getByText('Keep at least one topic. Restore a removed topic or regenerate metadata.', { exact: true }).isVisible());
+    await button('Restore topic: ' + topicNames[0]).click();
+    assert(await button('Approve and Add to Search').isEnabled());
+    await button('Remove keyword: Existing Keyword Fixture').click();
+    await button('Remove keyword: New Keyword Fixture').click();
+    await button('Restore keyword: New Keyword Fixture').click();
+    assert.deepEqual(actions, ['analyze'], 'Removing or restoring a term triggered an API action');
     await shot('review-desktop');
     failure = { status: 400, message: 'Please correct the description.' };
     await button('Approve and Add to Search').click();
     await panel.getByText('Please correct the description.', { exact: true }).waitFor();
     assert.equal(await panel.getByLabel('Description', { exact: true }).inputValue(), 'Explains the publisher revised description.');
+    assert(await button('Restore topic: ' + topicNames[1]).isVisible(), 'Validation failure lost topic removals');
+    assert(await button('Restore keyword: Existing Keyword Fixture').isVisible(), 'Validation failure lost keyword removals');
     approveDelay = 800;
     await button('Approve and Add to Search').click();
     await panel.getByText('Adding to search and creating vector...', { exact: true }).waitFor();
     assert(await button('Approve and Add to Search').isDisabled());
     await panel.getByText('Added to Search', { exact: true }).waitFor();
     assert.equal(approvalBody.proposal.topics, undefined, 'Client submitted mutable AI selections');
+    assert.deepEqual(approvalBody.proposal.removed_topics, [topicNames[1]]);
+    assert.deepEqual(approvalBody.proposal.removed_keywords, ['Existing Keyword Fixture']);
     assert.equal(approvalBody.revision, 'ready-1');
     assert.equal(approvalBody.proposal.description, 'Explains the publisher revised description.');
     assert.equal(approvalBody.proposal.search_summary, 'Explores the publisher revised summary.');
     assert(page.url().includes('post.php'), 'Approval navigated away from the post editor');
+    assert.equal(await button('Remove topic: ' + topicNames[0]).count(), 0, 'Approved metadata remained editable');
+    assert.equal(await panel.getByText(topicNames[1], { exact: true }).count(), 0, 'Removed topic remained after approval');
     await shot('approved-desktop');
 
     record.draft = { ...original, newSecondaryKeywords: ['New Keyword Fixture'], reviewNotes: ['Confirm this new label.'] };
@@ -178,6 +198,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     record.draft = { ...original };
     await reloadState();
     await panel.getByLabel('Description', { exact: true }).fill('Preserve this edit until regeneration is confirmed.');
+    await button('Remove topic: ' + topicNames[1]).click();
     const beforeRegeneration = actions.length;
     acceptDialog = false;
     await button('Regenerate Metadata').click();
@@ -191,6 +212,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     assert.equal(actions.at(-1), 'reanalyze');
     await page.waitForFunction(expected => document.querySelector('.ehrman-ingestion-editor textarea')?.value === expected, original.description);
     assert.equal(await panel.getByLabel('Description', { exact: true }).inputValue(), original.description);
+    assert(await button('Remove topic: ' + topicNames[1]).isVisible(), 'Regeneration retained removals from an old proposal');
 
     await panel.getByLabel('Description', { exact: true }).fill('Preserve this edit when the review becomes stale.');
     record.draft = { ...original, revision: 'ready-2', description: 'Updated by another reviewer.' };
@@ -219,6 +241,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       await page.setViewportSize({ width, height: 1000 });
       await reloadState();
       await panel.getByLabel('Description', { exact: true }).scrollIntoViewIfNeeded();
+      await button('Remove topic: ' + topicNames[1]).click();
+      await button('Remove keyword: Existing Keyword Fixture').click();
       await shot('review-' + width);
       await button('Approve and Add to Search').scrollIntoViewIfNeeded();
       await shot('actions-' + width);

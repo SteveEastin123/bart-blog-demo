@@ -11,6 +11,7 @@
 	const detail = panel.querySelector( '[data-ebd-generation-detail]' );
 	const spinner = panel.querySelector( '.spinner' );
 	const errorNotice = panel.querySelector( '[data-ebd-generation-error]' );
+	const waitDeadline = Date.now() + 10 * 60 * 1000;
 	let waiting = true;
 
 	window.addEventListener( 'beforeunload', function ( event ) {
@@ -28,10 +29,24 @@
 		} );
 	}
 
-	function openRecord( result ) {
-		const id = Number( result && result.draft && result.draft.id );
+	async function openRecord( result ) {
+		let draft = result && result.draft;
+		const id = Number( draft && draft.id );
 		if ( ! Number.isSafeInteger( id ) || id <= 0 ) {
 			return false;
+		}
+		// A saved record may still be running after a timeout or a request from another tab.
+		while ( draft.analysisActive && ! draft.analysisStalled ) {
+			if ( Date.now() >= waitDeadline ) {
+				throw new Error( __( 'Metadata generation has not finished. Check this post in Search Metadata for its current status.', 'ehrman-blog-discovery' ) );
+			}
+			detail.textContent = __( 'Metadata is still being generated. This page will open the review automatically when it is ready.', 'ehrman-blog-discovery' );
+			await new Promise( function ( resolve ) { window.setTimeout( resolve, 3000 ); } );
+			const current = await request( 'GET' );
+			draft = current && current.draft;
+			if ( ! draft || Number( draft.id ) !== id ) {
+				throw new Error( __( 'The metadata record changed or is no longer available. Check this post in Search Metadata.', 'ehrman-blog-discovery' ) );
+			}
 		}
 		waiting = false;
 		const url = new URL( config.pageUrl );
@@ -43,16 +58,16 @@
 	async function generate() {
 		try {
 			// Reuse any saved record instead of repeating a paid request after a retry or another tab.
-			if ( openRecord( await request( 'GET' ) ) ) {
+			if ( await openRecord( await request( 'GET' ) ) ) {
 				return;
 			}
-			if ( ! openRecord( await request( 'POST', '/analyze' ) ) ) {
+			if ( ! await openRecord( await request( 'POST', '/analyze' ) ) ) {
 				throw new Error( __( 'The server did not return a metadata record.', 'ehrman-blog-discovery' ) );
 			}
 		} catch ( error ) {
-			// A timeout can leave a saved record. Recover it once, without repeating generation.
+			// Recover a saved record and follow its status without repeating generation.
 			try {
-				if ( openRecord( await request( 'GET' ) ) ) {
+				if ( await openRecord( await request( 'GET' ) ) ) {
 					return;
 				}
 			} catch ( statusError ) {

@@ -58,9 +58,15 @@ key. Check for queued ingestion jobs before enabling the shared key.
    until the proposal is approved or discarded.
 6. Review **Description**, **Summary**, the AI-selected **Topics**, and one
    combined **Keywords** list. Description and Summary remain editable. Topics
-   and keywords come from the stored AI result; there is no vocabulary dropdown,
-   separate new-keyword form, or Reviewer Notes field. Overall approval includes
-   the displayed new keyword labels. A held result cannot be approved; its
+   and keywords come from the stored AI result. In both the editor panel and
+   Tools review page, an X removes a term from this proposal and its undo button
+   restores it before saving or approving. Removal does not delete shared terms
+   or change other posts. At least one topic must remain for a ready proposal;
+   all keywords may be removed. There is no vocabulary dropdown, separate
+   new-keyword form, or Reviewer Notes field. Overall approval includes only the
+   retained selections, including retained new keywords. The server validates
+   removals against the saved proposal and preserves its review-state rules.
+   A held result cannot be approved; its
    blocking warnings remain visible. Correct the source or vocabulary as needed,
    then use **Regenerate Metadata** for a fresh AI pass.
 7. Select **Approve and Add to Search** after review. The submitted edits are
@@ -107,9 +113,14 @@ The redirect opens that post's metadata record regardless of the list's active
 filters. If generation fails after creating a record, or the same Create Metadata
 action is submitted again, the page opens that existing record for review or
 recovery rather than returning to a list that may no longer show the post.
-The client checks for an existing record before generation and checks once more
-after a request failure; it never automatically retries generation. If no record
-can be retrieved, it displays the error and a link back to the post's status.
+The client checks for an existing record before generation and checks again
+after a request failure; it never automatically retries generation. If the saved
+record is still being analyzed, the progress screen stays open and checks its
+status every three seconds until it can open review or error recovery. These
+read-only checks do not start AI requests. A server-reported stalled record opens
+the recovery controls; a ten-minute client wait limit prevents indefinite polling.
+If no record can be retrieved or status checks keep failing, the page displays an
+error and a link back to the post's status.
 Without JavaScript, an explicit Continue button uses the existing synchronous
 form handler.
 Opening, filtering, or paging through the list does not start an AI request.

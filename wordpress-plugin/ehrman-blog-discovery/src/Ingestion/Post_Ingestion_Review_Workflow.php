@@ -188,24 +188,65 @@ final class Post_Ingestion_Review_Workflow {
 	}
 
 	/**
-	 * Allows text edits while retaining the AI selections and validation state.
+	 * Allows text edits and removal of AI selections without accepting additions.
 	 *
 	 * @param array<string,mixed> $draft Stored proposal being reviewed.
-	 * @param array<string,mixed> $input Submitted description and summary.
-	 * @return array<string,mixed> Complete review input for the validator.
+	 * @param array<string,mixed> $input Submitted text edits and removed labels.
+	 * @return array<string,mixed>|WP_Error Complete review input or invalid removals.
 	 */
-	public static function review_input( array $draft, array $input ): array {
-		$proposal = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
+	public static function review_input( array $draft, array $input ): array|WP_Error {
+		$proposal         = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
+		$topics           = Database::strings( $proposal['topics'] ?? array() );
+		$keywords         = Database::strings( $proposal['secondaryKeywords'] ?? array() );
+		$new              = Database::strings( $proposal['newSecondaryKeywords'] ?? array() );
+		$removed_topics   = self::removed_labels( array_key_exists( 'removed_topics', $input ) ? $input['removed_topics'] : array(), $topics );
+		$removed_keywords = self::removed_labels( array_key_exists( 'removed_keywords', $input ) ? $input['removed_keywords'] : array(), array_merge( $keywords, $new ) );
+		if ( is_wp_error( $removed_topics ) ) {
+			return $removed_topics;
+		}
+		if ( is_wp_error( $removed_keywords ) ) {
+			return $removed_keywords;
+		}
+		$topics = array_values( array_diff( $topics, $removed_topics ) );
+		if ( 'ready' === ( $draft['status'] ?? '' ) && empty( $topics ) ) {
+			return new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Keep at least one topic. Restore a removed topic or regenerate metadata.', 'ehrman-blog-discovery' ) );
+		}
+		$rationales = array();
+		foreach ( is_array( $proposal['topicRationales'] ?? null ) ? $proposal['topicRationales'] : array() as $rationale ) {
+			if ( is_array( $rationale ) && in_array( $rationale['topic'] ?? null, $topics, true ) ) {
+				$rationales[] = $rationale;
+			}
+		}
 		return array(
 			'description'            => $input['description'] ?? $proposal['description'] ?? '',
 			'search_summary'         => $input['search_summary'] ?? $proposal['searchSummary'] ?? '',
-			'topics'                 => $proposal['topics'] ?? array(),
-			'secondary_keywords'     => implode( "\n", Database::strings( $proposal['secondaryKeywords'] ?? array() ) ),
-			'new_secondary_keywords' => implode( "\n", Database::strings( $proposal['newSecondaryKeywords'] ?? array() ) ),
-			'topic_rationales_json'  => wp_json_encode( $proposal['topicRationales'] ?? array() ),
+			'topics'                 => $topics,
+			'secondary_keywords'     => implode( "\n", array_diff( $keywords, $removed_keywords ) ),
+			'new_secondary_keywords' => implode( "\n", array_diff( $new, $removed_keywords ) ),
+			'topic_rationales_json'  => wp_json_encode( $rationales ),
 			'review_notes'           => implode( "\n", Database::strings( $proposal['reviewNotes'] ?? array() ) ),
 			'status'                 => $draft['status'] ?? 'held',
 		);
+	}
+
+	/**
+	 * Checks removal labels against the saved proposal, never the browser's vocabulary.
+	 *
+	 * @param mixed    $submitted Requested removals.
+	 * @param string[] $allowed   AI-selected labels.
+	 * @return list<string>|WP_Error Validated removals.
+	 */
+	private static function removed_labels( $submitted, array $allowed ): array|WP_Error {
+		$error = new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Only selections from the current metadata proposal can be removed. Reload metadata and try again.', 'ehrman-blog-discovery' ) );
+		if ( ! is_array( $submitted ) || ! array_is_list( $submitted ) ) {
+			return $error;
+		}
+		foreach ( $submitted as $label ) {
+			if ( ! is_string( $label ) || ! in_array( $label, $allowed, true ) ) {
+				return $error;
+			}
+		}
+		return array_values( array_unique( $submitted ) );
 	}
 
 	/**

@@ -40,6 +40,7 @@ final class Post_Ingestion_Editor {
 			array( 'wp-components' ),
 			is_file( $style_path ) ? (string) filemtime( $style_path ) : EHRMAN_DISCOVERY_VERSION
 		);
+		self::enqueue_selection_styles();
 		wp_localize_script(
 			'ehrman-post-ingestion-editor',
 			'EhrmanPostIngestion',
@@ -47,5 +48,11 @@ final class Post_Ingestion_Editor {
 				'restBase' => '/ehrman-discovery/v1/ingestion/post/',
 			)
 		);
+	}
+
+	/** Shares term-removal styling between the editor panel and metadata review page. */
+	public static function enqueue_selection_styles(): void {
+		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/css/post-ingestion-selections.css';
+		wp_enqueue_style( 'ehrman-post-ingestion-selections', EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/css/post-ingestion-selections.css', array( 'dashicons' ), is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION );
 	}
 }

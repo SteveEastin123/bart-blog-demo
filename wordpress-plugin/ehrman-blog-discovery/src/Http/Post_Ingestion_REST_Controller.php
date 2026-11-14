@@ -177,6 +177,9 @@ final class Post_Ingestion_REST_Controller {
 				return new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Reviewed metadata must be an object.', 'ehrman-blog-discovery' ), array( 'status' => 400 ) );
 			}
 			$input = Post_Ingestion_Review_Workflow::review_input( $draft, $input );
+			if ( is_wp_error( $input ) ) {
+				return self::service_error( $input );
+			}
 		}
 		$result = $service->approve(
 			Database::integer( $draft['id'] ?? null ),

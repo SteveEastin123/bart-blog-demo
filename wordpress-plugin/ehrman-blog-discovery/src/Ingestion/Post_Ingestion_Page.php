@@ -27,6 +27,7 @@ final class Post_Ingestion_Page {
 		add_action( 'admin_menu', array( self::class, 'add_page' ) );
 		add_action( 'load-tools_page_' . self::PAGE_SLUG, array( self::class, 'prepare_progress' ) );
 		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue_progress' ) );
+		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue_review' ) );
 		add_action( 'admin_post_ehrman_ingestion_create_metadata', array( self::class, 'handle_create_metadata' ) );
 		add_action( 'admin_post_ehrman_ingestion_proposal', array( self::class, 'handle_proposal' ) );
 		add_action( 'admin_post_ehrman_ingestion_reanalyze', array( self::class, 'handle_reanalyze' ) );
@@ -69,6 +70,20 @@ final class Post_Ingestion_Page {
 				'pageUrl'  => self::page_url(),
 			)
 		);
+	}
+
+	/**
+	 * Loads removal controls only on the protected metadata page.
+	 *
+	 * @param string $hook Current admin page.
+	 */
+	public static function enqueue_review( string $hook ): void {
+		if ( 'tools_page_' . self::PAGE_SLUG !== $hook || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-review.js';
+		wp_enqueue_script( 'ehrman-post-ingestion-review', EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-review.js', array(), is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION, true );
+		Post_Ingestion_Editor::enqueue_selection_styles();
 	}
 
 	/** Adds the page beneath WordPress Tools. */
@@ -176,6 +191,9 @@ final class Post_Ingestion_Page {
 			self::redirect_with_notice( 0, false, __( 'The pending ingestion draft was not found.', 'ehrman-blog-discovery' ) );
 		}
 		$input = Post_Ingestion_Review_Workflow::review_input( $draft, $input );
+		if ( is_wp_error( $input ) ) {
+			self::redirect_with_notice( $draft_id, false, $input->get_error_message() );
+		}
 		if ( 'approve' !== $intent ) {
 			$saved = $service->save_proposal( $draft_id, $input, $revision );
 			if ( is_wp_error( $saved ) ) {

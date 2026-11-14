@@ -145,8 +145,12 @@ try {
 		$assert_same( 0, $dom->query( '//img|//script|//*[@onerror]' )->length, 'Proposal text became executable markup.' );
 		$assert_same( $proposal['description'], $dom->evaluate( 'string(//textarea[@name="description"])' ), 'Description did not round-trip safely.' );
 		$assert_same( $proposal['searchSummary'], $dom->evaluate( 'string(//textarea[@name="search_summary"])' ), 'Summary did not round-trip safely.' );
-		$assert_same( implode( ', ', array_merge( $proposal['secondaryKeywords'], $proposal['newSecondaryKeywords'] ) ), $dom->evaluate( 'string(//tr[th="Keywords"]/td)' ), 'Combined keywords changed.' );
-		$assert_same( $topic_name, $dom->evaluate( 'string(//tr[th="Topics"]/td)' ), 'AI-selected topic changed.' );
+		$keyword_labels = array();
+		foreach ( $dom->query( '//tr[th="Keywords"]//span[@class="ehrman-metadata-selections__label"]' ) as $node ) $keyword_labels[] = $node->textContent;
+		$assert_same( array_merge( $proposal['secondaryKeywords'], $proposal['newSecondaryKeywords'] ), $keyword_labels, 'Combined keywords changed.' );
+		$assert_same( $topic_name, $dom->evaluate( 'string(//tr[th="Topics"]//span[@class="ehrman-metadata-selections__label"])' ), 'AI-selected topic changed.' );
+		$assert_same( 1, $dom->query( '//input[@name="removed_topics[]"][@disabled]' )->length, 'Topic removal input is missing or enabled before removal.' );
+		$assert_same( count( $keyword_labels ), $dom->query( '//input[@name="removed_keywords[]"][@disabled]' )->length, 'Combined keyword removal inputs changed.' );
 		$assert_same( 'Summary', $dom->evaluate( 'string(//label[@for="search_summary"])' ), 'Summary label changed.' );
 		$assert_same( 0, $dom->query( '//select|//textarea[@name="review_notes"]|//textarea[@name="new_secondary_keywords"]' )->length, 'Removed manual controls remain.' );
 		$assert_same( 1, $dom->query( '//button[@value="approve"][@disabled]' )->length, 'JSON-authoritative approval should be disabled.' );
@@ -230,6 +234,30 @@ try {
 		return get_transient( $page_notice_key );
 	};
 	$body = array_merge( $fields, array( 'draft_id' => $native_draft, 'revision' => $revision ) );
+	// The Tools form uses the same removal-only contract as the editor REST route.
+	$removal_proposal = $valid_proposal;
+	$extra_topic = current( array_filter( $vocabulary['topics'], static fn( $item ) => 'Ignore' !== $item['name'] && $topic_name !== $item['name'] ) )['name'];
+	$removal_proposal['topics'][] = $extra_topic;
+	$removal_proposal['topicRationales'] = array( array( 'topic' => $extra_topic, 'rationale' => 'A removable topic.' ) );
+	$removal_proposal['secondaryKeywords'] = array( $vocabulary['keywords'][0]['label'] );
+	$removal_proposal['newSecondaryKeywords'] = array( 'Unwanted Metadata Fixture Keyword' );
+	$wpdb->update( $table, array( 'proposal_json' => wp_json_encode( $removal_proposal ) ), array( 'id' => $native_draft ) );
+	$removal_body = array_merge( $body, array( 'revision' => Post_Ingestion_Review_Workflow::revision( $repository->draft( $native_draft ) ) ) );
+	foreach ( array( 'save', 'approve' ) as $intent ) {
+		foreach ( array( array( 'removed_topics' => $removal_proposal['topics'] ), array( 'removed_keywords' => array( 'Not proposed' ) ), array( 'removed_topics' => 'not-an-array' ) ) as $invalid ) {
+			$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $removal_body, $invalid, array( 'ingestion_intent' => $intent ) ) );
+			$assert_same( false, $notice['success'], 'History accepted invalid removals.' );
+			$assert_same( wp_json_encode( $removal_proposal ), $repository->draft( $native_draft )['proposal_json'], 'Invalid history removals changed the proposal.' );
+		}
+	}
+	$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $removal_body, array( 'ingestion_intent' => 'save', 'removed_topics' => array( $extra_topic ), 'removed_keywords' => array_merge( $removal_proposal['secondaryKeywords'], $removal_proposal['newSecondaryKeywords'] ) ) ) );
+	$removed = json_decode( $repository->draft( $native_draft )['proposal_json'], true );
+	$assert_same( true, $notice['success'], 'Valid removals could not be saved through Tools.' );
+	$assert_same( $valid_proposal['topics'], $removed['topics'], 'Tools saved a removed topic.' );
+	$assert_same( array(), $removed['topicRationales'], 'Tools saved a removed topic rationale.' );
+	$assert_same( array(), $removed['secondaryKeywords'], 'Tools saved removed existing keywords.' );
+	$assert_same( array(), $removed['newSecondaryKeywords'], 'Tools saved removed proposed keywords.' );
+	$wpdb->update( $table, $pending, array( 'id' => $native_draft ) );
 	wp_update_post( array( 'ID' => $native, 'post_content' => 'The publisher changed the article after its original analysis.' ) );
 	foreach ( array( 'save', 'approve' ) as $intent ) {
 		$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $body, array( 'ingestion_intent' => $intent ) ) );

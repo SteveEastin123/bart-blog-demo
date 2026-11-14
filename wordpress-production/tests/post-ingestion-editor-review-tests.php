@@ -49,6 +49,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		foreach ( array( array( 'description' => '' ), array( 'search_summary' => '' ) ) as $invalid ) {
 			$cases[] = array( array_merge( $body, array( 'proposal' => array_merge( $fields, $invalid ) ) ), 'ehrman_ingestion_invalid_proposal' );
 		}
+		foreach ( array(
+			array( 'removed_topics' => $proposal['topics'] ),
+			array( 'removed_topics' => array( 'Not in this proposal' ) ),
+			array( 'removed_keywords' => array( 'Not in this proposal' ) ),
+			array( 'removed_topics' => 'not-an-array' ),
+			array( 'removed_keywords' => array( array( 'nested' ) ) ),
+			array( 'removed_keywords' => null ),
+		) as $invalid ) {
+			$cases[] = array( array_merge( $body, array( 'proposal' => array_merge( $fields, $invalid ) ) ), 'ehrman_ingestion_invalid_proposal' );
+		}
 		// Topics, keywords and review state come from the stored AI result, not the request.
 		foreach ( $cases as list( $submitted, $expected ) ) {
 			$response = $send( $submitted );
@@ -64,12 +74,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$body['revision'] = $status()['draft']['revision'];
 		$assert_same( 'ehrman_ingestion_invalid_proposal', $send( $body )->get_data()['code'], 'A forged ready status approved a held result.' );
 		$with_keyword = $proposal;
-		$with_keyword['newSecondaryKeywords'] = array( $keyword_label );
+		$vocabulary = $ingestion_store->vocabulary();
+		$extra_topic = current( array_filter( $vocabulary['topics'], static fn( $item ) => 'Ignore' !== $item['name'] && ! in_array( $item['name'], $proposal['topics'], true ) ) )['name'];
+		$existing_keyword = $vocabulary['keywords'][0]['label'];
+		$removed_new = $keyword_label . ' Removed';
+		$with_keyword['topics'][] = $extra_topic;
+		$with_keyword['topicRationales'] = array( array( 'topic' => $extra_topic, 'rationale' => 'This selected topic can be removed during review.' ) );
+		$with_keyword['secondaryKeywords'] = array( $existing_keyword );
+		$with_keyword['newSecondaryKeywords'] = array( $keyword_label, $removed_new );
 		$with_keyword['reviewNotes'] = array( 'This specific subject has no existing equivalent keyword.' );
 		$wpdb->update( $tables['ingestion_drafts'], array( 'status' => 'ready', 'proposal_json' => wp_json_encode( $with_keyword ) ), array( 'id' => $editor_draft_id ) );
 		$body['revision'] = $status()['draft']['revision'];
 		$body['proposal']['topics'] = array( 'Unknown fixture topic' );
 		$body['proposal']['new_secondary_keywords'] = 'Client-injected keyword';
+		$body['proposal']['removed_topics'] = array( $extra_topic );
+		$body['proposal']['removed_keywords'] = array( $existing_keyword, $removed_new );
 		$body['proposal']['search_summary'] = 'Explains how inline approval saves revised search metadata without changing the original WordPress article. Distinguishes approved topics from supporting secondary keywords and preserves validation of both selections. Describes how a failed embedding remains pending for retry after metadata has been safely committed to the discovery index, while the temporary full text is removed from the ingestion record after the administrator approves it.';
 		$response = $send( $body );
 		$assert_same( 200, $response->get_status(), 'Revised metadata could not be approved in the editor.' );
@@ -79,6 +98,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$assert_same( 'approved', $response->get_data()['draft']['status'], 'Inline approval did not return success.' );
 		$assert_same( $proposal['topics'], $response->get_data()['draft']['topics'], 'Client overrode the AI-selected topics.' );
 		$assert_same( array( $keyword_label ), $response->get_data()['draft']['newSecondaryKeywords'], 'Overall approval did not preserve the AI-proposed keyword.' );
+		$assert_same( array(), $response->get_data()['draft']['secondaryKeywords'], 'Removed existing keyword remained in approved metadata.' );
+		$approved_proposal = json_decode( $approved['proposal_json'], true );
+		$assert_same( array(), $approved_proposal['topicRationales'], 'Removed topic retained its rationale.' );
+		$assert_same( count( $proposal['topics'] ), (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE post_id=%d', $tables['post_topics'], $approved_id ) ), 'Removed topic remained linked to the post.' );
+		$assert_same( 1, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE post_id=%d', $tables['post_keywords'], $approved_id ) ), 'Removed keywords remained linked to the post.' );
+		$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE label=%s', $tables['keywords'], $removed_new ) ), 'A removed proposed keyword was added to the shared vocabulary.' );
+		$assert_same( 1, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE label=%s', $tables['keywords'], $existing_keyword ) ), 'Removal deleted the shared keyword definition.' );
 		$assert_same( 'pending', $response->get_data()['draft']['embeddingStatus'], 'A missing key did not leave the vector available for retry.' );
 		$assert_same( $fields['description'], $response->get_data()['draft']['description'], 'The publisher description edit was lost.' );
 		$assert_same( $body['proposal']['search_summary'], $response->get_data()['draft']['searchSummary'], 'The publisher summary edit was lost.' );
