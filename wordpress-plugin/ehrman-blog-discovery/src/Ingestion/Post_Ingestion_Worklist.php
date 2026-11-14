@@ -58,7 +58,7 @@ final class Post_Ingestion_Worklist {
 	public function page( array $input ): array {
 		$filters = self::filters( $input );
 		$wpdb    = Database::client();
-		$source  = $this->source_sql();
+		$source  = $this->source_sql( 'all' !== $filters['status'] );
 		$where   = array( '1=1' );
 		if ( 'attention' === $filters['status'] ) {
 			$where[] = "workflow_status IN ('not_generated','needs_approval','failed')";
@@ -123,13 +123,17 @@ final class Post_Ingestion_Worklist {
 		return $post;
 	}
 
-	/** Returns prepared UNION branches with only lightweight list columns. */
-	private function source_sql(): string {
+	/**
+	 * Returns prepared UNION branches with only lightweight list columns.
+	 *
+	 * @param bool $current_only Exclude superseded native-post records from status filters.
+	 */
+	private function source_sql( bool $current_only ): string {
 		$wpdb   = Database::client();
 		$tables = Database::tables();
 		$match  = $this->native_index_match();
 		// Imported source IDs are not automatically local IDs: only explicit ownership or the same source site qualifies.
-		$posts   = $wpdb->prepare(
+		$posts  = $wpdb->prepare(
 			"SELECT p.ID id,'post' kind,p.ID wordpress_post_id,p.post_title title,p.post_date published_at,p.post_modified_gmt updated_at,'not_generated' workflow_status,'not_requested' embedding_status FROM %i p
 			WHERE p.post_type='post' AND p.post_status='publish'
 			AND NOT EXISTS (SELECT 1 FROM %i d WHERE d.wordpress_post_id=p.ID)
@@ -138,7 +142,7 @@ final class Post_Ingestion_Worklist {
 			$tables['ingestion_drafts'],
 			$tables['external_posts']
 		) . $match . ')';
-		$drafts  = $wpdb->prepare(
+		$drafts = $wpdb->prepare(
 			"SELECT d.id,'draft' kind,d.wordpress_post_id,d.title,d.published_at,d.updated_at,
 			CASE WHEN d.status IN ('ready','held') THEN 'needs_approval'
 			WHEN d.status='error' OR (d.status='approved' AND d.embedding_status='pending') THEN 'failed'
@@ -147,6 +151,13 @@ final class Post_Ingestion_Worklist {
 			FROM %i d",
 			$tables['ingestion_drafts']
 		);
+		if ( $current_only ) {
+			// Native ownership is stable across URL changes; unlinked legacy records remain independent.
+			$drafts .= $wpdb->prepare(
+				' WHERE NOT EXISTS (SELECT 1 FROM %i newer WHERE newer.wordpress_post_id=d.wordpress_post_id AND newer.id>d.id)',
+				$tables['ingestion_drafts']
+			);
+		}
 		$indexed = $wpdb->prepare(
 			"SELECT e.id,'indexed' kind,e.wordpress_post_id,e.title,e.published_at,e.published_at updated_at,'complete' workflow_status,
 			CASE WHEN v.source_wp_id IS NOT NULL THEN 'complete' ELSE 'not_requested' END embedding_status

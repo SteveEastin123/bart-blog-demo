@@ -82,9 +82,83 @@ try {
 	$assert_same( 1, $worklist->page( array( 'status' => 'failed', 'search' => 'Worklist state fixture' ) )['total'], 'Vector failure is not actionable.' );
 	$wpdb->update( $tables['ingestion_drafts'], array( 'embedding_status' => 'not_applicable' ), array( 'id' => $draft_id ) );
 	$assert_same( 1, $worklist->page( array( 'status' => 'complete', 'search' => 'Worklist state fixture' ) )['total'], 'Ignore metadata was treated as a vector failure.' );
+
+	$create_record = static function ( int $native_id, string $status, string $embedding, array $overrides = array() ) use ( $repository, $wpdb, $tables, $assert ): int {
+		$input = array_merge( array(
+			'source_wp_id' => $native_id, 'title' => 'Worklist history fixture', 'url' => get_permalink( $native_id ),
+			'author' => 'Fixture author', 'date_text' => 'November 1, 2026', 'published_at' => '2026-11-01 12:00:00', 'post_text' => 'Synthetic history fixture.',
+		), $overrides );
+		$id = $repository->create_draft( $input, 'fixture-hash', get_current_user_id(), $native_id );
+		$assert( ! is_wp_error( $id ), 'Could not create history fixture.' );
+		$assert( false !== $wpdb->update( $tables['ingestion_drafts'], array( 'status' => $status, 'embedding_status' => $embedding, 'updated_at' => '2026-11-01 12:00:00' ), array( 'id' => $id ) ), 'Could not set history fixture state.' );
+		return $id;
+	};
+	$history_filters = array( 'search' => 'Worklist history fixture' );
+	$old_id = $create_record( $worklist_posts[5], 'approved', 'pending', array( 'title' => 'Worklist history fixture original', 'published_at' => '2026-10-01 12:00:00' ) );
+	$assert_same( 1, $worklist->page( $history_filters )['total'], 'Current vector failure disappeared.' );
+	$new_id = $create_record( $worklist_posts[5], 'approved', 'complete', array( 'title' => 'Worklist history fixture revised', 'url' => home_url( '/changed-history-permalink/' ) ) );
+	$old_record = $repository->draft( $old_id );
+	$new_record = $repository->draft( $new_id );
+	foreach ( array( 'attention', 'failed', 'needs_approval', 'generating' ) as $status ) {
+		$assert_same( 0, $worklist->page( array_merge( $history_filters, array( 'status' => $status ) ) )['total'], 'Superseded failure remains in ' . $status . '.' );
+	}
+	$complete = $worklist->page( array_merge( $history_filters, array( 'status' => 'complete' ) ) );
+	$assert_same( array( (string) $new_id ), array_column( $complete['rows'], 'id' ), 'Current completion does not use the newest record.' );
+	$all_history = $worklist->page( array_merge( $history_filters, array( 'status' => 'all' ) ) );
+	$assert_same( 2, $all_history['total'], 'All discarded historical records.' );
+	$assert_same( array( 'complete', 'failed' ), array_column( $all_history['rows'], 'workflow_status' ), 'History lost original workflow statuses.' );
+	$assert_same( $old_record, $repository->draft( $old_id ), 'Reading current status rewrote failed history.' );
+	$assert_same( $new_record, $repository->draft( $new_id ), 'Reading current status rewrote current metadata.' );
+	$assert_same( 0, $worklist->page( array( 'search' => 'Worklist history fixture original' ) )['total'], 'Title filter revived a superseded failure.' );
+	$assert_same( 0, $worklist->page( array_merge( $history_filters, array( 'date_to' => '2026-10-31' ) ) )['total'], 'Date filter revived a superseded failure.' );
+	$assert_same( 1, $worklist->page( array( 'status' => 'all', 'search' => 'Worklist history fixture original', 'date_to' => '2026-10-31' ) )['total'], 'Old history cannot be found by title and date.' );
+
+	// Every current actionable state survives; the older vector failure must not duplicate it.
+	foreach ( array(
+		array( 'ready', 'not_requested', 'needs_approval', 1 ), array( 'held', 'not_requested', 'needs_approval', 1 ),
+		array( 'queued', 'not_requested', 'generating', 0 ), array( 'analyzing', 'not_requested', 'generating', 0 ),
+		array( 'error', 'not_requested', 'failed', 1 ), array( 'approved', 'pending', 'failed', 1 ),
+		array( 'approved', 'not_applicable', 'complete', 0 ), array( 'approved', 'complete', 'complete', 0 ),
+	) as [ $stored, $embedding, $display, $attention_count ] ) {
+		$wpdb->update( $tables['ingestion_drafts'], array( 'status' => $stored, 'embedding_status' => $embedding ), array( 'id' => $new_id ) );
+		$current = $worklist->page( array_merge( $history_filters, array( 'status' => $display ) ) );
+		$assert_same( array( (string) $new_id ), array_column( $current['rows'], 'id' ), 'Latest state is missing or duplicated: ' . $stored . '/' . $embedding );
+		$assert_same( $attention_count, $worklist->page( $history_filters )['total'], 'Incorrect current attention count: ' . $stored . '/' . $embedding );
+	}
+	$wpdb->delete( $tables['ingestion_drafts'], array( 'id' => $new_id ) );
+	$assert_same( array( (string) $old_id ), array_column( $worklist->page( $history_filters )['rows'], 'id' ), 'Cancelling the newer record did not expose the remaining vector retry.' );
+
+	// Group only explicit native ownership, never a coincident source ID or URL.
+	$identity_filters = array( 'search' => 'Worklist identity fixture' );
+	$native_failure = $create_record( $worklist_posts[6], 'error', 'not_requested', array( 'title' => 'Worklist identity fixture' ) );
+	$create_record( $worklist_posts[7], 'approved', 'complete', array( 'title' => 'Worklist identity fixture', 'source_wp_id' => $worklist_posts[6], 'url' => get_permalink( $worklist_posts[6] ) ) );
+	$create_record( 0, 'approved', 'complete', array( 'title' => 'Worklist identity fixture', 'source_wp_id' => $worklist_posts[6], 'url' => get_permalink( $worklist_posts[6] ) ) );
+	$assert_same( array( (string) $native_failure ), array_column( $worklist->page( $identity_filters )['rows'], 'id' ), 'An unrelated source-ID or URL collision hid a native failure.' );
+	$legacy_failure = $create_record( 0, 'error', 'not_requested', array( 'title' => 'Worklist identity fixture', 'source_wp_id' => 999999971, 'url' => 'https://foreign-source.example/legacy-history/' ) );
+	$create_record( 0, 'approved', 'complete', array( 'title' => 'Worklist identity fixture', 'source_wp_id' => 999999972, 'url' => 'https://foreign-source.example/another-history/' ) );
+	$assert_same( 2, $worklist->page( $identity_filters )['total'], 'Unlinked legacy records were grouped together.' );
+	$assert( in_array( (string) $legacy_failure, array_column( $worklist->page( $identity_filters )['rows'], 'id' ), true ), 'Unlinked historical failure is inaccessible.' );
+
+	// Many versions of one post must not inflate counts or consume current-result pages.
+	$pagination_filters = array( 'search' => 'Worklist revision pagination fixture' );
+	for ( $i = 0; $i < 30; ++$i ) {
+		$create_record( $worklist_posts[8], 'error', 'not_requested', array( 'title' => 'Worklist revision pagination fixture' ) );
+	}
+	$latest_id = $create_record( $worklist_posts[8], 'ready', 'not_requested', array( 'title' => 'Worklist revision pagination fixture' ) );
+	$one_page = $worklist->page( array_merge( $pagination_filters, array( 'paged' => 2 ) ) );
+	$assert_same( 1, $one_page['total'], 'Superseded versions inflated current counts.' );
+	$assert_same( 1, $one_page['pages'], 'Superseded versions inflated current pages.' );
+	$assert_same( 1, $one_page['filters']['paged'], 'Current page was not clamped after superseded rows were excluded.' );
+	$assert_same( array( (string) $latest_id ), array_column( $one_page['rows'], 'id' ), 'Current pagination returned historical rows.' );
+	$all_page_one = $worklist->page( array_merge( $pagination_filters, array( 'status' => 'all' ) ) );
+	$all_page_two = $worklist->page( array_merge( $pagination_filters, array( 'status' => 'all', 'paged' => 2 ) ) );
+	$assert_same( 31, $all_page_one['total'], 'All omitted older versions from its count.' );
+	$assert_same( 25, count( $all_page_one['rows'] ), 'History page size changed.' );
+	$assert_same( 6, count( $all_page_two['rows'] ), 'Older history is not accessible on the second page.' );
+	$assert_same( array(), array_values( array_intersect( array_column( $all_page_one['rows'], 'id' ), array_column( $all_page_two['rows'], 'id' ) ) ), 'History pagination repeated versions.' );
 	$assert_same( '', $wpdb->last_error, 'Worklist query reported a database error.' );
 } finally {
 	$wpdb->query( 'ROLLBACK' );
 	wp_cache_flush();
 }
-echo "Metadata worklist: bounded pagination, filters, native/imported identity, lifecycle states and old records: OK\n";
+echo "Metadata worklist: bounded pagination, latest native status, preserved history, filters, identity and lifecycle states: OK\n";

@@ -127,6 +127,12 @@ posts with unsaved edits. Draft analysis and prepublication approval are not ena
 metadata has not been generated, proposals requiring approval, and failures
 (including pending vector retries). Filters also expose Generating, Complete,
 and All records, with title search and inclusive publication-date bounds.
+For WordPress-linked posts, status filters use only the latest metadata record,
+so an older failure or pending vector retry does not remain actionable after a
+newer revision supersedes it. **All** retains every historical version and its
+original status. Direct history links and cost reporting are unchanged. Unlinked
+legacy records remain independent; matching source IDs alone do not establish
+that they belong to the same local post.
 Results are ordered by publication date, newest first, with deterministic
 tie-breakers. Counts and 25-row pages are queried in the database; list queries
 do not load post bodies, proposals, or vector payloads. Pagination preserves
