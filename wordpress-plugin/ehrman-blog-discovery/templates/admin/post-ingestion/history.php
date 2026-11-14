@@ -52,8 +52,8 @@ if ( empty( $view['rows'] ) ) :
 			<td><?php echo esc_html( $row['vector'] ); ?></td>
 			<td>
 				<?php if ( 'post' === $row['kind'] ) : ?>
-					<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-						<input type="hidden" name="action" value="ehrman_ingestion_create_metadata">
+					<form method="post" action="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>">
+						<input type="hidden" name="action" value="ehrman_ingestion_prepare_metadata">
 						<input type="hidden" name="post_id" value="<?php echo esc_attr( $row['post_id'] ); ?>">
 						<?php wp_nonce_field( 'ehrman_ingestion_create_metadata' ); ?>
 						<button class="button button-small" <?php disabled( ! $view['configured'] || ! current_user_can( 'edit_post', (int) $row['post_id'] ) ); ?>><?php echo esc_html__( 'Create Metadata', 'ehrman-blog-discovery' ); ?></button>

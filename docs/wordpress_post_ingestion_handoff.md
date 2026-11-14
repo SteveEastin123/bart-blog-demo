@@ -97,12 +97,21 @@ filters and retains access to records older than the former 100-row limit.
 The normal post editor remains the primary workflow. Administrators may also
 select **Create Metadata** for an unprocessed published post on the worklist.
 This nonce-protected POST checks administrator and post-edit permissions, reads
-the saved post server-side, rejects existing records, and waits for the same
-analysis workflow to finish before returning the review page. It never accepts manually supplied post text or metadata.
+the saved post server-side, and opens a progress screen immediately with the post
+title, a spinner, and **Creating metadata...**. After the screen is displayed, its
+client makes the protected REST analysis request and waits for completion.
+Generation still runs in that foreground server request, not a scheduled job.
+The client then opens the saved record for review and approval. It never accepts
+manually supplied post text or metadata.
 The redirect opens that post's metadata record regardless of the list's active
 filters. If generation fails after creating a record, or the same Create Metadata
 action is submitted again, the page opens that existing record for review or
 recovery rather than returning to a list that may no longer show the post.
+The client checks for an existing record before generation and checks once more
+after a request failure; it never automatically retries generation. If no record
+can be retrieved, it displays the error and a link back to the post's status.
+Without JavaScript, an explicit Continue button uses the existing synchronous
+form handler.
 Opening, filtering, or paging through the list does not start an AI request.
 The page retains review and approval, pending-analysis retries, vector retries,
 and draft discard actions, plus read-only inspection of imported metadata. Its URL remains

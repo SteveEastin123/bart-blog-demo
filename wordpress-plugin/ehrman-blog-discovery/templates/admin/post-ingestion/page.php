@@ -24,7 +24,12 @@ $view = $ehrman_blog_discovery_context;
 	<?php if ( null !== $view['notice'] ) : ?>
 		<div class="notice <?php echo esc_attr( $view['notice']['success'] ? 'notice-success' : 'notice-error' ); ?> is-dismissible"><p><?php echo esc_html( $view['notice']['message'] ); ?></p></div>
 	<?php endif; ?>
-	<?php if ( null !== $view['draft'] ) : ?>
+	<?php if ( ! empty( $view['progress'] ) ) : ?>
+		<?php
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
+		echo Template::render( 'admin/post-ingestion/progress.php', $view['progress'] );
+		?>
+	<?php elseif ( null !== $view['draft'] ) : ?>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 		echo Template::render( 'admin/post-ingestion/draft.php', $view['draft'] );
@@ -66,4 +71,8 @@ $view = $ehrman_blog_discovery_context;
 	.ehrman-ingestion__table table { min-width: 620px; }
 	.ehrman-ingestion__table td { vertical-align: middle; overflow-wrap: anywhere; }
 	.ehrman-ingestion__pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; }
+	.ehrman-ingestion__progress { max-width: 760px; margin-top: 24px; overflow-wrap: anywhere; }
+	.ehrman-ingestion__progress h2 { line-height: 1.4; }
+	.ehrman-ingestion__waiting { display: flex; align-items: center; gap: 8px; min-height: 32px; margin-top: 20px; }
+	.ehrman-ingestion__waiting .spinner { float: none; flex: 0 0 20px; margin: 0; }
 </style>

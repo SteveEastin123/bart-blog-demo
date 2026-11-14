@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $page_saved_get = $_GET;
 $page_saved_post = $_POST;
 $page_saved_request = $_REQUEST;
+$page_saved_method = $_SERVER['REQUEST_METHOD'] ?? null;
 $page_saved_user = get_current_user_id();
 $page_saved_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
 $page_saved_key = getenv( 'OPENAI_API_KEY' );
@@ -273,6 +274,25 @@ try {
 	// Start from a native published post without accepting submitted text or metadata.
 	$new_post = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'Worklist create metadata fixture', 'post_content' => 'Saved article content used by the protected worklist generation action.', 'post_author' => $page_admin ), true );
 	$assert( ! is_wp_error( $new_post ), 'Could not create worklist generation fixture.' );
+	$create_form = $page_dom( $page_render( 0, array( 'search' => 'Worklist create metadata fixture' ) ) );
+	$assert_same( Post_Ingestion_Page::page_url(), $create_form->evaluate( 'string(//form[input[@name="post_id"]]/@action)' ), 'Create Metadata bypassed the progress page.' );
+	$assert_same( 'ehrman_ingestion_prepare_metadata', $create_form->evaluate( 'string(//form/input[@name="action"]/@value)' ), 'Create Metadata did not select the progress action.' );
+	$_POST = array( 'action' => 'ehrman_ingestion_prepare_metadata', 'post_id' => $new_post, '_wpnonce' => wp_create_nonce( 'ehrman_ingestion_create_metadata' ) );
+	$_REQUEST = $_POST;
+	$_SERVER['REQUEST_METHOD'] = 'GET';
+	Post_Ingestion_Page::prepare_progress();
+	$assert( ! str_contains( $page_render(), 'data-ebd-metadata-progress' ), 'A GET request opened a generation screen.' );
+	$_SERVER['REQUEST_METHOD'] = 'POST';
+	Post_Ingestion_Page::prepare_progress();
+	$progress = $page_dom( $page_render() );
+	$assert_same( 1, $progress->query( '//*[@data-ebd-metadata-progress]' )->length, 'Progress screen did not render.' );
+	$assert_same( 'Worklist create metadata fixture', $progress->evaluate( 'string(//h2)' ), 'Progress screen lost its saved post title.' );
+	$assert_same( 'Creating metadata...', $progress->evaluate( 'string(//*[@data-ebd-generation-status])' ), 'Progress status is missing.' );
+	$assert_same( 0, $progress->query( '//table[@data-ebd-metadata-worklist]|//button[@value="approve"]' )->length, 'Progress screen shows worklist or premature approval.' );
+	$assert_same( 1, $page_http_calls, 'Preparing the progress page called AI before showing progress.' );
+	$assert_same( null, $repository->latest_for_source_wp_id( $new_post ), 'Preparing progress queued generation.' );
+	$_POST = array();
+	Post_Ingestion_Page::prepare_progress();
 	$notice = $send_action( 'ehrman_ingestion_create_metadata', array( 'post_id' => $new_post, 'post_text' => 'UNTRUSTED OVERRIDE' ) );
 	$assert_same( false, $notice['success'], 'Worklist did not return the generation failure.' );
 	$created = $repository->latest_for_source_wp_id( $new_post );
@@ -334,6 +354,11 @@ try {
 	$_GET = $page_saved_get;
 	$_POST = $page_saved_post;
 	$_REQUEST = $page_saved_request;
+	$_POST = array();
+	Post_Ingestion_Page::prepare_progress();
+	$_POST = $page_saved_post;
+	if ( null === $page_saved_method ) { unset( $_SERVER['REQUEST_METHOD'] ); }
+	else { $_SERVER['REQUEST_METHOD'] = $page_saved_method; }
 	putenv( false === $page_saved_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $page_saved_source );
 	putenv( false === $page_saved_key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $page_saved_key );
 }

@@ -15,14 +15,60 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Post_Ingestion_Page {
 	private const PAGE_SLUG = 'ehrman-post-ingestion';
 
+	/**
+	 * Authorized post selected for the progress screen.
+	 *
+	 * @var \WP_Post|null
+	 */
+	private static ?\WP_Post $progress_post = null;
+
 	/** Registers administration hooks. */
 	public static function register(): void {
 		add_action( 'admin_menu', array( self::class, 'add_page' ) );
+		add_action( 'load-tools_page_' . self::PAGE_SLUG, array( self::class, 'prepare_progress' ) );
+		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue_progress' ) );
 		add_action( 'admin_post_ehrman_ingestion_create_metadata', array( self::class, 'handle_create_metadata' ) );
 		add_action( 'admin_post_ehrman_ingestion_proposal', array( self::class, 'handle_proposal' ) );
 		add_action( 'admin_post_ehrman_ingestion_reanalyze', array( self::class, 'handle_reanalyze' ) );
 		add_action( 'admin_post_ehrman_ingestion_retry_embedding', array( self::class, 'handle_retry_embedding' ) );
 		add_action( 'admin_post_ehrman_ingestion_discard', array( self::class, 'handle_discard' ) );
+	}
+
+	/** Opens the progress screen without starting generation during page rendering. */
+	public static function prepare_progress(): void {
+		self::$progress_post = null;
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Only detects the form action; creation_post verifies its nonce and permissions below.
+		$action = isset( $_POST['action'] ) ? sanitize_key( Database::text( wp_unslash( $_POST['action'] ) ) ) : '';
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Strict comparison validates the method; it is never stored or displayed.
+		if ( 'POST' !== wp_unslash( $_SERVER['REQUEST_METHOD'] ?? '' ) || 'ehrman_ingestion_prepare_metadata' !== $action ) {
+			return;
+		}
+		self::$progress_post = self::creation_post();
+	}
+
+	/** Loads the foreground request client only for an authorized progress screen. */
+	public static function enqueue_progress(): void {
+		if ( null === self::$progress_post ) {
+			return;
+		}
+		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-progress.js';
+		wp_enqueue_script(
+			'ehrman-post-ingestion-progress',
+			EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-progress.js',
+			array( 'wp-api-fetch', 'wp-i18n' ),
+			is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION,
+			true
+		);
+		wp_localize_script(
+			'ehrman-post-ingestion-progress',
+			'EhrmanMetadataProgress',
+			array(
+				'postId'   => self::$progress_post->ID,
+				'restPath' => '/ehrman-discovery/v1/ingestion/post/' . self::$progress_post->ID,
+				'nonce'    => wp_create_nonce( 'wp_rest' ),
+				'pageUrl'  => self::page_url(),
+			)
+		);
 	}
 
 	/** Adds the page beneath WordPress Tools. */
@@ -57,6 +103,10 @@ final class Post_Ingestion_Page {
 		$html = Template::render(
 			'admin/post-ingestion/page.php',
 			array(
+				'progress'               => null !== self::$progress_post ? array(
+					'post_id' => self::$progress_post->ID,
+					'title'   => self::$progress_post->post_title,
+				) : null,
 				'analysis_configured'    => Post_Ingestion_Service::is_configured(),
 				'database_authoritative' => Post_Ingestion_Service::database_is_authoritative(),
 				'notice'                 => is_array( $notice ) ? array(
@@ -66,7 +116,7 @@ final class Post_Ingestion_Page {
 				'missing_draft'          => ( null === $draft && $draft_id > 0 ) || ( null === $indexed && $indexed_id > 0 ),
 				'draft'                  => null !== $draft ? self::draft_view( $service, $draft ) : null,
 				'indexed'                => $indexed,
-				'worklist'               => null === $draft && null === $indexed ? self::worklist_view( $worklist->page( $input ) ) : null,
+				'worklist'               => null === self::$progress_post && null === $draft && null === $indexed ? self::worklist_view( $worklist->page( $input ) ) : null,
 			)
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted templates escape values at their output boundaries.
@@ -75,6 +125,18 @@ final class Post_Ingestion_Page {
 
 	/** Generates metadata only for an explicitly selected, editable, published native post. */
 	public static function handle_create_metadata(): void {
+		$post    = self::creation_post();
+		$service = new Post_Ingestion_Service();
+		$result  = $service->analyze( Post_Ingestion_Post_Source::input( $post ), get_current_user_id(), $post->ID );
+		if ( is_wp_error( $result ) ) {
+			$draft = $service->latest_for_post( $post->ID );
+			self::redirect_with_notice( Database::integer( $draft['id'] ?? null ), false, $result->get_error_message() );
+		}
+		self::redirect_with_notice( Database::integer( $result['id'] ?? null ), true, __( 'Metadata generation finished. Review the results below.', 'ehrman-blog-discovery' ) );
+	}
+
+	/** Validates a creation request before either progress display or the no-JavaScript fallback. */
+	private static function creation_post(): \WP_Post {
 		self::authorize( 'ehrman_ingestion_create_metadata' );
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce checked above; absint validates the trusted identifier, never submitted post content.
 		$post_id = isset( $_POST['post_id'] ) ? absint( Database::text( wp_unslash( $_POST['post_id'] ) ) ) : 0;
@@ -93,12 +155,10 @@ final class Post_Ingestion_Page {
 		if ( ( new Post_Ingestion_Worklist() )->is_indexed( $post_id ) ) {
 			self::redirect_with_notice( 0, false, __( 'This post already has metadata or a generation record. Refresh the list before continuing.', 'ehrman-blog-discovery' ) );
 		}
-		$result = $service->analyze( Post_Ingestion_Post_Source::input( $post ), get_current_user_id(), $post_id );
-		if ( is_wp_error( $result ) ) {
-			$draft = $service->latest_for_post( $post_id );
-			self::redirect_with_notice( Database::integer( $draft['id'] ?? null ), false, $result->get_error_message() );
+		if ( ! Post_Ingestion_Service::is_configured() ) {
+			self::redirect_with_notice( 0, false, __( 'Metadata generation is not configured. Set OPENAI_API_KEY on the server.', 'ehrman-blog-discovery' ) );
 		}
-		self::redirect_with_notice( Database::integer( $result['id'] ?? null ), true, __( 'Metadata generation finished. Review the results below.', 'ehrman-blog-discovery' ) );
+		return $post;
 	}
 
 	/** Handles proposal revisions or final approval. */
