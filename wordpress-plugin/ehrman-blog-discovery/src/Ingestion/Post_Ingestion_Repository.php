@@ -286,14 +286,28 @@ final class Post_Ingestion_Repository {
 	}
 
 	/**
-	 * Deletes a draft after the workflow confirms that it is still pending.
+	 * Deletes only the pending version checked by the workflow.
 	 *
-	 * @param int $draft_id Draft identifier.
+	 * @param array<string,mixed> $draft Expected pending record.
 	 */
-	public function delete_draft( int $draft_id ): bool {
+	public function delete_draft( array $draft ): bool {
 		$wpdb = Database::client();
-		$sql  = $wpdb->prepare( 'DELETE FROM %i WHERE id=%d AND status NOT IN (%s,%s)', Database::tables()['ingestion_drafts'], $draft_id, 'approved', 'analyzing' );
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared above with fixed status exclusions.
+		// Match revision() fields atomically; binary comparison also detects case-only edits.
+		$sql = $wpdb->prepare(
+			"DELETE FROM %i WHERE id=%d AND status NOT IN (%s,%s)
+			AND BINARY status=BINARY %s AND BINARY COALESCE(proposal_json,'')=BINARY %s
+			AND BINARY COALESCE(taxonomy_version,'')=BINARY %s AND analysis_attempt=%d AND updated_at=%s",
+			Database::tables()['ingestion_drafts'],
+			Database::integer( $draft['id'] ?? null ),
+			'approved',
+			'analyzing',
+			Database::text( $draft['status'] ?? null ),
+			Database::text( $draft['proposal_json'] ?? null ),
+			Database::text( $draft['taxonomy_version'] ?? null ),
+			Database::integer( $draft['analysis_attempt'] ?? null ),
+			Database::text( $draft['updated_at'] ?? null )
+		);
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared above with the expected revision fields.
 		return is_string( $sql ) && 1 === $wpdb->query( $sql );
 	}
 

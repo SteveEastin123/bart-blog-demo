@@ -158,6 +158,7 @@ try {
 		$assert_same( (string) $id, $dom->evaluate( 'string(//input[@name="draft_id"]/@value)' ), 'Form draft identifier changed.' );
 		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $dom->evaluate( 'string(//input[@name="revision"]/@value)' ), 'History review lost its proposal revision.' );
 		$assert( str_contains( $dom->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/@onsubmit)' ), 'window.confirm(' ), 'Discard confirmation is missing.' );
+		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $dom->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/input[@name="revision"]/@value)' ), 'Discard form lost its revision token.' );
 		$label = 'ready' === $status ? 'Search metadata is ready for review.' : 'Metadata cannot be approved yet.';
 		$assert( str_contains( $html, $label ), 'Missing review-state notice.' );
 	}
@@ -176,6 +177,7 @@ try {
 		$update_page_draft( array( 'status' => $status, 'proposal_json' => '{invalid', 'error_message' => $unsafe ) );
 		$html = $page_render( $id );
 		$page_check_forms( $page_dom( $html ), array( 'ehrman_ingestion_reanalyze', 'ehrman_ingestion_discard' ) );
+		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $page_dom( $html )->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/input[@name="revision"]/@value)' ), 'Failed-generation discard form lost its revision token.' );
 		$assert( str_contains( $html, esc_html( $unsafe ) ) && ! str_contains( $html, 'Review proposal' ), 'Empty/invalid proposal recovery changed.' );
 	}
 	foreach ( array( 'pending', 'complete', 'not_applicable' ) as $vector_status ) {

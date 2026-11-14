@@ -6,6 +6,7 @@ use EhrmanBlogDiscovery\Embedding_Service;
 use EhrmanBlogDiscovery\Post_Ingestion_Service;
 use EhrmanBlogDiscovery\Post_Ingestion_Review_Workflow;
 use EhrmanBlogDiscovery\Post_Ingestion_Page;
+use EhrmanBlogDiscovery\Post_Ingestion_Queue;
 use EhrmanBlogDiscovery\Semantic_Index_Service;
 
 if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
@@ -18,6 +19,25 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$request = new WP_REST_Request( 'POST', $base . '/' . $action );
 		$request->set_body_params( $data );
 		return rest_get_server()->dispatch( $request );
+	};
+	$discard_form = static function ( array $values ): array {
+		$saved_post = $_POST; $saved_request = $_REQUEST;
+		$key = 'ehrman_ingestion_notice_' . get_current_user_id();
+		$redirect = static function () { throw new RuntimeException( 'cancel-test-redirect' ); };
+		add_filter( 'wp_redirect', $redirect, 0 );
+		try {
+			$_POST = array_merge( $values, array( '_wpnonce' => wp_create_nonce( 'ehrman_ingestion_discard' ) ) );
+			$_REQUEST = $_POST;
+			Post_Ingestion_Page::handle_discard();
+		} catch ( RuntimeException $error ) {
+			if ( 'cancel-test-redirect' !== $error->getMessage() ) throw $error;
+		} finally {
+			remove_filter( 'wp_redirect', $redirect, 0 );
+			$_POST = $saved_post; $_REQUEST = $saved_request;
+		}
+		$notice = get_transient( $key );
+		delete_transient( $key );
+		return $notice;
 	};
 	$live = static fn() => $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE id=%d', $tables['external_posts'], $approved_id ), ARRAY_A );
 	$vector = static fn() => $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE source_wp_id=%d', $tables['post_embeddings'], $editor_post_id ), ARRAY_A );
@@ -70,10 +90,75 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert( str_contains( $html, 'ehrman_ingestion_prepare_regeneration' ), 'Regeneration does not use the progress screen.' );
 		$bad = $send( 'cancel-revision', array( 'revision' => 'stale' ) );
 		$assert_same( 409, $bad->get_status(), 'Stale cancellation succeeded.' );
+		$assert_same( 409, $send( 'cancel-revision' )->get_status(), 'Cancellation accepted a missing token.' );
+
+		// The conditional DELETE must reject every field that contributes to revision().
+		foreach ( array(
+			'status' => 'analyzing',
+			'proposal_json' => str_replace( '"description"', '"Description"', $revision['proposal_json'] ),
+			'taxonomy_version' => str_repeat( 'a', 64 ),
+			'analysis_attempt' => (int) $revision['analysis_attempt'] + 1,
+			'updated_at' => '2000-01-01 00:00:00',
+		) as $field => $value ) {
+			$wpdb->update( $tables['ingestion_drafts'], array( $field => $value ), array( 'id' => $revision_id ) );
+			$changed = $ingestion_store->draft( $revision_id );
+			$assert_same( false, $ingestion_store->delete_draft( $revision ), 'Stale repository deletion accepted changed ' . $field . '.' );
+			$assert_same( $changed, $ingestion_store->draft( $revision_id ), 'Rejected deletion changed the pending record.' );
+			if ( 'status' === $field ) {
+				$assert_same( false, $service->discard( $revision_id, Post_Ingestion_Review_Workflow::revision( $changed ) ), 'Running analysis was discarded.' );
+			}
+			$wpdb->update( $tables['ingestion_drafts'], array( $field => $revision[ $field ] ), array( 'id' => $revision_id ) );
+		}
+
+		// Simulate a save between the service's version check and its DELETE query.
+		Post_Ingestion_Queue::schedule( $revision_id );
+		$scheduled = wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $revision_id ) );
+		$assert( false !== $scheduled, 'Cancellation fixture was not scheduled.' );
+		$changed_proposal = json_decode( $revision['proposal_json'], true );
+		$changed_proposal['description'] .= ' Preserves newer pending edits.';
+		$race_fired = false;
+		$concurrent_save = static function ( string $sql ) use ( $wpdb, $tables, $revision_id, $changed_proposal, &$race_fired ): string {
+			if ( ! $race_fired && str_starts_with( $sql, 'DELETE FROM `' . $tables['ingestion_drafts'] . '`' ) ) {
+				$race_fired = true;
+				$wpdb->update( $tables['ingestion_drafts'], array( 'proposal_json' => wp_json_encode( $changed_proposal ) ), array( 'id' => $revision_id ) );
+			}
+			return $sql;
+		};
+		add_filter( 'query', $concurrent_save );
+		try { $deleted = $service->discard( $revision_id, Post_Ingestion_Review_Workflow::revision( $revision ) ); }
+		finally { remove_filter( 'query', $concurrent_save ); }
+		$assert( $race_fired, 'The concurrent-save fixture did not reach the DELETE.' );
+		$assert_same( false, $deleted, 'A concurrent save was deleted.' );
+		$current_pending = $ingestion_store->draft( $revision_id );
+		$assert_same( wp_json_encode( $changed_proposal ), $current_pending['proposal_json'], 'Concurrent pending edits were lost.' );
+		$assert_same( $scheduled, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $revision_id ) ), 'Rejected deletion cancelled queued work.' );
+		$assert_same( 409, $send( 'cancel-revision', array( 'revision' => Post_Ingestion_Review_Workflow::revision( $revision ) ) )->get_status(), 'Editor cancellation deleted newer saved edits.' );
+		foreach ( array( array(), array( 'revision' => Post_Ingestion_Review_Workflow::revision( $revision ) ) ) as $token ) {
+			$notice = $discard_form( array_merge( array( 'draft_id' => $revision_id ), $token ) );
+			$assert_same( false, $notice['success'], 'Tools cancellation accepted a missing or stale token.' );
+			$assert( str_contains( $notice['message'], 'Reload' ), 'Stale cancellation did not ask the publisher to reload.' );
+			$assert_same( $current_pending, $ingestion_store->draft( $revision_id ), 'Tools cancellation removed newer saved edits.' );
+		}
+		$notice = $discard_form( array( 'draft_id' => $revision_id, 'revision' => Post_Ingestion_Review_Workflow::revision( $current_pending ) ) );
+		$assert_same( true, $notice['success'], 'Tools could not cancel the current revision.' );
+		$assert_same( null, $ingestion_store->draft( $revision_id ), 'Cancelled draft remains stored.' );
+		$assert_same( false, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $revision_id ) ), 'Successful cancellation retained queued work.' );
+		$assert_same( false, $service->discard( $revision_id, Post_Ingestion_Review_Workflow::revision( $current_pending ) ), 'Repeated deletion succeeded.' );
+		$assert_same( $parent, $ingestion_store->draft( $editor_draft_id ), 'Cancellation changed approved history.' );
+
+		$revision = $service->edit_metadata( $editor_draft_id );
 		$cancel = $send( 'cancel-revision', array( 'revision' => Post_Ingestion_Review_Workflow::revision( $revision ) ) );
 		$assert_same( $editor_draft_id, $cancel->get_data()['draft']['id'], 'Cancel did not restore approved display.' );
 		$assert_same( $initial_live, $live(), 'Cancel changed live metadata.' );
 		$assert_same( $initial_vector, $vector(), 'Cancel changed live vector.' );
+
+		// Failed initial-generation records can have no proposal; their current token still works.
+		$empty = $service->edit_metadata( $editor_draft_id );
+		$empty_id = (int) $empty['id'];
+		$wpdb->update( $tables['ingestion_drafts'], array( 'status' => 'failed', 'proposal_json' => null, 'revision_parent_id' => null ), array( 'id' => $empty_id ) );
+		$empty = $ingestion_store->draft( $empty_id );
+		$notice = $discard_form( array( 'draft_id' => $empty_id, 'revision' => Post_Ingestion_Review_Workflow::revision( $empty ) ) );
+		$assert_same( true, $notice['success'], 'A current draft without a proposal could not be discarded.' );
 
 		$revision = $service->edit_metadata( $editor_draft_id );
 		$proposal = json_decode( $revision['proposal_json'], true );
@@ -91,7 +176,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert_same( 0, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE post_id=%d', $tables['post_keywords'], $approved_id ) ), 'Removed keywords remained linked.' );
 		$assert_same( $parent['proposal_json'], $ingestion_store->draft( $editor_draft_id )['proposal_json'], 'Previous approved proposal was overwritten.' );
 		$assert( is_wp_error( $service->edit_metadata( $editor_draft_id ) ), 'An obsolete approval could start a revision.' );
-		$assert_same( false, $ingestion_store->delete_draft( $current_id ), 'Deletion removed an approved record.' );
+		$current_approved = $ingestion_store->draft( $current_id );
+		$assert_same( false, $ingestion_store->delete_draft( $current_approved ), 'Deletion removed an approved record.' );
+		$assert_same( false, $service->discard( $current_id, Post_Ingestion_Review_Workflow::revision( $current_approved ) ), 'Service discarded approved metadata.' );
 
 		$revision = $service->edit_metadata( $current_id );
 		$new_summary = $proposal['searchSummary'] . ' Preserves previous approved versions for comparison.';
@@ -136,6 +223,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert_same( 0, (int) wp_next_scheduled( 'ehrman_ingestion_process_draft', array( (int) $response->get_data()['draft']['id'] ) ), 'Regeneration scheduled background analysis.' );
 		$assert_same( 1, (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE source_wp_id=%d', $tables['external_posts'], $editor_post_id ) ), 'Revisions duplicated live metadata.' );
 	} finally {
+		foreach ( $wpdb->get_col( $wpdb->prepare( 'SELECT id FROM %i WHERE wordpress_post_id=%d AND id<>%d', $tables['ingestion_drafts'], $editor_post_id, $editor_draft_id ) ) as $pending_id ) {
+			Post_Ingestion_Queue::cancel( (int) $pending_id );
+		}
 		$_GET = $saved_get;
 		remove_filter( 'pre_http_request', $http );
 		add_filter( 'pre_http_request', $block_http );
@@ -144,5 +234,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$wpdb->delete( $tables['ai_usage'], array( 'post_id' => $editor_post_id ) );
 		wp_update_post( array( 'ID' => $editor_post_id, 'post_title' => $parent['title'] ) );
 	}
-	echo "Approved metadata revisions: edit, cancel, history, vector reuse/replacement, failure rollback and regeneration: OK\n";
+	echo "Approved metadata revisions: edit, stale-tab/atomic cancellation, history, vector reuse/replacement, failure rollback and regeneration: OK\n";
 } )();

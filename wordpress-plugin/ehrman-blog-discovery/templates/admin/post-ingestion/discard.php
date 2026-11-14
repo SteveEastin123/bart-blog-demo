@@ -13,4 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $view = $ehrman_blog_discovery_context;
 ?>
-<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return window.confirm('<?php echo esc_js( __( 'Discard these pending changes? Approved metadata will not change.', 'ehrman-blog-discovery' ) ); ?>');"><input type="hidden" name="action" value="ehrman_ingestion_discard"><input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $view['id'] ); ?>"><?php wp_nonce_field( 'ehrman_ingestion_discard' ); ?><button class="button button-link-delete" type="submit"><?php echo ! empty( $view['is_revision'] ) ? esc_html__( 'Cancel Changes', 'ehrman-blog-discovery' ) : esc_html__( 'Discard draft', 'ehrman-blog-discovery' ); ?></button></form>
+<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return window.confirm('<?php echo esc_js( __( 'Discard these pending changes? Approved metadata will not change.', 'ehrman-blog-discovery' ) ); ?>');">
+	<input type="hidden" name="action" value="ehrman_ingestion_discard">
+	<input type="hidden" name="draft_id" value="<?php echo esc_attr( (string) $view['id'] ); ?>">
+	<input type="hidden" name="revision" value="<?php echo esc_attr( $view['revision'] ); ?>">
+	<?php wp_nonce_field( 'ehrman_ingestion_discard' ); ?>
+	<button class="button button-link-delete" type="submit"><?php echo ! empty( $view['is_revision'] ) ? esc_html__( 'Cancel Changes', 'ehrman-blog-discovery' ) : esc_html__( 'Discard draft', 'ehrman-blog-discovery' ); ?></button>
+</form>

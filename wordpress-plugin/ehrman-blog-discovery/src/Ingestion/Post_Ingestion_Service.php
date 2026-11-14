@@ -297,15 +297,18 @@ final class Post_Ingestion_Service {
 	/**
 	 * Deletes a pending draft and its retained full text.
 	 *
-	 * @param int $draft_id Draft identifier.
+	 * @param int    $draft_id Draft identifier.
+	 * @param string $revision Version displayed to the publisher.
 	 */
-	public function discard( int $draft_id ): bool {
+	public function discard( int $draft_id, string $revision ): bool {
 		$draft = $this->draft( $draft_id );
-		if ( null === $draft || in_array( $draft['status'], array( self::STATUS_ANALYZING, self::STATUS_APPROVED ), true ) ) {
+		if ( null === $draft || in_array( $draft['status'], array( self::STATUS_ANALYZING, self::STATUS_APPROVED ), true )
+			|| ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), $revision )
+			|| ! $this->repository->delete_draft( $draft ) ) {
 			return false;
 		}
 		Post_Ingestion_Queue::cancel( $draft_id );
-		return $this->repository->delete_draft( $draft_id );
+		return true;
 	}
 
 	/**

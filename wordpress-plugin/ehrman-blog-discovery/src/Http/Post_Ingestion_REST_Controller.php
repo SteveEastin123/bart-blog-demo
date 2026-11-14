@@ -183,8 +183,7 @@ final class Post_Ingestion_REST_Controller {
 		$service = new Post_Ingestion_Service();
 		$draft   = $service->latest_for_post( $post->ID );
 		if ( null === $draft || Database::integer( $draft['revision_parent_id'] ?? null ) < 1
-			|| ! hash_equals( Post_Ingestion_Review_Workflow::revision( $draft ), Database::text( $request->get_param( 'revision' ) ) )
-			|| ! $service->discard( Database::integer( $draft['id'] ?? null ) ) ) {
+			|| ! $service->discard( Database::integer( $draft['id'] ?? null ), Database::text( $request->get_param( 'revision' ) ) ) ) {
 			return self::service_error( new WP_Error( 'ehrman_ingestion_review_changed', __( 'The revision could not be cancelled. Reload its current status.', 'ehrman-blog-discovery' ) ) );
 		}
 		return self::response( $post, $service->latest_for_post( $post->ID ) );

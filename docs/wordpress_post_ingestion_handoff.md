@@ -106,6 +106,10 @@ WordPress post. Imported records without a native link remain read-only.
   vector. Vector or storage failure leaves the existing live version unchanged.
 - **Cancel Changes** discards only the pending revision, retaining approved history
   and live search data. Recorded API usage is retained even if changes are cancelled.
+  Both the Tools form and post-editor action require the displayed revision token.
+  If another tab saves or regenerates the proposal, an older tab cannot discard it;
+  reload the current metadata before cancelling. The database deletion checks the
+  same revision fields atomically, and a rejected cancellation leaves queued work intact.
 
 Approved records are immutable history, linked through `revision_parent_id`.
 `revision_base_hash` detects intervening live metadata changes. Only one pending

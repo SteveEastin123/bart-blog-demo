@@ -295,13 +295,12 @@ final class Post_Ingestion_Page {
 	/** Handles permanent deletion of an unapproved draft. */
 	public static function handle_discard(): void {
 		self::authorize( 'ehrman_ingestion_discard' );
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above; Database::text normalizes the value before absint validates it.
-		$draft_id  = isset( $_POST['draft_id'] ) ? absint( Database::text( wp_unslash( $_POST['draft_id'] ) ) ) : 0;
+		$draft     = self::selected_draft();
+		$draft_id  = Database::integer( $draft['id'] );
 		$service   = new Post_Ingestion_Service();
-		$draft     = $service->draft( $draft_id );
 		$parent_id = Database::integer( $draft['revision_parent_id'] ?? null );
-		$deleted   = $service->discard( $draft_id );
-		self::redirect_with_notice( $deleted ? $parent_id : $draft_id, $deleted, $deleted ? __( 'Pending changes discarded. Approved metadata was not changed.', 'ehrman-blog-discovery' ) : __( 'The draft could not be discarded.', 'ehrman-blog-discovery' ) );
+		$deleted   = $service->discard( $draft_id, Post_Ingestion_Review_Workflow::revision( $draft ) );
+		self::redirect_with_notice( $deleted ? $parent_id : $draft_id, $deleted, $deleted ? __( 'Pending changes discarded. Approved metadata was not changed.', 'ehrman-blog-discovery' ) : __( 'The draft could not be discarded. Reload its current status before trying again.', 'ehrman-blog-discovery' ) );
 	}
 
 	/**
@@ -332,6 +331,7 @@ final class Post_Ingestion_Page {
 				'label'     => __( 'Regenerate Metadata', 'ehrman-blog-discovery' ),
 			),
 			'id'               => $draft_id,
+			'revision'         => Post_Ingestion_Review_Workflow::revision( $draft ),
 			'status'           => $status,
 			'title'            => Database::text( $draft['title'] ?? null ),
 			'date'             => Database::text( $draft['date_text'] ?? null ),
