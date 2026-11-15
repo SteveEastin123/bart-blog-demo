@@ -102,21 +102,88 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await page.locator('#wp-submit').click();
     await page.waitForURL('**/wp-admin/**');
     await page.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
-    const siteMode = page.getByLabel('Metadata generation', { exact: true });
-    assert.equal(await siteMode.inputValue(), 'manual');
-    const deniedSave = await context.request.post(base + '/wp-admin/options.php', { form: {
-      option_page: 'ehrman_ingestion_publishing', action: 'update', _wpnonce: 'invalid-fixture', ehrman_ingestion_default_mode: 'automatic',
-    } });
+    const settings = page.locator('[data-ebd-publishing-settings]');
+    const manual = settings.getByRole('radio', { name: 'Manual', exact: true });
+    const automatic = settings.getByRole('radio', { name: 'Automatic', exact: true });
+    const saved = settings.getByRole('status');
+    const settingsUrl = base + '/wp-json/wp/v2/settings';
+    const settingsRoute = url => url.pathname === '/wp-json/wp/v2/settings';
+    assert(await manual.isChecked());
+    assert.equal(await settings.getByRole('combobox').count(), 0);
+    assert.equal(await settings.getByRole('button').count(), 0);
+    const missingNonce = await context.request.post(settingsUrl, { data: { ehrman_ingestion_default_mode: 'automatic' } });
+    assert.equal(missingNonce.status(), 401, 'Settings accepted a cookie-authenticated request without a nonce');
+    const deniedSave = await context.request.post(settingsUrl, {
+      headers: { 'X-WP-Nonce': 'invalid-fixture' }, data: { ehrman_ingestion_default_mode: 'automatic' },
+    });
     assert.equal(deniedSave.status(), 403, 'Settings accepted a missing/invalid nonce');
     await page.reload();
-    assert.equal(await siteMode.inputValue(), 'manual');
-    await siteMode.selectOption('automatic');
-    await Promise.all([page.waitForNavigation(), page.getByRole('button', { name: 'Save publishing settings', exact: true }).click()]);
-    assert.equal(await siteMode.inputValue(), 'automatic');
-    await shot('publishing-settings');
-    await siteMode.selectOption('manual');
-    await Promise.all([page.waitForNavigation(), page.getByRole('button', { name: 'Save publishing settings', exact: true }).click()]);
-    assert.equal(await siteMode.inputValue(), 'manual');
+    assert(await manual.isChecked());
+    let releaseSave;
+    let settingPosts = 0;
+    await page.route(settingsRoute, async route => {
+      if (route.request().method() === 'POST') {
+        settingPosts++;
+        await new Promise(resolve => { releaseSave = resolve; });
+      }
+      await route.continue();
+    });
+    await automatic.check();
+    await saved.getByText('Saving...', { exact: true }).waitFor();
+    assert(await automatic.isDisabled() && await manual.isDisabled(), 'Concurrent saves must be blocked.');
+    await page.waitForFunction(() => document.querySelector('[data-ebd-publishing-modes]').getAttribute('aria-busy') === 'true');
+    for (let attempt = 0; attempt < 100 && !releaseSave; attempt++) await new Promise(resolve => setTimeout(resolve, 10));
+    assert(releaseSave, 'The settings save request was not sent.');
+    releaseSave();
+    await saved.getByText('Saved', { exact: true }).waitFor();
+    assert.equal(settingPosts, 1);
+    await page.unroute(settingsRoute);
+    await page.reload();
+    assert(await automatic.isChecked(), 'Autosave did not persist.');
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 1100 });
+      await shot(`publishing-settings-${width}`);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2));
+    }
+    await page.setViewportSize({ width: 1440, height: 1100 });
+    await manual.check();
+    await saved.getByText('Saved', { exact: true }).waitFor();
+    await page.reload();
+    assert(await manual.isChecked());
+    // An explicit server failure restores the actual saved choice and allows retry.
+    await page.route(settingsRoute, route => route.request().method() === 'POST'
+      ? route.fulfill({ status: 500, json: { code: 'fixture_failure', message: 'Synthetic save failure' } }) : route.continue());
+    await automatic.check();
+    await settings.getByRole('alert').getByText('The change could not be saved. The current setting has been restored. Please try again.', { exact: true }).waitFor();
+    assert(await manual.isChecked() && await automatic.isEnabled());
+    assert.equal(cli(['option', 'get', 'ehrman_ingestion_default_mode']), 'manual');
+    await page.unroute(settingsRoute);
+    // A lost save response must not claim a confirmed rollback when the write succeeded.
+    await page.route(settingsRoute, async route => {
+      if (route.request().method() === 'POST') { await route.fetch(); await route.abort(); }
+      else await route.continue();
+    });
+    await automatic.check();
+    await saved.getByText('Saved', { exact: true }).waitFor();
+    assert(await automatic.isChecked());
+    await page.unroute(settingsRoute);
+    await page.route(settingsRoute, route => route.abort());
+    await manual.check();
+    await settings.getByRole('alert').getByText('The save could not be confirmed. The previous selection is shown. Reload this page to check the setting before publishing.', { exact: true }).waitFor();
+    assert(await automatic.isChecked() && await manual.isEnabled());
+    await page.unroute(settingsRoute);
+    await manual.check();
+    await saved.getByText('Saved', { exact: true }).waitFor();
+    assert(!(await settings.getByRole('alert').isVisible()));
+    await page.reload();
+    assert(await manual.isChecked());
+    const plainContext = await browser.newContext({ javaScriptEnabled: false, storageState: await context.storageState() });
+    try {
+      const plainPage = await plainContext.newPage();
+      await plainPage.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
+      assert(await plainPage.getByRole('radio', { name: 'Manual', exact: true }).isDisabled());
+      assert(await plainPage.getByText('Publishing settings require JavaScript.', { exact: true }).isVisible());
+    } finally { await plainContext.close(); }
     await open();
     assert.equal(await panel.getByRole('link', { name: 'Search Metadata', exact: true }).getAttribute('href'), record.reviewUrl);
     assert.equal(actions.length, 0, 'Opening the panel started a paid action');
@@ -329,7 +396,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       assert.equal(overflow, false, 'Panel overflows at ' + width);
     }
     assert.deepEqual(errors, []);
-    console.log(JSON.stringify({ status: 'passed', viewports: [1440, 1024, 390], actions, realAiRequests: 0, inlineReview: true }, null, 2));
+    console.log(JSON.stringify({ status: 'passed', viewports: [1440, 1024, 390], actions, realAiRequests: 0, inlineReview: true, publishingAutosave: true }, null, 2));
   } finally {
     await browser.close();
     cli(['option', 'delete', 'ehrman_ingestion_default_mode']);

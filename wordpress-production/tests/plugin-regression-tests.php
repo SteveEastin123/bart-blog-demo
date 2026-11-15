@@ -74,7 +74,9 @@ try {
 		putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=' . $source );
 		$html = $render_admin_status();
 		$assert( ! str_contains( $html, 'ehrman_discovery_import' ) && ! str_contains( $html, 'Authoritative JSON' ), 'Browser import controls remain in ' . $source . ' mode.' );
-		$assert( str_contains( $html, 'ehrman_ingestion_default_mode' ) && str_contains( $html, 'options.php' ), 'Publishing mode settings are missing.' );
+		$assert( str_contains( $html, 'ehrman_ingestion_default_mode' ) && str_contains( $html, 'data-ebd-publishing-settings' ), 'Publishing mode settings are missing.' );
+		$assert_same( 2, substr_count( $html, 'type="radio"' ), 'Publishing settings must offer two radio buttons.' );
+		$assert( ! str_contains( $html, '<select' ) && ! str_contains( $html, 'Save publishing settings' ), 'The retired publishing dropdown or save button remains.' );
 		foreach ( array( 'Plugin version', 'Schema version', 'Database connection', 'Import state', 'Imported posts', 'Topics', 'Secondary keywords' ) as $label ) {
 			$assert( str_contains( $html, $label ), 'Status page lost ' . $label );
 		}
@@ -87,6 +89,7 @@ try {
 }
 echo "Discovery status and publishing preferences: browser import retired, CLI retained: OK\n";
 
+require __DIR__ . '/post-ingestion-publishing-tests.php';
 require __DIR__ . '/ask-ai-naming-tests.php';
 require __DIR__ . '/api-settings-tests.php';
 require __DIR__ . '/semantic-ranking-tests.php';

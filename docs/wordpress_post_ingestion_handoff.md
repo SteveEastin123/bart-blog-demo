@@ -45,8 +45,12 @@ key. Check for queued ingestion jobs before enabling the shared key.
 ## Publishing Mode
 
 **Tools > Ehrman Discovery > Publishing settings** sets the site default:
-**Manual** (the installation default) or **Automatic**. Only administrators can
-change it. The **Metadata mode** selector in the post editor's Search Metadata
+**Manual** (the installation default) or **Automatic**. These radio buttons save
+immediately and show Saving/Saved feedback; there is no separate Save button.
+Only administrators can change the setting, through WordPress's authenticated
+`/wp/v2/settings` endpoint. Failed saves restore the confirmed setting and show
+an error. A lost response is checked before the selection is restored.
+The **Metadata mode** selector in the post editor's Search Metadata
 panel offers **Use site default**, **Manual**, or **Automatic** before first
 publication. Save the choice with the post; the selector locks after publication.
 It does not change the separate JSON/database-authority setting.

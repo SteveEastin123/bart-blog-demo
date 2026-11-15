@@ -20,6 +20,8 @@ final class Post_Ingestion_Publishing_Settings {
 	/** Registers settings and the protected Gutenberg post attribute. */
 	public static function register(): void {
 		add_action( 'admin_init', array( self::class, 'register_setting' ) );
+		add_action( 'rest_api_init', array( self::class, 'register_setting' ) );
+		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue' ) );
 		add_action( 'init', array( self::class, 'register_meta' ) );
 	}
 
@@ -32,6 +34,40 @@ final class Post_Ingestion_Publishing_Settings {
 				'type'              => 'string',
 				'default'           => 'manual',
 				'sanitize_callback' => static fn( $value ): string => 'automatic' === $value ? 'automatic' : 'manual',
+				'show_in_rest'      => array(
+					'schema' => array(
+						'type' => 'string',
+						'enum' => array( 'manual', 'automatic' ),
+					),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Loads autosave controls only on the administrator's publishing settings page.
+	 *
+	 * @param string $hook Current admin page.
+	 */
+	public static function enqueue( string $hook ): void {
+		if ( 'tools_page_ehrman-blog-discovery' !== $hook || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-publishing.js';
+		wp_enqueue_script(
+			'ehrman-post-ingestion-publishing',
+			EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-publishing.js',
+			array( 'wp-api-fetch', 'wp-i18n' ),
+			is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION,
+			true
+		);
+		wp_localize_script(
+			'ehrman-post-ingestion-publishing',
+			'EhrmanPublishingSettings',
+			array(
+				'restPath' => '/wp/v2/settings',
+				'option'   => self::OPTION,
+				'nonce'    => wp_create_nonce( 'wp_rest' ),
 			)
 		);
 	}
