@@ -418,7 +418,7 @@ final class Post_Ingestion_Page {
 				'post_id'   => (string) Database::integer( $draft['wordpress_post_id'] ?? null ),
 				'kind'      => $kind,
 				'status'    => Post_Ingestion_Worklist::statuses()[ $status ] ?? $status,
-				'vector'    => str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ),
+				'vector'    => ucfirst( str_replace( '_', ' ', Database::text( $draft['embedding_status'] ?? null ) ) ),
 				'url'       => $url,
 				'action'    => 'needs_approval' === $status ? __( 'Review and approve', 'ehrman-blog-discovery' ) : __( 'View', 'ehrman-blog-discovery' ),
 			);

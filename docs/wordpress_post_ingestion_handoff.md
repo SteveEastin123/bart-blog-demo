@@ -162,10 +162,11 @@ Publishing first remains the chosen workflow. Unpublished posts show only the
 publish-first prerequisite; the save-changes reminder appears only for published
 posts with unsaved edits. Draft analysis and prepublication approval are not enabled.
 
-**Tools > Search Metadata** defaults to **Needs attention**: published posts whose
-metadata has not been generated, proposals requiring approval, and failures
-(including pending vector retries). Filters also expose Generating, Complete,
-and All records, with title search and inclusive publication-date bounds.
+**Tools > Search Metadata** defaults to **All** records. The **Needs attention**
+filter shows published posts whose metadata has not been generated, proposals
+requiring approval, and failures (including pending vector retries). Filters also
+expose Generating and Complete records, with title search and inclusive
+publication-date bounds.
 For WordPress-linked posts, status filters use only the latest metadata record,
 so an older failure or pending vector retry does not remain actionable after a
 newer revision supersedes it. **All** retains every historical version and its

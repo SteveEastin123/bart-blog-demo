@@ -61,7 +61,7 @@ const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
     await page.locator('#wp-submit').click();
     await page.waitForURL('**/wp-admin/**');
     const worklistUrl = url + '&search=' + encodeURIComponent('Approved metadata revision browser fixture');
-    await page.goto(worklistUrl);
+    await page.goto(worklistUrl + '&status=attention');
     assert.equal(await page.locator('[data-ebd-metadata-worklist] tbody tr').count(), 1, 'Current vector retry is missing from Needs attention');
     assert.equal(await page.locator('[data-ebd-metadata-worklist] tbody tr td:nth-child(3)').innerText(), 'Failed');
     await page.goto(url + '&draft=' + fixture.id);

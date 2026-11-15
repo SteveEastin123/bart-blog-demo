@@ -19,7 +19,8 @@ try {
 		$assert( ! is_wp_error( $id ), 'Could not create pagination fixture.' );
 		$worklist_posts[] = $id;
 	}
-	$filters = array( 'search' => 'Worklist pagination fixture' );
+	$assert_same( 'all', Post_Ingestion_Worklist::filters( array() )['status'], 'Worklist does not default to All.' );
+	$filters = array( 'status' => 'attention', 'search' => 'Worklist pagination fixture' );
 	$first = $worklist->page( $filters );
 	$assert_same( 103, $first['total'], 'New published posts did not appear without ingestion history.' );
 	$assert_same( 25, count( $first['rows'] ), 'Worklist did not limit rows to 25.' );
@@ -42,7 +43,7 @@ try {
 	$assert_same( 103, $worklist->page( array_merge( $filters, array( 'date_from' => '2026-11-01', 'date_to' => '2026-11-01' ) ) )['total'], 'Inclusive publication-date boundaries failed.' );
 	$assert_same( 0, $worklist->page( array( 'status' => 'all', 'search' => "%' OR 1=1 --" ) )['total'], 'Title search was not literal/prepared.' );
 	$invalid = Post_Ingestion_Worklist::filters( array( 'status' => array( 'all' ), 'search' => array( 'x' ), 'date_from' => '2026-02-30', 'paged' => '-0' ) );
-	$assert_same( 'attention', $invalid['status'], 'Invalid status bypassed the default.' );
+	$assert_same( 'all', $invalid['status'], 'Invalid status bypassed the default.' );
 	$assert_same( '', $invalid['date_from'], 'Impossible date accepted.' );
 	$assert_same( '', Post_Ingestion_Worklist::filters( array( 'date_to' => "2026-11-01\0" ) )['date_to'], 'Malformed date was not rejected.' );
 
@@ -76,7 +77,8 @@ try {
 		$assert_same( 1, $result['total'], 'Status filter failed for ' . $stored );
 		$assert_same( $display, $result['rows'][0]['workflow_status'], 'Incorrect display status.' );
 		$expected = in_array( $display, array( 'needs_approval', 'failed' ), true ) ? 1 : 0;
-		$assert_same( $expected, $worklist->page( array( 'search' => 'Worklist state fixture' ) )['total'], 'Needs attention includes the wrong states.' );
+		$assert_same( $expected, $worklist->page( array( 'status' => 'attention', 'search' => 'Worklist state fixture' ) )['total'], 'Needs attention includes the wrong states.' );
+		$assert_same( 1, $worklist->page( array( 'search' => 'Worklist state fixture' ) )['total'], 'Default All filter omitted a workflow state.' );
 	}
 	$wpdb->update( $tables['ingestion_drafts'], array( 'embedding_status' => 'pending' ), array( 'id' => $draft_id ) );
 	$assert_same( 1, $worklist->page( array( 'status' => 'failed', 'search' => 'Worklist state fixture' ) )['total'], 'Vector failure is not actionable.' );
@@ -93,7 +95,7 @@ try {
 		$assert( false !== $wpdb->update( $tables['ingestion_drafts'], array( 'status' => $status, 'embedding_status' => $embedding, 'updated_at' => '2026-11-01 12:00:00' ), array( 'id' => $id ) ), 'Could not set history fixture state.' );
 		return $id;
 	};
-	$history_filters = array( 'search' => 'Worklist history fixture' );
+	$history_filters = array( 'status' => 'attention', 'search' => 'Worklist history fixture' );
 	$old_id = $create_record( $worklist_posts[5], 'approved', 'pending', array( 'title' => 'Worklist history fixture original', 'published_at' => '2026-10-01 12:00:00' ) );
 	$assert_same( 1, $worklist->page( $history_filters )['total'], 'Current vector failure disappeared.' );
 	$new_id = $create_record( $worklist_posts[5], 'approved', 'complete', array( 'title' => 'Worklist history fixture revised', 'url' => home_url( '/changed-history-permalink/' ) ) );
@@ -106,10 +108,11 @@ try {
 	$assert_same( array( (string) $new_id ), array_column( $complete['rows'], 'id' ), 'Current completion does not use the newest record.' );
 	$all_history = $worklist->page( array_merge( $history_filters, array( 'status' => 'all' ) ) );
 	$assert_same( 2, $all_history['total'], 'All discarded historical records.' );
+	$assert_same( $all_history, $worklist->page( array( 'search' => 'Worklist history fixture' ) ), 'Default filter differs from explicit All history.' );
 	$assert_same( array( 'complete', 'failed' ), array_column( $all_history['rows'], 'workflow_status' ), 'History lost original workflow statuses.' );
 	$assert_same( $old_record, $repository->draft( $old_id ), 'Reading current status rewrote failed history.' );
 	$assert_same( $new_record, $repository->draft( $new_id ), 'Reading current status rewrote current metadata.' );
-	$assert_same( 0, $worklist->page( array( 'search' => 'Worklist history fixture original' ) )['total'], 'Title filter revived a superseded failure.' );
+	$assert_same( 0, $worklist->page( array( 'status' => 'attention', 'search' => 'Worklist history fixture original' ) )['total'], 'Title filter revived a superseded failure.' );
 	$assert_same( 0, $worklist->page( array_merge( $history_filters, array( 'date_to' => '2026-10-31' ) ) )['total'], 'Date filter revived a superseded failure.' );
 	$assert_same( 1, $worklist->page( array( 'status' => 'all', 'search' => 'Worklist history fixture original', 'date_to' => '2026-10-31' ) )['total'], 'Old history cannot be found by title and date.' );
 
@@ -129,7 +132,7 @@ try {
 	$assert_same( array( (string) $old_id ), array_column( $worklist->page( $history_filters )['rows'], 'id' ), 'Cancelling the newer record did not expose the remaining vector retry.' );
 
 	// Group only explicit native ownership, never a coincident source ID or URL.
-	$identity_filters = array( 'search' => 'Worklist identity fixture' );
+	$identity_filters = array( 'status' => 'attention', 'search' => 'Worklist identity fixture' );
 	$native_failure = $create_record( $worklist_posts[6], 'error', 'not_requested', array( 'title' => 'Worklist identity fixture' ) );
 	$create_record( $worklist_posts[7], 'approved', 'complete', array( 'title' => 'Worklist identity fixture', 'source_wp_id' => $worklist_posts[6], 'url' => get_permalink( $worklist_posts[6] ) ) );
 	$create_record( 0, 'approved', 'complete', array( 'title' => 'Worklist identity fixture', 'source_wp_id' => $worklist_posts[6], 'url' => get_permalink( $worklist_posts[6] ) ) );
@@ -140,7 +143,7 @@ try {
 	$assert( in_array( (string) $legacy_failure, array_column( $worklist->page( $identity_filters )['rows'], 'id' ), true ), 'Unlinked historical failure is inaccessible.' );
 
 	// Many versions of one post must not inflate counts or consume current-result pages.
-	$pagination_filters = array( 'search' => 'Worklist revision pagination fixture' );
+	$pagination_filters = array( 'status' => 'attention', 'search' => 'Worklist revision pagination fixture' );
 	for ( $i = 0; $i < 30; ++$i ) {
 		$create_record( $worklist_posts[8], 'error', 'not_requested', array( 'title' => 'Worklist revision pagination fixture' ) );
 	}

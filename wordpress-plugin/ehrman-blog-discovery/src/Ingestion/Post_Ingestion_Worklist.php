@@ -22,8 +22,8 @@ final class Post_Ingestion_Worklist {
 	 */
 	public static function statuses(): array {
 		return array(
-			'attention'      => __( 'Needs attention', 'ehrman-blog-discovery' ),
 			'all'            => __( 'All', 'ehrman-blog-discovery' ),
+			'attention'      => __( 'Needs attention', 'ehrman-blog-discovery' ),
 			'not_generated'  => __( 'Not generated', 'ehrman-blog-discovery' ),
 			'generating'     => __( 'Generating', 'ehrman-blog-discovery' ),
 			'needs_approval' => __( 'Needs approval', 'ehrman-blog-discovery' ),
@@ -41,7 +41,7 @@ final class Post_Ingestion_Worklist {
 	public static function filters( array $input ): array {
 		$status = sanitize_key( Database::text( $input['status'] ?? null ) );
 		return array(
-			'status'    => isset( self::statuses()[ $status ] ) ? $status : 'attention',
+			'status'    => isset( self::statuses()[ $status ] ) ? $status : 'all',
 			'search'    => sanitize_text_field( Database::text( $input['search'] ?? null ) ),
 			'date_from' => self::date( Database::text( $input['date_from'] ?? null ) ),
 			'date_to'   => self::date( Database::text( $input['date_to'] ?? null ) ),

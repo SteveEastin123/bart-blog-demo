@@ -40,7 +40,10 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       await page.goto(url);
       assert.equal(await page.locator('.ehrman-ingestion h1').innerText(), 'Search Metadata');
       assert.match(await page.locator('#menu-tools a[href="tools.php?page=ehrman-post-ingestion"]').innerText(), /^Search Metadata/);
-      assert.equal(await page.getByLabel('Status', { exact: true }).inputValue(), 'attention');
+      assert.equal(await page.getByLabel('Status', { exact: true }).inputValue(), 'all');
+      const vectorLabels = await page.locator('[data-ebd-metadata-worklist] tbody tr td:nth-child(4)').allTextContents();
+      assert(vectorLabels.length > 0, 'Default All worklist omitted imported metadata');
+      assert(vectorLabels.every(label => ['Complete', 'Pending', 'Not requested', 'Not applicable'].includes(label.trim())), 'Vector labels are not consistently capitalized');
       assert.equal(await page.locator('.ehrman-ingestion form[method="get"]').count(), 1);
       assert.equal(await page.getByLabel('WordPress post ID', { exact: true }).count(), 0);
       assert.equal(await page.getByLabel('Complete post text', { exact: true }).count(), 0);

@@ -39,7 +39,7 @@ if ( $view['analysis_active'] ) {
 		if ( 'approved' === $view['status'] ) :
 			?>
 			<tr><th><?php echo esc_html__( 'Approval', 'ehrman-blog-discovery' ); ?></th><td><?php echo 'automatic' === $view['approval_mode'] ? esc_html__( 'Automatic', 'ehrman-blog-discovery' ) : esc_html__( 'Manual', 'ehrman-blog-discovery' ); ?></td></tr>
-			<tr><th><?php echo esc_html__( 'Semantic vector', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( $view['embedding_status'] ); ?>
+			<tr><th><?php echo esc_html__( 'Semantic vector', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( ucfirst( str_replace( '_', ' ', $view['embedding_status'] ) ) ); ?>
 			<?php
 			if ( '' !== $view['embedding_error'] ) :
 				?>

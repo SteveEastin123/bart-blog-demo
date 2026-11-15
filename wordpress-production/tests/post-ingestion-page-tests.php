@@ -83,7 +83,7 @@ try {
 	$html = $page_render();
 	$dom = $page_dom( $html );
 	$assert_same( 1, $dom->query( '//form[@method="get"]' )->length, 'Worklist filters are missing.' );
-	$assert_same( 'attention', $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Worklist does not default to Needs attention.' );
+	$assert_same( 'all', $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Worklist does not default to All.' );
 	$assert_same( 'Search Metadata', $dom->evaluate( 'string(//h1)' ), 'Search Metadata heading is incorrect.' );
 	$assert_same( admin_url( 'edit.php' ), $dom->evaluate( 'string(//a[text()="Posts"]/@href)' ), 'History no longer links to the normal Posts screen.' );
 	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Manual post-entry fields are still displayed.' );
@@ -180,10 +180,13 @@ try {
 		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $page_dom( $html )->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/input[@name="revision"]/@value)' ), 'Failed-generation discard form lost its revision token.' );
 		$assert( str_contains( $html, esc_html( $unsafe ) ) && ! str_contains( $html, 'Review proposal' ), 'Empty/invalid proposal recovery changed.' );
 	}
-	foreach ( array( 'pending', 'complete', 'not_applicable' ) as $vector_status ) {
+	foreach ( array( 'not_requested' => 'Not requested', 'pending' => 'Pending', 'complete' => 'Complete', 'not_applicable' => 'Not applicable' ) as $vector_status => $vector_label ) {
 		$update_page_draft( array( 'status' => 'approved', 'proposal_json' => wp_json_encode( $proposal ), 'embedding_status' => $vector_status, 'embedding_error' => $unsafe ) );
 		$html = $page_render( $id );
 		$dom = $page_dom( $html );
+		$assert_same( $vector_label, trim( $dom->evaluate( 'substring-before(string(//tr[th="Semantic vector"]/td), ":")' ) ), 'Draft vector label capitalization changed.' );
+		$history = $page_dom( $page_render( 0, array( 'search' => 'Ingestion page fixture' ) ) );
+		$assert_same( $vector_label, trim( $history->evaluate( 'string(//table[@class="widefat striped"]/tbody/tr/td[4])' ) ), 'Worklist vector label capitalization changed.' );
 		$page_check_forms( $dom, 'pending' === $vector_status ? array( 'ehrman_ingestion_retry_embedding' ) : array() );
 		$assert( str_contains( $html, 'Approved enrichment' ) && ! str_contains( $html, 'Review proposal' ), 'Approved records became editable.' );
 		$assert_same( 0, $dom->query( '//textarea|//select|//img|//script' )->length, 'Approved display is unsafe or editable.' );
@@ -191,10 +194,10 @@ try {
 	$history = $page_dom( $page_render( 0, array( 'status' => 'all', 'search' => 'Ingestion page fixture' ) ) );
 	$fixture_row = '//table[@class="widefat striped"]/tbody/tr[td[5]/a[contains(@href,"draft=' . $id . '")]]';
 	$assert_same( 'View', trim( $history->evaluate( 'string(' . $fixture_row . '/td[5]/a)' ) ), 'Approved history action changed.' );
-	$assert_same( 'not applicable', trim( $history->evaluate( 'string(' . $fixture_row . '/td[4])' ) ), 'History vector label changed.' );
+	$assert_same( 'Not applicable', trim( $history->evaluate( 'string(' . $fixture_row . '/td[4])' ) ), 'History vector label changed.' );
 	foreach ( array( 'ready' => 'Review and approve', 'held' => 'Review and approve', 'failed' => 'View' ) as $status => $label ) {
 		$update_page_draft( array( 'status' => $status ) );
-		$history = $page_dom( $page_render() );
+		$history = $page_dom( $page_render( 0, array( 'search' => 'Ingestion page fixture' ) ) );
 		$assert_same( $label, trim( $history->evaluate( 'string(' . $fixture_row . '/td[5]/a)' ) ), 'History action changed for ' . $status );
 	}
 	foreach ( array( true, false ) as $success ) {
