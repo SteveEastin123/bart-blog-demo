@@ -78,12 +78,12 @@ test('public bundles no longer contain helpfulness feedback controls or requests
 });
 
 test('browse sorting preserves alphabetical ties and tolerates unavailable session storage', () => {
-  for (const initial of ['', 'posts', 'invalid', 'blocked']) {
+  for (const initial of ['', 'posts', 'alphabetical', 'invalid', 'blocked']) {
     let stored = initial;
     const events = {};
-    const select = { value: 'alphabetical', addEventListener: (name, handler) => { events[name] = handler; } };
-    const nodes = ['3', '10', '10', '0'].map((count, index) => ({ index, dataset: { ebdPostCount: count } }));
-    const list = { children: [...nodes], appendChild(node) { this.children = this.children.filter(item => item !== node); this.children.push(node); } };
+    const select = { value: 'posts', addEventListener: (name, handler) => { events[name] = handler; } };
+    const nodes = ['3', '10', '10', '0'].map((count, index) => ({ index, dataset: { ebdPostCount: count, ebdAlphabeticalOrder: String(index) } }));
+    const list = { children: [nodes[1], nodes[2], nodes[0], nodes[3]], appendChild(node) { this.children = this.children.filter(item => item !== node); this.children.push(node); } };
     const control = { hidden: true, querySelector: () => select, closest: () => ({ querySelector: () => list }) };
     const { setupBrowseSort } = load('browse-topics', {
       sessionStorage: {
@@ -94,8 +94,8 @@ test('browse sorting preserves alphabetical ties and tolerates unavailable sessi
     });
     setupBrowseSort(control);
     assert.equal(control.hidden, false);
-    assert.equal(select.value, initial === 'posts' ? 'posts' : 'alphabetical');
-    assert.deepEqual(list.children.map(n => n.index), initial === 'posts' ? [1, 2, 0, 3] : [0, 1, 2, 3]);
+    assert.equal(select.value, initial === 'alphabetical' ? 'alphabetical' : 'posts');
+    assert.deepEqual(list.children.map(n => n.index), initial === 'alphabetical' ? [0, 1, 2, 3] : [1, 2, 0, 3]);
     select.value = 'posts';
     events.change();
     assert.deepEqual(list.children.map(n => n.index), [1, 2, 0, 3]);
@@ -105,7 +105,8 @@ test('browse sorting preserves alphabetical ties and tolerates unavailable sessi
     assert.deepEqual(list.children, nodes);
     stored = 'posts';
     events.pageshow();
-    assert.equal(select.value, initial === 'blocked' ? 'alphabetical' : 'posts');
+    assert.equal(select.value, 'posts');
+    assert.deepEqual(list.children.map(n => n.index), [1, 2, 0, 3]);
   }
 });
 

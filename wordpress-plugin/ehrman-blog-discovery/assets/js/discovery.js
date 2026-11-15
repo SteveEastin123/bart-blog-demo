@@ -1138,9 +1138,9 @@
   var BROWSE_SORT_KEY = "ebd.browseTopicSort";
   function savedBrowseSort() {
     try {
-      return window.sessionStorage.getItem(BROWSE_SORT_KEY) === "posts" ? "posts" : "alphabetical";
+      return window.sessionStorage.getItem(BROWSE_SORT_KEY) === "alphabetical" ? "alphabetical" : "posts";
     } catch (_error) {
-      return "alphabetical";
+      return "posts";
     }
   }
   function setupBrowseSort(control) {
@@ -1149,7 +1149,7 @@
     if (!select || !list) return;
     const items = Array.from(list.children, (element, index) => ({
       element,
-      index,
+      index: Number(element.dataset.ebdAlphabeticalOrder ?? index),
       count: Number(element.dataset.ebdPostCount) || 0
     }));
     const apply = (mode) => {

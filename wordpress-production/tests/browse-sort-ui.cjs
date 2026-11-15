@@ -38,14 +38,20 @@ const key = 'ebd.browseTopicSort';
       await page.setViewportSize({ width, height: 950 });
       await page.evaluate(() => sessionStorage.clear());
       for (const [index, { name, url, level }] of targets.entries()) {
+        await page.evaluate(() => sessionStorage.clear());
         await page.goto(url);
         const sort = page.getByLabel('Sort by:', { exact: true });
+        assert.equal(await sort.inputValue(), 'posts');
+        const defaultItems = await readItems(page);
+        await sort.selectOption('alphabetical');
         assert.equal(await sort.inputValue(), 'alphabetical');
         const original = await readItems(page);
         assert(original.length > 0);
+        assert.deepEqual(original.map(item => item.name), original.map(item => item.name).sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base', numeric: true })));
+        assert.deepEqual(defaultItems, mostPosts(original));
         alphabeticalByUrl.set(url, original);
         await sort.focus();
-        await sort.press('ArrowDown');
+        await sort.press('ArrowUp');
         await sort.press('Tab');
         assert.equal(await sort.inputValue(), 'posts');
         assert.deepEqual(await readItems(page), mostPosts(original));
@@ -77,6 +83,9 @@ const key = 'ebd.browseTopicSort';
         await page.goto(url);
         assert.equal(await sort.inputValue(), 'alphabetical');
         assert.deepEqual(await readItems(page), original);
+        await page.reload();
+        assert.equal(await sort.inputValue(), 'alphabetical', 'Explicit alphabetical preference must survive reload.');
+        assert.deepEqual(await readItems(page), original);
         await page.screenshot({ path: path.join(output, `${name}-alphabetical-${width}.png`), fullPage: true });
       }
     }
@@ -85,16 +94,19 @@ const key = 'ebd.browseTopicSort';
     const freshPage = await fresh.newPage();
     for (const { url } of targets) {
       await freshPage.goto(url);
-      assert.equal(await freshPage.getByLabel('Sort by:', { exact: true }).inputValue(), 'alphabetical');
-      assert.deepEqual(await readItems(freshPage), alphabeticalByUrl.get(url));
+      assert.equal(await freshPage.getByLabel('Sort by:', { exact: true }).inputValue(), 'posts');
+      assert.deepEqual(await readItems(freshPage), mostPosts(alphabeticalByUrl.get(url)));
     }
+    await freshPage.evaluate(k => sessionStorage.setItem(k, 'invalid'), key);
+    await freshPage.reload();
+    assert.equal(await freshPage.getByLabel('Sort by:', { exact: true }).inputValue(), 'posts', 'Invalid stored preference must use the default.');
     await fresh.close();
 
     const plain = await browser.newContext({ javaScriptEnabled: false });
     const plainPage = await plain.newPage();
     for (const { url, level } of targets) {
       await plainPage.goto(url);
-      assert.deepEqual(await readItems(plainPage), alphabeticalByUrl.get(url));
+      assert.deepEqual(await readItems(plainPage), mostPosts(alphabeticalByUrl.get(url)));
       assert(!(await plainPage.locator('[data-ebd-browse-sort-control]').isVisible()));
       await plainPage.locator('[data-ebd-browse-list] a').first().click();
       assert.equal(await plainPage.locator(level === 'topics' ? '[data-ebd-results]' : '[data-ebd-browse-list]').count(), 1);
@@ -107,13 +119,17 @@ const key = 'ebd.browseTopicSort';
     blockedPage.on('pageerror', error => errors.push(error.message));
     for (const { url } of targets) {
       await blockedPage.goto(url);
+      assert.equal(await blockedPage.getByLabel('Sort by:', { exact: true }).inputValue(), 'posts');
+      assert.deepEqual(await readItems(blockedPage), mostPosts(alphabeticalByUrl.get(url)));
+      await blockedPage.getByLabel('Sort by:', { exact: true }).selectOption('alphabetical');
+      assert.deepEqual(await readItems(blockedPage), alphabeticalByUrl.get(url));
       await blockedPage.getByLabel('Sort by:', { exact: true }).selectOption('posts');
       assert.deepEqual(await readItems(blockedPage), mostPosts(alphabeticalByUrl.get(url)));
     }
     await blocked.close();
     assert.equal(apiCalls, 0);
     assert.deepEqual(errors, []);
-    console.log('Browse sorting: subject areas, categories and topics in both paths; defaults, counts, ties, shared session preference, keyboard, mobile, no-JS and blocked storage passed. No API calls.');
+    console.log('Browse sorting: subject areas, categories and topics via legacy redirects; most-posts defaults, counts, alphabetical ties and preference, keyboard, mobile, no-JS and blocked storage passed. No API calls.');
   } finally {
     await browser.close();
   }

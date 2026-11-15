@@ -32,6 +32,7 @@ const { base, outputFor } = require('./browser-config.cjs');
       assert.equal(await page.locator('[data-ebd-browse-list] > li').count(), 10);
       for (const parameter of ['ebd_subject', 'ebd_category', 'ebd_topic']) {
         const rows = page.locator('[data-ebd-browse-list] > li');
+        await page.locator('[data-ebd-browse-sort]').selectOption('alphabetical');
         const names = await rows.locator('a').allTextContents();
         assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base', numeric: true })));
         await page.locator('[data-ebd-browse-sort]').selectOption('posts');

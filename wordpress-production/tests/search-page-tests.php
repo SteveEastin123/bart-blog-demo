@@ -155,15 +155,18 @@ try {
 	);
 	$assert_browse_list = static function ( string $html, array $records, string $parameter, array $context = array() ) use ( $search_page_dom, $assert_same ): void {
 		usort( $records, static fn( array $a, array $b ): int => strnatcasecmp( $a['name'], $b['name'] ) );
+		$alphabetical_names = array_column( $records, 'name' );
+		usort( $records, static fn( array $a, array $b ): int => (int) $b['post_count'] <=> (int) $a['post_count'] );
 		$dom = $search_page_dom( $html );
 		$assert_same( 1, $dom->query( '//*[@data-ebd-browse-sort-control][@hidden]/select[@data-ebd-browse-sort]' )->length, 'Sort menu must be hidden until enhanced.' );
 		$assert_same( $dom->evaluate( 'string(//*[@data-ebd-browse-sort-control]/label/@for)' ), $dom->evaluate( 'string(//select[@data-ebd-browse-sort]/@id)' ), 'Browse sort must have an associated label.' );
-		$assert_same( 'alphabetical', $dom->evaluate( 'string((//select[@data-ebd-browse-sort]/option)[1]/@value)' ), 'Default browse sort changed.' );
+		$assert_same( 'posts', $dom->evaluate( 'string((//select[@data-ebd-browse-sort]/option)[1]/@value)' ), 'Default browse sort must be most posts.' );
 		$rows = $dom->query( '//ul[@data-ebd-browse-list]/li' );
 		$assert_same( count( $records ), $rows->length, 'Sorting changed list membership.' );
 		foreach ( $rows as $index => $row ) {
 			$record = $records[ $index ];
-			$assert_same( $record['name'], $dom->evaluate( 'string(.//span[@class="ebd-navigation-name"]/span[1])', $row ), 'Browse list is not alphabetical.' );
+			$assert_same( $record['name'], $dom->evaluate( 'string(.//span[@class="ebd-navigation-name"]/span[1])', $row ), 'Browse list must sort by most posts, with alphabetical ties.' );
+			$assert_same( (string) array_search( $record['name'], $alphabetical_names, true ), $row->getAttribute( 'data-ebd-alphabetical-order' ), 'Client-side alphabetical order changed.' );
 			$assert_same( (string) $record['post_count'], $row->getAttribute( 'data-ebd-post-count' ), 'Sort count does not match the distinct post count.' );
 			parse_str( (string) wp_parse_url( $dom->evaluate( 'string(./a/@href)', $row ), PHP_URL_QUERY ), $query );
 			$assert_same( $record['slug'], $query[ $parameter ], 'Sorted browse link changed.' );

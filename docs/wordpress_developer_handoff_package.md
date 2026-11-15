@@ -49,7 +49,9 @@ Version 0.10.15 retains the first hierarchy as **Browse Topics** at
 managed page and leaves a retired second page as a recoverable draft. Both old
 numbered URLs redirect permanently to the new page. Category/topic selections,
 search filters and pagination are preserved; obsolete subject-area selections
-fall back to the current hierarchy. Alphabetical and Most posts sorting remain.
+fall back to the current hierarchy. Subject Areas, Categories, and Topics default
+to Most posts, with alphabetical ties. Readers can choose Alphabetical (A-Z);
+their selection is remembered for the browser session. Reviewer Tools remain alphabetical.
 
 The data migration removes only the second hierarchy's subject areas and their
 category links, then renames the retained browse-path record. Shared categories,
