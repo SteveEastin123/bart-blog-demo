@@ -3,7 +3,7 @@ Contributors: steveeastin
 Tags: search, topics, discovery
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 0.11.0
+Stable tag: 0.12.0
 License: GPLv2 or later
 
 Browse Topics, Keyword Search, Ask AI, and post metadata publishing for the Ehrman Blog.
@@ -85,6 +85,12 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 `composer check` to run both standards and static-analysis checks.
 
 == Changelog ==
+
+= 0.12.0 =
+* Add an explicit WP-CLI link-posts preview/apply command for imported metadata.
+* Verify source IDs, titles and permalink paths before assigning native ownership.
+* Preserve imported baselines for editing, regeneration and native-post lifecycle cleanup.
+* Keep ordinary imports, external demos, supplied vectors and AI charges unchanged.
 
 = 0.11.0 =
 * Add opt-in automatic metadata generation, approval, and vectors after first publication.

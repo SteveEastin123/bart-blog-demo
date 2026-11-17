@@ -14,6 +14,10 @@ production plugin or install it on the live blog.
 - The separate PHP regression suite covers search rendering, Ask AI contracts,
   analytics, foreground ingestion and approval, opt-in automatic publication,
   legacy job recovery, vector import/export and error cases.
+- Explicit imported-post linking: read-only preview, identity checks, stale-plan
+  rejection, transaction rollback, imported revisions and permanent-delete cleanup.
+  The suite creates disposable fixture articles; it never links the real imported
+  collection. Keep editors/cron stopped and use staging only.
 
 The comparison is a deterministic regression check, **not an AI relevance grade**.
 It does not call OpenAI or generate embeddings. Ask AI and ingestion regression

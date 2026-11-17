@@ -5,7 +5,7 @@ WordPress posts for the Ehrman Blog Discovery index. It is intended for the
 development team that will install, operate, and maintain the production
 plugin.
 
-Reviewed against plugin **0.11.0** and schema **1.16.0** on November 17, 2026.
+Reviewed against plugin **0.12.0** and schema **1.16.0** on November 17, 2026.
 The dated verification records at the end describe earlier snapshots, not
 acceptance of the final handoff package or the current live Render deployment.
 
@@ -250,6 +250,13 @@ Metadata created from the WordPress editor explicitly records its native
 `wordpress_post_id`. Imported records retain a separate `source_wp_id`; these
 IDs are not assumed to refer to local WordPress posts in a demo installation.
 Existing unlinked records are not automatically reassigned during upgrade.
+An administrator's installation operator can explicitly run the separate
+`wp ehrman-discovery link-posts` preview/apply workflow described in
+`wordpress_developer_handoff_package.md`. It verifies preserved IDs, titles and
+permalink paths, then records imported baselines without AI work or a new
+publisher approval. Linked imported posts use the same revision, regeneration,
+visibility and deletion behavior as editor-created metadata. Our external demo
+skips linking. Unresolved/imported unlinked records remain external and read-only.
 
 - Unpublishing, making private, or trashing an editor-indexed post hides it from
   all three searches' post results and result counts. Its approved metadata and vector

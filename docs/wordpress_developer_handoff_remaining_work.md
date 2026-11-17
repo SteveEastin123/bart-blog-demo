@@ -2,7 +2,7 @@
 
 This checklist tracks the work required before providing the Ehrman Blog Discovery plugin and data package to the development company.
 
-Reviewed against plugin **0.11.0**, schema **1.16.0**, on November 17, 2026.
+Reviewed against plugin **0.12.0**, schema **1.16.0**, on November 17, 2026.
 Implemented capabilities below are distinct from final packaging and acceptance
 tasks. This is not confirmation of the version currently deployed on Render.
 The owner confirmed that publishers have the required permissions; no role or
@@ -94,7 +94,7 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 
 ### 4. Handle The WordPress Post Lifecycle
 
-**Implemented for explicitly linked posts; imported-post integration remains.**
+**Implemented; acceptance against the receiving site's real articles remains.**
 
 - Pending approval detects source changes and rejects stale proposals. Later
   article edits require explicit metadata editing or regeneration; Automatic mode
@@ -105,12 +105,16 @@ wp ehrman-discovery install-data --data-dir=/secure/ehrman-data
 - Native-post ownership drives result visibility, restoration, and permanent-delete
   cleanup. Autocomplete uses retained index metadata without publication checks;
   a suggestion never bypasses the actual post-result visibility checks.
-- Imported `source_wp_id` values do not establish native `wordpress_post_id`
-  ownership. Unlinked imported metadata remains read-only, and native-post cleanup
-  does not cover it. A validated production linking process and associated
-  maintenance workflow remain to be implemented and accepted separately.
-- Production mapping must not blindly claim matching IDs from an unrelated demo
-  or staging database. No linking change is included in this documentation update.
+- Imported IDs do not automatically establish native ownership. The separate
+  `wp ehrman-discovery link-posts --source-site=<original-home-url>` command
+  previews verified ID/title/permalink matches; `--apply --expect=<fingerprint>`
+  applies them transactionally. Ordinary imports and external demos never link.
+- Linked imported baselines support the existing metadata revision workflow and
+  native lifecycle cleanup without new AI calls during linking. Unlinked records
+  remain read-only. The target must preserve source IDs and permalink paths;
+  unresolved records need investigation, not guessed ownership.
+- Run the preview and accept the matches on the receiving team's staging copy
+  before applying in production. Pause editorial writes and retain a backup.
 
 ### 5. Complete The Database Source-Of-Truth Transition
 
@@ -170,7 +174,8 @@ substitute for acceptance of the exact archives and data delivered.
 
 ## Remaining Handoff Work
 
-1. Resolve and validate native ownership and metadata maintenance for imported posts.
+1. Validate the implemented native-post linking and imported-metadata maintenance
+   against the receiving team's staging articles; resolve any unmatched records.
 2. Build versioned production and data packages with explicit file inclusion,
    checksums, expected counts, and the required separate developer-test ZIP.
 3. Verify compatibility and operation on the receiving team's staging environment.

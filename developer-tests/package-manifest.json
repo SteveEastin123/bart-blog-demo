@@ -31,6 +31,7 @@
     "regressions/post-ingestion-publishing-tests.php": "wordpress-production/tests/post-ingestion-publishing-tests.php",
     "regressions/search-page-tests.php": "wordpress-production/tests/search-page-tests.php",
     "regressions/browse-retirement-tests.php": "wordpress-production/tests/browse-retirement-tests.php",
-    "regressions/install-data-tests.php": "wordpress-production/tests/install-data-tests.php"
+    "regressions/install-data-tests.php": "wordpress-production/tests/install-data-tests.php",
+    "regressions/post-linking-tests.php": "wordpress-production/tests/post-linking-tests.php"
   }
 }

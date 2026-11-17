@@ -181,7 +181,7 @@ final class Post_Ingestion_Page {
 			'author'           => Database::text( $draft['author'] ?? null ),
 			'wp_id'            => (string) Database::integer( $draft['source_wp_id'] ?? null ),
 			'url'              => Database::text( $draft['url'] ?? null ),
-			'model'            => $parent_id > 0 && 0 === Database::integer( $draft['analysis_attempt'] ?? null ) ? __( 'Manual revision', 'ehrman-blog-discovery' ) : Database::text( $draft['model'] ?? null ),
+			'model'            => 'imported' === ( $draft['approval_mode'] ?? '' ) ? __( 'Imported metadata (no AI generation)', 'ehrman-blog-discovery' ) : ( $parent_id > 0 && 0 === Database::integer( $draft['analysis_attempt'] ?? null ) ? __( 'Manual revision', 'ehrman-blog-discovery' ) : Database::text( $draft['model'] ?? null ) ),
 			'usage'            => sprintf(
 				/* translators: 1: input token count, 2: output token count, 3: estimated US-dollar cost. */
 				__( '%1$s input tokens, %2$s output tokens, approximately $%3$s', 'ehrman-blog-discovery' ),

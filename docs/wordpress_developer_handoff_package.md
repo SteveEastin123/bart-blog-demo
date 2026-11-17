@@ -2,7 +2,7 @@
 
 This document defines the materials to provide to the development company for integrating the Ehrman Blog Discovery functionality into Bart's production WordPress site.
 
-Documentation reviewed against plugin **0.11.0**, schema **1.16.0**, on
+Documentation reviewed against plugin **0.12.0**, schema **1.16.0**, on
 November 17, 2026. Versioned migration descriptions below are historical;
 this review does not certify the final delivery archive or production deployment.
 
@@ -178,11 +178,58 @@ URL, resolve that conflict explicitly before retrying page setup; the upgrade
 does not rename or replace the unrelated page.
 
 Imported `source_wp_id` values are not automatically assigned native
-`wordpress_post_id` ownership. Search can use the imported metadata and URLs,
-but native-post lifecycle handling and the editor's revision workflow must not
-be assumed to cover unlinked imported records. Validated production linking and
-the associated metadata-maintenance workflow remain an integration task. Do not
-enable ownership by blindly matching IDs on a demo or staging database.
+`wordpress_post_id` ownership. Search continues to use external metadata and URLs
+until the explicit linking step below is performed. Do not blindly match IDs on
+a demo or unrelated staging database.
+
+### Link Existing WordPress Articles
+
+After data installation, use the plugin's **separate** `link-posts` command on
+the production site or a verified staging clone containing Bart's original posts.
+Skip this step on our external-URL demo. Back up the database and pause editors,
+scheduled ingestion, imports, and other maintenance writes during linking.
+
+```sh
+wp --path=/path/to/wordpress ehrman-discovery link-posts --source-site=https://ehrmanblog.org --format=json
+wp --path=/path/to/wordpress ehrman-discovery link-posts --source-site=https://ehrmanblog.org --apply --expect=<preview-fingerprint>
+```
+
+The first command is read-only and lists each imported record, proposed native
+URL, match status and reason. Save/review the report privately. The source-site
+argument is the original WordPress **home URL**, including any subdirectory;
+the target is the current site's home URL. This explicitly permits a staging
+host to differ while requiring the original WordPress ID, normalized title and
+relative permalink path/query to match. Titles normalize only HTML entities and
+whitespace. HTTP/HTTPS and trailing slashes are tolerated; different hosts,
+ports, paths, queries, titles, post types or nonpublished status are not guessed.
+IDs must be preserved; remapped IDs or changed permalinks require investigation
+and a separately reviewed mapping process, not manual blanket SQL updates.
+
+The second command revalidates and applies **only ready matches**. Missing,
+conflicting, nonpublished, and already-linked records remain unchanged and are
+reported. Resolve unexplained mismatches before production sign-off. A stale
+fingerprint stops the command without writes; preview again after any changes.
+Applying requires database-managed mode, InnoDB and named-lock support. It uses
+the installation lock and one transaction for ownership, imported baselines and
+any verified receipt update. A write failure rolls back the entire batch. After
+applying, a fresh preview and repeat apply leave existing links/history intact.
+
+Linking does not change article content, metadata fields, terms or vector bytes,
+copy full posts into the baseline, call AI, or manufacture generation charges.
+It creates a baseline labeled **Imported metadata; no new approval**, with no
+approval timestamp. That active baseline enables the existing editor and Tools
+**Edit Metadata** and **Regenerate Metadata** controls. Edits create a separate
+pending revision; cancellation retains imported data, and approval atomically
+replaces it. Regeneration and a changed title/summary vector may incur normal AI
+charges, but linking itself does not. Native visibility/restore and permanent
+deletion cleanup now cover the linked records. Unlinked records remain external
+and read-only. Schema version remains 1.16.0; no new tables are needed.
+
+A previously matching installation receipt advances with the links, preserving
+verified identical installation reruns. Missing/mismatched receipts are never
+invented or repaired. Later editorial changes remain protected against replacement.
+There is no automatic unlink command: restore the pre-link backup if the wrong
+site was deliberately supplied and a completed linking operation must be undone.
 
 Maintainers can run `wordpress-production/verify-installation.ps1` after building
 the image. It creates a uniquely named, isolated WordPress/database stack, exercises

@@ -14,6 +14,58 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** Exposes import and status operations through WP-CLI. */
 final class Cli_Command {
 	/**
+	 * Preview or explicitly apply native WordPress links for imported metadata.
+	 *
+	 * ## OPTIONS
+	 *
+	 * --source-site=<url>
+	 * : Original article site's home URL. The target is this WordPress site's home URL.
+	 *
+	 * [--apply]
+	 * : Apply only verified matches from a reviewed preview. Default: read-only preview.
+	 *
+	 * [--expect=<fingerprint>]
+	 * : Required with --apply; fingerprint printed by the preview on this site.
+	 *
+	 * [--format=<format>]
+	 * : Output table or json. Default: table.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ehrman-discovery link-posts --source-site=https://ehrmanblog.org --format=json
+	 *     wp ehrman-discovery link-posts --source-site=https://ehrmanblog.org --apply --expect=<fingerprint>
+	 *
+	 * @param array<int,string>   $args Positional arguments.
+	 * @param array<string,mixed> $assoc_args Command options.
+	 * @subcommand link-posts
+	 */
+	public function link_posts( array $args, array $assoc_args ): void {
+		unset( $args );
+		$source = Database::text( $assoc_args['source-site'] ?? null );
+		$format = Database::text( $assoc_args['format'] ?? 'table' );
+		if ( ! in_array( $format, array( 'table', 'json' ), true ) ) {
+			\WP_CLI::error( 'Use --format=table or --format=json.' );
+			return;
+		}
+		try {
+			$apply = isset( $assoc_args['apply'] );
+			$plan  = $apply
+				? ( new Post_Linker() )->apply( $source, Database::text( $assoc_args['expect'] ?? null ) )
+				: ( new Post_Link_Plan() )->build( $source );
+		} catch ( \Throwable $error ) {
+			\WP_CLI::error( sanitize_text_field( $error->getMessage() ) );
+			return;
+		}
+		if ( 'json' === $format ) {
+			\WP_CLI::line( (string) wp_json_encode( array_merge( $plan, array( 'applied' => $apply ) ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) );
+			return;
+		}
+		\WP_CLI\Utils\format_items( 'table', $plan['rows'], array( 'index_id', 'source_id', 'title', 'status', 'reason' ) );
+		\WP_CLI::line( 'Preview fingerprint: ' . $plan['fingerprint'] );
+		\WP_CLI::success( sprintf( '%s %d verified matches; %d already linked; %d unresolved and unchanged. No AI calls or article changes.', $apply ? 'Applied' : 'Preview only:', $plan['ready'], $plan['linked'], $plan['unresolved'] ) );
+	}
+
+	/**
 	 * Install validated discovery JSON and supplied vectors together, without API calls.
 	 *
 	 * ## OPTIONS

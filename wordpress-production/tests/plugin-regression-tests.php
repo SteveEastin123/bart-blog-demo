@@ -936,5 +936,6 @@ require __DIR__ . '/post-ingestion-lifecycle-tests.php';
 require __DIR__ . '/post-ingestion-automation-tests.php';
 require __DIR__ . '/search-page-tests.php';
 require __DIR__ . '/browse-retirement-tests.php';
+require __DIR__ . '/post-linking-tests.php';
 
 echo "Plugin regression checks: OK\n";

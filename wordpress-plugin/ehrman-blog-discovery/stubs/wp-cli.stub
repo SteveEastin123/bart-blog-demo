@@ -22,4 +22,7 @@ namespace {
 
 namespace WP_CLI\Utils {
 	function make_progress_bar( string $message, int $count ): \Ehrman_WP_CLI_Progress_Bar {}
+
+	/** @param list<array<string,int|string>> $items @param list<string> $fields */
+	function format_items( string $format, array $items, array $fields ): void {}
 }
