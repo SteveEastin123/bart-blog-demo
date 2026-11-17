@@ -81,7 +81,8 @@ try {
 			$assert( str_contains( $html, $label ), 'Status page lost ' . $label );
 		}
 		$assert( str_contains( $html, number_format_i18n( Database::counts()['external_posts'] ) ), 'Status page lost the current post count.' );
-		$assert( str_contains( $html, esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ) ), 'Status page lost its analytics link.' );
+		$assert( ! str_contains( $html, 'page=ehrman-ai-analytics' ) && ! str_contains( $html, 'AI analytics' ), 'Status page still duplicates the dedicated analytics page.' );
+		$assert( false !== has_action( 'admin_menu', array( AI_Analytics_Page::class, 'add_page' ) ), 'Dedicated analytics menu registration is missing.' );
 	}
 } finally {
 	wp_set_current_user( $status_user );

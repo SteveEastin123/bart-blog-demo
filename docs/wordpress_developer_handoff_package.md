@@ -110,8 +110,9 @@ Include the database schema and technical architecture as appendices.
 
 ### Initial Data Installation
 
-**Tools > Ehrman Discovery** provides database information, record counts, an
-analytics link, and the administrator-only Manual/Automatic metadata default.
+**Tools > Ehrman Discovery** provides database information, record counts, and
+the administrator-only Manual/Automatic metadata default. Usage and costs are
+available separately under **Tools > AI Analytics**.
 Manual is the default; Automatic requires reliable WordPress cron and applies
 only to first publication, with per-post overrides in the editor. See
 `wordpress_post_ingestion_handoff.md` for configuration and recovery.

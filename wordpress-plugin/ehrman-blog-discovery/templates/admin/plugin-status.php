@@ -41,7 +41,4 @@ $ehrman_blog_discovery_status = is_array( $ehrman_blog_discovery_context['status
 			</td>
 		</tr></tbody></table>
 	</div>
-	<h2><?php echo esc_html__( 'AI analytics', 'ehrman-blog-discovery' ); ?></h2>
-	<p><?php echo esc_html__( 'Questions, token usage, refinement activity, and estimated costs are consolidated on the AI Search Analytics page.', 'ehrman-blog-discovery' ); ?></p>
-	<p><a class="button" href="<?php echo esc_url( admin_url( 'tools.php?page=ehrman-ai-analytics' ) ); ?>"><?php echo esc_html__( 'Open AI Search Analytics', 'ehrman-blog-discovery' ); ?></a></p>
 </div>

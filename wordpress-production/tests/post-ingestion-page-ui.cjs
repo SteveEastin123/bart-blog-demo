@@ -75,9 +75,16 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       assert.equal(await publishingModes.getByRole('radio', { name: 'Automatic', exact: true }).count(), 1);
       assert.doesNotMatch(await status.innerText(), /Authoritative JSON import|All five authoritative JSON files/);
       assert.equal(await status.getByRole('rowheader', { name: 'Imported posts', exact: true }).count(), 1);
-      assert.equal(await status.getByRole('link', { name: 'Open AI Search Analytics', exact: true }).getAttribute('href'), base + '/wp-admin/tools.php?page=ehrman-ai-analytics');
+      assert.equal(await status.getByRole('heading', { name: 'AI analytics', exact: true }).count(), 0, 'Discovery status still duplicates analytics');
+      assert.equal(await status.locator('a[href*="page=ehrman-ai-analytics"]').count(), 0, 'Discovery status still shows the analytics shortcut');
+      assert.doesNotMatch(await status.innerText(), /Questions, token usage, refinement activity/);
+      assert.equal(await page.locator('#menu-tools a[href="tools.php?page=ehrman-ai-analytics"]').innerText(), 'AI Analytics', 'Dedicated Tools menu entry is missing');
       await page.screenshot({ path: path.join(output, 'discovery-status-' + width + '.png'), fullPage: true });
     }
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.locator('#menu-tools a[href="tools.php?page=ehrman-ai-analytics"]').click();
+    await page.waitForURL(base + '/wp-admin/tools.php?page=ehrman-ai-analytics');
+    assert(await page.getByRole('heading', { name: 'AI Analytics', exact: true }).isVisible(), 'Dedicated analytics page is unavailable');
     for (const action of ['ehrman_ingestion_analyze', 'ehrman_discovery_import']) {
       const retired = await context.request.post(base + '/wp-admin/admin-post.php', { form: { action } });
       assert.equal(retired.status(), 400, `Retired action is still available: ${action}`);
