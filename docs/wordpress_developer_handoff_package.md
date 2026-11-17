@@ -269,8 +269,14 @@ pagination, empty states, cached/failed requests, exports, and reset protection.
 
 ### Post Ingestion Presentation
 
-`src/Ingestion/Post_Ingestion_Page.php` retains page authorization, form handlers,
-notice consumption, and display-data preparation. Its remaining page, draft,
+`src/Ingestion/Post_Ingestion_Page.php` retains page authorization, asset loading,
+notice consumption, and display-data preparation.
+`src/Ingestion/Post_Ingestion_Admin_Actions.php` registers the six existing
+admin-post handlers and owns form authorization, input parsing, progress-request
+validation, service dispatch, notices, and redirects. `Plugin::register()` wires
+both classes; the existing actions, nonces, URLs, permissions, and service calls
+are unchanged. The page delegates progress authorization without starting AI work.
+Its remaining page, draft,
 review, approved-result, history, and action markup lives in
 `templates/admin/post-ingestion/`. **Tools > Search Metadata** uses the existing
 `ehrman-post-ingestion` page slug to preserve review links. The manual-entry form

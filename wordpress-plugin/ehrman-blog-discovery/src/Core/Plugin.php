@@ -68,6 +68,7 @@ final class Plugin {
 		Post_Ingestion_Automation::register();
 		Post_Ingestion_Lifecycle::register();
 		Post_Ingestion_Page::register();
+		Post_Ingestion_Admin_Actions::register();
 		Post_Ingestion_Editor::register();
 		Post_Ingestion_Admin_Status::register();
 		add_shortcode( 'ehrman_discovery_status', array( $this, 'render_status_shortcode' ) );

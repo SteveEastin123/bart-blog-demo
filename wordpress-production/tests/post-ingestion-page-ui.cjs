@@ -58,7 +58,8 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
         for (const version of ['before', 'after']) {
           await page.locator('#wpbody-content').evaluate((element, html) => { element.innerHTML = html; }, sample[version]);
           await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo(0, 0); });
-          images.push(await page.screenshot({ path: path.join(output, `${index}-${version}-${width}.png`), fullPage: true, animations: 'disabled' }));
+          // WordPress uses an animated GIF spinner, which animations: 'disabled' cannot freeze.
+          images.push(await page.screenshot({ path: path.join(output, `${index}-${version}-${width}.png`), fullPage: true, animations: 'disabled', mask: [page.locator('[data-ebd-metadata-progress] .spinner')] }));
         }
         assert(images[0].equals(images[1]), `Visual difference in state ${index} at ${width}px`);
         matchedScreenshots++;
@@ -89,7 +90,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       const retired = await context.request.post(base + '/wp-admin/admin-post.php', { form: { action } });
       assert.equal(retired.status(), 400, `Retired action is still available: ${action}`);
     }
-    for (const action of ['create_metadata', 'proposal', 'reanalyze', 'retry_embedding', 'discard']) {
+    for (const action of ['create_metadata', 'proposal', 'reanalyze', 'edit_metadata', 'retry_embedding', 'discard']) {
       const response = await context.request.post(base + '/wp-admin/admin-post.php', {
         form: { action: 'ehrman_ingestion_' + action, _wpnonce: 'intentionally-invalid' },
       });

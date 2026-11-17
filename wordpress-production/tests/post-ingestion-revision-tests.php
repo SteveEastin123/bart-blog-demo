@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		try {
 			$_POST = array_merge( $values, array( '_wpnonce' => wp_create_nonce( 'ehrman_ingestion_discard' ) ) );
 			$_REQUEST = $_POST;
-			Post_Ingestion_Page::handle_discard();
+			do_action( 'admin_post_ehrman_ingestion_discard' );
 		} catch ( RuntimeException $error ) {
 			if ( 'cancel-test-redirect' !== $error->getMessage() ) throw $error;
 		} finally {

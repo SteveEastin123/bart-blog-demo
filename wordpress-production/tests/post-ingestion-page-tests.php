@@ -6,6 +6,7 @@
  */
 
 use EhrmanBlogDiscovery\Post_Ingestion_Page;
+use EhrmanBlogDiscovery\Post_Ingestion_Admin_Actions;
 use EhrmanBlogDiscovery\Post_Ingestion_Repository;
 use EhrmanBlogDiscovery\Post_Ingestion_Post_Source;
 use EhrmanBlogDiscovery\Post_Ingestion_Review_Workflow;
@@ -74,9 +75,38 @@ try {
 	wp_set_current_user( $page_admin );
 	$assert_same( false, has_action( 'admin_post_ehrman_ingestion_analyze' ), 'Retired manual-entry handler is still registered.' );
 	$assert( ! is_file( EHRMAN_DISCOVERY_PLUGIN_DIR . 'templates/admin/post-ingestion-new.php' ), 'Retired manual-entry template is still packaged.' );
-	foreach ( array( 'create_metadata', 'proposal', 'reanalyze', 'retry_embedding', 'discard' ) as $action ) {
-		$assert( false !== has_action( 'admin_post_ehrman_ingestion_' . $action ), 'Metadata history lost its ' . $action . ' handler.' );
+	foreach ( array( 'create_metadata', 'proposal', 'reanalyze', 'edit_metadata', 'retry_embedding', 'discard' ) as $action ) {
+		$assert_same( 10, has_action( 'admin_post_ehrman_ingestion_' . $action, array( Post_Ingestion_Admin_Actions::class, 'handle_' . $action ) ), 'Metadata action lost its dedicated handler or hook priority: ' . $action );
+		$assert_same( false, has_action( 'admin_post_ehrman_ingestion_' . $action, array( Post_Ingestion_Page::class, 'handle_' . $action ) ), 'The rendering class still owns an action: ' . $action );
+		$assert_same( false, has_action( 'admin_post_nopriv_ehrman_ingestion_' . $action ), 'A metadata action is available to anonymous visitors: ' . $action );
 	}
+	// Each extracted action must reject unauthorized callers before reading a draft or calling AI.
+	$die = static fn() => static function () { throw new RuntimeException( 'metadata-action-denied' ); };
+	add_filter( 'wp_die_handler', $die );
+	try {
+		foreach ( array( 'anonymous', 'invalid_nonce' ) as $case ) {
+			wp_set_current_user( 'anonymous' === $case ? 0 : $page_admin );
+			foreach ( array( 'create_metadata', 'proposal', 'reanalyze', 'edit_metadata', 'retry_embedding', 'discard' ) as $action ) {
+				$nonce_action = 'ehrman_ingestion_' . $action;
+				$_POST = array( 'action' => $nonce_action, '_wpnonce' => 'anonymous' === $case ? wp_create_nonce( $nonce_action ) : 'invalid' );
+				$_REQUEST = $_POST;
+				$denied = false;
+				ob_start();
+				try { do_action( 'admin_post_' . $nonce_action ); }
+				catch ( RuntimeException $error ) {
+					if ( 'metadata-action-denied' !== $error->getMessage() ) { throw $error; }
+					$denied = true;
+				} finally { ob_end_clean(); }
+				$assert( $denied, 'Metadata action bypassed ' . $case . ': ' . $action );
+			}
+		}
+	} finally {
+		remove_filter( 'wp_die_handler', $die );
+		wp_set_current_user( $page_admin );
+		$_POST = $page_saved_post;
+		$_REQUEST = $page_saved_request;
+	}
+	$assert_same( 0, $page_http_calls, 'Rejected action made an AI request.' );
 	delete_transient( $page_notice_key );
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=json' );
 	putenv( 'OPENAI_API_KEY=' );
