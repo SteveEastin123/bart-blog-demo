@@ -84,6 +84,7 @@ try {
 	$dom = $page_dom( $html );
 	$assert_same( 1, $dom->query( '//form[@method="get"]' )->length, 'Worklist filters are missing.' );
 	$assert_same( 'all', $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Worklist does not default to All.' );
+	$assert_same( Post_Ingestion_Page::page_url(), $dom->evaluate( 'string(//form[@method="get"]/a[text()="Clear filters"]/@href)' ), 'Clear filters must link to the unfiltered worklist.' );
 	$assert_same( 'Search Metadata', $dom->evaluate( 'string(//h1)' ), 'Search Metadata heading is incorrect.' );
 	$assert_same( admin_url( 'edit.php' ), $dom->evaluate( 'string(//a[text()="Posts"]/@href)' ), 'History no longer links to the normal Posts screen.' );
 	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Manual post-entry fields are still displayed.' );

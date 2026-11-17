@@ -69,9 +69,10 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       const status = page.locator('#wpbody-content .wrap').first();
       assert.equal(await status.getByRole('heading', { name: 'Ehrman Blog Discovery', exact: true }).count(), 1);
       assert.equal(await status.locator('input[name="action"][value="ehrman_discovery_import"]').count(), 0, 'Discovery status still exposes a bulk import form');
-      assert.equal(await status.locator('form').count(), 1, 'Unexpected Discovery settings form');
-      assert.equal(await status.getByLabel('Metadata generation', { exact: true }).count(), 1);
-      assert.equal(await status.locator('form').getAttribute('action'), base + '/wp-admin/options.php');
+      assert.equal(await status.locator('form').count(), 0, 'Discovery settings still require a form submission');
+      const publishingModes = status.getByRole('group', { name: 'Metadata generation', exact: true });
+      assert.equal(await publishingModes.getByRole('radio', { name: 'Manual', exact: true }).count(), 1);
+      assert.equal(await publishingModes.getByRole('radio', { name: 'Automatic', exact: true }).count(), 1);
       assert.doesNotMatch(await status.innerText(), /Authoritative JSON import|All five authoritative JSON files/);
       assert.equal(await status.getByRole('rowheader', { name: 'Imported posts', exact: true }).count(), 1);
       assert.equal(await status.getByRole('link', { name: 'Open AI Search Analytics', exact: true }).getAttribute('href'), base + '/wp-admin/tools.php?page=ehrman-ai-analytics');
@@ -112,6 +113,21 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
     assert(await page.getByText('Approved enrichment', { exact: true }).isVisible());
     await page.goto(url + '&status=all&search=not-found-worklist-97124');
     assert(await page.getByText('No posts match these filters.', { exact: true }).isVisible());
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto(url + '&status=complete&search=not-found-worklist-97124&date_from=2026-01-01&date_to=2026-12-31&paged=2');
+      const clearFilters = page.getByRole('link', { name: 'Clear filters', exact: true });
+      assert.equal(await clearFilters.getAttribute('href'), url);
+      await clearFilters.click();
+      await page.waitForURL(url);
+      assert.equal(await page.getByLabel('Status', { exact: true }).inputValue(), 'all');
+      for (const label of ['Post title', 'Published from', 'Published through']) {
+        assert.equal(await page.getByLabel(label, { exact: true }).inputValue(), '', 'Clear filters did not reset ' + label);
+      }
+      assert.equal(await page.locator('.ehrman-ingestion').textContent(), initial, 'Clearing filters changed records or failed to restore the first page');
+      await page.screenshot({ path: path.join(output, 'clear-filters-' + width + '.png'), fullPage: true });
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Clear filters worklist overflows at ' + width);
+    }
     await page.goto(url);
     assert.equal(await page.locator('.ehrman-ingestion').textContent(), initial, 'Read-only UI checks changed ingestion records');
     assert.deepEqual(errors, []);

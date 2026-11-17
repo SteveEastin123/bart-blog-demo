@@ -28,7 +28,7 @@ $filters = $view['filters'];
 	<label><?php echo esc_html__( 'Published from', 'ehrman-blog-discovery' ); ?><input type="date" name="date_from" value="<?php echo esc_attr( $filters['date_from'] ); ?>"></label>
 	<label><?php echo esc_html__( 'Published through', 'ehrman-blog-discovery' ); ?><input type="date" name="date_to" value="<?php echo esc_attr( $filters['date_to'] ); ?>"></label>
 	<button class="button button-primary" type="submit"><?php echo esc_html__( 'Apply filters', 'ehrman-blog-discovery' ); ?></button>
-	<a class="button" href="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>"><?php echo esc_html__( 'Clear', 'ehrman-blog-discovery' ); ?></a>
+	<a class="button" href="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>"><?php echo esc_html__( 'Clear filters', 'ehrman-blog-discovery' ); ?></a>
 </form>
 <p>
 <?php
