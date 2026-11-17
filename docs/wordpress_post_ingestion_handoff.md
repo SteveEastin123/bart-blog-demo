@@ -5,6 +5,10 @@ WordPress posts for the Ehrman Blog Discovery index. It is intended for the
 development team that will install, operate, and maintain the production
 plugin.
 
+Reviewed against plugin **0.11.0** and schema **1.16.0** on November 17, 2026.
+The dated verification records at the end describe earlier snapshots, not
+acceptance of the final handoff package or the current live Render deployment.
+
 ## Purpose And Boundaries
 
 The normal WordPress post remains the source for its ID, title, URL, author,
@@ -171,6 +175,8 @@ filter shows published posts whose metadata has not been generated, proposals
 requiring approval, and failures (including pending vector retries). Filters also
 expose Generating and Complete records, with title search and inclusive
 publication-date bounds.
+**Clear filters** restores All records, clears the title/date filters, and returns
+to the first page. It never deletes posts, metadata, vectors, or history.
 For WordPress-linked posts, status filters use only the latest metadata record,
 so an older failure or pending vector retry does not remain actionable after a
 newer revision supersedes it. **All** retains every historical version and its
@@ -367,6 +373,13 @@ Before production acceptance, also perform one controlled end-to-end analysis
 with the configured OpenAI project, review and approve its proposal, confirm its
 vector is current, and verify that the post appears through Browse Topics,
 Keyword Search, and Ask AI.
+
+## Historical Verification Records
+
+Retain these as evidence of the versions tested at the time. Final acceptance
+must rerun the required checks against the exact release, data, and extracted
+developer-test archive being delivered. These records do not describe current
+local or Render deployment state.
 
 ### Local Verification: November 7, 2026
 

@@ -134,7 +134,7 @@ final class Plugin {
 		?>
 		<section class="ebd-status" aria-labelledby="ebd-status-heading">
 			<h2 id="ebd-status-heading"><?php echo esc_html__( 'Ehrman Blog Discovery', 'ehrman-blog-discovery' ); ?></h2>
-			<p><?php echo esc_html__( 'The local WordPress and MySQL foundation is running.', 'ehrman-blog-discovery' ); ?></p>
+			<p><?php echo esc_html__( 'WordPress and the discovery database are running.', 'ehrman-blog-discovery' ); ?></p>
 			<dl class="ebd-status__details">
 				<div>
 					<dt><?php echo esc_html__( 'Plugin', 'ehrman-blog-discovery' ); ?></dt>

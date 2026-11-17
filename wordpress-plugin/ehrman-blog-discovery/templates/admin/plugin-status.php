@@ -11,7 +11,7 @@ $ehrman_blog_discovery_status = is_array( $ehrman_blog_discovery_context['status
 ?>
 <div class="wrap">
 	<h1><?php echo esc_html__( 'Ehrman Blog Discovery', 'ehrman-blog-discovery' ); ?></h1>
-	<p><?php echo esc_html__( 'The plugin is active and its dedicated MySQL search-index tables are installed.', 'ehrman-blog-discovery' ); ?></p>
+	<p><?php echo esc_html__( 'The plugin is active and its dedicated search-index database tables are installed.', 'ehrman-blog-discovery' ); ?></p>
 	<table class="widefat striped" style="max-width: 760px">
 		<tbody>
 			<tr><th scope="row"><?php echo esc_html__( 'Plugin version', 'ehrman-blog-discovery' ); ?></th><td><?php echo esc_html( Database::text( $ehrman_blog_discovery_status['plugin_version'] ?? '' ) ); ?></td></tr>

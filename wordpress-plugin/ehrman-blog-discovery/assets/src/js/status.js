@@ -11,7 +11,7 @@ export function setupStatus() {
         const response = await fetch(config.statusUrl);
         const status = await response.json();
         statusMessage.textContent = status.database_connected
-          ? `WordPress is connected to MySQL. Import state: ${status.import_state}.`
+          ? `WordPress is connected to the database. Import state: ${status.import_state}.`
           : "The status endpoint could not be reached.";
       } catch (_error) {
         statusMessage.textContent = "The status endpoint could not be reached.";

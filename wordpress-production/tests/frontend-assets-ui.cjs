@@ -209,7 +209,7 @@ assert(!baselineAssets || capture, 'Original-asset overrides are only allowed wh
     });
     await page.goto(`${base}/ask-ai/?frontend-status-test`);
     await page.locator('[data-ebd-status-refresh]').click();
-    await page.getByText('WordPress is connected to MySQL. Import state: complete.', { exact: true }).waitFor();
+    await page.getByText('WordPress is connected to the database. Import state: complete.', { exact: true }).waitFor();
     assert.deepEqual(errors, []);
     assert.equal(aiCalls, 2);
     if (capture) fs.writeFileSync(path.join(output, 'before.json'), JSON.stringify({ stylesheet, snapshots }));

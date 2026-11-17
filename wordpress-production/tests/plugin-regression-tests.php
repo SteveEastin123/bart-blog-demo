@@ -432,7 +432,15 @@ $rejected_proposal = $validator->validate_proposal( $invalid_proposal, $taxonomy
 $assert( is_wp_error( $rejected_proposal ), 'An invalid proposal was accepted.' );
 $assert_same( 'ehrman_ingestion_invalid_proposal', $rejected_proposal->get_error_code(), 'The invalid proposal returned the wrong error code.' );
 $assert( str_contains( $rejected_proposal->get_error_message(), 'Unknown topic' ), 'The unknown topic was not reported.' );
-$assert( str_contains( $rejected_proposal->get_error_message(), 'declarative statement' ), 'The question-opening summary was not reported.' );
+$assert( str_contains( $rejected_proposal->get_error_message(), 'Summary must open with a declarative statement, not a question.' ), 'The question-opening Summary error was not reported with the current field label.' );
+$assert( ! str_contains( $rejected_proposal->get_error_message(), 'Search summary' ), 'Validation still uses the retired Search summary label.' );
+
+foreach ( array( '' => 'Summary is required.', str_repeat( 'x', 1201 ) => 'Summary must not exceed 1,200 characters.', 'Ehrman discusses this post.' => 'Summary must begin with an approved active, present-tense verb.' ) as $summary_value => $summary_message ) {
+	$summary_proposal = $valid_proposal;
+	$summary_proposal['searchSummary'] = $summary_value;
+	$summary_error = $validator->validate_proposal( $summary_proposal, $taxonomy, false );
+	$assert( is_wp_error( $summary_error ) && str_contains( $summary_error->get_error_message(), $summary_message ), 'Summary validation no longer matches its field label or validation rule.' );
+}
 
 $form_proposal = $validator->proposal_from_input(
 	array(
@@ -560,6 +568,7 @@ try {
 	$changed_taxonomy_approval = $ingestion->approve( $draft_id, false );
 	$assert( is_wp_error( $changed_taxonomy_approval ), 'Approval ignored a changed vocabulary hash.' );
 	$assert_same( 'ehrman_ingestion_taxonomy_changed', $changed_taxonomy_approval->get_error_code(), 'Changed-vocabulary approval returned the wrong error.' );
+	$assert( str_contains( $changed_taxonomy_approval->get_error_message(), 'Use Regenerate Metadata before approval.' ), 'Changed-vocabulary guidance does not name the current action.' );
 	$wpdb->update( $tables['ingestion_drafts'], array( 'taxonomy_version' => $ingestion_store->vocabulary_hash( $taxonomy ) ), array( 'id' => $draft_id ) );
 	$assert_same( $review_count + 1, $ingestion->review_count(), 'Review and approval guardrails changed the pending-review count.' );
 
@@ -794,6 +803,7 @@ try {
 	$changed_approval = rest_get_server()->dispatch( new WP_REST_Request( 'POST', '/ehrman-discovery/v1/ingestion/post/' . $editor_post_id . '/approve' ) );
 	$assert_same( 409, $changed_approval->get_status(), 'Changed post content was not blocked before approval.' );
 	$assert_same( 'ehrman_ingestion_source_changed', $changed_approval->get_data()['code'], 'Changed-source approval error changed.' );
+	$assert( str_contains( $changed_approval->get_data()['message'], 'Use Regenerate Metadata before approval.' ), 'Changed-source guidance does not name the current action.' );
 	wp_update_post( array( 'ID' => $editor_post_id, 'post_content' => $original_content ) );
 	require __DIR__ . '/post-ingestion-editor-review-tests.php';
 

@@ -150,20 +150,20 @@ final class Post_Ingestion_Proposal_Validator {
 			);
 		}
 		if ( '' === $summary ) {
-			$errors[] = __( 'Search summary is required.', 'ehrman-blog-discovery' );
+			$errors[] = __( 'Summary is required.', 'ehrman-blog-discovery' );
 		} elseif ( $this->length( $summary ) > 1200 ) {
-			$errors[] = __( 'Search summary must not exceed 1,200 characters.', 'ehrman-blog-discovery' );
+			$errors[] = __( 'Summary must not exceed 1,200 characters.', 'ehrman-blog-discovery' );
 		} elseif ( ! $this->has_house_style_opening( $summary ) ) {
-			$errors[] = __( 'Search summary must begin with an approved active, present-tense verb.', 'ehrman-blog-discovery' );
+			$errors[] = __( 'Summary must begin with an approved active, present-tense verb.', 'ehrman-blog-discovery' );
 		}
 		if ( '' !== $summary && $this->first_sentence_is_question( $summary ) ) {
-			$errors[] = __( 'Search summary must open with a declarative statement, not a question.', 'ehrman-blog-discovery' );
+			$errors[] = __( 'Summary must open with a declarative statement, not a question.', 'ehrman-blog-discovery' );
 		}
 		$summary_words = $this->word_count( $summary );
 		if ( '' !== $summary && ( $summary_words < 60 || $summary_words > 80 ) ) {
 			$style_notes[] = sprintf(
 				/* translators: %d: search-summary word count. */
-				__( 'Style warning: Search summary has %d words; house style is normally 60-80 words.', 'ehrman-blog-discovery' ),
+				__( 'Style warning: Summary has %d words; house style is normally 60-80 words.', 'ehrman-blog-discovery' ),
 				$summary_words
 			);
 		}
@@ -171,7 +171,7 @@ final class Post_Ingestion_Proposal_Validator {
 		if ( '' !== $summary && 3 !== $summary_sentences ) {
 			$style_notes[] = sprintf(
 				/* translators: %d: search-summary sentence count. */
-				__( 'Style warning: Search summary has %d sentences; house style normally uses three.', 'ehrman-blog-discovery' ),
+				__( 'Style warning: Summary has %d sentences; house style normally uses three.', 'ehrman-blog-discovery' ),
 				$summary_sentences
 			);
 		}

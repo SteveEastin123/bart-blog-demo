@@ -105,7 +105,7 @@ final class Post_Ingestion_REST_Controller {
 		if ( null !== $service->latest_for_post( $post->ID ) ) {
 			return new WP_Error(
 				'ehrman_ingestion_exists',
-				__( 'This post already has an ingestion record. Use Reanalyze or Review instead.', 'ehrman-blog-discovery' ),
+				__( 'This post already has an ingestion record. Use Regenerate Metadata or Review instead.', 'ehrman-blog-discovery' ),
 				array( 'status' => 409 )
 			);
 		}

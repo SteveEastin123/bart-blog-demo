@@ -152,7 +152,7 @@ final class Post_Ingestion_Review_Workflow {
 			return new WP_Error( 'ehrman_ingestion_storage_error', __( 'The approved proposal could not be encoded.', 'ehrman-blog-discovery' ) );
 		}
 		if ( ! $this->repository->vocabulary_matches( Database::text( $draft['taxonomy_version'] ?? null ), $current_taxonomy ) ) {
-			return new WP_Error( 'ehrman_ingestion_taxonomy_changed', __( 'The topic or keyword vocabulary changed after analysis. Reanalyze the draft before approval.', 'ehrman-blog-discovery' ) );
+			return new WP_Error( 'ehrman_ingestion_taxonomy_changed', __( 'The topic or keyword vocabulary changed after analysis. Use Regenerate Metadata before approval.', 'ehrman-blog-discovery' ) );
 		}
 
 		$source_wp_id = Database::integer( $draft['source_wp_id'] ?? null );
@@ -284,7 +284,7 @@ final class Post_Ingestion_Review_Workflow {
 			return $post;
 		}
 		if ( null !== $post && Post_Ingestion_Post_Source::source_changed( $post, $draft ) ) {
-			return new WP_Error( 'ehrman_ingestion_source_changed', __( 'The saved WordPress post changed after analysis. Reanalyze it before approval.', 'ehrman-blog-discovery' ) );
+			return new WP_Error( 'ehrman_ingestion_source_changed', __( 'The saved WordPress post changed after analysis. Use Regenerate Metadata before approval.', 'ehrman-blog-discovery' ) );
 		}
 		if ( ! in_array( $draft['status'], array( 'ready', 'held' ), true )
 			|| ( null !== $revision && ! hash_equals( self::revision( $draft ), $revision ) ) ) {

@@ -25,7 +25,7 @@ final class Activator {
 				'ehrman_discovery_import_status',
 				array(
 					'state'   => 'not_imported',
-					'message' => 'The WordPress/MySQL environment is ready for the Phase 3 importer.',
+					'message' => 'The WordPress database is ready for the initial data import.',
 				),
 				'',
 				false

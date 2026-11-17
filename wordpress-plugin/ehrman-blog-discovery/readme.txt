@@ -3,45 +3,78 @@ Contributors: steveeastin
 Tags: search, topics, discovery
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 0.10.15
+Stable tag: 0.11.0
 License: GPLv2 or later
 
-WordPress foundation for browsing and searching the Ehrman Blog index.
+Browse Topics, Keyword Search, Ask AI, and post metadata publishing for the Ehrman Blog.
 
 == Description ==
 
-This plugin uses the WordPress database connection and imports the authoritative
-post, topic, category, subject-area, and secondary-keyword indexes into
-dedicated database tables. It provides scoped keyword search, autocomplete, and
-hierarchical topic browsing through subject areas and categories.
+This plugin uses the existing WordPress database connection and imports four
+discovery JSON files and a supplied title-and-summary vector package into
+dedicated database tables. It provides Browse Topics, Keyword Search with
+autocomplete, and Ask AI using semantic retrieval and AI candidate review.
+Only the selected Browse Topics structure and Ask AI method are active.
 
-Administrators can also prepare full posts in a protected ingestion workflow.
-It uses the shared server-side OPENAI_API_KEY to draft descriptions, search
-summaries, topics, and secondary keywords for review. Database-managed approval
-is enabled by default. Explicit EHRMAN_DISCOVERY_POST_SOURCE=json disables
-approval for environments rebuilt from JSON. Publishers still approve each proposal;
-metadata is never automatically approved.
+The standard WordPress post editor's Search Metadata panel uses the saved,
+published post as the source for its ID, title, URL, author, date, and text.
+It uses the shared server-side OPENAI_API_KEY to generate a Description,
+Summary, Topics, and Keywords. Search and ingestion retain separate model
+settings and usage records.
+
+Manual mode is the default. Create Metadata shows progress and waits for
+generation in the request, then displays the proposal for approval. Publishers
+can edit Description and Summary and remove or restore AI-selected terms.
+Approve and Add to Search saves the metadata, then generates its vector.
+Approved, WordPress-linked records support explicit editing or regeneration
+through a separate revision; existing live data remains until approval succeeds.
+
+Opt-in Automatic mode queues generation, validation, approval, and vector
+creation after a new post is first published. Publication does not wait for AI.
+Automatic mode requires reliable WordPress cron; errors remain available for
+manual recovery. Later post edits do not automatically regenerate metadata.
+Tools > Ehrman Discovery provides Manual/Automatic radio buttons that save
+immediately. Each post can override the default before first publication.
+
+Database-managed approval is enabled by default. Explicit
+EHRMAN_DISCOVERY_POST_SOURCE=json disables approval for environments rebuilt
+from JSON. Data ownership and Manual/Automatic publishing are separate settings.
 
 MariaDB is the current build and regression-test target. The plugin does not
 bundle or start a database server. The existing EHRMAN_DISCOVERY_POST_SOURCE=mysql
 setting means database-authoritative ingestion on MariaDB as well; it is not a
 database product selector.
 
-The block editor includes a Search Metadata panel for published posts. It uses
-the saved WordPress post as the trusted source, exposes the current proposal and
-vector status, and provides protected analysis, review, approval, reanalysis,
-and vector-retry controls. AI analysis runs as a recoverable background job, so
-the editor remains responsive while results are generated. The Tools > Post
-Ingestion page remains available for detailed review and as an administrative
-fallback.
+Tools > Search Metadata provides the worklist, review, revisions, and recovery.
+It defaults to All records; Clear filters resets only the filters. Imported
+records without native WordPress ownership remain read-only. Linking existing
+imported records to production posts requires a validated integration step;
+matching source IDs alone does not establish ownership.
+
+Tools > AI Analytics provides Overview, Ask AI, and Post Metadata tabs for usage
+and estimated costs. The production plugin excludes the demo-only Reviewer Tools
+and experimental search methods. Developer regression tests are delivered separately.
 
 == Installation ==
 
-1. Copy the plugin directory to `wp-content/plugins/ehrman-blog-discovery`.
-2. Activate Ehrman Blog Discovery in WordPress.
-3. Add `[ehrman_discovery_status]` to a page to verify the environment.
-4. Use `[ehrman_keyword_search]`, `[ehrman_browse_topics]`, and `[ehrman_ask_ai]`
-   on WordPress pages. The managed browsing page is `/browse-topics/`.
+1. Back up the WordPress database and pause editorial writes and scheduled ingestion.
+2. Copy the plugin directory to `wp-content/plugins/ehrman-blog-discovery`, then
+   activate Ehrman Blog Discovery in WordPress.
+3. Place the four discovery JSON files and `ehrman_post_embeddings.jsonl.gz` in
+   a private directory outside WordPress.
+4. Run `wp ehrman-discovery install-data --data-dir=/secure/ehrman-data --validate-only`,
+   then the same command without `--validate-only` to install the approved package.
+   Supplied vectors are imported without API calls. Existing editorial data is protected.
+5. Configure the shared server-side `OPENAI_API_KEY` for paid Ask AI and metadata
+   requests. Never put it in page content, client code, or the delivery package.
+6. Use `[ehrman_browse_topics]`, `[ehrman_keyword_search]`, and `[ehrman_ask_ai]`
+   on WordPress pages. Canonical managed URLs are `/browse-topics/`,
+   `/keyword-search/`, and `/ask-ai/`.
+7. Check Tools > Ehrman Discovery for database status and publishing settings.
+   Leave Manual selected unless Automatic is intended and cron is configured.
+
+Use the accompanying developer handoff and post-ingestion guides for installation
+prerequisites, data-linking boundaries, upgrades, rollback, and acceptance testing.
 
 == Development ==
 
@@ -52,6 +85,15 @@ Run `composer analyse` for maximum-level, WordPress-aware PHPStan analysis, or
 `composer check` to run both standards and static-analysis checks.
 
 == Changelog ==
+
+= 0.11.0 =
+* Add opt-in automatic metadata generation, approval, and vectors after first publication.
+* Keep Manual as the default, with foreground generation, progress, and explicit approval.
+* Support safe revisions of approved metadata and removal/restoration of AI-selected terms.
+* Add autosaving Manual/Automatic site settings and a prepublication per-post override.
+* Default Search Metadata to All, capitalize vector statuses, and clarify Clear filters.
+* Default Browse Topics sorting to Most posts, while retaining the Alphabetical option.
+* Keep analytics on its dedicated Tools page and update the developer handoff guidance.
 
 = 0.10.15 =
 * Retire Browse Topics 2 and rename the retained first structure to Browse Topics.

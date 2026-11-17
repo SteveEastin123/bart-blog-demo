@@ -2,6 +2,10 @@
 
 This document defines the materials to provide to the development company for integrating the Ehrman Blog Discovery functionality into Bart's production WordPress site.
 
+Documentation reviewed against plugin **0.11.0**, schema **1.16.0**, on
+November 17, 2026. Versioned migration descriptions below are historical;
+this review does not certify the final delivery archive or production deployment.
+
 ## 1. Installable WordPress Plugin
 
 - `ehrman-blog-discovery.zip`
@@ -20,10 +24,10 @@ review are unrelated features and remain in the production plugin.
 The retired topic/keyword Ask AI interpreter and experimental section-search
 plugins are not part of the production plugin. Package the active plugin directory,
 not the repository root. Browse Topics uses the selected first structure; the
-second structure is retired. A single Ask AI Analytics dashboard reports on the active
-semantic method; retired-method records are retained locally but excluded from
-the dashboard and its exports. Historical test data is not part of the discovery
-data package.
+second structure is retired. **Tools > AI Analytics** contains Overview, Ask AI,
+and Post Metadata tabs. The Ask AI tab reports on the active semantic method;
+retired-method records are retained locally but excluded from that report and
+its exports. Historical test data is not part of the discovery data package.
 
 ### Ask AI Naming and Compatibility
 
@@ -161,13 +165,24 @@ Only that JSON-managed mode permits an intentional `--replace-existing` after
 backup; it still refuses edits detected since installation and ingestion history.
 The legacy `import --force` also requires JSON-managed mode. Do not change the
 source mode merely to bypass protection of production editorial data.
-Production needs no post-import setting change to enable approval. An administrator
-must still review and explicitly approve metadata; approval is never automatic.
+Production needs no post-import setting change to enable approval. **Manual** is
+the default publishing mode and requires explicit review and approval. An
+administrator can opt into **Automatic**, which generates, validates, approves,
+and indexes new posts after first publication through WordPress cron. Invalid
+results and failures require recovery; Automatic does not bypass validation or
+the JSON-mode lock. Later edits do not automatically regenerate metadata.
 
 Managed-page upgrades only adopt Ask AI or Browse Topics pages containing a
 recognized plugin shortcode. If an unrelated page occupies the canonical search
 URL, resolve that conflict explicitly before retrying page setup; the upgrade
 does not rename or replace the unrelated page.
+
+Imported `source_wp_id` values are not automatically assigned native
+`wordpress_post_id` ownership. Search can use the imported metadata and URLs,
+but native-post lifecycle handling and the editor's revision workflow must not
+be assumed to cover unlinked imported records. Validated production linking and
+the associated metadata-maintenance workflow remain an integration task. Do not
+enable ownership by blindly matching IDs on a demo or staging database.
 
 Maintainers can run `wordpress-production/verify-installation.ps1` after building
 the image. It creates a uniquely named, isolated WordPress/database stack, exercises
@@ -210,17 +225,31 @@ optimization or a change to relevance behavior.
 ### Post-Editor Integration
 
 `Post_Ingestion_Editor` registers only the Gutenberg panel's assets and configuration.
-`Http/Post_Ingestion_REST_Controller` owns the five existing protected editor
-routes, permissions, request handling and safe response payloads; `Rest_Controller`
-registers those routes. `Post_Ingestion_Post_Source` builds input from the saved
-WordPress post and detects changes, shared by REST approval and admin status.
-The URLs, capabilities and WordPress REST nonce protection remain unchanged.
-**Create Metadata** now waits for AI generation in the request; it does not queue
-new background work. The editor shows Description, Summary, AI-selected Topics,
-and one Keywords list. **Approve and Add to Search** approves all displayed
-metadata, including new keyword labels. Only Description and Summary are editable;
-the server retains stored AI selections and validation state. Revision checks,
-the JSON-mode lock, source checks and vocabulary validation still apply. The status payload includes a revision fingerprint, not full post text.
+`Http/Post_Ingestion_REST_Controller` owns seven protected editor routes under
+`/ehrman-discovery/v1/ingestion/post/<post_id>`: GET status and POST actions
+`analyze`, `reanalyze`, `approve`, `retry-embedding`, `edit-metadata`, and
+`cancel-revision`. `Rest_Controller` registers them.
+`Post_Ingestion_Post_Source` builds input from the saved WordPress post and
+detects changes, shared by REST approval and admin status. Administrator/post-edit
+capabilities and WordPress REST nonce protection remain required.
+
+In Manual mode, **Create Metadata** waits for AI generation in the request while
+displaying progress; it does not queue a new background job. The editor shows
+Description, Summary, AI-selected Topics, and one Keywords list. Description and
+Summary can be edited; an X removes a selected term and Undo restores it before
+approval. There are no vocabulary pickers, separate new-keyword field, or reviewer
+notes. **Approve and Add to Search** saves the retained selections, including
+retained new keyword labels, then generates the vector. Revision checks, the
+JSON-mode lock, source checks, and vocabulary validation still apply. The status
+payload includes a revision fingerprint, not full post text.
+
+The latest approved record linked to a published WordPress post supports
+**Edit Metadata** or **Regenerate Metadata** through a separate pending revision.
+Live metadata remains active until **Approve Changes** succeeds. **Cancel Changes**
+discards only that revision. Changed title/summary input requires a replacement
+vector; unchanged input can reuse a valid vector. Imported, unlinked records are
+read-only. Automatic mode uses the same validation and approval services after
+first publication, but runs through cron rather than these foreground actions.
 See the post-ingestion guide for the publisher workflow and its current limits.
 
 ### Analytics Presentation
@@ -249,11 +278,14 @@ and its submit handler have been removed. New metadata creation starts in the
 normal WordPress post editor's **Search Metadata** panel or from a published post
 listed as **Not generated** on the worklist. `Post_Ingestion_Worklist` handles
 database-side counts, filters, and 25-row pagination, including existing imported
-metadata without a generation-history record. Templates escape display values and
-render nonce-protected forms; they do not query the database or run ingestion.
+metadata without a generation-history record. The default status is **All**;
+**Clear filters** resets status, title, dates, and pagination without deleting
+data. Tools-page creation/regeneration opens a progress screen before making the
+foreground request, then opens the resulting proposal. Templates escape display
+values and render nonce-protected forms; they do not query the database or run ingestion.
 
-Analysis, review, approval, legacy-job recovery, and post-approval vector generation remain
-in the existing ingestion services. The production regression suite exercises
+Analysis, review, revisions, approval, automatic publication, legacy-job recovery,
+and vector generation remain in the ingestion services. The production regression suite exercises
 the page's workflow states, form nonces, JSON-mode approval lock, escaping,
 history, and notices with rolled-back fixtures and no API calls.
 

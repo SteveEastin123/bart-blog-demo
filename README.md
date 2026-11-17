@@ -2,8 +2,9 @@
 
 This repository contains the discovery system for browsing and searching Bart
 Ehrman's blog. The current product and handoff target is the WordPress/MariaDB
-implementation. It provides Browse Topics, Keyword Search, Ask AI,
-reviewer tools, AI analytics, and an administrator post-ingestion workflow.
+implementation. The production plugin provides Browse Topics, Keyword Search,
+Ask AI, AI analytics, and administrator metadata publishing. Reviewer Tools is
+a separate demo-only companion, not part of the production plugin.
 
 The repository is private because its indexing sources include member-only post
 content. Do not publish the repository or its raw data.
@@ -26,10 +27,18 @@ The four imported JSON files are:
 - `ehrman_post_categories.json`
 - `ehrman_post_subject_areas.json`
 
-JSON remains authoritative during development. A rebuild imports those files
-into MariaDB, preserving the current workflow for downloaded posts. At the final
-source-of-truth handoff, the database will become authoritative and the administrator
-ingestion workflow will update it directly.
+The local preparation copy explicitly uses JSON-managed mode. A rebuild imports
+those files into MariaDB, preserving the downloaded-post workflow. The plugin
+itself already defaults to database-managed approval: production uses JSON and
+supplied vectors for initial installation, then updates the database through the
+post-editor metadata workflow. Manual publishing is the default; administrators
+can opt into Automatic processing after first publication. Data ownership and
+publishing mode are separate settings.
+
+See the [handoff package guide](docs/wordpress_developer_handoff_package.md),
+[remaining-work checklist](docs/wordpress_developer_handoff_remaining_work.md),
+and [publishing guide](docs/wordpress_post_ingestion_handoff.md) for current
+integration boundaries and release acceptance requirements.
 
 ## Local WordPress Build
 

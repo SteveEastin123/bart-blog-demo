@@ -97,7 +97,7 @@ final class Data_Installer {
 				continue;
 			}
 			if ( '' === $summary ) {
-				$warnings[] = sprintf( 'WordPress post %s has no search summary and is excluded from the semantic index.', Database::text( $post['wpId'] ) );
+				$warnings[] = sprintf( 'WordPress post %s has no summary and is excluded from the semantic index.', Database::text( $post['wpId'] ) );
 				continue;
 			}
 			$eligible[ (int) Database::text( $post['wpId'] ) ] = array(

@@ -18,6 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -B scripts/check_wordpress_versions.py
       - run: python -B scripts/package_wordpress_tests.py --check
       - run: python -B -m unittest discover -s developer-tests/tests -v
       - run: python -B scripts/check_wordpress_landing.py

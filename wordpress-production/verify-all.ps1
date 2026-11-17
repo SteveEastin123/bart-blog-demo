@@ -58,6 +58,7 @@ try {
             $null = Get-Command $command -ErrorAction Stop
         }
         Invoke-RegressionCommand $PythonExecutable @('--version')
+        Invoke-RegressionCommand $PythonExecutable @('-B', 'scripts/check_wordpress_versions.py')
         Invoke-RegressionCommand $NodeExecutable @('--version')
         Invoke-RegressionCommand $PhpExecutable @('--version')
         Invoke-RegressionCommand docker @('info', '--format', '{{.ServerVersion}}')

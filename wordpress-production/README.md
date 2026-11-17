@@ -39,6 +39,10 @@ A new checkout needs its approved reference supplied separately; the runner
 never generates or overwrites an approved baseline. Data changes may require
 review and explicit approval of a replacement reference.
 
+The preflight checks that the plugin header version, `EHRMAN_DISCOVERY_VERSION`,
+and readme Stable tag agree. GitHub Actions runs the same check. To run it alone
+without Docker: `python -B scripts/check_wordpress_versions.py`.
+
 The command runs data/diagram checks, frontend and developer-package unit tests,
 PHPCS/PHPStan for all three packages, the production PHP/REST suite, the extracted
 developer-test ZIP against the approved baseline, fresh installation/rollback,
@@ -121,9 +125,10 @@ ranking signals.
 ## Administrator Post Ingestion
 
 The normal local copy stays `EHRMAN_DISCOVERY_POST_SOURCE=json` for downloaded
-post preparation. The Render configuration is prepared for `mysql`
-(database-managed, including MariaDB), but this source change is not deployment
-authorization. Do not deploy until explicitly approved. Render publishing tests
+post preparation. The plugin defaults to database-managed approval when the
+setting is absent; the legacy `mysql` value also covers MariaDB. Render is a
+separate deployment whose live version and configuration must be verified before
+testing. Local preparation does not authorize a Render deployment. Render publishing tests
 may retain test posts indefinitely; the handoff uses local JSON and validated
 vectors, not Render's database. In database-managed mode, initialization seeds
 an entirely empty discovery database once and preserves existing editorial data
@@ -146,12 +151,16 @@ supplies the post ID, title, URL, author, publication date, and complete text.
 No manual ID entry or copying is required. **Tools > Search Metadata** retains
 review, approval, retry and history functions at the existing
 `tools.php?page=ehrman-post-ingestion` URL, without a separate post-entry form.
-The configured ingestion model analyzes the full text using the shared OpenAI key and returns a
-reviewable description, search summary, existing topics, existing secondary
-keywords, explicitly marked new-keyword proposals, a readiness decision, and
-review notes. Manual mode requires explicit approval before live search changes.
-Administrators can opt into Automatic mode at **Tools > Ehrman Discovery**, with
-a per-post override in the editor before first publication. Automatic mode
+The configured ingestion model analyzes the full text using the shared OpenAI
+key. Publishers review Description, Summary, AI-selected Topics, and a combined
+Keywords list, including proposed new keywords. Description and Summary are
+editable; selected terms can be removed and restored. There is no vocabulary
+dropdown, separate new-keyword field, or editable Reviewer Notes field. The
+stored proposal retains validation and review evidence. Manual mode requires
+explicit approval before live search changes.
+Administrators can opt into Automatic mode through autosaving radio buttons at
+**Tools > Ehrman Discovery**, with a per-post override in the editor before first
+publication. Automatic mode
 validates and approves metadata and creates its vector in a background job.
 The installation default remains Manual; existing posts are not bulk processed.
 
@@ -208,12 +217,16 @@ in search analytics, while metadata analysis and post-vector metrics remain on
 the ingestion draft. Model choices remain independent.
 
 Pending drafts retain the supplied full text so they can be revised or
-reanalyzed. Approval writes the normalized post and search relationships in a
+reanalyzed. Initial approval writes the normalized post and search relationships in a
 transaction, retains the proposal and AI audit metadata, deletes the full post
 text, and then generates the title-and-summary vector. A vector failure does
 not roll back the approved post; it leaves a visible pending state with a retry
-action. While JSON remains authoritative, continue using the existing download
-skill and rebuild/import workflow for live data changes.
+action. Approved, WordPress-linked records can later be edited or regenerated
+as separate revisions. Revision approval preserves the existing live metadata
+and vector if replacement fails; unchanged vector input can reuse a valid vector.
+Imported records without native ownership remain read-only. In the JSON-managed
+local preparation copy, continue using the download skill and rebuild/import
+workflow to update the approved handoff data.
 
 Published WordPress posts can be analyzed from the block editor's **Search
 Metadata** panel. Manual **Create Metadata** waits for generation and displays
