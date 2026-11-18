@@ -38,6 +38,8 @@ COPY --chown=www-data:www-data data/index/ehrman_post_search_index.json \
 RUN mkdir -p /opt/ehrman-tests
 COPY --chown=www-data:www-data wordpress-production/tests/plugin-regression-tests.php \
     /opt/ehrman-tests/plugin-regression-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-publishing-tests.php \
+    /opt/ehrman-tests/post-ingestion-publishing-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/api-settings-tests.php \
     /opt/ehrman-tests/api-settings-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/semantic-ranking-tests.php \
@@ -70,6 +72,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/search-page-tests.php 
     /opt/ehrman-tests/search-page-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/browse-retirement-tests.php \
     /opt/ehrman-tests/browse-retirement-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/post-linking-tests.php \
+    /opt/ehrman-tests/post-linking-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/ask-ai-naming-tests.php \
     /opt/ehrman-tests/ask-ai-naming-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/reviewer-tools-tests.php \

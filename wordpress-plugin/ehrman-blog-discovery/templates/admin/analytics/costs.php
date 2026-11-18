@@ -24,11 +24,10 @@ $unknown  = $metadata ? $summary['unknown'] : $overview['metadata']['unknown'];
 	echo $view['navigation'];
 	?>
 	<h2><?php echo esc_html( $metadata ? __( 'Post Metadata', 'ehrman-blog-discovery' ) : __( 'Combined AI Costs', 'ehrman-blog-discovery' ) ); ?></h2>
-	<p>
 	<?php
-	foreach ( $view['periods'] as $period ) :
-		?>
-		<a class="button" href="<?php echo esc_url( $period['url'] ); ?>"><?php echo esc_html( $period['label'] ); ?></a> <?php endforeach; ?></p>
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Shared partial escapes labels and URLs.
+	echo Template::render( 'admin/analytics/date-shortcuts.php', array( 'links' => $view['periods'] ) );
+	?>
 	<form method="get" style="display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:18px 0">
 		<input type="hidden" name="page" value="ehrman-ai-analytics">
 		<input type="hidden" name="tab" value="<?php echo esc_attr( $view['tab'] ); ?>">

@@ -19,7 +19,7 @@ const output = outputFor('analytics-dashboard-ui');
   { cwd: root, encoding: 'utf8' }).trimEnd().split(/\r?\n/);
   assert.equal(credentials.length, 2);
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
-  const context = await browser.newContext();
+  const context = await browser.newContext({ reducedMotion: 'reduce' });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -35,6 +35,37 @@ const output = outputFor('analytics-dashboard-ui');
     const metrics = page.locator('[data-ebd-analytics-metrics]');
     const initial = await metrics.innerText();
     const metricsLayout = await metrics.getAttribute('style');
+    let shortcutClicks = 0;
+    const checkShortcuts = async (tab) => {
+      const shortcuts = page.locator('[data-ebd-analytics-date-shortcuts]');
+      assert.deepEqual(await shortcuts.getByRole('link').allTextContents(), ['Today', 'This month', 'All retained']);
+      assert(await shortcuts.getByRole('link').evaluateAll(links => links.every(link => {
+        const box = link.getBoundingClientRect();
+        return box.left >= 0 && box.right <= innerWidth && link.scrollWidth <= link.clientWidth + 1;
+      })), 'Date shortcuts clip at this viewport');
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).formatToParts(new Date()).map(part => [part.type, part.value]));
+      const today = `${parts.year}-${parts.month}-${parts.day}`;
+      for (const [label, from, to] of [
+        ['Today', today, today], ['This month', today.slice(0, 8) + '01', today], ['All retained', '', ''],
+      ]) {
+        const href = await shortcuts.getByRole('link', { name: label, exact: true }).getAttribute('href');
+        const destination = new URL(href);
+        assert.equal(destination.searchParams.get('tab'), tab);
+        assert.equal(destination.searchParams.get('date_from'), from);
+        assert.equal(destination.searchParams.get('date_to'), to);
+        assert.equal(destination.searchParams.get('paged'), null);
+        await shortcuts.getByRole('link', { name: label, exact: true }).click();
+        await page.waitForURL(href);
+        assert.equal(await page.locator('input[name="date_from"]').inputValue(), from);
+        assert.equal(await page.locator('input[name="date_to"]').inputValue(), to);
+        assert.equal(await page.locator('form input[name="tab"]').inputValue(), tab);
+        shortcutClicks++;
+      }
+      await page.waitForLoadState('load');
+      await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo(0, 0); });
+    };
     assert(initial.includes('Total estimated cost') && initial.includes('Average cost per question'));
     assert(!initial.includes('Helpful rate'));
     for (const view of ['ask-ai', 'ask-ai-2', 'comparison', 'combined']) {
@@ -50,7 +81,8 @@ const output = outputFor('analytics-dashboard-ui');
       assert.equal(await page.locator('[name="feedback"]').count(), 0);
       assert.equal(await page.locator('[data-ebd-analytics-questions] th').count(), 6);
       assert(!(await page.locator('[data-ebd-analytics-questions] thead').innerText()).includes('Feedback'));
-      await page.screenshot({ path: path.join(output, 'dashboard-' + width + '.png') });
+      await checkShortcuts('ask-ai');
+      await page.screenshot({ path: path.join(output, 'dashboard-' + width + '.png'), animations: 'disabled' });
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Horizontal overflow at ' + width);
     }
     await page.setViewportSize({ width: 1440, height: 1000 });
@@ -80,6 +112,7 @@ const output = outputFor('analytics-dashboard-ui');
       for (const width of [1440, 1024, 390]) {
         await page.setViewportSize({ width, height: 1000 });
         await page.goto(rootUrl + '&tab=' + tab);
+        await checkShortcuts(tab);
         assert.equal(await page.locator('#wpbody .nav-tab-wrapper a').count(), 3);
         assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), tab === 'overview' ? 'Overview' : 'Post Metadata');
         assert.equal(await page.locator('form input[name="tab"]').inputValue(), tab);
@@ -114,7 +147,7 @@ const output = outputFor('analytics-dashboard-ui');
           assert(await page.getByText('Total estimated cost includes Ask AI and Post Metadata only.', { exact: false }).isVisible());
         }
         assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Cost tab overflow: ' + tab + ' ' + width);
-        await page.screenshot({ path: path.join(output, tab + '-' + width + '.png'), fullPage: true });
+        await page.screenshot({ path: path.join(output, tab + '-' + width + '.png'), fullPage: true, animations: 'disabled' });
       }
     }
     const metadataExport = await page.getByRole('link', { name: 'Export metadata costs CSV', exact: true }).getAttribute('href');
@@ -147,7 +180,7 @@ const output = outputFor('analytics-dashboard-ui');
     assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), 'Overview');
     assert.deepEqual(errors, []);
     console.log(JSON.stringify({ status: 'passed', viewports: [1440, 1024, 390], legacyViews: 4,
-      filters: true, csv: true, nonceProtection: true, validResetSubmitted: false, paidCalls: 0 }, null, 2));
+      filters: true, shortcutClicks, csv: true, nonceProtection: true, validResetSubmitted: false, paidCalls: 0 }, null, 2));
   } finally {
     // Destroy only this test's login session, leaving the user's sessions untouched.
     const logout = await page.locator('#wp-admin-bar-logout a').getAttribute('href').catch(() => null);

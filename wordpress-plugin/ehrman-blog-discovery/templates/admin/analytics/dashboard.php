@@ -34,6 +34,8 @@ $reset_context  = array(
 	<?php endif; ?>
 	<p><?php echo esc_html__( 'Reports include the active title-and-summary search only. Retired methods and experiments are excluded. Dates use Eastern time; no account, IP address or browser identifier is stored with a request.', 'ehrman-blog-discovery' ); ?></p>
 	<?php
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Shared partial escapes labels and URLs.
+	echo Template::render( 'admin/analytics/date-shortcuts.php', array( 'links' => $view['period_links'] ) );
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 	echo Template::render( 'admin/analytics/filters.php', $filter_context );
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The shared partial escapes metric values and labels.

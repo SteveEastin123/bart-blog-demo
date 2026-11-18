@@ -7,6 +7,7 @@ use EhrmanBlogDiscovery\AI_Analytics_Renderer;
 use EhrmanBlogDiscovery\AI_Analytics_Report;
 use EhrmanBlogDiscovery\AI_Analytics_Request;
 use EhrmanBlogDiscovery\AI_Analytics_Reset_Handler;
+use EhrmanBlogDiscovery\AI_Cost_Renderer;
 use EhrmanBlogDiscovery\AI_Refinements;
 use EhrmanBlogDiscovery\AI_Requests;
 
@@ -147,6 +148,25 @@ try {
 	$assert( ! str_contains( $html, $marker . ' taxonomy' ) && ! str_contains( $html, $marker . ' experiment' ), 'Hidden methods appeared in dashboard details.' );
 	$assert( str_contains( $html, '1.200' ) && str_contains( $html, '0.400' ), 'Combined and average costs are missing from dashboard.' );
 	$dashboard = $dashboard_dom( $html );
+	$today = new DateTimeImmutable( 'now', new DateTimeZone( 'America/New_York' ) );
+	foreach ( array( 'overview', 'ask-ai', 'post-metadata' ) as $tab ) {
+		if ( 'ask-ai' === $tab ) {
+			$tab_html = $html;
+		} else {
+			ob_start();
+			try { ( new AI_Cost_Renderer() )->render( $tab, $filters, 2 ); $tab_html = (string) ob_get_contents(); }
+			finally { ob_end_clean(); }
+		}
+		$shortcuts = $dashboard_dom( $tab_html )->query( '//p[@data-ebd-analytics-date-shortcuts]/a' );
+		$assert_same( 3, $shortcuts->length, 'Missing date shortcuts on ' . $tab );
+		$expected_dates = array( 'Today' => $today->format( 'Y-m-d' ), 'This month' => $today->format( 'Y-m-01' ), 'All retained' => '' );
+		$assert_same( array_keys( $expected_dates ), array_map( static fn( $link ) => trim( $link->textContent ), iterator_to_array( $shortcuts ) ), 'Date shortcut order differs between tabs.' );
+		foreach ( $shortcuts as $link ) {
+			parse_str( (string) wp_parse_url( $link->getAttribute( 'href' ), PHP_URL_QUERY ), $query );
+			$date = $expected_dates[ trim( $link->textContent ) ];
+			$assert_same( array( 'page' => 'ehrman-ai-analytics', 'tab' => $tab, 'date_from' => $date, 'date_to' => '' === $date ? '' : $today->format( 'Y-m-d' ) ), $query, 'Date shortcut lost its tab, used the wrong dates, or retained old filters/pagination.' );
+		}
+	}
 	$question_table = '//table[@data-ebd-analytics-questions]';
 	$review_table = '//details[summary/strong[text()="AI review details"]]//table';
 	$assert_same( 6, $dashboard->query( $question_table . '/thead/tr/th' )->length, 'Question columns changed.' );

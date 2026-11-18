@@ -54,6 +54,34 @@ final class AI_Cost_Renderer {
 	}
 
 	/**
+	 * Builds the same quick-date filters for every analytics tab in Eastern time.
+	 *
+	 * @param string $tab Selected analytics tab.
+	 * @return list<array{label:string,url:string}> Date shortcut links.
+	 */
+	public static function period_links( string $tab ): array {
+		$now     = new \DateTimeImmutable( 'now', new \DateTimeZone( 'America/New_York' ) );
+		$periods = array();
+		foreach ( array(
+			__( 'Today', 'ehrman-blog-discovery' )        => $now->format( 'Y-m-d' ),
+			__( 'This month', 'ehrman-blog-discovery' )   => $now->format( 'Y-m-01' ),
+			__( 'All retained', 'ehrman-blog-discovery' ) => '',
+		) as $label => $date ) {
+			$periods[] = array(
+				'label' => $label,
+				'url'   => self::tab_url(
+					$tab,
+					array(
+						'date_from' => $date,
+						'date_to'   => '' === $date ? '' : $now->format( 'Y-m-d' ),
+					)
+				),
+			);
+		}
+		return $periods;
+	}
+
+	/**
 	 * Renders a read-only cost dashboard.
 	 *
 	 * @param string               $tab     Overview or metadata.
@@ -74,33 +102,13 @@ final class AI_Cost_Renderer {
 				'tab'  => $tab,
 			)
 		);
-		$now      = new \DateTimeImmutable( 'now', new \DateTimeZone( 'America/New_York' ) );
-		$periods  = array();
-		foreach ( array(
-			__( 'Today', 'ehrman-blog-discovery' )        => $now->format( 'Y-m-d' ),
-			__( 'This month', 'ehrman-blog-discovery' )   => $now->format( 'Y-m-01' ),
-			__( 'All retained', 'ehrman-blog-discovery' ) => '',
-		) as $label => $date ) {
-			$periods[] = array(
-				'label' => $label,
-				'url'   => add_query_arg(
-					array(
-						'page'      => 'ehrman-ai-analytics',
-						'tab'       => $tab,
-						'date_from' => $date,
-						'date_to'   => '' === $date ? '' : $now->format( 'Y-m-d' ),
-					),
-					admin_url( 'tools.php' )
-				),
-			);
-		}
-		$html = Template::render(
+		$html     = Template::render(
 			'admin/analytics/costs.php',
 			array(
 				'tab'        => $tab,
 				'navigation' => self::navigation( $tab, $filters ),
 				'filters'    => $filters,
-				'periods'    => $periods,
+				'periods'    => self::period_links( $tab ),
 				'overview'   => $overview,
 				'summary'    => $summary,
 				'activities' => array(

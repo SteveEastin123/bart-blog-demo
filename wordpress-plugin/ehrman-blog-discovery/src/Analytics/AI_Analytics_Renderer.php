@@ -55,6 +55,7 @@ final class AI_Analytics_Renderer {
 			'admin/analytics/dashboard.php',
 			array(
 				'navigation'            => AI_Cost_Renderer::navigation( 'ask-ai', $filters ),
+				'period_links'          => AI_Cost_Renderer::period_links( 'ask-ai' ),
 				'was_reset'             => $was_reset,
 				'filters'               => $filters,
 				'clear_url'             => add_query_arg(
