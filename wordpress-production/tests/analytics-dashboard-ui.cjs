@@ -100,7 +100,10 @@ const output = outputFor('analytics-dashboard-ui');
       assert.equal(await page.locator('a[href*="dataset=refinements"]').count(), 0);
       assert.equal(await page.getByRole('link', { name: 'Export questions CSV', exact: true }).count(), 1);
       assert.equal(await page.locator('details > summary').filter({ hasText: 'AI review details' }).count(), 1);
+      assert.equal(await page.getByText('Token and cache details', { exact: true }).count(), 0);
+      assert.equal(await page.getByText('WordPress-cached stages:', { exact: false }).count(), 0);
       assert.equal(await page.locator('[data-ebd-analytics-questions] th').count(), 6);
+      assert((await page.locator('[data-ebd-analytics-questions] thead').innerText()).includes('Total tokens'));
       assert(!(await page.locator('[data-ebd-analytics-questions] thead').innerText()).includes('Feedback'));
       await checkShortcuts('ask-ai');
       await page.screenshot({ path: path.join(output, 'dashboard-' + width + '.png'), animations: 'disabled' });
@@ -117,6 +120,10 @@ const output = outputFor('analytics-dashboard-ui');
     assert.equal(exported.status(), 200);
     const csv = await exported.text();
     assert(csv.includes('"Total cost USD"') && csv.includes('"AI review cost USD"'));
+    for (const column of ['Total tokens', 'Input tokens', 'Cached input tokens', 'Cache write tokens',
+      'Output tokens', 'Reasoning tokens', 'Embedding WordPress cache hit', 'AI review WordPress cache hits']) {
+      assert(csv.split('\n')[0].includes('"' + column + '"'), 'Question CSV lost usage details: ' + column);
+    }
     assert(!csv.split('\n')[0].includes('Method'));
     assert(!csv.split('\n')[0].includes('Feedback'));
     const removedExport = new URL(questionExport);

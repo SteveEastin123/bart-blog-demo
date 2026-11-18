@@ -188,6 +188,7 @@ try {
 	$assert( ! str_contains( $html, $marker . ' taxonomy' ) && ! str_contains( $html, $marker . ' experiment' ), 'Hidden methods appeared in dashboard details.' );
 	$assert( str_contains( $html, '1.200' ) && str_contains( $html, '0.400' ), 'Combined and average costs are missing from dashboard.' );
 	$dashboard = $dashboard_dom( $html );
+	$assert( ! str_contains( $html, 'Token and cache details' ) && ! str_contains( $html, 'WordPress-cached stages:' ), 'Aggregate token/cache section is still displayed.' );
 	$assert_same( 0, $dashboard->query( '//a[contains(.,"Export AI reviews CSV") or contains(@href,"dataset=refinements")]' )->length, 'AI review download is still offered.' );
 	$assert_same( 1, $dashboard->query( '//a[normalize-space(.)="Export questions CSV"]' )->length, 'Question export must appear only once.' );
 	$assert_same( 1, $dashboard->query( '//h2[normalize-space(.)="Questions"]/following-sibling::p[1]/a[normalize-space(.)="Export questions CSV"]' )->length, 'Question export must remain above the question list.' );
@@ -282,6 +283,11 @@ try {
 		$paid = array_values( array_filter( $csv, static fn( $row ) => $row['Request ID'] === $requests['paid'] ) )[0];
 		$assert( abs( (float) $paid['Total cost USD'] - 0.012 ) < 0.0000001, 'CSV total omits a stage or retry.' );
 		$assert_same( '380', $paid['Total tokens'], 'CSV token total is incorrect.' );
+		$assert_same( '340', $paid['Input tokens'], 'Question CSV lost input tokens.' );
+		$assert_same( '40', $paid['Output tokens'], 'Question CSV lost output tokens.' );
+		foreach ( array( 'Cached input tokens', 'Cache write tokens', 'Reasoning tokens', 'Embedding WordPress cache hit', 'AI review WordPress cache hits' ) as $column ) {
+			$assert( array_key_exists( $column, $paid ), 'Question CSV lost usage details: ' . $column );
+		}
 		$wpdb->update( $tables['ai_requests'], array( 'question' => '=1+1 ' . $marker ), array( 'request_id' => $requests['paid'] ) );
 		ftruncate( $stream, 0 );
 		rewind( $stream );

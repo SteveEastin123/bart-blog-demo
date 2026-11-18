@@ -8,6 +8,9 @@ provides a CSV export. Switching tabs preserves the date range.
 Ask AI provides **Export questions CSV**, including each question's total costs
 and review costs. Review attempts remain visible in **AI review details**;
 there is no separate AI-review CSV download.
+The Ask AI dashboard omits the aggregate token/cache panel. Underlying usage
+records, per-question token details, and token/cache columns in the questions
+CSV remain available for troubleshooting.
 
 All three tabs default to **All retained**, with no date limits. The selected
 **Today**, **This month**, or **All retained** shortcut is highlighted. Custom

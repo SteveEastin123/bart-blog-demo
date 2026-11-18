@@ -41,16 +41,6 @@ $reset_context  = array(
 	?>
 	<p><?php echo esc_html( $view['cost_details'] ); ?></p>
 	<p><?php echo esc_html__( 'Costs are estimates based on API-reported usage and recorded pricing. Confirm billed amounts in the OpenAI usage dashboard. Index preparation is reported separately.', 'ehrman-blog-discovery' ); ?></p>
-	<details style="margin:18px 0">
-		<summary><strong><?php echo esc_html__( 'Token and cache details', 'ehrman-blog-discovery' ); ?></strong></summary>
-		<p>
-		<?php
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
-		echo Template::render( 'admin/analytics/tokens.php', $view['tokens'] );
-		?>
-		</p>
-		<p><?php echo esc_html( $view['cache_details'] ); ?></p>
-	</details>
 	<h2><?php echo esc_html__( 'Questions', 'ehrman-blog-discovery' ); ?></h2>
 	<p><a class="button" href="<?php echo esc_url( $view['export_url'] ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a></p>
 	<?php

@@ -66,13 +66,6 @@ final class AI_Analytics_Renderer {
 					self::usd( $summary['initial_cost'], 6 ),
 					self::usd( $summary['refinement_cost'], 6 )
 				),
-				'tokens'             => self::token_details( $summary ),
-				'cache_details'      => sprintf(
-					/* translators: 1: cached stages, 2: stage cache-hit percentage. */
-					__( 'WordPress-cached stages: %1$s (%2$s%% of embedding and review stages). These stages make no new API call. Cached input tokens are provider-side prompt-cache reads, not WordPress cache hits.', 'ehrman-blog-discovery' ),
-					number_format_i18n( (int) $summary['cache_hits'] ),
-					number_format_i18n( $summary['cache_rate'], 1 )
-				),
 				'questions'          => array_map( self::row( ... ), $rows ),
 				'reviews'            => array_map( self::refinement_row( ... ), array_slice( $refinements, 0, 100 ) ),
 				'periods'            => self::period_rows( $periods ),
