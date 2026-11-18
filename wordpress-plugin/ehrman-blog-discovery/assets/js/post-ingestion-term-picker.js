@@ -15,10 +15,7 @@
 		const add = document.createElement( 'button' );
 		add.type = 'button';
 		add.className = 'button ehrman-metadata-picker__add';
-		const icon = document.createElement( 'span' );
-		icon.className = 'dashicons dashicons-plus-alt2';
-		icon.setAttribute( 'aria-hidden', 'true' );
-		add.append( icon, document.createTextNode( topic ? __( 'Add topic', 'ehrman-blog-discovery' ) : __( 'Add keyword', 'ehrman-blog-discovery' ) ) );
+		add.textContent = topic ? __( 'Add topic', 'ehrman-blog-discovery' ) : __( 'Add keyword', 'ehrman-blog-discovery' );
 		const field = document.createElement( 'div' );
 		field.hidden = true;
 		const input = document.createElement( 'input' );

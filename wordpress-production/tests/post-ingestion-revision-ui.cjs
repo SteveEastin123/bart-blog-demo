@@ -76,6 +76,8 @@ const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
       ['topic', 'Search existing topics', fixture.addTopic],
       ['keyword', 'Search existing secondary keywords', fixture.addKeyword],
     ]) {
+      assert.equal(await page.getByRole('button', { name: 'Add ' + kind, exact: true }).textContent(), 'Add ' + kind);
+      assert.equal(await page.getByRole('button', { name: 'Add ' + kind, exact: true }).locator('*').count(), 0, 'Add buttons should be text-only');
       await page.getByRole('button', { name: 'Add ' + kind, exact: true }).click();
       const search = page.getByRole('combobox', { name: searchLabel, exact: true });
       assert(await search.evaluate(element => element === document.activeElement));

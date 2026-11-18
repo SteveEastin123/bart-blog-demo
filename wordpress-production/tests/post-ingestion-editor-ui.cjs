@@ -259,6 +259,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       ['topic', 'Search existing topics', additions.topic],
       ['keyword', 'Search existing secondary keywords', additions.keyword],
     ]) {
+      assert.equal(await button('Add ' + kind).textContent(), 'Add ' + kind);
+      assert.equal(await button('Add ' + kind).locator('*').count(), 0, 'Add buttons should be text-only');
       await button('Add ' + kind).click();
       const search = panel.getByRole('combobox', { name: searchLabel, exact: true });
       assert(await search.evaluate(element => element === document.activeElement));

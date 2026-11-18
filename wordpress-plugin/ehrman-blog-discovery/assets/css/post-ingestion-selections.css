@@ -78,21 +78,8 @@
 	margin-top: 8px;
 }
 
-.ehrman-metadata-picker__add {
-	display: inline-flex !important;
-	align-items: center;
-	gap: 4px;
-}
-
 .ehrman-metadata-picker__add[hidden] {
 	display: none !important;
-}
-
-.ehrman-metadata-picker__add .dashicons {
-	width: 18px;
-	height: 18px;
-	font-size: 18px;
-	line-height: 18px;
 }
 
 .ehrman-metadata-picker input {
