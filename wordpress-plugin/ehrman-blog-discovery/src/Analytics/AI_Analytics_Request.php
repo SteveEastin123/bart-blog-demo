@@ -25,12 +25,14 @@ final class AI_Analytics_Request {
 	/**
 	 * Returns sanitized filters from the current request.
 	 *
-	 * @return array{date_from:string,date_to:string,search:string,zero_results:string} Sanitized filters.
+	 * @return array{date_from:string,date_to:string,period:string,search:string,zero_results:string} Sanitized filters.
 	 */
 	public function filters(): array {
+		$period = $this->query_value( 'period' );
 		return array(
 			'date_from'    => $this->date( $this->query_value( 'date_from' ) ),
 			'date_to'      => $this->date( $this->query_value( 'date_to' ) ),
+			'period'       => in_array( $period, array( 'today', 'month', 'all' ), true ) ? $period : '',
 			'search'       => sanitize_text_field( $this->query_value( 'search' ) ),
 			'zero_results' => '1' === $this->query_value( 'zero_results' ) ? '1' : '',
 		);

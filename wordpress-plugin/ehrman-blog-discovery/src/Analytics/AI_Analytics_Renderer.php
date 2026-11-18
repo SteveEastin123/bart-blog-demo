@@ -24,81 +24,67 @@ final class AI_Analytics_Renderer {
 	 * @param bool                 $was_reset Whether analytics were just reset.
 	 */
 	public function render( array $filters, int $page, bool $was_reset ): void {
-		$report_builder        = new AI_Analytics_Report();
-		$report                = AI_Requests::analytics( $filters, $page, self::PAGE_SIZE );
-		$all_report            = AI_Requests::analytics( $filters, 1, 0 );
-		$request_ids           = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $all_report['rows'] ), true );
-		$refinements           = $report_builder->filtered_refinements( AI_Refinements::recent( 0 ), $request_ids );
-		$rows                  = $report_builder->question_rows( $report['rows'], $refinements );
-		$summary               = $report_builder->summary( $all_report['rows'], $refinements );
-		$semantic_index_usage  = AI_Usage::semantic_index_report();
-		$periods               = $report_builder->periods();
-		$total_pages           = max( 1, (int) ceil( $report['total'] / self::PAGE_SIZE ) );
-		$export_url            = wp_nonce_url(
+		$report_builder       = new AI_Analytics_Report();
+		$report               = AI_Requests::analytics( $filters, $page, self::PAGE_SIZE );
+		$all_report           = AI_Requests::analytics( $filters, 1, 0 );
+		$request_ids          = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $all_report['rows'] ), true );
+		$refinements          = $report_builder->filtered_refinements( AI_Refinements::recent( 0 ), $request_ids );
+		$rows                 = $report_builder->question_rows( $report['rows'], $refinements );
+		$summary              = $report_builder->summary( $all_report['rows'], $refinements );
+		$semantic_index_usage = AI_Usage::semantic_index_report();
+		$periods              = $report_builder->periods();
+		$total_pages          = max( 1, (int) ceil( $report['total'] / self::PAGE_SIZE ) );
+		$export_url           = wp_nonce_url(
 			add_query_arg( array_merge( array( 'action' => 'ehrman_ai_analytics_csv' ), $filters ), admin_url( 'admin-post.php' ) ),
 			'ehrman_ai_analytics_csv'
 		);
-		$refinement_export_url = wp_nonce_url(
-			add_query_arg(
-				array_merge(
-					array(
-						'action'  => 'ehrman_ai_analytics_csv',
-						'dataset' => 'refinements',
-					),
-					$filters
-				),
-				admin_url( 'admin-post.php' )
-			),
-			'ehrman_ai_analytics_csv'
-		);
-		$html                  = Template::render(
+		$html                 = Template::render(
 			'admin/analytics/dashboard.php',
 			array(
-				'navigation'            => AI_Cost_Renderer::navigation( 'ask-ai', $filters ),
-				'period_links'          => AI_Cost_Renderer::period_links( 'ask-ai' ),
-				'was_reset'             => $was_reset,
-				'filters'               => $filters,
-				'clear_url'             => add_query_arg(
+				'navigation'         => AI_Cost_Renderer::navigation( 'ask-ai', $filters ),
+				'period_links'       => AI_Cost_Renderer::period_links( 'ask-ai', $filters ),
+				'was_reset'          => $was_reset,
+				'filters'            => $filters,
+				'clear_url'          => add_query_arg(
 					array(
 						'page' => 'ehrman-ai-analytics',
 						'tab'  => 'ask-ai',
 					),
 					admin_url( 'tools.php' )
 				),
-				'export_url'            => $export_url,
-				'refinement_export_url' => $refinement_export_url,
-				'metrics'               => array(
+				'export_url'         => $export_url,
+				'metrics'            => array(
 					array( __( 'Total estimated cost', 'ehrman-blog-discovery' ), self::usd( $summary['total_cost'] ) ),
 					array( __( 'Average cost per question', 'ehrman-blog-discovery' ), self::cents( $summary['average_question'] ) ),
 					array( __( 'Questions', 'ehrman-blog-discovery' ), number_format_i18n( $summary['questions'] ) ),
 					array( __( 'Average posts returned', 'ehrman-blog-discovery' ), number_format_i18n( $summary['average_results'], 1 ) ),
 					array( __( 'Zero-result questions', 'ehrman-blog-discovery' ), number_format_i18n( $summary['zero_results'] ) ),
 				),
-				'cost_details'          => sprintf(
+				'cost_details'       => sprintf(
 					/* translators: 1: embedding cost, 2: review cost. */
 					__( 'Query embeddings: %1$s; AI review: %2$s. Totals and averages include both stages and respect the active filters, including cached questions.', 'ehrman-blog-discovery' ),
 					self::usd( $summary['initial_cost'], 6 ),
 					self::usd( $summary['refinement_cost'], 6 )
 				),
-				'tokens'                => self::token_details( $summary ),
-				'cache_details'         => sprintf(
+				'tokens'             => self::token_details( $summary ),
+				'cache_details'      => sprintf(
 					/* translators: 1: cached stages, 2: stage cache-hit percentage. */
 					__( 'WordPress-cached stages: %1$s (%2$s%% of embedding and review stages). These stages make no new API call. Cached input tokens are provider-side prompt-cache reads, not WordPress cache hits.', 'ehrman-blog-discovery' ),
 					number_format_i18n( (int) $summary['cache_hits'] ),
 					number_format_i18n( $summary['cache_rate'], 1 )
 				),
-				'questions'             => array_map( self::row( ... ), $rows ),
-				'reviews'               => array_map( self::refinement_row( ... ), array_slice( $refinements, 0, 100 ) ),
-				'periods'               => self::period_rows( $periods ),
-				'pagination'            => self::pagination( $page, $total_pages, $filters ),
-				'index_note'            => sprintf(
+				'questions'          => array_map( self::row( ... ), $rows ),
+				'reviews'            => array_map( self::refinement_row( ... ), array_slice( $refinements, 0, 100 ) ),
+				'periods'            => self::period_rows( $periods ),
+				'pagination'         => self::pagination( $page, $total_pages, $filters ),
+				'index_note'         => sprintf(
 					/* translators: 1: embedding calls, 2: input tokens, 3: estimated cost. */
 					__( '%1$s embedding calls, %2$s input tokens, and %3$s estimated cost. This preparation cost is reported separately and is not included in per-question costs.', 'ehrman-blog-discovery' ),
 					number_format_i18n( $semantic_index_usage['calls'] ),
 					number_format_i18n( $semantic_index_usage['input_tokens'] ),
 					self::usd( $semantic_index_usage['total_cost'], 6 )
 				),
-				'reset_confirmation'    => __( 'Permanently clear ALL active Ask AI questions, reviews and question costs, regardless of the filters above? Retired-method history, post vectors and index-preparation history will be preserved.', 'ehrman-blog-discovery' ),
+				'reset_confirmation' => __( 'Permanently clear ALL active Ask AI questions, reviews and question costs, regardless of the filters above? Retired-method history, post vectors and index-preparation history will be preserved.', 'ehrman-blog-discovery' ),
 			)
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted templates escape values at their output boundaries.

@@ -5,6 +5,15 @@ ongoing Ask AI and Post Metadata costs. Ask AI retains question-level
 usage and review details. Post Metadata groups API attempts by generation run and
 provides a CSV export. Switching tabs preserves the date range.
 
+Ask AI provides **Export questions CSV**, including each question's total costs
+and review costs. Review attempts remain visible in **AI review details**;
+there is no separate AI-review CSV download.
+
+All three tabs default to **All retained**, with no date limits. The selected
+**Today**, **This month**, or **All retained** shortcut is highlighted. Custom
+dates highlight a shortcut only when they match its range; **Clear** restores
+All retained. Dates and preset selection are preserved when switching tabs.
+
 All three tabs share the same responsive summary-card layout. Overview shows
 total estimated cost, Ask AI cost, Post Metadata cost, questions, and metadata
 generation runs. Its two-row activity table links to the detail tabs, preserving

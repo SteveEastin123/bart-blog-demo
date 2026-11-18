@@ -48,6 +48,7 @@ final class AI_Cost_Renderer {
 				'tab'       => $tab,
 				'date_from' => $filters['date_from'] ?? '',
 				'date_to'   => $filters['date_to'] ?? '',
+				'period'    => $filters['period'] ?? '',
 			),
 			admin_url( 'tools.php' )
 		);
@@ -56,29 +57,40 @@ final class AI_Cost_Renderer {
 	/**
 	 * Builds the same quick-date filters for every analytics tab in Eastern time.
 	 *
-	 * @param string $tab Selected analytics tab.
-	 * @return list<array{label:string,url:string}> Date shortcut links.
+	 * @param string                  $tab     Selected analytics tab.
+	 * @param array<string,string>    $filters Applied date filters and optional preset preference.
+	 * @param \DateTimeImmutable|null $now     Optional reporting clock for deterministic tests.
+	 * @return list<array{label:string,url:string,active:bool}> Date shortcut links.
 	 */
-	public static function period_links( string $tab ): array {
-		$now     = new \DateTimeImmutable( 'now', new \DateTimeZone( 'America/New_York' ) );
+	public static function period_links( string $tab, array $filters, ?\DateTimeImmutable $now = null ): array {
+		$now     = ( $now ?? new \DateTimeImmutable( 'now' ) )->setTimezone( new \DateTimeZone( 'America/New_York' ) );
 		$periods = array();
+		$active  = '';
 		foreach ( array(
-			__( 'Today', 'ehrman-blog-discovery' )        => $now->format( 'Y-m-d' ),
-			__( 'This month', 'ehrman-blog-discovery' )   => $now->format( 'Y-m-01' ),
-			__( 'All retained', 'ehrman-blog-discovery' ) => '',
-		) as $label => $date ) {
-			$periods[] = array(
-				'label' => $label,
-				'url'   => self::tab_url(
-					$tab,
-					array(
-						'date_from' => $date,
-						'date_to'   => '' === $date ? '' : $now->format( 'Y-m-d' ),
-					)
-				),
+			'today' => array( __( 'Today', 'ehrman-blog-discovery' ), $now->format( 'Y-m-d' ) ),
+			'month' => array( __( 'This month', 'ehrman-blog-discovery' ), $now->format( 'Y-m-01' ) ),
+			'all'   => array( __( 'All retained', 'ehrman-blog-discovery' ), '' ),
+		) as $key => [ $label, $date ] ) {
+			$dates = array(
+				'date_from' => $date,
+				'date_to'   => '' === $date ? '' : $now->format( 'Y-m-d' ),
+				'period'    => $key,
+			);
+			// The preference only breaks ties on the first of the month; dates remain authoritative.
+			if ( ( $filters['date_from'] ?? '' ) === $dates['date_from'] && ( $filters['date_to'] ?? '' ) === $dates['date_to']
+				&& ( '' === $active || ( $filters['period'] ?? '' ) === $key ) ) {
+				$active = $key;
+			}
+			$periods[ $key ] = array(
+				'label'  => $label,
+				'url'    => self::tab_url( $tab, $dates ),
+				'active' => false,
 			);
 		}
-		return $periods;
+		if ( isset( $periods[ $active ] ) ) {
+			$periods[ $active ]['active'] = true;
+		}
+		return array_values( $periods );
 	}
 
 	/**
@@ -108,7 +120,7 @@ final class AI_Cost_Renderer {
 				'tab'        => $tab,
 				'navigation' => self::navigation( $tab, $filters ),
 				'filters'    => $filters,
-				'periods'    => self::period_links( $tab ),
+				'periods'    => self::period_links( $tab, $filters ),
 				'overview'   => $overview,
 				'summary'    => $summary,
 				'activities' => array(

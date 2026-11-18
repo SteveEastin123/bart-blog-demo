@@ -17,9 +17,8 @@ $filter_context = array(
 	'clear_url' => $view['clear_url'],
 );
 $reset_context  = array(
-	'export_url'            => $view['export_url'],
-	'refinement_export_url' => $view['refinement_export_url'],
-	'confirmation'          => $view['reset_confirmation'],
+	'export_url'   => $view['export_url'],
+	'confirmation' => $view['reset_confirmation'],
 );
 ?>
 <div class="wrap">
@@ -54,7 +53,7 @@ $reset_context  = array(
 		<p><?php echo esc_html( $view['cache_details'] ); ?></p>
 	</details>
 	<h2><?php echo esc_html__( 'Questions', 'ehrman-blog-discovery' ); ?></h2>
-	<p><a class="button" href="<?php echo esc_url( $view['export_url'] ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a> <a class="button" href="<?php echo esc_url( $view['refinement_export_url'] ); ?>"><?php echo esc_html__( 'Export AI reviews CSV', 'ehrman-blog-discovery' ); ?></a></p>
+	<p><a class="button" href="<?php echo esc_url( $view['export_url'] ); ?>"><?php echo esc_html__( 'Export questions CSV', 'ehrman-blog-discovery' ); ?></a></p>
 	<?php
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 	echo Template::render( 'admin/analytics/questions.php', array( 'rows' => $view['questions'] ) );

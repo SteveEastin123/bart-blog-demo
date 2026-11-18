@@ -36,7 +36,23 @@ const output = outputFor('analytics-dashboard-ui');
     const initial = await metrics.innerText();
     const metricsLayout = await metrics.getAttribute('style');
     let shortcutClicks = 0;
+    const checkSelection = async (label) => {
+      const shortcuts = page.locator('[data-ebd-analytics-date-shortcuts]');
+      const selected = shortcuts.locator('a[aria-current="true"]');
+      assert.equal(await selected.count(), label ? 1 : 0, 'Wrong number of selected date shortcuts');
+      assert.equal(await shortcuts.locator('a.button-primary').count(), label ? 1 : 0);
+      if (label) {
+        assert.equal(await selected.innerText(), label);
+        assert(await selected.evaluate(link => link.classList.contains('button-primary')));
+        const colors = await shortcuts.getByRole('link').evaluateAll(links => links.map(link => ({
+          selected: link.getAttribute('aria-current') === 'true', color: getComputedStyle(link).backgroundColor,
+        })));
+        assert(colors.filter(link => !link.selected).every(link => link.color !== colors.find(item => item.selected).color),
+          'Selected shortcut does not look different from the others');
+      }
+    };
     const checkShortcuts = async (tab) => {
+      await checkSelection('All retained');
       const shortcuts = page.locator('[data-ebd-analytics-date-shortcuts]');
       assert.deepEqual(await shortcuts.getByRole('link').allTextContents(), ['Today', 'This month', 'All retained']);
       assert(await shortcuts.getByRole('link').evaluateAll(links => links.every(link => {
@@ -61,6 +77,7 @@ const output = outputFor('analytics-dashboard-ui');
         assert.equal(await page.locator('input[name="date_from"]').inputValue(), from);
         assert.equal(await page.locator('input[name="date_to"]').inputValue(), to);
         assert.equal(await page.locator('form input[name="tab"]').inputValue(), tab);
+        await checkSelection(label);
         shortcutClicks++;
       }
       await page.waitForLoadState('load');
@@ -79,6 +96,10 @@ const output = outputFor('analytics-dashboard-ui');
       assert.equal(await page.locator('#wpbody h1').innerText(), 'AI Analytics');
       assert.equal(await page.locator('select[name="interface"]').count(), 0);
       assert.equal(await page.locator('[name="feedback"]').count(), 0);
+      assert.equal(await page.getByRole('link', { name: 'Export AI reviews CSV', exact: true }).count(), 0);
+      assert.equal(await page.locator('a[href*="dataset=refinements"]').count(), 0);
+      assert.equal(await page.getByRole('link', { name: 'Export questions CSV', exact: true }).count(), 2);
+      assert.equal(await page.locator('details > summary').filter({ hasText: 'AI review details' }).count(), 1);
       assert.equal(await page.locator('[data-ebd-analytics-questions] th').count(), 6);
       assert(!(await page.locator('[data-ebd-analytics-questions] thead').innerText()).includes('Feedback'));
       await checkShortcuts('ask-ai');
@@ -98,6 +119,12 @@ const output = outputFor('analytics-dashboard-ui');
     assert(csv.includes('"Total cost USD"') && csv.includes('"AI review cost USD"'));
     assert(!csv.split('\n')[0].includes('Method'));
     assert(!csv.split('\n')[0].includes('Feedback'));
+    const removedExport = new URL(questionExport);
+    removedExport.searchParams.set('dataset', 'refinements');
+    const removedResponse = await context.request.get(removedExport.href);
+    assert.equal(removedResponse.status(), 400, 'Old AI review export URL is still available');
+    assert.equal(removedResponse.headers()['content-disposition'], undefined, 'Old AI review URL downloaded a file');
+    assert((await removedResponse.text()).includes('This analytics export is not available.'));
     const missingNonce = new URL(questionExport);
     missingNonce.searchParams.delete('_wpnonce');
     assert.equal((await context.request.get(missingNonce.href)).status(), 403, 'CSV endpoint accepted a missing nonce');
@@ -174,13 +201,40 @@ const output = outputFor('analytics-dashboard-ui');
       assert.equal(destination.searchParams.get('search'), null);
       assert.equal(destination.searchParams.get('zero_results'), null);
     }
+    const tabs = [['Overview', 'overview'], ['Ask AI', 'ask-ai'], ['Post Metadata', 'post-metadata']];
+    for (const [index, [, tab]] of tabs.entries()) {
+      await page.goto(rootUrl + '&tab=' + tab);
+      await checkSelection('All retained');
+      await page.locator('[data-ebd-analytics-date-shortcuts]').getByRole('link', { name: 'This month', exact: true }).click();
+      await page.waitForURL('**/*period=month*');
+      await checkSelection('This month');
+      await page.getByRole('button', { name: 'Apply filters', exact: true }).click();
+      await page.waitForLoadState('load');
+      await checkSelection('This month');
+      const [nextLabel, nextTab] = tabs[(index + 1) % tabs.length];
+      await page.locator('.nav-tab-wrapper').getByRole('link', { name: nextLabel, exact: true }).click();
+      await page.waitForURL(current => current.searchParams.get('tab') === nextTab);
+      await checkSelection('This month');
+      await page.locator('input[name="date_from"]').fill('2001-01-01');
+      await page.locator('input[name="date_to"]').fill('2001-01-02');
+      await page.getByRole('button', { name: 'Apply filters', exact: true }).click();
+      await page.waitForURL('**/*date_from=2001-01-01*');
+      await checkSelection('');
+      await page.getByRole('link', { name: 'Clear', exact: true }).click();
+      await page.waitForURL(rootUrl + '&tab=' + nextTab);
+      await checkSelection('All retained');
+      assert.equal(await page.locator('input[name="date_from"]').inputValue(), '');
+      assert.equal(await page.locator('input[name="date_to"]').inputValue(), '');
+    }
     await page.goto(rootUrl + '&tab=overview&date_from=1900-01-01&date_to=1900-01-01');
     assert.deepEqual(await metrics.locator(':scope > div > strong').allTextContents(), ['$0.0000', '$0.0000', '$0.0000', '0', '0']);
     await page.goto(rootUrl);
+    await checkSelection('All retained');
     assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), 'Overview');
     assert.deepEqual(errors, []);
     console.log(JSON.stringify({ status: 'passed', viewports: [1440, 1024, 390], legacyViews: 4,
-      filters: true, shortcutClicks, csv: true, nonceProtection: true, validResetSubmitted: false, paidCalls: 0 }, null, 2));
+      filters: true, shortcutClicks, selectedPresets: true, customDates: true, csv: true,
+      reviewExportRemoved: true, nonceProtection: true, validResetSubmitted: false, paidCalls: 0 }, null, 2));
   } finally {
     // Destroy only this test's login session, leaving the user's sessions untouched.
     const logout = await page.locator('#wp-admin-bar-logout a').getAttribute('href').catch(() => null);

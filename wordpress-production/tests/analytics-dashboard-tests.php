@@ -139,6 +139,46 @@ try {
 		$assert_same( '', $parsed['date_from'], 'Invalid calendar date was accepted.' );
 		$assert_same( 3, AI_Requests::analytics( $parsed )['total'], 'Legacy analytics URL does not resolve to the unified dashboard.' );
 	}
+	foreach ( array( 'overview', 'ask-ai', 'post-metadata' ) as $tab ) {
+		$_GET = array( 'tab' => $tab );
+		$parsed = ( new AI_Analytics_Request() )->filters();
+		$assert_same( '', $parsed['date_from'], 'Default From date must include all retained history.' );
+		$assert_same( '', $parsed['date_to'], 'Default To date must include all retained history.' );
+		$assert_same( array( 'All retained' ), array_column( array_filter( AI_Cost_Renderer::period_links( $tab, $parsed ), static fn( $period ) => $period['active'] ), 'label' ), 'All retained is not selected by default.' );
+	}
+	foreach ( array( 'today', 'month', 'all', 'invalid', array( 'today' ) ) as $period ) {
+		$_GET = array( 'period' => $period );
+		$assert_same( in_array( $period, array( 'today', 'month', 'all' ), true ) ? $period : '', ( new AI_Analytics_Request() )->filters()['period'], 'Preset preference was not validated.' );
+	}
+
+	// A saved preset preference cannot override dates, including custom ranges and old bookmarks.
+	foreach ( array( '2026-11-18 15:00:00', '2026-12-01 05:00:00', '2026-12-01 04:59:00' ) as $instant ) {
+		$clock = new DateTimeImmutable( $instant, new DateTimeZone( 'UTC' ) );
+		$eastern = $clock->setTimezone( new DateTimeZone( 'America/New_York' ) );
+		$day = $eastern->format( 'Y-m-d' );
+		$month = $eastern->format( 'Y-m-01' );
+		$cases = array(
+			array( array(), 'All retained' ),
+			array( array( 'date_from' => $day, 'date_to' => $day, 'period' => 'today' ), 'Today' ),
+			array( array( 'date_from' => $month, 'date_to' => $day, 'period' => 'month' ), 'This month' ),
+			array( array( 'date_from' => $day, 'date_to' => $day ), 'Today' ),
+			array( array( 'date_from' => '', 'date_to' => '', 'period' => 'today' ), 'All retained' ),
+			array( array( 'date_from' => '2001-01-01', 'date_to' => '2001-01-02', 'period' => 'month' ), '' ),
+			array( array( 'date_from' => $day, 'date_to' => '' ), '' ),
+			array( array( 'date_from' => '', 'date_to' => $day ), '' ),
+		);
+		foreach ( array( 'overview', 'ask-ai', 'post-metadata' ) as $tab ) {
+			foreach ( $cases as [ $values, $expected ] ) {
+				$links = AI_Cost_Renderer::period_links( $tab, $values, $clock );
+				$shortcut_html = EhrmanBlogDiscovery\Template::render( 'admin/analytics/date-shortcuts.php', array( 'links' => $links ) );
+				$shortcut_dom = $dashboard_dom( $shortcut_html );
+				$selected = '//p[@data-ebd-analytics-date-shortcuts]/a[@aria-current="true"]';
+				$assert_same( '' === $expected ? 0 : 1, $shortcut_dom->query( $selected )->length, 'Wrong number of selected date presets.' );
+				$assert_same( $expected, trim( $shortcut_dom->evaluate( 'string(' . $selected . ')' ) ), 'Wrong date preset selected for ' . $tab . ' at ' . $instant );
+				$assert_same( '' === $expected ? 0 : 1, $shortcut_dom->query( '//a[contains(@class,"button-primary")]' )->length, 'Date preset highlight does not match its accessible state.' );
+			}
+		}
+	}
 
 	ob_start();
 	( new AI_Analytics_Renderer() )->render( $filters, 1, false );
@@ -148,6 +188,8 @@ try {
 	$assert( ! str_contains( $html, $marker . ' taxonomy' ) && ! str_contains( $html, $marker . ' experiment' ), 'Hidden methods appeared in dashboard details.' );
 	$assert( str_contains( $html, '1.200' ) && str_contains( $html, '0.400' ), 'Combined and average costs are missing from dashboard.' );
 	$dashboard = $dashboard_dom( $html );
+	$assert_same( 0, $dashboard->query( '//a[contains(.,"Export AI reviews CSV") or contains(@href,"dataset=refinements")]' )->length, 'AI review download is still offered.' );
+	$assert_same( 2, $dashboard->query( '//a[normalize-space(.)="Export questions CSV"]' )->length, 'Question export must remain in the question and reset sections.' );
 	$today = new DateTimeImmutable( 'now', new DateTimeZone( 'America/New_York' ) );
 	foreach ( array( 'overview', 'ask-ai', 'post-metadata' ) as $tab ) {
 		if ( 'ask-ai' === $tab ) {
@@ -160,11 +202,13 @@ try {
 		$shortcuts = $dashboard_dom( $tab_html )->query( '//p[@data-ebd-analytics-date-shortcuts]/a' );
 		$assert_same( 3, $shortcuts->length, 'Missing date shortcuts on ' . $tab );
 		$expected_dates = array( 'Today' => $today->format( 'Y-m-d' ), 'This month' => $today->format( 'Y-m-01' ), 'All retained' => '' );
+		$expected_periods = array( 'Today' => 'today', 'This month' => 'month', 'All retained' => 'all' );
 		$assert_same( array_keys( $expected_dates ), array_map( static fn( $link ) => trim( $link->textContent ), iterator_to_array( $shortcuts ) ), 'Date shortcut order differs between tabs.' );
 		foreach ( $shortcuts as $link ) {
 			parse_str( (string) wp_parse_url( $link->getAttribute( 'href' ), PHP_URL_QUERY ), $query );
 			$date = $expected_dates[ trim( $link->textContent ) ];
-			$assert_same( array( 'page' => 'ehrman-ai-analytics', 'tab' => $tab, 'date_from' => $date, 'date_to' => '' === $date ? '' : $today->format( 'Y-m-d' ) ), $query, 'Date shortcut lost its tab, used the wrong dates, or retained old filters/pagination.' );
+			$assert_same( array( 'page' => 'ehrman-ai-analytics', 'tab' => $tab, 'date_from' => $date, 'date_to' => '' === $date ? '' : $today->format( 'Y-m-d' ), 'period' => $expected_periods[ trim( $link->textContent ) ] ), $query, 'Date shortcut lost its tab, used the wrong dates, or retained old filters/pagination.' );
+			$assert_same( '' === $date ? 'true' : '', $link->getAttribute( 'aria-current' ), 'Only All retained should be selected without dates.' );
 		}
 	}
 	$question_table = '//table[@data-ebd-analytics-questions]';
@@ -237,13 +281,6 @@ try {
 		$paid = array_values( array_filter( $csv, static fn( $row ) => $row['Request ID'] === $requests['paid'] ) )[0];
 		$assert( abs( (float) $paid['Total cost USD'] - 0.012 ) < 0.0000001, 'CSV total omits a stage or retry.' );
 		$assert_same( '380', $paid['Total tokens'], 'CSV token total is incorrect.' );
-		ftruncate( $stream, 0 );
-		rewind( $stream );
-		$exporter->write_refinements( $stream, $filters );
-		rewind( $stream );
-		$review_csv = stream_get_contents( $stream );
-		$assert( ! str_contains( $review_csv, $marker . ' taxonomy' ) && ! str_contains( $review_csv, $marker . ' experiment' ), 'Review CSV leaked retired data.' );
-		$assert( str_contains( $review_csv, $retry ), 'Review CSV omitted a failed retry.' );
 		$wpdb->update( $tables['ai_requests'], array( 'question' => '=1+1 ' . $marker ), array( 'request_id' => $requests['paid'] ) );
 		ftruncate( $stream, 0 );
 		rewind( $stream );
@@ -309,6 +346,15 @@ try {
 $die = static fn() => static function ( $message ) { throw new RuntimeException( (string) $message ); };
 add_filter( 'wp_die_handler', $die );
 try {
+	foreach ( array( 'refinements', 'unsupported' ) as $dataset ) {
+		$blocked = false;
+		try {
+			$exporter->export( array(), $dataset );
+		} catch ( RuntimeException $error ) {
+			$blocked = str_contains( $error->getMessage(), 'not available' );
+		}
+		$assert( $blocked, 'Unsupported analytics export was not rejected: ' . $dataset );
+	}
 	wp_set_current_user( 0 );
 	ob_start();
 	AI_Analytics_Page::render();

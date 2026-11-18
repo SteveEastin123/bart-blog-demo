@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Streams protected question and refinement analytics exports. */
+/** Streams protected question and post-metadata analytics exports. */
 final class AI_Analytics_Exporter {
 	private const DISPLAY_TIMEZONE = 'America/New_York';
 
@@ -22,19 +22,17 @@ final class AI_Analytics_Exporter {
 	 * @param string               $dataset Dataset identifier.
 	 */
 	public function export( array $filters, string $dataset ): void {
+		if ( ! in_array( $dataset, array( '', 'questions', 'post-metadata' ), true ) ) {
+			wp_die( esc_html__( 'This analytics export is not available.', 'ehrman-blog-discovery' ), '', array( 'response' => 400 ) );
+		}
 		if ( 'post-metadata' === $dataset ) {
 			$output = $this->open_output( 'post-metadata-costs-' . gmdate( 'Y-m-d' ) . '.csv' );
 			$this->write_metadata( $output, $filters );
 			$this->close_output( $output );
 			return;
 		}
-		$reviews = 'refinements' === $dataset;
-		$output  = $this->open_output( ( $reviews ? 'ask-ai-reviews-' : 'ask-ai-analytics-' ) . gmdate( 'Y-m-d' ) . '.csv' );
-		if ( $reviews ) {
-			$this->write_refinements( $output, $filters );
-		} else {
-			$this->write_questions( $output, $filters );
-		}
+		$output = $this->open_output( 'ask-ai-analytics-' . gmdate( 'Y-m-d' ) . '.csv' );
+		$this->write_questions( $output, $filters );
 		$this->close_output( $output );
 	}
 
@@ -141,76 +139,6 @@ final class AI_Analytics_Exporter {
 	}
 
 	/**
-	 * Writes all reviews linked to the filtered active-method questions.
-	 *
-	 * @param resource             $output  Writable CSV stream.
-	 * @param array<string,string> $filters Sanitized analytics filters.
-	 */
-	public function write_refinements( $output, array $filters ): void {
-		$report      = AI_Requests::analytics( $filters, 1, 0 );
-		$request_ids = array_fill_keys( array_map( static fn( array $row ): string => Database::text( $row['request_id'] ?? '' ), $report['rows'] ), true );
-		$rows        = ( new AI_Analytics_Report() )->filtered_refinements( AI_Refinements::recent( 0 ), $request_ids );
-		$this->write_row(
-			$output,
-			array(
-				'Date (Eastern)',
-				'Parent request ID',
-				'Review ID',
-				'Question',
-				'Original results',
-				'Candidates reviewed',
-				'Refined results',
-				'Retained posts',
-				'Response ID',
-				'Model',
-				'Service tier',
-				'Prompt version',
-				'WordPress cache hit',
-				'Input tokens',
-				'Cached input tokens',
-				'Cache write tokens',
-				'Output tokens',
-				'Reasoning tokens',
-				'Total tokens',
-				'Estimated cost USD',
-				'Pricing version',
-				'Status',
-				'Error code',
-			)
-		);
-		foreach ( $rows as $row ) {
-			$this->write_row(
-				$output,
-				array(
-					$this->csv_datetime( $row ),
-					Database::text( $row['request_id'] ?? '' ),
-					Database::text( $row['refinement_id'] ?? '' ),
-					Database::text( $row['question'] ?? '' ),
-					Database::integer( $row['original_count'] ?? 0 ),
-					Database::integer( $row['candidate_count'] ?? 0 ),
-					Database::integer( $row['refined_count'] ?? 0 ),
-					$this->retained_post_text( $row ),
-					Database::text( $row['response_id'] ?? '' ),
-					Database::text( $row['model'] ?? '' ),
-					Database::text( $row['service_tier'] ?? '' ),
-					Database::text( $row['prompt_version'] ?? '' ),
-					Database::integer( $row['cache_hit'] ?? 0 ),
-					Database::integer( $row['input_tokens'] ?? 0 ),
-					Database::integer( $row['cached_input_tokens'] ?? 0 ),
-					Database::integer( $row['cache_write_tokens'] ?? 0 ),
-					Database::integer( $row['output_tokens'] ?? 0 ),
-					Database::integer( $row['reasoning_tokens'] ?? 0 ),
-					$this->total_tokens( $row ),
-					Database::text( $row['estimated_cost_usd'] ?? 0 ),
-					Database::text( $row['pricing_version'] ?? '' ),
-					1 === Database::integer( $row['request_succeeded'] ?? 0 ) ? 'Success' : 'Failed',
-					Database::text( $row['error_code'] ?? '' ),
-				)
-			);
-		}
-	}
-
-	/**
 	 * Writes one CSV row without allowing text fields to become spreadsheet formulas.
 	 *
 	 * @param resource         $output Writable CSV stream.
@@ -268,34 +196,6 @@ final class AI_Analytics_Exporter {
 		} catch ( \Exception $exception ) {
 			return $value;
 		}
-	}
-
-	/**
-	 * Returns retained post titles as a readable list.
-	 *
-	 * @param array<string,mixed> $row Refinement row.
-	 */
-	private function retained_post_text( array $row ): string {
-		$posts  = json_decode( Database::text( $row['selected_posts'] ?? '' ), true );
-		$titles = array();
-		if ( is_array( $posts ) ) {
-			foreach ( $posts as $post ) {
-				if ( is_array( $post ) && is_scalar( $post['title'] ?? null ) ) {
-					$titles[] = sanitize_text_field( (string) $post['title'] );
-				}
-			}
-		}
-		return implode( ' | ', $titles );
-	}
-
-	/**
-	 * Returns the reported token total with a legacy fallback.
-	 *
-	 * @param array<string,mixed> $row Analytics row.
-	 */
-	private function total_tokens( array $row ): int {
-		$total = Database::integer( $row['total_tokens'] ?? 0 );
-		return 0 < $total ? $total : Database::integer( $row['input_tokens'] ?? 0 ) + Database::integer( $row['output_tokens'] ?? 0 );
 	}
 
 	/**
