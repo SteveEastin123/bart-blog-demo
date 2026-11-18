@@ -17,7 +17,6 @@ $filter_context = array(
 	'clear_url' => $view['clear_url'],
 );
 $reset_context  = array(
-	'export_url'   => $view['export_url'],
 	'confirmation' => $view['reset_confirmation'],
 );
 ?>
