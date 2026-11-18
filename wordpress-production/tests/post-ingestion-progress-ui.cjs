@@ -141,7 +141,7 @@ const cli = args => docker(['wp', ...args, '--allow-root']);
     await review.getByRole('button', { name: 'Remove topic: ' + topics[1], exact: true }).click();
     await review.getByRole('button', { name: 'Remove topic: ' + topics[0], exact: true }).focus();
     await page.keyboard.press('Enter');
-    assert(await review.getByText('Keep at least one topic. Restore a removed topic or regenerate metadata.', { exact: true }).isVisible());
+    assert(await review.getByText('Keep at least one topic. Add an existing topic or restore a removed topic.', { exact: true }).isVisible());
     assert(await review.getByRole('button', { name: 'Save revisions', exact: true }).isDisabled());
     assert(await approve.isDisabled());
     await review.getByRole('button', { name: 'Restore topic: ' + topics[0], exact: true }).click();

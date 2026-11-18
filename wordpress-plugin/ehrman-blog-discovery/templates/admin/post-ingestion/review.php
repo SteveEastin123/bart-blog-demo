@@ -56,7 +56,7 @@ $regenerate_context = array(
 			</tr>
 		<?php endforeach; ?>
 	</table>
-	<p class="ehrman-metadata-selections__warning" data-ebd-topic-warning role="alert" hidden><?php echo esc_html__( 'Keep at least one topic. Restore a removed topic or regenerate metadata.', 'ehrman-blog-discovery' ); ?></p>
+	<p class="ehrman-metadata-selections__warning" data-ebd-topic-warning role="alert" hidden><?php echo esc_html__( 'Keep at least one topic. Add an existing topic or restore a removed topic.', 'ehrman-blog-discovery' ); ?></p>
 	<div class="ehrman-ingestion__actions">
 		<button class="button" type="submit" name="ingestion_intent" value="save"><?php echo esc_html__( 'Save revisions', 'ehrman-blog-discovery' ); ?></button>
 		<button class="button button-primary" type="submit" name="ingestion_intent" value="approve"<?php disabled( ! $view['database_authoritative'] || 'ready' !== $view['status'] ); ?>><?php echo $view['is_revision'] ? esc_html__( 'Approve Changes', 'ehrman-blog-discovery' ) : esc_html__( 'Approve and Add to Search', 'ehrman-blog-discovery' ); ?></button>

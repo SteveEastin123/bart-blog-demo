@@ -202,11 +202,11 @@ final class Post_Ingestion_Review_Workflow {
 	}
 
 	/**
-	 * Allows text edits and removal of AI selections without accepting additions.
+	 * Allows text edits, removals, and additions from the existing vocabulary.
 	 *
 	 * @param array<string,mixed> $draft Stored proposal being reviewed.
-	 * @param array<string,mixed> $input Submitted text edits and removed labels.
-	 * @return array<string,mixed>|WP_Error Complete review input or invalid removals.
+	 * @param array<string,mixed> $input Submitted text edits and selection changes.
+	 * @return array<string,mixed>|WP_Error Complete review input or invalid selections.
 	 */
 	public static function review_input( array $draft, array $input ): array|WP_Error {
 		$proposal         = Database::associative_row( json_decode( Database::text( $draft['proposal_json'] ?? null ), true ) ) ?? array();
@@ -221,9 +221,18 @@ final class Post_Ingestion_Review_Workflow {
 		if ( is_wp_error( $removed_keywords ) ) {
 			return $removed_keywords;
 		}
-		$topics = array_values( array_diff( $topics, $removed_topics ) );
+		$vocabulary     = ( new Post_Ingestion_Vocabulary_Reader() )->vocabulary();
+		$added_topics   = self::added_labels( array_key_exists( 'added_topics', $input ) ? $input['added_topics'] : array(), array_column( $vocabulary['topics'], 'name' ) );
+		$added_keywords = self::added_labels( array_key_exists( 'added_keywords', $input ) ? $input['added_keywords'] : array(), array_column( $vocabulary['keywords'], 'label' ) );
+		if ( is_wp_error( $added_topics ) ) {
+			return $added_topics;
+		}
+		if ( is_wp_error( $added_keywords ) ) {
+			return $added_keywords;
+		}
+		$topics = array_values( array_unique( array_merge( array_diff( $topics, $removed_topics ), $added_topics ) ) );
 		if ( 'ready' === ( $draft['status'] ?? '' ) && empty( $topics ) ) {
-			return new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Keep at least one topic. Restore a removed topic or regenerate metadata.', 'ehrman-blog-discovery' ) );
+			return new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Keep at least one topic. Add an existing topic or restore a removed topic.', 'ehrman-blog-discovery' ) );
 		}
 		$rationales = array();
 		foreach ( is_array( $proposal['topicRationales'] ?? null ) ? $proposal['topicRationales'] : array() as $rationale ) {
@@ -235,7 +244,7 @@ final class Post_Ingestion_Review_Workflow {
 			'description'            => $input['description'] ?? $proposal['description'] ?? '',
 			'search_summary'         => $input['search_summary'] ?? $proposal['searchSummary'] ?? '',
 			'topics'                 => $topics,
-			'secondary_keywords'     => implode( "\n", array_diff( $keywords, $removed_keywords ) ),
+			'secondary_keywords'     => implode( "\n", array_unique( array_merge( array_diff( $keywords, $removed_keywords ), $added_keywords ) ) ),
 			'new_secondary_keywords' => implode( "\n", array_diff( $new, $removed_keywords ) ),
 			'topic_rationales_json'  => wp_json_encode( $rationales ),
 			'review_notes'           => implode( "\n", Database::strings( $proposal['reviewNotes'] ?? array() ) ),
@@ -252,6 +261,26 @@ final class Post_Ingestion_Review_Workflow {
 	 */
 	private static function removed_labels( $submitted, array $allowed ): array|WP_Error {
 		$error = new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Only selections from the current metadata proposal can be removed. Reload metadata and try again.', 'ehrman-blog-discovery' ) );
+		if ( ! is_array( $submitted ) || ! array_is_list( $submitted ) ) {
+			return $error;
+		}
+		foreach ( $submitted as $label ) {
+			if ( ! is_string( $label ) || ! in_array( $label, $allowed, true ) ) {
+				return $error;
+			}
+		}
+		return array_values( array_unique( $submitted ) );
+	}
+
+	/**
+	 * Accepts only canonical labels that already exist in the database.
+	 *
+	 * @param mixed    $submitted Requested additions.
+	 * @param string[] $allowed   Current canonical vocabulary labels.
+	 * @return list<string>|WP_Error Validated additions.
+	 */
+	private static function added_labels( $submitted, array $allowed ): array|WP_Error {
+		$error = new WP_Error( 'ehrman_ingestion_invalid_proposal', __( 'Only existing topics and secondary keywords can be added. Select a matching suggestion and try again.', 'ehrman-blog-discovery' ) );
 		if ( ! is_array( $submitted ) || ! array_is_list( $submitted ) ) {
 			return $error;
 		}

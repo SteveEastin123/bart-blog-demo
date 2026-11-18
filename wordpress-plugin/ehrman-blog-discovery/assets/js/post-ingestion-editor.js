@@ -47,13 +47,30 @@
 	function TermSelections( props ) {
 		const group = useRef( null );
 		const focusLabel = useRef( null );
+		const pickerHost = useRef( null );
+		const picker = useRef( null );
+		const current = useRef( props );
+		current.current = props;
+		useEffect( function () {
+			picker.current = window.EhrmanMetadataTermPicker( pickerHost.current, {
+				kind: props.kind,
+				selected: () => current.current.selected,
+				onSelect: value => current.current.onAdd( value ),
+			} );
+			return () => picker.current.destroy();
+		}, [] );
+		useEffect( function () {
+			picker.current.setDisabled( props.disabled );
+			picker.current.refresh();
+		}, [ props.values, props.removed, props.disabled ] );
 		useEffect( function () {
 			if ( focusLabel.current && group.current ) {
 				const button = Array.from( group.current.querySelectorAll( 'button' ) ).find( item => item.dataset.termLabel === focusLabel.current );
 				if ( button ) button.focus();
+				else pickerHost.current.querySelector( 'button' ).focus();
 				focusLabel.current = null;
 			}
-		}, [ props.removed ] );
+		}, [ props.removed, props.values ] );
 		function terms( removed ) {
 			return el( 'ul', { className: 'ehrman-metadata-selections__list' }, props.values.filter( value => props.removed.includes( value ) === removed ).map( value => {
 				const removeLabel = props.kind === 'topic' ? __( 'Remove topic: %s', 'ehrman-blog-discovery' ) : __( 'Remove keyword: %s', 'ehrman-blog-discovery' );
@@ -70,7 +87,8 @@
 		}
 		return el( 'div', { ref: group, className: 'ehrman-metadata-selections', role: 'group', 'aria-label': props.label },
 			el( 'strong', null, props.label ), terms( false ),
-			props.removed.length ? el( 'div', null, el( 'span', null, __( 'Removed', 'ehrman-blog-discovery' ) ), terms( true ) ) : null
+			props.removed.length ? el( 'div', null, el( 'span', null, __( 'Removed', 'ehrman-blog-discovery' ) ), terms( true ) ) : null,
+			el( 'div', { ref: pickerHost } )
 		);
 	}
 
@@ -104,7 +122,7 @@
 			if ( ! dirty.current ) {
 				setFields( draft ? {
 					description: draft.description || '', search_summary: draft.searchSummary || '',
-					removed_topics: [], removed_keywords: [],
+					removed_topics: [], removed_keywords: [], added_topics: [], added_keywords: [],
 				} : null );
 				setRevision( draft ? draft.revision : '' );
 			}
@@ -126,6 +144,23 @@
 		function toggleTerm( name, value ) {
 			dirty.current = true;
 			setFields( current => ( { ...current, [ name ]: current[ name ].includes( value ) ? current[ name ].filter( item => item !== value ) : [ ...current[ name ], value ] } ) );
+		}
+
+		function addTerm( kind, value ) {
+			const suffix = kind === 'topic' ? 'topics' : 'keywords';
+			const original = kind === 'topic' ? draft.topics || [] : keywords;
+			dirty.current = true;
+			setFields( current => ( { ...current,
+				[ 'removed_' + suffix ]: current[ 'removed_' + suffix ].filter( item => item !== value ),
+				[ 'added_' + suffix ]: original.includes( value ) ? current[ 'added_' + suffix ] : [ ...new Set( [ ...current[ 'added_' + suffix ], value ] ) ],
+			} ) );
+		}
+
+		function toggleSelection( kind, value ) {
+			const suffix = kind === 'topic' ? 'topics' : 'keywords';
+			if ( fields[ 'added_' + suffix ].includes( value ) ) {
+				change( 'added_' + suffix, fields[ 'added_' + suffix ].filter( item => item !== value ) );
+			} else toggleTerm( 'removed_' + suffix, value );
 		}
 
 		function load( silent ) {
@@ -229,10 +264,11 @@
 			( ! draft.analysisActive || draft.analysisStalled || 'queued' === draft.status );
 		const needsReview = draft && ! automaticBusy && ( 'ready' === draft.status || 'held' === draft.status );
 		const changedReview = needsReview && revision !== draft.revision;
-		const missingTopics = needsReview && fields && 'ready' === draft.status && ! ( draft.topics || [] ).some( topic => ! fields.removed_topics.includes( topic ) );
+		const missingTopics = needsReview && fields && 'ready' === draft.status && ! fields.added_topics.length && ! ( draft.topics || [] ).some( topic => ! fields.removed_topics.includes( topic ) );
 		const canApprove = needsReview && fields && 'ready' === draft.status && record.databaseAuthoritative &&
 			! record.sourceChanged && ! changedReview && ! missingTopics;
 		const keywords = draft ? [ ...( draft.secondaryKeywords || [] ), ...( draft.newSecondaryKeywords || [] ) ] : [];
+		const selectedTerms = fields && draft ? [ ...( draft.topics || [] ).filter( value => ! fields.removed_topics.includes( value ) ), ...keywords.filter( value => ! fields.removed_keywords.includes( value ) ), ...fields.added_topics, ...fields.added_keywords ] : [];
 		const generating = [ 'analyze', 'reanalyze' ].includes( busyAction );
 		const pendingRevision = draft && draft.isRevision && 'approved' !== draft.status;
 		const canRetry = draft && 'approved' === draft.status &&
@@ -271,9 +307,9 @@
 				needsReview && fields && ! generating ? el( 'fieldset', { className: 'ehrman-ingestion-editor__fields', disabled: !! busyAction },
 					el( TextareaControl, { label: __( 'Description', 'ehrman-blog-discovery' ), value: fields.description, rows: 4, onChange: value => change( 'description', value ) } ),
 					el( TextareaControl, { label: __( 'Summary', 'ehrman-blog-discovery' ), value: fields.search_summary, rows: 8, onChange: value => change( 'search_summary', value ) } ),
-					el( TermSelections, { label: __( 'Topics', 'ehrman-blog-discovery' ), kind: 'topic', values: draft.topics || [], removed: fields.removed_topics, disabled: !! busyAction, onToggle: value => toggleTerm( 'removed_topics', value ) } ),
-					el( TermSelections, { label: __( 'Keywords', 'ehrman-blog-discovery' ), kind: 'keyword', values: keywords, removed: fields.removed_keywords, disabled: !! busyAction, onToggle: value => toggleTerm( 'removed_keywords', value ) } ),
-					missingTopics ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Keep at least one topic. Restore a removed topic or regenerate metadata.', 'ehrman-blog-discovery' ) ) : null
+					el( TermSelections, { label: __( 'Topics', 'ehrman-blog-discovery' ), kind: 'topic', values: [ ...( draft.topics || [] ), ...fields.added_topics ], selected: selectedTerms, removed: fields.removed_topics, disabled: !! busyAction, onToggle: value => toggleSelection( 'topic', value ), onAdd: value => addTerm( 'topic', value ) } ),
+					el( TermSelections, { label: __( 'Keywords', 'ehrman-blog-discovery' ), kind: 'keyword', values: [ ...keywords, ...fields.added_keywords ], selected: selectedTerms, removed: fields.removed_keywords, disabled: !! busyAction, onToggle: value => toggleSelection( 'keyword', value ), onAdd: value => addTerm( 'keyword', value ) } ),
+					missingTopics ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Keep at least one topic. Add an existing topic or restore a removed topic.', 'ehrman-blog-discovery' ) ) : null
 				) : null,
 				! needsReview ? el( Fragment, null,
 				el( Detail, { label: __( 'Description', 'ehrman-blog-discovery' ), value: draft && draft.description } ),

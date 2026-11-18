@@ -77,7 +77,7 @@ final class Post_Ingestion_Page {
 	}
 
 	/**
-	 * Loads removal controls only on the protected metadata page.
+	 * Loads selection controls only on the protected metadata page.
 	 *
 	 * @param string $hook Current admin page.
 	 */
@@ -86,7 +86,8 @@ final class Post_Ingestion_Page {
 			return;
 		}
 		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-review.js';
-		wp_enqueue_script( 'ehrman-post-ingestion-review', EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-review.js', array(), is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION, true );
+		Post_Ingestion_Editor::enqueue_term_picker();
+		wp_enqueue_script( 'ehrman-post-ingestion-review', EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-review.js', array( 'ehrman-metadata-term-picker' ), is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION, true );
 		Post_Ingestion_Editor::enqueue_selection_styles();
 	}
 

@@ -105,14 +105,19 @@ Existing installations and posts stay Manual unless explicitly opted in.
    until the proposal is approved or discarded.
 6. Review **Description**, **Summary**, the AI-selected **Topics**, and one
    combined **Keywords** list. Description and Summary remain editable. Topics
-   and keywords come from the stored AI result. In both the editor panel and
+   and keywords start from the stored AI result. In both the editor panel and
    Tools review page, an X removes a term from this proposal and its undo button
    restores it before saving or approving. Removal does not delete shared terms
    or change other posts. At least one topic must remain for a ready proposal;
-   all keywords may be removed. There is no vocabulary dropdown, separate
-   new-keyword form, or Reviewer Notes field. Overall approval includes only the
-   retained selections, including retained new keywords. The server validates
-   removals against the saved proposal and preserves its review-state rules.
+   all keywords may be removed. **Add topic** and **Add keyword** open inline
+   autocomplete fields for existing terms only. Topic aliases also match the
+   canonical topic label; selected terms are excluded. Select a suggestion to
+   add it; unmatched text is never saved. Escape or moving outside closes the
+   picker. These controls make no AI calls and cannot create vocabulary entries.
+   There is no separate new-keyword form or Reviewer Notes field. Overall approval
+   includes the retained AI selections and existing-term additions. The server
+   validates removals against the saved proposal and additions against the current
+   vocabulary, while preserving its review-state rules.
    A held result cannot be approved; its
    blocking warnings remain visible. Correct the source or vocabulary as needed,
    then use **Regenerate Metadata** for a fresh AI pass.
@@ -142,7 +147,7 @@ WordPress post. Imported records without a native link remain read-only.
 
 - **Edit Metadata** copies the approved proposal into a separate pending revision,
   without an AI call. Edit Description or Summary and remove/restore selected
-  topics and keywords. It does not introduce manual vocabulary pickers.
+  topics and keywords, or add existing ones using the same autocomplete controls.
 - **Regenerate Metadata** asks for confirmation of the API charge, reads the current
   saved post, and generates a new proposal. Tools opens the progress screen first;
   the editor shows progress inline. Neither schedules background generation.

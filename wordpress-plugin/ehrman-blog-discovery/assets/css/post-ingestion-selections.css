@@ -72,3 +72,62 @@
 .ehrman-metadata-selections [hidden] {
 	display: none;
 }
+
+.ehrman-metadata-picker {
+	max-width: 440px;
+	margin-top: 8px;
+}
+
+.ehrman-metadata-picker__add {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 4px;
+}
+
+.ehrman-metadata-picker__add[hidden] {
+	display: none !important;
+}
+
+.ehrman-metadata-picker__add .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.ehrman-metadata-picker input {
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	min-height: 36px;
+	margin: 0;
+}
+
+.ehrman-metadata-picker [role="listbox"] {
+	max-height: 220px;
+	overflow-y: auto;
+	list-style: none;
+	margin: 4px 0 0;
+	padding: 0;
+	border: 1px solid #8c8f94;
+	border-radius: 2px;
+	background: #fff;
+}
+
+.ehrman-metadata-picker [role="option"] {
+	margin: 0;
+	padding: 8px 10px;
+	color: #1d2327;
+	overflow-wrap: anywhere;
+	cursor: pointer;
+}
+
+.ehrman-metadata-picker [role="option"]:hover,
+.ehrman-metadata-picker [aria-selected="true"] {
+	background: #f0f6fc;
+	color: #135e96;
+}
+
+.ehrman-metadata-picker [role="status"] {
+	margin-top: 4px;
+}

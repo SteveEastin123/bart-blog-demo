@@ -50,7 +50,7 @@ const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
       $wpdb->replace($tables['post_embeddings'], array('source_wp_id'=>${postId}, 'content_hash'=>EhrmanBlogDiscovery\\Semantic_Index_Service::content_hash($post), 'model'=>EhrmanBlogDiscovery\\Embedding_Service::model_id(), 'dimensions'=>count($vector), 'embedding'=>pack('g*', ...$vector), 'embedding_norm'=>1, 'updated_at'=>current_time('mysql', true)));
       // Retain the failed attempt in history; the manual revision will reuse the synthetic vector.
       $wpdb->update($tables['ingestion_drafts'], array('embedding_status'=>'pending', 'embedding_error'=>'Historical vector failure fixture.'), array('id'=>$id));
-      echo wp_json_encode(array('id'=>$id, 'topics'=>$proposal['topics'], 'keywords'=>$proposal['secondaryKeywords']));
+      echo wp_json_encode(array('id'=>$id, 'topics'=>$proposal['topics'], 'keywords'=>$proposal['secondaryKeywords'], 'addTopic'=>$topics[2]['name'], 'addKeyword'=>$keywords[2]['label']));
     `]));
     const initial = live();
     const credentials = docker(['printenv', 'WORDPRESS_ADMIN_USER', 'WORDPRESS_ADMIN_PASSWORD']).split(/\r?\n/);
@@ -72,6 +72,35 @@ const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
     assert.deepEqual(live(), initial, 'Opening edits changed live search');
     await page.getByRole('button', { name: 'Remove topic: ' + fixture.topics[1], exact: true }).click();
     await page.getByRole('button', { name: 'Remove keyword: ' + fixture.keywords[1], exact: true }).click();
+    for (const [kind, searchLabel, label] of [
+      ['topic', 'Search existing topics', fixture.addTopic],
+      ['keyword', 'Search existing secondary keywords', fixture.addKeyword],
+    ]) {
+      await page.getByRole('button', { name: 'Add ' + kind, exact: true }).click();
+      const search = page.getByRole('combobox', { name: searchLabel, exact: true });
+      assert(await search.evaluate(element => element === document.activeElement));
+      await search.fill('zzz-nonexistent-vocabulary-fixture');
+      await search.press('Enter');
+      assert.equal(page.url(), pendingUrl, 'Unmatched text submitted the review form');
+      await search.fill(label);
+      await search.press(kind === 'topic' ? 'ArrowDown' : 'ArrowUp');
+      await search.press('Enter');
+      await page.getByRole('button', { name: 'Remove ' + kind + ': ' + label, exact: true }).waitFor();
+      assert.equal(await search.inputValue(), '');
+      await search.fill(label);
+      assert.equal(await page.getByRole('option', { name: label, exact: true }).count(), 0);
+      await search.press('Escape');
+      await page.getByRole('button', { name: 'Remove ' + kind + ': ' + label, exact: true }).click();
+      await page.getByRole('button', { name: 'Add ' + kind, exact: true }).click();
+      await search.fill(label);
+      await page.getByRole('option', { name: label, exact: true }).click();
+      await search.press('Escape');
+    }
+    assert.deepEqual(live(), initial, 'Adding selections changed live metadata before approval');
+    await page.getByRole('button', { name: 'Save revisions', exact: true }).click();
+    await page.getByRole('button', { name: 'Remove topic: ' + fixture.addTopic, exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Remove keyword: ' + fixture.addKeyword, exact: true }).waitFor();
+    assert.deepEqual(live(), initial, 'Saving selections changed live metadata before approval');
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 1000 });
       await page.evaluate(() => window.scrollTo(0, 0));
@@ -85,6 +114,9 @@ const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
     await page.getByRole('button', { name: 'Edit Metadata', exact: true }).waitFor();
     assert.equal(live().description, description);
     assert.equal(live().id, initial.id);
+    const selected = JSON.parse(cli(['eval', `global $wpdb; $t=EhrmanBlogDiscovery\\Database::tables(); echo wp_json_encode(array('topics'=>$wpdb->get_col($wpdb->prepare('SELECT t.name FROM %i t JOIN %i pt ON pt.topic_id=t.id WHERE pt.post_id=%d', $t['topics'], $t['post_topics'], ${initial.id})), 'keywords'=>$wpdb->get_col($wpdb->prepare('SELECT k.label FROM %i k JOIN %i pk ON pk.keyword_id=k.id WHERE pk.post_id=%d', $t['keywords'], $t['post_keywords'], ${initial.id}))));`]));
+    assert.deepEqual(selected.topics.sort(), [fixture.topics[0], fixture.addTopic].sort());
+    assert.deepEqual(selected.keywords.sort(), [fixture.keywords[0], fixture.addKeyword].sort());
     const approvedUrl = page.url();
     const historyTab = await context.newPage();
     historyTab.on('pageerror', error => errors.push(error.message));

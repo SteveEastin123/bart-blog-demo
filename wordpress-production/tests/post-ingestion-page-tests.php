@@ -270,7 +270,7 @@ try {
 		return get_transient( $page_notice_key );
 	};
 	$body = array_merge( $fields, array( 'draft_id' => $native_draft, 'revision' => $revision ) );
-	// The Tools form uses the same removal-only contract as the editor REST route.
+	// Tools and the editor share validation for existing-vocabulary additions and removals.
 	$removal_proposal = $valid_proposal;
 	$extra_topic = current( array_filter( $vocabulary['topics'], static fn( $item ) => 'Ignore' !== $item['name'] && $topic_name !== $item['name'] ) )['name'];
 	$removal_proposal['topics'][] = $extra_topic;
@@ -280,7 +280,7 @@ try {
 	$wpdb->update( $table, array( 'proposal_json' => wp_json_encode( $removal_proposal ) ), array( 'id' => $native_draft ) );
 	$removal_body = array_merge( $body, array( 'revision' => Post_Ingestion_Review_Workflow::revision( $repository->draft( $native_draft ) ) ) );
 	foreach ( array( 'save', 'approve' ) as $intent ) {
-		foreach ( array( array( 'removed_topics' => $removal_proposal['topics'] ), array( 'removed_keywords' => array( 'Not proposed' ) ), array( 'removed_topics' => 'not-an-array' ) ) as $invalid ) {
+		foreach ( array( array( 'removed_topics' => $removal_proposal['topics'] ), array( 'removed_keywords' => array( 'Not proposed' ) ), array( 'removed_topics' => 'not-an-array' ), array( 'added_topics' => array( 'Unknown topic fixture' ) ), array( 'added_keywords' => array( 'Unknown keyword fixture' ) ), array( 'added_keywords' => null ) ) as $invalid ) {
 			$notice = $send_action( 'ehrman_ingestion_proposal', array_merge( $removal_body, $invalid, array( 'ingestion_intent' => $intent ) ) );
 			$assert_same( false, $notice['success'], 'History accepted invalid removals.' );
 			$assert_same( wp_json_encode( $removal_proposal ), $repository->draft( $native_draft )['proposal_json'], 'Invalid history removals changed the proposal.' );
@@ -293,6 +293,18 @@ try {
 	$assert_same( array(), $removed['topicRationales'], 'Tools saved a removed topic rationale.' );
 	$assert_same( array(), $removed['secondaryKeywords'], 'Tools saved removed existing keywords.' );
 	$assert_same( array(), $removed['newSecondaryKeywords'], 'Tools saved removed proposed keywords.' );
+	$added_body = array_merge( $body, array(
+		'revision' => Post_Ingestion_Review_Workflow::revision( $repository->draft( $native_draft ) ),
+		'ingestion_intent' => 'save', 'removed_topics' => $removed['topics'],
+		'added_topics' => array( $extra_topic, $extra_topic ),
+		'added_keywords' => array( $vocabulary['keywords'][0]['label'], $vocabulary['keywords'][0]['label'] ),
+	) );
+	$notice = $send_action( 'ehrman_ingestion_proposal', $added_body );
+	$added = json_decode( $repository->draft( $native_draft )['proposal_json'], true );
+	$assert_same( true, $notice['success'], 'Tools could not replace all topics with an existing topic.' );
+	$assert_same( array( $extra_topic ), $added['topics'], 'Tools lost or duplicated the added topic.' );
+	$assert_same( array( $vocabulary['keywords'][0]['label'] ), $added['secondaryKeywords'], 'Tools lost or duplicated the added keyword.' );
+	$assert_same( array(), $added['newSecondaryKeywords'], 'Existing keyword addition became a new keyword.' );
 	$wpdb->update( $table, $pending, array( 'id' => $native_draft ) );
 	wp_update_post( array( 'ID' => $native, 'post_content' => 'The publisher changed the article after its original analysis.' ) );
 	foreach ( array( 'save', 'approve' ) as $intent ) {

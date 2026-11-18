@@ -1,6 +1,6 @@
 <?php
 /**
- * Removable AI-selected terms with undo, never a vocabulary picker.
+ * Selected terms with undo and an existing-vocabulary picker.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -32,4 +32,5 @@ $view = $ehrman_blog_discovery_context;
 		<span><?php echo esc_html__( 'Removed', 'ehrman-blog-discovery' ); ?></span>
 		<ul class="ehrman-metadata-selections__list" data-ebd-removed-list></ul>
 	</div>
+	<div data-ebd-term-picker></div>
 </div>
