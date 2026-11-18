@@ -278,6 +278,10 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       assert(await list.evaluate(element => element.scrollTop > 0), 'Last option was not scrolled into view');
       await search.press('Enter');
       await button('Remove ' + kind + ': ' + available.at(-1)).waitFor();
+      assert.equal(await search.count(), 0, 'Keyboard selection left the search field open');
+      assert.equal(await list.count(), 0, 'Keyboard selection left the list open');
+      assert(await button('Add ' + kind).evaluate(element => element === document.activeElement));
+      await button('Add ' + kind).click();
       assert.equal(await list.getByRole('option', { name: available.at(-1), exact: true }).count(), 0, 'A selected term remains in the browsing list');
       await button('Remove ' + kind + ': ' + available.at(-1)).click();
       await button('Add ' + kind).click();
@@ -291,6 +295,10 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       await search.press(kind === 'topic' ? 'ArrowDown' : 'ArrowUp');
       await search.press('Enter');
       await button('Remove ' + kind + ': ' + option.label).waitFor();
+      assert.equal(await search.count(), 0, 'Filtered selection left the search field open');
+      assert.equal(await list.count(), 0, 'Filtered selection left the list open');
+      assert(await button('Add ' + kind).evaluate(element => element === document.activeElement));
+      await button('Add ' + kind).click();
       assert.equal(await search.inputValue(), '');
       await search.fill(option.label);
       assert.equal(await panel.getByRole('option', { name: option.label, exact: true }).count(), 0, 'Selected term is still suggested');
@@ -300,6 +308,10 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       await button('Add ' + kind).click();
       await search.fill(option.aliases[0] || option.label);
       await panel.getByRole('option', { name: option.label, exact: true }).click();
+      assert.equal(await search.count(), 0, 'Click selection left the search field open');
+      assert.equal(await list.count(), 0, 'Click selection left the list open');
+      assert(await button('Add ' + kind).evaluate(element => element === document.activeElement));
+      await button('Add ' + kind).click();
       await panel.getByLabel('Description', { exact: true }).click();
       assert.equal(await search.count(), 0, 'Picker did not close after focus moved away');
     }
@@ -452,6 +464,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       await panel.getByRole('option', { name: additions.keyword.label, exact: true }).waitFor();
       await shot('picker-' + width);
       await panel.getByRole('option', { name: additions.keyword.label, exact: true }).click();
+      assert(await button('Add keyword').isVisible(), 'Add button did not return after selection at ' + width);
+      assert.equal(await panel.getByRole('listbox').count(), 0, 'Selection left a list open at ' + width);
       await shot('review-' + width);
       await button('Approve and Add to Search').scrollIntoViewIfNeeded();
       await shot('actions-' + width);

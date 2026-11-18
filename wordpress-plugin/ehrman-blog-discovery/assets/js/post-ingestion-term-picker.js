@@ -75,9 +75,7 @@
 		function choose( index ) {
 			if ( input.disabled || ! matches[ index ] ) return;
 			settings.onSelect( matches[ index ].label );
-			input.value = '';
-			refresh();
-			input.focus();
+			close( true );
 		}
 
 		function close( focus ) {

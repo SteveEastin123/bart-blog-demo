@@ -113,10 +113,11 @@ Existing installations and posts stay Manual unless explicitly opted in.
    autocomplete fields for existing terms only. Focusing either field opens the
    full alphabetical list in a limited-height, scrollable area. Typing filters
    the list; clearing the field restores it. Topic aliases also match the
-   canonical topic label; selected terms are excluded. Select a suggestion to
-   add it and continue selecting from the remaining terms; unmatched text is
-   never saved. Escape or moving outside closes the
-   picker. These controls make no AI calls and cannot create vocabulary entries.
+   canonical topic label; selected terms are excluded. Selecting a suggestion
+   adds the term, closes the picker, and returns focus to the Add button. Reopen
+   the picker to add another term; unmatched text is never saved. Escape or
+   moving outside also closes the picker. These controls make no AI calls and
+   cannot create vocabulary entries.
    There is no separate new-keyword form or Reviewer Notes field. Overall approval
    includes the retained AI selections and existing-term additions. The server
    validates removals against the saved proposal and additions against the current
