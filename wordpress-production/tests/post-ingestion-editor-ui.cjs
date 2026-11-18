@@ -264,10 +264,29 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       await button('Add ' + kind).click();
       const search = panel.getByRole('combobox', { name: searchLabel, exact: true });
       assert(await search.evaluate(element => element === document.activeElement));
+      const list = panel.getByRole('listbox', { name: searchLabel, exact: true });
+      const available = await page.evaluate(kind => {
+        const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().trim();
+        const selected = Array.from(document.querySelectorAll('.ehrman-metadata-selections__term:not(.is-removed) .ehrman-metadata-selections__label'), element => normalize(element.textContent));
+        return EhrmanMetadataVocabulary[kind].map(item => item.label).filter(label => !selected.includes(normalize(label))).sort((a, b) => a.localeCompare(b));
+      }, kind);
+      assert(available.length > 20, 'Fixture needs enough terms to test scrolling beyond the old limit');
+      assert.deepEqual(await list.getByRole('option').allTextContents(), available, 'Focus did not show all available terms alphabetically');
+      assert.equal(await search.getAttribute('aria-expanded'), 'true');
+      assert(await list.evaluate(element => element.clientHeight <= 220 && element.scrollHeight > element.clientHeight), 'List is not height-limited and scrollable');
+      await search.press('ArrowUp');
+      assert(await list.evaluate(element => element.scrollTop > 0), 'Last option was not scrolled into view');
+      await search.press('Enter');
+      await button('Remove ' + kind + ': ' + available.at(-1)).waitFor();
+      assert.equal(await list.getByRole('option', { name: available.at(-1), exact: true }).count(), 0, 'A selected term remains in the browsing list');
+      await button('Remove ' + kind + ': ' + available.at(-1)).click();
+      await button('Add ' + kind).click();
       await search.fill('zzz-nonexistent-vocabulary-fixture');
       await panel.getByText('No matching ' + (kind === 'topic' ? 'topics' : 'keywords') + ' found', { exact: true }).waitFor();
       await search.press('Enter');
       assert.deepEqual(actions, ['analyze'], 'Unmatched text submitted a request');
+      await search.fill('');
+      assert.deepEqual(await list.getByRole('option').allTextContents(), available, 'Clearing the query did not restore the full list');
       await search.fill(option.label);
       await search.press(kind === 'topic' ? 'ArrowDown' : 'ArrowUp');
       await search.press('Enter');
@@ -427,6 +446,8 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       await button('Remove topic: ' + topicNames[1]).click();
       await button('Remove keyword: Existing Keyword Fixture').click();
       await button('Add keyword').click();
+      await panel.getByRole('listbox', { name: 'Search existing secondary keywords', exact: true }).waitFor();
+      await shot('browse-picker-' + width);
       await panel.getByRole('combobox', { name: 'Search existing secondary keywords', exact: true }).fill(additions.keyword.label);
       await panel.getByRole('option', { name: additions.keyword.label, exact: true }).waitFor();
       await shot('picker-' + width);

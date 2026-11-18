@@ -11,7 +11,7 @@
 		const options = ( vocabulary[ settings.kind ] || [] ).map( option => ( {
 			label: option.label,
 			search: [ option.label, ...( option.aliases || [] ) ].map( normalize ),
-		} ) );
+		} ) ).sort( ( a, b ) => a.label.localeCompare( b.label ) );
 		const add = document.createElement( 'button' );
 		add.type = 'button';
 		add.className = 'button ehrman-metadata-picker__add';
@@ -52,8 +52,7 @@
 		function refresh() {
 			const query = normalize( input.value );
 			const selected = new Set( settings.selected().map( normalize ) );
-			matches = query ? options.filter( option => ! selected.has( normalize( option.label ) ) && option.search.some( text => text.includes( query ) ) )
-				.sort( ( a, b ) => Number( b.search[ 0 ].startsWith( query ) ) - Number( a.search[ 0 ].startsWith( query ) ) || a.label.localeCompare( b.label ) ).slice( 0, 20 ) : [];
+			matches = field.hidden || input.disabled ? [] : options.filter( option => ! selected.has( normalize( option.label ) ) && ( ! query || option.search.some( text => text.includes( query ) ) ) );
 			list.replaceChildren();
 			matches.forEach( ( option, index ) => {
 				const item = document.createElement( 'li' );
@@ -64,9 +63,12 @@
 				item.addEventListener( 'click', () => choose( index ) );
 				list.append( item );
 			} );
+			list.scrollTop = 0;
 			list.hidden = ! matches.length;
 			input.setAttribute( 'aria-expanded', String( ! list.hidden ) );
-			status.textContent = query && ! matches.length ? ( topic ? __( 'No matching topics found', 'ehrman-blog-discovery' ) : __( 'No matching keywords found', 'ehrman-blog-discovery' ) ) : '';
+			status.textContent = field.hidden || matches.length ? '' : query
+				? ( topic ? __( 'No matching topics found', 'ehrman-blog-discovery' ) : __( 'No matching keywords found', 'ehrman-blog-discovery' ) )
+				: ( topic ? __( 'No topics available to add', 'ehrman-blog-discovery' ) : __( 'No keywords available to add', 'ehrman-blog-discovery' ) );
 			highlight( -1 );
 		}
 
@@ -86,9 +88,10 @@
 			if ( focus ) add.focus();
 		}
 		function outside( event ) {
-			if ( ! host.contains( event.target ) ) close( false );
+			if ( ! field.hidden && ! host.contains( event.target ) ) close( false );
 		}
 		add.addEventListener( 'click', () => { add.hidden = true; field.hidden = false; input.focus(); } );
+		input.addEventListener( 'focus', refresh );
 		input.addEventListener( 'input', refresh );
 		input.addEventListener( 'keydown', event => {
 			if ( event.key === 'Escape' ) { event.preventDefault(); event.stopPropagation(); close( true ); }
