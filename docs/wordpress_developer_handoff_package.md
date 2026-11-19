@@ -13,6 +13,12 @@ this review does not certify the final delivery archive or production deployment
 
 The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
 
+**Tools > Search Organization > Topics** lets administrators create topics and
+manage their category links, including multiple categories per topic. Existing
+names and descriptions remain read-only. See [Topic organization](wordpress_topic_organization.md)
+for the workflow and the explicit limitation that database edits are not exported
+to the JSON handoff/rebuild sources automatically.
+
 Reviewer Tools is now an optional **demo-only companion plugin**, stored at
 `wordpress-demo-plugins/ehrman-reviewer-tools`. It is excluded from the production
 plugin and handoff package, including its renderer, frontend controls and export

@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 ( static function () use ( $assert, $assert_same ): void {
 	$wpdb = Database::client(); $tables = Database::tables();
 	$source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' ); $user = get_current_user_id(); $get = $_GET;
+	$key = getenv( 'OPENAI_API_KEY' );
 	$receipt = get_option( 'ehrman_discovery_install_receipt', null );
 	$setting = get_option( 'ehrman_ingestion_default_mode', 'manual' );
 	$native_ids = array(); $indexed_ids = array(); $calls = 0; $mock_proposal = null; $embedding_failure = false;
@@ -64,6 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$admins = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
 		wp_set_current_user( (int) $admins[0] ); update_option( 'ehrman_ingestion_default_mode', 'manual' );
 		putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' ); add_filter( 'pre_http_request', $http, -100, 3 );
+		putenv( 'OPENAI_API_KEY=post-linking-test-placeholder' );
 		[ $id, $index ] = $make( 'valid' );
 		[ $second_id, $second_index ] = $make( 'second' );
 		[ $wrong_id, $wrong_index ] = $make( 'wrong title', 'title' );
@@ -210,6 +212,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		null === $receipt ? delete_option( 'ehrman_discovery_install_receipt' ) : update_option( 'ehrman_discovery_install_receipt', $receipt );
 		update_option( 'ehrman_ingestion_default_mode', $setting );
 		putenv( false === $source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $source );
+		putenv( false === $key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $key );
 		wp_set_current_user( $user ); $_GET = $get; wp_cache_flush();
 	}
 	$assert_same( $original_hash, $hash(), 'Post-linking fixtures changed the original discovery data.' );

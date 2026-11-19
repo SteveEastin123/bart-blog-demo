@@ -63,6 +63,7 @@ final class Plugin {
 		add_action( 'rest_api_init', array( $this->rest_controller, 'register_routes' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		AI_Analytics_Page::register();
+		Topic_Organization_Page::register();
 		Post_Ingestion_Queue::register();
 		Post_Ingestion_Publishing_Settings::register();
 		Post_Ingestion_Automation::register();
