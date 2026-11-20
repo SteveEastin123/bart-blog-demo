@@ -48,13 +48,13 @@ key. Check for queued ingestion jobs before enabling the shared key.
 
 ## Publishing Mode
 
-**Tools > Ehrman Discovery > Publishing settings** sets the site default:
+**Blog Search > Settings and Status > Publishing settings** sets the site default:
 **Manual** (the installation default) or **Automatic**. These radio buttons save
 immediately and show Saving/Saved feedback; there is no separate Save button.
 Only administrators can change the setting, through WordPress's authenticated
 `/wp/v2/settings` endpoint. Failed saves restore the confirmed setting and show
 an error. A lost response is checked before the selection is restored.
-The **Metadata mode** selector in the post editor's Search Metadata
+The **Metadata mode** selector in the post editor's Post Metadata
 panel offers **Use site default**, **Manual**, or **Automatic** before first
 publication. Save the choice with the post; the selector locks after publication.
 It does not change the separate JSON/database-authority setting.
@@ -64,7 +64,7 @@ Publication itself does not wait for OpenAI. The job generates and validates
 metadata, approves it through the existing transactional writer, and generates
 the title-and-summary vector. Validated new keywords are included. Ignore-only
 posts do not receive vectors. The editor checks status and shows progress and
-completion; Search Metadata history identifies the approval as **Automatic**.
+completion; Post Metadata history identifies the approval as **Automatic**.
 Usage and costs are recorded in the existing post-ingestion analytics.
 
 Automatic mode requires a working WordPress cron runner, database-managed mode,
@@ -90,23 +90,23 @@ Existing installations and posts stay Manual unless explicitly opted in.
 ## Manual Editor Workflow
 
 1. Save and publish the WordPress post normally.
-2. Open the **Search Metadata** panel in the block editor.
+2. Open the **Post Metadata** panel in the block editor.
 3. Select **Create Metadata**. The REST request validates the saved post, persists
    a draft, and runs analysis in that request. It returns HTTP `200` with the
    completed metadata, or an error if generation fails. New requests do not
    schedule a WordPress cron job.
 4. The panel displays **Creating metadata...** while waiting, then shows the
    results and approval button in the same panel. Keep the page open until
-   generation finishes. **Tools > Search Metadata** provides a worklist and
+   generation finishes. **Blog Search > Post Metadata** provides a worklist and
    administrative fallback, not a required step in routine publishing.
 5. When analysis finishes, WordPress displays a persistent administrative
-   notice, a count beside **Search Metadata**, and an **Awaiting approval** or
+   notice, a count beside **Post Metadata**, and an **Awaiting approval** or
    **Review required** status on the Posts screen. These reminders remain
    until the proposal is approved or discarded.
 6. Review **Description**, **Summary**, the AI-selected **Topics**, and one
    combined **Keywords** list. Description and Summary remain editable. Topics
    and keywords start from the stored AI result. In both the editor panel and
-   Tools review page, an X removes a term from this proposal and its undo button
+   Post Metadata review page, an X removes a term from this proposal and its undo button
    restores it before saving or approving. Removal does not delete shared terms
    or change other posts. At least one topic must remain for a ready proposal;
    all keywords may be removed. **Add topic** and **Add keyword** open inline
@@ -145,7 +145,7 @@ after subsequent content edits.
 
 ### Revising Approved Metadata
 
-Both the post editor and Tools record offer **Edit Metadata** and **Regenerate
+Both the post editor and Post Metadata record offer **Edit Metadata** and **Regenerate
 Metadata** for the latest approved metadata linked to an editable, published
 WordPress post. Imported records without a native link remain read-only.
 
@@ -153,7 +153,7 @@ WordPress post. Imported records without a native link remain read-only.
   without an AI call. Edit Description or Summary and remove/restore selected
   topics and keywords, or add existing ones using the same autocomplete controls.
 - **Regenerate Metadata** asks for confirmation of the API charge, reads the current
-  saved post, and generates a new proposal. Tools opens the progress screen first;
+  saved post, and generates a new proposal. Post Metadata opens the progress screen first;
   the editor shows progress inline. Neither schedules background generation.
 - **Approve Changes** validates the pending revision. The existing live metadata
   and vector remain active until the replacement can be committed atomically.
@@ -162,7 +162,7 @@ WordPress post. Imported records without a native link remain read-only.
   vector. Vector or storage failure leaves the existing live version unchanged.
 - **Cancel Changes** discards only the pending revision, retaining approved history
   and live search data. Recorded API usage is retained even if changes are cancelled.
-  Both the Tools form and post-editor action require the displayed revision token.
+  Both the Post Metadata form and post-editor action require the displayed revision token.
   If another tab saves or regenerates the proposal, an older tab cannot discard it;
   reload the current metadata before cancelling. The database deletion checks the
   same revision fields atomically, and a rejected cancellation leaves queued work intact.
@@ -179,7 +179,7 @@ Publishing first remains the chosen workflow. Unpublished posts show only the
 publish-first prerequisite; the save-changes reminder appears only for published
 posts with unsaved edits. Draft analysis and prepublication approval are not enabled.
 
-**Tools > Search Metadata** defaults to **All** records. The **Needs attention**
+**Blog Search > Post Metadata** defaults to **All** records. The **Needs attention**
 filter shows published posts whose metadata has not been generated, proposals
 requiring approval, and failures (including pending vector retries). Filters also
 expose Generating and Complete records, with title search and inclusive
@@ -222,8 +222,9 @@ Without JavaScript, an explicit Continue button uses the existing synchronous
 form handler.
 Opening, filtering, or paging through the list does not start an AI request.
 The page retains review and approval, pending-analysis retries, vector retries,
-and draft discard actions, plus read-only inspection of imported metadata. Its URL remains
-`tools.php?page=ehrman-post-ingestion` so existing history and review links work.
+and draft discard actions, plus read-only inspection of imported metadata. Its URL is
+`admin.php?page=ehrman-post-ingestion`. The former Tools URL redirects here,
+preserving draft IDs, filters, and submissions from previously opened forms.
 The retired manual-entry `admin_post_ehrman_ingestion_analyze` action is no longer
 registered; the post-editor REST analysis endpoint is unchanged.
 
@@ -238,7 +239,7 @@ to be native IDs. This display-only recognition never changes imported ownership
 Both review interfaces use the same workflow checks: a linked WordPress post must
 still be published and match the analyzed source, and submitted edits must match
 the reviewed proposal revision. A rejected approval does not save the submitted
-edits. Retrying analysis from Search Metadata refreshes the draft from the current
+edits. Retrying analysis from Post Metadata refreshes the draft from the current
 saved WordPress post. Legacy external drafts without a native-post link continue
 to use their retained source text; source IDs are never assumed to be local IDs.
 

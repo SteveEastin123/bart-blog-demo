@@ -13,9 +13,18 @@ this review does not certify the final delivery archive or production deployment
 
 The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
 
-**Tools > Search Organization > Topics** lets administrators create topics and
-manage their category links, including multiple categories per topic. Existing
-names and descriptions remain read-only. See [Topic organization](wordpress_topic_organization.md)
+The **Blog Search** administration menu groups **Post Metadata** (the default),
+**Topics & Categories**, **AI Analytics**, and **Settings and Status**. These screens
+remain restricted to administrators with `manage_options`. Existing plugin
+`tools.php?page=...` links redirect to their `admin.php?page=...` equivalents;
+WordPress's other Tools entries are unchanged.
+
+**Blog Search > Topics & Categories** provides Subject Areas (the default), Categories,
+and Topics tabs for creating records and managing their many-to-many links. Categories
+have separate Subject Area and Topic selectors, saved together. Existing names stay
+read-only; **Edit Description** saves descriptions separately, with guidance to preserve
+topic meaning and an explanation of the pending-metadata vocabulary check.
+See [Topics & categories](wordpress_topic_organization.md)
 for the workflow and the explicit limitation that database edits are not exported
 to the JSON handoff/rebuild sources automatically.
 
@@ -30,7 +39,7 @@ review are unrelated features and remain in the production plugin.
 The retired topic/keyword Ask AI interpreter and experimental section-search
 plugins are not part of the production plugin. Package the active plugin directory,
 not the repository root. Browse Topics uses the selected first structure; the
-second structure is retired. **Tools > AI Analytics** contains Overview, Ask AI,
+second structure is retired. **Blog Search > AI Analytics** contains Overview, Ask AI,
 and Post Metadata tabs. The Ask AI tab reports on the active semantic method;
 retired-method records are retained locally but excluded from that report and
 its exports. Historical test data is not part of the discovery data package.
@@ -120,9 +129,9 @@ Include the database schema and technical architecture as appendices.
 
 ### Initial Data Installation
 
-**Tools > Ehrman Discovery** provides database information, record counts, and
+**Blog Search > Settings and Status** provides database information, record counts, and
 the administrator-only Manual/Automatic metadata default. Usage and costs are
-available separately under **Tools > AI Analytics**.
+available separately under **Blog Search > AI Analytics**.
 Manual is the default; Automatic requires reliable WordPress cron and applies
 only to first publication, with per-post overrides in the editor. See
 `wordpress_post_ingestion_handoff.md` for configuration and recovery.
@@ -223,7 +232,7 @@ applying, a fresh preview and repeat apply leave existing links/history intact.
 Linking does not change article content, metadata fields, terms or vector bytes,
 copy full posts into the baseline, call AI, or manufacture generation charges.
 It creates a baseline labeled **Imported metadata; no new approval**, with no
-approval timestamp. That active baseline enables the existing editor and Tools
+approval timestamp. That active baseline enables the existing editor and Post Metadata
 **Edit Metadata** and **Regenerate Metadata** controls. Edits create a separate
 pending revision; cancellation retains imported data, and approval atomically
 replaces it. Regeneration and a changed title/summary vector may incur normal AI
@@ -331,15 +340,15 @@ both classes; the existing actions, nonces, URLs, permissions, and service calls
 are unchanged. The page delegates progress authorization without starting AI work.
 Its remaining page, draft,
 review, approved-result, history, and action markup lives in
-`templates/admin/post-ingestion/`. **Tools > Search Metadata** uses the existing
+`templates/admin/post-ingestion/`. **Blog Search > Post Metadata** uses the existing
 `ehrman-post-ingestion` page slug to preserve review links. The manual-entry form
 and its submit handler have been removed. New metadata creation starts in the
-normal WordPress post editor's **Search Metadata** panel or from a published post
+normal WordPress post editor's **Post Metadata** panel or from a published post
 listed as **Not generated** on the worklist. `Post_Ingestion_Worklist` handles
 database-side counts, filters, and 25-row pagination, including existing imported
 metadata without a generation-history record. The default status is **All**;
 **Clear filters** resets status, title, dates, and pagination without deleting
-data. Tools-page creation/regeneration opens a progress screen before making the
+data. Worklist creation/regeneration opens a progress screen before making the
 foreground request, then opens the resulting proposal. Templates escape display
 values and render nonce-protected forms; they do not query the database or run ingestion.
 

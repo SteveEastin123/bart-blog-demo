@@ -116,7 +116,7 @@ Ask AI search interface or delete historical comparison data.
 
 The October 19 analytics cleanup replaces method tabs and comparison reports with
 one **Ask AI Analytics** dashboard at
-`/wp-admin/tools.php?page=ehrman-ai-analytics`. Existing method-specific links open
+`/wp-admin/admin.php?page=ehrman-ai-analytics`. Existing method-specific links open
 the same dashboard; their old `view` and `interface` parameters are ignored.
 
 - `AI_Analytics_Scope` selects semantic requests while excluding the retired

@@ -68,7 +68,7 @@ final class Post_Ingestion_Automation {
 				self::fail( $result, __( 'Automatic metadata could not be scheduled. Regenerate metadata manually.', 'ehrman-blog-discovery' ) );
 			}
 		} catch ( Throwable $error ) {
-			update_post_meta( $post_id, self::ERROR_META, __( 'Automatic metadata could not be started. Open Search Metadata to recover.', 'ehrman-blog-discovery' ) );
+			update_post_meta( $post_id, self::ERROR_META, __( 'Automatic metadata could not be started. Open Post Metadata to recover.', 'ehrman-blog-discovery' ) );
 		}
 	}
 
@@ -120,7 +120,7 @@ final class Post_Ingestion_Automation {
 				);
 			}
 		} catch ( Throwable $error ) {
-			self::fail( $draft_id, __( 'Automatic metadata stopped unexpectedly. Open Search Metadata to recover.', 'ehrman-blog-discovery' ) );
+			self::fail( $draft_id, __( 'Automatic metadata stopped unexpectedly. Open Post Metadata to recover.', 'ehrman-blog-discovery' ) );
 		} finally {
 			// Never clear a newer manual recovery attempt or overwrite its result.
 			$sql = $wpdb->prepare( "UPDATE %i SET automatic_status=CASE WHEN status='approved' AND embedding_status IN ('complete','not_applicable') THEN 'complete' ELSE 'attention' END,updated_at=%s WHERE id=%d AND automatic_status=%s AND analysis_attempt=%d", $table, current_time( 'mysql', true ), $draft_id, 'running', $attempt );

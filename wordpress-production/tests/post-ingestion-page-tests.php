@@ -115,7 +115,7 @@ try {
 	$assert_same( 1, $dom->query( '//form[@method="get"]' )->length, 'Worklist filters are missing.' );
 	$assert_same( 'all', $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Worklist does not default to All.' );
 	$assert_same( Post_Ingestion_Page::page_url(), $dom->evaluate( 'string(//form[@method="get"]/a[text()="Clear filters"]/@href)' ), 'Clear filters must link to the unfiltered worklist.' );
-	$assert_same( 'Search Metadata', $dom->evaluate( 'string(//h1)' ), 'Search Metadata heading is incorrect.' );
+	$assert_same( 'Post Metadata', $dom->evaluate( 'string(//h1)' ), 'Post Metadata heading is incorrect.' );
 	$assert_same( admin_url( 'edit.php' ), $dom->evaluate( 'string(//a[text()="Posts"]/@href)' ), 'History no longer links to the normal Posts screen.' );
 	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Manual post-entry fields are still displayed.' );
 	$assert( str_contains( $html, 'Analysis is not configured.' ) && str_contains( $html, 'JSON is the current source of truth.' ), 'Configuration warnings are missing.' );
@@ -157,7 +157,7 @@ try {
 	$update_page_draft( array( 'proposal_json' => wp_json_encode( $proposal ), 'model' => 'test-model', 'input_tokens' => 1234, 'output_tokens' => 56, 'estimated_cost_usd' => 0.0123 ) );
 	$html = $page_render( $id );
 	$page_check_forms( $page_dom( $html ), array( 'ehrman_ingestion_reanalyze' ) );
-	$assert_same( Post_Ingestion_Page::page_url(), $page_dom( $html )->evaluate( 'string(//a[contains(., "Search Metadata")]/@href)' ), 'Draft lost its worklist return link.' );
+	$assert_same( Post_Ingestion_Page::page_url(), $page_dom( $html )->evaluate( 'string(//a[contains(., "Post Metadata")]/@href)' ), 'Draft lost its worklist return link.' );
 	$assert( str_contains( $html, 'Retry analysis' ) && ! str_contains( $html, 'Review metadata' ), 'Legacy queued analysis lost its retry control.' );
 	$assert( str_contains( $html, '1,234 input tokens, 56 output tokens, approximately $0.0123' ), 'Analysis usage formatting changed.' );
 	$update_page_draft( array( 'status' => 'analyzing', 'analysis_started_at' => current_time( 'mysql', true ) ) );
@@ -190,7 +190,7 @@ try {
 		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $dom->evaluate( 'string(//input[@name="revision"]/@value)' ), 'History review lost its proposal revision.' );
 		$assert( str_contains( $dom->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/@onsubmit)' ), 'window.confirm(' ), 'Discard confirmation is missing.' );
 		$assert_same( Post_Ingestion_Review_Workflow::revision( $repository->draft( $id ) ), $dom->evaluate( 'string(//form[input[@value="ehrman_ingestion_discard"]]/input[@name="revision"]/@value)' ), 'Discard form lost its revision token.' );
-		$label = 'ready' === $status ? 'Search metadata is ready for review.' : 'Metadata cannot be approved yet.';
+		$label = 'ready' === $status ? 'Post metadata is ready for review.' : 'Metadata cannot be approved yet.';
 		$assert( str_contains( $html, $label ), 'Missing review-state notice.' );
 	}
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );

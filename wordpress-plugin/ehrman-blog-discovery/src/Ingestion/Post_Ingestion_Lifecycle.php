@@ -127,7 +127,7 @@ final class Post_Ingestion_Lifecycle {
 	/** Warns administrators when cleanup needs a database retry. */
 	public static function cleanup_notice(): void {
 		if ( current_user_can( 'manage_options' ) && get_option( self::FAILURES_OPTION, array() ) ) {
-			echo '<div class="notice notice-warning"><p>' . esc_html__( 'Search metadata cleanup could not finish for a deleted post. The post is hidden from search and cleanup will retry automatically. If this persists, ask the site administrator to check the database and scheduled jobs.', 'ehrman-blog-discovery' ) . '</p></div>';
+			echo '<div class="notice notice-warning"><p>' . esc_html__( 'Post metadata cleanup could not finish for a deleted post. The post is hidden from search and cleanup will retry automatically. If this persists, ask the site administrator to check the database and scheduled jobs.', 'ehrman-blog-discovery' ) . '</p></div>';
 		}
 	}
 
@@ -140,7 +140,7 @@ final class Post_Ingestion_Lifecycle {
 	private static function execute( ?string $sql ): void {
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Queries are prepared by this class; transaction statements are fixed.
 		if ( null === $sql || false === Database::client()->query( $sql ) ) {
-			throw new RuntimeException( 'Search metadata cleanup failed.' );
+			throw new RuntimeException( 'Post metadata cleanup failed.' );
 		}
 	}
 }

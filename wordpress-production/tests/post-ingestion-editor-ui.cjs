@@ -31,7 +31,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     embeddingStatus: 'not_requested', analysisActive: false, analysisStalled: false,
   };
   let record = { postId, postStatus: 'draft', configured: true, databaseAuthoritative: true, sourceChanged: false,
-    reviewUrl: base + '/wp-admin/tools.php?page=ehrman-post-ingestion', draft: null };
+    reviewUrl: base + '/wp-admin/admin.php?page=ehrman-post-ingestion', draft: null };
   let finishAnalysis;
   let analysisDelay = 500;
   let failure = null;
@@ -86,9 +86,9 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       store.openGeneralSidebar('edit-post/document');
     });
     await panel.waitFor();
-    const toggle = panel.getByRole('button', { name: 'Search Metadata', exact: true });
+    const toggle = panel.getByRole('button', { name: 'Post Metadata', exact: true });
     if (await toggle.getAttribute('aria-expanded') !== 'true') await toggle.click();
-    await page.waitForFunction(() => !document.querySelector('.ehrman-ingestion-editor')?.textContent.includes('Loading search metadata...'));
+    await page.waitForFunction(() => !document.querySelector('.ehrman-ingestion-editor')?.textContent.includes('Loading post metadata...'));
   }
   async function reloadState() {
     await open();
@@ -101,7 +101,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     credentials.fill('');
     await page.locator('#wp-submit').click();
     await page.waitForURL('**/wp-admin/**');
-    await page.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
+    await page.goto(base + '/wp-admin/admin.php?page=ehrman-blog-discovery');
     const settings = page.locator('[data-ebd-publishing-settings]');
     const manual = settings.getByRole('radio', { name: 'Manual', exact: true });
     const automatic = settings.getByRole('radio', { name: 'Automatic', exact: true });
@@ -180,12 +180,12 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     const plainContext = await browser.newContext({ javaScriptEnabled: false, storageState: await context.storageState() });
     try {
       const plainPage = await plainContext.newPage();
-      await plainPage.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
+      await plainPage.goto(base + '/wp-admin/admin.php?page=ehrman-blog-discovery');
       assert(await plainPage.getByRole('radio', { name: 'Manual', exact: true }).isDisabled());
       assert(await plainPage.getByText('Publishing settings require JavaScript.', { exact: true }).isVisible());
     } finally { await plainContext.close(); }
     await open();
-    assert.equal(await panel.getByRole('link', { name: 'Search Metadata', exact: true }).getAttribute('href'), record.reviewUrl);
+    assert.equal(await panel.getByRole('link', { name: 'Post Metadata', exact: true }).getAttribute('href'), record.reviewUrl);
     assert.equal(actions.length, 0, 'Opening the panel started a paid action');
     const mode = panel.getByRole('combobox', { name: 'Metadata mode', exact: true });
     assert.equal(await mode.inputValue(), 'inherit');

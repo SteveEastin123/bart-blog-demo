@@ -1,6 +1,6 @@
 # AI Cost Analytics
 
-Administrators open **Tools > AI Analytics**. The default Overview tab summarizes
+Administrators open **Blog Search > AI Analytics**. The default Overview tab summarizes
 ongoing Ask AI and Post Metadata costs. Ask AI retains question-level
 usage and review details. Post Metadata groups API attempts by generation run and
 provides a CSV export. Switching tabs preserves the date range.

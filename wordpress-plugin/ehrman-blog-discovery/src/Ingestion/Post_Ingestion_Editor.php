@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Adds the protected Search Metadata panel to the post editor. */
+/** Adds the protected Post Metadata panel to the post editor. */
 final class Post_Ingestion_Editor {
 	/** Registers administrator-only editor assets. */
 	public static function register(): void {

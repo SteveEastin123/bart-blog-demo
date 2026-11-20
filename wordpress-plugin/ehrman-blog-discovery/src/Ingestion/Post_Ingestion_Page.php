@@ -31,8 +31,6 @@ final class Post_Ingestion_Page {
 
 	/** Registers administration hooks. */
 	public static function register(): void {
-		add_action( 'admin_menu', array( self::class, 'add_page' ) );
-		add_action( 'load-tools_page_' . self::PAGE_SLUG, array( self::class, 'prepare_progress' ) );
 		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue_progress' ) );
 		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue_review' ) );
 	}
@@ -82,24 +80,13 @@ final class Post_Ingestion_Page {
 	 * @param string $hook Current admin page.
 	 */
 	public static function enqueue_review( string $hook ): void {
-		if ( 'tools_page_' . self::PAGE_SLUG !== $hook || ! current_user_can( 'manage_options' ) ) {
+		if ( ! Admin_Menu::is_screen( self::PAGE_SLUG, $hook ) || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-review.js';
 		Post_Ingestion_Editor::enqueue_term_picker();
 		wp_enqueue_script( 'ehrman-post-ingestion-review', EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-review.js', array( 'ehrman-metadata-term-picker' ), is_file( $path ) ? (string) filemtime( $path ) : EHRMAN_DISCOVERY_VERSION, true );
 		Post_Ingestion_Editor::enqueue_selection_styles();
-	}
-
-	/** Adds the page beneath WordPress Tools. */
-	public static function add_page(): void {
-		add_management_page(
-			__( 'Search Metadata', 'ehrman-blog-discovery' ),
-			Post_Ingestion_Admin_Status::menu_title( __( 'Search Metadata', 'ehrman-blog-discovery' ) ),
-			'manage_options',
-			self::PAGE_SLUG,
-			array( self::class, 'render' )
-		);
 	}
 
 	/** Renders metadata history and retained review and recovery actions. */
@@ -305,7 +292,7 @@ final class Post_Ingestion_Page {
 	 * @param int $draft_id Draft identifier, or zero for the index.
 	 */
 	public static function page_url( int $draft_id = 0 ): string {
-		$url = admin_url( 'tools.php?page=' . self::PAGE_SLUG );
+		$url = admin_url( 'admin.php?page=' . self::PAGE_SLUG );
 		return $draft_id > 0 ? add_query_arg( 'draft', $draft_id, $url ) : $url;
 	}
 }

@@ -40,7 +40,7 @@ final class Post_Ingestion_Admin_Status {
 	}
 
 	/**
-	 * Adds the pending-review count to the Tools submenu label.
+	 * Adds the pending-review count to the Post Metadata submenu label.
 	 *
 	 * @param string $label Base menu label.
 	 */
@@ -63,7 +63,7 @@ final class Post_Ingestion_Admin_Status {
 			return;
 		}
 		$screen = get_current_screen();
-		if ( null !== $screen && 'tools_page_ehrman-post-ingestion' === $screen->id ) {
+		if ( null !== $screen && Admin_Menu::is_screen( Admin_Menu::METADATA, $screen->id ) ) {
 			return;
 		}
 		$count = self::review_count();
@@ -83,7 +83,7 @@ final class Post_Ingestion_Admin_Status {
 	}
 
 	/**
-	 * Adds Search Metadata before the publication-date column.
+	 * Adds Post Metadata before the publication-date column.
 	 *
 	 * @param array<string,string> $columns Existing post-list columns.
 	 * @return array<string,string> Updated columns.
@@ -95,12 +95,12 @@ final class Post_Ingestion_Admin_Status {
 		$updated = array();
 		foreach ( $columns as $key => $label ) {
 			if ( 'date' === $key ) {
-				$updated[ self::COLUMN ] = __( 'Search Metadata', 'ehrman-blog-discovery' );
+				$updated[ self::COLUMN ] = __( 'Post Metadata', 'ehrman-blog-discovery' );
 			}
 			$updated[ $key ] = $label;
 		}
 		if ( ! isset( $updated[ self::COLUMN ] ) ) {
-			$updated[ self::COLUMN ] = __( 'Search Metadata', 'ehrman-blog-discovery' );
+			$updated[ self::COLUMN ] = __( 'Post Metadata', 'ehrman-blog-discovery' );
 		}
 		return $updated;
 	}

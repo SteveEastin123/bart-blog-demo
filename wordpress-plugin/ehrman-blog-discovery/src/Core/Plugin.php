@@ -61,7 +61,7 @@ final class Plugin {
 		$this->page_controller->register();
 		add_action( 'init', array( $this, 'maybe_ensure_pages' ), 20 );
 		add_action( 'rest_api_init', array( $this->rest_controller, 'register_routes' ) );
-		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
+		Admin_Menu::register();
 		AI_Analytics_Page::register();
 		Topic_Organization_Page::register();
 		Post_Ingestion_Queue::register();
@@ -84,17 +84,6 @@ final class Plugin {
 		if ( self::scalar_string( get_option( 'ehrman_discovery_pages_version', '' ) ) !== EHRMAN_DISCOVERY_VERSION ) {
 			Page_Controller::ensure_pages();
 		}
-	}
-
-	/** Registers the administration page under Tools. */
-	public function register_admin_page(): void {
-		add_management_page(
-			__( 'Ehrman Discovery', 'ehrman-blog-discovery' ),
-			__( 'Ehrman Discovery', 'ehrman-blog-discovery' ),
-			'manage_options',
-			'ehrman-blog-discovery',
-			array( $this, 'render_admin_page' )
-		);
 	}
 
 	/** Renders administration status and publishing preferences. */

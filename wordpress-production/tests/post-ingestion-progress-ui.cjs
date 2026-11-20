@@ -7,7 +7,7 @@ const { chromium } = require('../../node_modules/playwright-core');
 const { base, outputFor, composeFile } = require('./browser-config.cjs');
 const root = path.resolve(__dirname, '../..');
 const output = outputFor('post-ingestion-progress-ui');
-const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
+const url = base + '/wp-admin/admin.php?page=ehrman-post-ingestion';
 const docker = args => execFileSync('docker', ['compose', '-f', composeFile, 'exec', '-T', 'wordpress', ...args], { cwd: root, encoding: 'utf8' }).trim();
 const cli = args => docker(['wp', ...args, '--allow-root']);
 
@@ -18,7 +18,8 @@ const cli = args => docker(['wp', ...args, '--allow-root']);
   const approvalEnabled = cli(['eval', 'echo EhrmanBlogDiscovery\\Post_Ingestion_Service::database_is_authoritative() ? "1" : "0";']) === '1';
   fs.mkdirSync(output, { recursive: true });
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
-  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+  // Exercise redirects and mocked deadlines without WordPress core navigation animations.
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
   const page = await context.newPage();
   const ids = [];
   const errors = [];
@@ -181,7 +182,7 @@ const cli = args => docker(['wp', ...args, '--allow-root']);
     assert.equal(await page.locator('.spinner.is-active').count(), 0, 'Error left progress spinning');
     assert.equal(creates, 2, 'Failure automatically retried a paid request');
     await page.screenshot({ path: path.join(output, 'failure-mobile.png'), fullPage: true, animations: 'disabled' });
-    await page.getByRole('link', { name: 'Return to Search Metadata', exact: true }).click();
+    await page.getByRole('link', { name: 'Return to Post Metadata', exact: true }).click();
     assert.equal(new URL(page.url()).searchParams.get('status'), 'all', 'Recovery link hides existing records');
     assert.equal(creates, 2);
 
@@ -250,14 +251,14 @@ const cli = args => docker(['wp', ...args, '--allow-root']);
     await start(createPost(), true);
     record = null;
     await page.getByText('Unable to confirm metadata generation.', { exact: true }).waitFor();
-    assert(await page.getByText('The metadata record changed or is no longer available. Check this post in Search Metadata.', { exact: true }).isVisible());
+    assert(await page.getByText('The metadata record changed or is no longer available. Check this post in Post Metadata.', { exact: true }).isVisible());
     assert.equal(creates, 4, 'Missing record restarted generation');
 
     // Bound even a server that keeps reporting active without marking the job stalled.
     await start(createPost(), true);
     await page.evaluate(() => { const now = Date.now(); Date.now = () => now + 11 * 60 * 1000; });
     await page.getByText('Unable to confirm metadata generation.', { exact: true }).waitFor();
-    assert(await page.getByText('Metadata generation has not finished. Check this post in Search Metadata for its current status.', { exact: true }).isVisible());
+    assert(await page.getByText('Metadata generation has not finished. Check this post in Post Metadata for its current status.', { exact: true }).isVisible());
     assert.equal(creates, 4);
     const readsAfterStop = statusReads;
     await new Promise(resolve => setTimeout(resolve, 3300));

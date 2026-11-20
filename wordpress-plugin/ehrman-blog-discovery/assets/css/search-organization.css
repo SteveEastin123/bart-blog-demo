@@ -26,6 +26,25 @@
 .ehrman-organization__topics th:nth-child(4) { width: 21%; }
 .ehrman-organization__topics td,
 .ehrman-organization__topics th { overflow-wrap: anywhere; padding: 12px; }
+.ehrman-organization__categories th:nth-child(1) { width: 27%; }
+.ehrman-organization__categories th:nth-child(2) { width: 28%; }
+.ehrman-organization__categories th:nth-child(3) { width: 45%; }
+.ehrman-organization__categories td { vertical-align: top; line-height: 1.6; }
+.ehrman-organization__category-name { font-weight: 600; text-decoration: none; }
+.ehrman-organization__post-count { display: block; color: #50575e; margin-top: 4px; }
+.ehrman-organization__mobile-label { display: none; }
+.ehrman-organization__topic-disclosure summary { cursor: pointer; list-style: none; }
+.ehrman-organization__topic-disclosure summary::-webkit-details-marker { display: none; }
+.ehrman-organization__topic-disclosure summary:focus-visible { outline: 2px solid #2271b1; outline-offset: 3px; }
+.ehrman-organization__topic-preview { display: block; }
+.ehrman-organization__topic-toggle { display: inline-flex; align-items: center; gap: 4px; color: #2271b1; margin-top: 6px; }
+.ehrman-organization__topic-toggle .dashicons { font-size: 16px; width: 16px; height: 16px; }
+.ehrman-organization__topic-disclosure .ehrman-organization__show-fewer,
+.ehrman-organization__topic-disclosure[open] .ehrman-organization__topic-preview,
+.ehrman-organization__topic-disclosure[open] .ehrman-organization__show-all { display: none; }
+.ehrman-organization__topic-disclosure[open] .ehrman-organization__show-fewer { display: inline; }
+.ehrman-organization__topic-disclosure[open] .dashicons { transform: rotate(180deg); }
+.ehrman-organization__topic-full-list { margin: 6px 0 0; font-size: inherit; line-height: inherit; }
 .ehrman-organization__form { max-width: 760px; }
 .ehrman-organization__form label,
 .ehrman-organization__definition dt { display: block; font-weight: 600; margin-bottom: 8px; }
@@ -33,6 +52,14 @@
 .ehrman-organization__form textarea,
 .ehrman-organization__form select { width: 100%; max-width: 100%; }
 .ehrman-organization__form textarea { resize: vertical; }
+.ehrman-organization__description-guidance { margin: 20px 0; padding-left: 16px; border-left: 4px solid #dba617; }
+.ehrman-organization__description-guidance ul { list-style: disc; margin: 8px 0 0 20px; }
+.ehrman-organization__description-guidance li { margin-bottom: 8px; }
+.ehrman-organization__link-group { margin: 24px 0; min-width: 0; }
+.ehrman-organization__link-group legend { font-weight: 600; margin-bottom: 12px; }
+.ehrman-organization__description-example { margin: 12px 0 20px; overflow-wrap: anywhere; }
+.ehrman-organization__description-example summary { cursor: pointer; color: #2271b1; }
+.ehrman-organization__description-example summary:focus-visible { outline: 2px solid #2271b1; outline-offset: 3px; }
 .ehrman-organization__definition dd { margin: 0 0 24px; white-space: pre-wrap; overflow-wrap: anywhere; }
 .ehrman-organization__chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
 .ehrman-organization__chips li { display: flex; align-items: center; gap: 6px; max-width: 100%; margin: 0; padding: 4px 8px; border: 1px solid #a7aaad; border-radius: 4px; background: #f6f7f7; }
@@ -52,4 +79,13 @@
 	.ehrman-organization__topics th:nth-child(2) { width: 34%; }
 	.ehrman-organization__topics th:nth-child(3) { width: 14%; white-space: nowrap; }
 	.ehrman-organization__topics th:nth-child(4) { width: 24%; }
+	.ehrman-organization__categories thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+	.ehrman-organization__categories tbody,
+	.ehrman-organization__categories tr,
+	.ehrman-organization__categories td { display: block; width: auto; }
+	.ehrman-organization__categories td { padding: 6px 12px; }
+	.ehrman-organization__categories td:first-child { padding-top: 14px; }
+	.ehrman-organization__categories td:last-child { padding-bottom: 14px; }
+	.ehrman-organization__categories tr + tr { border-top: 1px solid #dcdcde; }
+	.ehrman-organization__mobile-label { display: block; font-weight: 600; margin-bottom: 3px; }
 }

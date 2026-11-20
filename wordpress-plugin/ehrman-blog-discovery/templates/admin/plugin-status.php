@@ -10,7 +10,7 @@ namespace EhrmanBlogDiscovery;
 $ehrman_blog_discovery_status = is_array( $ehrman_blog_discovery_context['status'] ?? null ) ? $ehrman_blog_discovery_context['status'] : array();
 ?>
 <div class="wrap">
-	<h1><?php echo esc_html__( 'Ehrman Blog Discovery', 'ehrman-blog-discovery' ); ?></h1>
+	<h1><?php echo esc_html__( 'Settings and Status', 'ehrman-blog-discovery' ); ?></h1>
 	<p><?php echo esc_html__( 'The plugin is active and its dedicated search-index database tables are installed.', 'ehrman-blog-discovery' ); ?></p>
 	<table class="widefat striped" style="max-width: 760px">
 		<tbody>

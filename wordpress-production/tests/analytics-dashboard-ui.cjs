@@ -7,7 +7,7 @@ const { chromium } = require('../../node_modules/playwright-core');
 
 const root = path.resolve(__dirname, '../..');
 const { base, outputFor, composeFile } = require('./browser-config.cjs');
-const rootUrl = base + '/wp-admin/tools.php?page=ehrman-ai-analytics';
+const rootUrl = base + '/wp-admin/admin.php?page=ehrman-ai-analytics';
 const url = rootUrl + '&tab=ask-ai';
 const output = outputFor('analytics-dashboard-ui');
 

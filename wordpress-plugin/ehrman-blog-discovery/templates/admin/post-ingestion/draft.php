@@ -17,7 +17,7 @@ if ( $view['analysis_active'] ) {
 	$retry_context['label'] = __( 'Retry analysis', 'ehrman-blog-discovery' );
 }
 ?>
-<p><a href="<?php echo esc_url( $view['history_url'] ); ?>">&larr; <?php echo esc_html__( 'Search Metadata', 'ehrman-blog-discovery' ); ?></a></p>
+<p><a href="<?php echo esc_url( $view['history_url'] ); ?>">&larr; <?php echo esc_html__( 'Post Metadata', 'ehrman-blog-discovery' ); ?></a></p>
 <h2><?php echo esc_html( $view['title'] ); ?></h2>
 <?php if ( $view['is_revision'] && 'approved' !== $view['status'] ) : ?>
 	<p><?php echo esc_html__( 'Approved metadata remains active until you approve these changes.', 'ehrman-blog-discovery' ); ?></p>
@@ -94,7 +94,7 @@ if ( $view['analysis_active'] ) {
 	<?php return; ?>
 <?php endif; ?>
 <?php if ( 'ready' === $view['status'] ) : ?>
-	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Search metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo $view['is_revision'] ? esc_html__( 'Review and approve the changes to update search.', 'ehrman-blog-discovery' ) : esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
+	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Post metadata is ready for review.', 'ehrman-blog-discovery' ); ?></strong> <?php echo $view['is_revision'] ? esc_html__( 'Review and approve the changes to update search.', 'ehrman-blog-discovery' ) : esc_html__( 'Review and approve the results before this post can appear in search.', 'ehrman-blog-discovery' ); ?></p></div>
 <?php elseif ( 'held' === $view['status'] ) : ?>
 	<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Metadata cannot be approved yet.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Check the warnings below and regenerate metadata after correcting the post or vocabulary.', 'ehrman-blog-discovery' ); ?></p></div>
 <?php endif; ?>

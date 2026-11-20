@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $view = $ehrman_blog_discovery_context;
 ?>
 <div class="wrap ehrman-ingestion">
-	<h1><?php echo esc_html__( 'Search Metadata', 'ehrman-blog-discovery' ); ?></h1>
+	<h1><?php echo esc_html__( 'Post Metadata', 'ehrman-blog-discovery' ); ?></h1>
 	<?php if ( ! $view['analysis_configured'] ) : ?>
 		<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Analysis is not configured.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Set OPENAI_API_KEY on the server. Search and post ingestion use this shared key.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
@@ -35,7 +35,7 @@ $view = $ehrman_blog_discovery_context;
 		echo Template::render( 'admin/post-ingestion/draft.php', $view['draft'] );
 		?>
 	<?php elseif ( null !== $view['indexed'] ) : ?>
-		<p><a href="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>">&larr; <?php echo esc_html__( 'Search Metadata', 'ehrman-blog-discovery' ); ?></a></p>
+		<p><a href="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>">&larr; <?php echo esc_html__( 'Post Metadata', 'ehrman-blog-discovery' ); ?></a></p>
 		<h2><?php echo esc_html( $view['indexed']['title'] ); ?></h2>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display fields.

@@ -50,7 +50,7 @@ final class Post_Ingestion_Publishing_Settings {
 	 * @param string $hook Current admin page.
 	 */
 	public static function enqueue( string $hook ): void {
-		if ( 'tools_page_ehrman-blog-discovery' !== $hook || ! current_user_can( 'manage_options' ) ) {
+		if ( ! Admin_Menu::is_screen( Admin_Menu::SETTINGS, $hook ) || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 		$path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-publishing.js';

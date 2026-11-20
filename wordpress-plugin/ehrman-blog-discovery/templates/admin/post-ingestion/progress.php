@@ -29,7 +29,7 @@ $return_url      = add_query_arg(
 	</div>
 	<p data-ebd-generation-detail><?php echo esc_html__( 'Waiting for the generated metadata. Keep this page open; the results will appear here for review and approval.', 'ehrman-blog-discovery' ); ?></p>
 	<div class="notice notice-error inline" data-ebd-generation-error role="alert" hidden><p></p></div>
-	<p><a href="<?php echo esc_url( $return_url ); ?>" data-ebd-generation-return><?php echo esc_html__( 'Return to Search Metadata', 'ehrman-blog-discovery' ); ?></a></p>
+	<p><a href="<?php echo esc_url( $return_url ); ?>" data-ebd-generation-return><?php echo esc_html__( 'Return to Post Metadata', 'ehrman-blog-discovery' ); ?></a></p>
 	<noscript>
 		<style>.ehrman-ingestion__waiting, [data-ebd-generation-detail] { display: none; }</style>
 		<p><?php echo esc_html__( 'JavaScript is disabled. Continue to generate metadata and wait for the review page to load.', 'ehrman-blog-discovery' ); ?></p>

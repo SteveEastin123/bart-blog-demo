@@ -177,7 +177,7 @@
 					if ( ticket === requestId.current ) setRecord( response );
 				} )
 				.catch( function ( requestError ) {
-					if ( ticket === requestId.current ) setError( requestError.message || __( 'Search metadata could not be loaded.', 'ehrman-blog-discovery' ) );
+					if ( ticket === requestId.current ) setError( requestError.message || __( 'Post metadata could not be loaded.', 'ehrman-blog-discovery' ) );
 				} )
 				.finally( function () {
 					if ( ! silent && ticket === requestId.current ) {
@@ -276,7 +276,7 @@
 
 		let content;
 		if ( loading ) {
-			content = el( 'div', { className: 'ehrman-ingestion-editor__loading' }, el( Spinner ), __( 'Loading search metadata...', 'ehrman-blog-discovery' ) );
+			content = el( 'div', { className: 'ehrman-ingestion-editor__loading' }, el( Spinner ), __( 'Loading post metadata...', 'ehrman-blog-discovery' ) );
 		} else {
 			content = el(
 				Fragment,
@@ -341,7 +341,7 @@
 					error || changedReview ? el( Button, { variant: 'secondary', disabled: !! busyAction, onClick: reload }, __( 'Reload Metadata', 'ehrman-blog-discovery' ) ) : null
 				),
 				draft && draft.previousVersionUrl ? el( Button, { variant: 'link', href: draft.previousVersionUrl }, __( 'Previous approved version', 'ehrman-blog-discovery' ) ) : null,
-				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Search Metadata', 'ehrman-blog-discovery' ) ) : null
+				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Post Metadata', 'ehrman-blog-discovery' ) ) : null
 			);
 		}
 
@@ -349,7 +349,7 @@
 			PluginDocumentSettingPanel,
 			{
 				name: 'ehrman-search-metadata',
-				title: __( 'Search Metadata', 'ehrman-blog-discovery' ),
+				title: __( 'Post Metadata', 'ehrman-blog-discovery' ),
 				className: 'ehrman-ingestion-editor',
 			},
 			el( SelectControl, {

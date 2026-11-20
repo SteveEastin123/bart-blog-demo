@@ -56,6 +56,12 @@ COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-vocabul
     /opt/ehrman-tests/post-ingestion-vocabulary-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/topic-organization-tests.php \
     /opt/ehrman-tests/topic-organization-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/subject-area-organization-tests.php \
+    /opt/ehrman-tests/subject-area-organization-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/category-organization-tests.php \
+    /opt/ehrman-tests/category-organization-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/organization-description-tests.php \
+    /opt/ehrman-tests/organization-description-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-lifecycle-tests.php \
     /opt/ehrman-tests/post-ingestion-lifecycle-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-automation-tests.php \

@@ -50,7 +50,7 @@ final class AI_Analytics_Renderer {
 						'page' => 'ehrman-ai-analytics',
 						'tab'  => 'ask-ai',
 					),
-					admin_url( 'tools.php' )
+					admin_url( 'admin.php' )
 				),
 				'export_url'         => $export_url,
 				'metrics'            => array(
@@ -319,7 +319,7 @@ final class AI_Analytics_Renderer {
 						),
 						$filters
 					),
-					admin_url( 'tools.php' )
+					admin_url( 'admin.php' )
 				),
 				'format'    => '',
 				'current'   => $page,

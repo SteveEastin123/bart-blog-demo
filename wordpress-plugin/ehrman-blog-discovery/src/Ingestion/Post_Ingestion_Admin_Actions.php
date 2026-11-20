@@ -1,6 +1,6 @@
 <?php
 /**
- * Protected actions for the administrator Search Metadata page.
+ * Protected actions for the administrator Post Metadata page.
  *
  * @package EhrmanBlogDiscovery
  */

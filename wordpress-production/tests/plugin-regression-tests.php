@@ -82,7 +82,8 @@ try {
 		}
 		$assert( str_contains( $html, number_format_i18n( Database::counts()['external_posts'] ) ), 'Status page lost the current post count.' );
 		$assert( ! str_contains( $html, 'page=ehrman-ai-analytics' ) && ! str_contains( $html, 'AI analytics' ), 'Status page still duplicates the dedicated analytics page.' );
-		$assert( false !== has_action( 'admin_menu', array( AI_Analytics_Page::class, 'add_page' ) ), 'Dedicated analytics menu registration is missing.' );
+		$assert( false !== has_action( 'admin_menu', array( EhrmanBlogDiscovery\Admin_Menu::class, 'add_pages' ) ), 'Blog Search menu registration is missing.' );
+		$assert( str_contains( $html, 'Settings and Status' ), 'The renamed settings heading is missing.' );
 	}
 } finally {
 	wp_set_current_user( $status_user );
@@ -97,6 +98,9 @@ require __DIR__ . '/semantic-ranking-tests.php';
 require __DIR__ . '/search-suggestion-count-tests.php';
 require __DIR__ . '/post-ingestion-vocabulary-tests.php';
 require __DIR__ . '/topic-organization-tests.php';
+require __DIR__ . '/subject-area-organization-tests.php';
+require __DIR__ . '/category-organization-tests.php';
+require __DIR__ . '/organization-description-tests.php';
 
 /* Keep retired AI routes unavailable while preserving the semantic endpoint. */
 $rest_routes = rest_get_server()->get_routes();

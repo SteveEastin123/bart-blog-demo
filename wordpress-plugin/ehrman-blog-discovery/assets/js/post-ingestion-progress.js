@@ -39,14 +39,14 @@
 		// A saved record may still be running after a timeout or a request from another tab.
 		while ( draft.analysisActive && ! draft.analysisStalled ) {
 			if ( Date.now() >= waitDeadline ) {
-				throw new Error( __( 'Metadata generation has not finished. Check this post in Search Metadata for its current status.', 'ehrman-blog-discovery' ) );
+				throw new Error( __( 'Metadata generation has not finished. Check this post in Post Metadata for its current status.', 'ehrman-blog-discovery' ) );
 			}
 			detail.textContent = __( 'Metadata is still being generated. This page will open the review automatically when it is ready.', 'ehrman-blog-discovery' );
 			await new Promise( function ( resolve ) { window.setTimeout( resolve, 3000 ); } );
 			const current = await request( 'GET' );
 			draft = current && current.draft;
 			if ( ! draft || Number( draft.id ) !== id ) {
-				throw new Error( __( 'The metadata record changed or is no longer available. Check this post in Search Metadata.', 'ehrman-blog-discovery' ) );
+				throw new Error( __( 'The metadata record changed or is no longer available. Check this post in Post Metadata.', 'ehrman-blog-discovery' ) );
 			}
 		}
 		waiting = false;
@@ -83,7 +83,7 @@
 			waiting = false;
 			spinner.classList.remove( 'is-active' );
 			status.textContent = __( 'Unable to confirm metadata generation.', 'ehrman-blog-discovery' );
-			detail.textContent = __( 'Check this post in Search Metadata before trying again. No automatic retry was made.', 'ehrman-blog-discovery' );
+			detail.textContent = __( 'Check this post in Post Metadata before trying again. No automatic retry was made.', 'ehrman-blog-discovery' );
 			errorNotice.querySelector( 'p' ).textContent = error.message || __( 'The request could not be completed.', 'ehrman-blog-discovery' );
 			errorNotice.hidden = false;
 		}

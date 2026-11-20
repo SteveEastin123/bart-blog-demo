@@ -145,12 +145,13 @@ therefore include metadata retained for trashed, draft, or private posts. Actual
 Keyword Search, Browse Topics, and Ask AI results still enforce publication
 visibility. Permanent-deletion cleanup removes the owned autocomplete metadata.
 
-The plugin includes an administrator-only **Search Metadata** panel in the normal
+The plugin includes an administrator-only **Post Metadata** panel in the normal
 WordPress post editor. After publishing, select **Create Metadata**; WordPress
 supplies the post ID, title, URL, author, publication date, and complete text.
-No manual ID entry or copying is required. **Tools > Search Metadata** retains
-review, approval, retry and history functions at the existing
-`tools.php?page=ehrman-post-ingestion` URL, without a separate post-entry form.
+No manual ID entry or copying is required. **Blog Search > Post Metadata** retains
+review, approval, retry and history functions at
+`admin.php?page=ehrman-post-ingestion`, without a separate post-entry form.
+The former Tools URL redirects here, retaining filters and previously opened forms.
 The configured ingestion model analyzes the full text using the shared OpenAI
 key. Publishers review Description, Summary, AI-selected Topics, and a combined
 Keywords list, including proposed new keywords. Description and Summary are
@@ -159,7 +160,7 @@ dropdown, separate new-keyword field, or editable Reviewer Notes field. The
 stored proposal retains validation and review evidence. Manual mode requires
 explicit approval before live search changes.
 Administrators can opt into Automatic mode through autosaving radio buttons at
-**Tools > Ehrman Discovery**, with a per-post override in the editor before first
+**Blog Search > Settings and Status**, with a per-post override in the editor before first
 publication. Automatic mode
 validates and approves metadata and creates its vector in a background job.
 The installation default remains Manual; existing posts are not bulk processed.

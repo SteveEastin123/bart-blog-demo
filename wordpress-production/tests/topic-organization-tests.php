@@ -67,6 +67,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert( is_wp_error( $service->update_categories( $id, array( $categories[0] ), $revision ) ), 'Unauthorized link update accepted.' );
 		wp_set_current_user( (int) $admins[0] );
 		$_GET = array();
+		$assert( str_contains( $render(), 'Search Subject Areas' ), 'Default organization tab is not Subject Areas.' );
+		$_GET = array( 'tab' => 'topics' );
 		$html = $render();
 		$assert( ! str_contains( $html, '<table' ) && ! str_contains( $html, 'class="ehrman-organization__pagination"' ), 'Topic list appeared by default.' );
 		$assert( str_contains( $html, 'Browse All Topics' ) && str_contains( $html, 'Add Topic' ) && str_contains( $html, 'data-ebd-topic-directory' ), 'Search-first topic controls missing.' );

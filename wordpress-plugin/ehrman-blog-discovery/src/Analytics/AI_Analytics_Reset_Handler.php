@@ -46,7 +46,7 @@ final class AI_Analytics_Reset_Handler {
 					'tab'             => 'ask-ai',
 					'analytics_reset' => '1',
 				),
-				admin_url( 'tools.php' )
+				admin_url( 'admin.php' )
 			)
 		);
 		exit;

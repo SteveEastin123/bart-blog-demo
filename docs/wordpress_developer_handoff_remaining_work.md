@@ -21,10 +21,10 @@ The plugin already provides:
 - Versioned, compressed vector export and transactional, idempotent import by WordPress post ID.
 - An administrator-only metadata workflow with analysis, review, approval,
   safe revisions of approved records, audit evidence, and vector generation.
-- A Search Metadata panel in the normal WordPress post editor with protected
+- A Post Metadata panel in the normal WordPress post editor with protected
   endpoints, foreground metadata generation, one approval for AI-selected topics
   and keywords, term removal/undo, duplicate protection, stalled-attempt recovery,
-  and a Tools > Search Metadata worklist. Manual is the default.
+  and a Blog Search > Post Metadata worklist. Manual is the default.
 - Opt-in Automatic processing after first publication through WordPress cron,
   with the same validation/approval rules and manual failure recovery.
 - Autosaving Manual/Automatic site settings and per-post overrides before publication.

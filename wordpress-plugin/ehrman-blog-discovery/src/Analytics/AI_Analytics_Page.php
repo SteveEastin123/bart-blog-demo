@@ -15,20 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class AI_Analytics_Page {
 	/** Registers administrator hooks. */
 	public static function register(): void {
-		add_action( 'admin_menu', array( self::class, 'add_page' ) );
 		add_action( 'admin_post_ehrman_ai_analytics_csv', array( self::class, 'export_csv' ) );
 		add_action( 'admin_post_ehrman_ai_analytics_reset', array( self::class, 'reset_test_analytics' ) );
-	}
-
-	/** Adds the analytics page under Tools. */
-	public static function add_page(): void {
-		add_management_page(
-			__( 'AI Analytics', 'ehrman-blog-discovery' ),
-			__( 'AI Analytics', 'ehrman-blog-discovery' ),
-			'manage_options',
-			'ehrman-ai-analytics',
-			array( self::class, 'render' )
-		);
 	}
 
 	/** Renders the analytics dashboard. */

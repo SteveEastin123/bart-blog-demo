@@ -16,7 +16,7 @@ dedicated database tables. It provides Browse Topics, Keyword Search with
 autocomplete, and Ask AI using semantic retrieval and AI candidate review.
 Only the selected Browse Topics structure and Ask AI method are active.
 
-The standard WordPress post editor's Search Metadata panel uses the saved,
+The standard WordPress post editor's Post Metadata panel uses the saved,
 published post as the source for its ID, title, URL, author, date, and text.
 It uses the shared server-side OPENAI_API_KEY to generate a Description,
 Summary, Topics, and Keywords. Search and ingestion retain separate model
@@ -33,7 +33,7 @@ Opt-in Automatic mode queues generation, validation, approval, and vector
 creation after a new post is first published. Publication does not wait for AI.
 Automatic mode requires reliable WordPress cron; errors remain available for
 manual recovery. Later post edits do not automatically regenerate metadata.
-Tools > Ehrman Discovery provides Manual/Automatic radio buttons that save
+Blog Search > Settings and Status provides Manual/Automatic radio buttons that save
 immediately. Each post can override the default before first publication.
 
 Database-managed approval is enabled by default. Explicit
@@ -45,13 +45,13 @@ bundle or start a database server. The existing EHRMAN_DISCOVERY_POST_SOURCE=mys
 setting means database-authoritative ingestion on MariaDB as well; it is not a
 database product selector.
 
-Tools > Search Metadata provides the worklist, review, revisions, and recovery.
+Blog Search > Post Metadata provides the worklist, review, revisions, and recovery.
 It defaults to All records; Clear filters resets only the filters. Imported
 records without native WordPress ownership remain read-only. Linking existing
 imported records to production posts requires a validated integration step;
 matching source IDs alone does not establish ownership.
 
-Tools > AI Analytics provides Overview, Ask AI, and Post Metadata tabs for usage
+Blog Search > AI Analytics provides Overview, Ask AI, and Post Metadata tabs for usage
 and estimated costs. The production plugin excludes the demo-only Reviewer Tools
 and experimental search methods. Developer regression tests are delivered separately.
 
@@ -70,7 +70,7 @@ and experimental search methods. Developer regression tests are delivered separa
 6. Use `[ehrman_browse_topics]`, `[ehrman_keyword_search]`, and `[ehrman_ask_ai]`
    on WordPress pages. Canonical managed URLs are `/browse-topics/`,
    `/keyword-search/`, and `/ask-ai/`.
-7. Check Tools > Ehrman Discovery for database status and publishing settings.
+7. Check Blog Search > Settings and Status for database status and publishing settings.
    Leave Manual selected unless Automatic is intended and cron is configured.
 
 Use the accompanying developer handoff and post-ingestion guides for installation

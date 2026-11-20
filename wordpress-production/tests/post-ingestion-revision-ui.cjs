@@ -9,7 +9,7 @@ const root = path.resolve(__dirname, '../..');
 const output = outputFor('post-ingestion-revision-ui');
 const docker = args => execFileSync('docker', ['compose', '-f', composeFile, 'exec', '-T', 'wordpress', ...args], { cwd: root, encoding: 'utf8' }).trim();
 const cli = args => docker(['wp', ...args, '--allow-root']);
-const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
+const url = base + '/wp-admin/admin.php?page=ehrman-post-ingestion';
 
 (async () => {
   cli(['eval', 'if (!defined("DISABLE_WP_CRON") || !DISABLE_WP_CRON || !defined("WP_HTTP_BLOCK_EXTERNAL") || !WP_HTTP_BLOCK_EXTERNAL) { throw new RuntimeException("Revision tests require an isolated site."); }']);

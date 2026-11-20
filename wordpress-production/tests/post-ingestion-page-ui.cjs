@@ -7,7 +7,7 @@ const { chromium } = require('../../node_modules/playwright-core');
 
 const root = path.resolve(__dirname, '../..');
 const { base, outputFor, composeFile } = require('./browser-config.cjs');
-const url = base + '/wp-admin/tools.php?page=ehrman-post-ingestion';
+const url = base + '/wp-admin/admin.php?page=ehrman-post-ingestion';
 const output = outputFor('post-ingestion-page-ui');
 // Optional old/new HTML from the temporary, transaction-scoped parity harness.
 const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'utf8')) : [];
@@ -19,7 +19,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
   { cwd: root, encoding: 'utf8' }).trimEnd().split(/\r?\n/);
   assert.equal(credentials.length, 2);
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
-  const context = await browser.newContext();
+  const context = await browser.newContext({ reducedMotion: 'reduce' });
   const page = await context.newPage();
   const errors = [];
   let matchedScreenshots = 0;
@@ -33,13 +33,58 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
     credentials.fill('');
     await page.locator('#wp-submit').click();
     await page.waitForURL('**/wp-admin/**');
+    const menu = page.locator('#toplevel_page_ehrman-post-ingestion');
     await page.goto(url);
+    assert.equal(await menu.locator('.wp-menu-name').innerText(), 'Blog Search');
+    const menuItems = await menu.locator('.wp-submenu li:not(.wp-submenu-head) a').allTextContents();
+    assert.equal(menuItems.length, 4);
+    assert.match(menuItems[0], /^Post Metadata/);
+    assert.deepEqual(menuItems.slice(1), ['Topics & Categories', 'AI Analytics', 'Settings and Status']);
+    const slugs = ['ehrman-post-ingestion', 'ehrman-search-organization', 'ehrman-ai-analytics', 'ehrman-blog-discovery'];
+    assert.deepEqual(await menu.locator('.wp-submenu li:not(.wp-submenu-head) a').evaluateAll(links => links.map(link => link.getAttribute('href'))), slugs.map(slug => 'admin.php?page=' + slug));
+    assert.equal(await page.locator('#menu-tools a[href*="page=ehrman-"]').count(), 0, 'Plugin pages remain under Tools');
+    for (const slug of slugs) {
+      const legacy = base + '/wp-admin/tools.php?page=' + slug;
+      const query = '&tab=categories&status=complete&draft=123&search=Paul%27s+letters&_wpnonce=probe&items%5B%5D=one';
+      const redirect = await context.request.get(legacy + query, { maxRedirects: 0 });
+      assert.equal(redirect.status(), 302);
+      const target = new URL(redirect.headers().location);
+      assert.equal(target.origin, new URL(base).origin);
+      assert.equal(target.pathname, '/wp-admin/admin.php');
+      assert.equal(target.searchParams.get('page'), slug);
+      for (const [key, value] of new URL(legacy + query).searchParams) {
+        // WordPress may normalize [] to [0] while encoding an array query value.
+        if (key !== 'items[]') assert.equal(target.searchParams.get(key), value);
+      }
+      assert.equal(target.searchParams.get('items[0]'), 'one');
+      const post = await context.request.post(legacy, { form: { _wpnonce: 'invalid' }, maxRedirects: 0 });
+      assert.equal(post.status(), 307, 'Legacy form submission would lose its POST body');
+    }
+    const legacyOrganization = base + '/wp-admin/tools.php?page=ehrman-search-organization';
+    const rejected = await context.request.post(legacyOrganization, { form: { organization_action: 'create', _wpnonce: 'invalid' } });
+    assert.equal(rejected.status(), 403, 'Legacy organization POST bypassed the nonce check');
+    const tools = await context.request.get(base + '/wp-admin/tools.php', { maxRedirects: 0 });
+    assert.equal(tools.status(), 200, 'Standard WordPress Tools was redirected');
+    await page.goto(base + '/wp-admin/tools.php?page=ehrman-post-ingestion&status=complete');
+    assert.equal(new URL(page.url()).pathname, '/wp-admin/admin.php');
+    assert.equal(await page.getByLabel('Status', { exact: true }).inputValue(), 'complete');
+    const anonymous = await browser.newContext();
+    try {
+      for (const slug of slugs) {
+        const response = await anonymous.request.get(base + '/wp-admin/admin.php?page=' + slug, { maxRedirects: 0 });
+        assert.equal(response.status(), 302);
+        assert(new URL(response.headers().location).pathname.endsWith('/wp-login.php'), 'Anonymous visitor was not sent to login');
+      }
+    } finally { await anonymous.close(); }
+    await page.goto(url);
+    assert.equal(await page.locator('#ehrman-post-ingestion-review-js').count(), 1);
+    assert.equal(await page.locator('#ehrman-search-organization-js, #ehrman-post-ingestion-publishing-js').count(), 0, 'Page-specific scripts leaked onto metadata');
     const initial = await page.locator('.ehrman-ingestion').textContent();
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(url);
-      assert.equal(await page.locator('.ehrman-ingestion h1').innerText(), 'Search Metadata');
-      assert.match(await page.locator('#menu-tools a[href="tools.php?page=ehrman-post-ingestion"]').innerText(), /^Search Metadata/);
+      assert.equal(await page.locator('.ehrman-ingestion h1').innerText(), 'Post Metadata');
+      assert.match(await page.locator('#toplevel_page_ehrman-post-ingestion .wp-submenu a[href="admin.php?page=ehrman-post-ingestion"]').innerText(), /^Post Metadata/);
       assert.equal(await page.getByLabel('Status', { exact: true }).inputValue(), 'all');
       const vectorLabels = await page.locator('[data-ebd-metadata-worklist] tbody tr td:nth-child(4)').allTextContents();
       assert(vectorLabels.length > 0, 'Default All worklist omitted imported metadata');
@@ -66,9 +111,9 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       }
       await page.locator('#wpbody-content').evaluate((element, html) => { element.innerHTML = html; }, liveContent);
 
-      await page.goto(base + '/wp-admin/tools.php?page=ehrman-blog-discovery');
+      await page.goto(base + '/wp-admin/admin.php?page=ehrman-blog-discovery');
       const status = page.locator('#wpbody-content .wrap').first();
-      assert.equal(await status.getByRole('heading', { name: 'Ehrman Blog Discovery', exact: true }).count(), 1);
+      assert.equal(await status.getByRole('heading', { name: 'Settings and Status', exact: true }).count(), 1);
       assert.equal(await status.locator('input[name="action"][value="ehrman_discovery_import"]').count(), 0, 'Discovery status still exposes a bulk import form');
       assert.equal(await status.locator('form').count(), 0, 'Discovery settings still require a form submission');
       const publishingModes = status.getByRole('group', { name: 'Metadata generation', exact: true });
@@ -79,12 +124,12 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       assert.equal(await status.getByRole('heading', { name: 'AI analytics', exact: true }).count(), 0, 'Discovery status still duplicates analytics');
       assert.equal(await status.locator('a[href*="page=ehrman-ai-analytics"]').count(), 0, 'Discovery status still shows the analytics shortcut');
       assert.doesNotMatch(await status.innerText(), /Questions, token usage, refinement activity/);
-      assert.equal(await page.locator('#menu-tools a[href="tools.php?page=ehrman-ai-analytics"]').innerText(), 'AI Analytics', 'Dedicated Tools menu entry is missing');
+      assert.equal(await page.locator('#toplevel_page_ehrman-post-ingestion a[href="admin.php?page=ehrman-ai-analytics"]').innerText(), 'AI Analytics', 'Blog Search analytics entry is missing');
       await page.screenshot({ path: path.join(output, 'discovery-status-' + width + '.png'), fullPage: true });
     }
     await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.locator('#menu-tools a[href="tools.php?page=ehrman-ai-analytics"]').click();
-    await page.waitForURL(base + '/wp-admin/tools.php?page=ehrman-ai-analytics');
+    await page.locator('#toplevel_page_ehrman-post-ingestion a[href="admin.php?page=ehrman-ai-analytics"]').click();
+    await page.waitForURL(base + '/wp-admin/admin.php?page=ehrman-ai-analytics');
     assert(await page.getByRole('heading', { name: 'AI Analytics', exact: true }).isVisible(), 'Dedicated analytics page is unavailable');
     for (const action of ['ehrman_ingestion_analyze', 'ehrman_discovery_import']) {
       const retired = await context.request.post(base + '/wp-admin/admin-post.php', { form: { action } });

@@ -50,7 +50,7 @@ final class AI_Cost_Renderer {
 				'date_to'   => $filters['date_to'] ?? '',
 				'period'    => $filters['period'] ?? '',
 			),
-			admin_url( 'tools.php' )
+			admin_url( 'admin.php' )
 		);
 	}
 
@@ -142,7 +142,7 @@ final class AI_Cost_Renderer {
 				'runs'       => array_slice( $runs, ( $page - 1 ) * 50, 50 ),
 				'pagination' => $pages > 1 ? paginate_links(
 					array(
-						'base'    => add_query_arg( array_merge( $base, array( 'paged' => '%#%' ) ), admin_url( 'tools.php' ) ),
+						'base'    => add_query_arg( array_merge( $base, array( 'paged' => '%#%' ) ), admin_url( 'admin.php' ) ),
 						'format'  => '',
 						'current' => $page,
 						'total'   => $pages,
@@ -153,7 +153,7 @@ final class AI_Cost_Renderer {
 						'page' => 'ehrman-ai-analytics',
 						'tab'  => $tab,
 					),
-					admin_url( 'tools.php' )
+					admin_url( 'admin.php' )
 				),
 				'export_url' => wp_nonce_url(
 					add_query_arg(

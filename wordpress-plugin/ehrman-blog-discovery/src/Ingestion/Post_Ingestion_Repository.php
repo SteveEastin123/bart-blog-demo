@@ -104,7 +104,7 @@ final class Post_Ingestion_Repository {
 			$duplicate = $this->duplicate_message( $post['source_wp_id'], $post['url'] );
 			$pending   = $this->pending_duplicate_message( $post['source_wp_id'], $post['url'] );
 			if ( '' !== $duplicate || '' !== $pending || null !== $this->latest_for_source_wp_id( $post['source_wp_id'] ) ) {
-				return new WP_Error( 'ehrman_ingestion_duplicate', __( 'This post already has metadata or an ingestion record. Open Search Metadata to review it.', 'ehrman-blog-discovery' ) );
+				return new WP_Error( 'ehrman_ingestion_duplicate', __( 'This post already has metadata or an ingestion record. Open Post Metadata to review it.', 'ehrman-blog-discovery' ) );
 			}
 			return $this->create_draft( $post, $hash, $user_id, $post_id, $automatic );
 		} finally {
