@@ -94,7 +94,9 @@ const output = outputFor('analytics-dashboard-ui');
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(url);
       assert.equal(await page.locator('#wpbody h1').innerText(), 'AI Analytics');
+      assert.doesNotMatch(await page.locator('#wpbody').innerText(), /Reports include the active title-and-summary search only/);
       assert.equal(await page.locator('select[name="interface"]').count(), 0);
+      assert.equal(await page.locator('input[name="search"]').count(), 0);
       assert.equal(await page.locator('[name="feedback"]').count(), 0);
       assert.equal(await page.getByRole('link', { name: 'Export AI reviews CSV', exact: true }).count(), 0);
       assert.equal(await page.locator('a[href*="dataset=refinements"]').count(), 0);
@@ -110,11 +112,11 @@ const output = outputFor('analytics-dashboard-ui');
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Horizontal overflow at ' + width);
     }
     await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.locator('input[name="search"]').fill('mustard');
+    await page.locator('input[name="zero_results"]').check();
     await page.getByRole('button', { name: 'Apply filters', exact: true }).click();
-    await page.waitForURL('**/*search=mustard*');
-    const texts = await page.locator('[data-ebd-analytics-questions] tbody tr td:nth-child(2)').allTextContents();
-    assert(texts.every(text => /mustard/i.test(text)), 'Question filtering failed');
+    await page.waitForURL('**/*zero_results=1*');
+    const counts = await page.locator('[data-ebd-analytics-questions] tbody tr td:nth-child(4)').allTextContents();
+    assert(counts.every(text => text.trim() === '0'), 'Zero-results filtering failed');
     const questionExport = await page.getByRole('link', { name: 'Export questions CSV', exact: true }).getAttribute('href');
     const exported = await context.request.get(questionExport);
     assert.equal(exported.status(), 200);
@@ -139,6 +141,12 @@ const output = outputFor('analytics-dashboard-ui');
       form: { action: 'ehrman_ai_analytics_reset', _wpnonce: 'intentionally-invalid' },
     })).status(), 403, 'Reset endpoint accepted an invalid nonce');
     await page.goto(url + '&search=unmatched-regression-question-924135');
+    assert.equal(await metrics.innerText(), initial, 'Retired Question filter still restricts bookmarked analytics URLs');
+    const staleExport = new URL(await page.getByRole('link', { name: 'Export questions CSV', exact: true }).getAttribute('href'));
+    const currentCsv = await context.request.get(staleExport.href);
+    staleExport.searchParams.set('search', 'unmatched-regression-question-924135');
+    assert.equal(await (await context.request.get(staleExport.href)).text(), await currentCsv.text(), 'Retired Question filter still restricts CSV exports');
+    await page.goto(url + '&date_from=1900-01-01&date_to=1900-01-01');
     assert(await page.getByText('No requests match these filters.', { exact: true }).isVisible());
     await page.goto(url);
     assert.equal(await metrics.innerText(), initial, 'Read-only UI tests changed analytics');
@@ -150,13 +158,18 @@ const output = outputFor('analytics-dashboard-ui');
         assert.equal(await page.locator('#wpbody .nav-tab-wrapper a').count(), 3);
         assert.equal(await page.locator('#wpbody [aria-current="page"]').innerText(), tab === 'overview' ? 'Overview' : 'Post Metadata');
         assert.equal(await page.locator('form input[name="tab"]').inputValue(), tab);
-        assert(await page.getByText('Per-attempt metadata tracking enabled:', { exact: false }).isVisible());
+        assert.equal(await page.locator('input[name="search"]').count(), 0);
+        for (const text of ['Historical totals cover retained records only.', 'Per-attempt metadata tracking enabled:']) {
+          const note = page.getByText(text, { exact: false });
+          assert.equal(await note.count(), 0);
+        }
         assert.equal(await metrics.getAttribute('style'), metricsLayout, 'Analytics tabs do not share the card layout');
         assert(await metrics.evaluate(element => [...element.children].every(card => {
           const bounds = card.getBoundingClientRect();
           return bounds.left >= 0 && bounds.right <= innerWidth && card.scrollWidth <= card.clientWidth + 1;
         })), 'Analytics cards clip or overflow: ' + tab + ' ' + width);
         if (tab === 'post-metadata') {
+          assert.doesNotMatch(await page.locator('#wpbody').innerText(), /Historical bulk\/index preparation charges are excluded/);
           assert.deepEqual(await metrics.locator(':scope > div > span').allTextContents(), [
             'Total estimated cost', 'Average cost per generation run', 'Generation runs',
           ]);
@@ -191,7 +204,13 @@ const output = outputFor('analytics-dashboard-ui');
     const noMetadataNonce = new URL(metadataExport);
     noMetadataNonce.searchParams.delete('_wpnonce');
     assert.equal((await context.request.get(noMetadataNonce.href)).status(), 403);
+    const metadataInitial = await metrics.innerText();
     await page.goto(rootUrl + '&tab=post-metadata&search=unmatched-regression-post-924135');
+    assert.equal(await metrics.innerText(), metadataInitial, 'Retired Post title filter still restricts bookmarked analytics URLs');
+    const staleMetadataExport = new URL(metadataExport);
+    staleMetadataExport.searchParams.set('search', 'unmatched-regression-post-924135');
+    assert.equal(await (await context.request.get(staleMetadataExport.href)).text(), await metadataCsv.text(), 'Retired Post title filter still restricts CSV exports');
+    await page.goto(rootUrl + '&tab=post-metadata&date_from=1900-01-01&date_to=1900-01-01');
     assert(await page.getByText('No metadata runs match these filters.', { exact: true }).isVisible());
     assert.deepEqual(await metrics.locator(':scope > div > strong').allTextContents(), ['$0.0000', '0.000\u00a2', '0']);
     await page.goto(rootUrl + '&tab=post-metadata&date_from=2026-11-01&date_to=2026-11-02');

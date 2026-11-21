@@ -45,7 +45,7 @@ final class Admin_Menu {
 		);
 		$pages = array(
 			self::METADATA     => array( __( 'Post Metadata', 'ehrman-blog-discovery' ), array( Post_Ingestion_Page::class, 'render' ) ),
-			self::ORGANIZATION => array( __( 'Topics & Categories', 'ehrman-blog-discovery' ), array( Topic_Organization_Page::class, 'render' ) ),
+			self::ORGANIZATION => array( __( 'Manage Topics', 'ehrman-blog-discovery' ), array( Topic_Organization_Page::class, 'render' ) ),
 			self::ANALYTICS    => array( __( 'AI Analytics', 'ehrman-blog-discovery' ), array( AI_Analytics_Page::class, 'render' ) ),
 			self::SETTINGS     => array( __( 'Settings and Status', 'ehrman-blog-discovery' ), array( Plugin::instance(), 'render_admin_page' ) ),
 		);

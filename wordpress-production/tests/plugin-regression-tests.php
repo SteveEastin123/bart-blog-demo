@@ -183,7 +183,7 @@ try {
 	$assert( ! array_key_exists( 'feedback', $analytics_filters ), 'The retired analytics feedback filter was retained.' );
 	$assert_same( '', $analytics_filters['date_from'], 'An invalid analytics start date was retained.' );
 	$assert_same( '2026-09-18', $analytics_filters['date_to'], 'A valid analytics end date was discarded.' );
-	$assert_same( 'Paul', $analytics_filters['search'], 'The analytics text filter was not sanitized.' );
+	$assert_same( '', $analytics_filters['search'], 'The retired analytics text filter was retained.' );
 	$assert_same( '1', $analytics_filters['zero_results'], 'The analytics zero-results filter was discarded.' );
 } finally {
 	$_GET = $original_get;

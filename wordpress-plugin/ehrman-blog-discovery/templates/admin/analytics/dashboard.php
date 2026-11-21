@@ -30,7 +30,6 @@ $reset_context  = array(
 	<?php if ( $view['was_reset'] ) : ?>
 		<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Active Ask AI analytics and search caches were reset. Retired-method history, post vectors and index-preparation history were preserved.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
-	<p><?php echo esc_html__( 'Reports include the active title-and-summary search only. Retired methods and experiments are excluded. Dates use Eastern time; no account, IP address or browser identifier is stored with a request.', 'ehrman-blog-discovery' ); ?></p>
 	<?php
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Shared partial escapes labels and URLs.
 	echo Template::render( 'admin/analytics/date-shortcuts.php', array( 'links' => $view['period_links'] ) );

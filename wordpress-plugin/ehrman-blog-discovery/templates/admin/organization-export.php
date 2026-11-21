@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $areas = $ehrman_blog_discovery_context['areas'];
 ?>
 <div class="wrap ehrman-organization">
-	<h1><?php esc_html_e( 'Topics & Categories', 'ehrman-blog-discovery' ); ?></h1>
+	<h1><?php esc_html_e( 'Manage Topics', 'ehrman-blog-discovery' ); ?></h1>
 	<?php
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted navigation template.
 	echo Template::render( 'admin/organization-tabs.php', array( 'tab' => 'export' ) );

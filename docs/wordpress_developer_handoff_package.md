@@ -14,12 +14,12 @@ this review does not certify the final delivery archive or production deployment
 The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
 
 The **Blog Search** administration menu groups **Post Metadata** (the default),
-**Topics & Categories**, **AI Analytics**, and **Settings and Status**. These screens
+**Manage Topics**, **AI Analytics**, and **Settings and Status**. These screens
 remain restricted to administrators with `manage_options`. Existing plugin
 `tools.php?page=...` links redirect to their `admin.php?page=...` equivalents;
 WordPress's other Tools entries are unchanged.
 
-**Blog Search > Topics & Categories** provides Subject Areas (the default), Categories,
+**Blog Search > Manage Topics** provides Subject Areas (the default), Categories,
 and Topics tabs for creating records and managing their many-to-many links. Categories
 have separate Subject Area and Topic selectors, saved together. Existing names stay
 read-only; **Edit Description** saves descriptions separately, with guidance to preserve
@@ -28,7 +28,7 @@ The fourth **Export** tab downloads the current hierarchy as PDF or CSV, for all
 Subject Areas or selected ones. The PDF generator and fonts are bundled locally
 with their licenses under `assets/vendor/pdfmake/`; include this directory in the
 plugin package. No external PDF service or server-side dependency is required.
-See [Topics & categories](wordpress_topic_organization.md)
+See [Manage Topics](wordpress_topic_organization.md)
 for the workflow and the explicit limitation that database edits are not exported
 to the JSON handoff/rebuild sources automatically.
 

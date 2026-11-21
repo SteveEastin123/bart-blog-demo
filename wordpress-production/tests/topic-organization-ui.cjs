@@ -108,7 +108,7 @@ async function checkOrganization(subjectAreas) {
     assert.equal(await page.locator('.nav-tab-active').innerText(), 'Subject Areas');
     assert.deepEqual(await page.locator('.ehrman-organization .nav-tab').allTextContents(), ['Subject Areas', 'Categories', 'Topics', 'Export']);
     await page.goto(url);
-    await page.getByRole('heading', { name: 'Topics & Categories', exact: true }).waitFor();
+    await page.getByRole('heading', { name: 'Manage Topics', exact: true }).waitFor();
     assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button').allTextContents(), ['Search ' + plural, 'Browse All ' + plural, 'Add ' + singular]);
     assert.equal(await page.locator('.nav-tab-active').innerText(), plural);
     assert.equal(await page.locator('.ehrman-organization__topics').count(), 0, 'Topics listed by default');

@@ -34,10 +34,6 @@ $unknown  = $metadata ? $summary['unknown'] : $overview['metadata']['unknown'];
 		<input type="hidden" name="period" value="<?php echo esc_attr( $view['filters']['period'] ?? '' ); ?>">
 		<label><?php echo esc_html__( 'From', 'ehrman-blog-discovery' ); ?><br><input type="date" name="date_from" value="<?php echo esc_attr( $view['filters']['date_from'] ); ?>"></label>
 		<label><?php echo esc_html__( 'To', 'ehrman-blog-discovery' ); ?><br><input type="date" name="date_to" value="<?php echo esc_attr( $view['filters']['date_to'] ); ?>"></label>
-		<?php
-		if ( $metadata ) :
-			?>
-			<label><?php echo esc_html__( 'Post title', 'ehrman-blog-discovery' ); ?><br><input type="search" name="search" value="<?php echo esc_attr( $view['filters']['search'] ); ?>"></label><?php endif; ?>
 		<button class="button button-primary" type="submit"><?php echo esc_html__( 'Apply filters', 'ehrman-blog-discovery' ); ?></button>
 		<a class="button" href="<?php echo esc_url( $view['clear_url'] ); ?>"><?php echo esc_html__( 'Clear', 'ehrman-blog-discovery' ); ?></a>
 	</form>
@@ -66,7 +62,7 @@ $unknown  = $metadata ? $summary['unknown'] : $overview['metadata']['unknown'];
 		</div>
 		<p><?php echo esc_html__( 'Ask AI includes query embeddings and candidate review. Post Metadata includes metadata generation and post vectors.', 'ehrman-blog-discovery' ); ?></p>
 	<?php else : ?>
-		<p><?php echo esc_html__( 'Totals and averages include metadata generation and post vectors within the active filters. Retries belong to the same run; generating metadata again starts a new run. Historical bulk/index preparation charges are excluded.', 'ehrman-blog-discovery' ); ?></p>
+		<p><?php echo esc_html__( 'Totals and averages include metadata generation and post vectors within the active filters. Retries belong to the same run; generating metadata again starts a new run.', 'ehrman-blog-discovery' ); ?></p>
 		<p><?php echo esc_html__( 'Costs are estimates based on API-reported usage and recorded pricing. Confirm billed amounts in the OpenAI usage dashboard.', 'ehrman-blog-discovery' ); ?></p>
 		<details style="margin:18px 0" data-ebd-metadata-tokens>
 			<summary><strong><?php echo esc_html__( 'Token and cache details', 'ehrman-blog-discovery' ); ?></strong></summary>
@@ -87,6 +83,4 @@ $unknown  = $metadata ? $summary['unknown'] : $overview['metadata']['unknown'];
 		<p><?php echo wp_kses_post( $view['pagination'] ); ?></p>
 	<?php endif; ?>
 	<p><?php echo esc_html__( 'Costs are estimates based on recorded usage and pricing, not an invoice. Dates use Eastern time. Ask AI groups costs by question submission date; metadata costs use the API-call date. A run spanning the selected dates includes only calls in that range.', 'ehrman-blog-discovery' ); ?></p>
-	<p><?php echo esc_html__( 'Historical totals cover retained records only. Older metadata snapshots may omit retries, deleted drafts, and previous generations; their dates may be approximate. Calls made outside this plugin are not included.', 'ehrman-blog-discovery' ); ?></p>
-	<p><?php echo esc_html( __( 'Per-attempt metadata tracking enabled:', 'ehrman-blog-discovery' ) . ' ' . $view['since'] ); ?></p>
 </div>

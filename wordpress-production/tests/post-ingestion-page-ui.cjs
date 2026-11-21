@@ -40,7 +40,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
     const menuItems = await menu.locator('.wp-submenu li:not(.wp-submenu-head) a').allTextContents();
     assert.equal(menuItems.length, 4);
     assert.match(menuItems[0], /^Post Metadata/);
-    assert.deepEqual(menuItems.slice(1), ['Topics & Categories', 'AI Analytics', 'Settings and Status']);
+    assert.deepEqual(menuItems.slice(1), ['Manage Topics', 'AI Analytics', 'Settings and Status']);
     const slugs = ['ehrman-post-ingestion', 'ehrman-search-organization', 'ehrman-ai-analytics', 'ehrman-blog-discovery'];
     assert.deepEqual(await menu.locator('.wp-submenu li:not(.wp-submenu-head) a').evaluateAll(links => links.map(link => link.getAttribute('href'))), slugs.map(slug => 'admin.php?page=' + slug));
     assert.equal(await page.locator('#menu-tools a[href*="page=ehrman-"]').count(), 0, 'Plugin pages remain under Tools');
@@ -93,7 +93,8 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       assert.equal(await page.locator('.ehrman-ingestion form[method="get"]').count(), 1);
       assert.equal(await page.getByLabel('WordPress post ID', { exact: true }).count(), 0);
       assert.equal(await page.getByLabel('Complete post text', { exact: true }).count(), 0);
-      assert.equal(await page.locator('.ehrman-ingestion').getByRole('link', { name: 'Posts', exact: true }).getAttribute('href'), base + '/wp-admin/edit.php');
+      assert.equal(await page.locator('.ehrman-ingestion').getByRole('link', { name: 'Posts', exact: true }).count(), 0, 'The redundant Posts button remains');
+      assert.doesNotMatch(await page.locator('.ehrman-ingestion').innerText(), /JSON is the current source of truth|Draft analysis and review are available/);
       await page.screenshot({ path: path.join(output, 'ingestion-' + width + '.png'), fullPage: true });
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Worklist overflows at ' + width);
       const liveContent = await page.locator('#wpbody-content').innerHTML();
@@ -115,11 +116,14 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       await page.goto(base + '/wp-admin/admin.php?page=ehrman-blog-discovery');
       const status = page.locator('#wpbody-content .wrap').first();
       assert.equal(await status.getByRole('heading', { name: 'Settings and Status', exact: true }).count(), 1);
+      assert.equal(await status.getByRole('row').filter({ has: page.getByRole('rowheader', { name: 'Import state', exact: true }) }).getByRole('cell').innerText(), 'Complete');
       assert.equal(await status.locator('input[name="action"][value="ehrman_discovery_import"]').count(), 0, 'Discovery status still exposes a bulk import form');
       assert.equal(await status.locator('form').count(), 0, 'Settings still require a form submission');
-      const publishingModes = status.getByRole('group', { name: 'Metadata generation', exact: true });
+      const publishingModes = status.getByRole('group', { name: 'Metadata Generation', exact: true });
       assert.equal(await publishingModes.getByRole('radio', { name: 'Manual', exact: true }).count(), 1);
       assert.equal(await publishingModes.getByRole('radio', { name: 'Automatic', exact: true }).count(), 1);
+      assert.equal(await status.getByRole('heading', { name: 'Allow Deletion', exact: true }).count(), 1);
+      assert.doesNotMatch(await status.innerText(), /Posts and Secondary Keywords cannot be deleted here\./);
       assert.doesNotMatch(await status.innerText(), /Authoritative JSON import|All five authoritative JSON files/);
       assert.equal(await status.getByRole('rowheader', { name: 'Imported posts', exact: true }).count(), 1);
       assert.equal(await status.getByRole('heading', { name: 'AI analytics', exact: true }).count(), 0, 'Discovery status still duplicates analytics');

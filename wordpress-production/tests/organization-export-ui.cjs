@@ -35,6 +35,7 @@ const endpoint = base + '/wp-admin/admin-post.php';
     await page.locator('#user_login').fill(credentials[0]); await page.locator('#user_pass').fill(credentials[1]); credentials.fill('');
     await page.locator('#wp-submit').click(); await page.waitForURL('**/wp-admin/**');
     await page.goto(url);
+    await page.getByRole('heading', { name: 'Manage Topics', exact: true }).waitFor();
     assert.equal(await page.locator('.nav-tab-active').innerText(), 'Export');
     assert(await page.getByLabel('Entire structure', { exact: true }).isChecked());
     assert(await page.locator('[data-ebd-export-areas]').isHidden());

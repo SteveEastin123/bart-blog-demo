@@ -1,6 +1,6 @@
 <?php
 /**
- * Topics & Categories directories and relationship forms.
+ * Manage Topics directories and relationship forms.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -86,7 +86,7 @@ if ( $category_tab ) {
 $edit_label = $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' ) : __( 'Edit Category Links', 'ehrman-blog-discovery' );
 ?>
 <div class="wrap ehrman-organization">
-	<h1><?php esc_html_e( 'Topics & Categories', 'ehrman-blog-discovery' ); ?></h1>
+	<h1><?php esc_html_e( 'Manage Topics', 'ehrman-blog-discovery' ); ?></h1>
 	<?php
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted navigation template.
 	echo Template::render( 'admin/organization-tabs.php', array( 'tab' => $view['tab'] ) );

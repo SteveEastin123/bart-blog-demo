@@ -116,9 +116,10 @@ try {
 	$assert_same( 'all', $dom->evaluate( 'string(//select[@name="status"]/option[@selected]/@value)' ), 'Worklist does not default to All.' );
 	$assert_same( Post_Ingestion_Page::page_url(), $dom->evaluate( 'string(//form[@method="get"]/a[text()="Clear filters"]/@href)' ), 'Clear filters must link to the unfiltered worklist.' );
 	$assert_same( 'Post Metadata', $dom->evaluate( 'string(//h1)' ), 'Post Metadata heading is incorrect.' );
-	$assert_same( admin_url( 'edit.php' ), $dom->evaluate( 'string(//a[text()="Posts"]/@href)' ), 'History no longer links to the normal Posts screen.' );
+	$assert_same( 0, $dom->query( '//a[text()="Posts"]' )->length, 'The redundant Posts button is still displayed.' );
 	$assert_same( 0, $dom->query( '//input[@name="source_wp_id"]|//textarea[@name="post_text"]' )->length, 'Manual post-entry fields are still displayed.' );
-	$assert( str_contains( $html, 'Analysis is not configured.' ) && str_contains( $html, 'JSON is the current source of truth.' ), 'Configuration warnings are missing.' );
+	$assert( str_contains( $html, 'Analysis is not configured.' ), 'The API configuration warning is missing.' );
+	$assert( ! str_contains( $html, 'JSON is the current source of truth.' ) && ! str_contains( $html, 'Draft analysis and review are available' ), 'The retired JSON banner is still displayed in JSON-managed mode.' );
 	$empty = $page_render( 0, array( 'search' => 'no-such-worklist-record-781924' ) );
 	$assert( str_contains( $empty, 'No posts match these filters.' ) && ! str_contains( $empty, '<table' ), 'Empty worklist state changed.' );
 

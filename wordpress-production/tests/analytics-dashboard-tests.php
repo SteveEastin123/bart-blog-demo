@@ -137,13 +137,16 @@ try {
 		$assert( ! isset( $parsed['view'] ) && ! isset( $parsed['interface'] ), 'Legacy URL still selects a method.' );
 		$assert( ! isset( $parsed['feedback'] ), 'Legacy URL still selects a feedback filter.' );
 		$assert_same( '', $parsed['date_from'], 'Invalid calendar date was accepted.' );
-		$assert_same( 3, AI_Requests::analytics( $parsed )['total'], 'Legacy analytics URL does not resolve to the unified dashboard.' );
+		$assert_same( '', $parsed['search'], 'Retired text filter still restricts bookmarked analytics URLs.' );
+		$assert_same( 3, AI_Requests::analytics( array_merge( $parsed, array( 'search' => $marker ) ) )['total'], 'Legacy analytics URL does not resolve to the unified dashboard.' );
 	}
 	foreach ( array( 'overview', 'ask-ai', 'post-metadata' ) as $tab ) {
 		$_GET = array( 'tab' => $tab );
 		$parsed = ( new AI_Analytics_Request() )->filters();
 		$assert_same( '', $parsed['date_from'], 'Default From date must include all retained history.' );
 		$assert_same( '', $parsed['date_to'], 'Default To date must include all retained history.' );
+		$_GET['search'] = $marker;
+		$assert_same( '', ( new AI_Analytics_Request() )->filters()['search'], 'Retired text filter remains active on ' . $tab );
 		$assert_same( array( 'All retained' ), array_column( array_filter( AI_Cost_Renderer::period_links( $tab, $parsed ), static fn( $period ) => $period['active'] ), 'label' ), 'All retained is not selected by default.' );
 	}
 	foreach ( array( 'today', 'month', 'all', 'invalid', array( 'today' ) ) as $period ) {
@@ -183,6 +186,7 @@ try {
 	ob_start();
 	( new AI_Analytics_Renderer() )->render( $filters, 1, false );
 	$html = ob_get_clean();
+	$assert( ! str_contains( $html, 'Reports include the active title-and-summary search only.' ), 'Removed Ask AI explanatory paragraph is still displayed.' );
 	$assert( str_contains( $html, 'AI Analytics' ) && str_contains( $html, 'Post Metadata' ) && ! str_contains( $html, 'Ask AI 2' ), 'Dashboard tabs do not separate costs by activity.' );
 	$assert( ! str_contains( $html, 'Topics and keywords' ) && ! str_contains( $html, 'Side-by-side' ), 'Comparison content remains.' );
 	$assert( ! str_contains( $html, $marker . ' taxonomy' ) && ! str_contains( $html, $marker . ' experiment' ), 'Hidden methods appeared in dashboard details.' );
@@ -240,7 +244,7 @@ try {
 	$empty_dom = $dashboard_dom( $empty_html );
 	$assert( str_contains( $empty_html, 'No requests match these filters.' ) && str_contains( $empty_html, 'No AI reviews match these filters.' ), 'Empty template states are missing.' );
 	$assert( str_contains( $empty_html, 'notice-success' ), 'Reset success notice was removed.' );
-	$assert_same( $empty_filters['search'], $empty_dom->evaluate( 'string(//input[@name="search"]/@value)' ), 'Search filter was not preserved safely.' );
+	$assert_same( 0, $empty_dom->query( '//input[@name="search"]' )->length, 'The retired Question filter is still displayed.' );
 	$assert_same( '6', $empty_dom->evaluate( 'string(' . $question_table . '/tbody/tr/td/@colspan)' ), 'Empty question table has an incorrect column span.' );
 	$assert_same( 1, $empty_dom->query( '//input[@name="zero_results"][@checked]' )->length, 'Zero-results selection changed.' );
 	$assert_same( '2026-10-01', $empty_dom->evaluate( 'string(//input[@name="date_from"]/@value)' ), 'From date changed.' );

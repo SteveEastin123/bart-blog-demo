@@ -18,9 +18,6 @@ $view = $ehrman_blog_discovery_context;
 	<?php if ( ! $view['analysis_configured'] ) : ?>
 		<div class="notice notice-warning inline"><p><strong><?php echo esc_html__( 'Analysis is not configured.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Set OPENAI_API_KEY on the server. Search and post ingestion use this shared key.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php endif; ?>
-	<?php if ( ! $view['database_authoritative'] ) : ?>
-		<div class="notice notice-info inline"><p><strong><?php echo esc_html__( 'JSON is the current source of truth.', 'ehrman-blog-discovery' ); ?></strong> <?php echo esc_html__( 'Draft analysis and review are available, but approval is disabled in this environment because a JSON import would replace database-only posts.', 'ehrman-blog-discovery' ); ?></p></div>
-	<?php endif; ?>
 	<?php if ( null !== $view['notice'] ) : ?>
 		<div class="notice <?php echo esc_attr( $view['notice']['success'] ? 'notice-success' : 'notice-error' ); ?> is-dismissible"><p><?php echo esc_html( $view['notice']['message'] ); ?></p></div>
 	<?php endif; ?>
@@ -46,7 +43,6 @@ $view = $ehrman_blog_discovery_context;
 		<?php if ( $view['missing_draft'] ) : ?>
 			<div class="notice notice-error"><p><?php echo esc_html__( 'The requested ingestion record was not found.', 'ehrman-blog-discovery' ); ?></p></div>
 		<?php endif; ?>
-		<p><a class="button" href="<?php echo esc_url( admin_url( 'edit.php' ) ); ?>"><?php echo esc_html__( 'Posts', 'ehrman-blog-discovery' ); ?></a></p>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted partial escapes its display values.
 		echo Template::render( 'admin/post-ingestion/history.php', $view['worklist'] );

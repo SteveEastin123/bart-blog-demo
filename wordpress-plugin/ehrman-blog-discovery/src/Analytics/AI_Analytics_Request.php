@@ -33,7 +33,7 @@ final class AI_Analytics_Request {
 			'date_from'    => $this->date( $this->query_value( 'date_from' ) ),
 			'date_to'      => $this->date( $this->query_value( 'date_to' ) ),
 			'period'       => in_array( $period, array( 'today', 'month', 'all' ), true ) ? $period : '',
-			'search'       => sanitize_text_field( $this->query_value( 'search' ) ),
+			'search'       => '', // Ignore retired text filters in bookmarked dashboard and export URLs.
 			'zero_results' => '1' === $this->query_value( 'zero_results' ) ? '1' : '',
 		);
 	}

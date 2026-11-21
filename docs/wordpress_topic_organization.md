@@ -1,11 +1,11 @@
-# Topics & Categories: Subject Areas, Categories, and Topics
+# Manage Topics: Subject Areas, Categories, and Topics
 
-Administrators can open **Blog Search > Topics & Categories > Topics** to create topics
+Administrators can open **Blog Search > Manage Topics > Topics** to create topics
 and manage their category links. This is part of the production plugin, not the
 demo-only reviewer tools.
 
 Tabs are ordered **Subject Areas**, **Categories**, **Topics**, **Export**. Subject Areas is
-the default when opening Topics & Categories; older unscoped topic-edit links
+the default when opening Manage Topics; older unscoped topic-edit links
 remain supported. All newly generated links specify their tab explicitly.
 The **Subject Areas** tab uses the same search-first layout and category picker.
 The three editing tabs place **Search**, **Browse All**, and **Add** in that order. Selecting a
@@ -130,9 +130,9 @@ their broader revision check. These saves do not invalidate Ask AI caches or cal
 
 ## Deletion
 
-**Blog Search > Settings and Status > Organization deletion** provides Disabled
+**Blog Search > Settings and Status > Allow Deletion** provides Disabled
 and Enabled radio buttons, defaulting to **Disabled**. Selecting either option
-saves it immediately, with Saving/Saved feedback, just like Metadata generation.
+saves it immediately, with Saving/Saved feedback, just like Metadata Generation.
 Both groups use the administrator-only WordPress settings REST endpoint; a failed
 save restores the confirmed selection or explains that the save could not be verified.
 Secondary Keywords are not included.
