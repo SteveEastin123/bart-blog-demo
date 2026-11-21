@@ -30,6 +30,8 @@ final class Topic_Organization_Page {
 	/** Registers only authenticated administration hooks. */
 	public static function register(): void {
 		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue' ) );
+		add_action( 'admin_init', array( Organization_Deletion_Settings::class, 'register_setting' ) );
+		add_action( 'rest_api_init', array( Organization_Deletion_Settings::class, 'register_setting' ) );
 		Organization_Export_Page::register();
 	}
 
@@ -82,9 +84,10 @@ final class Topic_Organization_Page {
 			wp_die( esc_html__( 'Use the download buttons to export the structure.', 'ehrman-blog-discovery' ), '', array( 'response' => 400 ) );
 		}
 		$scope = self::scope( $tab );
-		check_admin_referer( 'ehrman_' . $scope . '_organization' );
 		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Scalars are sanitized below; category IDs are strictly validated before use.
-		$input           = Database::associative_row( wp_unslash( $_POST ) ) ?? array();
+		$input  = Database::associative_row( wp_unslash( $_POST ) ) ?? array();
+		$intent = Database::text( $input['organization_action'] ?? null );
+		check_admin_referer( 'ehrman_' . $scope . '_organization' . ( 'delete' === $intent ? '_delete' : '' ) );
 		$id_field        = $scope . '_id';
 		$id              = self::positive_id( $input[ $id_field ] ?? '0' );
 		$ids             = is_array( $input['category_ids'] ?? null ) ? array_map( array( self::class, 'positive_id' ), array_values( $input['category_ids'] ) ) : array();
@@ -99,8 +102,9 @@ final class Topic_Organization_Page {
 			'action'           => sanitize_key( Database::text( $input['organization_action'] ?? null ) ),
 		);
 		$service         = self::service( $tab );
-		$intent          = Database::text( $input['organization_action'] ?? null );
-		if ( 'create' === $intent && '0' === Database::text( $input[ $id_field ] ?? null ) ) {
+		if ( 'delete' === $intent && $id > 0 && 'yes' === ( $input['confirm_delete'] ?? null ) ) {
+			$result = ( new Organization_Deletion_Service() )->delete( $tab, $id, self::$submitted['revision'] );
+		} elseif ( 'create' === $intent && '0' === Database::text( $input[ $id_field ] ?? null ) ) {
 			$result = $service instanceof Category_Organization_Service
 				? $service->create( self::$submitted['name'], self::$submitted['description'], self::$submitted['subject_area_ids'], self::$submitted['topic_ids'] )
 				: $service->create( self::$submitted['name'], self::$submitted['description'], $ids );
@@ -120,7 +124,7 @@ final class Topic_Organization_Page {
 		wp_safe_redirect(
 			self::url(
 				array(
-					'edit'  => $result,
+					'edit'  => 'delete' === $intent ? 0 : $result,
 					'saved' => 'create' === $intent ? 'created' : $intent,
 					'tab'   => $tab,
 				)
@@ -170,6 +174,8 @@ final class Topic_Organization_Page {
 		$page                = min( $pages, max( 1, self::positive_id( $input['pagenum'] ?? null ) ) );
 		$linked              = array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $topic['categories'] ?? null ) );
 		$context             = array(
+			'deletion'            => null !== $topic ? ( new Organization_Deletion_Service() )->preview( $tab, $id ) : null,
+			'confirming_delete'   => null !== $topic && ( 'delete' === Database::text( $input['action'] ?? null ) || 'delete' === ( self::$submitted['action'] ?? '' ) ),
 			'tab'                 => $tab,
 			'category_tab'        => $category_tab,
 			'scope'               => self::scope( $tab ),

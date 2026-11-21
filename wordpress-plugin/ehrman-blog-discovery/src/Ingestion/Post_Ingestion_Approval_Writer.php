@@ -47,6 +47,7 @@ final class Post_Ingestion_Approval_Writer {
 			return new WP_Error( 'ehrman_ingestion_transaction', __( 'The approval transaction could not be started.', 'ehrman-blog-discovery' ) );
 		}
 		try {
+			$this->lock_topics( $proposal, $taxonomy );
 			$local_id = Database::integer( $draft['wordpress_post_id'] ?? null );
 			if ( $local_id > 0 ) {
 				// Lock the native post while approving so deletion/unpublishing cannot race this write.
@@ -115,6 +116,32 @@ final class Post_Ingestion_Approval_Writer {
 		} catch ( Throwable $error ) {
 			$wpdb->query( 'ROLLBACK' );
 			return new WP_Error( 'ehrman_ingestion_apply_failed', sanitize_text_field( $error->getMessage() ) );
+		}
+	}
+
+	/**
+	 * Prevents a deleted Topic from being assigned by an approval already in progress.
+	 *
+	 * @param array<string,mixed> $proposal Approved proposal.
+	 * @param array<string,mixed> $taxonomy Previously validated vocabulary.
+	 * @phpstan-param Proposal $proposal
+	 * @phpstan-param Vocabulary $taxonomy
+	 * @throws RuntimeException When a selected Topic no longer exists.
+	 */
+	private function lock_topics( array $proposal, array $taxonomy ): void {
+		$wpdb     = Database::client();
+		$selected = array();
+		foreach ( $taxonomy['topics'] as $topic ) {
+			if ( in_array( $topic['name'], $proposal['topics'], true ) ) {
+				$selected[ $topic['id'] ] = $topic['name'];
+			}
+		}
+		ksort( $selected, SORT_NUMERIC );
+		foreach ( $selected as $id => $name ) {
+			$current = $wpdb->get_var( $wpdb->prepare( 'SELECT name FROM %i WHERE id=%d LOCK IN SHARE MODE', Database::tables()['topics'], $id ) );
+			if ( $current !== $name || '' !== $wpdb->last_error ) {
+				throw new RuntimeException( 'A selected Topic no longer exists. Regenerate the metadata before approval.' );
+			}
 		}
 	}
 

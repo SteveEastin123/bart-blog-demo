@@ -96,6 +96,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
   async function shot(name) { await page.screenshot({ path: path.join(output, name + '.png'), fullPage: true }); }
   try {
     await page.goto(base + '/wp-login.php');
+    await page.waitForFunction(() => document.activeElement?.id === 'user_login');
     await page.locator('#user_login').fill(credentials[0]);
     await page.locator('#user_pass').fill(credentials[1]);
     credentials.fill('');
@@ -169,7 +170,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     await page.unroute(settingsRoute);
     await page.route(settingsRoute, route => route.abort());
     await manual.check();
-    await settings.getByRole('alert').getByText('The save could not be confirmed. The previous selection is shown. Reload this page to check the setting before publishing.', { exact: true }).waitFor();
+    await settings.getByRole('alert').getByText('The save could not be confirmed. The previous selection is shown. Reload this page to check the setting before continuing.', { exact: true }).waitFor();
     assert(await automatic.isChecked() && await manual.isEnabled());
     await page.unroute(settingsRoute);
     await manual.check();

@@ -28,6 +28,7 @@ final class Admin_Menu {
 	/** Registers navigation and compatibility routing. */
 	public static function register(): void {
 		add_action( 'admin_menu', array( self::class, 'add_pages' ) );
+		add_action( 'admin_enqueue_scripts', array( Admin_Settings_Assets::class, 'enqueue' ) );
 		// Redirect before WordPress rejects the former Tools page as unregistered.
 		add_action( 'admin_menu', array( self::class, 'redirect_legacy' ), 1 );
 	}

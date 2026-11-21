@@ -128,6 +128,40 @@ reopen to review the latest version. Relationship-only changes do not invalidate
 the description revision or get overwritten. Existing relationship forms retain
 their broader revision check. These saves do not invalidate Ask AI caches or call AI.
 
+## Deletion
+
+**Blog Search > Settings and Status > Organization deletion** provides Disabled
+and Enabled radio buttons, defaulting to **Disabled**. Selecting either option
+saves it immediately, with Saving/Saved feedback, just like Metadata generation.
+Both groups use the administrator-only WordPress settings REST endpoint; a failed
+save restores the confirmed selection or explains that the save could not be verified.
+Secondary Keywords are not included.
+
+Each existing Subject Area, Category, or editable Topic has a **Delete** button
+below its relationship form. It stays disabled with an explanation when the
+setting is off or a safeguard blocks deletion. When allowed, it opens a separate
+confirmation showing the name and affected links. **Permanently Delete** requires
+a dedicated nonce, POST, explicit confirmation, and administrator permission.
+Cancel and GET navigation cannot delete data. The flow works without JavaScript.
+
+- Subject Areas: every linked Category must have another Subject Area in the
+  current Browse Topics path. An empty Subject Area may be deleted.
+- Categories: every linked Topic (including internal topics) must have another
+  Category. An empty Category may be deleted.
+- Topics: no post may reference the Topic. Remove or replace post assignments
+  first. Internal/non-browsable topics, including Ignore, cannot be deleted.
+- Only the selected item and its relationship rows are removed. Topic aliases
+  are removed with an unused Topic. No posts, child records, keywords, summaries,
+  vectors, or ingestion history are deleted, and there is no bulk-delete action.
+
+`Organization_Deletion_Service` rechecks the stored setting, record revision and
+references inside a transaction. Vocabulary locks coordinate with existing
+organization writers; approval holds shared locks on selected Topics and rejects
+ones deleted since vocabulary validation. Database failures roll back the whole
+deletion. Stale confirmations must be reopened. Successful deletions invalidate
+search caches; Topic deletion changes the ingestion vocabulary fingerprint, so
+pending metadata using the earlier vocabulary requires regeneration.
+
 ## Export
 
 The fourth tab downloads the current database hierarchy, not the original JSON.
@@ -154,7 +188,8 @@ These are review documents, not a replacement for the JSON/vector handoff packag
 
 Topic, subject-area, and category changes are stored only in the database. JSON export and
 synchronization are intentionally outside this first release. A full replacement JSON import can
-discard new records, description edits, and relationship edits. Before a full rebuild or handoff,
+discard new records, description edits, and relationship edits, and restore deleted
+records. Before a full rebuild or handoff,
 explicitly decide whether to incorporate changes into the canonical dataset or
 discard them as test data. A Render edit does not automatically update local
 JSON, GitHub, or the handoff data package.
@@ -164,9 +199,13 @@ JSON, GitHub, or the handoff data package.
 `wordpress-production/tests/topic-organization-tests.php` runs with the plugin
 regression suite, as do `subject-area-organization-tests.php`,
 `category-organization-tests.php`, `organization-description-tests.php`, and
-`organization-export-tests.php`; all are included
+`organization-export-tests.php`, and `organization-deletion-tests.php`; all are included
 in the separate developer-test delivery.
 `wordpress-production/tests/organization-export-ui.cjs` verifies real downloads,
 selection, permissions, error recovery, no-JavaScript CSV, and responsive layouts.
 `wordpress-production/tests/topic-organization-ui.cjs` exercises all three editing tabs on
 an isolated local WordPress/MariaDB site. No OpenAI calls are needed.
+`wordpress-production/tests/organization-deletion-ui.cjs` checks the default-off
+setting, disabled controls, confirmations, cancellation, nonce protection,
+assigned-post protection, no-JavaScript behavior and mobile layout using disposable
+fixtures only. Deletion tests also cover rollback and concurrent approval locks.

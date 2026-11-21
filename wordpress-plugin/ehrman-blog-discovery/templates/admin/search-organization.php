@@ -95,10 +95,17 @@ $edit_label = $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' 
 		<div class="notice notice-error" role="alert"><p><?php echo esc_html( $view['error'] ); ?></p></div>
 	<?php elseif ( 'description' === $view['saved'] ) : ?>
 		<div class="notice notice-success" role="status"><p><?php esc_html_e( 'Description saved.', 'ehrman-blog-discovery' ); ?></p></div>
+	<?php elseif ( 'delete' === $view['saved'] ) : ?>
+		<div class="notice notice-success" role="status"><p><?php esc_html_e( 'Item deleted. Posts and other organization items were not deleted.', 'ehrman-blog-discovery' ); ?></p></div>
 	<?php elseif ( in_array( $view['saved'], array( 'created', 'categories', 'links' ), true ) ) : ?>
 		<div class="notice notice-success" role="status"><p><?php echo 'created' === $view['saved'] ? esc_html( $labels['created'] ) : ( $category_tab ? esc_html__( 'Relationships saved.', 'ehrman-blog-discovery' ) : esc_html__( 'Category links saved.', 'ehrman-blog-discovery' ) ); ?></p></div>
 	<?php endif; ?>
-	<?php if ( $view['editing_description'] ) : ?>
+	<?php if ( $view['confirming_delete'] ) : ?>
+		<?php
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted template escapes every value.
+		echo Template::render( 'admin/organization-delete.php', $view );
+		?>
+	<?php elseif ( $view['editing_description'] ) : ?>
 		<h2><?php esc_html_e( 'Edit Description', 'ehrman-blog-discovery' ); ?></h2>
 		<form method="post" action="
 		<?php
@@ -212,6 +219,12 @@ $edit_label = $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' 
 				<a href="<?php echo esc_url( $list_url ); ?>" class="button"><?php echo esc_html( $labels['back'] ); ?></a>
 			</p>
 		</form>
+		<?php
+		if ( null !== $topic ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted template escapes every value.
+			echo Template::render( 'admin/organization-delete.php', $view );
+		}
+		?>
 	<?php else : ?>
 		<form method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>" class="ehrman-organization__search" role="search" data-ebd-topic-search data-match-count="<?php echo esc_attr( $labels['match_count'] ); ?>" data-empty="<?php echo esc_attr( $labels['empty'] ); ?>">
 			<input type="hidden" name="page" value="ehrman-search-organization">

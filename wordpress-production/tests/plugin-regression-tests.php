@@ -75,8 +75,11 @@ try {
 		$html = $render_admin_status();
 		$assert( ! str_contains( $html, 'ehrman_discovery_import' ) && ! str_contains( $html, 'Authoritative JSON' ), 'Browser import controls remain in ' . $source . ' mode.' );
 		$assert( str_contains( $html, 'ehrman_ingestion_default_mode' ) && str_contains( $html, 'data-ebd-publishing-settings' ), 'Publishing mode settings are missing.' );
-		$assert_same( 2, substr_count( $html, 'type="radio"' ), 'Publishing settings must offer two radio buttons.' );
+		$assert_same( 2, substr_count( $html, 'type="radio" name="ehrman_ingestion_default_mode"' ), 'Publishing settings must offer two radio buttons.' );
+		$assert_same( 2, substr_count( $html, 'type="radio" name="ehrman_organization_deletion"' ), 'Deletion settings must offer separate Disabled/Enabled radios.' );
 		$assert( ! str_contains( $html, '<select' ) && ! str_contains( $html, 'Save publishing settings' ), 'The retired publishing dropdown or save button remains.' );
+		$assert( ! str_contains( $html, '<form' ) && ! str_contains( $html, 'Save deletion setting' ), 'Settings must autosave without a separate form or save button.' );
+		$assert_same( 2, substr_count( $html, 'class="ehrman-admin-setting"' ), 'Settings must use the same section layout.' );
 		foreach ( array( 'Plugin version', 'Schema version', 'Database connection', 'Import state', 'Imported posts', 'Topics', 'Secondary keywords' ) as $label ) {
 			$assert( str_contains( $html, $label ), 'Status page lost ' . $label );
 		}
@@ -102,6 +105,7 @@ require __DIR__ . '/subject-area-organization-tests.php';
 require __DIR__ . '/category-organization-tests.php';
 require __DIR__ . '/organization-description-tests.php';
 require __DIR__ . '/organization-export-tests.php';
+require __DIR__ . '/organization-deletion-tests.php';
 
 /* Keep retired AI routes unavailable while preserving the semantic endpoint. */
 $rest_routes = rest_get_server()->get_routes();

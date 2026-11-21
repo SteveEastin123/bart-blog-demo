@@ -64,6 +64,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/organization-descripti
     /opt/ehrman-tests/organization-description-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/organization-export-tests.php \
     /opt/ehrman-tests/organization-export-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/organization-deletion-tests.php \
+    /opt/ehrman-tests/organization-deletion-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-lifecycle-tests.php \
     /opt/ehrman-tests/post-ingestion-lifecycle-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-automation-tests.php \

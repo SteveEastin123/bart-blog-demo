@@ -28,6 +28,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
   try {
     await page.route('**/wp-json/ehrman-discovery/**', route => route.abort());
     await page.goto(base + '/wp-login.php');
+    await page.waitForFunction(() => document.activeElement?.id === 'user_login');
     await page.locator('#user_login').fill(credentials[0]);
     await page.locator('#user_pass').fill(credentials[1]);
     credentials.fill('');
@@ -78,7 +79,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
     } finally { await anonymous.close(); }
     await page.goto(url);
     assert.equal(await page.locator('#ehrman-post-ingestion-review-js').count(), 1);
-    assert.equal(await page.locator('#ehrman-search-organization-js, #ehrman-post-ingestion-publishing-js').count(), 0, 'Page-specific scripts leaked onto metadata');
+    assert.equal(await page.locator('#ehrman-search-organization-js, #ehrman-admin-settings-js').count(), 0, 'Page-specific scripts leaked onto metadata');
     const initial = await page.locator('.ehrman-ingestion').textContent();
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 1000 });
@@ -115,7 +116,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       const status = page.locator('#wpbody-content .wrap').first();
       assert.equal(await status.getByRole('heading', { name: 'Settings and Status', exact: true }).count(), 1);
       assert.equal(await status.locator('input[name="action"][value="ehrman_discovery_import"]').count(), 0, 'Discovery status still exposes a bulk import form');
-      assert.equal(await status.locator('form').count(), 0, 'Discovery settings still require a form submission');
+      assert.equal(await status.locator('form').count(), 0, 'Settings still require a form submission');
       const publishingModes = status.getByRole('group', { name: 'Metadata generation', exact: true });
       assert.equal(await publishingModes.getByRole('radio', { name: 'Manual', exact: true }).count(), 1);
       assert.equal(await publishingModes.getByRole('radio', { name: 'Automatic', exact: true }).count(), 1);
