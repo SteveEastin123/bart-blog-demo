@@ -24,6 +24,7 @@
     "regressions/subject-area-organization-tests.php": "wordpress-production/tests/subject-area-organization-tests.php",
     "regressions/category-organization-tests.php": "wordpress-production/tests/category-organization-tests.php",
     "regressions/organization-description-tests.php": "wordpress-production/tests/organization-description-tests.php",
+    "regressions/organization-export-tests.php": "wordpress-production/tests/organization-export-tests.php",
     "regressions/post-ingestion-lifecycle-tests.php": "wordpress-production/tests/post-ingestion-lifecycle-tests.php",
     "regressions/ask-ai-cleanup-tests.php": "wordpress-production/tests/ask-ai-cleanup-tests.php",
     "regressions/ask-ai-naming-tests.php": "wordpress-production/tests/ask-ai-naming-tests.php",

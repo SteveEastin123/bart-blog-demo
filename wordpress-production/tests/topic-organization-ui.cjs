@@ -106,7 +106,7 @@ async function checkOrganization(subjectAreas) {
     await page.waitForURL('**/wp-admin/**');
     await page.goto(base + '/wp-admin/admin.php?page=ehrman-search-organization');
     assert.equal(await page.locator('.nav-tab-active').innerText(), 'Subject Areas');
-    assert.deepEqual(await page.locator('.ehrman-organization .nav-tab').allTextContents(), ['Subject Areas', 'Categories', 'Topics']);
+    assert.deepEqual(await page.locator('.ehrman-organization .nav-tab').allTextContents(), ['Subject Areas', 'Categories', 'Topics', 'Export']);
     await page.goto(url);
     await page.getByRole('heading', { name: 'Topics & Categories', exact: true }).waitFor();
     assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button').allTextContents(), ['Search ' + plural, 'Browse All ' + plural, 'Add ' + singular]);

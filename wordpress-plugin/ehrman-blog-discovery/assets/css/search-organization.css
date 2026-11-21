@@ -89,3 +89,10 @@
 	.ehrman-organization__categories tr + tr { border-top: 1px solid #dcdcde; }
 	.ehrman-organization__mobile-label { display: block; font-weight: 600; margin-bottom: 3px; }
 }
+.ehrman-organization__export { max-width: 760px; margin-top: 24px; }
+.ehrman-organization__export fieldset { margin: 0 0 24px; }
+.ehrman-organization__export legend { font-weight: 600; margin-bottom: 12px; }
+.ehrman-organization__export label { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; overflow-wrap: anywhere; }
+.ehrman-organization__export input { flex-shrink: 0; }
+.ehrman-organization__export .button { display: inline-flex; align-items: center; gap: 6px; }
+.ehrman-organization__export .dashicons { font-size: 18px; width: 18px; height: 18px; }

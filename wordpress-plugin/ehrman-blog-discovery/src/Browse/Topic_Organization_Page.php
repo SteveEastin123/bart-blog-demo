@@ -30,6 +30,7 @@ final class Topic_Organization_Page {
 	/** Registers only authenticated administration hooks. */
 	public static function register(): void {
 		add_action( 'admin_enqueue_scripts', array( self::class, 'enqueue' ) );
+		Organization_Export_Page::register();
 	}
 
 	/**
@@ -59,6 +60,9 @@ final class Topic_Organization_Page {
 				wp_enqueue_style( 'ehrman-search-organization', EHRMAN_DISCOVERY_PLUGIN_URL . $file, array( 'dashicons' ), $version );
 			}
 		}
+		if ( 'export' === self::tab() ) {
+			Organization_Export_Page::enqueue();
+		}
 	}
 
 	/** Handles a nonce-protected POST; validation errors keep the form populated. */
@@ -73,7 +77,10 @@ final class Topic_Organization_Page {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( esc_html__( 'You cannot manage search organization.', 'ehrman-blog-discovery' ), '', array( 'response' => 403 ) );
 		}
-		$tab   = self::tab();
+		$tab = self::tab();
+		if ( 'export' === $tab ) {
+			wp_die( esc_html__( 'Use the download buttons to export the structure.', 'ehrman-blog-discovery' ), '', array( 'response' => 400 ) );
+		}
 		$scope = self::scope( $tab );
 		check_admin_referer( 'ehrman_' . $scope . '_organization' );
 		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Scalars are sanitized below; category IDs are strictly validated before use.
@@ -125,6 +132,10 @@ final class Topic_Organization_Page {
 	/** Renders search, the optional directory, or one category-link form. */
 	public static function render(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		if ( 'export' === self::tab() ) {
+			Organization_Export_Page::render();
 			return;
 		}
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Read-only navigation; each value is normalized below.
@@ -197,7 +208,7 @@ final class Topic_Organization_Page {
 	private static function tab(): string {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only routing; writes check a tab-specific nonce.
 		$tab = isset( $_GET['tab'] ) && is_string( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : '';
-		if ( in_array( $tab, array( 'subject-areas', 'categories', 'topics' ), true ) ) {
+		if ( in_array( $tab, array( 'subject-areas', 'categories', 'topics', 'export' ), true ) ) {
 			return $tab;
 		}
 		// Preserve older topic deep links; the unscoped landing page now opens Subject Areas.

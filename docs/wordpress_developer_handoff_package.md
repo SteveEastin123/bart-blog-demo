@@ -24,6 +24,10 @@ and Topics tabs for creating records and managing their many-to-many links. Cate
 have separate Subject Area and Topic selectors, saved together. Existing names stay
 read-only; **Edit Description** saves descriptions separately, with guidance to preserve
 topic meaning and an explanation of the pending-metadata vocabulary check.
+The fourth **Export** tab downloads the current hierarchy as PDF or CSV, for all
+Subject Areas or selected ones. The PDF generator and fonts are bundled locally
+with their licenses under `assets/vendor/pdfmake/`; include this directory in the
+plugin package. No external PDF service or server-side dependency is required.
 See [Topics & categories](wordpress_topic_organization.md)
 for the workflow and the explicit limitation that database edits are not exported
 to the JSON handoff/rebuild sources automatically.

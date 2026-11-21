@@ -18,7 +18,7 @@ $steps = @('preflight', 'runner-tests', 'canonical-data', 'landing-assets', 'fro
     'phpcs-core', 'phpstan-core', 'phpcs-reviewer', 'phpstan-reviewer', 'phpcs-developer', 'phpstan-developer',
     'isolated-demo', 'database-before', 'production-regressions', 'developer-delivery', 'initial-installation',
     'browser-frontend-assets-ui', 'browser-demo-navigation-ui', 'browser-search-page-ui', 'browser-browse-sort-ui', 'browser-browse-retirement-ui', 'browser-analytics-dashboard-ui',
-    'browser-post-ingestion-page-ui', 'browser-post-ingestion-progress-ui', 'browser-post-ingestion-editor-ui', 'browser-post-ingestion-revision-ui', 'browser-topic-organization-ui', 'browser-ask-ai-retirement-ui', 'production-only-browser',
+    'browser-post-ingestion-page-ui', 'browser-post-ingestion-progress-ui', 'browser-post-ingestion-editor-ui', 'browser-post-ingestion-revision-ui', 'browser-topic-organization-ui', 'browser-organization-export-ui', 'browser-ask-ai-retirement-ui', 'production-only-browser',
     'served-landing', 'data-integrity', 'backup-restore', 'diff-check', 'cleanup')
 $report = New-RegressionReport $work $steps ([ordered]@{ project = $project; database = 'MariaDB (compose.local.yaml)'; baseline = $BaselinePath })
 $environment = @{
@@ -134,7 +134,7 @@ try {
     Invoke-RegressionStep $report 'initial-installation' {
         & (Join-Path $PSScriptRoot 'verify-installation.ps1') -ComposeFile $compose -PythonExecutable $PythonExecutable -BaselinePath $baseline
     }
-    foreach ($browser in @('frontend-assets-ui', 'demo-navigation-ui', 'search-page-ui', 'browse-sort-ui', 'browse-retirement-ui', 'analytics-dashboard-ui', 'post-ingestion-page-ui', 'post-ingestion-progress-ui', 'post-ingestion-editor-ui', 'post-ingestion-revision-ui', 'topic-organization-ui', 'ask-ai-retirement-ui')) {
+    foreach ($browser in @('frontend-assets-ui', 'demo-navigation-ui', 'search-page-ui', 'browse-sort-ui', 'browse-retirement-ui', 'analytics-dashboard-ui', 'post-ingestion-page-ui', 'post-ingestion-progress-ui', 'post-ingestion-editor-ui', 'post-ingestion-revision-ui', 'topic-organization-ui', 'organization-export-ui', 'ask-ai-retirement-ui')) {
         Invoke-RegressionStep $report "browser-$browser" {
             Invoke-RegressionCommand $NodeExecutable @("wordpress-production/tests/$browser.cjs")
         }

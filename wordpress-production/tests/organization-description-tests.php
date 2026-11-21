@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$_GET = array(); $html = $render();
 		$assert( str_contains( $html, 'name="tab" value="subject-areas"' ), 'Default tab is not Subject Areas.' );
 		preg_match_all( '/class="nav-tab[^>]+>([^<]+)<\/a>/', $html, $matches );
-		$assert_same( array( 'Subject Areas', 'Categories', 'Topics' ), $matches[1], 'Wrong tab order.' );
+		$assert_same( array( 'Subject Areas', 'Categories', 'Topics', 'Export' ), $matches[1], 'Wrong tab order.' );
 		$_GET = array( 'edit' => $ids['topics'] );
 		$assert( str_contains( $render(), 'name="topic_id"' ), 'Legacy topic link changed scope.' );
 		$after = Database::counts();

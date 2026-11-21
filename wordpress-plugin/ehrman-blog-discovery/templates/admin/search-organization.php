@@ -87,11 +87,10 @@ $edit_label = $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' 
 ?>
 <div class="wrap ehrman-organization">
 	<h1><?php esc_html_e( 'Topics & Categories', 'ehrman-blog-discovery' ); ?></h1>
-	<nav class="nav-tab-wrapper" aria-label="<?php esc_attr_e( 'Topics & categories', 'ehrman-blog-discovery' ); ?>">
-		<a class="nav-tab<?php echo $subject_areas ? ' nav-tab-active' : ''; ?>" aria-current="<?php echo $subject_areas ? 'page' : 'false'; ?>" href="<?php echo esc_url( Topic_Organization_Page::url( array( 'tab' => 'subject-areas' ) ) ); ?>"><?php esc_html_e( 'Subject Areas', 'ehrman-blog-discovery' ); ?></a>
-		<a class="nav-tab<?php echo $category_tab ? ' nav-tab-active' : ''; ?>" aria-current="<?php echo $category_tab ? 'page' : 'false'; ?>" href="<?php echo esc_url( Topic_Organization_Page::url( array( 'tab' => 'categories' ) ) ); ?>"><?php esc_html_e( 'Categories', 'ehrman-blog-discovery' ); ?></a>
-		<a class="nav-tab<?php echo 'topics' === $view['tab'] ? ' nav-tab-active' : ''; ?>" aria-current="<?php echo 'topics' === $view['tab'] ? 'page' : 'false'; ?>" href="<?php echo esc_url( Topic_Organization_Page::url( array( 'tab' => 'topics' ) ) ); ?>"><?php esc_html_e( 'Topics', 'ehrman-blog-discovery' ); ?></a>
-	</nav>
+	<?php
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted navigation template.
+	echo Template::render( 'admin/organization-tabs.php', array( 'tab' => $view['tab'] ) );
+	?>
 	<?php if ( '' !== $view['error'] ) : ?>
 		<div class="notice notice-error" role="alert"><p><?php echo esc_html( $view['error'] ); ?></p></div>
 	<?php elseif ( 'description' === $view['saved'] ) : ?>

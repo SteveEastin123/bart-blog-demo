@@ -101,6 +101,7 @@ require __DIR__ . '/topic-organization-tests.php';
 require __DIR__ . '/subject-area-organization-tests.php';
 require __DIR__ . '/category-organization-tests.php';
 require __DIR__ . '/organization-description-tests.php';
+require __DIR__ . '/organization-export-tests.php';
 
 /* Keep retired AI routes unavailable while preserving the semantic endpoint. */
 $rest_routes = rest_get_server()->get_routes();

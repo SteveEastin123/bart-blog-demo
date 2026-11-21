@@ -4,11 +4,11 @@ Administrators can open **Blog Search > Topics & Categories > Topics** to create
 and manage their category links. This is part of the production plugin, not the
 demo-only reviewer tools.
 
-Tabs are ordered **Subject Areas**, **Categories**, **Topics**. Subject Areas is
+Tabs are ordered **Subject Areas**, **Categories**, **Topics**, **Export**. Subject Areas is
 the default when opening Topics & Categories; older unscoped topic-edit links
 remain supported. All newly generated links specify their tab explicitly.
 The **Subject Areas** tab uses the same search-first layout and category picker.
-All tabs place **Search**, **Browse All**, and **Add** in that order. Selecting a
+The three editing tabs place **Search**, **Browse All**, and **Add** in that order. Selecting a
 search result or directory entry opens its category links. The full directory is
 optional; each tab preserves its own navigation through searches and saves.
 
@@ -128,6 +128,28 @@ reopen to review the latest version. Relationship-only changes do not invalidate
 the description revision or get overwritten. Existing relationship forms retain
 their broader revision check. These saves do not invalidate Ask AI caches or call AI.
 
+## Export
+
+The fourth tab downloads the current database hierarchy, not the original JSON.
+**Entire structure** is selected by default; **Selected Subject Areas** allows
+one or several areas. PDF and CSV share the same alphabetical relationship rows.
+Shared categories/topics repeat under each parent. No descriptions, posts,
+keywords, vectors, or internal/Ignore topics are included. Empty subject areas and
+categories remain visible; unlinked categories/topics are outside the subject-area
+hierarchy and are not included.
+
+CSV contains Subject Area, Category, and Topic columns, one row per relationship,
+with UTF-8, standard CSV quoting, and formula-injection protection. PDF is a
+paginated outline with subject-area headings, categories, and bulleted topics.
+PDF generation runs locally in the browser using bundled pdfmake and Roboto assets;
+there are no external requests or new PHP runtime dependencies. CSV also works
+without JavaScript. PDF requires JavaScript.
+
+Downloads use a dedicated `admin-post.php` action protected by `manage_options`,
+a POST request, and a nonce. Unknown, stale, malformed, or other-path selections
+are rejected. The export cannot change the database or import data.
+These are review documents, not a replacement for the JSON/vector handoff package.
+
 ## Import limitation
 
 Topic, subject-area, and category changes are stored only in the database. JSON export and
@@ -140,8 +162,11 @@ JSON, GitHub, or the handoff data package.
 ## Verification
 
 `wordpress-production/tests/topic-organization-tests.php` runs with the plugin
-regression suite, as do `subject-area-organization-tests.php` and
-`category-organization-tests.php` and `organization-description-tests.php`; all are included
+regression suite, as do `subject-area-organization-tests.php`,
+`category-organization-tests.php`, `organization-description-tests.php`, and
+`organization-export-tests.php`; all are included
 in the separate developer-test delivery.
-`wordpress-production/tests/topic-organization-ui.cjs` exercises all three tabs on
+`wordpress-production/tests/organization-export-ui.cjs` verifies real downloads,
+selection, permissions, error recovery, no-JavaScript CSV, and responsive layouts.
+`wordpress-production/tests/topic-organization-ui.cjs` exercises all three editing tabs on
 an isolated local WordPress/MariaDB site. No OpenAI calls are needed.
