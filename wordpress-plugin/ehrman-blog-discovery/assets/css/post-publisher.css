@@ -1,0 +1,63 @@
+.ehrman-post-publisher #poststuff {
+	padding-top: 16px;
+}
+.ehrman-post-publisher #titlediv {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	padding: 16px;
+	margin-bottom: 20px;
+}
+.ehrman-post-publisher #titlediv #title {
+	font-size: 22px;
+	padding: 10px 12px;
+	height: auto;
+}
+.ehrman-post-publisher #titlediv #title-prompt-text {
+	padding: 12px;
+	font-size: 22px;
+}
+.ehrman-post-publisher #poststuff .ehrman-post-heading {
+	font-size: 16px;
+	padding: 0;
+	margin: 0 0 10px;
+}
+.ehrman-post-publisher #postdivrich {
+	margin-bottom: 20px;
+}
+.ehrman-post-publisher #ehrman-post-metadata .inside {
+	padding: 8px 16px 16px;
+}
+.ehrman-publisher-mode {
+	margin: 0 0 18px;
+	padding: 0 0 18px;
+	border: 0;
+	border-bottom: 1px solid #dcdcde;
+}
+.ehrman-publisher-mode legend {
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.ehrman-publisher-mode label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 24px 8px 0;
+	flex-wrap: wrap;
+}
+.ehrman-publisher-mode input[type="radio"] {
+	margin: 0;
+	flex-shrink: 0;
+}
+.ehrman-post-publisher #ehrman-post-author select {
+	width: 100%;
+	max-width: 100%;
+}
+.ehrman-post-publisher .ehrman-ingestion-editor textarea {
+	width: 100%;
+}
+@media (max-width: 600px) {
+	.ehrman-publisher-mode label {
+		display: flex;
+		margin-right: 0;
+	}
+}

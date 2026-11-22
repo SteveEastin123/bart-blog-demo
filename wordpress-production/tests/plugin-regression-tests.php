@@ -95,6 +95,7 @@ try {
 echo "Discovery status and publishing preferences: browser import retired, CLI retained: OK\n";
 
 require __DIR__ . '/post-ingestion-publishing-tests.php';
+require __DIR__ . '/post-publisher-tests.php';
 require __DIR__ . '/ask-ai-naming-tests.php';
 require __DIR__ . '/api-settings-tests.php';
 require __DIR__ . '/semantic-ranking-tests.php';

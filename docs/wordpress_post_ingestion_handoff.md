@@ -54,9 +54,10 @@ immediately and show Saving/Saved feedback; there is no separate Save button.
 Only administrators can change the setting, through WordPress's authenticated
 `/wp/v2/settings` endpoint. Failed saves restore the confirmed setting and show
 an error. A lost response is checked before the selection is restored.
-The **Metadata mode** selector in the post editor's Post Metadata
-panel offers **Use site default**, **Manual**, or **Automatic** before first
-publication. Save the choice with the post; the selector locks after publication.
+The Add Post form's **Metadata Generation** radios offer **Manual** or
+**Automatic**, initially selecting and labeling the site default. Existing
+block-editor posts retain the **Metadata mode** selector with **Use site default**,
+**Manual**, or **Automatic**. Save the choice with the post; it locks after publication.
 It does not change the separate JSON/database-authority setting.
 
 Automatic mode queues one background job when a new post is first published.
@@ -87,10 +88,43 @@ Automatic processing never prevents the article from being published.
 Schema 1.16.0 adds automatic-work status and approval-mode audit columns in place.
 Existing installations and posts stay Manual unless explicitly opted in.
 
+## Add Post Form
+
+For administrators, **Posts > Add Post** opens a form-style publisher using
+WordPress's built-in classic editor. It includes Title, Post, Author, native
+publishing controls, and a Post Metadata box. WordPress still handles saving,
+previews, scheduling, images, revisions, post IDs and permalinks. No Classic
+Editor plugin or separate post-storage system is required.
+
+**Metadata Generation** uses Manual/Automatic radio buttons. The current site
+default is labeled **(site default)** and selected initially. Saving the post
+persists the selected mode for that post without changing the site default.
+The form saves this preference before first-publication automation runs. It
+locks after first publication; scheduling alone does not lock it.
+
+Posts saved through the form keep this editor on subsequent visits. Existing
+unmarked posts, Pages, custom post types, non-administrators, and posts containing
+block markup retain their existing editor. This avoids silently converting
+existing block content. The form hides standard category/tag and miscellaneous
+boxes without removing stored values; third-party boxes are not removed.
+
+The metadata box reuses the block editor's existing metadata component and
+protected REST endpoints. Unsaved post changes disable metadata actions; manual
+generation displays progress and review inline. Automatic publication retains
+the existing background worker. No-JavaScript publishing and mode selection use
+WordPress's normal form; metadata operations remain available on Post Metadata.
+
+Implementation: `Post_Publisher`, `templates/admin/post-publisher.php`, and
+`assets/js/post-publisher.js`. Regression coverage includes mode persistence,
+publication ordering, permission/nonce checks, locked settings, native saving,
+inline review and responsive layouts in `post-publisher-tests.php` and
+`post-publisher-ui.cjs`.
+
 ## Manual Editor Workflow
 
 1. Save and publish the WordPress post normally.
-2. Open the **Post Metadata** panel in the block editor.
+2. Open **Post Metadata** below the article in the Add Post form, or in the
+   sidebar when editing an existing block-editor post.
 3. Select **Create Metadata**. The REST request validates the saved post, persists
    a draft, and runs analysis in that request. It returns HTTP `200` with the
    completed metadata, or an error if generation fails. New requests do not

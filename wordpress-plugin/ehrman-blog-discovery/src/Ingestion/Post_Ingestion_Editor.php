@@ -24,14 +24,22 @@ final class Post_Ingestion_Editor {
 		if ( null === $screen || 'post' !== $screen->post_type || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		self::enqueue_metadata();
+	}
 
+	/**
+	 * Loads the same metadata workflow for block and native form editors.
+	 *
+	 * @param array<string,mixed> $form Optional native form identity.
+	 */
+	public static function enqueue_metadata( array $form = array() ): void {
 		$script_path = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/js/post-ingestion-editor.js';
 		$style_path  = EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/css/post-ingestion-editor.css';
 		self::enqueue_term_picker();
 		wp_enqueue_script(
 			'ehrman-post-ingestion-editor',
 			EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/js/post-ingestion-editor.js',
-			array( 'wp-api-fetch', 'wp-components', 'wp-data', 'wp-editor', 'wp-element', 'wp-i18n', 'wp-plugins', 'ehrman-metadata-term-picker' ),
+			array_merge( array( 'wp-api-fetch', 'wp-components', 'wp-data', 'wp-element', 'wp-i18n', 'wp-dom-ready', 'ehrman-metadata-term-picker' ), empty( $form ) ? array( 'wp-editor', 'wp-plugins' ) : array( 'ehrman-post-publisher' ) ),
 			is_file( $script_path ) ? (string) filemtime( $script_path ) : EHRMAN_DISCOVERY_VERSION,
 			true
 		);
@@ -49,6 +57,7 @@ final class Post_Ingestion_Editor {
 				'restBase'    => '/ehrman-discovery/v1/ingestion/post/',
 				'modeMeta'    => Post_Ingestion_Publishing_Settings::META,
 				'defaultMode' => Post_Ingestion_Publishing_Settings::default_mode(),
+				'form'        => $form,
 			)
 		);
 	}

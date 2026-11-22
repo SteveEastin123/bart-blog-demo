@@ -1,7 +1,7 @@
 ( function ( wp, config ) {
 	'use strict';
 
-	if ( ! wp || ! config || ! wp.editor || ! wp.editor.PluginDocumentSettingPanel ) {
+	if ( ! wp || ! config || ( ! config.form?.postId && ( ! wp.editor || ! wp.editor.PluginDocumentSettingPanel ) ) ) {
 		return;
 	}
 
@@ -16,8 +16,8 @@
 	const Notice = wp.components.Notice;
 	const Spinner = wp.components.Spinner;
 	const { TextareaControl, SelectControl } = wp.components;
-	const PluginDocumentSettingPanel = wp.editor.PluginDocumentSettingPanel;
-	const registerPlugin = wp.plugins.registerPlugin;
+	const PluginDocumentSettingPanel = wp.editor?.PluginDocumentSettingPanel;
+	const registerPlugin = wp.plugins?.registerPlugin;
 	const __ = wp.i18n.__;
 
 	function readableStatus( value ) {
@@ -92,7 +92,7 @@
 		);
 	}
 
-	function SearchMetadataPanel() {
+	function BlockMetadataPanel() {
 		const editor = useSelect( function ( select ) {
 			const store = select( 'core/editor' );
 			return {
@@ -103,6 +103,19 @@
 				isSaving: store.isSavingPost(),
 			};
 		}, [] );
+		return el( SearchMetadataPanel, { editor } );
+	}
+
+	function FormMetadataPanel() {
+		const [ editor, setEditor ] = useState( () => window.EhrmanPostPublisher.read() );
+		useEffect( () => window.EhrmanPostPublisher.subscribe( () => {
+			const next = window.EhrmanPostPublisher.read();
+			setEditor( current => JSON.stringify( current ) === JSON.stringify( next ) ? current : next );
+		} ), [] );
+		return el( SearchMetadataPanel, { editor } );
+	}
+
+	function SearchMetadataPanel( { editor } ) {
 		const [ record, setRecord ] = useState( null );
 		const [ loading, setLoading ] = useState( true );
 		const [ busyAction, setBusyAction ] = useState( '' );
@@ -117,6 +130,9 @@
 		const mode = editor.meta[ modeKey ] || 'inherit';
 		const effectiveMode = mode === 'inherit' ? ( config.defaultMode || 'manual' ) : mode;
 		const automaticBusy = !! ( draft && draft.automaticActive );
+		useEffect( () => {
+			if ( config.form?.postId ) window.EhrmanPostPublisher.metadataState( { dirty: dirty.current, busy: !! busyAction || automaticBusy } );
+		}, [ fields, busyAction, automaticBusy ] );
 
 		useEffect( function () {
 			if ( ! dirty.current ) {
@@ -345,6 +361,7 @@
 			);
 		}
 
+		if ( config.form?.postId ) return content;
 		return el(
 			PluginDocumentSettingPanel,
 			{
@@ -366,7 +383,10 @@
 		);
 	}
 
-	registerPlugin( 'ehrman-search-metadata', {
-		render: SearchMetadataPanel,
-	} );
+	if ( config.form?.postId ) {
+		wp.domReady( () => {
+			const root = document.getElementById( 'ehrman-post-metadata-root' );
+			if ( root ) wp.element.createRoot( root ).render( el( FormMetadataPanel ) );
+		} );
+	} else registerPlugin( 'ehrman-search-metadata', { render: BlockMetadataPanel } );
 }( window.wp, window.EhrmanPostIngestion ) );

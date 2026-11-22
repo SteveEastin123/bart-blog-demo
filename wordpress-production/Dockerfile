@@ -40,6 +40,8 @@ COPY --chown=www-data:www-data wordpress-production/tests/plugin-regression-test
     /opt/ehrman-tests/plugin-regression-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/post-ingestion-publishing-tests.php \
     /opt/ehrman-tests/post-ingestion-publishing-tests.php
+COPY --chown=www-data:www-data wordpress-production/tests/post-publisher-tests.php \
+    /opt/ehrman-tests/post-publisher-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/api-settings-tests.php \
     /opt/ehrman-tests/api-settings-tests.php
 COPY --chown=www-data:www-data wordpress-production/tests/semantic-ranking-tests.php \
