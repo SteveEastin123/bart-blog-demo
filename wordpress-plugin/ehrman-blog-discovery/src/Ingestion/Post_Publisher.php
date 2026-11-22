@@ -20,9 +20,13 @@ final class Post_Publisher {
 	/** Registers the form and saves its preference before first-publication automation. */
 	public static function register(): void {
 		add_filter( 'use_block_editor_for_post', array( self::class, 'block_editor' ), 20, 2 );
+		add_filter( 'enter_title_here', array( self::class, 'title_label' ), 10, 2 );
+		add_filter( 'mce_css', array( self::class, 'editor_styles' ) );
+		add_filter( 'wp_editor_settings', array( self::class, 'editor_settings' ), 10, 2 );
 		add_action( 'add_meta_boxes_post', array( self::class, 'boxes' ) );
 		add_action( 'admin_enqueue_scripts', array( self::class, 'assets' ) );
 		add_filter( 'admin_body_class', array( self::class, 'body_class' ) );
+		add_action( 'edit_form_after_title', array( self::class, 'author_field' ), 5 );
 		add_action( 'edit_form_after_title', array( self::class, 'content_heading' ) );
 		add_action( 'wp_after_insert_post', array( self::class, 'save_preferences' ), 5, 4 );
 	}
@@ -49,6 +53,43 @@ final class Post_Publisher {
 	}
 
 	/**
+	 * Labels the native title field without changing other post editors.
+	 *
+	 * @param string  $label Existing title placeholder.
+	 * @param WP_Post $post Native post.
+	 */
+	public static function title_label( string $label, WP_Post $post ): string {
+		return self::uses_form( $post ) ? __( 'Title', 'ehrman-blog-discovery' ) : $label;
+	}
+
+	/**
+	 * Matches the writing area's typography to the publisher, preserving other editor styles.
+	 *
+	 * @param string $styles Existing comma-delimited TinyMCE stylesheets.
+	 */
+	public static function editor_styles( string $styles ): string {
+		if ( null === self::screen_post() ) {
+			return $styles;
+		}
+		$url = add_query_arg( 'ver', (string) filemtime( EHRMAN_DISCOVERY_PLUGIN_DIR . 'assets/css/post-publisher-editor.css' ), EHRMAN_DISCOVERY_PLUGIN_URL . 'assets/css/post-publisher-editor.css' );
+		return ( '' === $styles ? '' : $styles . ',' ) . $url;
+	}
+
+	/**
+	 * Hides media insertion only for this form's main post editor.
+	 *
+	 * @param array<string,mixed> $settings Native editor settings.
+	 * @param string              $editor_id Editor identifier.
+	 * @return array<string,mixed>
+	 */
+	public static function editor_settings( array $settings, string $editor_id ): array {
+		if ( 'content' === $editor_id && null !== self::screen_post() ) {
+			$settings['media_buttons'] = false;
+		}
+		return $settings;
+	}
+
+	/**
 	 * Locks the saved choice after first publication, including later drafts or restores.
 	 *
 	 * @param WP_Post $post Native post.
@@ -72,8 +113,21 @@ final class Post_Publisher {
 				remove_meta_box( $id, 'post', $context );
 			}
 		}
-		add_meta_box( 'ehrman-post-author', __( 'Author', 'ehrman-blog-discovery' ), 'post_author_meta_box', 'post', 'side', 'high' );
 		add_meta_box( 'ehrman-post-metadata', __( 'Post Metadata', 'ehrman-blog-discovery' ), array( self::class, 'metadata_box' ), 'post', 'normal', 'high' );
+	}
+
+	/**
+	 * Places WordPress's author selector below Title, retaining its native save handling.
+	 *
+	 * @param WP_Post $post Native post.
+	 */
+	public static function author_field( WP_Post $post ): void {
+		if ( ! self::uses_form( $post ) ) {
+			return;
+		}
+		echo '<div id="ehrman-post-author">';
+		post_author_meta_box( $post );
+		echo '</div>';
 	}
 
 	/**

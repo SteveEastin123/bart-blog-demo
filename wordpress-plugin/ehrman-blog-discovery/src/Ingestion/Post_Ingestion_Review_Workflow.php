@@ -122,7 +122,7 @@ final class Post_Ingestion_Review_Workflow {
 		if ( ! Post_Ingestion_Settings::database_is_authoritative() ) {
 			return new WP_Error(
 				'ehrman_ingestion_json_authoritative',
-				__( 'Approval is disabled in this JSON-managed environment. Ask an administrator to enable database-managed publishing before approving metadata.', 'ehrman-blog-discovery' )
+				__( 'Metadata approval is disabled in this environment. Contact an administrator to enable it.', 'ehrman-blog-discovery' )
 			);
 		}
 		$proposal = $this->validator->decode_proposal( Database::text( $draft['proposal_json'] ?? null ) );

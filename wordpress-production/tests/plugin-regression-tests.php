@@ -531,6 +531,7 @@ try {
 	$json_approval = $ingestion->approve( $draft_id, false );
 	$assert( is_wp_error( $json_approval ), 'Approval modified the index while JSON was authoritative.' );
 	$assert_same( 'ehrman_ingestion_json_authoritative', $json_approval->get_error_code(), 'JSON-authoritative approval returned the wrong error.' );
+	$assert_same( 'Metadata approval is disabled in this environment. Contact an administrator to enable it.', $json_approval->get_error_message(), 'Approval errors expose internal data-source terminology.' );
 	putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' );
 
 	$held_revision = $ingestion->save_proposal(

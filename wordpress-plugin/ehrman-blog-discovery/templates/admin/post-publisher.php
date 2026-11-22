@@ -31,4 +31,4 @@ wp_nonce_field( 'ehrman-publisher-' . $view['post_id'], 'ehrman_publisher_nonce'
 	<?php endforeach; ?>
 </fieldset>
 <div id="ehrman-post-metadata-root" class="ehrman-ingestion-editor"></div>
-<noscript><p><a href="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>"><?php esc_html_e( 'Post Metadata', 'ehrman-blog-discovery' ); ?></a></p></noscript>
+<noscript><p><a href="<?php echo esc_url( Post_Ingestion_Page::page_url() ); ?>"><?php esc_html_e( 'Open Post Metadata', 'ehrman-blog-discovery' ); ?></a></p></noscript>

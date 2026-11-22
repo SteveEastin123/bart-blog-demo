@@ -301,7 +301,6 @@
 				record && record.automaticError ? el( Notice, { status: 'error', isDismissible: false }, record.automaticError ) : null,
 				publishRequired ? el( Notice, { status: 'info', isDismissible: false }, effectiveMode === 'automatic' && ! ( record && record.hasPublished ) ? __( 'Metadata will be created and approved automatically after publication.', 'ehrman-blog-discovery' ) : __( 'Publish this post before creating metadata.', 'ehrman-blog-discovery' ) ) : savedPostRequired ? el( Notice, { status: 'warning', isDismissible: false }, __( 'Save your changes before continuing.', 'ehrman-blog-discovery' ) ) : null,
 				record && ! record.configured ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The shared OpenAI API key is not configured. Ask an administrator to set OPENAI_API_KEY on the server.', 'ehrman-blog-discovery' ) ) : null,
-				record && ! record.databaseAuthoritative ? el( Notice, { status: 'info', isDismissible: false }, __( 'Review is available, but approval remains locked while JSON is authoritative.', 'ehrman-blog-discovery' ) ) : null,
 				record && record.sourceChanged ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The saved post changed. Regenerate metadata before approval.', 'ehrman-blog-discovery' ) ) : null,
 				changedReview ? el( Notice, { status: 'warning', isDismissible: false }, __( 'The metadata changed elsewhere. Reload it before approval.', 'ehrman-blog-discovery' ) ) : null,
 				pendingRevision ? el( Notice, { status: 'info', isDismissible: false }, __( 'Approved metadata remains active until these changes are approved.', 'ehrman-blog-discovery' ) ) : null,
@@ -357,7 +356,7 @@
 					error || changedReview ? el( Button, { variant: 'secondary', disabled: !! busyAction, onClick: reload }, __( 'Reload Metadata', 'ehrman-blog-discovery' ) ) : null
 				),
 				draft && draft.previousVersionUrl ? el( Button, { variant: 'link', href: draft.previousVersionUrl }, __( 'Previous approved version', 'ehrman-blog-discovery' ) ) : null,
-				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Post Metadata', 'ehrman-blog-discovery' ) ) : null
+				record ? el( Button, { variant: 'link', className: 'ehrman-ingestion-editor__history', href: record.reviewUrl }, __( 'Open Post Metadata', 'ehrman-blog-discovery' ) ) : null
 			);
 		}
 

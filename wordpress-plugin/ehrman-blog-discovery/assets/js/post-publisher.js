@@ -37,8 +37,6 @@
 			}
 		}, true );
 		window.setInterval( notify, 500 );
-		const title = document.querySelector( '#title-prompt-text' );
-		if ( title ) title.textContent = window.wp.i18n.__( 'Title', 'ehrman-blog-discovery' );
 	}
 	window.EhrmanPostPublisher = {
 		subscribe: listener => { listeners.add( listener ); return () => listeners.delete( listener ); },

@@ -186,7 +186,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
       assert(await plainPage.getByText('Publishing settings require JavaScript.', { exact: true }).isVisible());
     } finally { await plainContext.close(); }
     await open();
-    assert.equal(await panel.getByRole('link', { name: 'Post Metadata', exact: true }).getAttribute('href'), record.reviewUrl);
+    assert.equal(await panel.getByRole('link', { name: 'Open Post Metadata', exact: true }).getAttribute('href'), record.reviewUrl);
     assert.equal(actions.length, 0, 'Opening the panel started a paid action');
     const mode = panel.getByRole('combobox', { name: 'Metadata mode', exact: true });
     assert.equal(await mode.inputValue(), 'inherit');
@@ -378,6 +378,7 @@ const topicNames = JSON.parse(fs.readFileSync(path.join(root, 'data/index/ehrman
     record.draft = { ...original };
     await reloadState();
     assert(await button('Approve and Add to Search').isDisabled(), 'JSON mode allowed approval');
+    assert.doesNotMatch(await panel.innerText(), /\bJSON\b/i, 'Editor displays internal data-source terminology');
     assert(await panel.getByLabel('Description', { exact: true }).isEditable());
     record.databaseAuthoritative = true;
     record.sourceChanged = true;
