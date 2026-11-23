@@ -28,6 +28,7 @@ final class Post_Publisher {
 		add_filter( 'admin_body_class', array( self::class, 'body_class' ) );
 		add_action( 'edit_form_after_title', array( self::class, 'author_field' ), 5 );
 		add_action( 'edit_form_after_title', array( self::class, 'content_heading' ) );
+		add_action( 'post_submitbox_misc_actions', array( self::class, 'mode_controls' ) );
 		add_action( 'wp_after_insert_post', array( self::class, 'save_preferences' ), 5, 4 );
 	}
 
@@ -131,13 +132,16 @@ final class Post_Publisher {
 	}
 
 	/**
-	 * Renders the saved mode and the shared metadata component's mount point.
+	 * Renders the saved mode beside native publishing controls.
 	 *
 	 * @param WP_Post $post Native post.
 	 */
-	public static function metadata_box( WP_Post $post ): void {
+	public static function mode_controls( WP_Post $post ): void {
+		if ( ! self::uses_form( $post ) ) {
+			return;
+		}
 		$html = Template::render(
-			'admin/post-publisher.php',
+			'admin/post-publisher-mode.php',
 			array(
 				'post_id' => $post->ID,
 				'default' => Post_Ingestion_Publishing_Settings::default_mode(),
@@ -147,6 +151,12 @@ final class Post_Publisher {
 		);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted template escapes labels and values.
 		echo $html;
+	}
+
+	/** Renders the shared metadata component below the editor. */
+	public static function metadata_box(): void {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted template escapes labels and values.
+		echo Template::render( 'admin/post-publisher.php' );
 	}
 
 	/**

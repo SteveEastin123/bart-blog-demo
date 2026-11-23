@@ -46,6 +46,7 @@ let authorId = 0;
     await route.fulfill({ json: record });
   });
   const panel = page.locator('#ehrman-post-metadata');
+  const publishing = page.locator('#submitdiv');
   const button = name => panel.getByRole('button', { name, exact: true });
   async function save(selector) {
     await Promise.all([page.waitForNavigation({ waitUntil: 'load' }), page.locator(selector).click()]);
@@ -69,6 +70,34 @@ let authorId = 0;
     assert.equal(await target.locator('#post_author_override').count(), 1, 'Duplicate author fields.');
     assert.equal(await target.locator('#wp-content-media-buttons').count(), 0, 'Add Media is still shown.');
   }
+  async function checkEditorHeading() {
+    await page.waitForFunction(() => {
+      const heading = document.querySelector('.ehrman-post-heading');
+      const tools = document.querySelector('#wp-content-editor-tools');
+      const tabs = tools.querySelector('.wp-editor-tabs').getBoundingClientRect();
+      const label = heading.getBoundingClientRect();
+      const row = tools.getBoundingClientRect();
+      const pane = document.querySelector('#wp-content-editor-container').getBoundingClientRect();
+      return tools.contains(heading) && label.right + 12 <= tabs.left
+        && Math.abs(label.y + label.height / 2 - tabs.y - tabs.height / 2) <= 1
+        && Math.abs(pane.y - row.bottom) <= 2;
+    }, null, { timeout: 5000 });
+  }
+  async function checkModePlacement(target = page) {
+    const mode = target.locator('#submitdiv .ehrman-publisher-mode');
+    assert.equal(await target.locator('.ehrman-publisher-mode').count(), 1, 'Duplicate metadata mode controls.');
+    assert.equal(await target.locator('#ehrman-post-metadata input[type="radio"]').count(), 0, 'Mode controls remain in the review panel.');
+    assert.equal(await target.locator('#submitdiv input[name="ehrman_publisher_nonce"]').count(), 1);
+    assert.equal(await mode.getByRole('radio').count(), 2);
+    const modeBox = await mode.boundingBox();
+    const actionsBox = await target.locator('#major-publishing-actions').boundingBox();
+    const publishBox = await target.locator('#submitdiv').boundingBox();
+    assert(modeBox.y + modeBox.height <= actionsBox.y, 'Mode choice is not above Publish/Update.');
+    assert(modeBox.x >= publishBox.x && modeBox.x + modeBox.width <= publishBox.x + publishBox.width, 'Mode choice escapes Publish panel.');
+    const editorBox = await target.locator('#postdivrich').boundingBox();
+    const reviewBox = await target.locator('#ehrman-post-metadata').boundingBox();
+    assert(reviewBox.y >= editorBox.y + editorBox.height, 'Metadata review moved above the editor.');
+  }
   const typography = locator => locator.evaluate(element => {
     const style = getComputedStyle(element);
     return { family: style.fontFamily, size: style.fontSize, weight: style.fontWeight };
@@ -91,10 +120,18 @@ let authorId = 0;
     assert.equal(await page.locator('#post_author_override').count(), 1);
     const originalAuthor = await page.locator('#post_author_override').inputValue();
     await checkAuthorPlacement();
+    await checkEditorHeading();
     assert(await page.locator('#menu-media > a').isVisible(), 'Media Library navigation was removed.');
     assert.equal(await page.locator('#categorydiv, #tagsdiv-post_tag').count(), 0);
     assert.equal(await panel.getByRole('combobox').count(), 0);
-    assert(await panel.getByRole('radio', { name: 'Automatic (site default)', exact: true }).isChecked());
+    assert(await publishing.getByRole('radio', { name: 'Automatic (site default)', exact: true }).isChecked());
+    for (const width of [1440, 390, 320]) {
+      await page.setViewportSize({ width, height: 1100 });
+      await checkModePlacement();
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Add Post overflows at ' + width);
+      await page.screenshot({ path: path.join(output, 'publisher-new-' + width + '.png'), fullPage: true });
+    }
+    await page.setViewportSize({ width: 1440, height: 1100 });
     assert(await button('Create Metadata').isDisabled());
     await checkTitleLabel();
     const headingStyle = await typography(page.locator('.ehrman-post-heading'));
@@ -109,7 +146,7 @@ let authorId = 0;
     const history = panel.getByRole('link', { name: 'Open Post Metadata', exact: true });
     assert.equal(await history.getAttribute('href'), record.reviewUrl);
     assert.equal(await history.evaluate(element => getComputedStyle(element).marginTop), '16px');
-    await panel.getByRole('radio', { name: 'Manual', exact: true }).check();
+    await publishing.getByRole('radio', { name: 'Manual', exact: true }).check();
     await page.locator('#post_author_override').selectOption(String(authorId));
     await page.locator('#title').fill('Native publisher UI fixture');
     await checkTitleLabel();
@@ -117,7 +154,8 @@ let authorId = 0;
     await page.locator('#content').fill('<p>Native publisher <strong>content</strong> and <a href="https://example.test/">link</a>.</p><p><img src="' + base + '/wp-includes/images/w-logo-blue.png" alt="Publisher image fixture" width="24" height="24" /></p>');
     await save('#save-post');
     await checkTitleLabel();
-    assert(await panel.getByRole('radio', { name: 'Manual', exact: true }).isChecked());
+    assert(await publishing.getByRole('radio', { name: 'Manual', exact: true }).isChecked());
+    await checkModePlacement();
     assert.equal(cli(['post', 'meta', 'get', String(postId), '_ehrman_form_editor']), '1');
     assert.equal(cli(['post', 'get', String(postId), '--field=post_status']), 'draft');
     assert.equal(cli(['post', 'get', String(postId), '--field=post_author']), String(authorId));
@@ -139,7 +177,7 @@ let authorId = 0;
     assert.equal(cli(['post', 'get', String(postId), '--field=post_author']), String(authorId));
     assert.equal(cli(['post', 'meta', 'get', String(postId), '_ehrman_metadata_mode']), 'manual');
     assert.equal(cli(['eval', `$db=EhrmanBlogDiscovery\\Database::client();$table=EhrmanBlogDiscovery\\Database::tables()["ingestion_drafts"];echo $db->get_var($db->prepare("SELECT COUNT(*) FROM %i WHERE wordpress_post_id=%d",$table,${postId}));`]), '0');
-    assert(await panel.getByRole('radio', { name: 'Manual', exact: true }).isDisabled());
+    assert(await publishing.getByRole('radio', { name: 'Manual', exact: true }).isDisabled());
     await button('Create Metadata').waitFor({ state: 'visible' });
     await page.waitForFunction(() => !window.EhrmanPostPublisher.read().isDirty);
     assert(await button('Create Metadata').isEnabled());
@@ -190,7 +228,13 @@ let authorId = 0;
     assert(summaryLabel.y - (descriptionBox.y + descriptionBox.height) >= 16, 'Review fields are crowded.');
     for (const width of [1440, 390]) {
       await page.setViewportSize({ width, height: 1100 });
-      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Review overflows at ' + width);
+      // WordPress updates the sticky editor width on a debounced resize handler.
+      try {
+        await page.waitForFunction(() => document.documentElement.scrollWidth <= innerWidth + 2, null, { timeout: 5000 });
+      } catch (error) {
+        await page.screenshot({ path: path.join(output, 'publisher-overflow-' + width + '.png'), fullPage: true });
+        throw error;
+      }
       await page.screenshot({ path: path.join(output, 'publisher-review-' + width + '.png'), fullPage: true });
     }
     await page.setViewportSize({ width: 1440, height: 1100 });
@@ -213,12 +257,23 @@ let authorId = 0;
     assert.equal(await button('Edit Metadata').count(), 1);
     assert.equal(await button('Regenerate Metadata').count(), 1);
     assert((await panel.innerText()).includes('Complete'));
-    for (const width of [1440, 1024, 390]) {
+    for (const width of [1920, 1440, 1024, 390, 320]) {
       await page.setViewportSize({ width, height: 1100 });
       await page.evaluate(() => window.scrollTo(0, 0));
       await checkAuthorPlacement();
+      await checkEditorHeading();
+      await checkModePlacement();
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Publisher overflows at ' + width);
       await page.screenshot({ path: path.join(output, 'publisher-' + width + '.png'), fullPage: true });
+      await page.locator('#content-html').click();
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await checkEditorHeading();
+      assert(await page.locator('#content').isVisible());
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Code editor overflows at ' + width);
+      await page.screenshot({ path: path.join(output, 'publisher-code-' + width + '.png'), fullPage: true });
+      await page.locator('#content-tmce').click();
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await checkEditorHeading();
     }
     // Without JavaScript, native saving and the persisted radio selection remain usable.
     const plain = await browser.newContext({ javaScriptEnabled: false, storageState: await context.storageState() });
@@ -226,13 +281,15 @@ let authorId = 0;
     await plainPage.goto(base + `/wp-admin/post.php?post=${postId}&action=edit`);
     await checkTitleLabel(plainPage);
     await checkAuthorPlacement(plainPage);
+    await checkModePlacement(plainPage);
+    assert(await plainPage.locator('#submitdiv').getByRole('radio', { name: 'Manual', exact: true }).isChecked());
     assert.equal(await plainPage.locator('#post_author_override').inputValue(), String(authorId));
     assert(await plainPage.locator('#content').isVisible());
     assert(await plainPage.locator('#publish').isEnabled());
     assert(await plainPage.locator('noscript').getByRole('link', { name: 'Open Post Metadata', exact: true }).isVisible());
     await plain.close();
     assert.deepEqual(errors, []);
-    console.log('Native publisher UI: author placement/selection/saving, scoped media hiding, consistent typography/controls, persistent Title label, draft/preview/publish, preserved rich text/images, saved override, lock, dirty-source guard, inline generation/approval, term removal, no-JS and desktop/tablet/mobile: OK');
+    console.log('Native publisher UI: compact editor heading in Visual/Code at 320-1920px, author placement/selection/saving, scoped media hiding, consistent typography/controls, persistent Title label, draft/preview/publish, preserved rich text/images, saved override, lock, dirty-source guard, inline generation/approval, term removal, no-JS and desktop/tablet/mobile: OK');
   } finally {
     await browser.close();
     if (oldMode === false) cli(['option', 'delete', 'ehrman_ingestion_default_mode']);

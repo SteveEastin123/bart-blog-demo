@@ -15,6 +15,10 @@
 	}
 	function notify() { listeners.forEach( listener => listener() ); }
 	function start() {
+		// Keep the label with WordPress's tabs, including when the toolbar sticks on scroll.
+		const heading = document.querySelector( '.ehrman-post-heading' );
+		const tools = document.getElementById( 'wp-content-editor-tools' );
+		if ( heading && tools ) tools.prepend( heading );
 		baseline = source();
 		const originalText = value( '#content' );
 		function initialized() {
