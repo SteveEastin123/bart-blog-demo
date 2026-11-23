@@ -76,7 +76,7 @@ services:
       - key: EHRMAN_DISCOVERY_AI_RESULT_GROUPING
         value: tiers
       - key: EHRMAN_INGESTION_OPENAI_MODEL
-        value: gpt-5.6-sol
+        value: gpt-6.2-sol
       - key: EHRMAN_INGESTION_REASONING_EFFORT
         value: high
       - key: EHRMAN_DISCOVERY_POST_SOURCE

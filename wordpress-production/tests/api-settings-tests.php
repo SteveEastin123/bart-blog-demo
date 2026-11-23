@@ -59,6 +59,12 @@ if ( 'credential-case' === ( $argv[1] ?? '' ) ) {
 	$check( '' === $key_method->invoke( new Embedding_Service( '', false ) ), 'An empty workflow override borrowed the search key.' );
 	$check( $expected === Post_Ingestion_Settings::api_key(), 'Ingestion and search credentials differ.' );
 	$check( ( '' !== $expected ) === Post_Ingestion_Settings::is_configured(), 'Ingestion configured status is incorrect.' );
+	putenv( 'EHRMAN_DISCOVERY_AI_MODEL' );
+	putenv( 'EHRMAN_INGESTION_OPENAI_MODEL' );
+	$check( 'gpt-5.4-mini' === AI_Settings::model_id(), 'The reader-search default model changed.' );
+	$check( 'gpt-6.2-sol' === Post_Ingestion_Settings::model_id(), 'The metadata default is not GPT-6.2 Sol.' );
+	putenv( 'EHRMAN_INGESTION_OPENAI_MODEL=   ' );
+	$check( 'gpt-6.2-sol' === Post_Ingestion_Settings::model_id(), 'Blank model configuration bypassed the default.' );
 	putenv( 'EHRMAN_DISCOVERY_AI_MODEL=search-test-model' );
 	putenv( 'EHRMAN_INGESTION_OPENAI_MODEL=ingestion-test-model' );
 	$check( 'search-test-model' === AI_Settings::model_id(), 'Shared credentials changed the search model setting.' );

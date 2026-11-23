@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** Provides the environment-backed settings shared by ingestion collaborators. */
 final class Post_Ingestion_Settings {
 	private const API_URL        = 'https://api.openai.com/v1/responses';
-	private const DEFAULT_MODEL  = 'gpt-5.6-sol';
+	private const DEFAULT_MODEL  = 'gpt-6.2-sol';
 	private const PROMPT_VERSION = '9';
 
 	/** Returns the Responses API endpoint. */

@@ -204,7 +204,7 @@ Configure the workflow with these environment variables:
   no longer read. Move their value into `OPENAI_API_KEY` before updating if the
   shared variable is not already configured. Check pending ingestion jobs first.
 - `EHRMAN_DISCOVERY_AI_MODEL`: search model; defaults to `gpt-5.4-mini`.
-- `EHRMAN_INGESTION_OPENAI_MODEL`: defaults to `gpt-5.6-sol`.
+- `EHRMAN_INGESTION_OPENAI_MODEL`: defaults to `gpt-6.2-sol`.
 - `EHRMAN_INGESTION_REASONING_EFFORT`: defaults to `high`.
 - `EHRMAN_DISCOVERY_POST_SOURCE`: the plugin defaults to `mysql` when unset or
   blank, enabling database-managed approval. Local Compose explicitly defaults

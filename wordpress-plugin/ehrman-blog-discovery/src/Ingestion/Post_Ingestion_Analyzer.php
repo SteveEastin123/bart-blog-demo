@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @phpstan-type Vocabulary array{topics:list<TopicRecord>,keywords:list<KeywordRecord>}
  * @phpstan-type TopicRationale array{topic:string,rationale:string}
  * @phpstan-type Proposal array{description:string,searchSummary:string,topics:list<string>,topicRationales:list<TopicRationale>,secondaryKeywords:list<string>,newSecondaryKeywords:list<string>,status:string,reviewNotes:list<string>}
- * @phpstan-type AnalysisMetrics array{response_id:string,input_tokens:int,cached_input_tokens:int,output_tokens:int,reasoning_tokens:int,estimated_cost_usd:float}
+ * @phpstan-type AnalysisMetrics array{response_id:string,input_tokens:int,cached_input_tokens:int,cache_write_tokens:int,output_tokens:int,reasoning_tokens:int,estimated_cost_usd:float}
  * @phpstan-type AnalysisResult array{proposal:Proposal,metrics:AnalysisMetrics}
  */
 final class Post_Ingestion_Analyzer {
@@ -178,6 +178,7 @@ final class Post_Ingestion_Analyzer {
 			. $post['post_text'];
 		return array(
 			'model'             => Post_Ingestion_Settings::model_id(),
+			'service_tier'      => 'default',
 			'reasoning'         => array( 'effort' => Post_Ingestion_Settings::reasoning_effort() ),
 			'instructions'      => $instructions,
 			'input'             => $input,
@@ -264,25 +265,26 @@ final class Post_Ingestion_Analyzer {
 	 * Extracts token metrics and estimates the supported model cost.
 	 *
 	 * @param array<string,mixed> $body Decoded response body.
-	 * @return array{response_id:string,input_tokens:int,cached_input_tokens:int,output_tokens:int,reasoning_tokens:int,estimated_cost_usd:float}
+	 * @phpstan-return AnalysisMetrics
 	 */
 	private function response_metrics( array $body ): array {
 		$usage          = is_array( $body['usage'] ?? null ) ? $body['usage'] : array();
 		$input_details  = is_array( $usage['input_tokens_details'] ?? null ) ? $usage['input_tokens_details'] : array();
 		$output_details = is_array( $usage['output_tokens_details'] ?? null ) ? $usage['output_tokens_details'] : array();
-		$input_tokens   = Database::integer( $usage['input_tokens'] ?? null );
-		$cached_tokens  = min( $input_tokens, Database::integer( $input_details['cached_tokens'] ?? null ) );
-		$output_tokens  = Database::integer( $usage['output_tokens'] ?? null );
-		$reasoning      = min( $output_tokens, Database::integer( $output_details['reasoning_tokens'] ?? null ) );
-		$uncached       = max( 0, $input_tokens - $cached_tokens );
-		$cost           = 0.0;
-		if ( AI_Metadata_Usage::has_pricing( Database::text( $body['model'] ?? Post_Ingestion_Settings::model_id() ) ) ) {
-			$cost = ( ( $uncached * 4.0 ) + ( $cached_tokens * 0.4 ) + ( $output_tokens * 20.0 ) ) / 1000000;
-		}
+		$write_details  = Database::associative_row( $input_details['cache_write_tokens_details'] ?? null ) ?? array();
+		$input_tokens   = max( 0, Database::integer( $usage['input_tokens'] ?? null ) );
+		$cached_tokens  = min( $input_tokens, max( 0, Database::integer( $input_details['cached_tokens'] ?? null ) ) );
+		$write_tokens   = min( $input_tokens - $cached_tokens, max( 0, Database::integer( $input_details['cache_write_tokens'] ?? null ) ) );
+		$long_writes    = min( $write_tokens, max( 0, Database::integer( $write_details['ttl_12h_tokens'] ?? null ) ) );
+		$output_tokens  = max( 0, Database::integer( $usage['output_tokens'] ?? null ) );
+		$reasoning      = min( $output_tokens, max( 0, Database::integer( $output_details['reasoning_tokens'] ?? null ) ) );
+		$model          = Database::text( $body['model'] ?? Post_Ingestion_Settings::model_id() );
+		$cost           = AI_Metadata_Usage::estimate_cost( $model, $input_tokens, $cached_tokens, $output_tokens, $write_tokens, $long_writes );
 		return array(
 			'response_id'         => sanitize_text_field( Database::text( $body['id'] ?? null ) ),
 			'input_tokens'        => max( 0, $input_tokens ),
 			'cached_input_tokens' => max( 0, $cached_tokens ),
+			'cache_write_tokens'  => $write_tokens,
 			'output_tokens'       => max( 0, $output_tokens ),
 			'reasoning_tokens'    => max( 0, $reasoning ),
 			'estimated_cost_usd'  => $cost,
@@ -294,13 +296,14 @@ final class Post_Ingestion_Analyzer {
 	 *
 	 * @param array<string,mixed> $first  Earlier attempt metrics.
 	 * @param array<string,mixed> $second Latest attempt metrics.
-	 * @return array{response_id:string,input_tokens:int,cached_input_tokens:int,output_tokens:int,reasoning_tokens:int,estimated_cost_usd:float}
+	 * @phpstan-return AnalysisMetrics
 	 */
 	private function combine_metrics( array $first, array $second ): array {
 		return array(
 			'response_id'         => Database::text( $second['response_id'] ?? null ),
 			'input_tokens'        => Database::integer( $first['input_tokens'] ?? null ) + Database::integer( $second['input_tokens'] ?? null ),
 			'cached_input_tokens' => Database::integer( $first['cached_input_tokens'] ?? null ) + Database::integer( $second['cached_input_tokens'] ?? null ),
+			'cache_write_tokens'  => Database::integer( $first['cache_write_tokens'] ?? null ) + Database::integer( $second['cache_write_tokens'] ?? null ),
 			'output_tokens'       => Database::integer( $first['output_tokens'] ?? null ) + Database::integer( $second['output_tokens'] ?? null ),
 			'reasoning_tokens'    => Database::integer( $first['reasoning_tokens'] ?? null ) + Database::integer( $second['reasoning_tokens'] ?? null ),
 			'estimated_cost_usd'  => (float) Database::text( $first['estimated_cost_usd'] ?? 0 ) + (float) Database::text( $second['estimated_cost_usd'] ?? 0 ),

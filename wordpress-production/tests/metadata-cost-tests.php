@@ -15,6 +15,51 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analysis_Worker;
 use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 
 ( static function () use ( $wpdb, $tables, $assert, $assert_same ) {
+	foreach ( array( 'gpt-6.2-sol', 'gpt-6.2', 'gpt-6.2-sol-2026-11-19', 'gpt-5.6-sol', 'gpt-5.6' ) as $model ) {
+		$assert( AI_Metadata_Usage::has_pricing( $model ), 'Known metadata model has no pricing: ' . $model );
+	}
+	$assert( ! AI_Metadata_Usage::has_pricing( 'gpt-6.2-sol-unknown' ), 'An unknown model was assigned known pricing.' );
+	$assert_same( 0.0, AI_Metadata_Usage::estimate_cost( 'unknown', 100, 0, 20 ), 'Unknown pricing invented a charge.' );
+	foreach ( array(
+		array( 100000, 0, 1000, 0, 0, 0.21 ),
+		array( 100000, 100000, 0, 0, 0, 0.01 ),
+		array( 100000, 0, 0, 100000, 0, 0.25 ),
+		array( 100000, 0, 0, 100000, 100000, 0.5 ),
+		array( 100000, 50000, 1000, 30000, 10000, 0.155 ),
+		array( 272000, 0, 1000, 0, 0, 0.554 ),
+		array( 272001, 0, 1000, 0, 0, 1.103004 ),
+		array( 100, 150, 0, 150, 200, 0.00001 ),
+		array( -100, -50, -20, -30, -10, 0.0 ),
+	) as $case ) {
+		$actual = AI_Metadata_Usage::estimate_cost( 'gpt-6.2-sol', $case[0], $case[1], $case[2], $case[3], $case[4] );
+		$assert( abs( $actual - $case[5] ) < 0.000000001, 'GPT-6.2 pricing failed: ' . wp_json_encode( $case ) );
+	}
+	$assert( abs( AI_Metadata_Usage::estimate_cost( 'gpt-5.6-sol', 100000, 50000, 1000, 30000, 10000 ) - 0.32 ) < 0.000000001, 'GPT-5.6 fallback rates changed.' );
+	$metrics_method = new ReflectionMethod( Post_Ingestion_Analyzer::class, 'response_metrics' );
+	$pricing_metrics = $metrics_method->invoke( new Post_Ingestion_Analyzer(), array(
+		'id' => 'fixture-gpt62', 'model' => 'gpt-6.2-sol',
+		'usage' => array( 'input_tokens' => 100000, 'output_tokens' => 1000,
+			'input_tokens_details' => array( 'cached_tokens' => 50000, 'cache_write_tokens' => 30000, 'cache_write_tokens_details' => array( 'ttl_30m_tokens' => 20000, 'ttl_12h_tokens' => 10000 ) ),
+			'output_tokens_details' => array( 'reasoning_tokens' => 700 ),
+		),
+	) );
+	$assert_same( 30000, $pricing_metrics['cache_write_tokens'], 'Analyzer lost cache-write usage.' );
+	$assert_same( 700, $pricing_metrics['reasoning_tokens'], 'Analyzer lost reasoning usage.' );
+	$assert( abs( $pricing_metrics['estimated_cost_usd'] - 0.155 ) < 0.000000001, 'Analyzer double-counted reasoning or cache writes.' );
+	$combined_method = new ReflectionMethod( Post_Ingestion_Analyzer::class, 'combine_metrics' );
+	$combined = $combined_method->invoke( new Post_Ingestion_Analyzer(), $pricing_metrics, $pricing_metrics );
+	$assert_same( 60000, $combined['cache_write_tokens'], 'Retry lost cache-write tokens.' );
+	$assert( abs( $combined['estimated_cost_usd'] - 0.31 ) < 0.000000001, 'Retry repriced or lost attempt costs.' );
+	$pricing_run = wp_generate_uuid4();
+	try {
+		$pricing_metrics['model'] = 'gpt-6.2-sol';
+		$assert( AI_Metadata_Usage::record( $pricing_metrics, array( 'run_id' => $pricing_run ), 'metadata_generation', true, '', true ), 'Could not store GPT-6.2 usage.' );
+		$row = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE run_id=%s', $tables['ai_usage'], $pricing_run ), ARRAY_A );
+		$assert_same( 'ingestion-gpt-6.2-2026-11-23', $row['pricing_version'], 'Wrong rate schedule recorded.' );
+		$assert_same( 30000, (int) $row['cache_write_tokens'], 'Cache writes were not stored in history.' );
+		$assert_same( 1, (int) $row['cost_known'], 'GPT-6.2 charge shown as unavailable.' );
+		$assert( abs( (float) $row['estimated_cost_usd'] - 0.155 ) < 0.000000001, 'History lost the calculated cost.' );
+	} finally { $wpdb->delete( $tables['ai_usage'], array( 'run_id' => $pricing_run ) ); }
 	$marker = 'metadata-cost-' . wp_generate_uuid4();
 	$old_key = getenv( 'OPENAI_API_KEY' );
 	$old_get = $_GET;
@@ -50,6 +95,9 @@ use EhrmanBlogDiscovery\Post_Ingestion_Analyzer;
 	$mock = static function ( $preempt, $args, $url ) use ( &$calls, $assert_same ) {
 		++$calls;
 		$assert_same( 'https://api.openai.com/v1/responses', $url, 'Metadata test used an unexpected API.' );
+		$payload = json_decode( $args['body'], true );
+		$assert_same( 'gpt-6.2-sol', $payload['model'], 'Metadata request did not use the configured GPT-6.2 default.' );
+		$assert_same( 'default', $payload['service_tier'], 'Metadata pricing no longer matches the requested Standard tier.' );
 		if ( 3 === $calls ) { return new WP_Error( 'http_request_failed', 'Mock timeout' ); }
 		return array( 'response' => array( 'code' => 200 ), 'body' => wp_json_encode( array(
 			'id' => 'mock-cost-' . $calls, 'model' => 'gpt-5.6-sol',

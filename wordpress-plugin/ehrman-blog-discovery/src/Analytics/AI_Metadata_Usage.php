@@ -19,7 +19,62 @@ final class AI_Metadata_Usage {
 	 * @param string $model API model identifier.
 	 */
 	public static function has_pricing( string $model ): bool {
-		return str_starts_with( $model, 'gpt-5.6-sol' ) || 'gpt-5.6' === $model;
+		return null !== self::pricing( $model );
+	}
+
+	/**
+	 * Standard short-context rates per million tokens, verified November 23, 2026.
+	 *
+	 * @param string $model API model identifier, alias or dated snapshot.
+	 * @return array{input:float,cached:float,output:float,version:string}|null Rate schedule.
+	 */
+	private static function pricing( string $model ): ?array {
+		// https://developers.openai.com/api/docs/pricing -- do not guess post-promotion rates.
+		if ( preg_match( '/^gpt-6\.2(?:-sol(?:-\d{4}-\d{2}-\d{2})?)?$/D', $model ) ) {
+			return array(
+				'input'   => 2.0,
+				'cached'  => 0.1,
+				'output'  => 10.0,
+				'version' => 'ingestion-gpt-6.2-2026-11-23',
+			);
+		}
+		if ( preg_match( '/^gpt-5\.6(?:-sol(?:-\d{4}-\d{2}-\d{2})?)?$/D', $model ) ) {
+			return array(
+				'input'   => 4.0,
+				'cached'  => 0.4,
+				'output'  => 20.0,
+				'version' => 'ingestion-gpt-5.6-2026-11-23',
+			);
+		}
+		return null;
+	}
+
+	/**
+	 * Estimates a new Standard-tier attempt without repricing stored history.
+	 *
+	 * @param string $model        API model identifier.
+	 * @param int    $input        All input tokens, including cached reads and writes.
+	 * @param int    $cached       Cached-read subset.
+	 * @param int    $output       All output tokens, including reasoning.
+	 * @param int    $writes       Cache-write subset.
+	 * @param int    $long_writes  Cache writes with twelve-hour retention.
+	 */
+	public static function estimate_cost( string $model, int $input, int $cached, int $output, int $writes = 0, int $long_writes = 0 ): float {
+		$rates = self::pricing( $model );
+		if ( null === $rates ) {
+			return 0.0;
+		}
+		$input       = max( 0, $input );
+		$cached      = min( $input, max( 0, $cached ) );
+		$writes      = min( $input - $cached, max( 0, $writes ) );
+		$long_writes = min( $writes, max( 0, $long_writes ) );
+		$ordinary    = $input - $cached - $writes;
+		$input_scale = $input > 272000 ? 2.0 : 1.0;
+		$output_rate = $rates['output'] * ( $input > 272000 ? 1.5 : 1.0 );
+		$input_cost  = $ordinary * $rates['input'] + $cached * $rates['cached']
+			+ ( $writes - $long_writes ) * $rates['input'] * 1.25
+			+ $long_writes * $rates['input'] * 2.5;
+		return ( $input_cost * $input_scale + max( 0, $output ) * $output_rate ) / 1000000;
 	}
 
 	/**
@@ -52,9 +107,10 @@ final class AI_Metadata_Usage {
 		if ( empty( $context['run_id'] ) ) {
 			return true;
 		}
+		$pricing                    = self::pricing( Database::text( $metrics['model'] ?? '' ) );
 		$context['purpose']         = $purpose;
 		$context['cost_known']      = $known ? 1 : 0;
-		$context['pricing_version'] = 'post_embedding' === $purpose ? 'embedding-small-2026-08-21' : 'ingestion-gpt-5.6-v1';
+		$context['pricing_version'] = 'post_embedding' === $purpose ? 'embedding-small-2026-08-21' : ( $pricing['version'] ?? 'usage-or-pricing-unavailable' );
 		if ( ! empty( $context['history_import'] ) ) {
 			$context['pricing_version'] = 'legacy-recorded-estimate';
 		} elseif ( ! $known ) {

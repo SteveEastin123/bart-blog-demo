@@ -32,7 +32,13 @@ WordPress options, source control, JSON, browser code, logs, or exports.
 - `OPENAI_API_KEY`: shared with Ask AI and embeddings. No separate ingestion key
   is needed. An optional server-side PHP constant with the same name overrides
   the environment; a blank constant disables AI calls.
-- `EHRMAN_INGESTION_OPENAI_MODEL`: optional; defaults to `gpt-5.6-sol`.
+- `EHRMAN_INGESTION_OPENAI_MODEL`: optional; defaults to `gpt-6.2-sol`.
+  Ask AI retains its separate `EHRMAN_DISCOVERY_AI_MODEL` setting (`gpt-5.4-mini`).
+  Metadata requests use Standard processing. Cost estimates include cached reads,
+  30-minute/12-hour cache writes, and output (including reasoning), using the
+  November 23, 2026 rate schedule. GPT-5.6 remains supported as an override;
+  recheck its promotional pricing before using it after November 30. Stored
+  historical charges are not recalculated when a model or rate changes.
 - `EHRMAN_INGESTION_REASONING_EFFORT`: optional; defaults to `high`.
 - `EHRMAN_DISCOVERY_POST_SOURCE`: optional. Unset or blank defaults to `mysql`,
   enabling database-managed approval on MariaDB too. Set `json` explicitly to
