@@ -33,13 +33,23 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert( is_wp_error( $service->create( 'Unauthorized subject area', 'Definition', array( $categories[0] ) ) ), 'Anonymous creation accepted.' );
 		$assert_same( '', $render(), 'Anonymous subject-area page exposed.' );
 		wp_set_current_user( (int) $admins[0] );
-		foreach ( array( array(), array( 0 ), array( -1 ), array( '1' ), array( array( 1 ) ), array( PHP_INT_MAX ) ) as $invalid ) {
+		foreach ( array( array( 0 ), array( -1 ), array( '1' ), array( array( 1 ) ), array( PHP_INT_MAX ) ) as $invalid ) {
 			$assert( is_wp_error( $service->create( 'Invalid subject-area fixture', 'Definition', $invalid ) ), 'Invalid categories accepted.' );
 		}
 		foreach ( array( array( '', 'Definition' ), array( 'Fixture', '' ), array( str_repeat( 'x', 192 ), 'Definition' ), array( 'Fixture', str_repeat( 'x', 4001 ) ), array( strtolower( $original[0]['name'] ), 'Definition' ) ) as $invalid ) {
 			$assert( is_wp_error( $service->create( $invalid[0], $invalid[1], array( $categories[0] ) ) ), 'Invalid subject-area definition accepted.' );
 		}
 		$name = 'Subject-area regression fixture ' . wp_generate_uuid4();
+		$empty_id = $must( $service->create( $name . ' initially empty', 'A subject area prepared before its categories.', array() ) );
+		$ids[] = $empty_id;
+		$empty_area = $service->area( $empty_id );
+		$assert_same( array(), $empty_area['categories'], 'Unlinked creation added categories.' );
+		$assert_same( 0, (int) $empty_area['post_count'], 'Unlinked area has posts.' );
+		$assert( null !== $browse->subject_area( $empty_area['slug'] ), 'Unlinked area missing from browse.' );
+		$assert_same( array(), $browse->subject_area_categories( $empty_id ), 'Unlinked browse returned categories.' );
+		$assert_same( array( 'category_count' => 0, 'topic_count' => 0, 'post_count' => 0 ), $browse->subject_area_counts( $empty_id ), 'Unlinked browse counts are not zero.' );
+		$must( $service->update_categories( $empty_id, array( $categories[0] ), Subject_Area_Organization_Service::revision( $empty_area ) ) );
+		$assert_same( 1, count( $service->area( $empty_id )['categories'] ), 'Could not add a category later.' );
 		$id = $must( $service->create( $name, 'Groups categories for a synthetic administration test.', array( $categories[0], $categories[1], $categories[0] ) ) );
 		$ids[] = $id;
 		$created = $service->area( $id );
@@ -50,7 +60,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$assert_same( $browse->subject_area_counts( $id )['post_count'], (int) $created['post_count'], 'Incorrect distinct post count.' );
 		$assert( is_wp_error( $service->create( strtolower( $name ), 'Duplicate definition', array( $categories[0] ) ) ), 'Duplicate name accepted.' );
 		$revision = Subject_Area_Organization_Service::revision( $created );
-		$assert( is_wp_error( $service->update_categories( $id, array(), $revision ) ), 'Last category removed.' );
 		$assert( is_wp_error( $service->update_categories( $id, array( $categories[0] ), 'stale' ) ), 'Stale save accepted.' );
 		$assert( is_wp_error( $service->update_categories( $id, array( $categories[0], PHP_INT_MAX ), $revision ) ), 'Nonexistent category accepted.' );
 		$assert_same( $created, $service->area( $id ), 'Rejected update changed links.' );
@@ -62,6 +71,21 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$shared = $must( $service->create( $name . ' shared', 'Uses a category already linked elsewhere.', array( $categories[1] ) ) );
 		$ids[] = $shared;
 		$assert_same( $changed, $service->area( $id ), 'Linking another subject area moved an existing link.' );
+		$shared_revision = Subject_Area_Organization_Service::revision( $service->area( $shared ) );
+		$must( $service->update_categories( $shared, array(), $shared_revision ) );
+		$cleared = $service->area( $shared );
+		$assert_same( array(), $cleared['categories'], 'Last category could not be unlinked.' );
+		$assert_same( 0, (int) $cleared['post_count'], 'Cleared area retained a post count.' );
+		$assert_same( $changed, $service->area( $id ), 'Clearing an area changed another area.' );
+		$assert( is_wp_error( $service->update_categories( $shared, array( $categories[0] ), $shared_revision ) ), 'Stale edit overwrote cleared links.' );
+		$must( $service->update_categories( $shared, array( $categories[0] ), Subject_Area_Organization_Service::revision( $cleared ) ) );
+		$assert_same( 1, count( $service->area( $shared )['categories'] ), 'Cleared area could not be relinked.' );
+		$parse_ids = new ReflectionMethod( Topic_Organization_Page::class, 'selected_ids' );
+		$assert_same( array(), $parse_ids->invoke( null, array(), 'category_ids' ), 'Omitted optional categories rejected.' );
+		$assert_same( array(), $parse_ids->invoke( null, array( 'category_ids' => array() ), 'category_ids' ), 'Empty categories rejected.' );
+		foreach ( array( '', '1', null ) as $malformed ) {
+			$assert_same( array( 0 ), $parse_ids->invoke( null, array( 'category_ids' => $malformed ), 'category_ids' ), 'Malformed categories treated as an empty selection.' );
+		}
 		$wpdb->insert( $tables['browse_paths'], array( 'name' => 'Other fixture path', 'slug' => 'subject-area-fixture-' . wp_generate_uuid4(), 'description' => '', 'position' => 999, 'is_active' => 1 ) );
 		$other_path = (int) $wpdb->insert_id;
 		$wpdb->insert( $tables['subject_areas'], array( 'browse_path_id' => $other_path, 'name' => 'Other fixture area', 'slug' => 'other-fixture-area', 'description' => '', 'position' => 0 ) );
@@ -88,6 +112,12 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$_GET = array( 'tab' => 'subject-areas', 'action' => 'new' );
 		$html = $render();
 		$assert( str_contains( $html, 'Create Subject Area' ) && str_contains( $html, 'name="name"' ) && str_contains( $html, 'name="description"' ), 'New subject-area fields missing.' );
+		$document = new DOMDocument();
+		@$document->loadHTML( $html );
+		$xpath = new DOMXPath( $document );
+		$assert_same( 1, $xpath->query( '//select[@name="category_ids[]" and not(@required)]' )->length, 'No-JS subject-area form requires categories.' );
+		$assert_same( '', trim( $xpath->query( '//*[@id="ebd-category-warning"]' )->item( 0 )->textContent ), 'Optional categories announce a required-selection warning.' );
+		$assert_same( 2, $xpath->query( '//*[@required and (@name="name" or @name="description")]' )->length, 'Name or description became optional.' );
 		$_SERVER['REQUEST_METHOD'] = 'POST';
 		$_POST = array( 'subject_area_id' => '0', 'organization_action' => 'create' );
 		$_REQUEST = array( '_wpnonce' => wp_create_nonce( 'ehrman_topic_organization' ) );
@@ -108,5 +138,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		if ( false === $cache ) { delete_option( 'ehrman_discovery_ai_cache_version' ); } else { update_option( 'ehrman_discovery_ai_cache_version', $cache ); }
 	}
 	$assert_same( $original, $service->areas(), 'Subject-area fixtures changed existing records or links.' );
-	echo "Subject-area organization: creation, shared categories, immutable definitions, validation, scope, stale saves, search-first navigation and tab-specific nonces: OK\n";
+	echo "Subject-area organization: optional categories, deferred linking, last-link removal, zero counts, malformed inputs, shared categories, immutable definitions, scope, stale saves and tab-specific nonces: OK\n";
 } )();

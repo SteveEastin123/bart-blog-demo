@@ -47,14 +47,15 @@ $labels = match ( $group['kind'] ) {
 	),
 };
 $warning_id = 'category' === $group['kind'] ? 'ebd-category-warning' : $labels['id'] . '-warning';
+$required   = $group['required'] ?? true;
 ?>
 <fieldset class="ehrman-organization__link-group" data-ebd-link-group data-selected="<?php echo esc_attr( $labels['selected'] ); ?>" data-add="<?php echo esc_attr( $labels['add'] ); ?>" data-search="<?php echo esc_attr( $labels['search'] ); ?>" data-remove="<?php echo esc_attr( $labels['remove'] ); ?>" data-empty="<?php echo esc_attr( $labels['empty'] ); ?>">
 	<legend><?php echo esc_html( $labels['title'] ); ?></legend>
-	<select id="<?php echo esc_attr( $labels['id'] ); ?>" name="<?php echo esc_attr( $group['name'] ); ?>[]" multiple size="8" required aria-label="<?php echo esc_attr( $labels['title'] ); ?>" aria-describedby="<?php echo esc_attr( $warning_id ); ?>">
+	<select id="<?php echo esc_attr( $labels['id'] ); ?>" name="<?php echo esc_attr( $group['name'] ); ?>[]" multiple size="8" <?php echo $required ? 'required' : ''; ?> aria-label="<?php echo esc_attr( $labels['title'] ); ?>" aria-describedby="<?php echo esc_attr( $warning_id ); ?>">
 		<?php foreach ( $group['options'] as $option ) : ?>
 			<option value="<?php echo esc_attr( $option['id'] ); ?>" <?php selected( in_array( Database::integer( $option['id'] ), $group['selected'], true ) ); ?>><?php echo esc_html( $option['name'] ); ?></option>
 		<?php endforeach; ?>
 	</select>
 	<div data-ebd-category-picker></div>
-	<p id="<?php echo esc_attr( $warning_id ); ?>" class="ehrman-organization__warning" data-ebd-link-warning role="status" hidden><?php echo esc_html( $labels['warning'] ); ?></p>
+	<p id="<?php echo esc_attr( $warning_id ); ?>" class="ehrman-organization__warning" data-ebd-link-warning role="status" hidden><?php echo $required ? esc_html( $labels['warning'] ) : ''; ?></p>
 </fieldset>

@@ -38,7 +38,7 @@ $labels        = $subject_areas ? array(
 	/* translators: %s: Number of matching subject areas. */
 	'count'        => __( '%s subject areas', 'ehrman-blog-discovery' ),
 	'pages'        => __( 'Subject-area pages', 'ehrman-blog-discovery' ),
-	'guidance'     => __( 'Describe the broad connection between the selected categories, rather than listing them. Aim for one sentence (about 20-40 words); use neutral wording and avoid dates and counts.', 'ehrman-blog-discovery' ),
+	'guidance'     => __( 'Describe the broad scope of the subject area, rather than listing categories. Aim for one sentence (about 20-40 words); use neutral wording and avoid dates and counts.', 'ehrman-blog-discovery' ),
 	'example_name' => __( 'Manuscripts, Canon, and Bible Translations', 'ehrman-blog-discovery' ),
 	'example'      => __( 'Covers how biblical texts were copied, collected as scripture, translated, and interpreted, including the manuscript evidence and methods scholars use to reconstruct their wording.', 'ehrman-blog-discovery' ),
 ) : array(
@@ -189,6 +189,7 @@ $edit_label = $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' 
 				array(
 					'kind'     => 'subject-area',
 					'name'     => 'subject_area_ids',
+					'required' => false,
 					'options'  => $view['area_options'],
 					'selected' => $values['subject_area_ids'],
 				),
@@ -202,6 +203,7 @@ $edit_label = $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' 
 				array(
 					'kind'     => 'category',
 					'name'     => 'category_ids',
+					'required' => ! $subject_areas,
 					'options'  => $view['categories'],
 					'selected' => $values['category_ids'],
 				),

@@ -76,7 +76,7 @@ final class Category_Organization_Service {
 	}
 
 	/**
-	 * Creates a category with existing subject areas and topics.
+	 * Creates a category with existing topics and optional subject areas.
 	 *
 	 * @param string           $name Category name.
 	 * @param string           $description Definition.
@@ -120,15 +120,15 @@ final class Category_Organization_Service {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new \WP_Error( 'ehrman_category_forbidden', __( 'You cannot manage search organization.', 'ehrman-blog-discovery' ) );
 		}
+		if ( empty( $topic_ids ) ) {
+			return new \WP_Error( 'ehrman_category_links', __( 'Select at least one valid topic.', 'ehrman-blog-discovery' ) );
+		}
 		$selections = array();
 		foreach ( array( $area_ids, $topic_ids ) as $ids ) {
-			if ( empty( $ids ) ) {
-				return new \WP_Error( 'ehrman_category_links', __( 'Select at least one valid subject area and one valid topic.', 'ehrman-blog-discovery' ) );
-			}
 			$valid = array();
 			foreach ( $ids as $value ) {
 				if ( ! is_int( $value ) || $value < 1 ) {
-					return new \WP_Error( 'ehrman_category_links', __( 'Select at least one valid subject area and one valid topic.', 'ehrman-blog-discovery' ) );
+					return new \WP_Error( 'ehrman_category_links', __( 'Select valid subject areas and topics.', 'ehrman-blog-discovery' ) );
 				}
 				$valid[] = $value;
 			}

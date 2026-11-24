@@ -147,11 +147,11 @@ async function checkOrganization(subjectAreas) {
     }
     await page.getByRole('link', { name: 'Add ' + singular, exact: true }).click();
     await page.getByRole('button', { name: 'Add category', exact: true }).waitFor();
-    assert(await page.getByRole('button', { name: 'Create ' + singular, exact: true }).isDisabled());
+    assert.equal(await page.getByRole('button', { name: 'Create ' + singular, exact: true }).isDisabled(), !subjectAreas);
     const description = page.getByLabel('Description', { exact: true });
     assert.equal(await description.getAttribute('aria-describedby'), 'ebd-description-guidance');
     const guidance = await page.locator('#ebd-description-guidance').innerText();
-    assert.match(guidance, subjectAreas ? /selected categories.*20-40 words/ : /topic's scope.*25-50 words/);
+    assert.match(guidance, subjectAreas ? /broad scope.*20-40 words/ : /topic's scope.*25-50 words/);
     assert.equal(guidance.includes('guide AI topic selection'), !subjectAreas);
     const example = page.locator('.ehrman-organization__description-example');
     assert.equal(await example.getAttribute('open'), null, 'Description example should start collapsed');
@@ -172,13 +172,26 @@ async function checkOrganization(subjectAreas) {
       assert.equal(await input.count(), 0, 'Picker stayed open after selection');
       assert(await page.getByRole('button', { name: 'Add category', exact: true }).evaluate(el => el === document.activeElement));
     };
+    let emptyId;
+    if (subjectAreas) {
+      assert(await page.locator('#ebd-category-warning').isHidden());
+      assert.equal(await page.locator('#ebd-category-warning').textContent(), '');
+      await page.getByRole('button', { name: 'Create Subject Area', exact: true }).click();
+      await page.locator('.notice-success').waitFor();
+      emptyId = Number(new URL(page.url()).searchParams.get('edit'));
+      assert(emptyId > 0);
+      createdIds.push(emptyId);
+      assert.deepEqual(readTopic(emptyId).categories, []);
+      assert.equal(Number(readTopic(emptyId).post_count), 0);
+    }
     await choose(categories[0]);
     await choose(categories[1]);
-    await page.getByRole('button', { name: 'Create ' + singular, exact: true }).click();
+    await page.getByRole('button', { name: subjectAreas ? 'Save Category Links' : 'Create Topic', exact: true }).click();
     await page.locator('.notice-success').waitFor();
     const id = Number(new URL(page.url()).searchParams.get('edit'));
     assert(id > 0);
-    createdIds.push(id);
+    if (subjectAreas) assert.equal(id, emptyId);
+    else createdIds.push(id);
     const created = readTopic(id);
     assert.equal(created.categories.length, 2);
     assert.equal(await page.locator('[name="name"]').count(), 0);
@@ -190,7 +203,7 @@ async function checkOrganization(subjectAreas) {
     await choose(categories[2]);
     await page.getByRole('button', { name: 'Save Category Links', exact: true }).click();
     await page.locator('.notice-success').waitFor();
-    const changed = readTopic(id);
+    let changed = readTopic(id);
     assert.deepEqual(changed.categories.map(item => Number(item.id)), [Number(categories[1].id), Number(categories[2].id)]);
     for (const key of ['id', 'name', 'slug', 'description']) assert.equal(changed[key], created[key]);
     if (!subjectAreas) assert.equal(changed.post_count, created.post_count);
@@ -202,19 +215,29 @@ async function checkOrganization(subjectAreas) {
     await stale.close();
     await page.getByRole('button', { name: 'Remove category: ' + categories[1].name, exact: true }).click();
     await page.getByRole('button', { name: 'Remove category: ' + categories[2].name, exact: true }).click();
-    assert(await page.getByRole('button', { name: 'Save Category Links', exact: true }).isDisabled());
-    assert(await page.locator('#ebd-category-warning').isVisible());
+    assert.equal(await page.getByRole('button', { name: 'Save Category Links', exact: true }).isDisabled(), !subjectAreas);
+    assert.equal(await page.locator('#ebd-category-warning').isVisible(), !subjectAreas);
+    if (subjectAreas) {
+      await page.getByRole('button', { name: 'Save Category Links', exact: true }).click();
+      await page.locator('.notice-success').waitFor();
+      changed = readTopic(id);
+      assert.deepEqual(changed.categories, []);
+      assert.equal(Number(changed.post_count), 0);
+    }
     await page.getByRole('button', { name: 'Add category', exact: true }).click();
     const picker = page.getByRole('combobox', { name: 'Search existing categories', exact: true });
     await picker.fill(categories[2].name);
     await picker.press('ArrowDown');
     await picker.press('Enter');
     assert.equal(await picker.count(), 0);
-    // Even a forged POST cannot rename a topic or save it without a category.
+    // Forged or malformed selections must not clear links or rename records.
     const nonce = await page.locator('[name="_wpnonce"]').inputValue();
     const revision = await page.locator('[name="revision"]').inputValue();
-    const invalid = await page.request.post(url, { form: { _wpnonce: nonce, [idField]: String(id), organization_action: 'categories', revision, name: 'Malicious rename' } });
-    assert.match(await invalid.text(), /Select at least one valid category/);
+    const invalid = await page.request.post(url, { form: { _wpnonce: nonce, [idField]: String(id), organization_action: 'categories', revision, name: 'Malicious rename', ...(subjectAreas ? { 'category_ids[]': '0' } : {}) } });
+    assert.match(await invalid.text(), subjectAreas ? /Select valid categories/ : /Select at least one valid category/);
+    assert.deepEqual(readTopic(id), changed);
+    const malformed = await page.request.post(url, { form: { _wpnonce: nonce, [idField]: String(id), organization_action: 'categories', revision, category_ids: String(categories[0].id) } });
+    assert.match(await malformed.text(), subjectAreas ? /Select valid categories/ : /Select at least one valid category/);
     assert.deepEqual(readTopic(id), changed);
     const badNonce = await page.request.post(url, { form: { _wpnonce: 'wrong', [idField]: String(id), organization_action: 'categories', 'category_ids[]': String(categories[0].id), revision } });
     assert.equal(badNonce.status(), 403);
@@ -262,17 +285,34 @@ async function checkOrganization(subjectAreas) {
     await native.goto(url + '&action=new');
     await native.locator('.ehrman-organization__description-example summary').click();
     assert(await native.locator('.ehrman-organization__description-example strong').isVisible(), 'Description example requires JavaScript');
+    assert.equal(await native.locator('#ebd-topic-categories').getAttribute('required') !== null, !subjectAreas);
+    if (subjectAreas) {
+      await native.getByLabel(nameLabel, { exact: true }).fill(name + ' no-JS');
+      await native.getByLabel('Description', { exact: true }).fill('Subject area created before category selection.');
+      await native.getByRole('button', { name: 'Create Subject Area', exact: true }).click();
+      await native.locator('.notice-success').waitFor();
+      const nativeId = Number(new URL(native.url()).searchParams.get('edit'));
+      assert(nativeId > 0);
+      createdIds.push(nativeId);
+      assert.deepEqual(readTopic(nativeId).categories, []);
+    }
     await native.goto(url);
     assert.equal(await native.locator('.ehrman-organization__topics').count(), 0);
     await native.locator('#ebd-find-topic').fill(name);
     await native.getByRole('button', { name: 'Search ' + plural, exact: true }).click();
-    assert.equal(await native.locator('.ehrman-organization__topics tbody tr').count(), 1);
-    await native.getByRole('link', { name: 'Edit Category Links', exact: true }).click();
+    assert.equal(await native.locator('.ehrman-organization__topics tbody tr').count(), subjectAreas ? 2 : 1);
+    await native.locator('.ehrman-organization__topics tbody tr').filter({ has: native.getByRole('cell', { name, exact: true }) }).getByRole('link', { name: 'Edit Category Links', exact: true }).click();
     assert(await native.locator('#ebd-topic-categories').isVisible(), 'Native fallback is unavailable');
     await native.locator('#ebd-topic-categories').selectOption([String(categories[0].id)]);
     await native.getByRole('button', { name: 'Save Category Links', exact: true }).click();
     await native.locator('.notice-success').waitFor();
     assert.deepEqual(readTopic(id).categories.map(item => Number(item.id)), [Number(categories[0].id)]);
+    if (subjectAreas) {
+      await native.locator('#ebd-topic-categories').selectOption([]);
+      await native.getByRole('button', { name: 'Save Category Links', exact: true }).click();
+      await native.locator('.notice-success').waitFor();
+      assert.deepEqual(readTopic(id).categories, []);
+    }
     await noJs.close();
     await checkDescription(browser, context, page, { url, id, read: readTopic, tab: subjectAreas ? 'subject-areas' : 'topics', idField, output });
     assert.deepEqual(errors, []);
@@ -352,15 +392,22 @@ async function checkCategories() {
     await page.getByLabel('Description', { exact: true }).fill('Groups existing topics for a browser test.');
     assert(await create.isDisabled());
     await choose('subject area', areas[0]);
-    assert(await create.isDisabled(), 'Only one side enabled submission');
+    assert(await create.isDisabled(), 'Subject area alone enabled submission without a topic');
+    await page.getByRole('button', { name: 'Remove subject area: ' + areas[0].name, exact: true }).click();
     await choose('topic', topics[0], true);
-    assert(await create.isEnabled());
-    await choose('subject area', areas[1]);
+    assert(await create.isEnabled(), 'Category creation requires a subject area');
+    assert(await page.locator('#ebd-category-areas-warning').isHidden());
     await choose('topic', topics[1]);
     await create.click();
     await page.locator('.notice-success').waitFor();
     const id = Number(new URL(page.url()).searchParams.get('edit'));
     assert(id > 0); ids.push(id);
+    assert.equal(read(id).subject_areas.length, 0);
+    assert.equal(read(id).topics.length, 2);
+    await choose('subject area', areas[0]);
+    await choose('subject area', areas[1]);
+    await page.getByRole('button', { name: 'Save Relationships', exact: true }).click();
+    await page.locator('.notice-success').waitFor();
     const created = read(id);
     assert.equal(created.subject_areas.length, 2);
     assert.equal(created.topics.length, 2);
@@ -397,7 +444,10 @@ async function checkCategories() {
     const nonce = await page.locator('[name="_wpnonce"]').inputValue();
     const revision = await page.locator('[name="revision"]').inputValue();
     const invalid = await page.request.post(url, { form: { _wpnonce: nonce, category_id: String(id), organization_action: 'links', revision, name: 'Forged rename', 'subject_area_ids[]': String(areas[0].id) } });
-    assert.match(await invalid.text(), /Select at least one valid subject area and one valid topic/);
+    assert.match(await invalid.text(), /Select at least one valid topic/);
+    assert.deepEqual(read(id), changed);
+    const malformed = await page.request.post(url, { form: { _wpnonce: nonce, category_id: String(id), organization_action: 'links', revision, subject_area_ids: String(areas[0].id), 'topic_ids[]': String(topics[0].id) } });
+    assert.match(await malformed.text(), /Select valid subject areas and topics/);
     assert.deepEqual(read(id), changed);
     const badNonce = await page.request.post(url, { form: { _wpnonce: 'wrong', category_id: String(id), organization_action: 'links', revision } });
     assert.equal(badNonce.status(), 403);
@@ -406,8 +456,12 @@ async function checkCategories() {
     assert(await page.locator('#ebd-category-topics-warning').isVisible());
     await choose('topic', topics[0]);
     for (const row of changed.subject_areas) await page.getByRole('button', { name: 'Remove subject area: ' + row.name, exact: true }).click();
-    assert(await page.getByRole('button', { name: 'Save Relationships', exact: true }).isDisabled());
-    assert(await page.locator('#ebd-category-areas-warning').isVisible());
+    assert(await page.getByRole('button', { name: 'Save Relationships', exact: true }).isEnabled());
+    assert(await page.locator('#ebd-category-areas-warning').isHidden());
+    await page.getByRole('button', { name: 'Save Relationships', exact: true }).click();
+    await page.locator('.notice-success').waitFor();
+    assert.equal(read(id).subject_areas.length, 0);
+    assert.deepEqual(read(id).topics.map(row => Number(row.id)), [Number(topics[0].id)]);
     await page.goto(url + '&action=new');
     await page.getByLabel('Category name', { exact: true }).fill(name);
     await page.getByLabel('Description', { exact: true }).fill('Duplicate');
@@ -428,6 +482,18 @@ async function checkCategories() {
     assert(await nativeDisclosure.locator('.ehrman-organization__topic-full-list').isVisible(), 'Topic expansion requires JavaScript');
     await native.keyboard.press('Enter');
     assert(await nativeDisclosure.locator('.ehrman-organization__topic-full-list').isHidden(), 'Topic collapse requires JavaScript');
+    await native.goto(url + '&action=new');
+    assert.equal(await native.getByRole('listbox', { name: 'Subject Areas', exact: true }).getAttribute('required'), null);
+    assert.notEqual(await native.getByRole('listbox', { name: 'Topics', exact: true }).getAttribute('required'), null);
+    await native.getByLabel('Category name', { exact: true }).fill(name + ' native');
+    await native.getByLabel('Description', { exact: true }).fill('An unlinked category created without JavaScript.');
+    await native.getByRole('listbox', { name: 'Topics', exact: true }).selectOption([String(topics[0].id)]);
+    await native.getByRole('button', { name: 'Create Category', exact: true }).click();
+    await native.locator('.notice-success').waitFor();
+    const nativeId = Number(new URL(native.url()).searchParams.get('edit'));
+    assert(nativeId > 0); ids.push(nativeId);
+    assert.equal(read(nativeId).subject_areas.length, 0);
+    assert.deepEqual(read(nativeId).topics.map(row => Number(row.id)), [Number(topics[0].id)]);
     await native.goto(url + '&edit=' + id);
     // An already-open form from the former Tools page must retain its POST body.
     await native.locator('form[method="post"]').evaluate((form, legacy) => { form.action = legacy; }, url.replace('/admin.php?', '/tools.php?'));
@@ -437,10 +503,15 @@ async function checkCategories() {
     await native.locator('.notice-success').waitFor();
     assert.deepEqual(read(id).subject_areas.map(row => Number(row.id)), [Number(areas[0].id)]);
     assert.deepEqual(read(id).topics.map(row => Number(row.id)), [Number(topics[0].id)]);
+    await native.getByRole('listbox', { name: 'Subject Areas', exact: true }).selectOption([]);
+    await native.getByRole('button', { name: 'Save Relationships', exact: true }).click();
+    await native.locator('.notice-success').waitFor();
+    assert.equal(read(id).subject_areas.length, 0);
+    assert.deepEqual(read(id).topics.map(row => Number(row.id)), [Number(topics[0].id)]);
     await noJs.close();
     await checkDescription(browser, context, page, { url, id, read, tab: 'categories', idField: 'category_id', output });
     assert.deepEqual(errors, []);
-    console.log('Categories browser checks passed: search, two independent selectors, creation, shared links, separate description editing, min-one rules, stale saves, invalid POST, keyboard, no-JS, desktop/tablet/mobile.');
+    console.log('Categories browser checks passed: search, two independent selectors, optional subject areas, required topics, linking later, shared links, separate description editing, stale saves, invalid POST, keyboard, no-JS, desktop/tablet/mobile.');
   } finally {
     for (const id of ids) cli(['eval', `global $wpdb; $t=EhrmanBlogDiscovery\\Database::tables(); foreach (array("topic_categories","subject_area_categories") as $key) $wpdb->delete($t[$key],array("category_id"=>${id})); $wpdb->delete($t["categories"],array("id"=>${id}));`]);
     cli(['eval', cache === false ? 'delete_option("ehrman_discovery_ai_cache_version");' : `update_option("ehrman_discovery_ai_cache_version", ${Number(cache)});`]);

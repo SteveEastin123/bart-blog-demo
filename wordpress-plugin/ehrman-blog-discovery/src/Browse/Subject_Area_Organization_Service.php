@@ -80,7 +80,7 @@ final class Subject_Area_Organization_Service {
 	}
 
 	/**
-	 * Creates a subject area with existing categories.
+	 * Creates a subject area with optional existing categories.
 	 *
 	 * @param string           $name Name.
 	 * @param string           $description Description.
@@ -124,12 +124,9 @@ final class Subject_Area_Organization_Service {
 		$valid_ids = array();
 		foreach ( $category_ids as $value ) {
 			if ( ! is_int( $value ) || $value < 1 ) {
-				return new \WP_Error( 'ehrman_subject_area_categories', __( 'Select at least one valid category.', 'ehrman-blog-discovery' ) );
+				return new \WP_Error( 'ehrman_subject_area_categories', __( 'Select valid categories.', 'ehrman-blog-discovery' ) );
 			}
 			$valid_ids[] = $value;
-		}
-		if ( empty( $valid_ids ) ) {
-			return new \WP_Error( 'ehrman_subject_area_categories', __( 'Select at least one valid category.', 'ehrman-blog-discovery' ) );
 		}
 		$category_ids = array_values( array_unique( $valid_ids ) );
 		sort( $category_ids, SORT_NUMERIC );

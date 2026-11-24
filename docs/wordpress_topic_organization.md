@@ -44,15 +44,18 @@ approval. Category-link changes alone do not change that vocabulary fingerprint.
 ## Subject Areas
 
 - Search subject-area names, browse the alphabetical directory, or add a subject
-  area with a unique name, required description, and at least one existing category.
+  area with a unique name and required description. Category links are optional:
+  create the subject area first and add existing categories later.
 - Add or remove category links using the same controls as Topics. Removing a link
-  never deletes the category, its topics, or its posts. A category can belong to
-  more than one subject area; adding a link does not move it out of another area.
+  never deletes the category, its topics, or its posts, even when removing the last
+  link. A category can belong to more than one subject area; adding a link does
+  not move it out of another area.
 - Existing subject-area names and URLs remain read-only; **Edit Description**
   opens a separate description-only form.
 - New subject areas belong to the current Browse Topics path and are immediately
-  available to public browsing. No schema change, metadata regeneration, or new
-  vectors are required. Saves use transactions and stale-edit protection, with
+  available to public browsing. An area without categories has zero categories,
+  topics, and posts until links are added. No schema change, metadata regeneration,
+  or new vectors are required. Saves use transactions and stale-edit protection, with
   a distinct nonce and record ID field to prevent cross-tab submissions.
 
 ## Categories
@@ -65,17 +68,22 @@ approval. Category-link changes alone do not change that vocabulary fingerprint.
   longer lists within that category; **Show fewer** collapses them. These controls
   work with a keyboard and without JavaScript. The category name opens its editor,
   with the post count beneath it. On phones, the columns stack with clear labels.
-- Select at least one existing Subject Area and at least one existing Topic.
+- Select at least one existing Topic. Subject Area links are optional when
+  creating or editing a category and can be added later.
   Separate searchable pickers show both relationship sets, with removable chips,
   keyboard support, and native multiple-select fallbacks without JavaScript.
 - Existing category names and URLs are read-only. **Edit Description** saves
   separately from **Save Relationships**.
 - Links are many-to-many. Adding an item never moves it out of other categories;
   removing a link never deletes the Topic, Subject Area, or its post assignments.
-- A category save requires one selection on each side, but deliberately permits
-  unlinking a Topic or Subject Area even if it has no other category links.
-  Those records remain available for relinking. The other tabs still require
-  at least one category when saving their own records.
+- A category save requires at least one Topic, but permits removing its last
+  Subject Area link. Unlinked categories remain in Manage Topics, with their
+  Topics and post assignments intact; they do not appear under any Subject Area
+  in Browse Topics or hierarchy exports until linked.
+- Unlinking a Topic or Subject Area is permitted even if it has no other
+  category links.
+  Those records remain available for relinking. The Topics tab still requires
+  at least one category when saving a topic; the Subject Areas tab permits none.
 - Only current Browse Topics subject areas and browsable topics can be selected.
   Existing internal-topic links and links from other browse paths are preserved.
 - Both sides save in one transaction. Revisions include both relationship sets,
@@ -92,8 +100,8 @@ not additional validation rules.
   1-2 sentences (25-50 words). Use neutral, reusable wording, without post-specific
   details, dates, or counts. Topic descriptions are supplied to the ingestion AI
   to guide topic selection as well as being displayed in Browse Topics.
-- Subject Areas: explain the broad connection between the selected categories,
-  rather than listing them, in roughly one sentence (20-40 words). Use neutral
+- Subject Areas: explain the broad scope of the subject area,
+  rather than listing categories, in roughly one sentence (20-40 words). Use neutral
   wording without dates or counts. These descriptions support browsing; they are
   not supplied to the ingestion AI.
 - Categories: describe what connects the selected topics and distinguish the

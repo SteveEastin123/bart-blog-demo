@@ -90,7 +90,7 @@ final class Topic_Organization_Page {
 		check_admin_referer( 'ehrman_' . $scope . '_organization' . ( 'delete' === $intent ? '_delete' : '' ) );
 		$id_field        = $scope . '_id';
 		$id              = self::positive_id( $input[ $id_field ] ?? '0' );
-		$ids             = is_array( $input['category_ids'] ?? null ) ? array_map( array( self::class, 'positive_id' ), array_values( $input['category_ids'] ) ) : array();
+		$ids             = self::selected_ids( $input, 'category_ids' );
 		self::$submitted = array(
 			'id'               => $id,
 			'name'             => sanitize_text_field( Database::text( $input['name'] ?? null ) ),
@@ -259,7 +259,10 @@ final class Topic_Organization_Page {
 	 * @return list<int> Selected IDs.
 	 */
 	private static function selected_ids( array $input, string $key ): array {
-		return is_array( $input[ $key ] ?? null ) ? array_map( array( self::class, 'positive_id' ), array_values( $input[ $key ] ) ) : array();
+		if ( ! array_key_exists( $key, $input ) ) {
+			return array();
+		}
+		return is_array( $input[ $key ] ) ? array_map( array( self::class, 'positive_id' ), array_values( $input[ $key ] ) ) : array( 0 );
 	}
 
 	/**

@@ -54,10 +54,12 @@
 	if ( ! form ) return;
 	const save = form.querySelector( '[type="submit"]' );
 	const groups = Array.from( form.querySelectorAll( '[data-ebd-link-group]' ) );
-	const emptyGroup = () => groups.find( group => ! group.querySelector( 'select' ).selectedOptions.length );
+	const requiredGroups = groups.filter( group => group.querySelector( 'select' ).required );
+	const emptyGroup = () => requiredGroups.find( group => ! group.querySelector( 'select' ).selectedOptions.length );
 	let dirty = false;
 	groups.forEach( group => {
 		const select = group.querySelector( 'select' );
+		const required = select.required;
 		const host = group.querySelector( '[data-ebd-category-picker]' );
 		const warning = group.querySelector( '[data-ebd-link-warning]' );
 		const labels = group.dataset;
@@ -141,7 +143,7 @@
 				chips.append( chip );
 			} );
 			const empty = ! select.selectedOptions.length;
-			warning.hidden = ! empty;
+			warning.hidden = ! required || ! empty;
 			save.disabled = Boolean( emptyGroup() );
 		}
 		function close() { field.hidden = true; add.hidden = false; input.value = ''; refreshOptions(); }
