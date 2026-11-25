@@ -6,7 +6,8 @@ use EhrmanBlogDiscovery\Post_Ingestion_Publishing_Settings as Publishing;
 use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 
 ( static function () use ( $assert, $assert_same ): void {
-	$old_user = get_current_user_id(); $old_post = $_POST;
+	$old_user = get_current_user_id(); $old_post = $_POST; $old_get = $_GET;
+	$old_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' ); $old_key = getenv( 'OPENAI_API_KEY' );
 	$old_screen = $GLOBALS['current_screen'] ?? null;
 	$old_global_post = $GLOBALS['post'] ?? null;
 	$old_mode = get_option( Publishing::OPTION, false );
@@ -26,6 +27,9 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 	$submit = static function ( int $id, string $mode ): void {
 		$_POST = array( 'ehrman_publisher_nonce' => wp_create_nonce( 'ehrman-publisher-' . $id ), 'ehrman_metadata_mode' => $mode );
 	};
+	$normal_redirect = admin_url( 'post.php?action=edit' );
+	$redirect = static fn( int $id ): string => apply_filters( 'redirect_post_location', $normal_redirect, $id );
+	$notice = static function (): string { ob_start(); Publisher::publication_notice(); return ob_get_clean(); };
 	try {
 		require_once ABSPATH . 'wp-admin/includes/class-wp-screen.php';
 		require_once ABSPATH . 'wp-admin/includes/screen.php';
@@ -56,6 +60,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$assert( ! str_contains( $review_html, 'ehrman_metadata_mode' ) && ! str_contains( $review_html, 'ehrman_publisher_nonce' ), 'Metadata review duplicates publishing controls.' );
 		$submit( $id, 'manual' );
 		wp_update_post( array( 'ID' => $id, 'post_status' => 'publish' ) );
+		$assert_same( $normal_redirect, $redirect( $id ), 'Manual publication left the editor.' );
 		$assert_same( 'manual', $observed[$id], 'Manual override was not saved before automatic publication handling.' );
 		$assert_same( 'automatic', Publishing::default_mode(), 'Per-post override changed the site default.' );
 		ob_start(); Publisher::mode_controls( get_post( $id ) ); $html = ob_get_clean();
@@ -71,6 +76,50 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$assert_same( 'future', get_post_status( $scheduled ), 'Scheduled fixture was not scheduled.' );
 		$assert_same( 'automatic', $observed[$scheduled], 'Scheduled posts lost their override.' );
 		$assert( ! Publisher::mode_locked( get_post( $scheduled ) ), 'Scheduling locked the choice before publication.' );
+		$assert_same( $normal_redirect, $redirect( $scheduled ), 'Scheduling redirected before publication.' );
+
+		// A native form publication redirects without running analysis or requiring JavaScript.
+		$_POST = array(); $automatic = $create(); $submit( $automatic, 'automatic' );
+		wp_update_post( array( 'ID' => $automatic, 'post_status' => 'draft' ) );
+		$assert_same( $normal_redirect, $redirect( $automatic ), 'Saving a draft left the editor.' );
+		wp_update_post( array( 'ID' => $automatic, 'post_status' => 'publish' ) );
+		$destination = $redirect( $automatic );
+		$assert_same( wp_parse_url( admin_url( 'edit.php' ), PHP_URL_PATH ), wp_parse_url( $destination, PHP_URL_PATH ), 'Automatic publication did not return to Posts.' );
+		parse_str( wp_parse_url( $destination, PHP_URL_QUERY ), $published_query );
+		$assert_same( (string) $automatic, $published_query['ehrman_published'], 'Redirect selected the wrong post.' );
+		$assert_same( $normal_redirect, $redirect( $automatic ), 'Publication redirect was reused.' );
+		wp_update_post( array( 'ID' => $automatic, 'post_title' => 'Updated automatic post' ) );
+		$assert_same( $normal_redirect, $redirect( $automatic ), 'Updating an automatic post left the editor.' );
+		$assert_same( array( 'message', 'ehrman_published', 'ehrman_publish_nonce' ), Publisher::notice_query_args( array( 'message' ) ), 'Notice parameters leaked into later navigation.' );
+		$_GET = $published_query; $GLOBALS['current_screen'] = WP_Screen::get( 'edit-post' );
+		$html = $notice();
+		$assert( str_contains( $html, 'Post published, but metadata needs attention.' ) && str_contains( $html, 'View Metadata' ), 'Missing job was falsely reported as running.' );
+		$assert( str_contains( $html, esc_url( add_query_arg( 'search', 'Updated automatic post', EhrmanBlogDiscovery\Post_Ingestion_Page::page_url() ) ) ), 'Missing-job link did not select the post in the worklist.' );
+		putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=mysql' ); putenv( 'OPENAI_API_KEY=publisher-test-placeholder' );
+		$service = new EhrmanBlogDiscovery\Post_Ingestion_Service();
+		$draft_id = $service->queue_automatic( get_post( $automatic ), get_current_user_id() );
+		$assert( ! is_wp_error( $draft_id ), 'Could not queue automatic notice fixture.' );
+		$html = $notice();
+		$assert( str_contains( $html, 'Post published. Metadata is being generated automatically.' ), 'Queued job confirmation is missing.' );
+		$assert( str_contains( $html, esc_url( EhrmanBlogDiscovery\Post_Ingestion_Page::page_url( $draft_id ) ) ), 'View Metadata did not open the specific record.' );
+		$table = EhrmanBlogDiscovery\Database::tables()['ingestion_drafts']; $wpdb = EhrmanBlogDiscovery\Database::client();
+		foreach ( array( 'complete', 'not_applicable' ) as $vector_status ) {
+			$wpdb->update( $table, array( 'status' => 'approved', 'automatic_status' => 'complete', 'embedding_status' => $vector_status ), array( 'id' => $draft_id ) );
+			$assert( str_contains( $notice(), 'Post published. Metadata is ready.' ), 'Completed metadata was reported as still running.' );
+		}
+		foreach ( array( 'error', 'pending' ) as $vector_status ) {
+			$wpdb->update( $table, array( 'automatic_status' => 'attention', 'embedding_status' => $vector_status ), array( 'id' => $draft_id ) );
+			$assert( str_contains( $notice(), 'Post published, but metadata needs attention.' ), 'Incomplete vector was reported as complete.' );
+		}
+		$wpdb->update( $table, array( 'status' => 'queued', 'automatic_status' => 'queued', 'updated_at' => gmdate( 'Y-m-d H:i:s', time() - 11 * MINUTE_IN_SECONDS ) ), array( 'id' => $draft_id ) );
+		$assert( str_contains( $notice(), 'Post published, but metadata needs attention.' ), 'Stalled generation was reported as healthy.' );
+		$_GET['ehrman_publish_nonce'] = 'invalid'; $assert_same( '', $notice(), 'Unsigned publication confirmation was displayed.' );
+		$_GET = $published_query; $_GET['ehrman_published'] = $id;
+		$assert_same( '', $notice(), 'Publication confirmation allowed a different post.' );
+		$_GET = $published_query; $GLOBALS['current_screen'] = WP_Screen::get( 'post' );
+		$assert_same( '', $notice(), 'Publication notice appeared outside the Posts list.' );
+		putenv( false === $old_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $old_source );
+		putenv( false === $old_key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $old_key );
 		$_POST = array(); $draft = $create( array( 'post_status' => 'draft' ) );
 		$assert( ! Publisher::uses_form( get_post( $draft ) ), 'Existing unmarked posts were switched to a different editor.' );
 		$assert_same( 'Existing title', Publisher::title_label( 'Existing title', get_post( $draft ) ), 'Existing editor title label was changed.' );
@@ -110,6 +159,8 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$assert( ! Publisher::uses_form( get_post( $fresh ) ), 'Administrator-only workflow exposed to editors.' );
 		ob_start(); Publisher::mode_controls( get_post( $id ) ); $html = ob_get_clean();
 		$assert_same( '', $html, 'Non-administrator received publisher mode controls.' );
+		$_GET = $published_query; $GLOBALS['current_screen'] = WP_Screen::get( 'edit-post' );
+		$assert_same( '', $notice(), 'Non-administrator received the automatic publication notice.' );
 	} finally {
 		$_POST = array(); wp_set_current_user( (int) $admins[0] );
 		foreach ( $ids as $id ) { wp_clear_scheduled_hook( 'publish_future_post', array( $id ) ); wp_delete_post( $id, true ); }
@@ -118,9 +169,11 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		if ( false === $old_mode ) delete_option( Publishing::OPTION ); else update_option( Publishing::OPTION, $old_mode );
 		remove_action( 'wp_after_insert_post', $observe, 19 );
 		add_action( 'wp_after_insert_post', array( Automation::class, 'after_save' ), 20, 4 );
-		$_POST = $old_post; wp_set_current_user( $old_user );
+		$_POST = $old_post; $_GET = $old_get; wp_set_current_user( $old_user );
+		putenv( false === $old_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $old_source );
+		putenv( false === $old_key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $old_key );
 		$GLOBALS['current_screen'] = $old_screen;
 		$GLOBALS['post'] = $old_global_post;
 	}
 } )();
-echo "Native publisher: author field, scoped media controls, editor scope, mode defaults/overrides, publish ordering, scheduled posts, locked choices and permissions: OK\n";
+echo "Native publisher: author, editor scope, modes, first-publication redirect, truthful metadata notices, scheduling, updates and permissions: OK\n";

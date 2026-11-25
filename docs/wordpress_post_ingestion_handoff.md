@@ -74,6 +74,14 @@ posts do not receive vectors. The editor checks status and shows progress and
 completion; Post Metadata history identifies the approval as **Automatic**.
 Usage and costs are recorded in the existing post-ingestion analytics.
 
+On the form-style Add Post screen, a successful first publication in Automatic
+mode returns the publisher to the Posts list. A dismissible confirmation shows
+whether metadata is generating, complete, or needs attention, with a **View Metadata**
+link to its record (or the filtered worklist if no job could be created).
+The browser does not need to remain open. Manual publication stays in the editor
+for review; saving drafts, scheduling, and updating published posts keep their
+normal destinations. Scheduled publication still relies on the cron runner.
+
 Automatic mode requires a working WordPress cron runner, database-managed mode,
 the shared OpenAI key, and an administrator authorized to edit the post.
 Scheduled publication retains the authorizing administrator from the saved post.

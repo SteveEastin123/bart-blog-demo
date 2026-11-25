@@ -288,8 +288,62 @@ let authorId = 0;
     assert(await plainPage.locator('#publish').isEnabled());
     assert(await plainPage.locator('noscript').getByRole('link', { name: 'Open Post Metadata', exact: true }).isVisible());
     await plain.close();
+
+    // Real native submissions queue metadata and return immediately, even without JavaScript.
+    // Cron and external HTTP remain blocked; visiting the notice link must not start analysis.
+    for (const scenario of ['automatic', 'no-js', 'queue-error']) {
+      const automaticContext = await browser.newContext({ javaScriptEnabled: scenario !== 'no-js', storageState: await context.storageState(), viewport: { width: 1440, height: 1000 } });
+      try {
+        const automaticPage = await automaticContext.newPage();
+        automaticPage.on('pageerror', error => errors.push(error.message));
+        const metadataActions = [];
+        automaticPage.on('request', request => {
+          if (request.method() === 'POST' && new URL(request.url()).pathname.includes('/ehrman-discovery/v1/ingestion/')) metadataActions.push(request.url());
+        });
+        await automaticPage.goto(base + '/wp-admin/post-new.php');
+        const automaticId = Number(await automaticPage.locator('#post_ID').inputValue()); ids.add(automaticId);
+        await automaticPage.locator('#title').fill('Automatic publisher redirect fixture ' + scenario);
+        if (scenario !== 'no-js') await automaticPage.locator('#content-html').click();
+        if (scenario !== 'queue-error') await automaticPage.locator('#content').fill('<p>Automatic publication can leave the editor.</p>\r\n<p>Metadata processing does not depend on the browser.</p>');
+        await automaticPage.locator('[name="ehrman_metadata_mode"][value="automatic"]').check();
+        await Promise.all([
+          automaticPage.waitForURL(url => url.pathname.endsWith('/wp-admin/edit.php')),
+          automaticPage.locator('#publish').click(),
+        ]);
+        assert.equal(cli(['post', 'get', String(automaticId), '--field=post_status']), 'publish');
+        const publicationNotice = automaticPage.locator('#ehrman-publication-notice');
+        await publicationNotice.waitFor();
+        const state = JSON.parse(cli(['eval', `$s=new EhrmanBlogDiscovery\\Post_Ingestion_Service(); $d=$s->latest_for_post(${automaticId}); echo wp_json_encode($d ? array('id'=>(int)$d['id'],'status'=>$d['status'],'automatic'=>$d['automatic_status'],'input'=>(int)$d['input_tokens'],'output'=>(int)$d['output_tokens'],'scheduled'=>false!==wp_next_scheduled('ehrman_ingestion_process_draft',array((int)$d['id']))) : null);`]));
+        const link = publicationNotice.getByRole('link', { name: 'View Metadata', exact: true });
+        const metadataUrl = await link.getAttribute('href');
+        if (scenario === 'queue-error') {
+          assert.match(await publicationNotice.innerText(), /Post published, but metadata needs attention\./);
+          assert.equal(state, null, 'Invalid content still queued analysis.');
+          assert(new URL(metadataUrl).searchParams.has('search'), 'Missing-job link should select the post in the worklist.');
+        } else {
+          assert.match(await publicationNotice.innerText(), /Post published\. Metadata is being generated automatically\./);
+          assert.equal(state.status, 'queued'); assert.equal(state.automatic, 'queued');
+          assert.equal(state.input, 0); assert.equal(state.output, 0); assert(state.scheduled);
+          assert.equal(new URL(metadataUrl).searchParams.get('draft'), String(state.id));
+        }
+        for (const width of scenario === 'no-js' ? [1440] : [1440, 390]) {
+          await automaticPage.setViewportSize({ width, height: 1000 });
+          const noticeBox = await publicationNotice.boundingBox();
+          const linkBox = await link.boundingBox();
+          assert(linkBox.x >= noticeBox.x && linkBox.x + linkBox.width <= noticeBox.x + noticeBox.width + 1, 'Metadata link escapes the publication notice.');
+          assert(linkBox.y >= noticeBox.y && linkBox.y + linkBox.height <= noticeBox.y + noticeBox.height + 1, 'Metadata link overlaps the notice boundary.');
+          await automaticPage.screenshot({ path: path.join(output, 'publisher-redirect-' + scenario + '-' + width + '.png'), fullPage: true });
+        }
+        await link.click();
+        await automaticPage.waitForURL(url => url.searchParams.get('page') === 'ehrman-post-ingestion');
+        assert.equal(new URL(automaticPage.url()).searchParams.get(scenario === 'queue-error' ? 'search' : 'draft'), new URL(metadataUrl).searchParams.get(scenario === 'queue-error' ? 'search' : 'draft'));
+        assert.deepEqual(metadataActions, [], 'Viewing metadata started another generation request.');
+        await automaticPage.goto(base + '/wp-admin/edit.php');
+        assert.equal(await automaticPage.locator('#ehrman-publication-notice').count(), 0, 'Publication notice remained on later navigation.');
+      } finally { await automaticContext.close(); }
+    }
     assert.deepEqual(errors, []);
-    console.log('Native publisher UI: compact editor heading in Visual/Code at 320-1920px, author placement/selection/saving, scoped media hiding, consistent typography/controls, persistent Title label, draft/preview/publish, preserved rich text/images, saved override, lock, dirty-source guard, inline generation/approval, term removal, no-JS and desktop/tablet/mobile: OK');
+    console.log('Native publisher UI: automatic publication returns to Posts with scoped status/link, no-JS and queue failure, unchanged manual review, typography, author, modes, draft/preview/publish and desktop/tablet/mobile: OK');
   } finally {
     await browser.close();
     if (oldMode === false) cli(['option', 'delete', 'ehrman_ingestion_default_mode']);
