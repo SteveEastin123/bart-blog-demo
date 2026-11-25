@@ -19,6 +19,7 @@ const scopes = { 'subject-areas': 'subject_area', categories: 'category', topics
   cli('if (!defined("WP_HTTP_BLOCK_EXTERNAL") || !WP_HTTP_BLOCK_EXTERNAL || !defined("DISABLE_WP_CRON") || !DISABLE_WP_CRON) throw new RuntimeException("Deletion tests require an isolated site.");');
   const old = JSON.parse(cli(`echo wp_json_encode(get_option('${option}',false));`));
   const cache = JSON.parse(cli("echo wp_json_encode(get_option('ehrman_discovery_ai_cache_version',false));"));
+  const before = JSON.parse(cli('echo wp_json_encode(EhrmanBlogDiscovery\\Database::counts());'));
   const fixtures = JSON.parse(cli(prefix + `$tag=wp_generate_uuid4();$out=array();$path=$wpdb->get_var("SELECT id FROM {$t['browse_paths']} WHERE slug='browse-topics'");foreach(array('subject_areas','categories','topics') as $key){$row=array('name'=>'Deletion UI '.$key.' '.$tag,'slug'=>'delete-ui-'.$tag,'description'=>'Disposable deletion test.');if($key==='subject_areas')$row['browse_path_id']=$path;$wpdb->insert($t[$key],$row);$out[str_replace('_','-',$key)]=(int)$wpdb->insert_id;}echo wp_json_encode($out);`));
   const exists = (tab, id) => cli(prefix + `echo $wpdb->get_var("SELECT COUNT(*) FROM {$t['${tab.replaceAll('-', '_')}']} WHERE id=${id}");`) === '1';
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -28,6 +29,7 @@ const scopes = { 'subject-areas': 'subject_area', categories: 'category', topics
   await context.route('**/*', route => new URL(route.request().url()).origin === base ? route.continue() : route.abort());
   fs.mkdirSync(output, { recursive: true });
   try {
+    cli(prefix + `$wpdb->insert($t['subject_area_categories'],array('subject_area_id'=>${fixtures['subject-areas']},'category_id'=>${fixtures.categories}));`);
     cli(`delete_option('${option}');`);
     const credentials = docker(['printenv', 'WORDPRESS_ADMIN_USER', 'WORDPRESS_ADMIN_PASSWORD']).split(/\r?\n/);
     await page.goto(base + '/wp-login.php');
@@ -148,6 +150,18 @@ const scopes = { 'subject-areas': 'subject_area', categories: 'category', topics
       await page.getByRole('button', { name: 'Delete', exact: true }).click();
       await page.getByRole('heading', { name: 'Confirm deletion', exact: true }).waitFor();
       assert(exists(tab, id));
+      if (tab === 'subject-areas') {
+        assert(await page.getByRole('button', { name: 'Permanently Delete', exact: true }).isEnabled(), 'A category with no other subject area blocked deletion');
+        assert.match(await page.locator('.ehrman-organization__deletion').innerText(), /Deletion UI categories/);
+        const plain = await browser.newContext({ javaScriptEnabled: false, storageState: await context.storageState() });
+        try {
+          const nojs = await plain.newPage();
+          await nojs.goto(edit + '&action=delete');
+          assert(await nojs.getByRole('button', { name: 'Permanently Delete', exact: true }).isEnabled());
+          await nojs.getByRole('link', { name: 'Cancel', exact: true }).click();
+          assert(exists(tab, id), 'No-JS cancellation deleted a subject area');
+        } finally { await plain.close(); }
+      }
       const form = { _wpnonce: await page.locator('[data-ebd-delete-form] [name="_wpnonce"]').inputValue(), organization_action: 'delete', [scopes[tab] + '_id']: String(id), confirm_delete: 'yes', revision: await page.locator('[name="revision"]').inputValue() };
       assert.equal((await page.request.post(edit, { form: { ...form, _wpnonce: 'invalid' } })).status(), 403);
       const unconfirmed = await page.request.post(edit, { form: { ...form, confirm_delete: '' } });
@@ -162,6 +176,11 @@ const scopes = { 'subject-areas': 'subject_area', categories: 'category', topics
       await page.getByRole('button', { name: 'Permanently Delete', exact: true }).click();
       await page.getByText('Item deleted. Posts and other organization items were not deleted.', { exact: true }).waitFor();
       assert(!exists(tab, id));
+      if (tab === 'subject-areas') {
+        assert(exists('categories', fixtures.categories), 'Subject-area deletion deleted its category');
+        assert(exists('topics', fixtures.topics), 'Subject-area deletion deleted a topic');
+        assert.equal(cli(prefix + `echo $wpdb->get_var("SELECT COUNT(*) FROM {$t['subject_area_categories']} WHERE subject_area_id=${id} OR category_id=${fixtures.categories}");`), '0', 'Deleted subject-area links remain');
+      }
     }
     const used = JSON.parse(cli(prefix + `$id=$wpdb->get_var("SELECT t.id FROM {$t['topics']} t JOIN {$t['post_topics']} pt ON pt.topic_id=t.id WHERE t.display_in_browser=1 AND t.name<>'Ignore' LIMIT 1");echo wp_json_encode((int)$id);`));
     await page.goto(organization + `&tab=topics&edit=${used}`);
@@ -180,8 +199,9 @@ const scopes = { 'subject-areas': 'subject_area', categories: 'category', topics
       assert(await nojs.getByRole('button', { name: 'Permanently Delete', exact: true }).isDisabled());
     } finally { await plain.close(); }
     assert.deepEqual(errors, []);
-    console.log(JSON.stringify({ result: 'passed', scopes: Object.keys(fixtures), widths: [1440,390], settings: 'default off / independent autosave / matching layout / recovery', guards: 'GET, nonce, permissions, missing confirmation, assigned posts, no-JS', output }));
+    console.log(JSON.stringify({ result: 'passed', scopes: Object.keys(fixtures), widths: [1440,390], settings: 'default off / independent autosave / matching layout / recovery', guards: 'GET, nonce, permissions, missing confirmation, assigned posts, no-JS, subject-area deletion preserves unlinked categories', output }));
   } finally {
+    cli(prefix + `$wpdb->delete($t['subject_area_categories'],array('subject_area_id'=>${fixtures['subject-areas']}));`);
     for (const [tab, id] of Object.entries(fixtures)) {
       cli(prefix + `$wpdb->delete($t['${tab.replaceAll('-', '_')}'],array('id'=>${id}));`);
     }
@@ -190,4 +210,5 @@ const scopes = { 'subject-areas': 'subject_area', categories: 'category', topics
     }
     await browser.close();
   }
+  assert.deepEqual(JSON.parse(cli('echo wp_json_encode(EhrmanBlogDiscovery\\Database::counts());')), before, 'Deletion UI fixtures changed stored counts');
 })().catch(error => { console.error(error); process.exitCode = 1; });

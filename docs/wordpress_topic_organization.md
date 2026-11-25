@@ -152,8 +152,11 @@ confirmation showing the name and affected links. **Permanently Delete** require
 a dedicated nonce, POST, explicit confirmation, and administrator permission.
 Cancel and GET navigation cannot delete data. The flow works without JavaScript.
 
-- Subject Areas: every linked Category must have another Subject Area in the
-  current Browse Topics path. An empty Subject Area may be deleted.
+- Subject Areas: linked Categories do not need another Subject Area. Deletion
+  removes only the selected Subject Area and its category links. Categories
+  without another Subject Area remain in Manage Topics for relinking, with their
+  Topics and post assignments intact; they no longer appear under a Subject Area
+  in Browse Topics or hierarchy exports. Empty Subject Areas may also be deleted.
 - Categories: every linked Topic (including internal topics) must have another
   Category. An empty Category may be deleted.
 - Topics: no post may reference the Topic. Remove or replace post assignments

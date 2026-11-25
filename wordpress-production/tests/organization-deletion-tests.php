@@ -51,15 +51,36 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$protected = current( array_filter( (new Topic_Organization_Service())->topics(), static fn( $row ) => ! Topic_Organization_Service::editable( $row ) ) );
 		$blocked( $service->preview( 'topics', (int) $protected['id'] ) ); $blocked( $service->delete( 'topics', (int) $protected['id'], '' ) );
 		$wpdb->insert( $tables['subject_area_categories'], array( 'subject_area_id' => $area, 'category_id' => $category ) );
-		$preview = $must( $service->preview( 'subject-areas', $area ) );
-		$assert( str_contains( implode( ' ', $preview['blockers'] ), 'Link these Categories' ), 'Last subject area not protected.' );
-		$blocked( $service->delete( 'subject-areas', $area, $preview['revision'] ) );
-		$wpdb->insert( $tables['subject_area_categories'], array( 'subject_area_id' => $other_area, 'category_id' => $category ) );
-		$blocked( $service->delete( 'subject-areas', $area, $preview['revision'] ) );
-		$preview = $must( $service->preview( 'subject-areas', $area ) );
-		$must( $service->delete( 'subject-areas', $area, $preview['revision'] ) );
-		$assert_same( '1', $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['categories']} WHERE id=%d", $category ) ), 'Deleting area deleted category.' );
 		$wpdb->insert( $tables['topic_categories'], array( 'topic_id' => $topic, 'category_id' => $category ) );
+		$post = (int) $wpdb->get_var( "SELECT id FROM {$tables['external_posts']} ORDER BY id LIMIT 1" );
+		$wpdb->insert( $tables['post_topics'], array( 'topic_id' => $topic, 'post_id' => $post ) );
+		$preview = $must( $service->preview( 'subject-areas', $area ) );
+		$assert_same( array(), $preview['blockers'], 'A category without another subject area blocks deletion.' );
+		$wpdb->insert( $tables['subject_area_categories'], array( 'subject_area_id' => $area, 'category_id' => $other_category ) );
+		$wpdb->insert( $tables['subject_area_categories'], array( 'subject_area_id' => $other_area, 'category_id' => $other_category ) );
+		$blocked( $service->delete( 'subject-areas', $area, $preview['revision'] ) );
+		$preview = $must( $service->preview( 'subject-areas', $area ) );
+		$assert_same( array(), $preview['blockers'], 'Shared or unlinked categories block subject-area deletion.' );
+		$preserve = static function () use ( $wpdb, $tables, $category, $other_category, $topic, $post ): array {
+			return array(
+				$wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$tables['categories']} WHERE id IN (%d,%d) ORDER BY id", $category, $other_category ), ARRAY_A ),
+				$wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$tables['topics']} WHERE id=%d", $topic ), ARRAY_A ),
+				$wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$tables['external_posts']} WHERE id=%d", $post ), ARRAY_A ),
+				$wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$tables['topic_categories']} WHERE topic_id=%d ORDER BY category_id", $topic ), ARRAY_A ),
+				$wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$tables['post_topics']} WHERE topic_id=%d ORDER BY post_id", $topic ), ARRAY_A ),
+			);
+		};
+		$preserved = $preserve();
+		$fail = static fn( $sql ) => str_starts_with( $sql, "DELETE FROM `{$tables['subject_areas']}`" ) ? 'INVALID DELETION TEST SQL' : $sql;
+		$suppress = $wpdb->suppress_errors( true ); add_filter( 'query', $fail );
+		try { $blocked( $service->delete( 'subject-areas', $area, $preview['revision'] ) ); }
+		finally { remove_filter( 'query', $fail ); $wpdb->suppress_errors( $suppress ); }
+		$assert_same( $preview, $must( $service->preview( 'subject-areas', $area ) ), 'Failed subject-area deletion lost its links.' );
+		$must( $service->delete( 'subject-areas', $area, $preview['revision'] ) );
+		$assert_same( $preserved, $preserve(), 'Deleting an area changed categories, topics, posts or their assignments.' );
+		$assert_same( '0', $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['subject_areas']} WHERE id=%d", $area ) ), 'Subject area not deleted.' );
+		$assert_same( '0', $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['subject_area_categories']} WHERE subject_area_id=%d OR category_id=%d", $area, $category ) ), 'Subject-area links remain after deletion.' );
+		$assert_same( '1', $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['subject_area_categories']} WHERE subject_area_id=%d AND category_id=%d", $other_area, $other_category ) ), 'Deleting an area changed another area link.' );
 		$preview = $must( $service->preview( 'categories', $category ) );
 		$assert( str_contains( implode( ' ', $preview['blockers'] ), 'Link these Topics' ), 'Last category not protected.' );
 		$blocked( $service->delete( 'categories', $category, $preview['revision'] ) );
@@ -67,8 +88,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$preview = $must( $service->preview( 'categories', $category ) );
 		$must( $service->delete( 'categories', $category, $preview['revision'] ) );
 		$assert_same( '1', $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tables['topics']} WHERE id=%d", $topic ) ), 'Deleting category deleted topic.' );
-		$post = (int) $wpdb->get_var( "SELECT id FROM {$tables['external_posts']} ORDER BY id LIMIT 1" );
-		$wpdb->insert( $tables['post_topics'], array( 'topic_id' => $topic, 'post_id' => $post ) );
 		$preview = $must( $service->preview( 'topics', $topic ) );
 		$assert( str_contains( implode( ' ', $preview['blockers'] ), 'assigned to 1 post.' ), 'Assigned post not explained.' );
 		$blocked( $service->delete( 'topics', $topic, $preview['revision'] ) );

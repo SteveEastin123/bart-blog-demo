@@ -126,11 +126,6 @@ final class Organization_Deletion_Service {
 		$posts    = 0;
 		if ( 'subject-areas' === $tab ) {
 			$groups[ __( 'Categories', 'ehrman-blog-discovery' ) ] = $this->read( $wpdb->prepare( 'SELECT c.id,c.name FROM %i sc JOIN %i c ON c.id=sc.category_id WHERE sc.subject_area_id=%d ORDER BY c.name,c.id', $t['subject_area_categories'], $t['categories'], $id ) );
-			$orphans = $this->read( $wpdb->prepare( 'SELECT c.name FROM %i sc JOIN %i c ON c.id=sc.category_id WHERE sc.subject_area_id=%d AND NOT EXISTS (SELECT 1 FROM %i other_link JOIN %i sa ON sa.id=other_link.subject_area_id WHERE other_link.category_id=c.id AND sa.browse_path_id=%d AND sa.id<>%d) ORDER BY c.name', $t['subject_area_categories'], $t['categories'], $id, $t['subject_area_categories'], $t['subject_areas'], $path['id'], $id ) );
-			if ( $orphans ) {
-				/* translators: %s: Category names. */
-				$blockers[] = sprintf( __( 'Link these Categories to another Subject Area first: %s.', 'ehrman-blog-discovery' ), implode( ', ', Database::strings( array_column( $orphans, 'name' ) ) ) );
-			}
 		} elseif ( 'categories' === $tab ) {
 			$groups[ __( 'Subject Areas', 'ehrman-blog-discovery' ) ] = $this->read( $wpdb->prepare( 'SELECT sa.id,sa.name,sa.browse_path_id FROM %i sc JOIN %i sa ON sa.id=sc.subject_area_id WHERE sc.category_id=%d ORDER BY sa.name,sa.id', $t['subject_area_categories'], $t['subject_areas'], $id ) );
 			$groups[ __( 'Topics', 'ehrman-blog-discovery' ) ]        = $this->read( $wpdb->prepare( 'SELECT t.id,t.name FROM %i tc JOIN %i t ON t.id=tc.topic_id WHERE tc.category_id=%d ORDER BY t.name,t.id', $t['topic_categories'], $t['topics'], $id ) );
