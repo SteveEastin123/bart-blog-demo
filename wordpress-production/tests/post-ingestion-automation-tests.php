@@ -101,6 +101,21 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		wp_trash_post( $id ); wp_untrash_post( $id ); $publish( $id );
 		$assert_same( array( 'analysis' => 1, 'vector' => 1 ), $calls, 'Duplicate event, update, or restoration repeated paid work.' );
 
+		// Browser-submitted line endings must survive the source guard at generation and approval.
+		foreach ( array( "\r\n", "\r", "\n" ) as $newline ) {
+			$id = $create( 'automatic' );
+			$content = '<p>First unchanged paragraph about publishing metadata.</p>' . $newline . '<p>Second unchanged paragraph about semantic search.</p>';
+			wp_update_post( array( 'ID' => $id, 'post_content' => $content ) );
+			$assert_same( $content, get_post( $id )->post_content, 'Line-ending fixture was not stored as submitted.' );
+			$publish( $id ); $before = $calls;
+			$draft = $service->latest_for_post( $id );
+			$assert( ! str_contains( $draft['post_text'], "\r" ), 'Queued input did not normalize line endings.' );
+			$result = $process( $id );
+			$assert_same( 'approved', $result['status'], 'Unedited multiline post failed automatic generation: ' . ( $result['error_message'] ?? '' ) );
+			$assert_same( 'complete', $result['embedding_status'], 'Unedited multiline post did not receive a vector.' );
+			$assert_same( array( 'analysis' => $before['analysis'] + 1, 'vector' => $before['vector'] + 1 ), $calls, 'Multiline publication duplicated API requests.' );
+		}
+
 		$pending_vector = 0;
 		foreach ( array( 'failure', 'malformed', 'held', 'source-change', 'revoke-during-analysis', 'vector-failure', 'ignore', 'delete' ) as $scenario ) {
 			$id = $create( 'automatic' ); $publish( $id ); $before = $calls; $result = $process( $id );
@@ -120,13 +135,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 			if ( 'vector-failure' !== $scenario ) $assert_same( $before['vector'], $calls['vector'], 'Unexpected vector call: ' . $scenario );
 		}
 		$scenario = 'success';
-		foreach ( array( 'json', 'revoked-mode', 'revoked-permission', 'missing-key', 'changed-before-start', 'unpublished' ) as $guard ) {
+		foreach ( array( 'json', 'revoked-mode', 'revoked-permission', 'missing-key', 'changed-before-start', 'content-changed-before-start', 'unpublished' ) as $guard ) {
 			$id = $create( 'automatic' ); $publish( $id ); $before = $calls;
 			if ( 'json' === $guard ) putenv( 'EHRMAN_DISCOVERY_POST_SOURCE=json' );
 			if ( 'revoked-mode' === $guard ) update_post_meta( $id, Publishing::META, 'manual' );
 			if ( 'revoked-permission' === $guard ) ( new WP_User( $user_id ) )->set_role( 'editor' );
 			if ( 'missing-key' === $guard ) putenv( 'OPENAI_API_KEY=' );
 			if ( 'changed-before-start' === $guard ) wp_update_post( array( 'ID' => $id, 'post_title' => 'Edited before the job started' ) );
+			if ( 'content-changed-before-start' === $guard ) wp_update_post( array( 'ID' => $id, 'post_content' => '<p>Substantively changed before generation.</p>' ) );
 			if ( 'unpublished' === $guard ) wp_update_post( array( 'ID' => $id, 'post_status' => 'draft' ) );
 			$result = $process( $id );
 			$assert( 'approved' !== $result['status'], 'Automatic approval bypassed ' . $guard );

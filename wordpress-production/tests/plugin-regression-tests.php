@@ -665,7 +665,7 @@ try {
 	$created_post = wp_insert_post(
 		array(
 			'post_title'   => 'Editor ingestion regression fixture',
-			'post_content' => '<!-- wp:paragraph --><p>Explains how the saved WordPress post supplies complete text to the protected search-metadata workflow.</p><!-- /wp:paragraph -->',
+			'post_content' => "<!-- wp:paragraph -->\r\n<p>Explains how the saved WordPress post supplies complete text to the protected search-metadata workflow.\r\nKeeps Windows line endings from the editor.</p>\r\n<!-- /wp:paragraph -->",
 			'post_status'  => 'publish',
 			'post_type'    => 'post',
 			'post_author'  => (int) $editor_user_id,

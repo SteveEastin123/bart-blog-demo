@@ -4,6 +4,7 @@
 use EhrmanBlogDiscovery\Post_Ingestion_Editor;
 use EhrmanBlogDiscovery\Post_Ingestion_Post_Source;
 use EhrmanBlogDiscovery\Post_Ingestion_REST_Controller;
+use EhrmanBlogDiscovery\Post_Ingestion_Validator;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );
@@ -73,13 +74,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$assert_same( get_permalink( $post ), $input['url'], 'Saved canonical URL changed.' );
 	$assert_same( get_the_author_meta( 'display_name', $editor_user_id ), $input['author'], 'Saved author changed.' );
 	$assert( ! str_contains( $input['post_text'], '<p>' ) && str_contains( $input['post_text'], 'complete text' ), 'Block-to-text conversion changed.' );
-	$draft = $input;
-	$draft['published_at'] = $input['date'] . ' 00:00:00';
+	$validator = new Post_Ingestion_Validator();
+	$draft = $validator->validate_submission( $input );
+	$assert( ! is_wp_error( $draft ), 'Saved source failed validation.' );
 	$assert_same( false, Post_Ingestion_Post_Source::source_changed( $post, $draft ), 'Unchanged source requires reanalysis.' );
 	foreach ( array( 'source_wp_id', 'title', 'url', 'author', 'published_at', 'post_text' ) as $field ) {
 		$changed = $draft;
 		$changed[ $field ] = 'source_wp_id' === $field ? $editor_post_id + 1 : 'changed fixture';
 		$assert_same( true, Post_Ingestion_Post_Source::source_changed( $post, $changed ), 'A changed source field was ignored: ' . $field );
+	}
+	foreach ( array( "\r\n", "\r", "\n" ) as $newline ) {
+		$copy = clone $post;
+		$copy->post_title = "  A\tconsistent title  ";
+		$copy->post_content = '<p>First paragraph with &amp; and &lt;example&gt;.</p>' . $newline . '<p>Second unchanged paragraph.</p>';
+		$normalized = $validator->validate_submission( Post_Ingestion_Post_Source::input( $copy ) );
+		$assert( ! is_wp_error( $normalized ), 'Normalized fixture is invalid.' );
+		$assert_same( false, Post_Ingestion_Post_Source::source_changed( $copy, $normalized ), 'Storage normalization falsely detected an edit.' );
+		$copy->post_content .= '<p>A substantive new paragraph.</p>';
+		$assert_same( true, Post_Ingestion_Post_Source::source_changed( $copy, $normalized ), 'Canonical comparison ignored a substantive edit.' );
+		$copy->post_content = '';
+		$assert_same( true, Post_Ingestion_Post_Source::source_changed( $copy, $normalized ), 'Invalid current input matched a stored draft.' );
 	}
 	echo "Post-editor contracts: seven protected routes, safe status, admin-only access and saved-source comparison: OK\n";
 } )();

@@ -79,6 +79,9 @@ the shared OpenAI key, and an administrator authorized to edit the post.
 Scheduled publication retains the authorizing administrator from the saved post.
 Permissions, the effective mode, the saved post and vocabulary are rechecked
 before approval. Changing the site default does not process existing posts.
+Source comparisons apply the same validation and text normalization used when
+storing the draft, so unchanged editor line endings cannot falsely flag an edit.
+Changes to the normalized source fields or invalid current input still stop processing.
 Updates, autosaves, restores and later republication never regenerate metadata.
 Existing imported records are not automatically linked or overwritten.
 

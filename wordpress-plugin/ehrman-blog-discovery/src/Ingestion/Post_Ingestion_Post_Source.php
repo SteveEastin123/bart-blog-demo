@@ -68,13 +68,17 @@ final class Post_Ingestion_Post_Source {
 	 * @param array<string,mixed> $draft Ingestion draft.
 	 */
 	private static function source_matches_draft( WP_Post $post, array $draft ): bool {
-		$current = self::input( $post );
+		// Compare the same canonical input that was persisted when analysis was queued.
+		$current = ( new Post_Ingestion_Validator() )->validate_submission( self::input( $post ) );
+		if ( is_wp_error( $current ) ) {
+			return false;
+		}
 		return Database::integer( $draft['source_wp_id'] ?? null ) === $post->ID
-			&& hash_equals( Database::text( $draft['title'] ?? null ), Database::text( $current['title'] ?? null ) )
-			&& hash_equals( Database::text( $draft['url'] ?? null ), Database::text( $current['url'] ?? null ) )
-			&& hash_equals( Database::text( $draft['author'] ?? null ), Database::text( $current['author'] ?? null ) )
-			&& substr( Database::text( $draft['published_at'] ?? null ), 0, 10 ) === Database::text( $current['date'] ?? null )
-			&& hash_equals( Database::text( $draft['post_text'] ?? null ), Database::text( $current['post_text'] ?? null ) );
+			&& hash_equals( Database::text( $draft['title'] ?? null ), $current['title'] )
+			&& hash_equals( Database::text( $draft['url'] ?? null ), $current['url'] )
+			&& hash_equals( Database::text( $draft['author'] ?? null ), $current['author'] )
+			&& substr( Database::text( $draft['published_at'] ?? null ), 0, 10 ) === substr( $current['published_at'], 0, 10 )
+			&& hash_equals( Database::text( $draft['post_text'] ?? null ), $current['post_text'] );
 	}
 
 	/**
