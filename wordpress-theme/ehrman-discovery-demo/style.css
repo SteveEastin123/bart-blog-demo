@@ -3,7 +3,7 @@ Theme Name: Ehrman Discovery Demo
 Theme URI: https://ehrmanblog.org/
 Author: Ehrman Blog Discovery Demo
 Description: A lightweight companion theme for demonstrating the Ehrman Blog discovery plugin.
-Version: 0.1.10
+Version: 0.1.11
 Requires at least: 6.5
 Requires PHP: 8.1
 Text Domain: ehrman-discovery-demo
@@ -232,67 +232,44 @@ a:hover {
   white-space: nowrap;
 }
 
-.ehrman-search-menu {
-  position: relative;
-  color: var(--ehrman-maroon);
-}
-
-.ehrman-navigation summary {
-  padding: 10px 4px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.ehrman-search-menu > summary {
-  font-weight: 500;
-}
-
-.ehrman-search-menu[open] > summary,
-.ehrman-navigation summary:hover {
-  color: var(--ehrman-maroon-dark);
-}
-
-.ehrman-search-options {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 270px;
-  max-width: calc(100vw - 24px);
-  margin: 0;
-  padding: 8px;
-  border: 1px solid var(--ehrman-line);
-  border-top: 3px solid var(--ehrman-maroon);
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgb(0 0 0 / 15%);
-  font-family: "Open Sans", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  list-style: none;
-}
-
-.ehrman-search-options a,
-.ehrman-search-options summary {
-  min-height: 44px;
-  padding: 10px 12px;
-}
-
-.ehrman-search-options a {
-  display: block;
-}
-
-.ehrman-search-options a:hover,
-.ehrman-search-options a[aria-current="page"],
-.ehrman-search-options summary:hover {
-  background: #f3f4f4;
-}
-
 .ehrman-main {
   min-height: 55vh;
 }
 
 .ehrman-home {
   background: var(--ehrman-panel);
+}
+
+.ehrman-home-search {
+  padding: 10px 22px;
+  border-bottom: 1px solid var(--ehrman-line);
+}
+
+.ehrman-home-search ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.ehrman-home-search a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  text-underline-offset: 4px;
+}
+
+.ehrman-home-search a:hover {
+  background: #f3f4f4;
 }
 
 .ehrman-hero {
@@ -510,8 +487,13 @@ a:hover {
     font-size: 18px;
   }
 
-  .ehrman-search-menu {
-    position: static;
+  .ehrman-home-search {
+    padding: 8px 16px;
+  }
+
+  .ehrman-home-search ul {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
 
   .ehrman-hero {

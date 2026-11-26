@@ -448,6 +448,11 @@ These materials allow the developers to verify that their implementation behaves
 
 The production site should continue using Bart's existing WordPress theme. The demo theme is only a reference for the intended layout and interactions.
 
+The demo home page links directly to Browse Topics, Keyword Search, and Ask AI
+above the main photo; it has no Search dropdown. This placement belongs to the
+optional demo theme, not the plugin. The production theme may place links to the
+same shortcode-backed search pages wherever appropriate.
+
 ## Materials Not Required
 
 Do not include:

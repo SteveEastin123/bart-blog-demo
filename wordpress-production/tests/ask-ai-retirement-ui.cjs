@@ -59,13 +59,12 @@ const productionOnly = process.argv.includes('--production-only');
     for (const width of [1440, 1024, 390]) {
       await page.setViewportSize({ width, height: 950 });
       await page.goto(base);
-      assert.deepEqual(await page.locator('nav.ehrman-navigation a').allTextContents(),
+      assert.deepEqual(await page.locator('main .ehrman-home-search a').allTextContents(),
         ['Browse Topics', 'Keyword Search', 'Ask AI']);
       assert.equal(await page.locator('.ehrman-reviewer-note a').count(), productionOnly ? 0 : 1);
-      await page.locator('.ehrman-search-menu > summary').click();
+      assert.equal(await page.locator('header details, header summary').count(), 0);
       assert(!/Ask AI [123]|two alternative AI search methods/i.test(await page.locator('main').innerText()));
       assert.equal(new URL(await page.getByRole('link', { name: 'Ask AI', exact: true }).getAttribute('href')).pathname, '/ask-ai/');
-      await page.locator('.ehrman-search-menu > summary').press('Escape');
       assert(await page.locator('.ehrman-ai-selected-figure img').evaluate(image => image.complete && image.naturalWidth > 0));
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2));
       await page.screenshot({ path: path.join(output, `home-${width}.png`), fullPage: true });

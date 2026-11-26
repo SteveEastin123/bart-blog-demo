@@ -24,6 +24,13 @@ $ai_diagram_url = add_query_arg(
 ?>
 <main id="main-content" class="ehrman-main">
     <section class="ehrman-home">
+        <nav class="ehrman-home-search" aria-label="<?php esc_attr_e('Search options', 'ehrman-discovery-demo'); ?>">
+            <ul>
+                <li><a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics')); ?>"><?php esc_html_e('Browse Topics', 'ehrman-discovery-demo'); ?></a></li>
+                <li><a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a></li>
+                <li><a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai')); ?>"><?php esc_html_e('Ask AI', 'ehrman-discovery-demo'); ?></a></li>
+            </ul>
+        </nav>
         <div class="ehrman-hero" role="img" aria-label="<?php esc_attr_e('Bart Ehrman lecturing', 'ehrman-discovery-demo'); ?>"></div>
         <section class="ehrman-intro-band" aria-label="<?php esc_attr_e('Demo introduction', 'ehrman-discovery-demo'); ?>">
             <div class="ehrman-intro-inner">

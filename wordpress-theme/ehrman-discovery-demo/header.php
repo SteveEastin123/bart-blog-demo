@@ -34,14 +34,6 @@
             <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('About Blog', 'ehrman-discovery-demo'); ?></span>
             <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('About Bart', 'ehrman-discovery-demo'); ?></span>
             <span class="is-disabled" role="link" aria-disabled="true"><?php esc_html_e('Help', 'ehrman-discovery-demo'); ?></span>
-            <details class="ehrman-search-menu" data-ehrman-search-menu>
-                <summary><?php esc_html_e('Search', 'ehrman-discovery-demo'); ?></summary>
-                <ul class="ehrman-search-options">
-                    <li><a href="<?php echo esc_url(ehrman_demo_page_url('browse-topics')); ?>"<?php echo is_page('browse-topics') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Browse Topics', 'ehrman-discovery-demo'); ?></a></li>
-                    <li><a href="<?php echo esc_url(ehrman_demo_page_url('keyword-search')); ?>"<?php echo is_page('keyword-search') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Keyword Search', 'ehrman-discovery-demo'); ?></a></li>
-                    <li><a href="<?php echo esc_url(ehrman_demo_page_url('ask-ai')); ?>"<?php echo is_page('ask-ai') ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Ask AI', 'ehrman-discovery-demo'); ?></a></li>
-                </ul>
-            </details>
         </nav>
     </div>
 </header>
