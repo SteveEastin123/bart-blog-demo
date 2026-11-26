@@ -54,7 +54,7 @@ key. Check for queued ingestion jobs before enabling the shared key.
 
 ## Publishing Mode
 
-**Blog Search > Settings and Status > Publishing settings** sets the site default:
+**Blog Search > Settings and Status > Metadata Generation** sets the site default:
 **Manual** (the installation default) or **Automatic**. These radio buttons save
 immediately and show Saving/Saved feedback; there is no separate Save button.
 Only administrators can change the setting, through WordPress's authenticated

@@ -1,6 +1,6 @@
 <?php
 /**
- * Description-only writes for Topics & Categories.
+ * Description-only writes for Manage Topics.
  *
  * @package EhrmanBlogDiscovery
  */

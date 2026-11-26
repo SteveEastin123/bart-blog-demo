@@ -1,6 +1,6 @@
 <?php
 /**
- * Protected Topics & Categories administration page.
+ * Protected Manage Topics administration page.
  *
  * @package EhrmanBlogDiscovery
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Shares search and relationship forms across Topics & Categories tabs. */
+/** Shares search and relationship forms across Manage Topics tabs. */
 final class Topic_Organization_Page {
 	private const SLUG = 'ehrman-search-organization';
 	/**
@@ -45,7 +45,7 @@ final class Topic_Organization_Page {
 	}
 
 	/**
-	 * Loads the category picker only on this page.
+	 * Loads the organization pickers only on this page.
 	 *
 	 * @param string $hook Current administration screen.
 	 */
@@ -133,7 +133,7 @@ final class Topic_Organization_Page {
 		exit;
 	}
 
-	/** Renders search, the optional directory, or one category-link form. */
+	/** Renders search, the optional directory, or one organization form. */
 	public static function render(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
@@ -155,54 +155,58 @@ final class Topic_Organization_Page {
 			default => $service->topics(),
 		};
 		$matches  = array_values( array_filter( $all, static fn( array $row ): bool => Database::integer( $row['id'] ) === $id ) );
-		$topic    = $matches[0] ?? null;
+		$item     = $matches[0] ?? null;
 		$creating = 0 === $id && ( null !== self::$submitted || 'new' === Database::text( $input['action'] ?? null ) );
 		$error    = self::$error;
-		if ( $id > 0 && ( null === $topic || ( 'topics' === $tab && ! Topic_Organization_Service::editable( $topic ) ) ) ) {
+		if ( $id > 0 && ( null === $item || ( 'topics' === $tab && ! Topic_Organization_Service::editable( $item ) ) ) ) {
 			$error = match ( $tab ) {
 				'subject-areas' => __( 'This subject area is unavailable for category changes.', 'ehrman-blog-discovery' ),
 				'categories' => __( 'This category is unavailable for relationship changes.', 'ehrman-blog-discovery' ),
 				default => __( 'This topic is unavailable for category changes.', 'ehrman-blog-discovery' ),
 			};
-			$topic = null;
+			$item = null;
 		}
-		$editing_description = null !== $topic && ( null !== self::$submitted ? 'description' === self::$submitted['action'] : 'edit' === Database::text( $input['description'] ?? null ) );
+		$editing_description = null !== $item && ( null !== self::$submitted ? 'description' === self::$submitted['action'] : 'edit' === Database::text( $input['description'] ?? null ) );
 		$query               = trim( sanitize_text_field( Database::text( $input['s'] ?? null ) ) );
 		$browse              = 'all' === Database::text( $input['view'] ?? null );
-		$topics              = array_values( array_filter( $all, static fn( array $row ): bool => '' === $query || false !== mb_stripos( Database::text( $row['name'] ), $query ) ) );
-		$pages               = max( 1, (int) ceil( count( $topics ) / 25 ) );
+		$items               = array_values( array_filter( $all, static fn( array $row ): bool => '' === $query || false !== mb_stripos( Database::text( $row['name'] ), $query ) ) );
+		$pages               = max( 1, (int) ceil( count( $items ) / 25 ) );
 		$page                = min( $pages, max( 1, self::positive_id( $input['pagenum'] ?? null ) ) );
-		$linked              = array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $topic['categories'] ?? null ) );
+		$linked              = array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $item['categories'] ?? null ) );
 		$context             = array(
-			'deletion'            => null !== $topic ? ( new Organization_Deletion_Service() )->preview( $tab, $id ) : null,
-			'confirming_delete'   => null !== $topic && ( 'delete' === Database::text( $input['action'] ?? null ) || 'delete' === ( self::$submitted['action'] ?? '' ) ),
+			'deletion'            => null !== $item ? ( new Organization_Deletion_Service() )->preview( $tab, $id ) : null,
+			'confirming_delete'   => null !== $item && ( 'delete' === Database::text( $input['action'] ?? null ) || 'delete' === ( self::$submitted['action'] ?? '' ) ),
 			'tab'                 => $tab,
 			'category_tab'        => $category_tab,
 			'scope'               => self::scope( $tab ),
 			'subject_areas'       => $subject_areas,
 			'url_args'            => array( 'tab' => $tab ),
+			'labels'              => Organization_Page_Labels::for_tab( $tab ),
+			'item_id'             => Database::integer( $item['id'] ?? null ),
+			'is_form'             => $creating || null !== $item,
+			'edit_label'          => $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' ) : __( 'Edit Category Links', 'ehrman-blog-discovery' ),
 			'editing_description' => $editing_description,
 			'error'               => $error,
 			'saved'               => sanitize_key( Database::text( $input['saved'] ?? null ) ),
 			'creating'            => $creating,
-			'topic'               => $topic,
+			'item'                => $item,
 			'categories'          => ( new Topic_Organization_Service() )->categories(),
 			'area_options'        => $category_tab ? ( new Subject_Area_Organization_Service() )->areas() : array(),
 			'topic_options'       => $category_tab ? array_values( array_filter( ( new Topic_Organization_Service() )->topics(), array( Topic_Organization_Service::class, 'editable' ) ) ) : array(),
 			'values'              => self::$submitted ?? array(
 				'name'             => '',
-				'description'      => $editing_description ? Database::text( $topic['description'] ) : '',
+				'description'      => $editing_description ? Database::text( $item['description'] ) : '',
 				'category_ids'     => $linked,
-				'subject_area_ids' => array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $topic['subject_areas'] ?? null ) ),
-				'topic_ids'        => array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $topic['topics'] ?? null ) ),
-				'revision'         => null !== $topic ? ( $editing_description ? Organization_Description_Service::revision( $topic ) : $service::revision( $topic ) ) : '',
+				'subject_area_ids' => array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $item['subject_areas'] ?? null ) ),
+				'topic_ids'        => array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $item['topics'] ?? null ) ),
+				'revision'         => null !== $item ? ( $editing_description ? Organization_Description_Service::revision( $item ) : $service::revision( $item ) ) : '',
 			),
 			'query'               => $query,
 			'browse_all'          => $browse,
 			'show_list'           => $browse || '' !== $query,
 			'directory'           => 'topics' === $tab ? array_values( array_filter( $all, array( Topic_Organization_Service::class, 'editable' ) ) ) : $all,
-			'topics'              => array_slice( $topics, ( $page - 1 ) * 25, 25 ),
-			'count'               => count( $topics ),
+			'items'               => array_slice( $items, ( $page - 1 ) * 25, 25 ),
+			'count'               => count( $items ),
 			'page_number'         => $page,
 			'total_pages'         => $pages,
 		);

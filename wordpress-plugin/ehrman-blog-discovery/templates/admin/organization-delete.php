@@ -20,7 +20,7 @@ $reasons  = is_wp_error( $deletion ) ? array( $deletion->get_error_message() ) :
 if ( ! Organization_Deletion_Settings::enabled() ) {
 	array_unshift( $reasons, __( 'Deletion is disabled in Blog Search settings.', 'ehrman-blog-discovery' ) );
 }
-$record_id = Database::integer( $view['topic']['id'] );
+$record_id = Database::integer( $view['item']['id'] );
 $args      = array(
 	'tab'  => $view['tab'],
 	'edit' => $record_id,
@@ -29,7 +29,7 @@ $args      = array(
 <section class="ehrman-organization__deletion" aria-label="<?php esc_attr_e( 'Delete item', 'ehrman-blog-discovery' ); ?>">
 	<?php if ( $confirm ) : ?>
 		<h2><?php esc_html_e( 'Confirm deletion', 'ehrman-blog-discovery' ); ?></h2>
-		<p><strong><?php echo esc_html( $view['topic']['name'] ); ?></strong></p>
+		<p><strong><?php echo esc_html( $view['item']['name'] ); ?></strong></p>
 		<p><?php esc_html_e( 'This permanently deletes this item and its links below. It does not delete posts or any linked Subject Areas, Categories, or Topics. This cannot be undone here.', 'ehrman-blog-discovery' ); ?></p>
 		<?php if ( ! is_wp_error( $deletion ) ) : ?>
 			<?php foreach ( $deletion['groups'] as $label => $links ) : ?>

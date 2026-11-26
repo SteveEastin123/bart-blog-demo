@@ -205,6 +205,20 @@ explicitly decide whether to incorporate changes into the canonical dataset or
 discard them as test data. A Render edit does not automatically update local
 JSON, GitHub, or the handoff data package.
 
+## Code Organization
+
+`Topic_Organization_Page` retains the existing routes, permissions, form handling,
+and view preparation. Its shared context uses `item` and `items` for all three
+editing tabs. `Organization_Page_Labels` owns tab-specific labels and description
+guidance. The `search-organization.php` template is the page shell; it delegates to
+`organization-search.php`, `organization-directory.php`, `organization-form.php`,
+and `organization-edit-description.php`. Existing description-field, relationship,
+category-row, deletion, and export templates remain shared.
+
+Template extraction does not change submitted field names, nonces, HTML hooks,
+URLs, relationship requirements, or database writes. Organization services retain
+their existing validation, transaction, and stale-edit protections.
+
 ## Verification
 
 `wordpress-production/tests/topic-organization-tests.php` runs with the plugin

@@ -4,6 +4,7 @@
 use EhrmanBlogDiscovery\Category_Organization_Service;
 use EhrmanBlogDiscovery\Database;
 use EhrmanBlogDiscovery\Organization_Description_Service;
+use EhrmanBlogDiscovery\Organization_Page_Labels;
 use EhrmanBlogDiscovery\Post_Ingestion_Vocabulary_Reader;
 use EhrmanBlogDiscovery\Subject_Area_Organization_Service;
 use EhrmanBlogDiscovery\Topic_Organization_Page;
@@ -35,6 +36,15 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$readers = array( 'topics' => array( $topics, 'topic' ), 'subject-areas' => array( $areas, 'area' ), 'categories' => array( $categories, 'category' ) );
 		foreach ( $readers as $tab => $read ) {
 			$id = $ids[str_replace( '-', '_', $tab )]; $record = $read( $id );
+			$singular = array( 'topics' => 'Topic', 'subject-areas' => 'Subject Area', 'categories' => 'Category' )[$tab];
+			$scope = array( 'topics' => 'topic', 'subject-areas' => 'subject_area', 'categories' => 'category' )[$tab];
+			$labels = Organization_Page_Labels::for_tab( $tab );
+			$assert_same( array_keys( Organization_Page_Labels::for_tab( 'topics' ) ), array_keys( $labels ), 'Tab labels have different contracts.' );
+			$assert_same( $singular, $labels['singular'], 'Shared view uses the wrong item type.' );
+			$_GET = array( 'tab' => $tab, 'action' => 'new' );
+			$html = $render();
+			$assert( str_contains( $html, 'Create ' . $singular ) && str_contains( $html, 'name="' . $scope . '_id" value="0"' ), 'Creation form lost its tab-specific label or ID field.' );
+			$assert( str_contains( $html, 'data-ebd-topic-form' ) && ! str_contains( $html, 'data-ebd-description-form' ) && ! str_contains( $html, 'data-ebd-topic-search' ), 'Creation renders another view.' );
 			$revision = Organization_Description_Service::revision( $record );
 			foreach ( array( '', '   ', '<b></b>', str_repeat( 'x', 4001 ) ) as $invalid ) {
 				$assert( is_wp_error( $writer->update( $tab, $id, $invalid, $revision ) ), 'Invalid description accepted.' );
@@ -54,8 +64,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 			$assert_same( $changed, $read( $id ), 'Unchanged description caused other writes.' );
 			$_GET = array( 'tab' => $tab, 'edit' => $id );
 			$html = $render();
+			$assert( str_contains( $html, 'name="' . $scope . '_id" value="' . $id . '"' ) && str_contains( $html, esc_html( $record['name'] ) ), 'Relationship view lost the selected item.' );
 			$assert( str_contains( $html, 'Edit Description' ) && ! str_contains( $html, 'name="description"' ), 'Description editor is not opt-in.' );
 			$_GET['description'] = 'edit'; $html = $render();
+			$assert( str_contains( $html, 'name="' . $scope . '_id" value="' . $id . '"' ) && str_contains( $html, esc_html( $record['name'] ) ), 'Description view lost the selected item.' );
 			$assert( str_contains( $html, 'Save Description' ) && str_contains( $html, '>Cancel</a>' ) && ! str_contains( $html, 'name="name"' ) && ! str_contains( $html, 'data-ebd-link-group' ), 'Description editor changes names or relationships.' );
 			$assert_same( 'topics' === $tab, str_contains( $html, 'Keep the topic&#039;s meaning unchanged' ), 'Topic safeguard displayed on wrong tab.' );
 			if ( 'topics' === $tab ) {
