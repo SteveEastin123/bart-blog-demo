@@ -54,12 +54,27 @@ final class Topic_Organization_Service {
 	 * @return array<string,mixed>|null Topic.
 	 */
 	public function topic( int $id ): ?array {
-		foreach ( $this->topics() as $topic ) {
-			if ( Database::integer( $topic['id'] ) === $id ) {
-				return $topic;
-			}
+		if ( $id < 1 ) {
+			return null;
 		}
-		return null;
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		$topic  = Database::associative_row( $wpdb->get_row( $wpdb->prepare( 'SELECT t.*, (SELECT COUNT(*) FROM %i pt WHERE pt.topic_id=t.id) post_count FROM %i t WHERE t.id=%d', $tables['post_topics'], $tables['topics'], $id ), ARRAY_A ) );
+		if ( null !== $topic ) {
+			$topic['categories'] = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( 'SELECT tc.topic_id,c.id,c.name FROM %i tc JOIN %i c ON c.id=tc.category_id WHERE tc.topic_id=%d ORDER BY c.name,c.id', $tables['topic_categories'], $tables['categories'], $id ), ARRAY_A ) );
+		}
+		return $topic;
+	}
+
+	/**
+	 * Returns editable relationship choices without post counts or category links.
+	 *
+	 * @return list<array<string,mixed>> Topic choices in display order.
+	 */
+	public function options(): array {
+		$wpdb = Database::client();
+		$rows = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( 'SELECT id,name,display_in_browser FROM %i ORDER BY name,id', Database::tables()['topics'] ), ARRAY_A ) );
+		return array_values( array_filter( $rows, array( self::class, 'editable' ) ) );
 	}
 
 	/**

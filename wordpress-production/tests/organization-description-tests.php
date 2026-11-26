@@ -21,6 +21,19 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 	$hash = static fn() => $vocabulary->vocabulary_hash( $vocabulary->vocabulary() );
 	$must = static function ( $result ) use ( $assert ) { $assert( ! is_wp_error( $result ), is_wp_error( $result ) ? $result->get_error_message() : '' ); return $result; };
 	$render = static function (): string { ob_start(); try { Topic_Organization_Page::render(); return (string) ob_get_contents(); } finally { ob_end_clean(); } };
+	$capture = static function ( callable $read ): array {
+		$queries = array();
+		$record_query = static function ( string $sql ) use ( &$queries ): string { $queries[] = $sql; return $sql; };
+		add_filter( 'query', $record_query );
+		try { return array( $read(), $queries ); } finally { remove_filter( 'query', $record_query ); }
+	};
+	$assert_scoped_counts = static function ( array $queries, int $id ) use ( $assert ): void {
+		foreach ( $queries as $sql ) {
+			if ( str_contains( $sql, ' post_count FROM ' ) ) {
+				$assert( $id > 0 && 1 === preg_match( '/\b(?:t|sa|c)\.id=' . $id . '(?:\D|$)/', $sql ), 'An item form or lookup counted the entire directory.' );
+			}
+		}
+	};
 	$cache = get_option( 'ehrman_discovery_ai_cache_version', false );
 	$ids = array(); $other_path = 0; $other_area = 0;
 	$before = Database::counts();
@@ -28,12 +41,33 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		wp_set_current_user( 0 );
 		$assert( is_wp_error( $writer->update( 'topics', 1, 'Unauthorized', '' ) ), 'Anonymous description write accepted.' );
 		wp_set_current_user( (int) $admins[0] );
+		$readers = array( 'topics' => array( $topics, 'topic' ), 'subject-areas' => array( $areas, 'area' ), 'categories' => array( $categories, 'category' ) );
+		$directories = array( 'topics' => $topics->topics(), 'subject-areas' => $areas->areas(), 'categories' => $categories->categories() );
+		foreach ( $readers as $tab => $read ) {
+			foreach ( $directories[$tab] as $expected ) {
+				$id = (int) $expected['id'];
+				list( $actual, $queries ) = $capture( static fn() => $read( $id ) );
+				$assert_same( $expected, $actual, 'Direct lookup changed fields, link order or counts: ' . $tab );
+				$assert_scoped_counts( $queries, $id );
+			}
+			foreach ( array( -1, 0, PHP_INT_MAX ) as $missing ) {
+				list( $actual, $queries ) = $capture( static fn() => $read( $missing ) );
+				$assert_same( null, $actual, 'Missing organization ID returned a record.' );
+				if ( $missing < 1 ) { $assert_same( array(), $queries, 'Invalid ID read the database.' ); }
+				$assert_scoped_counts( $queries, $missing );
+			}
+		}
+		foreach ( array( 'topics' => $topics, 'subject-areas' => $areas ) as $tab => $service ) {
+			$expected = 'topics' === $tab ? array_values( array_filter( $directories[$tab], array( Topic_Organization_Service::class, 'editable' ) ) ) : $directories[$tab];
+			list( $options, $queries ) = $capture( static fn() => $service->options() );
+			foreach ( array( 'id', 'name' ) as $field ) { $assert_same( array_column( $expected, $field ), array_column( $options, $field ), 'Lightweight picker changed selection or ordering.' ); }
+			foreach ( $queries as $sql ) { $assert( ! str_contains( $sql, $tables['post_topics'] ) && ! str_contains( $sql, $tables['topic_categories'] ) && ! str_contains( $sql, $tables['subject_area_categories'] ), 'Picker loaded unrelated links or post counts.' ); }
+		}
 		$category_id = (int) $categories->categories()[0]['id'];
 		$tag = wp_generate_uuid4();
 		$ids['topics'] = $must( $topics->create( 'Description topic ' . $tag, 'Original topic definition.', array( $category_id ) ) );
 		$ids['subject_areas'] = $must( $areas->create( 'Description area ' . $tag, 'Original area definition.', array( $category_id ) ) );
 		$ids['categories'] = $must( $categories->create( 'Description category ' . $tag, 'Original category definition.', array( $ids['subject_areas'] ), array( $ids['topics'] ) ) );
-		$readers = array( 'topics' => array( $topics, 'topic' ), 'subject-areas' => array( $areas, 'area' ), 'categories' => array( $categories, 'category' ) );
 		foreach ( $readers as $tab => $read ) {
 			$id = $ids[str_replace( '-', '_', $tab )]; $record = $read( $id );
 			$singular = array( 'topics' => 'Topic', 'subject-areas' => 'Subject Area', 'categories' => 'Category' )[$tab];
@@ -42,7 +76,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 			$assert_same( array_keys( Organization_Page_Labels::for_tab( 'topics' ) ), array_keys( $labels ), 'Tab labels have different contracts.' );
 			$assert_same( $singular, $labels['singular'], 'Shared view uses the wrong item type.' );
 			$_GET = array( 'tab' => $tab, 'action' => 'new' );
-			$html = $render();
+			list( $html, $queries ) = $capture( $render );
+			$assert_scoped_counts( $queries, 0 );
 			$assert( str_contains( $html, 'Create ' . $singular ) && str_contains( $html, 'name="' . $scope . '_id" value="0"' ), 'Creation form lost its tab-specific label or ID field.' );
 			$assert( str_contains( $html, 'data-ebd-topic-form' ) && ! str_contains( $html, 'data-ebd-description-form' ) && ! str_contains( $html, 'data-ebd-topic-search' ), 'Creation renders another view.' );
 			$revision = Organization_Description_Service::revision( $record );
@@ -63,13 +98,20 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 			$must( $writer->update( $tab, $id, $changed['description'], Organization_Description_Service::revision( $changed ) ) );
 			$assert_same( $changed, $read( $id ), 'Unchanged description caused other writes.' );
 			$_GET = array( 'tab' => $tab, 'edit' => $id );
-			$html = $render();
+			list( $html, $queries ) = $capture( $render );
+			$assert_scoped_counts( $queries, $id );
 			$assert( str_contains( $html, 'name="' . $scope . '_id" value="' . $id . '"' ) && str_contains( $html, esc_html( $record['name'] ) ), 'Relationship view lost the selected item.' );
 			$assert( str_contains( $html, 'Edit Description' ) && ! str_contains( $html, 'name="description"' ), 'Description editor is not opt-in.' );
-			$_GET['description'] = 'edit'; $html = $render();
+			$_GET['description'] = 'edit';
+			list( $html, $queries ) = $capture( $render );
+			$assert_scoped_counts( $queries, $id );
 			$assert( str_contains( $html, 'name="' . $scope . '_id" value="' . $id . '"' ) && str_contains( $html, esc_html( $record['name'] ) ), 'Description view lost the selected item.' );
 			$assert( str_contains( $html, 'Save Description' ) && str_contains( $html, '>Cancel</a>' ) && ! str_contains( $html, 'name="name"' ) && ! str_contains( $html, 'data-ebd-link-group' ), 'Description editor changes names or relationships.' );
 			$assert_same( 'topics' === $tab, str_contains( $html, 'Keep the topic&#039;s meaning unchanged' ), 'Topic safeguard displayed on wrong tab.' );
+			$_GET = array( 'tab' => $tab, 'edit' => $id, 'action' => 'delete' );
+			list( $delete_html, $queries ) = $capture( $render );
+			$assert_scoped_counts( $queries, $id );
+			$assert( str_contains( $delete_html, 'Confirm deletion' ), 'Deletion confirmation missing after direct lookup.' );
 			if ( 'topics' === $tab ) {
 				$assert( str_contains( $html, 'does not reassign existing posts' ) && str_contains( $html, 'regenerated before approval' ), 'Topic consequences are not explained.' );
 				$assert( is_wp_error( $topics->update_categories( $id, array( $category_id ), Topic_Organization_Service::revision( $record ) ) ), 'Old relationship form accepted changed definition.' );
@@ -115,5 +157,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		if ( false === $cache ) { delete_option( 'ehrman_discovery_ai_cache_version' ); } else { update_option( 'ehrman_discovery_ai_cache_version', $cache ); }
 	}
 	$assert_same( $before, Database::counts(), 'Description fixtures changed stored counts.' );
-	echo "Organization descriptions: separate saves, scope guards, stale edits, vocabulary, links and post data: OK\n";
+	echo "Organization lookups and descriptions: direct/directory parity, scoped queries, lightweight pickers, separate saves, scope guards, stale edits, vocabulary, links and post data: OK\n";
 } )();

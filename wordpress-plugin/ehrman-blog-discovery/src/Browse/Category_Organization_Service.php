@@ -52,12 +52,28 @@ final class Category_Organization_Service {
 	 * @return array<string,mixed>|null Category.
 	 */
 	public function category( int $id ): ?array {
-		foreach ( $this->categories() as $row ) {
-			if ( Database::integer( $row['id'] ) === $id ) {
-				return $row;
+		if ( $id < 1 ) {
+			return null;
+		}
+		$wpdb = Database::client();
+		$t    = Database::tables();
+		$row  = Database::associative_row( $wpdb->get_row( $wpdb->prepare( 'SELECT c.*, (SELECT COUNT(DISTINCT pt.post_id) FROM %i tc JOIN %i pt ON pt.topic_id=tc.topic_id WHERE tc.category_id=c.id) post_count FROM %i c WHERE c.id=%d', $t['topic_categories'], $t['post_topics'], $t['categories'], $id ), ARRAY_A ) );
+		if ( null === $row ) {
+			return null;
+		}
+		$path                    = ( new Browse_Service() )->browse_path();
+		$row['subject_areas']    = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( 'SELECT sac.category_id,sa.id,sa.name FROM %i sac JOIN %i sa ON sa.id=sac.subject_area_id WHERE sa.browse_path_id=%d AND sac.category_id=%d ORDER BY sa.name,sa.id', $t['subject_area_categories'], $t['subject_areas'], Database::integer( $path['id'] ?? null ), $id ), ARRAY_A ) );
+		$topics                  = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( 'SELECT tc.category_id,t.id,t.name,t.display_in_browser FROM %i tc JOIN %i t ON t.id=tc.topic_id WHERE tc.category_id=%d ORDER BY t.name,t.id', $t['topic_categories'], $t['topics'], $id ), ARRAY_A ) );
+		$row['topics']           = array();
+		$row['protected_topics'] = array();
+		foreach ( $topics as $topic ) {
+			if ( Topic_Organization_Service::editable( $topic ) ) {
+				$row['topics'][] = $topic;
+			} else {
+				$row['protected_topics'][] = $topic;
 			}
 		}
-		return null;
+		return $row;
 	}
 
 	/**

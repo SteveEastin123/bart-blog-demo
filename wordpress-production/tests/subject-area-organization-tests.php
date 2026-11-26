@@ -91,6 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$wpdb->insert( $tables['subject_areas'], array( 'browse_path_id' => $other_path, 'name' => 'Other fixture area', 'slug' => 'other-fixture-area', 'description' => '', 'position' => 0 ) );
 		$other_area = (int) $wpdb->insert_id;
 		$assert_same( null, $service->area( $other_area ), 'Another browse path leaked into organization.' );
+		$assert( ! in_array( $other_area, array_map( 'intval', array_column( $service->options(), 'id' ) ), true ), 'Another browse path leaked into relationship choices.' );
 		$assert( is_wp_error( $service->update_categories( $other_area, array( $categories[0] ), '' ) ), 'Another browse path was editable.' );
 		wp_set_current_user( 0 );
 		$assert( is_wp_error( $service->update_categories( $id, array( $categories[0] ), Subject_Area_Organization_Service::revision( $changed ) ) ), 'Anonymous link edit accepted.' );

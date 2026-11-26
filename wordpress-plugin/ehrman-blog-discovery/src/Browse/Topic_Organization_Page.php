@@ -149,13 +149,11 @@ final class Topic_Organization_Page {
 		$category_tab  = 'categories' === $tab;
 		$service       = self::service( $tab );
 		$id            = null !== self::$submitted ? Database::integer( self::$submitted['id'] ) : self::positive_id( $input['edit'] ?? null );
-		$all           = match ( true ) {
-			$service instanceof Category_Organization_Service => $service->categories(),
-			$service instanceof Subject_Area_Organization_Service => $service->areas(),
-			default => $service->topics(),
-		};
-		$matches  = array_values( array_filter( $all, static fn( array $row ): bool => Database::integer( $row['id'] ) === $id ) );
-		$item     = $matches[0] ?? null;
+		$item          = $id > 0 ? match ( true ) {
+			$service instanceof Category_Organization_Service => $service->category( $id ),
+			$service instanceof Subject_Area_Organization_Service => $service->area( $id ),
+			default => $service->topic( $id ),
+		} : null;
 		$creating = 0 === $id && ( null !== self::$submitted || 'new' === Database::text( $input['action'] ?? null ) );
 		$error    = self::$error;
 		if ( $id > 0 && ( null === $item || ( 'topics' === $tab && ! Topic_Organization_Service::editable( $item ) ) ) ) {
@@ -167,15 +165,24 @@ final class Topic_Organization_Page {
 			$item = null;
 		}
 		$editing_description = null !== $item && ( null !== self::$submitted ? 'description' === self::$submitted['action'] : 'edit' === Database::text( $input['description'] ?? null ) );
-		$query               = trim( sanitize_text_field( Database::text( $input['s'] ?? null ) ) );
-		$browse              = 'all' === Database::text( $input['view'] ?? null );
-		$items               = array_values( array_filter( $all, static fn( array $row ): bool => '' === $query || false !== mb_stripos( Database::text( $row['name'] ), $query ) ) );
-		$pages               = max( 1, (int) ceil( count( $items ) / 25 ) );
-		$page                = min( $pages, max( 1, self::positive_id( $input['pagenum'] ?? null ) ) );
-		$linked              = array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $item['categories'] ?? null ) );
-		$context             = array(
+		$confirming_delete   = null !== $item && ( 'delete' === Database::text( $input['action'] ?? null ) || 'delete' === ( self::$submitted['action'] ?? '' ) );
+		$is_form             = $creating || null !== $item;
+		$relationship_form   = $is_form && ! $editing_description && ! $confirming_delete;
+		// Direct edits need only the selected record; directories belong to the search view.
+		$all = $is_form ? array() : match ( true ) {
+			$service instanceof Category_Organization_Service => $service->categories(),
+			$service instanceof Subject_Area_Organization_Service => $service->areas(),
+			default => $service->topics(),
+		};
+		$query   = trim( sanitize_text_field( Database::text( $input['s'] ?? null ) ) );
+		$browse  = 'all' === Database::text( $input['view'] ?? null );
+		$items   = array_values( array_filter( $all, static fn( array $row ): bool => '' === $query || false !== mb_stripos( Database::text( $row['name'] ), $query ) ) );
+		$pages   = max( 1, (int) ceil( count( $items ) / 25 ) );
+		$page    = min( $pages, max( 1, self::positive_id( $input['pagenum'] ?? null ) ) );
+		$linked  = array_map( static fn( array $row ): int => Database::integer( $row['id'] ), Database::associative_rows( $item['categories'] ?? null ) );
+		$context = array(
 			'deletion'            => null !== $item ? ( new Organization_Deletion_Service() )->preview( $tab, $id ) : null,
-			'confirming_delete'   => null !== $item && ( 'delete' === Database::text( $input['action'] ?? null ) || 'delete' === ( self::$submitted['action'] ?? '' ) ),
+			'confirming_delete'   => $confirming_delete,
 			'tab'                 => $tab,
 			'category_tab'        => $category_tab,
 			'scope'               => self::scope( $tab ),
@@ -183,16 +190,16 @@ final class Topic_Organization_Page {
 			'url_args'            => array( 'tab' => $tab ),
 			'labels'              => Organization_Page_Labels::for_tab( $tab ),
 			'item_id'             => Database::integer( $item['id'] ?? null ),
-			'is_form'             => $creating || null !== $item,
+			'is_form'             => $is_form,
 			'edit_label'          => $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' ) : __( 'Edit Category Links', 'ehrman-blog-discovery' ),
 			'editing_description' => $editing_description,
 			'error'               => $error,
 			'saved'               => sanitize_key( Database::text( $input['saved'] ?? null ) ),
 			'creating'            => $creating,
 			'item'                => $item,
-			'categories'          => ( new Topic_Organization_Service() )->categories(),
-			'area_options'        => $category_tab ? ( new Subject_Area_Organization_Service() )->areas() : array(),
-			'topic_options'       => $category_tab ? array_values( array_filter( ( new Topic_Organization_Service() )->topics(), array( Topic_Organization_Service::class, 'editable' ) ) ) : array(),
+			'categories'          => $relationship_form && ! $category_tab ? ( new Topic_Organization_Service() )->categories() : array(),
+			'area_options'        => $relationship_form && $category_tab ? ( new Subject_Area_Organization_Service() )->options() : array(),
+			'topic_options'       => $relationship_form && $category_tab ? ( new Topic_Organization_Service() )->options() : array(),
 			'values'              => self::$submitted ?? array(
 				'name'             => '',
 				'description'      => $editing_description ? Database::text( $item['description'] ) : '',

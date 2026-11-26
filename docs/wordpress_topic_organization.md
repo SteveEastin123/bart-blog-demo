@@ -215,6 +215,12 @@ guidance. The `search-organization.php` template is the page shell; it delegates
 and `organization-edit-description.php`. Existing description-field, relationship,
 category-row, deletion, and export templates remain shared.
 
+Single-record service reads query the selected ID and its links, retaining the
+same fields, ordering, post counts, and revision hashes as directory entries.
+Edit pages do not load the main directory. Relationship pickers use lightweight
+ID/name queries, preserving topic protection and current browse-path scope;
+description and deletion forms do not load unused picker choices.
+
 Template extraction does not change submitted field names, nonces, HTML hooks,
 URLs, relationship requirements, or database writes. Organization services retain
 their existing validation, transaction, and stale-edit protections.

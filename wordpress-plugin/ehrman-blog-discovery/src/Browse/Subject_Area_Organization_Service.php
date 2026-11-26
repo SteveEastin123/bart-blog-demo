@@ -60,12 +60,34 @@ final class Subject_Area_Organization_Service {
 	 * @return array<string,mixed>|null Subject area.
 	 */
 	public function area( int $id ): ?array {
-		foreach ( $this->areas() as $area ) {
-			if ( Database::integer( $area['id'] ) === $id ) {
-				return $area;
-			}
+		if ( $id < 1 ) {
+			return null;
 		}
-		return null;
+		$wpdb   = Database::client();
+		$tables = Database::tables();
+		$path   = ( new Browse_Service() )->browse_path();
+		if ( null === $path ) {
+			return null;
+		}
+		$area = Database::associative_row( $wpdb->get_row( $wpdb->prepare( 'SELECT sa.*, (SELECT COUNT(DISTINCT pt.post_id) FROM %i sac JOIN %i tc ON tc.category_id=sac.category_id JOIN %i pt ON pt.topic_id=tc.topic_id WHERE sac.subject_area_id=sa.id) post_count FROM %i sa WHERE sa.browse_path_id=%d AND sa.id=%d', $tables['subject_area_categories'], $tables['topic_categories'], $tables['post_topics'], $tables['subject_areas'], Database::integer( $path['id'] ), $id ), ARRAY_A ) );
+		if ( null !== $area ) {
+			$area['categories'] = Database::associative_rows( $wpdb->get_results( $wpdb->prepare( 'SELECT sac.subject_area_id,c.id,c.name FROM %i sac JOIN %i c ON c.id=sac.category_id WHERE sac.subject_area_id=%d ORDER BY c.name,c.id', $tables['subject_area_categories'], $tables['categories'], $id ), ARRAY_A ) );
+		}
+		return $area;
+	}
+
+	/**
+	 * Returns current-path relationship choices without counts or category links.
+	 *
+	 * @return list<array<string,mixed>> Subject-area choices in display order.
+	 */
+	public function options(): array {
+		$path = ( new Browse_Service() )->browse_path();
+		if ( null === $path ) {
+			return array();
+		}
+		$wpdb = Database::client();
+		return Database::associative_rows( $wpdb->get_results( $wpdb->prepare( 'SELECT id,name FROM %i WHERE browse_path_id=%d ORDER BY name,id', Database::tables()['subject_areas'], Database::integer( $path['id'] ) ), ARRAY_A ) );
 	}
 
 	/**
