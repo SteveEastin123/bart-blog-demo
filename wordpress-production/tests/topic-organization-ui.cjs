@@ -9,6 +9,85 @@ const root = path.resolve(__dirname, '../..');
 const docker = args => execFileSync('docker', ['compose', '-f', composeFile, 'exec', '-T', 'wordpress', ...args], { cwd: root, encoding: 'utf8' }).trim();
 const cli = args => docker(['wp', ...args, '--allow-root']);
 
+async function checkFocusChoices(page, url, output) {
+  const input = page.locator('#ebd-find-topic');
+  const results = page.locator('[data-ebd-topic-results]');
+  const list = page.locator('#ebd-topic-matches');
+  const links = list.locator('a');
+  const more = page.locator('[data-ebd-topic-more]');
+  const entries = await page.locator('[data-ebd-topic-directory]').evaluate(el => Array.from(el.content.querySelectorAll('a'), link => ({
+    name: link.querySelector('[data-ebd-topic-name]').textContent, href: link.href,
+  })));
+  assert(entries.length > 0, 'Missing search fixture directory');
+  assert(await results.isHidden(), 'Suggestions opened before interaction');
+  await input.focus();
+  assert(await results.isVisible(), 'Empty focus did not show choices');
+  assert.equal(await links.count(), Math.min(24, entries.length), 'Initial choices are not bounded');
+  assert.deepEqual(await list.locator('strong').allTextContents(), entries.slice(0, 24).map(row => row.name), 'Alphabetical directory order changed');
+  if (entries.length > 24) {
+    assert(await more.isVisible());
+    const destination = new URL(await more.getAttribute('href'));
+    assert.equal(destination.searchParams.get('view'), 'all');
+    assert.equal(destination.searchParams.get('s'), null);
+    assert.equal(destination.searchParams.get('tab'), new URL(url).searchParams.get('tab'));
+    await more.focus();
+    await page.keyboard.press('Escape');
+    assert(await results.isHidden(), 'Escape on View All Matches did not close choices');
+    await input.click();
+    let count = await links.count();
+    while (count < entries.length) {
+      await list.evaluate(el => { el.scrollTop = el.scrollHeight; });
+      await page.waitForFunction(previous => document.querySelectorAll('#ebd-topic-matches a').length > previous, count);
+      count = await links.count();
+      assert(count <= entries.length);
+    }
+    assert.deepEqual(await links.evaluateAll(items => items.map(item => item.href)), entries.map(row => row.href), 'Scrolling skipped or duplicated entries');
+    // Start from a fresh first page, then cross its boundary using only the keyboard.
+    await input.fill(' ');
+    await input.press('ArrowDown');
+    for (let index = 1; index <= 24; index++) await page.keyboard.press('ArrowDown');
+    assert.equal(await page.evaluate(() => document.activeElement.href), entries[24].href, 'Keyboard could not reach a later batch');
+    await page.keyboard.press('Escape');
+  }
+  await input.fill('  ' + entries.at(-1).name.toLocaleUpperCase() + '  ');
+  assert(await links.count() > 0, 'Filtering did not search beyond the first batch');
+  assert((await list.locator('strong').allTextContents()).includes(entries.at(-1).name));
+  await input.fill('');
+  assert.equal(await links.count(), Math.min(24, entries.length), 'Clearing search did not restore choices');
+  assert.equal(await list.evaluate(el => el.scrollTop), 0, 'Filtering retained an old scroll position');
+  await input.press('ArrowDown');
+  assert(await links.first().evaluate(el => el === document.activeElement));
+  await page.keyboard.press('Escape');
+  assert(await results.isHidden());
+  assert(await input.evaluate(el => el === document.activeElement));
+  await input.click();
+  assert(await results.isVisible(), 'Clicking the focused field did not reopen choices');
+  await page.getByRole('heading', { name: 'Manage Topics', exact: true }).click();
+  assert(await results.isHidden(), 'Outside click did not close choices');
+  await page.locator('.ehrman-organization .nav-tab').last().focus();
+  await page.keyboard.press('Tab');
+  assert(await input.evaluate(el => el === document.activeElement));
+  assert(await results.isVisible(), 'Keyboard focus did not open choices');
+  await page.locator('.ehrman-organization .nav-tab').first().focus();
+  assert(await results.isHidden(), 'Leaving the search by keyboard did not close choices');
+  for (const width of [1440, 768, 390, 320]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await input.click();
+    assert(await results.isVisible());
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), 'Focus choices overflow at ' + width);
+    assert(await list.evaluate(el => el.clientHeight <= 360), 'Choices are not scrollable');
+    await page.screenshot({ path: path.join(output, `focus-choices-${width}.png`), fullPage: true });
+    await input.press('Escape');
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await input.click();
+  const selected = entries[0].name;
+  await links.first().click();
+  await page.locator('.ehrman-organization__definition').waitFor();
+  assert.equal(await page.locator('.ehrman-organization__definition dd').first().innerText(), selected, 'Empty-query selection opened the wrong item');
+  await page.goto(url);
+}
+
 async function checkDescription(browser, context, page, { url, id, read, tab, idField, output }) {
   const original = read(id);
   await page.goto(url + '&edit=' + id);
@@ -112,8 +191,7 @@ async function checkOrganization(subjectAreas) {
     assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button').allTextContents(), ['Search ' + plural, 'Browse All ' + plural, 'Add ' + singular]);
     assert.equal(await page.locator('.nav-tab-active').innerText(), plural);
     assert.equal(await page.locator('.ehrman-organization__topics').count(), 0, 'Topics listed by default');
-    await page.locator('#ebd-find-topic').focus();
-    assert(await page.locator('[data-ebd-topic-results]').isHidden(), 'Empty search opened suggestions');
+    await checkFocusChoices(page, url, output);
     await page.screenshot({ path: path.join(output, 'search-desktop.png'), fullPage: true });
     await page.locator('#ebd-find-topic').fill('paul');
     const matches = page.locator('#ebd-topic-matches a');
@@ -129,7 +207,7 @@ async function checkOrganization(subjectAreas) {
     await page.locator('#ebd-find-topic').fill('nonexistent-topic-xyz-123');
     assert.equal(await page.locator('[data-ebd-topic-status]').innerText(), subjectAreas ? 'No subject areas found.' : 'No topics found.');
     await page.locator('#ebd-find-topic').fill('a');
-    assert(await matches.count() > 0 && await matches.count() <= 12, 'Live matches are not bounded');
+    assert(await matches.count() > 0 && await matches.count() <= 24, 'Live matches are not bounded');
     if (subjectAreas) await page.getByRole('button', { name: 'Search ' + plural, exact: true }).click();
     else await page.getByRole('link', { name: 'View All Matches', exact: true }).click();
     assert.equal(new URL(page.url()).searchParams.get('s'), 'a');
@@ -282,6 +360,11 @@ async function checkOrganization(subjectAreas) {
     // WordPress core navigation animations can cover links when scripts are disabled.
     const noJs = await browser.newContext({ javaScriptEnabled: false, reducedMotion: 'reduce', storageState: await context.storageState() });
     const native = await noJs.newPage();
+    await native.goto(url);
+    await native.locator('#ebd-find-topic').fill('paul');
+    await native.getByRole('button', { name: 'Search ' + plural, exact: true }).click();
+    assert.equal(new URL(native.url()).searchParams.get('s'), 'paul');
+    assert(await native.locator('.ehrman-organization__topics tbody tr').count() > 0, 'No-JS search failed');
     await native.goto(url + '&action=new');
     await native.locator('.ehrman-organization__description-example summary').click();
     assert(await native.locator('.ehrman-organization__description-example strong').isVisible(), 'Description example requires JavaScript');
@@ -368,6 +451,7 @@ async function checkCategories() {
     assert.equal(await page.locator('.nav-tab-active').innerText(), 'Categories');
     assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button').allTextContents(), ['Search Categories', 'Browse All Categories', 'Add Category']);
     assert.equal(await page.locator('.ehrman-organization__topics').count(), 0);
+    await checkFocusChoices(page, url, output);
     await page.locator('#ebd-find-topic').fill('paul');
     await page.locator('#ebd-topic-matches a').first().click();
     await page.getByRole('heading', { name: 'Edit Relationships', exact: true }).waitFor();

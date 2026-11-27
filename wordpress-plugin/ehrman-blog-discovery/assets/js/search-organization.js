@@ -9,25 +9,38 @@
 		const status = search.querySelector( '[data-ebd-topic-status]' );
 		const more = search.querySelector( '[data-ebd-topic-more]' );
 		const topics = Array.from( search.querySelector( '[data-ebd-topic-directory]' ).content.children );
+		const batchSize = 24;
+		let matches = [];
+		let shown = 0;
 		const close = () => { results.hidden = true; };
+		const appendMatches = () => {
+			const next = Math.min( shown + batchSize, matches.length );
+			matches.slice( shown, next ).forEach( topic => list.append( topic.cloneNode( true ) ) );
+			shown = next;
+		};
 		const refresh = () => {
 			const query = input.value.trim().toLocaleLowerCase();
+			matches = topics.filter( topic => topic.querySelector( '[data-ebd-topic-name]' ).textContent.toLocaleLowerCase().includes( query ) );
+			shown = 0;
 			list.replaceChildren();
-			if ( ! query ) { status.textContent = ''; close(); return; }
-			const matches = topics.filter( topic => topic.querySelector( '[data-ebd-topic-name]' ).textContent.toLocaleLowerCase().includes( query ) );
-			matches.slice( 0, 12 ).forEach( topic => list.append( topic.cloneNode( true ) ) );
+			appendMatches();
 			results.hidden = false;
+			list.scrollTop = 0;
 			status.textContent = matches.length ? sprintf( search.dataset.matchCount, matches.length ) : search.dataset.empty;
-			more.hidden = matches.length <= 12;
+			more.hidden = matches.length <= batchSize;
 			const url = new URL( search.action );
 			url.searchParams.set( 'page', search.querySelector( '[name="page"]' ).value );
 			const tab = search.querySelector( '[name="tab"]' );
 			if ( tab ) url.searchParams.set( 'tab', tab.value );
-			url.searchParams.set( 's', input.value.trim() );
+			url.searchParams.set( query ? 's' : 'view', query ? input.value.trim() : 'all' );
 			more.href = url.href;
 		};
 		input.addEventListener( 'input', refresh );
 		input.addEventListener( 'focus', refresh );
+		input.addEventListener( 'click', () => { if ( results.hidden ) refresh(); } );
+		list.addEventListener( 'scroll', () => {
+			if ( ! results.hidden && list.scrollTop + list.clientHeight >= list.scrollHeight - 40 ) appendMatches();
+		} );
 		input.addEventListener( 'keydown', event => {
 			if ( event.key === 'Escape' ) { event.preventDefault(); close(); }
 			if ( [ 'ArrowDown', 'ArrowUp' ].includes( event.key ) ) {
@@ -37,12 +50,16 @@
 				if ( links.length ) links[ event.key === 'ArrowDown' ? 0 : links.length - 1 ].focus();
 			}
 		} );
-		list.addEventListener( 'keydown', event => {
+		results.addEventListener( 'keydown', event => {
 			if ( event.key === 'Escape' ) { event.preventDefault(); input.focus(); close(); }
-			if ( [ 'ArrowDown', 'ArrowUp' ].includes( event.key ) ) {
+			if ( list.contains( event.target ) && [ 'ArrowDown', 'ArrowUp' ].includes( event.key ) ) {
 				event.preventDefault();
-				const links = Array.from( list.querySelectorAll( 'a' ) );
+				let links = Array.from( list.querySelectorAll( 'a' ) );
 				const next = links.indexOf( document.activeElement ) + ( event.key === 'ArrowDown' ? 1 : -1 );
+				if ( next === links.length && shown < matches.length ) {
+					appendMatches();
+					links = Array.from( list.querySelectorAll( 'a' ) );
+				}
 				if ( next >= 0 && next < links.length ) links[ next ].focus();
 				else input.focus();
 			}

@@ -14,10 +14,13 @@ optional; each tab preserves its own navigation through searches and saves.
 
 ## Supported operations
 
-- Open to topic search without displaying the full topic list. Typing shows up to
-  12 alphabetical matches with their current categories; selecting one opens its
-  category-link editor. Matching uses the current directory already loaded on
-  this administrator-only page, without a request for every keystroke.
+- The search field on Subject Areas, Categories, and Topics shows alphabetical
+  choices on click or keyboard focus, even before typing. It initially renders
+  up to 24 entries; scrolling or advancing with the arrow keys reveals more.
+  Typing filters the complete directory, and clearing the field restores all
+  choices. Selecting an entry opens its relationship editor. Escape or moving
+  outside the search closes the choices. Matching uses the current directory
+  already loaded on this administrator-only page, without additional requests.
 - Use **Browse All Topics** for the alphabetical list, 25 records at a time, or
   **View All Matches** to see paginated search results. The search form also works
   without JavaScript. **Add Topic** remains visible beside the search controls.
