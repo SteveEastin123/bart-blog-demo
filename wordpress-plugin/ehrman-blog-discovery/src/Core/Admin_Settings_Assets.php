@@ -1,6 +1,6 @@
 <?php
 /**
- * Shared assets for the Settings and Status page.
+ * Shared assets for the Settings page.
  *
  * @package EhrmanBlogDiscovery
  */

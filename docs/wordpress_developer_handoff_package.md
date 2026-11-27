@@ -14,7 +14,7 @@ this review does not certify the final delivery archive or production deployment
 The plugin contains Keyword Search, Browse Topics, the selected title-and-summary semantic Ask AI search, autocomplete, result ranking, category filtering, database integration, data importing, REST endpoints, and administrative tools.
 
 The **Blog Search** administration menu groups **Post Metadata** (the default),
-**Manage Topics**, **AI Analytics**, and **Settings and Status**. These screens
+**Manage Topics**, **AI Analytics**, **Settings**, and **Info & Documentation**. These screens
 remain restricted to administrators with `manage_options`. Existing plugin
 `tools.php?page=...` links redirect to their `admin.php?page=...` equivalents;
 WordPress's other Tools entries are unchanged.
@@ -133,8 +133,14 @@ Include the database schema and technical architecture as appendices.
 
 ### Initial Data Installation
 
-**Blog Search > Settings and Status** provides database information, record counts, and
-the administrator-only Manual/Automatic metadata default. Usage and costs are
+**Blog Search > Settings** provides the administrator-only Manual/Automatic
+metadata default and Allow Deletion controls. **Blog Search > Info & Documentation**
+provides database information, record counts, and the bundled publisher guide
+with Read Guide and Download PDF links. Keep the plugin's `docs/` directory in
+the installation package; the guide works without the demo theme or demo URLs.
+The existing settings URL (`admin.php?page=ehrman-blog-discovery`) is unchanged;
+the information page is `admin.php?page=ehrman-info-documentation`.
+Usage and costs are
 available separately under **Blog Search > AI Analytics**.
 Manual is the default; Automatic requires reliable WordPress cron and applies
 only to first publication, with per-post overrides in the editor. See
@@ -440,8 +446,9 @@ These materials allow the developers to verify that their implementation behaves
 
 ## 5. Working Reference Materials
 
-- Publisher-facing [Blog Search User Guide](user-guide/ehrman_blog_search_user_guide.html),
-  plus its PDF at `output/pdf/ehrman_blog_search_user_guide.pdf`. Deliver both;
+- Publisher-facing [Ehrman Blog Publisher Guide](user-guide/ehrman_blog_publisher_guide.html),
+  plus its PDF at `output/pdf/ehrman_blog_publisher_guide.pdf`. Both are also bundled
+  in the plugin's `docs/` directory for its Info & Documentation page. Deliver both;
   see [guide maintenance instructions](user-guide/README.md) for rebuilding them.
 - Live demonstration website
 - Companion demo theme as an optional visual reference

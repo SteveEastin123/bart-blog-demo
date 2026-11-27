@@ -160,7 +160,7 @@ dropdown, separate new-keyword field, or editable Reviewer Notes field. The
 stored proposal retains validation and review evidence. Manual mode requires
 explicit approval before live search changes.
 Administrators can opt into Automatic mode through autosaving radio buttons at
-**Blog Search > Settings and Status**, with a per-post override in the editor before first
+**Blog Search > Settings**, with a per-post override in the editor before first
 publication. Automatic mode
 validates and approves metadata and creates its vector in a background job.
 The installation default remains Manual; existing posts are not bulk processed.

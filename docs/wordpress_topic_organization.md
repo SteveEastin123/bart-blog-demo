@@ -145,7 +145,7 @@ their broader revision check. These saves do not invalidate Ask AI caches or cal
 
 ## Deletion
 
-**Blog Search > Settings and Status > Allow Deletion** provides Disabled
+**Blog Search > Settings > Allow Deletion** provides Disabled
 and Enabled radio buttons, defaulting to **Disabled**. Selecting either option
 saves it immediately, with Saving/Saved feedback, just like Metadata Generation.
 Both groups use the administrator-only WordPress settings REST endpoint; a failed

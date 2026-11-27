@@ -87,14 +87,25 @@ final class Plugin {
 		}
 	}
 
-	/** Renders administration status and publishing preferences. */
+	/** Renders publishing and organization preferences. */
 	public function render_admin_page(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
+		$html = Template::render( 'admin/plugin-settings.php' );
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The trusted template escapes each dynamic value at output.
+		echo $html;
+	}
+
+	/** Renders publisher documentation and read-only system information. */
+	public function render_information_page(): void {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		$html = Template::render(
-			'admin/plugin-status.php',
+			'admin/plugin-information.php',
 			array(
 				'status' => self::status_data(),
 			)

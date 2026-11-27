@@ -38,10 +38,10 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
     await page.goto(url);
     assert.equal(await menu.locator('.wp-menu-name').innerText(), 'Blog Search');
     const menuItems = await menu.locator('.wp-submenu li:not(.wp-submenu-head) a').allTextContents();
-    assert.equal(menuItems.length, 4);
+    assert.equal(menuItems.length, 5);
     assert.match(menuItems[0], /^Post Metadata/);
-    assert.deepEqual(menuItems.slice(1), ['Manage Topics', 'AI Analytics', 'Settings and Status']);
-    const slugs = ['ehrman-post-ingestion', 'ehrman-search-organization', 'ehrman-ai-analytics', 'ehrman-blog-discovery'];
+    assert.deepEqual(menuItems.slice(1), ['Manage Topics', 'AI Analytics', 'Settings', 'Info & Documentation']);
+    const slugs = ['ehrman-post-ingestion', 'ehrman-search-organization', 'ehrman-ai-analytics', 'ehrman-blog-discovery', 'ehrman-info-documentation'];
     assert.deepEqual(await menu.locator('.wp-submenu li:not(.wp-submenu-head) a').evaluateAll(links => links.map(link => link.getAttribute('href'))), slugs.map(slug => 'admin.php?page=' + slug));
     assert.equal(await page.locator('#menu-tools a[href*="page=ehrman-"]').count(), 0, 'Plugin pages remain under Tools');
     for (const slug of slugs) {
@@ -115,8 +115,7 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
 
       await page.goto(base + '/wp-admin/admin.php?page=ehrman-blog-discovery');
       const status = page.locator('#wpbody-content .wrap').first();
-      assert.equal(await status.getByRole('heading', { name: 'Settings and Status', exact: true }).count(), 1);
-      assert.equal(await status.getByRole('row').filter({ has: page.getByRole('rowheader', { name: 'Import state', exact: true }) }).getByRole('cell').innerText(), 'Complete');
+      assert.equal(await status.getByRole('heading', { name: 'Settings', exact: true }).count(), 1);
       assert.equal(await status.locator('input[name="action"][value="ehrman_discovery_import"]').count(), 0, 'Discovery status still exposes a bulk import form');
       assert.equal(await status.locator('form').count(), 0, 'Settings still require a form submission');
       const publishingModes = status.getByRole('group', { name: 'Metadata Generation', exact: true });
@@ -125,13 +124,45 @@ const samples = process.argv[2] ? JSON.parse(fs.readFileSync(process.argv[2], 'u
       assert.equal(await status.getByRole('heading', { name: 'Allow Deletion', exact: true }).count(), 1);
       assert.doesNotMatch(await status.innerText(), /Posts and Secondary Keywords cannot be deleted here\./);
       assert.doesNotMatch(await status.innerText(), /Authoritative JSON import|All five authoritative JSON files/);
-      assert.equal(await status.getByRole('rowheader', { name: 'Imported posts', exact: true }).count(), 1);
+      assert.equal(await status.getByRole('rowheader').count(), 0, 'Settings still contains system information');
       assert.equal(await status.getByRole('heading', { name: 'AI analytics', exact: true }).count(), 0, 'Discovery status still duplicates analytics');
       assert.equal(await status.locator('a[href*="page=ehrman-ai-analytics"]').count(), 0, 'Discovery status still shows the analytics shortcut');
       assert.doesNotMatch(await status.innerText(), /Questions, token usage, refinement activity/);
       assert.equal(await page.locator('#toplevel_page_ehrman-post-ingestion a[href="admin.php?page=ehrman-ai-analytics"]').innerText(), 'AI Analytics', 'Blog Search analytics entry is missing');
-      await page.screenshot({ path: path.join(output, 'discovery-status-' + width + '.png'), fullPage: true });
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Settings overflows at ' + width);
+      await page.screenshot({ path: path.join(output, 'settings-' + width + '.png'), fullPage: true });
+
+      await page.goto(base + '/wp-admin/admin.php?page=ehrman-info-documentation');
+      const info = page.locator('#wpbody-content .wrap').first();
+      assert.equal(await info.getByRole('heading', { name: 'Info & Documentation', exact: true }).count(), 1);
+      assert.equal(await info.getByRole('row').filter({ has: page.getByRole('rowheader', { name: 'Import state', exact: true }) }).getByRole('cell').innerText(), 'Complete');
+      assert.equal(await info.getByRole('rowheader').count(), 7);
+      assert.equal(await info.locator('form, input, select').count(), 0, 'Information page contains settings controls');
+      assert.equal(await page.locator('#ehrman-admin-settings-js, #ehrman-post-ingestion-review-js').count(), 0, 'Editing scripts leaked onto information page');
+      assert(await info.getByRole('link', { name: 'Read Guide', exact: true }).isVisible());
+      assert(await info.getByRole('link', { name: 'Download PDF', exact: true }).isVisible());
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), 'Information overflows at ' + width);
+      await page.screenshot({ path: path.join(output, 'information-' + width + '.png'), fullPage: true });
     }
+    const popupPromise = context.waitForEvent('page');
+    await page.getByRole('link', { name: 'Read Guide', exact: true }).click();
+    const guide = await popupPromise;
+    await guide.waitForLoadState();
+    assert.equal(await guide.title(), 'Ehrman Blog Publisher Guide');
+    assert.equal(new URL(guide.url()).origin, new URL(base).origin);
+    assert.equal(await guide.locator('table[aria-label="Quick Guide"] a').count(), 6);
+    assert.equal(await guide.getByRole('heading', { name: '1. Introduction', exact: true }).count(), 1);
+    assert.equal(await guide.locator('nav[aria-label="Table of Contents"] a').count(), 21);
+    assert(await guide.locator('img').evaluateAll(images => images.length > 0 && images.every(image => image.complete && image.naturalWidth > 0)));
+    await guide.close();
+    const downloadPromise = page.waitForEvent('download');
+    await page.getByRole('link', { name: 'Download PDF', exact: true }).click();
+    const download = await downloadPromise;
+    assert.equal(download.suggestedFilename(), 'ehrman_blog_publisher_guide.pdf');
+    const downloaded = fs.readFileSync(await download.path());
+    const bundledPdf = fs.readFileSync(path.join(root, 'wordpress-plugin/ehrman-blog-discovery/docs/ehrman_blog_publisher_guide.pdf'));
+    assert(downloaded.equals(bundledPdf), 'Downloaded guide differs from the packaged PDF');
+    assert.equal(downloaded.subarray(0, 5).toString(), '%PDF-');
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.locator('#toplevel_page_ehrman-post-ingestion a[href="admin.php?page=ehrman-ai-analytics"]').click();
     await page.waitForURL(base + '/wp-admin/admin.php?page=ehrman-ai-analytics');

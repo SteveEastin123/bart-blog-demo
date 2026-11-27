@@ -33,7 +33,7 @@ Opt-in Automatic mode queues generation, validation, approval, and vector
 creation after a new post is first published. Publication does not wait for AI.
 Automatic mode requires reliable WordPress cron; errors remain available for
 manual recovery. Later post edits do not automatically regenerate metadata.
-Blog Search > Settings and Status provides Manual/Automatic radio buttons that save
+Blog Search > Settings provides Manual/Automatic radio buttons that save
 immediately. Each post can override the default before first publication.
 
 Database-managed approval is enabled by default. Explicit
@@ -70,7 +70,7 @@ and experimental search methods. Developer regression tests are delivered separa
 6. Use `[ehrman_browse_topics]`, `[ehrman_keyword_search]`, and `[ehrman_ask_ai]`
    on WordPress pages. Canonical managed URLs are `/browse-topics/`,
    `/keyword-search/`, and `/ask-ai/`.
-7. Check Blog Search > Settings and Status for database status and publishing settings.
+7. Check Blog Search > Info & Documentation for database status and the publisher guide (HTML/PDF). Use Blog Search > Settings for publishing defaults and deletion controls. Keep the plugin's docs directory when packaging or installing it.
    Leave Manual selected unless Automatic is intended and cron is configured.
 
 Use the accompanying developer handoff and post-ingestion guides for installation

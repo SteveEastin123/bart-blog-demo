@@ -17,6 +17,7 @@ final class Admin_Menu {
 	public const ORGANIZATION = 'ehrman-search-organization';
 	public const ANALYTICS    = 'ehrman-ai-analytics';
 	public const SETTINGS     = 'ehrman-blog-discovery';
+	public const INFORMATION  = 'ehrman-info-documentation';
 
 	/**
 	 * Actual hook suffixes returned by WordPress, including translated parents.
@@ -47,7 +48,8 @@ final class Admin_Menu {
 			self::METADATA     => array( __( 'Post Metadata', 'ehrman-blog-discovery' ), array( Post_Ingestion_Page::class, 'render' ) ),
 			self::ORGANIZATION => array( __( 'Manage Topics', 'ehrman-blog-discovery' ), array( Topic_Organization_Page::class, 'render' ) ),
 			self::ANALYTICS    => array( __( 'AI Analytics', 'ehrman-blog-discovery' ), array( AI_Analytics_Page::class, 'render' ) ),
-			self::SETTINGS     => array( __( 'Settings and Status', 'ehrman-blog-discovery' ), array( Plugin::instance(), 'render_admin_page' ) ),
+			self::SETTINGS     => array( __( 'Settings', 'ehrman-blog-discovery' ), array( Plugin::instance(), 'render_admin_page' ) ),
+			self::INFORMATION  => array( __( 'Info & Documentation', 'ehrman-blog-discovery' ), array( Plugin::instance(), 'render_information_page' ) ),
 		);
 		foreach ( $pages as $slug => $page ) {
 			$label = self::METADATA === $slug ? Post_Ingestion_Admin_Status::menu_title( $page[0] ) : $page[0];
@@ -79,7 +81,7 @@ final class Admin_Menu {
 		global $pagenow;
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Navigation only; the destination verifies action nonces and permissions.
 		$page = isset( $_GET['page'] ) && is_string( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : '';
-		if ( 'tools.php' !== $pagenow || ! in_array( $page, array( self::METADATA, self::ORGANIZATION, self::ANALYTICS, self::SETTINGS ), true ) ) {
+		if ( 'tools.php' !== $pagenow || ! in_array( $page, array( self::METADATA, self::ORGANIZATION, self::ANALYTICS, self::SETTINGS, self::INFORMATION ), true ) ) {
 			return;
 		}
 		if ( ! current_user_can( 'manage_options' ) ) {

@@ -55,10 +55,10 @@ foreach ( array( 'install_data', 'import', 'status' ) as $command ) {
 }
 $status_user = get_current_user_id();
 $status_source = getenv( 'EHRMAN_DISCOVERY_POST_SOURCE' );
-$render_admin_status = static function (): string {
+$render_admin_status = static function ( string $method = 'render_admin_page' ): string {
 	ob_start();
 	try {
-		Plugin::instance()->render_admin_page();
+		Plugin::instance()->$method();
 		return (string) ob_get_contents();
 	} finally {
 		ob_end_clean();
@@ -67,6 +67,7 @@ $render_admin_status = static function (): string {
 try {
 	wp_set_current_user( 0 );
 	$assert_same( '', $render_admin_status(), 'Anonymous visitors can render the administration status page.' );
+	$assert_same( '', $render_admin_status( 'render_information_page' ), 'Anonymous visitors can render system information.' );
 	$status_admins = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
 	$assert( ! empty( $status_admins ), 'An administrator is required for the status-page tests.' );
 	wp_set_current_user( (int) $status_admins[0] );
@@ -80,13 +81,24 @@ try {
 		$assert( ! str_contains( $html, '<select' ) && ! str_contains( $html, 'Save publishing settings' ), 'The retired publishing dropdown or save button remains.' );
 		$assert( ! str_contains( $html, '<form' ) && ! str_contains( $html, 'Save deletion setting' ), 'Settings must autosave without a separate form or save button.' );
 		$assert_same( 2, substr_count( $html, 'class="ehrman-admin-setting"' ), 'Settings must use the same section layout.' );
-		foreach ( array( 'Plugin version', 'Schema version', 'Database connection', 'Import state', 'Imported posts', 'Topics', 'Secondary keywords' ) as $label ) {
-			$assert( str_contains( $html, $label ), 'Status page lost ' . $label );
-		}
-		$assert( str_contains( $html, number_format_i18n( Database::counts()['external_posts'] ) ), 'Status page lost the current post count.' );
+		$assert( ! str_contains( $html, 'Database connection' ), 'Settings still contains system information.' );
 		$assert( ! str_contains( $html, 'page=ehrman-ai-analytics' ) && ! str_contains( $html, 'AI analytics' ), 'Status page still duplicates the dedicated analytics page.' );
 		$assert( false !== has_action( 'admin_menu', array( EhrmanBlogDiscovery\Admin_Menu::class, 'add_pages' ) ), 'Blog Search menu registration is missing.' );
-		$assert( str_contains( $html, 'Settings and Status' ), 'The renamed settings heading is missing.' );
+		$assert( str_contains( $html, '<h1>Settings</h1>' ), 'The settings heading is missing.' );
+		$info = $render_admin_status( 'render_information_page' );
+		foreach ( array( 'Plugin version', 'Schema version', 'Database connection', 'Import state', 'Imported posts', 'Topics', 'Secondary keywords' ) as $label ) {
+			$assert( str_contains( $info, $label ), 'Information page lost ' . $label );
+		}
+		$assert( str_contains( $info, number_format_i18n( Database::counts()['external_posts'] ) ), 'Information page lost the current post count.' );
+		$assert( ! str_contains( $info, 'type="radio"' ) && ! str_contains( $info, '<form' ), 'Information page is not read-only.' );
+		$assert( str_contains( $info, 'Info &amp; Documentation' ), 'The information heading is missing.' );
+		$assert( strpos( $info, 'Ehrman Blog Publisher Guide' ) < strpos( $info, 'System Information' ), 'Documentation must precede system information.' );
+		foreach ( array( 'html', 'pdf' ) as $extension ) {
+			$guide = 'docs/ehrman_blog_publisher_guide.' . $extension;
+			$assert( is_readable( EHRMAN_DISCOVERY_PLUGIN_DIR . $guide ), 'The plugin is missing its bundled ' . $extension . ' guide.' );
+			$assert( str_contains( $info, esc_url( EHRMAN_DISCOVERY_PLUGIN_URL . $guide ) ), 'Guide link does not use the installed plugin URL.' );
+		}
+		$assert( str_contains( $info, 'download="ehrman_blog_publisher_guide.pdf"' ), 'The PDF download attribute is missing.' );
 	}
 } finally {
 	wp_set_current_user( $status_user );
