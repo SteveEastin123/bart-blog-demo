@@ -131,7 +131,15 @@ generation displays progress and review inline. Automatic publication retains
 the existing background worker. No-JavaScript publishing and mode selection use
 WordPress's normal form; metadata operations remain available on Post Metadata.
 
-Implementation: `Post_Publisher`, `templates/admin/post-publisher.php`, and
+Implementation: `Post_Publisher` owns editor configuration, form rendering, and
+preference saving. `Post_Publication_Confirmation` owns the request-scoped
+first-publication marker, redirect, and Posts-list status notice. The publisher
+records that marker only after its existing nonce, permission, mode, and
+first-publication checks; the confirmation rechecks eligibility before redirecting.
+It reads existing job state and never starts or waits for AI work. Hook priorities,
+redirect URLs, notice wording, and metadata processing remain unchanged.
+
+The form uses `templates/admin/post-publisher.php` and
 `assets/js/post-publisher.js`. Regression coverage includes mode persistence,
 publication ordering, permission/nonce checks, locked settings, native saving,
 inline review and responsive layouts in `post-publisher-tests.php` and

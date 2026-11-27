@@ -2,6 +2,7 @@
 /** Native publisher preferences, scope and first-publication ordering; no API calls. */
 
 use EhrmanBlogDiscovery\Post_Publisher as Publisher;
+use EhrmanBlogDiscovery\Post_Publication_Confirmation as Confirmation;
 use EhrmanBlogDiscovery\Post_Ingestion_Publishing_Settings as Publishing;
 use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 
@@ -29,8 +30,13 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 	};
 	$normal_redirect = admin_url( 'post.php?action=edit' );
 	$redirect = static fn( int $id ): string => apply_filters( 'redirect_post_location', $normal_redirect, $id );
-	$notice = static function (): string { ob_start(); Publisher::publication_notice(); return ob_get_clean(); };
+	$notice = static function (): string { ob_start(); try { Confirmation::publication_notice(); return (string) ob_get_contents(); } finally { ob_end_clean(); } };
 	try {
+		$assert_same( 5, has_action( 'wp_after_insert_post', array( Publisher::class, 'save_preferences' ) ), 'Publisher preference ordering changed.' );
+		foreach ( array( 'redirect_post_location' => 'publication_redirect', 'admin_notices' => 'publication_notice', 'removable_query_args' => 'notice_query_args' ) as $hook => $callback ) {
+			$assert_same( 10, has_filter( $hook, array( Confirmation::class, $callback ) ), 'Confirmation hook is missing or has changed priority: ' . $hook );
+			$assert_same( false, has_filter( $hook, array( Publisher::class, $callback ) ), 'Publisher still registers a duplicate confirmation hook.' );
+		}
 		require_once ABSPATH . 'wp-admin/includes/class-wp-screen.php';
 		require_once ABSPATH . 'wp-admin/includes/screen.php';
 		require_once ABSPATH . 'wp-admin/includes/meta-boxes.php';
@@ -83,6 +89,8 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		wp_update_post( array( 'ID' => $automatic, 'post_status' => 'draft' ) );
 		$assert_same( $normal_redirect, $redirect( $automatic ), 'Saving a draft left the editor.' );
 		wp_update_post( array( 'ID' => $automatic, 'post_status' => 'publish' ) );
+		$assert_same( $normal_redirect, $redirect( 0 ), 'An invalid post consumed the publication redirect.' );
+		$assert_same( $normal_redirect, $redirect( $id ), 'A different post consumed the publication redirect.' );
 		$destination = $redirect( $automatic );
 		$assert_same( wp_parse_url( admin_url( 'edit.php' ), PHP_URL_PATH ), wp_parse_url( $destination, PHP_URL_PATH ), 'Automatic publication did not return to Posts.' );
 		parse_str( wp_parse_url( $destination, PHP_URL_QUERY ), $published_query );
@@ -90,7 +98,7 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$assert_same( $normal_redirect, $redirect( $automatic ), 'Publication redirect was reused.' );
 		wp_update_post( array( 'ID' => $automatic, 'post_title' => 'Updated automatic post' ) );
 		$assert_same( $normal_redirect, $redirect( $automatic ), 'Updating an automatic post left the editor.' );
-		$assert_same( array( 'message', 'ehrman_published', 'ehrman_publish_nonce' ), Publisher::notice_query_args( array( 'message' ) ), 'Notice parameters leaked into later navigation.' );
+		$assert_same( array( 'message', 'ehrman_published', 'ehrman_publish_nonce' ), Confirmation::notice_query_args( array( 'message' ) ), 'Notice parameters leaked into later navigation.' );
 		$_GET = $published_query; $GLOBALS['current_screen'] = WP_Screen::get( 'edit-post' );
 		$html = $notice();
 		$assert( str_contains( $html, 'Post published, but metadata needs attention.' ) && str_contains( $html, 'View Metadata' ), 'Missing job was falsely reported as running.' );
@@ -99,7 +107,11 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$service = new EhrmanBlogDiscovery\Post_Ingestion_Service();
 		$draft_id = $service->queue_automatic( get_post( $automatic ), get_current_user_id() );
 		$assert( ! is_wp_error( $draft_id ), 'Could not queue automatic notice fixture.' );
+		$draft_before_notice = $service->draft( $draft_id );
+		$scheduled_before_notice = wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $draft_id ) );
 		$html = $notice();
+		$assert_same( $draft_before_notice, $service->draft( $draft_id ), 'Viewing the confirmation changed metadata or usage.' );
+		$assert_same( $scheduled_before_notice, wp_next_scheduled( 'ehrman_ingestion_process_draft', array( $draft_id ) ), 'Viewing the confirmation rescheduled metadata generation.' );
 		$assert( str_contains( $html, 'Post published. Metadata is being generated automatically.' ), 'Queued job confirmation is missing.' );
 		$assert( str_contains( $html, esc_url( EhrmanBlogDiscovery\Post_Ingestion_Page::page_url( $draft_id ) ) ), 'View Metadata did not open the specific record.' );
 		$table = EhrmanBlogDiscovery\Database::tables()['ingestion_drafts']; $wpdb = EhrmanBlogDiscovery\Database::client();
@@ -114,10 +126,17 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$wpdb->update( $table, array( 'status' => 'queued', 'automatic_status' => 'queued', 'updated_at' => gmdate( 'Y-m-d H:i:s', time() - 11 * MINUTE_IN_SECONDS ) ), array( 'id' => $draft_id ) );
 		$assert( str_contains( $notice(), 'Post published, but metadata needs attention.' ), 'Stalled generation was reported as healthy.' );
 		$_GET['ehrman_publish_nonce'] = 'invalid'; $assert_same( '', $notice(), 'Unsigned publication confirmation was displayed.' );
+		foreach ( array( 'ehrman_published', 'ehrman_publish_nonce' ) as $field ) {
+			$_GET = $published_query; $_GET[$field] = array( $published_query[$field] );
+			$assert_same( '', $notice(), 'Malformed confirmation input was accepted.' );
+		}
 		$_GET = $published_query; $_GET['ehrman_published'] = $id;
 		$assert_same( '', $notice(), 'Publication confirmation allowed a different post.' );
 		$_GET = $published_query; $GLOBALS['current_screen'] = WP_Screen::get( 'post' );
 		$assert_same( '', $notice(), 'Publication notice appeared outside the Posts list.' );
+		$GLOBALS['current_screen'] = null;
+		$assert_same( '', $notice(), 'Publication notice appeared without an admin screen.' );
+		$GLOBALS['current_screen'] = WP_Screen::get( 'post' );
 		putenv( false === $old_source ? 'EHRMAN_DISCOVERY_POST_SOURCE' : 'EHRMAN_DISCOVERY_POST_SOURCE=' . $old_source );
 		putenv( false === $old_key ? 'OPENAI_API_KEY' : 'OPENAI_API_KEY=' . $old_key );
 		$_POST = array(); $draft = $create( array( 'post_status' => 'draft' ) );
@@ -161,6 +180,10 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$assert_same( '', $html, 'Non-administrator received publisher mode controls.' );
 		$_GET = $published_query; $GLOBALS['current_screen'] = WP_Screen::get( 'edit-post' );
 		$assert_same( '', $notice(), 'Non-administrator received the automatic publication notice.' );
+		Confirmation::remember_publication( $automatic );
+		$assert_same( $normal_redirect, $redirect( $automatic ), 'Redirect did not recheck publishing permissions.' );
+		wp_set_current_user( (int) $admins[0] );
+		$assert_same( $normal_redirect, $redirect( $automatic ), 'Rejected confirmation was reused after permissions changed.' );
 	} finally {
 		$_POST = array(); wp_set_current_user( (int) $admins[0] );
 		foreach ( $ids as $id ) { wp_clear_scheduled_hook( 'publish_future_post', array( $id ) ); wp_delete_post( $id, true ); }
@@ -176,4 +199,4 @@ use EhrmanBlogDiscovery\Post_Ingestion_Automation as Automation;
 		$GLOBALS['post'] = $old_global_post;
 	}
 } )();
-echo "Native publisher: author, editor scope, modes, first-publication redirect, truthful metadata notices, scheduling, updates and permissions: OK\n";
+echo "Native publisher: author, editor scope, modes, confirmation hooks, one-time redirects, read-only truthful notices, scheduling, updates and permissions: OK\n";
