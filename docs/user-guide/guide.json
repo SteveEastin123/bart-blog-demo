@@ -1,0 +1,197 @@
+{
+  "title": "Blog Search User Guide",
+  "subtitle": "Publishing posts, managing topics, and viewing AI costs",
+  "date": "November 27, 2026",
+  "pages": [
+    {
+      "id": "start", "section": "START HERE", "title": "Blog Search User Guide",
+      "intro": "A practical guide for the publishers and administrators who maintain the blog's search tools.",
+      "blocks": [
+        {"type": "h2", "text": "Where to go"},
+        {"type": "table", "widths": [0.38, 0.62], "headers": ["In WordPress", "Use it to"], "rows": [
+          ["<b>Posts > Add Post</b>", "Write an article, select its author, and choose Manual or Automatic metadata generation."],
+          ["<b>Blog Search > Post Metadata</b>", "Find posts that need metadata, review proposals, and check completion."],
+          ["<b>Blog Search > Manage Topics</b>", "Maintain Subject Areas, Categories, Topics, and the links between them."],
+          ["<b>Blog Search > AI Analytics</b>", "Review Ask AI usage, metadata-generation activity, and estimated costs."],
+          ["<b>Blog Search > Settings and Status</b>", "Set the default generation mode and enable or disable organization deletion."]
+        ]},
+        {"type": "p", "text": "Sign in using your own WordPress account. These management screens require appropriate administrator permissions. Contact your site administrator if a menu or action is unavailable."},
+        {"type": "h2", "text": "What metadata means"},
+        {"type": "p", "text": "Metadata is the description, summary, topics, and keywords associated with an article. A <b>vector</b> is the numerical representation used by Ask AI to match meaning. The plugin creates it; you do not enter or edit vector values."},
+        {"type": "toc"},
+        {"type": "note", "text": "Screenshots show the demonstration site. The review example is illustrative, and the analytics screenshots show an empty reporting history. Names, counts, defaults, and the surrounding WordPress layout may differ on your site."}
+      ]
+    },
+    {
+      "id": "publish", "section": "ADDING POSTS", "title": "Write and publish an article",
+      "intro": "Open Posts > Add Post. Choose the metadata mode before first publication.",
+      "blocks": [
+        {"type": "image", "file": "add-post.png", "height": 350, "caption": "The article form and Publish panel. This example has Manual selected as the site default."},
+        {"type": "steps", "items": [
+          "Enter the <b>Title</b>, select the <b>Author</b>, and enter the article in <b>Post</b>. Use Visual for formatted editing; Code exposes the underlying markup.",
+          "Use <b>Save Draft</b> while working and <b>Preview</b> to check the article. To schedule publication, edit the date beside <b>Publish immediately</b>.",
+          "Under <b>Metadata Generation</b>, choose <b>Manual</b> to review before approval, or <b>Automatic</b> to generate and approve without a separate review. The site's current choice is marked <b>(site default)</b>.",
+          "Select <b>Publish</b>, or <b>Schedule</b> for a future date. Metadata is created only after publication, not while the post is a draft."
+        ]},
+        {"type": "note", "text": "The mode choice is saved with this post and is locked after first publication. Changing the site default affects new posts, not previously published articles."}
+      ]
+    },
+    {
+      "id": "manual", "section": "ADDING POSTS", "title": "Manual: review and approve",
+      "intro": "After publishing, use the Post Metadata panel in the editor, or open the post from Blog Search > Post Metadata.",
+      "blocks": [
+        {"type": "split", "file": "metadata-review.png", "caption": "Illustrative review in the post editor.", "items": [
+          "Select <b>Create Metadata</b>. Wait for the progress indicator to finish and the generated fields to appear.",
+          "Read the <b>Description</b> and <b>Summary</b>. Correct inaccurate wording without changing the article itself.",
+          "Check <b>Topics</b> and <b>Keywords</b>. Select the <b>x</b> to remove an unsuitable item; restore it if needed.",
+          "To add an existing term, select <b>Add topic</b> or <b>Add keyword</b>. Click in the box to browse alphabetically, or type to filter. Select one result; the picker closes. Repeat to add another.",
+          "Select <b>Approve and Add to Search</b>. The plugin saves the approved metadata and then creates the vector."
+        ]},
+        {"type": "h2", "text": "Before approving"},
+        {"type": "p", "text": "Keep the topics focused on sustained subjects and keywords on meaningful details. Keep at least one topic. The Add controls select existing vocabulary; they do not create new terms."},
+        {"type": "p", "text": "On the separate review page, <b>Save revisions</b> saves your draft without approving it. <b>Regenerate Metadata</b> requests a new proposal and can incur another AI charge. <b>Discard draft</b> discards the metadata proposal, not the WordPress article."}
+      ]
+    },
+    {
+      "id": "automatic", "section": "ADDING POSTS", "title": "Automatic and follow-up checks",
+      "intro": "Automatic mode returns you to the Posts list after first publication. You do not need to stay in the editor while metadata and the vector are created.",
+      "blocks": [
+        {"type": "steps", "items": [
+          "Use the publication notice's <b>View Metadata</b> link, or return later to <b>Blog Search > Post Metadata</b>.",
+          "Search by <b>Post title</b>, or use the <b>Status</b> and publication-date filters. <b>All</b> is the default. <b>Clear filters</b> only resets the filters; it does not delete data.",
+          "Look for <b>Complete</b> in the worklist's Status and Vector columns. A detail screen may say <b>Approved</b> for the metadata. Vector completion confirms the Ask AI indexing stage."
+        ]},
+        {"type": "table", "widths": [0.26, 0.74], "headers": ["What you see", "What to do"], "rows": [
+          ["Not generated", "Open the post's action and select Create Metadata when ready."],
+          ["Generating", "Allow the current request to finish. Reopen or refresh the status page later; do not repeatedly submit new requests."],
+          ["Needs approval", "Open the review, check the fields, and approve them."],
+          ["Failed / Error", "Open the details and read the message. Correct the stated issue before retrying. Contact your administrator if it persists."],
+          ["Vector error", "Use Retry Vector in the editor, or Retry semantic vector on the detail page, when offered. This retries the vector stage without regenerating the metadata."],
+          ["Not applicable", "A vector is not required for this type of excluded post; this is not itself a failure."]
+        ]},
+        {"type": "h2", "text": "Changing approved metadata"},
+        {"type": "p", "text": "Open the approved record and use <b>Edit Metadata</b> to revise it, or <b>Regenerate Metadata</b> for a fresh proposal. Review and select <b>Approve Changes</b>. The previous live metadata remains in use until the revision is approved."},
+        {"type": "note", "text": "Updating the article does not automatically regenerate its metadata. Save or update the article first. If the plugin reports that the source changed, regenerate from the saved post. An imported record without an editable local WordPress post may be view-only; ask your administrator."}
+      ]
+    },
+    {
+      "id": "manage", "section": "MANAGING TOPICS", "title": "Find or create an item",
+      "intro": "Open Blog Search > Manage Topics. Subject Areas group Categories; Categories group Topics; Topics are assigned to posts.",
+      "blocks": [
+        {"type": "image", "file": "topic-search.png", "height": 280, "caption": "Clicking in the search box opens an alphabetical list. Typing narrows the choices."},
+        {"type": "steps", "items": [
+          "Choose <b>Subject Areas</b>, <b>Categories</b>, or <b>Topics</b>. Click in the search box and scroll or type, then select a result. No Search button is needed while live suggestions are working.",
+          "Use <b>Browse All</b> for the paginated directory. In Categories, both linked Subject Areas and Topics are shown; expand a longer topic list with <b>Show all</b>.",
+          "Before creating an item, search for duplicates. Then select <b>Add Subject Area</b>, <b>Add Category</b>, or <b>Add Topic</b>, enter its name and description, choose the links, and select the corresponding <b>Create</b> button."
+        ]},
+        {"type": "table", "widths": [0.25, 0.75], "headers": ["New item", "Required links"], "rows": [
+          ["Subject Area", "Categories are optional; an empty Subject Area can be created first."],
+          ["Category", "At least one existing Topic. Subject Areas are optional."],
+          ["Topic", "At least one existing Category."]
+        ]},
+        {"type": "note", "text": "A new Topic can have zero posts and still appear in Browse Topics. Creating it does not automatically assign older articles. Link a Category to a Subject Area when it should be available through that browsing hierarchy."}
+      ]
+    },
+    {
+      "id": "relationships", "section": "MANAGING TOPICS", "title": "Maintain links and descriptions",
+      "intro": "A Category may belong to several Subject Areas. A Topic may belong to several Categories. Adding a link does not remove its other links.",
+      "blocks": [
+        {"type": "image", "file": "category-relationships.png", "height": 268, "caption": "A Category has separate Subject Area and Topic controls, saved together."},
+        {"type": "steps", "items": [
+          "Find and open an existing item. Its name is read-only; this screen does not rename it.",
+          "Use <b>Add category</b>, <b>Add subject area</b>, or <b>Add topic</b> to select an existing item. Use the <b>x</b> beside a linked item to unlink it.",
+          "Select <b>Save Category Links</b> for a Subject Area or Topic, or <b>Save Relationships</b> for a Category. Unlinking does not delete either item or remove a Topic from its posts.",
+          "To change the explanation, select <b>Edit Description</b>, revise the text, and select <b>Save Description</b>. Description edits and relationship edits are saved separately."
+        ]},
+        {"type": "h2", "text": "Write useful descriptions"},
+        {"type": "bullets", "items": [
+          "<b>Subject Area:</b> explain the broad scope in about 20-40 words.",
+          "<b>Category:</b> explain the shared theme of its Topics in one or two clear sentences.",
+          "<b>Topic:</b> define the specific subject and useful boundaries in about 25-50 words. Preserve its existing meaning; do not repurpose it into a different topic. These are guidelines, not required word counts."
+        ]},
+        {"type": "note", "text": "Topic descriptions help the AI select topics for future metadata. Editing a description does not retag existing posts. Pending proposals may need regeneration if the topic vocabulary changes."}
+      ]
+    },
+    {
+      "id": "delete-export", "section": "MANAGING TOPICS", "title": "Delete carefully; export the outline",
+      "blocks": [
+        {"type": "h2", "text": "Deletion is different from unlinking"},
+        {"type": "steps", "items": [
+          "In <b>Settings and Status > Allow Deletion</b>, select <b>Enabled</b> and wait for the saved confirmation. The setting saves automatically.",
+          "Return to <b>Manage Topics</b>, select the item, and read any messages beside <b>Delete</b>. Resolve the stated blockers first.",
+          "Select <b>Delete</b>, inspect the confirmation and affected links, then select <b>Permanently Delete</b> only if correct. Consider disabling deletion again after cleanup."
+        ]},
+        {"type": "bullets", "items": [
+          "Deleting a <b>Subject Area</b> removes it and its category links, but preserves the Categories, Topics, and posts. Some Categories may no longer be reachable through that Subject Area.",
+          "Deleting a <b>Category</b> is blocked if a Topic would lose its last Category. Link those Topics to another Category first.",
+          "Deleting a <b>Topic</b> is blocked while it is assigned to posts. It does not silently strip that Topic from articles."
+        ]},
+        {"type": "note", "text": "These deletions cannot be undone on this screen. They do not delete WordPress articles or other linked records. Use unlinking when you only want to reorganize an item."},
+        {"type": "h2", "text": "Download a PDF or CSV"},
+        {"type": "image", "file": "export.png", "height": 180, "caption": "The Export tab provides a readable PDF or a spreadsheet-friendly CSV."},
+        {"type": "p", "text": "Choose <b>Export</b>, then <b>Entire structure</b> or <b>Selected Subject Areas</b>. For a selection, check the desired Subject Areas. Select <b>Download PDF</b> or <b>Download CSV</b>. The export is an outline of the linked browsing hierarchy, not a full backup of posts, metadata, or vectors."}
+      ]
+    },
+    {
+      "id": "analytics", "section": "AI ANALYTICS", "title": "Start with Overview",
+      "intro": "Open Blog Search > AI Analytics. Overview combines the costs of reader questions and post metadata generation.",
+      "blocks": [
+        {"type": "image", "file": "analytics-overview.png", "height": 235, "caption": "All three tabs share the same date shortcuts. All retained is selected by default."},
+        {"type": "steps", "items": [
+          "Choose <b>Today</b>, <b>This month</b>, or <b>All retained</b>. The selected shortcut is highlighted.",
+          "For a custom period, enter <b>From</b> and <b>To</b> and select <b>Apply filters</b>. <b>Clear</b> removes the date restriction; it does not erase history.",
+          "Read <b>Total estimated cost</b>, then compare <b>Ask AI cost</b> with <b>Post Metadata cost</b>. Use the activity links or tabs to examine either area. Date filters carry across the tabs."
+        ]},
+        {"type": "h2", "text": "How to interpret the totals"},
+        {"type": "bullets", "items": [
+          "<b>Questions</b> counts reader search requests; <b>Metadata generation runs</b> counts generation runs, not unique articles.",
+          "<b>All retained</b> means all records still held by the plugin, not necessarily all historical account spending.",
+          "Amounts are estimated US-dollar costs based on recorded usage and pricing. Confirm billed amounts in the OpenAI account. Calls made outside this plugin are not included."
+        ]},
+        {"type": "note", "text": "Report dates use Eastern time. Ask AI groups costs by question submission date; Post Metadata uses the date of each API call. A metadata run spanning a date boundary can be only partly included in a filtered total."}
+      ]
+    },
+    {
+      "id": "ask-ai", "section": "AI ANALYTICS", "title": "Review Ask AI usage",
+      "intro": "Use the Ask AI tab to see search volume, estimated costs, and how many posts were returned.",
+      "blocks": [
+        {"type": "image", "file": "analytics-ask-ai.png", "height": 220, "caption": "The Ask AI summary includes a Zero results filter for questions with no returned posts."},
+        {"type": "table", "widths": [0.38, 0.62], "headers": ["Metric", "Meaning"], "rows": [
+          ["Total estimated cost", "Query-vector creation plus AI review of candidate posts, within the current filters."],
+          ["Average cost per question", "Estimated total divided by the question count. The card displays cents, not dollars."],
+          ["Average posts returned", "The average number of results. More results does not, by itself, mean better relevance."],
+          ["Zero-result questions", "Questions that returned no posts. Review their wording and results before deciding whether search needs improvement."]
+        ]},
+        {"type": "h2", "text": "Inspect and download questions"},
+        {"type": "steps", "items": [
+          "Select a date range. To focus on unsuccessful searches, check <b>Zero results</b> and select <b>Apply filters</b>.",
+          "Read the <b>Questions</b> table. It shows the question, cost, result count, source, and token usage. <b>AI review details</b> provides more technical detail when needed.",
+          "Select <b>Export questions CSV</b> to download records matching the active filters. Treat question text as potentially sensitive when sharing the file."
+        ]},
+        {"type": "note", "text": "A cached question may reuse earlier work and cost less. The Cost by period table lower on the page shows its own Today / This month / All retained totals, independently of the filters above."}
+      ]
+    },
+    {
+      "id": "metadata-costs", "section": "AI ANALYTICS", "title": "Review post metadata costs",
+      "intro": "Use the Post Metadata tab inside AI Analytics for costs. Use Blog Search > Post Metadata for creation, review, and approval.",
+      "blocks": [
+        {"type": "image", "file": "analytics-post-metadata.png", "height": 195, "caption": "The summary combines metadata generation and post-vector costs."},
+        {"type": "steps", "items": [
+          "Choose the reporting dates. Read <b>Total estimated cost</b>, <b>Average cost per generation run</b>, and <b>Generation runs</b>.",
+          "Find the article in <b>Generation runs</b>. Expand its generation details when you need to understand the charges making up the total.",
+          "Select <b>Export metadata costs CSV</b> to download the filtered cost records for further review."
+        ]},
+        {"type": "h2", "text": "A run is not the same as a post"},
+        {"type": "p", "text": "Generating metadata again starts another run, even for the same article. Retries within a run remain part of that run. The total includes both the metadata request and its post-vector work. For example, generating an article twice can produce two runs for one article."},
+        {"type": "bullets", "items": [
+          "Small vector charges can round to <b>$0.0000</b>; that display does not always mean the work was free.",
+          "A failed attempt may still have a recorded charge. Follow any warning about missing usage or incomplete estimates.",
+          "Cost history can remain after an article is deleted. Deleting an article does not undo earlier API spending."
+        ]},
+        {"type": "h2", "text": "When to ask for help"},
+        {"type": "p", "text": "Contact your site administrator if generation stays stuck, repeated attempts fail, or an expected action is unavailable. Include the article title, the exact message, and the approximate time. Do not send passwords or API keys in a screenshot or support message."},
+        {"type": "note", "text": "This guide describes normal editorial work. Installation, account configuration, backups, and troubleshooting infrastructure belong in the separate developer documentation."}
+      ]
+    }
+  ]
+}

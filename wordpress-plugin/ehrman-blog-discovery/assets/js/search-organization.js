@@ -66,6 +66,8 @@
 		} );
 		document.addEventListener( 'pointerdown', event => { if ( ! search.contains( event.target ) ) close(); } );
 		document.addEventListener( 'focusin', event => { if ( ! search.contains( event.target ) ) close(); } );
+		// Keep the server-side search button until live suggestions are initialized.
+		search.querySelector( '[type="submit"]' ).hidden = true;
 	}
 	const form = document.querySelector( '[data-ebd-topic-form]' );
 	if ( ! form ) return;

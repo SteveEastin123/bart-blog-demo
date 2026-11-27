@@ -8,8 +8,10 @@ Tabs are ordered **Subject Areas**, **Categories**, **Topics**, **Export**. Subj
 the default when opening Manage Topics; older unscoped topic-edit links
 remain supported. All newly generated links specify their tab explicitly.
 The **Subject Areas** tab uses the same search-first layout and category picker.
-The three editing tabs place **Search**, **Browse All**, and **Add** in that order. Selecting a
-search result or directory entry opens its category links. The full directory is
+The three editing tabs place the search field, **Browse All**, and **Add** in that order.
+The separate **Search** button is hidden only after live suggestions initialize;
+it remains available when JavaScript is disabled or the search script fails to load.
+Selecting a search result or directory entry opens its category links. The full directory is
 optional; each tab preserves its own navigation through searches and saves.
 
 ## Supported operations
@@ -23,7 +25,9 @@ optional; each tab preserves its own navigation through searches and saves.
   already loaded on this administrator-only page, without additional requests.
 - Use **Browse All Topics** for the alphabetical list, 25 records at a time, or
   **View All Matches** to see paginated search results. The search form also works
-  without JavaScript. **Add Topic** remains visible beside the search controls.
+  without JavaScript. Enter in the search field can still submit a full search;
+  arrow keys followed by Enter select a suggestion. **Add Topic** remains visible
+  beside the search controls.
 - Create a topic with a unique name, a required description, and one or more
   existing categories. Names cannot duplicate a topic or its search alias.
 - Add or remove category links on an existing topic. Multiple categories are

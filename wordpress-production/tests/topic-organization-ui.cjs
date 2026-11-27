@@ -15,6 +15,7 @@ async function checkFocusChoices(page, url, output) {
   const list = page.locator('#ebd-topic-matches');
   const links = list.locator('a');
   const more = page.locator('[data-ebd-topic-more]');
+  assert(await page.locator('.ehrman-organization__search-controls button[type="submit"]').isHidden(), 'Redundant Search button remains visible');
   const entries = await page.locator('[data-ebd-topic-directory]').evaluate(el => Array.from(el.content.querySelectorAll('a'), link => ({
     name: link.querySelector('[data-ebd-topic-name]').textContent, href: link.href,
   })));
@@ -76,16 +77,38 @@ async function checkFocusChoices(page, url, output) {
     assert(await results.isVisible());
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), 'Focus choices overflow at ' + width);
     assert(await list.evaluate(el => el.clientHeight <= 360), 'Choices are not scrollable');
+    assert.equal(await page.locator('.ehrman-organization__search-controls .button:visible').count(), 2, 'Expected only Browse All and Add');
     await page.screenshot({ path: path.join(output, `focus-choices-${width}.png`), fullPage: true });
     await input.press('Escape');
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
   await input.click();
   const selected = entries[0].name;
-  await links.first().click();
+  await input.press('ArrowDown');
+  await page.keyboard.press('Enter');
   await page.locator('.ehrman-organization__definition').waitFor();
   assert.equal(await page.locator('.ehrman-organization__definition dd').first().innerText(), selected, 'Empty-query selection opened the wrong item');
   await page.goto(url);
+}
+
+async function checkSearchFallback(browser, context, url, plural) {
+  for (const javaScriptEnabled of [false, true]) {
+    const fallback = await browser.newContext({ javaScriptEnabled, reducedMotion: 'reduce', storageState: await context.storageState() });
+    try {
+      const page = await fallback.newPage();
+      if (javaScriptEnabled) await page.route('**/search-organization.js*', route => route.abort());
+      await page.goto(url);
+      const search = page.getByRole('button', { name: 'Search ' + plural, exact: true });
+      assert(await search.isVisible(), 'Fallback missing when live search is unavailable');
+      await page.locator('#ebd-find-topic').fill('paul');
+      await search.click();
+      await page.waitForURL(destination => destination.searchParams.get('s') === 'paul', { waitUntil: 'load' });
+      assert.equal(new URL(page.url()).searchParams.get('s'), 'paul');
+      assert.equal(new URL(page.url()).searchParams.get('tab'), new URL(url).searchParams.get('tab'));
+      await page.locator('.ehrman-organization__topics tbody tr').first().waitFor();
+      assert(await page.locator('.ehrman-organization__topics tbody tr').count() > 0, 'Fallback search returned no results');
+    } finally { await fallback.close(); }
+  }
 }
 
 async function checkDescription(browser, context, page, { url, id, read, tab, idField, output }) {
@@ -188,10 +211,12 @@ async function checkOrganization(subjectAreas) {
     assert.deepEqual(await page.locator('.ehrman-organization .nav-tab').allTextContents(), ['Subject Areas', 'Categories', 'Topics', 'Export']);
     await page.goto(url);
     await page.getByRole('heading', { name: 'Manage Topics', exact: true }).waitFor();
-    assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button').allTextContents(), ['Search ' + plural, 'Browse All ' + plural, 'Add ' + singular]);
+    await page.locator('.ehrman-organization__search-controls button[type="submit"]').waitFor({ state: 'hidden' });
+    assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button:visible').allTextContents(), ['Browse All ' + plural, 'Add ' + singular]);
     assert.equal(await page.locator('.nav-tab-active').innerText(), plural);
     assert.equal(await page.locator('.ehrman-organization__topics').count(), 0, 'Topics listed by default');
     await checkFocusChoices(page, url, output);
+    await checkSearchFallback(browser, context, url, plural);
     await page.screenshot({ path: path.join(output, 'search-desktop.png'), fullPage: true });
     await page.locator('#ebd-find-topic').fill('paul');
     const matches = page.locator('#ebd-topic-matches a');
@@ -208,7 +233,7 @@ async function checkOrganization(subjectAreas) {
     assert.equal(await page.locator('[data-ebd-topic-status]').innerText(), subjectAreas ? 'No subject areas found.' : 'No topics found.');
     await page.locator('#ebd-find-topic').fill('a');
     assert(await matches.count() > 0 && await matches.count() <= 24, 'Live matches are not bounded');
-    if (subjectAreas) await page.getByRole('button', { name: 'Search ' + plural, exact: true }).click();
+    if (subjectAreas) await page.locator('#ebd-find-topic').press('Enter');
     else await page.getByRole('link', { name: 'View All Matches', exact: true }).click();
     assert.equal(new URL(page.url()).searchParams.get('s'), 'a');
     assert(await page.locator('.ehrman-organization__topics tbody tr').count() > 0);
@@ -346,7 +371,7 @@ async function checkOrganization(subjectAreas) {
       await page.screenshot({ path: path.join(output, `topics-${width}.png`), fullPage: true });
     }
     await page.locator('#ebd-find-topic').fill(name);
-    await page.getByRole('button', { name: 'Search ' + plural, exact: true }).click();
+    await page.locator('#ebd-find-topic').press('Enter');
     assert.equal(await page.locator('.ehrman-organization__topics tbody tr').count(), 1);
     assert.match(await page.locator('.ehrman-organization__topics tbody').innerText(), new RegExp(name));
     await page.getByRole('link', { name: 'Add ' + singular, exact: true }).click();
@@ -449,9 +474,11 @@ async function checkCategories() {
     await page.waitForURL('**/wp-admin/**');
     await page.goto(url);
     assert.equal(await page.locator('.nav-tab-active').innerText(), 'Categories');
-    assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button').allTextContents(), ['Search Categories', 'Browse All Categories', 'Add Category']);
+    await page.locator('.ehrman-organization__search-controls button[type="submit"]').waitFor({ state: 'hidden' });
+    assert.deepEqual(await page.locator('.ehrman-organization__search-controls .button:visible').allTextContents(), ['Browse All Categories', 'Add Category']);
     assert.equal(await page.locator('.ehrman-organization__topics').count(), 0);
     await checkFocusChoices(page, url, output);
+    await checkSearchFallback(browser, context, url, 'Categories');
     await page.locator('#ebd-find-topic').fill('paul');
     await page.locator('#ebd-topic-matches a').first().click();
     await page.getByRole('heading', { name: 'Edit Relationships', exact: true }).waitFor();

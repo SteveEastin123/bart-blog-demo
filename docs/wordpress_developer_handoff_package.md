@@ -440,6 +440,9 @@ These materials allow the developers to verify that their implementation behaves
 
 ## 5. Working Reference Materials
 
+- Publisher-facing [Blog Search User Guide](user-guide/ehrman_blog_search_user_guide.html),
+  plus its PDF at `output/pdf/ehrman_blog_search_user_guide.pdf`. Deliver both;
+  see [guide maintenance instructions](user-guide/README.md) for rebuilding them.
 - Live demonstration website
 - Companion demo theme as an optional visual reference
 - Search and browsing diagrams
