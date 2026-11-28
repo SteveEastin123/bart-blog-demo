@@ -126,6 +126,21 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$_GET = array( 'tab' => 'categories', 'view' => 'all' );
 		$html = $render();
 		$assert( str_contains( $html, 'ehrman-organization__categories' ) && ! str_contains( $html, '>Subject Areas and Topics<' ), 'Separate directory columns unavailable.' );
+		$directory = new DOMDocument();
+		@$directory->loadHTML( $html );
+		$directory_xpath = new DOMXPath( $directory );
+		$assert_same( 4, $directory_xpath->query( '//table/thead/tr/th' )->length, 'Category directory must include an Action column.' );
+		$directory_rows = $directory_xpath->query( '//table/tbody/tr' );
+		$assert( $directory_rows->length > 0, 'Category directory has no rows.' );
+		foreach ( $directory_rows as $directory_row ) {
+			$assert_same( 4, $directory_xpath->query( './td', $directory_row )->length, 'Category action cell is missing.' );
+			$action = $directory_xpath->query( './td[4]/a', $directory_row )->item( 0 );
+			$assert( $action instanceof DOMElement, 'Category edit link is missing.' );
+			$assert_same( 'Edit Relationships', trim( $action->textContent ), 'Category edit label is inconsistent.' );
+			$assert_same( $directory_xpath->evaluate( 'string(./td[1]/a/@href)', $directory_row ), $action->getAttribute( 'href' ), 'Category name and action edit different records.' );
+		}
+		$_GET = array( 'tab' => 'categories', 's' => $name . ' not present' );
+		$assert( str_contains( $render(), 'colspan="4"' ), 'Empty category directory has the wrong column span.' );
 		$row = array( 'name' => 'Test <category>', 'post_count' => 1234, 'subject_areas' => array( array( 'name' => 'Zulu, First Area' ), array( 'name' => 'Alpha Area' ) ), 'topics' => array( array( 'name' => 'Zulu Topic' ), array( 'name' => 'Beta Topic' ), array( 'name' => 'Alpha Topic' ) ), 'protected_topics' => array( array( 'name' => 'Delta Topic' ) ) );
 		$row_html = static fn( $record ) => EhrmanBlogDiscovery\Template::render( 'admin/organization-category-row.php', array( 'category' => $record, 'url' => Topic_Organization_Page::url( array( 'tab' => 'categories', 'edit' => 1 ) ) ) );
 		$html = $row_html( $row );

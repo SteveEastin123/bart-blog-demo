@@ -191,7 +191,7 @@ final class Topic_Organization_Page {
 			'labels'              => Organization_Page_Labels::for_tab( $tab ),
 			'item_id'             => Database::integer( $item['id'] ?? null ),
 			'is_form'             => $is_form,
-			'edit_label'          => $category_tab ? __( 'Edit Relationships', 'ehrman-blog-discovery' ) : __( 'Edit Category Links', 'ehrman-blog-discovery' ),
+			'edit_label'          => __( 'Edit Relationships', 'ehrman-blog-discovery' ),
 			'editing_description' => $editing_description,
 			'error'               => $error,
 			'saved'               => sanitize_key( Database::text( $input['saved'] ?? null ) ),

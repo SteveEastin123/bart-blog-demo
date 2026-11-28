@@ -17,6 +17,12 @@ Main section headings are larger than task titles and subheadings, and HTML
 groups related tasks under each section heading. Adding a Post explains both
 modes; Post Metadata owns detailed review and follow-up steps.
 
+Headings have more space above than below so they stay visually attached to the
+content they introduce. PDF in-task headings use an 18-point gap above and a
+6-point gap below; this replaces the preceding block's gap rather than adding
+to it. HTML uses 36 pixels above and 12 below, with larger gaps between tasks
+and major sections. Keep the existing type sizes when adjusting page layouts.
+
 ## Deliverables
 
 - `../../output/pdf/ehrman_blog_publisher_guide.pdf`: sharing/printing copy.

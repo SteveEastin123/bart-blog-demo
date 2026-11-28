@@ -26,9 +26,10 @@
 .ehrman-organization__topics th:nth-child(4) { width: 21%; }
 .ehrman-organization__topics td,
 .ehrman-organization__topics th { overflow-wrap: anywhere; padding: 12px; }
-.ehrman-organization__categories th:nth-child(1) { width: 27%; }
-.ehrman-organization__categories th:nth-child(2) { width: 28%; }
-.ehrman-organization__categories th:nth-child(3) { width: 45%; }
+.ehrman-organization__categories th:nth-child(1) { width: 25%; }
+.ehrman-organization__categories th:nth-child(2) { width: 25%; }
+.ehrman-organization__categories th:nth-child(3) { width: 32%; }
+.ehrman-organization__categories th:nth-child(4) { width: 18%; }
 .ehrman-organization__categories td { vertical-align: top; line-height: 1.6; }
 .ehrman-organization__category-name { font-weight: 600; text-decoration: none; }
 .ehrman-organization__post-count { display: block; color: #50575e; margin-top: 4px; }

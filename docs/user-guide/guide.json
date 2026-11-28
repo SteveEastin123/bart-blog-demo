@@ -19,7 +19,7 @@
         {"type": "p", "text": "Sign in using your own WordPress account. These management screens require appropriate administrator permissions. Contact your site administrator if a menu or action is unavailable."},
         {"type": "h2", "id": "search-metadata", "text": "1.2 What Is Search Metadata?"},
         {"type": "p", "text": "Search metadata is information about an article that helps readers find relevant posts. The <b>description</b> briefly identifies what the article covers; the <b>summary</b> gives a fuller account of its key points. <b>Topics</b> identify its main subjects, and <b>secondary keywords</b> identify meaningful details, such as people, texts, or events."},
-        {"type": "p", "text": "A <b>vector</b> is a numerical representation used by Ask AI to match a reader's question with relevant articles. The plugin creates it after metadata approval; you do not enter or edit vector values."},
+        {"type": "p", "text": "After metadata approval, the plugin uses the article's title and summary to create a <b>vector</b>, a numerical representation of their meaning. Ask AI uses this vector to find articles relevant to a reader's question. You do not enter or edit vector values."},
         {"type": "note", "text": "Demo screenshots include illustrative metadata and empty analytics; your site's layout and values may differ."}
       ]
     },
@@ -45,7 +45,7 @@
         {"type": "steps", "items": [
           "Before publishing, select <b>Manual</b> under Metadata Generation. Publish the article when it is ready.",
           "After publication, select <b>Create Metadata</b> in the editor's Post Metadata panel, or open the article from <b>Blog Search > Post Metadata</b>.",
-          "Wait for generation, review the proposed metadata, and approve it. The vector is created after approval. See <a href=\"#manual\">Section 3.1: Create, review, and approve</a> for the detailed review steps."
+          "Wait for generation, review the proposed metadata, and approve it. The vector is created after approval. See <a href=\"#manual\">Section 3.1: Manually create, review, and approve metadata</a> for the detailed review steps."
         ]},
         {"type": "h2", "text": "Automatic: generate after publication"},
         {"type": "steps", "items": [
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "id": "manual", "section": "3. Post Metadata", "title": "3.1 Create, review, and approve",
+      "id": "manual", "section": "3. Post Metadata", "title": "3.1 Manually create, review, and approve metadata",
       "intro": "After publishing, use the Post Metadata panel in the editor, or open the post from Blog Search > Post Metadata.",
       "blocks": [
         {"type": "split", "file": "metadata-review.png", "caption": "Illustrative review in the post editor.", "items": [
@@ -109,7 +109,7 @@
           "Choose the appropriate tab and click in its search box. An alphabetical list opens <b>before you type</b>. Scroll within the list to reveal more choices.",
           "Type any part of the name to narrow the list. Clear the text to show all choices again. Click a result to open its relationship editor; there is no separate Search button during normal use.",
           "Use <b>Browse All</b> for the full alphabetical directory, or <b>View All Matches</b> when offered for a longer result list. These directories have page controls. <b>Clear Search</b> returns to the search-first view; it does not delete anything.",
-          "In the Categories directory, each row shows its linked Subject Areas and Topics. Select <b>Show all N topics</b> to expand a longer list, or <b>Show fewer</b> to collapse it. Select the category name to edit it."
+          "Every directory has an <b>Edit Relationships</b> link. Categories also have clickable names and show their linked Subject Areas and Topics. Select <b>Show all N topics</b> to expand a longer list, or <b>Show fewer</b> to collapse it."
         ]},
         {"type": "note", "text": "Keyboard: use the arrow keys to focus a suggestion, then Enter to open it. Enter while still in the search box opens the full matching results. Escape closes suggestions. If live suggestions are unavailable, a Search button remains as a fallback."}
       ]
@@ -235,7 +235,7 @@
           "A failed attempt may still have a recorded charge. Follow any warning about missing usage or incomplete estimates.",
           "Cost history can remain after an article is deleted. Deleting an article does not undo earlier API spending."
         ]},
-        {"type": "note", "text": "To act on a post, use <a href=\"#manual\">Section 3.1: Create, review, and approve</a>. For unexpected costs, missing usage, or persistent errors, follow <a href=\"#system-status\">the support guidance in Section 6.2</a>."}
+        {"type": "note", "text": "To act on a post, use <a href=\"#manual\">Section 3.1: Manually create, review, and approve metadata</a>. For unexpected costs, missing usage, or persistent errors, follow <a href=\"#system-status\">the support guidance in Section 6.2</a>."}
       ]
     },
     {

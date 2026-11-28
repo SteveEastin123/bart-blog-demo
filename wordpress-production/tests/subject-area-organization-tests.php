@@ -104,11 +104,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$_GET = array( 'tab' => 'subject-areas', 's' => '  ' );
 		$assert( ! str_contains( $render(), '<table' ), 'Empty search listed all subject areas.' );
 		$_GET = array( 'tab' => 'subject-areas', 'view' => 'all' );
-		$assert( str_contains( $render(), '<table' ), 'Optional directory missing.' );
+		$html = $render();
+		$assert( str_contains( $html, '<table' ) && str_contains( $html, '>Edit Relationships</a>' ) && ! str_contains( $html, 'Edit Category Links' ), 'Subject-area directory or consistent edit action missing.' );
 		$_GET = array( 'tab' => 'subject-areas', 's' => $name );
 		$assert( str_contains( $render(), $name ), 'Subject-area search failed.' );
 		$_GET = array( 'tab' => 'subject-areas', 'edit' => $id );
 		$html = $render();
+		$assert( str_contains( $html, '<h2>Edit Relationships</h2>' ), 'Subject-area edit heading is inconsistent.' );
 		$assert( str_contains( $html, 'name="subject_area_id"' ) && ! str_contains( $html, 'name="topic_id"' ) && ! str_contains( $html, 'name="name"' ) && ! str_contains( $html, 'name="description"' ), 'Subject-area form permits definition edits or uses topic IDs.' );
 		$_GET = array( 'tab' => 'subject-areas', 'action' => 'new' );
 		$html = $render();

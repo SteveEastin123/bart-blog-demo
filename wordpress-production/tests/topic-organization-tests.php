@@ -77,9 +77,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit( 1 ); }
 		$_GET = array( 'view' => 'all', 'pagenum' => '2' );
 		$html = $render();
 		$assert( str_contains( $html, '<table' ) && str_contains( $html, 'view=all' ) && str_contains( $html, 'Page 2 of' ), 'Optional alphabetical directory or pagination missing.' );
+		$assert( str_contains( $html, '>Edit Relationships</a>' ) && ! str_contains( $html, 'Edit Category Links' ), 'Topic directory has inconsistent edit links.' );
+		$_GET = array( 'tab' => 'topics', 's' => 'Ignore' );
+		$html = $render();
+		$assert( str_contains( $html, 'Protected' ) && ! str_contains( $html, '>Edit Relationships</a>' ), 'Protected topic exposes an edit action.' );
 		$_GET = array( 'edit' => $id );
 		$html = $render();
-		$assert( str_contains( $html, 'Edit Category Links' ) && ! str_contains( $html, 'name="name"' ) && ! str_contains( $html, 'name="description"' ), 'Existing topic definitions are editable.' );
+		$assert( str_contains( $html, 'Edit Relationships' ) && ! str_contains( $html, 'name="name"' ) && ! str_contains( $html, 'name="description"' ), 'Existing topic editor heading or read-only definitions incorrect.' );
 		$_GET = array( 'action' => 'new' );
 		$html = $render();
 		$assert( str_contains( $html, 'Create Topic' ) && str_contains( $html, 'name="name"' ) && str_contains( $html, 'name="description"' ), 'New topic form missing.' );

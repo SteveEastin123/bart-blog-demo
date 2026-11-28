@@ -25,8 +25,9 @@ $edit_label   = $view['edit_label'];
 		<?php if ( $category_tab ) : ?>
 			<th scope="col"><?php esc_html_e( 'Category', 'ehrman-blog-discovery' ); ?></th><th scope="col"><?php esc_html_e( 'Subject Areas', 'ehrman-blog-discovery' ); ?></th><th scope="col"><?php esc_html_e( 'Topics', 'ehrman-blog-discovery' ); ?></th>
 		<?php else : ?>
-			<th scope="col"><?php echo esc_html( $labels['singular'] ); ?></th><th scope="col"><?php esc_html_e( 'Categories', 'ehrman-blog-discovery' ); ?></th><th scope="col"><?php esc_html_e( 'Posts', 'ehrman-blog-discovery' ); ?></th><th scope="col"><?php esc_html_e( 'Action', 'ehrman-blog-discovery' ); ?></th>
+			<th scope="col"><?php echo esc_html( $labels['singular'] ); ?></th><th scope="col"><?php esc_html_e( 'Categories', 'ehrman-blog-discovery' ); ?></th><th scope="col"><?php esc_html_e( 'Posts', 'ehrman-blog-discovery' ); ?></th>
 		<?php endif; ?>
+		<th scope="col"><?php esc_html_e( 'Action', 'ehrman-blog-discovery' ); ?></th>
 	</tr></thead>
 	<tbody>
 		<?php foreach ( $view['items'] as $row ) : ?>
@@ -44,18 +45,18 @@ $edit_label   = $view['edit_label'];
 				<td><?php echo esc_html( $row['name'] ); ?></td>
 				<td><?php echo esc_html( implode( ', ', array_column( $row['categories'], 'name' ) ) ); ?></td>
 				<td><?php echo esc_html( number_format_i18n( Database::integer( $row['post_count'] ) ) ); ?></td>
+				<?php endif; ?>
 				<td>
-					<?php if ( 'topics' !== $view['tab'] || Topic_Organization_Service::editable( $row ) ) : ?>
+				<?php if ( 'topics' !== $view['tab'] || Topic_Organization_Service::editable( $row ) ) : ?>
 					<a href="<?php echo esc_url( $url( array( 'edit' => Database::integer( $row['id'] ) ) ) ); ?>"><?php echo esc_html( $edit_label ); ?></a>
 				<?php else : ?>
 					<?php esc_html_e( 'Protected', 'ehrman-blog-discovery' ); ?>
 				<?php endif; ?>
 				</td>
-				<?php endif; ?>
 			</tr>
 		<?php endforeach; ?>
 		<?php if ( empty( $view['items'] ) ) : ?>
-			<tr><td colspan="<?php echo $category_tab ? '3' : '4'; ?>"><?php echo esc_html( $labels['empty'] ); ?></td></tr>
+			<tr><td colspan="4"><?php echo esc_html( $labels['empty'] ); ?></td></tr>
 		<?php endif; ?>
 	</tbody>
 </table>

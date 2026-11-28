@@ -26,6 +26,8 @@ INK = colors.HexColor("#222b32")
 MUTED = colors.HexColor("#586570")
 ACCENT = colors.HexColor("#176b72")
 RULE = colors.HexColor("#cbd4d8")
+HEADING_SPACE_BEFORE = 18
+HEADING_SPACE_AFTER = 6
 
 
 def register_fonts():
@@ -91,7 +93,7 @@ def pdf_blocks(block, width):
     kind = block["type"]
     if kind in ("p", "h2", "note"):
         style = "task" if "id" in block else ("body" if kind == "p" else kind)
-        return [(paragraph(block["text"], style), 8 if kind != "h2" else 6)]
+        return [(paragraph(block["text"], style), HEADING_SPACE_AFTER if kind == "h2" else 8)]
     if kind in ("steps", "bullets"):
         return [(list_flow(block["items"], kind == "steps", width), 4)]
     if kind == "table":
@@ -219,16 +221,21 @@ def build_pdf(guide):
             flows.append((paragraph(page["intro"], "intro"), 13, None))
         for block in page["blocks"]:
             for index, (flow, gap) in enumerate(pdf_blocks(block, CONTENT)):
-                flows.append((flow, gap, block if index == 0 and "id" in block else None))
-        for flow, gap, bookmark in flows:
+                flows.append((flow, gap, block if index == 0 else None))
+        previous_gap = None
+        for flow, gap, block in flows:
+            # Collapse the preceding block's gap into the heading's own spacing.
+            if block and block["type"] == "h2" and previous_gap is not None:
+                y -= max(0, HEADING_SPACE_BEFORE - previous_gap)
             _, height = flow.wrapOn(c, CONTENT, HEIGHT)
             if y - height < 51:
                 raise ValueError(f"Page {number} '{page['title']}' overflows by {51 - (y - height):.1f} pt")
-            if bookmark:
-                c.bookmarkHorizontalAbsolute(bookmark["id"], y)
-                c.addOutlineEntry(bookmark["text"], bookmark["id"], 1)
+            if block and "id" in block:
+                c.bookmarkHorizontalAbsolute(block["id"], y)
+                c.addOutlineEntry(block["text"], block["id"], 1)
             flow.drawOn(c, MARGIN, y - height)
             y -= height + gap
+            previous_gap = gap
         measurements.append({"page": number, "free_space_pt": round(y - 48, 1)})
         pdf_footer(c, guide, number)
         c.showPage()
@@ -303,14 +310,16 @@ def build_html(guide):
     .contents > li > a { font-weight: bold; }
     .contents ol { margin-top: 6px; padding-left: 22px; }
     .contents ol li { margin: 5px 0; padding: 0; }
-    section { padding: 30px 0; border-bottom: 1px solid #cbd4d8; scroll-margin-top: 15px; }
+    section { padding: 48px 0 40px; border-bottom: 1px solid #cbd4d8; scroll-margin-top: 15px; }
     article { scroll-margin-top: 15px; }
-    article + article { padding-top: 28px; margin-top: 32px; border-top: 1px solid #cbd4d8; }
+    article + article { padding-top: 36px; margin-top: 40px; border-top: 1px solid #cbd4d8; }
     h1 { font-size: 32px; line-height: 1.2; margin: 0; }
     h2 { font-size: 30px; line-height: 1.2; color: #176b72; margin: 0 0 24px; padding-bottom: 14px; border-bottom: 1px solid #cbd4d8; scroll-margin-top: 15px; }
-    h3 { font-size: 24px; line-height: 1.3; margin: 26px 0 12px; scroll-margin-top: 15px; }
+    h3 { font-size: 24px; line-height: 1.3; margin: 36px 0 12px; scroll-margin-top: 15px; }
     .task-title { margin-top: 0; }
-    h4 { font-size: 19px; line-height: 1.3; color: #176b72; margin: 26px 0 10px; }
+    h4 { font-size: 19px; line-height: 1.3; color: #176b72; margin: 36px 0 12px; }
+    article h3 + *, article h4 + * { margin-top: 0; }
+    article h3 + :is(ul, ol) > li:first-child, article h4 + :is(ul, ol) > li:first-child { margin-top: 0; }
     .intro { color: #586570; font-size: 18px; }
     p { margin: 12px 0; } li { margin: 10px 0; padding-left: 4px; }
     a { color: #176b72; text-underline-offset: 3px; }
@@ -325,7 +334,7 @@ def build_html(guide):
     .split ol { margin-top: 17px; padding-left: 22px; } .back { font-size: 14px; margin-top: 26px; }
     footer { padding: 28px 0; color: #586570; font-size: 14px; }
     @media(max-width: 620px) { main { padding: 0 18px; } .split { display: block; } th, td { padding: 9px 7px; } }
-    @media print { main { max-width: none; padding: 0; } nav { break-after: page; } section:not(:first-of-type), article + article { break-before: page; } section, article + article { padding: 0; margin: 0; border: 0; } .back { display: none; } body { font-size: 11pt; } img { max-height: 4.5in; } }
+    @media print { main { max-width: none; padding: 0; } nav { break-after: page; } section:not(:first-of-type), article + article { break-before: page; } section, article + article { padding: 0; margin: 0; border: 0; } h2, h3, h4 { break-after: avoid; } .back { display: none; } body { font-size: 11pt; } img { max-height: 4.5in; } }
     """
     HTML.write_text('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
                     + '<title>' + guide["title"] + '</title><style>' + css + '</style></head><body><main>'

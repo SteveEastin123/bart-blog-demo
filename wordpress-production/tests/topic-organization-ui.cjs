@@ -226,7 +226,7 @@ async function checkOrganization(subjectAreas) {
     await page.locator('#ebd-find-topic').press('ArrowDown');
     assert(await matches.first().evaluate(el => el === document.activeElement));
     await page.keyboard.press('Enter');
-    await page.getByRole('heading', { name: 'Edit Category Links', exact: true }).waitFor();
+    await page.getByRole('heading', { name: 'Edit Relationships', exact: true }).waitFor();
     assert.equal(await page.locator('.ehrman-organization__definition dd').first().innerText(), selectedTopic);
     await page.getByRole('link', { name: 'Back to ' + plural, exact: true }).click();
     await page.locator('#ebd-find-topic').fill('nonexistent-topic-xyz-123');
@@ -242,6 +242,19 @@ async function checkOrganization(subjectAreas) {
     assert.equal(await page.locator('.ehrman-organization__topics').count(), 0);
     await page.getByRole('link', { name: 'Browse All ' + plural, exact: true }).click();
     assert(await page.locator('.ehrman-organization__topics tbody tr').count() > 0);
+    const editLink = page.getByRole('link', { name: 'Edit Relationships', exact: true }).first();
+    const editUrl = await editLink.getAttribute('href');
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 1000 });
+      assert(await editLink.isVisible(), plural + ' edit action is hidden');
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), plural + ' directory overflows');
+      await page.screenshot({ path: path.join(output, `directory-${width}.png`), fullPage: true });
+    }
+    await editLink.click();
+    await page.getByRole('heading', { name: 'Edit Relationships', exact: true }).waitFor();
+    assert.equal(page.url(), editUrl);
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto(url + '&view=all');
     await page.screenshot({ path: path.join(output, 'topics-desktop.png'), fullPage: true });
     if (!subjectAreas) {
       await page.getByRole('link', { name: 'Next', exact: true }).click();
@@ -409,7 +422,7 @@ async function checkOrganization(subjectAreas) {
     await native.locator('#ebd-find-topic').fill(name);
     await native.getByRole('button', { name: 'Search ' + plural, exact: true }).click();
     assert.equal(await native.locator('.ehrman-organization__topics tbody tr').count(), subjectAreas ? 2 : 1);
-    await native.locator('.ehrman-organization__topics tbody tr').filter({ has: native.getByRole('cell', { name, exact: true }) }).getByRole('link', { name: 'Edit Category Links', exact: true }).click();
+    await native.locator('.ehrman-organization__topics tbody tr').filter({ has: native.getByRole('cell', { name, exact: true }) }).getByRole('link', { name: 'Edit Relationships', exact: true }).click();
     assert(await native.locator('#ebd-topic-categories').isVisible(), 'Native fallback is unavailable');
     await native.locator('#ebd-topic-categories').selectOption([String(categories[0].id)]);
     await native.getByRole('button', { name: 'Save Category Links', exact: true }).click();
@@ -488,6 +501,10 @@ async function checkCategories() {
     assert.equal(await page.locator('.ehrman-organization__topics tbody tr').count(), 25);
     await checkCategoryDirectory(page, allCategories, output);
     const firstCategory = await page.locator('.ehrman-organization__category-name').first().innerText();
+    await page.getByRole('link', { name: 'Edit Relationships', exact: true }).first().click();
+    await page.getByRole('heading', { name: 'Edit Relationships', exact: true }).waitFor();
+    assert.equal(await page.locator('.ehrman-organization__definition dd').first().innerText(), firstCategory);
+    await page.goto(url + '&view=all');
     await page.getByRole('link', { name: firstCategory, exact: true }).click();
     await page.getByRole('heading', { name: 'Edit Relationships', exact: true }).waitFor();
     assert.equal(await page.locator('.ehrman-organization__definition dd').first().innerText(), firstCategory);
@@ -633,12 +650,15 @@ async function checkCategories() {
 
 async function checkCategoryDirectory(page, categories, output) {
   const table = page.locator('.ehrman-organization__categories');
-  assert.deepEqual(await table.locator('thead th').allTextContents(), ['Category', 'Subject Areas', 'Topics']);
+  assert.deepEqual(await table.locator('thead th').allTextContents(), ['Category', 'Subject Areas', 'Topics', 'Action']);
   const rows = table.locator('tbody tr');
   for (const row of await rows.all()) {
     const name = await row.locator('.ehrman-organization__category-name').innerText();
     const record = categories.find(item => item.name === name);
     assert(record, 'Unknown category: ' + name);
+    const edit = row.getByRole('link', { name: 'Edit Relationships', exact: true });
+    assert(await edit.isVisible(), 'Category edit link is missing: ' + name);
+    assert.equal(await edit.getAttribute('href'), await row.locator('.ehrman-organization__category-name').getAttribute('href'));
     const areaNames = await row.locator('.ehrman-organization__category-areas > span:last-child').innerText();
     assert.deepEqual(areaNames === 'None linked' ? [] : areaNames.split('; ').sort(), record.subject_areas.map(item => item.name).sort());
     const expected = [...record.topics, ...record.protected_topics].map(item => item.name).sort();
@@ -661,6 +681,7 @@ async function checkCategoryDirectory(page, categories, output) {
   for (const width of [1440, 768, 390]) {
     await page.setViewportSize({ width, height: 1000 });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), 'Category directory overflow: ' + width);
+    assert(await rows.first().getByRole('link', { name: 'Edit Relationships', exact: true }).isVisible());
     await page.screenshot({ path: path.join(output, `directory-collapsed-${width}.png`), fullPage: true });
     await details.locator('summary').focus();
     await page.keyboard.press('Enter');
